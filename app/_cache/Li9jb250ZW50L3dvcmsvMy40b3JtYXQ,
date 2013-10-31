@@ -1,0 +1,22 @@
+<div class="canvas">
+	<article id="format">
+		<header class="cf">
+			<h1>4ormat</h1>
+			<ul class="idid">
+				<p><li class="design"><img src="/i/designsm.png" alt="web and ui design" width="38" height="36"> Web and UI Design</li>
+<li class="code"><img src="/i/codesm.png" alt="front-end development" height="38" width="36"> HTML / CSS / JavaScript</li></p>
+
+			</ul>
+		</header>
+		<p>I was asked to design and code a theme for 4ormat's homegrown CMS, which allowed users to insert a wide variety of content and change the appearance of the theme. My designs had to predict and accommodate these changes.</p>
+
+<p>I worked with the 4ormat creative director to design a new theme for their CMS. At the same time, I learned and used 4ormat's template language to create a valid template that inserts variables directly into the CSS, allowing users to change the theme's appearance.</p>
+
+	 	<div class="se"></div>
+	 	<div class="sw"></div>
+	</div>
+	</article>
+</div>
+<figure><figcaption>A potential view of the home page, using jQuery Masonry along with Lazy Load.</figcaption><img src="/i/work/4ormat-home.jpg" height="900" width="900"></figure>
+
+<!-- Stacey(2.3.0): 87a3a871a384dd8ff1105e8c1ba080cf -->

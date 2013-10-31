@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+<link rel="dns-prefetch" href="//use.typekit.net">
+<link rel="dns-prefetch" href="http://ajax.googleapis.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<title>SeatGeek &infin; Ted Goas</title>
+<meta name="description" content="SeatGeek is a ticket search engine. They approached me with an established brand and well designed site. But their HTML emails needed help, and that's where I came in.">
+<link rel="stylesheet" href="/css/global.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="../../content/work/7.seatgeek/seatgeek.css" type="text/css" media="screen">
+
+<script type="text/javascript">
+  (function() {
+    var config = {
+      kitId: 'vzj5lsm',
+      scriptTimeout: 3000
+    };
+    var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/(\s|^)wf-loading(\s|$)/g," ");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script"),d=false;tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(d||a&&a!="complete"&&a!="loaded")return;d=true;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
+  })();
+</script>
+<link rel="alternate" type="application/atom+xml" href="../../?/feed/">
+<link rel="canonical" href="http://www.tedgoas.com/work/seatgeek/">
+<link rel="meta" type="application/rdf+xml" title="Dublin" href="http://www.tedgoas.com/dublin.rdf">
+<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body class="work seatgeek">
+<div class="outside header">
+	<div class="inside">
+		<div class="wrap" id="wrap">
+			<nav>
+				<ul class="primary">
+		 			<li class="nSocial">
+		 				<a href="http://www.twitter.com/tedgoas" title="What I'm saying" rel="external me" class="icnSocial twitter"><i class="icon-twitter"></i></a>
+		 				<a href="http://www.dribbble.com/tedgoas" title="What I'm designing" rel="external me" class="icnSocial dribbble"><i class="icon-dribbble-1"></i></a>
+		 				<a href="http://www.github.com/tedgoas" title="What I'm coding" rel="external me" class="icnSocial github"><i class="icon-github"></i></a>
+		 			</li>
+					<li class="nHome"><a href="/" title="home" rel="home" class="ted">Ted Goas</a></li>
+					<li class="nWork"><a href="/work" title="portfolio work">Work</a></li>
+					<li class="nContact"><a href="/contact" title="contact and availability">Contact</a></li>
+					<li class="nBio"><a href="/bio" title="about me">Bio</a></li>
+					<li class="nBlog"><a href="/blog" title="blog">Blog</a></li>
+		 		</ul>
+		 	</nav>
+			<a href="#menu" class="menu-link"><i class="icon-menu"></i> Menu</a>
+		</div>
+	</div>
+</div>
+<div class="workNav">
+    <a href="../../work/aid/" title="next project" class="next"><span>&rarr;</span> Advancing Derm</a>
+
+    <a href="../../work/clinical-app/" title="previous project" class="prev">Clinical Web App <span>&larr;</span></a>
+
+
+</div>
+<div class="outside mast">
+	<div class="inside">
+		<div class="text">
+			<h1><img src="/content/work/7.seatgeek/i/logo.png" alt="SeatGeek" width="250" height="75"></h1>
+			<p>SeatGeek is a ticket search engine. They approached me with an established brand and well designed site. But their HTML emails needed help, and that's where I came in.</p>
+			<div class="sitelink"><a href="http://www.seatgeek.com" title="SeatGeek" class="btn">View the Site</a></div>
+			<div class="idid">
+				<small>My Role</small>
+				<ul>
+					<li class="design">Design</li>
+					<li class="email">HTML Email (Responsive)</li>
+				</ul>
+			</div>
+		</div>
+		<figure><img src="/content/work/7.seatgeek/i/sgiPhone.png" alt="Even non-responsive emails display well on small screens" width="425" height="500"></figure>
+	</div>
+</div>
+<div class="outside">
+	<article class="inside">
+		<section class="cf imgl pricealert">
+			<div class="text">
+				<h2>Email Templates. Dynamic &amp; Beautiful.</h2>
+				<p>Using SeatGeeks's style guidelines and tone, I created a series of transactional email templates and dynamic newsletters.</p>
+				<p>Each template renders accurately in all major email clients, even the strict ones (I'm looking at you, Outlook and Gmail...). And with the help of a few media queries, each layout adjusts on small screen devices.</p>
+				<p>I worked with SeatGeek every step of the way. A typical project would start by discussing design concepts with <a href="https://twitter.com/jackgretz" rel="external Twitter" title="Jack on Twitter">Jack Groetzinger</a> and team, talking through goals and potential pitfalls. After coding and testing each template, I'd work with the engineers* to transform the code into a dynamic format and commit to SeatGeek's GitHub repo.</p>
+				<small>* SeatGeek's engineers are a smart bunch and rarely need my help!</small>
+			</div>
+			<figure><img src="/content/work/7.seatgeek/i/sgPriceAlert.jpg" alt="Transactional Email Template" width="675" height="800"></figure>
+		</section>
+		<section class="cf imgr nobottom emerging">
+			<div class="text">
+				<h2>Responsive Emails</h2>
+				<p>As the idea of responsive emails matured, we started to adjust layouts on small screens. Most emails are still designed for desktop and tablet first, though small screens are on our mind from the start.</p>
+				<p>I wrote extra media queries to condense multiple columns into a single one, center-justify content blocks, bump up text size, and other small tweaks that make emails easier to digest on a phone.</p>
+				<p>Responsive emails don't have to be boring!</p>
+			</div>
+			<figure><img src="/content/work/7.seatgeek/i/sgResponsive.jpg" alt="Responsive email design" width="675" height="850"></figure>
+		</section>
+		<section class="cf imgl keynote nobottom">
+			<div class="text">
+				<h2>A Keynote Presentation Looking That Much Better</h2>
+				<p>When I was asked to redesign a Keynote presentation for the SeatGeek sales team, I hadn't had much experience working with Keynote. But I stepped out of my comfort zone and had a surprising amount of fun doing it.</p>
+				<p>I learned my way around Keynote's toolbox and was designing full-screen, sales-guy-editable slides in no time. SeatGeek's sales team was blown away with the upgrade and I fell in love with Keynote.</p>
+			</div>
+			<figure><img src="/content/work/7.seatgeek/i/sgKeynote.jpg" alt="Keynote Sesign" width="710" height="575"></figure>
+		</section>
+	</article>
+</div>
+<div class="outside footer">
+	<div class="inside">
+		Made in New Jersey <span>&#9874;</span> <a href="/humans.txt" title="know the creators and contributors of this website">humans.txt</a>
+		<em>Trying to bring something to the table.</em>
+	</div>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  var $menu = $('.header nav'),
+    $menulink = $('.menu-link');
+  $menulink.click(function() {
+	  $menulink.toggleClass('active');
+	  $menu.toggleClass('active');
+  return false;
+});});
+</script>
+<script>
+	var _gaq = _gaq || [];
+ 	_gaq.push(['_setAccount', 'UA-3248378-1']);
+ 	_gaq.push(['_setDomainName', '.tedgoas.com']);
+ 	_gaq.push(['_setAllowHash', 'false']);
+ 	_gaq.push(['_trackPageview']);
+	_gaq.push(['_trackPageLoadTime']);
+	(function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>
+<!-- Stacey(2.3.0): d621fb99ede6bc685ef8dbf7e2ce28ae -->

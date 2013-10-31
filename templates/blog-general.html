@@ -1,0 +1,38 @@
+:head
+<body class="blog">
+:header
+<div class="outside main">
+	foreach $_hdr do
+	<div class="pic"><img src="@url" alt="@title" class="fluid"></div>
+	endforeach
+	<div class="inside">
+		<article>
+			<header>
+				<h1>@title</h1>
+				<aside>
+					<ul class="meta">
+						<!--<li class="date"><span>First published</span>--> @metadate <!--</li>
+						<li class="updated"><span>Last updated</span> @metaupdated</li>
+						<li class="edits"><span>No. of edits</span> @metaupdates</li> -->
+					</ul>
+				</aside>
+			</header>
+			<div class="article">
+				@content
+			</div>
+		</article>
+	</div>
+</div>
+<div class="outside mast mastBottom">
+	<div class="inside summary">
+		<div>
+			<p>Musings from an in-house designer in New Jersey.<br><a href="/blog/is-this-thing-on/">More on what I write about</a><a href="@root_path/?/feed/"><img src="http://i.tedgoas.com/icnRss.png" alt="RSS Feed" width="34" height="34"></a></p>
+			<ul><li class="r"></li><li class="y"></li><li class="g"></li><li class="b"></li><li class="p"></li></ul>
+		</div>
+	</div>
+</div>
+:footer
+:footer-js
+:analytics
+</body>
+</html>

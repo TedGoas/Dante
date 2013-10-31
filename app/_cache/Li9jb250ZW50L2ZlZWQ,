@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+
+  <title>In-House Designer by Ted Goas</title>
+  <link href="http://localhost:8888/feed/" hreflang="en" rel="self" type="application/atom+xml"/>
+  <link href="http://localhost:8888/" hreflang="en" rel="alternate" type="text/html"/>
+  
+  <updated>2012-10-05T11:21:52+10:00</updated>
+  <generator uri="http://staceyapp.com/" version="2.3.0">Stacey</generator>
+
+  <author>
+    <name>Ted Goas</name>
+    <uri>http://localhost:8888</uri>
+  </author>
+
+  <id>tag:localhost:8888,2012:/feed/</id>
+  <rights>©2012 Ted Goas</rights>
+      <entry>
+   <title>An Open Letter to Technical Recruiters</title>
+   <id>tag:localhost:8888,2012:/blog/an-open-letter-to-technical-recruiters/</id>
+   <updated>2012-08-11T07:02:25+10:00</updated>
+   <link rel="alternate" type="text/html" href="http://localhost:8888/blog/an-open-letter-to-technical-recruiters/" />
+   <content type="xhtml" xml:lang="en">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+            <img src="../content/1.blog/2.an-open-letter-to-technical-recruiters/outdated.png" alt="Outdated." />
+  <img src="../content/1.blog/2.an-open-letter-to-technical-recruiters/window.png" alt="Window." />
+  <img src="../content/1.blog/2.an-open-letter-to-technical-recruiters/linkedin.png" alt="Linkedin." />
+  <img src="../content/1.blog/2.an-open-letter-to-technical-recruiters/irrelevant.png" alt="Irrelevant." />
+  <img src="../content/1.blog/2.an-open-letter-to-technical-recruiters/green.png" alt="Green." />
+  <img src="../content/1.blog/2.an-open-letter-to-technical-recruiters/formatting.png" alt="Formatting." />
+
+          
+            <section>
+  <h2>How hard are you trying?</h2> 
+  <p>As someone who builds websites, I get lots of emails from technical recruiters. Usually I can categorize their messages in one of two ways.</p>
+  <p>A <em>Type 1 Email</em> explains that it's hiring for a web design position. It reads coherently, explains how it found me, and addresses me by name. If I'm lucky, it even gives me a brief description of a project I'd be working if I joined the prospective company. Type 1 emails excite me because I can tell the job is relevant and I can get a real sense of what I'd be working on.</p>
+  <p>A <em>Type 2 Email</em> is pretty much the opposite of a Type 1 email. It comes from a website I never signed up with, contains more info on the company than the actual job, reads like it matched keywords in my resume to the job ad, and is sent before being researched or proofread. If I'm &#38;#8220;lucky&#38;#8221;, it's followed by another email asking to connect on LinkedIn. Type 2 emails are tough to read, seem generic, and are uninteresting.</p>
+  <p><strong>If you're a recruiter and I replied to your email with this link, you sent me a <em>Type 2 Email</em>.</strong></p>
+  <p>Historically I simply trashed these emails without giving it a second thought. But that's a waste of everyone's time, so I decided to write this to see if we can bridge the gap somehow. Below are four characteristics of Type 2 Emails, which I beleive should be avoided.</p>
+</section>
+
+<section>
+  <h2>Stop sending e-mails based on stored resumes that are out of date.</h2> 
+  <p>We all know how fast this industry moves. My resume, if you can call it that, changes several times a year. When I update it, I only do so in a handful of locations for all to see. Who has time to contact individual recruiters to make sure they all get a new resume? A resume that will just get outdated in another few months?</p> 
+  <figure>
+    <img src="/content/1.articles/2.an-open-letter-to-technical-recruiters/outdated.png" class="preview" />
+    <figcaption>Pay attention to the red flags... and that's just the first line. As you can see, the email just gets worse as it goes on.</figcaption>
+  </figure>
+  <p class="suggestion"><strong>Suggestion:</strong> Refer to sites like <a href="http://www.linkedin.com/in/tgoas" rel="external">LinkedIn</a> and <a href="http://zerp.ly/tedgoas" rel="external">Zerply</a> where I can update my information and availability publicly and at my leisure</p>
+</section>
+
+<section>
+  <h2>Read my summary to find out what I am and am not qualified to do.</h2>
+  <p>I can work in LAMP environments, but I'm not a MySQL or PHP programmer. I design web apps, but that doesn't make me a software architect. When keywords found in my resume are matched to a job ad, I can tell. The job I'm being recruited for is always irrelevant. It also shows the email sender doesn't understand what I do for a living.</p> 
+  <figure>
+    <img src="/content/1.articles/2.an-open-letter-to-technical-recruiters/irrelevant.png" class="preview" />
+    <figcaption>Sure, I designed a PPC landing page once... let's do this!</figcaption>
+  </figure>
+  <p class="suggestion"><strong>Suggestion:</strong> Do a minute of research before reaching out. Reading <a href="http://www.tedgoas.com" rel="me">my homepage intro</a> only takes  a few seconds. The <a href="http://www.linkedin.com/in/tgoas" rel="external">summary on my LinkedIn profile</a> is ok, too.</p>
+</section>
+
+<section>
+  <h2>If the email was written by several people, edit and format it before sending.</h2>
+  <p>Maybe the I.T. guy wrote the technical part, H.R. wrote the legal part, and the recruiter added a few lines. <strong>There's nothing wrong with creating a job ad like this.</strong> But when these pieces aren't edited or massaged a little, everything reads a bit funny. Sometimes the text formatting is not consistent, and that just looks bad (you're recruiting designers, remember?). If blocks of text are copied and pasted without a bit of formatting, it looks lazy and unprofessional.</p> 
+  <figure>
+    <img src="/content/1.articles/2.an-open-letter-to-technical-recruiters/formatting.png" class="preview" />
+    <figcaption>Come on man, what is this?</figcaption>
+  </figure>
+  <p class="suggestion"><strong>Suggestion:</strong> Edit and format the email so it's easy to read and understand.</p>
+</section>
+
+<section>
+  <h2>Let's chat a bit before connecting on LinkedIn.</h2>
+  <p>Sending me a LinkedIn invitation from out of nowhere doesn't mean we know each other, have worked together, or trust each other. It's cool if recruiters want to connect, but how about we introduce ourselves first?</p> 
+  <figure>
+    <img src="/content/1.articles/2.an-open-letter-to-technical-recruiters/linkedin.png" class="preview" />
+    <figcaption>And... you are... who? (besides someone with 4,500 connections?)</figcaption>
+  </figure>
+  <p>But there's another problem with LinkedIn: I don't hang out there. I don't know many designers or developers who do. We hang out in places like <a href="http://twitter.com/TedGoas" rel="external">Twitter</a>, <a href="http://dribbble.com/tedgoas" rel="external">Dribbble</a>, and <a href="https://github.com/" rel="external">Github</a>. These sites are usually more up-to-date on things like skill sets and work availability. Recruiters have a better shot in engaging people on sites like these. In fact, my present employer lured me away from a job I liked with an @reply on Twitter.</p> 
+  <p class="suggestion"><strong>Suggestion:</strong> Introduce yourself. And go fishing where the fish hang out.</p>
+</section>
+
+<h3>To Summarize:</h3>
+
+<ol>
+  <li>Use the public Internet to get an updated profile of me.</li>
+  <li>Do a minute of honest research.</li>
+  <li>Make your email appear authentic and honest.</li>
+  <li>Go to where designers and developers hang out in mass.</li>
+</ol>
+
+<p>If these things are done, any professional worth his or her salt should at least respond to emails, regardless of whether or not they're interested in the offer. Basically, think quality over quantity.</p>
+
+<p>If you're a tech recruiter, I'd love to hear your thoughts about what's it's like on your end. Is it more complicated than I'm making it out to be?</p>
+
+<p>Let me know <a href="http"//twitter.com/tedgoas" rel="me" class="twitter" title="send me an @reply on twitter"><img src="/i/icnTwitter.png" height="34" width="34" alt="twitter icon" class="icnInline" />on Twitter</a> or send me an <a href="/contact/" title="my email">email</a>.</p>
+<div class="update">
+    <h4>Update #1 <time>August 10, 2012</time></h4>
+    <p>After seeing this, <a href="http://www.recruitingblogs.com/profile/AmyAla">Amy Ala</a> wrote up a reaction from a Technical Recruiter's point of view. It's a nice, quick read with some fascinating comments. <a href="http://www.recruitingblogs.com/profiles/blogs/what-candidates-really-think-a-cautionary-tale-for-recruiters">What Candidates Really Think &#38;ndash; A Cautionary Tale for Recruiters</a>, check it out.</p>
+
+<p></div></p>
+
+          
+      </div>
+   </content>
+</entry>
+  
+  <entry>
+   <title>Is this thing on?</title>
+   <id>tag:localhost:8888,2012:/blog/is-this-thing-on/</id>
+   <updated>2012-05-17T11:08:00+10:00</updated>
+   <link rel="alternate" type="text/html" href="http://localhost:8888/blog/is-this-thing-on/" />
+   <content type="xhtml" xml:lang="en">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+          
+          
+            <p>Lots of smart people say that being a good writer is about more than words. Being a good writer means more than just tying fancy words together. Good writers know how to explain their thoughts clearly. They know what to say&#38;mdash;and what not to say.</p>
+
+<p>I've always agreed with statements like this, though up until recently I did very little to improve my own writing skills. So I made a place for some of my more well-formed thoughts.</p>
+
+<h2>The Topic</h2>
+
+<p>Most of articles and tweets I read come from folks freelancing or working at startups, agencies, and large companies. It's fascinating reading about how other people work, do neat tricks in CSS or Photoshop, and team up with other super-talented folks to create awesome products.</p>
+
+<p>But I work at a small company in the NYC suburbs, in many ways it's a different world. Our pragmatic team is comprised of quite capable, yet largely unknown people. We design, we develop, we support, we argue. We send last-minute HTML emails for the sales guys. We troubleshoot designs on the CTO's BlackBerry. We debate marketing manager on the merits of <code>target="blank"</code>. We go from Getting Real to having 'roundtable discussions with stakeholders about web 2.0 initiatives'. And everything in between.</p>
+
+<p>So really, I have one foot in freelance / agency world and the other foot in the corporate world. I don't see a lot people talking about that. But I know people like me exist. They must.</p>
+
+<p>So I'm going to talk mostly about what's it's like working on web projects in my little company in the city outskirts. Interface design, working with clients, internal politics, working with the owner, pushing pixels, supporting IE6, drop shadows, and all that.</p>
+
+<h2>On Frequency</h2>
+
+<blockquote cite="http://www.seomoz.org/blog/the-definitive-guide-to-awesome-web-content">after the first few days after the post is published, the traffic will drop down to a mere fraction of what it was, since your readership has simply "been there, done that". Congratulations; you're now in a business where your 'product' becomes worthless practically overnight.</blockquote>
+
+<p>True too often.</p>
+
+<p>My plan is to write something new every few months. Not relatively often. But I'll revisit each post several times a year, proof it, build upon it, and note major revisions.</p>
+
+<p>Rather than promote the 'little and often' readership, I plan on writing and curating a small number posts.</p>
+
+<p>So I hope you enjoy what you read. If you read something you like &#38;ndash; or dislike &#38;ndash; drop me a line. I know there are more designers and developers in companies like mine. I'd love to meet you.</p>
+
+          
+      </div>
+   </content>
+</entry>
+  
+
+
+
+</feed>
+<!-- Stacey(2.3.0): 0ef1cbb336f051b36525abd66563eb1d -->

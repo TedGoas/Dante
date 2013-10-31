@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+<link rel="dns-prefetch" href="//use.typekit.net">
+<link rel="dns-prefetch" href="http://ajax.googleapis.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<title>Patient Portal &infin; Ted Goas</title>
+<meta name="description" content="I'm the lead designer and chief HTML/CSS author for this two-sided app built by Canfield. It allows patients to view and manipulate photos from their doctor consultations and provides doctors with patient management and analytics tools.">
+<link rel="stylesheet" href="/css/global.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="../../content/work/8.patient-portal/portal.css" type="text/css" media="screen">
+
+<script type="text/javascript">
+  (function() {
+    var config = {
+      kitId: 'vzj5lsm',
+      scriptTimeout: 3000
+    };
+    var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/(\s|^)wf-loading(\s|$)/g," ");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script"),d=false;tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(d||a&&a!="complete"&&a!="loaded")return;d=true;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
+  })();
+</script>
+<link rel="alternate" type="application/atom+xml" href="../../?/feed/">
+<link rel="canonical" href="http://www.tedgoas.com/work/patient-portal/">
+<link rel="meta" type="application/rdf+xml" title="Dublin" href="http://www.tedgoas.com/dublin.rdf">
+<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body class="work aid">
+<div class="outside header">
+	<div class="inside">
+		<div class="wrap" id="wrap">
+			<nav>
+				<ul class="primary">
+		 			<li class="nSocial">
+		 				<a href="http://www.twitter.com/tedgoas" title="What I'm saying" rel="external me" class="icnSocial twitter"><i class="icon-twitter"></i></a>
+		 				<a href="http://www.dribbble.com/tedgoas" title="What I'm designing" rel="external me" class="icnSocial dribbble"><i class="icon-dribbble-1"></i></a>
+		 				<a href="http://www.github.com/tedgoas" title="What I'm coding" rel="external me" class="icnSocial github"><i class="icon-github"></i></a>
+		 			</li>
+					<li class="nHome"><a href="/" title="home" rel="home" class="ted">Ted Goas</a></li>
+					<li class="nWork"><a href="/work" title="portfolio work">Work</a></li>
+					<li class="nContact"><a href="/contact" title="contact and availability">Contact</a></li>
+					<li class="nBio"><a href="/bio" title="about me">Bio</a></li>
+					<li class="nBlog"><a href="/blog" title="blog">Blog</a></li>
+		 		</ul>
+		 	</nav>
+			<a href="#menu" class="menu-link"><i class="icon-menu"></i> Menu</a>
+		</div>
+	</div>
+</div>
+<div class="workNav">
+    <a href="../../work/seatgeek/" title="next project" class="next"><span>&rarr;</span> SeatGeek</a>
+
+    <a href="../../work/clinical-app/" title="previous project" class="prev">Clinical Web App <span>&larr;</span></a>
+
+
+</div>
+<div class="outside mast">
+	<div class="inside">
+		<div class="text">
+			<h1><img src="/content/work/8.patient-portal/i/portal-logo.png" alt="Patient Portal" width="323" height="61"></h1>
+			<p>I'm the lead designer and chief HTML/CSS author for this two-sided app built by Canfield. It allows patients to view and manipulate photos from their doctor consultations and provides doctors with patient management and analytics tools.</p>
+			<span class="note">* Most of the app is confidential and contains sensitive types of data, so I'll focus on the process of designing and building it rather than what the app actually does.</span>
+			<div class="idid">
+				<small>My Role</small>
+				<ul>
+					<li class="product">Product Design</li>
+					<li class="code">HTML / CSS / RWD</li>
+				</ul>
+			</div>
+		</div>
+		<figure><img src="/content/work/8.patient-portal/i/mastPortal.jpg" alt="Tiles" width="1350" height="700"></figure>
+	</div>
+</div>
+<div class="outside">
+	<article class="inside">
+		<section class="cf imgr nobottom">
+			<div class="text">
+				<h2>Planning</h2>
+				<p>Bring 3D photography to the web by translating our existing desktop software into user-friendly, web based suite of tools.</p>
+				<p>Research, evolution, wireframes, and such.</p>
+				<p>Existing products and doctor practices gave the interface a myriad of edge cases to accommodate. Plus small devices.</p>
+			</div>
+			<figure><img src="/content/work/8.patient-portal/i/portal-planning.jpg" alt="Notes, sketches, and wireframes" width="700" height="850"></figure>
+		</section>
+		<section class="cf imgl nobottom">
+			<div class="text">
+				<h2>Patient Side</h2>
+				<p>Our focus was clear from the start: patient images are priority #1, everything else comes second. I created a dark style guide to highlight the photos and a small bit of interface and data visualization. Early in the process, I experimented with the contrast, spacing, ad overall size of the interface in an effort to strike the right balance of “useful but not distracting”.</p>
+				<p>We spent a lot of time designing the sign-up / log-in flow with a focus on security. Data protection and HIPAA compliance were paramount at every stage, given the sensitive nature of the app's content.</p>
+				<p>The desktop software we modeled the app after is rather complex. I frequently fought for simplicity and made cases for leaving out a number of extra “would be nice” features. I won some and lost some, but the app is better for it.</p>
+			</div>
+			<figure><img src="/content/work/8.patient-portal/i/portal-ui.jpg" alt="Portal Interface" width="700" height="900"></figure>
+		</section>
+		<section class="cf full nobottom">
+			<div class="text">
+				<h2>Practice Side</h2>
+				<p>We provide doctors with several tools to monitor website activity and close deals with prospective patients. Doctors can pull up a master list of prospective patients and immediately see who is most interested based on their activity. From there, each practice can dig into a patient's activity, see their photos, and even message them directly through the web.</p>
+			</div>
+			<figure><img src="/content/work/8.patient-portal/i/portal-practice-display.jpg" alt="Practice View" width="1000" height="762"></figure>
+		</section>
+	</article>
+</div>
+<div class="outside footer">
+	<div class="inside">
+		Made in New Jersey <span>&#9874;</span> <a href="/humans.txt" title="know the creators and contributors of this website">humans.txt</a>
+		<em>Trying to bring something to the table.</em>
+	</div>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  var $menu = $('.header nav'),
+    $menulink = $('.menu-link');
+  $menulink.click(function() {
+	  $menulink.toggleClass('active');
+	  $menu.toggleClass('active');
+  return false;
+});});
+</script>
+<script>
+	var _gaq = _gaq || [];
+ 	_gaq.push(['_setAccount', 'UA-3248378-1']);
+ 	_gaq.push(['_setDomainName', '.tedgoas.com']);
+ 	_gaq.push(['_setAllowHash', 'false']);
+ 	_gaq.push(['_trackPageview']);
+	_gaq.push(['_trackPageLoadTime']);
+	(function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>
+<!-- Stacey(2.3.0): f6adaadec04280920c5e7c32d15422f0 -->

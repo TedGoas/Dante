@@ -1,0 +1,5 @@
+title: Cloudee
+-
+summary: I was contacted by the guys at Boxee to help produce a series of mobile-focused HTML email templates for Cloudee, a new video-sharing service made for the iPhone.
+-
+byline: Share videos with family & close friends

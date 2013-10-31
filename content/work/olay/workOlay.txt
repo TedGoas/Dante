@@ -1,0 +1,5 @@
+title: Olay Skin App
+-
+summary: Canfield (my employer) and Olay created an app that performs in-depth skin analysis using uploaded photos. The website takes each uploaded photo, analyzes skin features using a complicated algorithm, and returns the results. My team was tasked with designing the entire flow and presenting the data.
+-
+byline: Analyze skin features online.

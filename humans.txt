@@ -1,0 +1,64 @@
+/*
+	TEAM
+*/
+Design, Markup, Code, Good Intentions: Ted Goas.
+Site: http://www.tedgoas.com.
+Twitter: @tedgoas.
+Dribbble: http://www.dribbble.com/tedgoas.
+Location: Pompton Lakes, New Jersey, United States.
+
+Editor and Proofreader: Sara Goas.
+Site: http://www.saragoas.com.
+Twitter: @saragoas.
+Location: Pompton Lakes, New Jersey, United States.
+
+/* 
+	RESOURCES
+*/
+Icons by Brankic1979:
+http://www.brankic1979.com/icons/
+
+Social icons by Ivan Tolmachev:
+hhttp://dribbble.com/shots/259866-Freebie-Tiny-Social-Icons-Enhanced
+
+Social icons by Ted Goas:
+http://dribbble.com/shots/301827-Social-Icons-freebie
+
+Font icons built using Fontello:
+http://fontello.com/
+
+Font Embedding (Freight Sans) with Typekit:
+http://www.typekit.com
+
+/*
+	TECHNIQUES + TOOLS
+*/
+Responsive Toggle Navigation:
+http://bradfrost.github.com/this-is-responsive/patterns.html
+
+A Smoother Page Load:
+http://jonikorpi.com/a-smoother-page-load/
+
+Stamen Maps:
+http://maps.stamen.com/
+
+Backstretch.js:
+https://github.com/srobbin/jquery-backstretch
+
+Animated Tooltips with CSS3:
+http://tympanus.net/codrops/2012/02/01/how-to-create-animated-tooltips-with-css3/
+
+/* 
+	SITE + TECHNOLOGY
+*/
+Content Management System:
+Stacey CMS
+
+Standards:
+HTML (HTML5 Doctype), CSS, jQuery, Dublin, Microformats
+
+Software:
+Photoshop, Illustrator, Coda, ImageOptim
+
+Language:
+English

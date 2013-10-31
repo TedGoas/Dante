@@ -1,0 +1,64 @@
+:head
+<body class="work olay">
+:header
+<div class="workNav">
+if $siblings do
+  :next-page
+  :previous-page
+endif
+</div>
+<div class="outside mast">
+	<div class="inside">
+		<div class="text">
+			<h1><img src="/content/work/3.olay/i/logo.png" alt="@title" width="355" height="73"></h1>
+			<p>@summary</p>
+			<div class="idid">
+				<small>My Role</small>
+				<ul>
+					<li class="design">Design</li>
+					<li class="code">HTML / CSS</li>
+				</ul>
+			</div>
+		</div>
+		<figure><img src="/content/work/3.olay/i/olayModel.png" alt="Olay Model" width="600" height="530"></figure>
+	</div>
+</div>
+<div class="outside">
+	<article class="inside">
+		<section class="cf imgl video nobottom">
+			<div class="text">
+				<h2>A Unique Set of Limitations</h2>
+				<p>The design had to:</p>
+				<ul class="icons">
+					<li>Guide users through the signup and upload process.</li>
+					<li>Present complicated sets of data in an understandable manner.</li>
+					<li>Be translated from English into Chinese.</li>
+					<li>Perform well on the iPad as well as in <abbr title="Internet Explorer 7">IE7</abbr>.</li>
+					<li>Follow Olay's brand style guide.</li>
+					<li>Be search friendly (as in <abbr title="search engine optimization">SEO</abbr>).</li>
+				</ul>
+				<p>A tall order, for sure!</p>
+			</div>
+			<figure><img src="/content/work/3.olay/i/olayVideo.jpg" alt="Olay Video" width="553" height="335"></figure>
+		</section>
+		<section class="cf full nobottom">
+			<div class="text">
+				<h2>The Evolution</h2>
+				<p>Together with Olay’s product managers, we designed an experience to guide users from the homepage through the upload process and into their custom results. Aided by several rounds of focus groups, we iterated the design several times before we released the first live version.</p>
+			</div>
+			<figure><img src="/content/work/3.olay/i/olay-evolution.jpg" alt="the design evolution" width="1000" height="500"></figure>
+		</section> 
+		<section class="cf full nobottom">
+			<div class="text">
+				<h2>Localized &amp; Mobilized</h2>
+				<p>The website is set up to be translated into both Traditional and Simplified Chinese. All text strings are localized into a single file, which feeds into the page templates using <a href="http://mustache.github.com">PHP Mustache</a> templates. To closely match Olay's brand, custom <code>@font-face</code> fonts are used in the font stack. A few media queries make adjustments on tablets and standard CSS takes care of older versions of Internet Explorer.</p>
+			</div>
+			<figure><img src="/content/work/3.olay/i/olayHome.jpg" alt="Olay Homepage" width="1000" height="480"></figure>
+		</section>
+	</article>
+</div>
+:footer
+:footer-js
+:analytics
+</body>
+</html>

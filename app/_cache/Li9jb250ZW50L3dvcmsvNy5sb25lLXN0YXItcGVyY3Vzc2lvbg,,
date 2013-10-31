@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+<link rel="dns-prefetch" href="//use.typekit.net">
+<link rel="dns-prefetch" href="http://ajax.googleapis.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<title>Lone Star &infin; Ted Goas</title>
+<meta name="description" content="When Lone Star Percussion lost its primary designer, I assumed the lead design role and helped push the website accross the finish line using the brand's style guide and front-end framework.">
+<link rel="stylesheet" href="/css/global.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="../../content/work/7.lone-star-percussion/lone-star.css" type="text/css" media="screen">
+
+<script type="text/javascript">
+  (function() {
+    var config = {
+      kitId: 'vzj5lsm',
+      scriptTimeout: 3000
+    };
+    var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/(\s|^)wf-loading(\s|$)/g," ");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script"),d=false;tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(d||a&&a!="complete"&&a!="loaded")return;d=true;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
+  })();
+</script>
+<link rel="alternate" type="application/atom+xml" href="../../?/feed/">
+<link rel="canonical" href="http://www.tedgoas.com/work/lone-star-percussion/">
+<link rel="meta" type="application/rdf+xml" title="Dublin" href="http://www.tedgoas.com/dublin.rdf">
+<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body class="work aid">
+<div class="outside header">
+	<div class="inside">
+		<div class="wrap" id="wrap">
+			<nav>
+				<ul class="primary">
+		 			<li class="nSocial">
+		 				<a href="http://www.twitter.com/tedgoas" title="What I'm saying" rel="external me" class="icnSocial twitter"><i class="icon-twitter"></i></a>
+		 				<a href="http://www.dribbble.com/tedgoas" title="What I'm designing" rel="external me" class="icnSocial dribbble"><i class="icon-dribbble-1"></i></a>
+		 				<a href="http://www.github.com/tedgoas" title="What I'm coding" rel="external me" class="icnSocial github"><i class="icon-github"></i></a>
+		 			</li>
+					<li class="nHome"><a href="/" title="home" rel="home" class="ted">Ted Goas</a></li>
+					<li class="nWork"><a href="/work" title="portfolio work">Work</a></li>
+					<li class="nContact"><a href="/contact" title="contact and availability">Contact</a></li>
+					<li class="nBio"><a href="/bio" title="about me">Bio</a></li>
+					<li class="nBlog"><a href="/blog" title="blog">Blog</a></li>
+		 		</ul>
+		 	</nav>
+			<a href="#menu" class="menu-link"><i class="icon-menu"></i> Menu</a>
+		</div>
+	</div>
+</div>
+<div class="workNav">
+    <a href="../../work/aid/" title="next project" class="next"><span>&rarr;</span> Advancing Derm</a>
+
+    <a href="../../work/patient-portal/" title="previous project" class="prev">Patient Portal <span>&larr;</span></a>
+
+
+</div>
+<div class="outside mast">
+	<div class="inside">
+		<div class="text">
+			<h1><img src="/content/work/7.lone-star-percussion/i/lone-star-logo.png" alt="Lone Star" width="221" height="96"></h1>
+			<p>When Lone Star Percussion lost its primary designer, I assumed the lead design role and helped push the website accross the finish line using the brand's style guide and front-end framework.</p>
+			<div class="sitelink">
+				<a href="http://www.lonestarpercussion.com/" title="Lone Star">View the Lone Star Percussion Site</a>
+			</div>
+			<div class="idid">
+				<small>My Role</small>
+				<ul>
+					<li class="design">Design<//li>
+					<li class="email">HTML Email<//li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="outside">
+	<article class="inside">
+		<section class="cf full nobottom">
+			<div class="text">
+				<h2>Beyond the Style Guide</h2>
+				<p>Despite having a style guide and front-end framework in place, Lone Star's team consistently pushed me to stretch the boundaries with my designs. This encouragement led to a number of experimental concepts, such as this Google Map view with an overlay. Thanks to constructive and actionable feedback from the team, we finalized and shipped each page after a handful of iterations.</p>
+			</div>
+			<figure><img src="/content/work/7.lone-star-percussion/i/lone-star-contact.jpg" alt="Location Page" width="1000" height="700"></figure>
+		</section>
+		<section class="cf full nobottom info">
+			<div class="text">
+				<h2>About Us, Infographic Style</h2>
+				<p>Speaking of pushing design boundaries, the Lone Star team had the idea of replacing the standard <em>About Us</em> page with an infographic. I hadn't done an infographic at this scale before, but thought it'd be something fun to learn and quickly jumped into the unknown.</p>
+				<p>After organizing a slew of content in Google Docs, the Lone Star team and I worked on a design that would tell the Lone Star story top to bottom. At almost 4000 pixels high, the resulting page combines history, data, and a bit of humor with a range of visual aids.</p>
+			</div>
+			<figure><img src="/content/work/7.lone-star-percussion/i/lone-star-info.jpg" alt="About Lone Star Infographic" width="1000" height="800"></figure>
+		</section>
+	</article>
+</div>
+<div class="outside footer">
+	<div class="inside">
+		Made in New Jersey <span>&#9874;</span> <a href="/humans.txt" title="know the creators and contributors of this website">humans.txt</a>
+		<em>Trying to bring something to the table.</em>
+	</div>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  var $menu = $('.header nav'),
+    $menulink = $('.menu-link');
+  $menulink.click(function() {
+	  $menulink.toggleClass('active');
+	  $menu.toggleClass('active');
+  return false;
+});});
+</script>
+<script>
+	var _gaq = _gaq || [];
+ 	_gaq.push(['_setAccount', 'UA-3248378-1']);
+ 	_gaq.push(['_setDomainName', '.tedgoas.com']);
+ 	_gaq.push(['_setAllowHash', 'false']);
+ 	_gaq.push(['_trackPageview']);
+	_gaq.push(['_trackPageLoadTime']);
+	(function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>
+<!-- Stacey(2.3.0): b282199002e2e7b6cb076a2ecb918fe2 -->

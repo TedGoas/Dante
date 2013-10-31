@@ -1,0 +1,5 @@
+title: Clinical Web App
+-
+summary: Canfield's clinical web app helps pharmaceutical companies organize trials and keep track of their results. I'm the lead designer and front-end developer on the product, which we continually improve and expand.
+-
+byline: Next generation web app for clinical trials. 

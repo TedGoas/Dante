@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!--[if ! lte IE 7]><!-->
+	<link rel="stylesheet" href="/css/global.css" type="text/css" media="screen">
+	<script type="text/javascript" src="//use.typekit.net/vzj5lsm.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<![endif]-->
+<!--[if lte IE 7]>
+	<link rel="stylesheet" href="http://universal-ie6-css.googlecode.com/files/ie6.1.1b.css" media="screen, projection">
+<![endif]-->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+<title>Is this thing on? &infin; Ted Goas</title>
+<meta name="description" content="<p>Stories from an in-house designer in New Jersey.</p>
+">
+<!--<link rel="alternate" type="application/atom+xml" href="../../?/feed/">-->
+<link rel="canonical" href="http://www.tedgoas.com/articles/is-this-thing-on/">
+<link rel="meta" type="application/rdf+xml" title="Dublin" href="http://www.tedgoas.com/dublin.rdf">
+<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<link rel="stylesheet" href="/css/blog.css" type="text/css" media="screen">
+<body class="blog">
+<div class="outside header"><div class="inside">
+	<nav>
+		<a href="/" title="home" class="logo">Ted Goas</a>
+		<ul>
+			<li class="nSkills"><a href="/skills" title="skills and process">Skills</a></li>
+			<li class="nWork"><a href="/work" title="portfolio work">Work</a></li>
+			<li class="nContact"><a href="/contact" title="contact and availability">Contact</a></li>
+			<li class="nBlog"><a href="/articles" title="blog">Articles</a></li>
+		</ul>
+		<form>
+			<select onChange="window.location.replace(this.options[this.selectedIndex].value)">
+    		<option value="" selected="selected">Change Page</option> 
+    		<option value="/">Summary</option>
+    		<option value="/work">Work</option>
+    		<option value="/contact">Contact</option>
+    		<option value="/articles">Articles</option>
+ 			</select>
+ 		</form>
+ 		<div class="social">
+ 			<a href="http://www.twitter.com/tedgoas" title="I love talking shop" rel="external me"><img src="http://i.tedgoas.com/icnTwitter.png" alt="twitter" width="34" height="34"></a>
+ 			<a href="http://www.dribbble.com/tedgoas" title="What I'm working on" rel="external me"><img src="http://i.tedgoas.com/icnDribbble.png" alt="dribbble" width="34" height="34"></a>
+ 		</div>
+	</nav>
+</div></div>
+<div class="outside main">
+	<article class="inside">
+		<div class="canvas">
+			<footer class="info">
+				<ul>
+					<li class="date"><span>First published</span> May 16, 2012</li>
+					<li class="updated"><span>Last updated</span> -</li>
+					<li class="edits"><span>No. of edits</span> 0</li>
+				</ul>
+			</footer>
+			<h1>Is this thing on?</h1>
+			<p>Lots of smart people say that being a good writer is about more than words. Being a good writer means more than just tying fancy words together. Good writers know how to explain their thoughts clearly. They know what to say&mdash;and what not to say.</p>
+
+<p>I've always agreed with statements like this, though up until recently I did very little to improve my own writing skills. So I made a place for some of my more well-formed thoughts.</p>
+
+<h2>The Topic</h2>
+
+<p>Most of articles and tweets I read come from folks freelancing or working at startups, agencies, and large companies. It's fascinating reading about how other people work, do neat tricks in CSS or Photoshop, and team up with other super-talented folks to create awesome products.</p>
+
+<p>But I work at a small company in the NYC suburbs, in many ways it's a different world. Our pragmatic team is comprised of quite capable, yet largely unknown people. We design, we develop, we support, we argue. We send last-minute HTML emails for the sales guys. We troubleshoot designs on the CTO's BlackBerry. We debate marketing manager on the merits of <code>target="blank"</code>. We go from Getting Real to having 'roundtable discussions with stakeholders about web 2.0 initiatives'. And everything in between.</p>
+
+<p>So really, I have one foot in freelance / agency world and the other foot in the corporate world. I don't see a lot people talking about that. But I know people like me exist. They must.</p>
+
+<p>So I'm going to talk mostly about what's it's like working on web projects in my little company in the city outskirts. Interface design, working with clients, internal politics, working with the owner, pushing pixels, supporting IE6, drop shadows, and all that.</p>
+
+<h2>On Frequency</h2>
+
+<blockquote cite="http://www.seomoz.org/blog/the-definitive-guide-to-awesome-web-content">after the first few days after the post is published, the traffic will drop down to a mere fraction of what it was, since your readership has simply "been there, done that". Congratulations; you're now in a business where your 'product' becomes worthless practically overnight.</blockquote>
+
+<p>True too often.</p>
+
+<p>My plan is to write something new every few months. Not relatively often. But I'll revisit each post several times a year, proof it, build upon it, and note major revisions.</p>
+
+<p>Rather than promote the 'little and often' readership, I plan on writing and curating a small number posts.</p>
+
+<p>So I hope you enjoy what you read. If you read something you like &ndash; or dislike &ndash; drop me a line. I know there are more designers and developers in companies like mine. I'd love to meet you.</p>
+
+		</div>
+	 	<div class="se"></div>
+	 	<div class="sw"></div>
+	</article>
+</div>
+<div class="outside footer">
+	<div class="inside">
+		Trying to bring something to the table.
+		<a href="/humans.txt" rel="humans txt" title="know the creators and contributors of this website" class="humans">humans.txt</a>
+	</div>
+</div>
+<script>
+	var _gaq = _gaq || [];
+ 	_gaq.push(['_setAccount', 'UA-3248378-1']);
+ 	_gaq.push(['_setDomainName', '.tedgoas.com']);
+ 	_gaq.push(['_setAllowHash', 'false']);
+ 	_gaq.push(['_trackPageview']);
+	_gaq.push(['_trackPageLoadTime']);
+	(function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>
+
+<!-- Stacey(2.3.0): 1fd3494f3a509438761e7e0c1de5b796 -->

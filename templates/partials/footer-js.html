@@ -1,0 +1,11 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  var $menu = $('.header nav'),
+    $menulink = $('.menu-link');
+  $menulink.click(function() {
+	  $menulink.toggleClass('active');
+	  $menu.toggleClass('active');
+  return false;
+});});
+</script>

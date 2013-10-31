@@ -1,0 +1,3 @@
+title: Contact and Availability
+-
+summary: My current work status, availability for projects, and contact information.

@@ -1,0 +1,3 @@
+title: What I Do
+-
+summary: I consider myself a design and fron-end generalist, but these are a few things I do quite often.

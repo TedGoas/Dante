@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+<title>What I Do &infin; Ted Goas</title>
+<meta name="description" content="<p>I consider myself a design and fron-end generalist, but these are a few things I do quite often.</p>
+">
+<!--[if ! lte IE 7]><!-->
+	<link rel="stylesheet" href="/css/global.css" type="text/css" media="screen">
+	<script type="text/javascript" src="//use.typekit.net/vzj5lsm.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<![endif]-->
+<!--[if lte IE 7]>
+	<link rel="stylesheet" href="http://universal-ie6-css.googlecode.com/files/ie6.1.1b.css" media="screen, projection">
+<![endif]-->
+<!--<link rel="alternate" type="application/atom+xml" href="../?/feed/">-->
+<link rel="canonical" href="http://www.tedgoas.com/what-i-do/">
+<link rel="meta" type="application/rdf+xml" title="Dublin" href="http://www.tedgoas.com/dublin.rdf">
+<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body class="what">
+<div class="outside header">
+	<div class="inside">
+		<nav>
+			<ul class="primary">
+				<li class="nHome"><a href="/" title="home" rel="home" class="ted">Ted Goas</a></li>
+				<li class="nWhat"><a href="/what-i-do" title="What I Do">Skills</a></li>
+				<li class="nWork"><a href="/work" title="portfolio work">Work</a></li>
+				<li class="nContact"><a href="/contact" title="contact and availability">Contact</a></li>
+			</ul>
+			<ul class="secondary">
+				<li class="nStory"><a href="/about" title="about me">Bio</a></li>
+				<li class="nBlog"><a href="/blog" title="blog">Blog</a></li>
+	 			<li class="nSocial">
+	 				<a href="http://www.twitter.com/tedgoas" title="I love talking shop" rel="external me"><img src="/i/icnTwitter.png" alt="twitter" width="24" height="24"></a>
+	 				<a href="http://www.dribbble.com/tedgoas" title="What I'm working on" rel="external me"><img src="/i/icnDribbble.png" alt="dribbble" width="24" height="24"></a>
+	 			</li>
+	 		</ul>
+	 		<!-- do something in here http://bradfrost.github.com/this-is-responsive/patterns.html -->
+		</nav>
+	</div>
+</div>
+<div class="outside main">
+	<article class="inside">
+		<h1>What I Do</h1>
+		<small class="summary"><p>I consider myself a design and fron-end generalist, but these are a few things I do quite often.</p>
+</small>
+		<div class="cf">
+			<div class="skill">
+				<div class="design">
+					<span class="omg"></span>
+					<h2>Web &amp; Interface Design</h2>
+					<p>I design attractive websites and interfaces that help visitors find what they're looking for. But looking pretty isn't enough, design is also how it works. As far as the customer is concerned, the interface is the product.</p>
+				</div>
+				<div class="code">
+					<span class="omg"></span>
+					<h2>Front-End Development</h2>
+					<p>HTML, CSS, jQuery, microformats, semantics, responsive and adaptiveness, and more. Whether you look at it or not, I write less code that does more.</p>
+				</div>
+				<div class="email">
+					<span class="omg"></span>
+					<h2>HTML Emails</h2>
+					<p>Tables? Inline styles? Outlook 2010? Mobile? I don't mind coding like it's 1999!</p>
+				</div>
+				<div class="speed">
+					<span class="omg"></span>
+					<h2>Website Speed</h2>
+					<p>People tend not to wait for slow loading pages and often abandon them. Slow sites leave money on the table and I build with this in mind.</p>
+				</div>
+			</div>
+			<div class="ill">
+				asdadsad
+			</div>
+		</div>
+		<div class="bits">
+			<span class="omg"></span>
+			<h2>...and I have a bit of experience...</h2>
+			<ul>
+				<li>
+					<img src="/i/quote-agency.png" alt="atom" height="96" width="96">
+					<strong>I have agency experience.</strong>
+					While living in Arizona, I worked for an agency specializing in web design and C# development. I experienced the 'agency life' in all its glory, including kickoff meetings, short timelines, direct client relations, and leading on-site training session. I worked on projects for large accounts like Red Bull and NASA.
+				</li>
+				<li>
+					<img src="/i/quote-startup.png" alt="lab beaker" width="96" height="96">
+					<strong>I have startup experience.</strong>
+					As part of a four-person team at a funded startup called Insurance Quotes, I designed the flow of a huge, multi-step form and built a Wordpress theme from scratch , among other things. Shortly after I left for another job closer to home, the startup was sold and the remaining three guys took home a good chunk of change. Guess I missed my payday.
+				</li>
+				<li>
+					<img src="/i/quote-bigbrand.png" alt="tie" width="96" height="96">
+					<strong>I have big brand experience.</strong>
+					At Insight, I had the privilege of working with most of the world's major hardware and software manufacturers. Many times, I worked directly with designers at those companies to master the varying style guides of each individual project.
+				</li>
+				<li>
+					<img src="/i/quote-friends.png" alt="lightbulb" width="96" height="96">
+					<strong>I keep up with old friends.</strong>
+					Many of my co-workers and former bosses still check in with me, from time to time. I've kept in touch with the creative directors at Latin Percussion, for example, and sometimes help them with some of their more complex front-end development.
+				</li>
+				<li>
+					<img src="/i/quote-speed.png" alt="clock" width="96" height="96">
+					<strong>I manage web performance.</strong>
+					When working at Toys &#8220;R&#8221; Us, my boss and I led the effort to test web page speed, uncover ways to decrease load times, and sell our findings to upper management. After leaving the company, my boss went to Oxygen Network / NBC Universal reached out to me for help help with the same project there.
+				</li>
+				<li>
+					<img src="/i/quote-school.png" alt="graduation cap" width="96" height="96">
+					<strong>I went to college. Twice.</strong>
+					I have a <abbr title="Bachelor of Science">B.S.</abbr> in Multimedia and an <abbr title="Master of Science">M.S.</abbr> in Technology Management, though I don't talk about them often. Did they increase my skill as a web designer? Maybe. Did they teach me how to think critically and filter out the crap? Definitely.
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="outside footer">
+	<div class="inside">
+		Trying to bring something to the table.
+		<a href="/humans.txt" rel="humans txt" title="know the creators and contributors of this website" class="humans">humans.txt</a>
+	</div>
+</div>
+<script>
+	var _gaq = _gaq || [];
+ 	_gaq.push(['_setAccount', 'UA-3248378-1']);
+ 	_gaq.push(['_setDomainName', '.tedgoas.com']);
+ 	_gaq.push(['_setAllowHash', 'false']);
+ 	_gaq.push(['_trackPageview']);
+	_gaq.push(['_trackPageLoadTime']);
+	(function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>
+
+<!-- Stacey(2.3.0): 64376db1a45b1496deecc79ec6d3f0be -->

@@ -1,0 +1,35 @@
+:head
+<body class="blog">
+:header
+<div class="outside mast">
+	<div class="inside summary">
+		<div>
+			<ul><li class="r"></li><li class="y"></li><li class="g"></li><li class="b"></li><li class="p"></li></ul>
+			<p>Musings from an in-house designer in New Jersey.<br><a href="/blog/is-this-thing-on/">More on what I write about</a><a href="@root_path/?/feed/"><img src="http://i.tedgoas.com/icnRss.png" alt="RSS Feed" width="34" height="34"></a></p>
+		</div>
+	</div>
+	<div class="line"></div>
+</div>
+<div class="outside main">
+	<div class="inside">
+		<ul class="archive">
+		get "/blog" do
+		foreach $children do
+			<li>
+				<a href="@url" title="view the details">@title</a>
+				<small>
+					<!--<span class="date">First published: -->@metadate<!--</span>
+					<span class="updated">Last updated: @metaupdated</span>
+					<span class="edits">No. of edits: @metaupdates</span>-->
+				</small>
+			</li>
+		endforeach
+		end
+		</ul>
+	</div>
+</div>
+:footer
+:footer-js
+:analytics
+</body>
+</html>

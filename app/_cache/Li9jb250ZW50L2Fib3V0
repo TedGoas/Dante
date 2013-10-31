@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+<title>About &infin; Ted Goas</title>
+<meta name="description" content="<p>My current work status, availability for projects, and contact information.</p>
+">
+<!--[if ! lte IE 7]><!-->
+	<link rel="stylesheet" href="/css/global.css" type="text/css" media="screen">
+	<script type="text/javascript" src="//use.typekit.net/vzj5lsm.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<![endif]-->
+<!--[if lte IE 7]>
+	<link rel="stylesheet" href="http://universal-ie6-css.googlecode.com/files/ie6.1.1b.css" media="screen, projection">
+<![endif]-->
+<!--<link rel="alternate" type="application/atom+xml" href="../?/feed/">-->
+<link rel="canonical" href="http://www.tedgoas.com/about/">
+<link rel="meta" type="application/rdf+xml" title="Dublin" href="http://www.tedgoas.com/dublin.rdf">
+<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body class="contact">
+<div class="outside header">
+	<div class="inside">
+		<nav>
+			<ul class="primary">
+				<li class="nHome"><a href="/" title="home" rel="home" class="ted">Ted Goas</a></li>
+				<li class="nWork"><a href="/work" title="portfolio work">Work</a></li>
+				<li class="nContact"><a href="/contact" title="contact and availability">Contact</a></li>
+				<li class="nStory"><a href="/about" title="about me">Bio</a></li>
+				<li class="nBlog"><a href="/blog" title="blog">Blog</a></li>
+	 			<li class="nSocial">
+	 				<a href="http://www.twitter.com/tedgoas" title="I love talking shop" rel="external me"><img src="/i/icnTwitter.png" alt="twitter" width="24" height="24"></a>
+	 				<a href="http://www.dribbble.com/tedgoas" title="What I'm working on" rel="external me"><img src="/i/icnDribbble.png" alt="dribbble" width="24" height="24"></a>
+	 			</li>
+	 		</ul>
+	 		<!-- do something in here http://bradfrost.github.com/this-is-responsive/patterns.html -->
+		</nav>
+	</div>
+</div>
+<div class="outside mast">
+	<div class="inside summary">
+		<h1>About</h1>
+	</div>
+</div>
+<div class="outside">
+	<div class="inside canvas">
+		<ul class="timeline">
+			<li class-"1979">
+				<div>
+					<img src="">
+					<h3>1979</h3>
+					I'm born on my mother&#8217;s 30th birthday.
+				</div>
+			</li>
+			<li class-"1980"></li>
+			<li class-"1981"></li>
+			<li class-"1982"></li>
+			<li class-"1983"></li>
+			<li class-"1984"></li>
+			<li class-"1985">
+				<div>
+					<img src="">
+					<h3>1985</h3>
+					Growing up, my parents involve me in a lot of organized sports. I play a little of everything, but get a heavy dose of soccer and hockey.
+				</div>
+			</li>
+			<li class-"1986"></li>
+			<li class-"1987"></li>
+			<li class-"1988"></li>
+			<li class-"1989"></li>
+			<li class-"1990"></li>
+			<li class-"1991"></li>
+			<li class-"1992"></li>
+			<li class-"1993"></li>
+			<li class-"1994">
+				<div>
+					<img src="">
+					<h3>1994</h3>
+					Early 90&#8217;s rock. NY Rangers win The Stanley Cup. Street Fighter II. The early 90&#8217;s are my favorite moment in pop culture.
+				</div>
+			</li>
+			<li class-"1995"></li>
+			<li class-"1996"></li>
+			<li class-"1997">
+				<div>
+					<img src="">
+					<h3>1997</h3>
+					I attend Marist College in NY. I start out programming, but after two semesters I change to a graphics track. I graduate in four years despite the switch.
+				</div>
+			</li>
+			<li class-"1998"></li>
+			<li class-"1999"></li>
+			<li class-"2000"></li>
+			<li class-"2001"></li>
+			<li class-"2002">
+				<div>
+					<img src="">
+					<h3>2002</h3>
+					I discover CSS Zen Garden and taught myself advanced CSS. I start working more off hours, and work starts becoming less of a job and more of a hobby.
+				</div>
+			</li>
+			<li class-"2003"></li>
+			<li class-"2004">
+				<div>
+					<img src="">
+					<h3>2004</h3>
+					I meet a girl. One that makes me a better person and I who I hold as my intellectual superior. In 2009, I marry my best friend, Sara.
+				</div>
+			</li>
+			<li class-"2005">
+				<div>
+					<img src="">
+					<h3>2005</h3>
+					We move to Arizona for a few years to work and get post-grad degrees. I (finally) learn to question tradition and things start falling into place all around me.
+				</div>
+			</li>
+			<li class-"2006"></li>
+			<li class-"2007">
+				<div>
+					<img src="">
+					<h3>1979</h3>
+					I grow as a web designer and front-end developer, but also learn about website performance and get good at designing / coding HTML emails.
+				</div>
+			</li>
+			<li class-"2008">
+				<div>
+					<img src="">
+					<h3>2008</h3>
+					After three years in Arizona, we move back to New Jersey.
+				</div>
+			</li>
+			<li class-"2009"></li>
+			<li class-"2010">
+				<div>
+					<img src="">
+					<h3>2010</h3>
+					I land at my current job, working in medical and pharma. I use my skills for genuinely rewarding causes in an industry that sorely needs thoughtful design.
+				</div>
+			</li>
+			<li class-"2011"></li>
+			<li class-"2012">
+				<div>
+					<img src="">
+					<h3>2012</h3>
+					Our first child! We&#8217;re still getting the hang of it...
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="outside footer">
+	<div class="inside">
+		Trying to bring something to the table.
+		<a href="/humans.txt" rel="humans txt" title="know the creators and contributors of this website" class="humans">humans.txt</a>
+	</div>
+</div>
+<script>
+	var _gaq = _gaq || [];
+ 	_gaq.push(['_setAccount', 'UA-3248378-1']);
+ 	_gaq.push(['_setDomainName', '.tedgoas.com']);
+ 	_gaq.push(['_setAllowHash', 'false']);
+ 	_gaq.push(['_trackPageview']);
+	_gaq.push(['_trackPageLoadTime']);
+	(function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>
+
+<!-- Stacey(2.3.0): dca402e26a3462f68b9fb627b6f4961e -->

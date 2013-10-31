@@ -1,0 +1,13 @@
+ <?xml version="1.0"?>
+ <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc= "http://purl.org/dc/elements/1.1/">
+ <rdf:Description rdf:about="http://www.tedgoas.com/">
+ <dc:title>Ted Goas. Web Designer. Front-Ender.</dc:title>
+ <dc:subject>ted goas, web design, html emails, website performance, findability</dc:subject>
+ <dc:description>A web designer and front-end developer in New Jersey who knows a thing or two about HTML emails, on-page SEO, and website speed.</dc:description>
+ <dc:language>EN</dc:language>
+ <dc:contributor>Ted Goas</dc:contributor>
+ <dc:creator>Ted Goas</dc:creator>
+ <dc:publisher>Ted Goas</dc:publisher>
+ <dc:source>http://www.tedgoas.com/</dc:source>
+ </rdf:Description>
+ </rdf:RDF>

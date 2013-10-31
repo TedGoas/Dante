@@ -1,0 +1,24 @@
+{
+foreach $root do  
+  if $children do
+    "pages": [
+    foreach $children do
+      {
+        "title": "@title",
+        "thumb": "@thumb",
+        "url": "@url",
+        "date": "@date",
+        "updated": "@updated",
+        "title": "@title",
+        "content": "@content",   
+        "images": [
+          foreach $images do
+            { "url": "@url", "name": "@name" },
+          endforeach
+          ],
+      },
+    endforeach
+    ]
+  endif
+endforeach
+}

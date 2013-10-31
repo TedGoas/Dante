@@ -1,0 +1,5 @@
+title: Odds & Ends
+-
+summary: This is a collection of smaller, one-off projects, templates, and prototypes I worked on for others.
+-
+byline: One-off projects, templates, and prototypes.
