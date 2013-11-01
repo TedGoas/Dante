@@ -9,6 +9,7 @@
 <link rel="dns-prefetch" href="//www.google-analytics.com">
 <title>Clinical Web App &infin; Ted Goas</title>
 <meta name="description" content="Canfield's clinical web app helps pharmaceutical companies organize trials and keep track of their results. I'm the lead designer and front-end developer on the product, which we continually improve and expand.">
+<link type="text/plain" rel="author" href="http://www.tedgoas.com/humans.txt">
 <link rel="stylesheet" href="/css/global.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="../../content/work/9.clinical-app/clinical.css" type="text/css" media="screen">
 
@@ -156,4 +157,4 @@ $(document).ready(function() {
 </script>
 </body>
 </html>
-<!-- Stacey(2.3.0): d621fb99ede6bc685ef8dbf7e2ce28ae -->
+<!-- Stacey(2.3.0): d099184bb544600e6042ebff09481361 -->
