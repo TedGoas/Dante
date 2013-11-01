@@ -16,7 +16,7 @@
 	Local Environment: MAMP, GitHub Mac client, ImageOptim
 	Production Environment: Host Gator (Yes, really. They've been great!)
 	Deployment: This website is open-source on GitHub. Changes are committed to the main branch and then deployed to production via FTP using FTPloy. 
-
+	Local Issue Tracking & To Do's: Wunderlist
 
 /* RESOURCES */
 	Icons: Brankic1979 (http://www.brankic1979.com/icons)
