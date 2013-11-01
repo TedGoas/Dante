@@ -1,5 +1,0 @@
-title: Patient Portal
--
-summary: I'm the lead designer and chief HTML/CSS author for this two-sided app built by Canfield. It allows patients to view and manipulate photos from their doctor consultations and provides doctors with patient management and analytics tools.
--
-byline: Interactive, at-home consultation reports. 
