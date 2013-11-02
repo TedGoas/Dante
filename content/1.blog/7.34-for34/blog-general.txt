@@ -1,5 +1,9 @@
 title: 34 for 34
 -
+date: July 8, 2013
+-
+summary: Thirty four things I’ve learned in thirty four years.
+-
 content:
 Thirty four things I’ve learned in thirty four years.&#42;
 ***
@@ -39,11 +43,3 @@ Thirty four things I’ve learned in thirty four years.&#42;
 34. See #33.
 ***
 <small>&#42; Mostly things said by people smarter than me.</small>
--
-metadate: July 8, 2013
--
-metaupdated: -
--
-metaupdates: 0
--
-summary: Thirty four things I’ve learned in thirty four years.

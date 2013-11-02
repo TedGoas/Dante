@@ -1,5 +1,9 @@
 title: My Performance Review
 -
+date: March 9, 2013
+-
+summary: I got my performance review. While the feedback was positive overall, no review is complete without citing areas to improve.
+-
 content:
 Last week I got my performance review. While the feedback was positive overall, no review is complete without citing areas to improve. After I combined the goals of my managers with my own, my plan for the year looked something like this:
 
@@ -32,13 +36,4 @@ Last year I spent a lot of time becoming a better web builder. It worked. It’s
 ###My Family Is Not My Side Project
 Lastly, I don’t want an unhealthy blur between work life and family life. When I’m home, I’m home. If my son if awake, I’m not in front of the computer. If my wife is around, my phone is in my pocket. [My family is not my side project](http://chrisbowler.com/journal/overcoming-project-guilt "Overcoming Project Guilt"). I have hobbies that don't involve an Internet connection.
   
-<a href="http//twitter.com/tedgoas" rel="me" class="twitter" title="send me an @reply on twitter"><img src="/i/icnTwitter.png" height="34" width="34" alt="twitter icon" class="icnInline"> Want to chat about this on Twitter?</a>
-
--
-metadate: March 9, 2013
--
-metaupdated: April 16, 2013
--
-metaupdates: 1
--
-summary: I got my performance review. While the feedback was positive overall, no review is complete without citing areas to improve.
+<a href="http://www.twitter.com/tedgoas" title="@reply me on Twitter" rel="external me" class="icnInline icnSocial twitter"><i class="icon-twitter"></i></a> Want to chat about this on Twitter?</a>

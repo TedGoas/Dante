@@ -1,5 +1,9 @@
 title: An Open Letter to Technical Recruiters
 -
+date: May 16, 2012
+-
+summary: As someone who builds websites, I get lots of emails from technical recruiters. Some are well thought out and on point. But others are horribly misguided.
+-
 content:
 <section>
   <h2>How hard are you trying?</h2> 
@@ -55,17 +59,9 @@ content:
 </ol>
 <p>If these things are done, any professional worth his or her salt should at least respond to emails, regardless of whether or not they’re interested in the offer. Basically, think quality over quantity.</p>
 <p>If you’re a tech recruiter, I’d love to hear your thoughts about what’s it’s like on your end. Is it more complicated than I’m making it out to be?</p>
-<p>Let me know <a href="https://twitter.com/TedGoas" rel="me" class="twitter" title="send me an @reply on twitter"><img src="/i/icnTwitter.png" height="34" width="34" alt="twitter icon" class="icnInline">on Twitter</a> or send me an <a href="/contact/" title="my email">email</a>.</p>
+<p>Let me know <a href="http://www.twitter.com/tedgoas" title="@reply me on Twitter" rel="external me">on Twitter</a> or send me an <a href="/contact/" title="my email">email</a>.</p>
 <div class="update">
 	<h4>Update #1 <time>August 10, 2012</time></h4>
 	<p>After seeing this, <a href="http://www.recruitingblogs.com/profile/AmyAla">Amy Ala</a> wrote up a reaction from a Technical Recruiter’s point of view. It’s a nice, quick read with some fascinating comments. <a href="http://www.recruitingblogs.com/profiles/blogs/what-candidates-really-think-a-cautionary-tale-for-recruiters">What Candidates Really Think &ndash; A Cautionary Tale for Recruiters</a>, check it out.</p>
 </div>
 
--
-metadate: May 16, 2012
--
-metaupdated: August 10, 2012
--
-metaupdates: 2
--
-summary: As someone who builds websites, I get lots of emails from technical recruiters. Some are well thought out and on point. But others are horribly misguided.

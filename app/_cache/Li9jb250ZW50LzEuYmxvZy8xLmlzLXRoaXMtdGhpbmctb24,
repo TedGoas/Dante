@@ -8,8 +8,8 @@
 <link rel="dns-prefetch" href="http://ajax.googleapis.com">
 <link rel="dns-prefetch" href="//www.google-analytics.com">
 <title>Musings of an In House Designer &infin; Ted Goas</title>
-<meta name="description" content="<p>Stories from an in-house designer in New Jersey.</p>
-">
+<meta name="description" content="Stories from an in-house designer in New Jersey.">
+<link type="text/plain" rel="author" href="http://www.tedgoas.com/humans.txt">
 <link rel="stylesheet" href="/css/global.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="../../content/1.blog/1.is-this-thing-on/lumberg.css" type="text/css" media="screen">
 
@@ -56,13 +56,7 @@
 		<article>
 			<header>
 				<h1>Musings of an In House Designer</h1>
-				<aside>
-					<ul class="meta">
-						<li class="date"><span>First published</span> May 16, 2012</li>
-						<li class="updated"><span>Last updated</span> December 28, 2012</li>
-						<li class="edits"><span>No. of edits</span> 1</li>
-					</ul>
-				</aside>
+				<small class="meta">May 16, 2012</small>
 			</header>
 			<div class="article">
 				<p>Lots of smart people say that being a good writer is about more than words. Being a good writer means more than just tying fancy words together. Good writers know how to explain their thoughts clearly. They know what to say&mdash;and what to omit.</p>
@@ -136,4 +130,4 @@ $(document).ready(function() {
 </body>
 </html>
 
-<!-- Stacey(2.3.0): ec8d43672116523d3837ed6d10c21ce4 -->
+<!-- Stacey(2.3.0): c4953d5839a14f0e1e027c40f60d6ede -->

@@ -1,5 +1,9 @@
 title: Design as a Resource
 -
+date: December 28, 2012
+-
+summary: When design is not considered at the start of a project.
+-
 content:
 One day while I was banging away on some CSS, one of my company’s software engineers stopped by my desk and asked if I could design some buttons for her app.
 
@@ -31,13 +35,3 @@ Sometimes I think about saying that I don’t have time to fit in requests like 
 Design doesn’t have to be an integral part of <em>every</em> project. That might be a tough pill to swallow when confronted with tasks like this. But if we create something fast and ship it, we can get back to our bread and butter in no time.
 
 In the case above, I downloaded a PSD button freebie (yay community!), modified the hell out of it, and used it to create a series of buttons for the software engineer’s app. She was happy with the upgrade and I didn’t lose momentum on my core work.
-
-
--
-metadate: December 28, 2012
--
-metaupdated: -
--
-metaupdates: 0
--
-summary: When design is not considered at the start of a project.

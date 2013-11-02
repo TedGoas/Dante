@@ -266,8 +266,7 @@ img.fluid {
 	max-width: 100%;
 	}
 .icnInline {
-	position: relative;
-	top: 4px;
+	line-height: 1.5;
 	}
 img.skill {
 	width: 72px;
@@ -906,29 +905,20 @@ img.email {
 	text-align: center;
 	}
 .caption,
-.meta {
+small.meta {
 	text-align: center;
-	font-size: 75%;
-	opacity: .5;
-	margin: 10px 0;
-	}
-.meta li {
-	display: inline;
-	margin: 0 20px;
-	white-space: nowrap;
+	display: block;
+	margin-top: 10px;
 }
 .blog h1 {
 	text-align: center;
 	margin: 25px auto 0;
-	}
+}
 
 /* Blog Detail */
 .blog article header {
 	margin-bottom: 50px;
-	}
-.caption {
-	display: block;
-	}
+}
 .blog .pic {
 	position: relative;
 	margin: 50px 0 0;
@@ -937,9 +927,9 @@ img.email {
 	color: #888;
 	line-height: 0;
 	}
-.blog article h3 {
+.blog article h3 { 
 	margin-bottom: .5em;
-	}
+}
 .blog article blockquote {
 	padding: 2.5% 5% 2.5%;
 	border-left: 5px solid @blue;
@@ -962,13 +952,6 @@ div.twitter-tweet-rendered {
 	list-style-type: none;
 	border-bottom: 1px solid #eee;
 }
-.archive small {
-	display: block;
-	margin-top: 10px;
-	}
-.archive small span {
-	margin: 0 10px;
-	}
 
 /* Footer */
 .footer {

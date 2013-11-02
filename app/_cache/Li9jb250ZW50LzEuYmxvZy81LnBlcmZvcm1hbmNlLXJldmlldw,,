@@ -9,6 +9,7 @@
 <link rel="dns-prefetch" href="//www.google-analytics.com">
 <title>My Performance Review &infin; Ted Goas</title>
 <meta name="description" content="I got my performance review. While the feedback was positive overall, no review is complete without citing areas to improve.">
+<link type="text/plain" rel="author" href="http://www.tedgoas.com/humans.txt">
 <link rel="stylesheet" href="/css/global.css" type="text/css" media="screen">
 
 <script type="text/javascript">
@@ -54,13 +55,7 @@
 		<article>
 			<header>
 				<h1>My Performance Review</h1>
-				<aside>
-					<ul class="meta">
-						<li class="date"><span>First published</span> March 9, 2013</li>
-						<li class="updated"><span>Last updated</span> April 16, 2013</li>
-						<li class="edits"><span>No. of edits</span> 1</li>
-					</ul>
-				</aside>
+				<small class="meta">March 9, 2013</small>
 			</header>
 			<div class="article">
 				<p>Last week I got my performance review. While the feedback was positive overall, no review is complete without citing areas to improve. After I combined the goals of my managers with my own, my plan for the year looked something like this:</p>
@@ -105,7 +100,7 @@
 
 <p>Lastly, I don’t want an unhealthy blur between work life and family life. When I’m home, I’m home. If my son if awake, I’m not in front of the computer. If my wife is around, my phone is in my pocket. <a href="http://chrisbowler.com/journal/overcoming-project-guilt" title="Overcoming Project Guilt">My family is not my side project</a>. I have hobbies that don't involve an Internet connection.</p>
 
-<p><a href="http//twitter.com/tedgoas" rel="me" class="twitter" title="send me an @reply on twitter"><img src="/i/icnTwitter.png" height="34" width="34" alt="twitter icon" class="icnInline"> Want to chat about this on Twitter?</a></p>
+<p><a href="http://www.twitter.com/tedgoas" title="@reply me on Twitter" rel="external me" class="icnInline icnSocial twitter"><i class="icon-twitter"></i></a> Want to chat about this on Twitter?</a></p>
 
 			</div>
 		</article>
@@ -152,4 +147,4 @@ $(document).ready(function() {
 </body>
 </html>
 
-<!-- Stacey(2.3.0): bab1c49f96d9741e47ee9b7520fc1b43 -->
+<!-- Stacey(2.3.0): 5d48028fb4744619770d224aa8170bbd -->

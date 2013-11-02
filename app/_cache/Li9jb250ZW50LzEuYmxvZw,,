@@ -9,6 +9,7 @@
 <link rel="dns-prefetch" href="//www.google-analytics.com">
 <title>In House Designer &infin; Ted Goas</title>
 <meta name="description" content="Stories from an in-house designer in New Jersey.">
+<link type="text/plain" rel="author" href="http://www.tedgoas.com/humans.txt">
 <link rel="stylesheet" href="/css/global.css" type="text/css" media="screen">
 
 <script type="text/javascript">
@@ -20,8 +21,8 @@
     var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/(\s|^)wf-loading(\s|$)/g," ");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script"),d=false;tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(d||a&&a!="complete"&&a!="loaded")return;d=true;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
   })();
 </script>
-<link rel="alternate" type="application/atom+xml" href="./?/feed/">
-<link rel="canonical" href="http://www.tedgoas.com/?/blog/">
+<link rel="alternate" type="application/atom+xml" href="../?/feed/">
+<link rel="canonical" href="http://www.tedgoas.com/blog/">
 <link rel="meta" type="application/rdf+xml" title="Dublin" href="http://www.tedgoas.com/dublin.rdf">
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
@@ -51,7 +52,7 @@
 	<div class="inside summary">
 		<div>
 			<ul><li class="r"></li><li class="y"></li><li class="g"></li><li class="b"></li><li class="p"></li></ul>
-			<p>Musings from an in-house designer in New Jersey.<br><a href="/blog/is-this-thing-on/">More on what I write about</a><a href="./?/feed/"><img src="http://i.tedgoas.com/icnRss.png" alt="RSS Feed" width="34" height="34"></a></p>
+			<p>Musings from an in-house designer in New Jersey.<br><a href="/blog/is-this-thing-on/">More on what I write about</a><a href="../?/feed/"><img src="http://i.tedgoas.com/icnRss.png" alt="RSS Feed" width="34" height="34"></a></p>
 		</div>
 	</div>
 	<div class="line"></div>
@@ -60,60 +61,32 @@
 	<div class="inside">
 		<ul class="archive">
 							<li>
-				<a href="./?/blog/34-for34/" title="view the details">34 for 34</a>
-				<small>
-					<!--<span class="date">First published: -->July 8, 2013<!--</span>
-					<span class="updated">Last updated: -</span>
-					<span class="edits">No. of edits: 0</span>-->
-				</small>
+				<a href="../blog/34-for34/" title="view the details">34 for 34</a>
+				<small class="meta">July 8, 2013</small>
 			</li>
 					<li>
-				<a href="./?/blog/hiring-and-the-black-box/" title="view the details">Hiring and the Black Box</a>
-				<small>
-					<!--<span class="date">First published: -->March 14, 2013<!--</span>
-					<span class="updated">Last updated: -</span>
-					<span class="edits">No. of edits: 0</span>-->
-				</small>
+				<a href="../blog/hiring-and-the-black-box/" title="view the details">Hiring and the Black Box</a>
+				<small class="meta">March 14, 2013</small>
 			</li>
 					<li>
-				<a href="./?/blog/performance-review/" title="view the details">My Performance Review</a>
-				<small>
-					<!--<span class="date">First published: -->March 9, 2013<!--</span>
-					<span class="updated">Last updated: April 16, 2013</span>
-					<span class="edits">No. of edits: 1</span>-->
-				</small>
+				<a href="../blog/performance-review/" title="view the details">My Performance Review</a>
+				<small class="meta">March 9, 2013</small>
 			</li>
 					<li>
-				<a href="./?/blog/design-as-a-resource/" title="view the details">Design as a Resource</a>
-				<small>
-					<!--<span class="date">First published: -->December 28, 2012<!--</span>
-					<span class="updated">Last updated: -</span>
-					<span class="edits">No. of edits: 0</span>-->
-				</small>
+				<a href="../blog/design-as-a-resource/" title="view the details">Design as a Resource</a>
+				<small class="meta">December 28, 2012</small>
 			</li>
 					<li>
-				<a href="./?/blog/i-work-for-free-or-at-my-full-rate/" title="view the details">I work for free or at my full rate</a>
-				<small>
-					<!--<span class="date">First published: -->Nov 2, 2012<!--</span>
-					<span class="updated">Last updated: -</span>
-					<span class="edits">No. of edits: 0</span>-->
-				</small>
+				<a href="../blog/i-work-for-free-or-at-my-full-rate/" title="view the details">I work for free or at my full rate</a>
+				<small class="meta">Nov 2, 2012</small>
 			</li>
 					<li>
-				<a href="./?/blog/an-open-letter-to-technical-recruiters/" title="view the details">An Open Letter to Technical Recruiters</a>
-				<small>
-					<!--<span class="date">First published: -->May 16, 2012<!--</span>
-					<span class="updated">Last updated: August 10, 2012</span>
-					<span class="edits">No. of edits: 2</span>-->
-				</small>
+				<a href="../blog/an-open-letter-to-technical-recruiters/" title="view the details">An Open Letter to Technical Recruiters</a>
+				<small class="meta">May 16, 2012</small>
 			</li>
 					<li>
-				<a href="./?/blog/is-this-thing-on/" title="view the details">Musings of an In House Designer</a>
-				<small>
-					<!--<span class="date">First published: -->May 16, 2012<!--</span>
-					<span class="updated">Last updated: December 28, 2012</span>
-					<span class="edits">No. of edits: 1</span>-->
-				</small>
+				<a href="../blog/is-this-thing-on/" title="view the details">Musings of an In House Designer</a>
+				<small class="meta">May 16, 2012</small>
 			</li>
 		
 		
@@ -153,4 +126,4 @@ $(document).ready(function() {
 </body>
 </html>
 
-<!-- Stacey(2.3.0): 14d7db8bf1072b6561cb1620b830bcc7 -->
+<!-- Stacey(2.3.0): c4953d5839a14f0e1e027c40f60d6ede -->

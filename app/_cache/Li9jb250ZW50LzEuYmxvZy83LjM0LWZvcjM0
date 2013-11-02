@@ -9,6 +9,7 @@
 <link rel="dns-prefetch" href="//www.google-analytics.com">
 <title>34 for 34 &infin; Ted Goas</title>
 <meta name="description" content="Thirty four things I’ve learned in thirty four years.">
+<link type="text/plain" rel="author" href="http://www.tedgoas.com/humans.txt">
 <link rel="stylesheet" href="/css/global.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="../../content/1.blog/7.34-for34/thirtyfour.css" type="text/css" media="screen">
 
@@ -55,13 +56,7 @@
 		<article>
 			<header>
 				<h1>34 for 34</h1>
-				<aside>
-					<ul class="meta">
-						<!--<li class="date"><span>First published</span>--> July 8, 2013 <!--</li>
-						<li class="updated"><span>Last updated</span> -</li>
-						<li class="edits"><span>No. of edits</span> 0</li> -->
-					</ul>
-				</aside>
+				<small class="meta">July 8, 2013</small>
 			</header>
 			<div class="article">
 				<p>Thirty four things I’ve learned in thirty four years.&#42;</p>
@@ -154,4 +149,4 @@ $(document).ready(function() {
 </body>
 </html>
 
-<!-- Stacey(2.3.0): 928fc7334cafc886e157352b2f134c89 -->
+<!-- Stacey(2.3.0): 0856c47710634f42eae211b692680766 -->

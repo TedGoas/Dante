@@ -9,6 +9,7 @@
 <link rel="dns-prefetch" href="//www.google-analytics.com">
 <title>Web Design + Front-End Development &infin; Ted Goas</title>
 <meta name="description" content="I'm a web designer and front-end developer working on websites, web interfaces, and HTML emails. I write code by hand and build with page speed in mind. I live and work in New Jersey.">
+<link type="text/plain" rel="author" href="http://www.tedgoas.com/humans.txt">
 <link rel="stylesheet" href="/css/global.css" type="text/css" media="screen">
 
 <script type="text/javascript">
@@ -89,4 +90,4 @@ $(document).ready(function() {
 </script>
 </body>
 </html>
-<!-- Stacey(2.3.0): 228ea0b3583f2a8805359ae5a42acf3e -->
+<!-- Stacey(2.3.0): 31b6db1f712e123f7f9808c0d06adf7f -->

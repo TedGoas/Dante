@@ -9,8 +9,7 @@
 <!--[if lte IE 7]>
 	<link rel="stylesheet" href="http://universal-ie6-css.googlecode.com/files/ie6.1.1b.css" media="screen, projection">
 <![endif]-->
-<meta name="description" content="<p>As someone who builds websites, I get lots of emails from technical recruiters. Some are well thought out and on point. But others are horribly misguided.</p>
-">
+<meta name="description" content="As someone who builds websites, I get lots of emails from technical recruiters. Some are well thought out and on point. But others are horribly misguided.">
 <!--<link rel="alternate" type="application/atom+xml" href="../?/feed/">-->
 <link rel="canonical" href="http://www.tedgoas.com/articles/an-open-letter-to-technical-recruiters/">
 <link rel="meta" type="application/rdf+xml" title="Dublin" href="http://www.tedgoas.com/dublin.rdf">
@@ -27,7 +26,7 @@
 <div id="wrapper">
 <article>
   <header>
-    <div id="meta">This message has been modified and sent a total of <span>2</span> times. It was originally sent on <time datetime="May 16, 2012" pubdate="pubdate">May 16, 2012</time> and most recently sent on <time datetime="August 10, 2012">August 10, 2012</time>.</div>
+    <div id="meta">This message was sent on <time datetime="May 16, 2012" pubdate="pubdate">May 16, 2012</time>.</div>
     <span id="to">Technical recruiters who aren't trying that hard</span>
     <h1>An Open Letter To Technical Recruiters</h1>
   </header>
@@ -95,7 +94,7 @@
 
 <p>If you’re a tech recruiter, I’d love to hear your thoughts about what’s it’s like on your end. Is it more complicated than I’m making it out to be?</p>
 
-<p>Let me know <a href="https://twitter.com/TedGoas" rel="me" class="twitter" title="send me an @reply on twitter"><img src="/i/icnTwitter.png" height="34" width="34" alt="twitter icon" class="icnInline">on Twitter</a> or send me an <a href="/contact/" title="my email">email</a>.</p>
+<p>Let me know <a href="http://www.twitter.com/tedgoas" title="@reply me on Twitter" rel="external me">on Twitter</a> or send me an <a href="/contact/" title="my email">email</a>.</p>
 
 <div class="update">
     <h4>Update #1 <time>August 10, 2012</time></h4>
@@ -125,4 +124,4 @@
 </body>
 </html>
 
-<!-- Stacey(2.3.0): d621fb99ede6bc685ef8dbf7e2ce28ae -->
+<!-- Stacey(2.3.0): 67ad11f2451dac4ef7f4c4a30ccbdd14 -->

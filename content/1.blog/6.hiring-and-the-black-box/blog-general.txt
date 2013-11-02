@@ -1,5 +1,9 @@
 title: Hiring and the Black Box
 -
+date: March 14, 2013
+-
+summary: When hiring web designers and developers, there are diamonds in the rough out there.
+-
 content:
 I often read how some organizations care more about someone's online presence and open source contributions than their resume or college degree. The idea is based on the concept of talking the talk versus walking the walk. I like the idea, but online presence alone can’t drive the hiring process for my company.
 
@@ -25,11 +29,3 @@ Candidates like this are essentially a black box. The only way to tell what’s 
 You may not believe this, but I’m usually pleasantly surprised. One developer came on with little JavaScript experience and learned jQuery top to bottom inside six months. Another came in and moved most of our markup-based charts into Raphaël effortlessly. Our mobile developer, who came on having only developed for Android, now has four iOS apps under his belt. Ironically, the last developer we hired who was on GitHub and knew about Dribbble lasted eight days.
 
 Don’t be so quick to write off these “black box” candidates. There are diamonds in the rough out there. More than you’d think. Anyone who prefers online activity to resumes might just miss out on these folks.
--
-metadate: March 14, 2013
--
-metaupdated: -
--
-metaupdates: 0
--
-summary: When hiring web designers and developers, there are diamonds in the rough out there.

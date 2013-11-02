@@ -1,5 +1,9 @@
 title: I work for free or at my full rate
 -
+date: Nov 2, 2012
+-
+summary: When I take on freelance projects, I work for free or at my full rate.
+-
 content:
 In late 2012, I was contacted by a local NJ business to rebuild their website from scratch. After getting a general idea of what they wanted to accomplish, I quoted my hourly rate. However their other vendors usually submit fixed prices, so I was asked to do the same. I was a little uncomfortable locking myself into a fixed price, but I wanted the job. So After getting a few more details, I came up with a price, added 30%, sent it off in a contract, and hoped for the best.
 
@@ -41,11 +45,3 @@ These types of projects are neither fun nor lucrative, and I rarely produce my b
 Since completing the project described above, I've worked either at my full rate or for free. I take on less work, but I’m much happier.
 
 My paid work comes from clients who understand and appreciate my work. They know it can’t be done by just anyone with a copy of PhotoShop. I am not just another budget line item. And I work at my full rate for every one of them.
--
-metadate: Nov 2, 2012
--
-metaupdated: -
--
-metaupdates: 0
--
-summary: When I take on freelance projects, I work for free or at my full rate.

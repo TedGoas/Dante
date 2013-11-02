@@ -9,6 +9,7 @@
 <link rel="dns-prefetch" href="//www.google-analytics.com">
 <title>Hiring and the Black Box &infin; Ted Goas</title>
 <meta name="description" content="When hiring web designers and developers, there are diamonds in the rough out there.">
+<link type="text/plain" rel="author" href="http://www.tedgoas.com/humans.txt">
 <link rel="stylesheet" href="/css/global.css" type="text/css" media="screen">
 
 <script type="text/javascript">
@@ -54,13 +55,7 @@
 		<article>
 			<header>
 				<h1>Hiring and the Black Box</h1>
-				<aside>
-					<ul class="meta">
-						<li class="date"><span>First published</span> March 14, 2013</li>
-						<li class="updated"><span>Last updated</span> -</li>
-						<li class="edits"><span>No. of edits</span> 0</li>
-					</ul>
-				</aside>
+				<small class="meta">March 14, 2013</small>
 			</header>
 			<div class="article">
 				<p>I often read how some organizations care more about someone's online presence and open source contributions than their resume or college degree. The idea is based on the concept of talking the talk versus walking the walk. I like the idea, but online presence alone can’t drive the hiring process for my company.</p>
@@ -136,4 +131,4 @@ $(document).ready(function() {
 </body>
 </html>
 
-<!-- Stacey(2.3.0): 5a2ecb91c3d2ba8411f860c2f2bd0dd2 -->
+<!-- Stacey(2.3.0): 97c08f1d4ef9063105cd39fbd19a786c -->

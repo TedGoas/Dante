@@ -9,6 +9,7 @@
 <link rel="dns-prefetch" href="//www.google-analytics.com">
 <title>I work for free or at my full rate &infin; Ted Goas</title>
 <meta name="description" content="When I take on freelance projects, I work for free or at my full rate.">
+<link type="text/plain" rel="author" href="http://www.tedgoas.com/humans.txt">
 <link rel="stylesheet" href="/css/global.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="../../content/1.blog/3.i-work-for-free-or-at-my-full-rate/pig.css" type="text/css" media="screen">
 
@@ -55,13 +56,7 @@
 		<article>
 			<header>
 				<h1>I work for free or at my full rate</h1>
-				<aside>
-					<ul class="meta">
-						<li class="date"><span>First published</span> Nov 2, 2012</li>
-						<li class="updated"><span>Last updated</span> -</li>
-						<li class="edits"><span>No. of edits</span> 0</li>
-					</ul>
-				</aside>
+				<small class="meta">Nov 2, 2012</small>
 			</header>
 			<div class="article">
 				<p>In late 2012, I was contacted by a local NJ business to rebuild their website from scratch. After getting a general idea of what they wanted to accomplish, I quoted my hourly rate. However their other vendors usually submit fixed prices, so I was asked to do the same. I was a little uncomfortable locking myself into a fixed price, but I wanted the job. So After getting a few more details, I came up with a price, added 30%, sent it off in a contract, and hoped for the best.</p>
@@ -150,4 +145,4 @@ $(document).ready(function() {
 </body>
 </html>
 
-<!-- Stacey(2.3.0): 85f3b426ca24ae1f01d4b90c17c9e927 -->
+<!-- Stacey(2.3.0): c1071158c6ec16ff5d9851912541ac54 -->

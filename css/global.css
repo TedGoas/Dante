@@ -339,8 +339,7 @@ img.fluid {
   max-width: 100%;
 }
 .icnInline {
-  position: relative;
-  top: 4px;
+  line-height: 1.5;
 }
 img.skill {
   width: 72px;
@@ -961,16 +960,10 @@ img.email {
   text-align: center;
 }
 .caption,
-.meta {
+small.meta {
   text-align: center;
-  font-size: 75%;
-  opacity: .5;
-  margin: 10px 0;
-}
-.meta li {
-  display: inline;
-  margin: 0 20px;
-  white-space: nowrap;
+  display: block;
+  margin-top: 10px;
 }
 .blog h1 {
   text-align: center;
@@ -979,9 +972,6 @@ img.email {
 /* Blog Detail */
 .blog article header {
   margin-bottom: 50px;
-}
-.caption {
-  display: block;
 }
 .blog .pic {
   position: relative;
@@ -1014,13 +1004,6 @@ div.twitter-tweet-rendered {
   padding: 0 0 3.5% 0;
   list-style-type: none;
   border-bottom: 1px solid #eee;
-}
-.archive small {
-  display: block;
-  margin-top: 10px;
-}
-.archive small span {
-  margin: 0 10px;
 }
 /* Footer */
 .footer {
