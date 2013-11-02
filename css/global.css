@@ -327,8 +327,8 @@ img {
   visibility: visible;
   /* Old IE */
 
-  -webkit-transition: opacity 0.24s ease-in-out;
-  transition: opacity 0.24s ease-in-out;
+  -webkit-transition: opacity 0.12s ease-in-out;
+  transition: opacity 0.12s ease-in-out;
 }
 /* images */
 img {

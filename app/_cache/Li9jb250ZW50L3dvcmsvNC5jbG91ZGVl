@@ -9,6 +9,7 @@
 <link rel="dns-prefetch" href="//www.google-analytics.com">
 <title>Cloudee &infin; Ted Goas</title>
 <meta name="description" content="I was contacted by the guys at Boxee to help produce a series of mobile-focused HTML email templates for Cloudee, a new video-sharing service made for the iPhone.">
+<link type="text/plain" rel="author" href="http://www.tedgoas.com/humans.txt">
 <link rel="stylesheet" href="/css/global.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="../../content/work/4.cloudee/cloudee.css" type="text/css" media="screen">
 
@@ -78,7 +79,7 @@
 				<p>I worked with Cloudee's talented creative team to bring their designs to life.</p>
 				<p>Where necessary, we worked together to adjust each design based on <a href="http://www.campaignmonitor.com/css/" title="CSS Support in email clients" rel="external">CSS restrictions</a> of popular email clients.</p>
 				<p>After the designs were finalized, I coded and tested each HTML template in several major email clients on both desktop and small screen. Since Cloudee is a mobile app, displaying the emails well on small screens was important. I wrote media queries to adapt the layout in iOS Mail (iPhone + iPad), Android, and mobile Gmail.</p>
-				<img src="/i/emails.png" alt="email clients" height="55" width="350">
+				<img src="/i/emails.png" alt="email clients" class="fluid" height="55" width="350">
 			</div>
 			<figure><img src="/content/work/4.cloudee/i/cloudeeEmailSm.jpg" alt="Softwre Update Email" width="500" height="800"></figure>
 		</section>
@@ -119,4 +120,4 @@ $(document).ready(function() {
 </script>
 </body>
 </html>
-<!-- Stacey(2.3.0): d621fb99ede6bc685ef8dbf7e2ce28ae -->
+<!-- Stacey(2.3.0): 0808082d8a37e395ee2ff176a148ea30 -->
