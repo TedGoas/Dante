@@ -75,7 +75,9 @@
 
 <h2>On Frequency</h2>
 
-<blockquote cite="http://www.seomoz.org/blog/the-definitive-guide-to-awesome-web-content"><p>After the first few days after the post is published, the traffic will drop down to a mere fraction of what it was, since your readership has simply “been there, done that”. Congratulations; you’re now in a business where your &#8216;product’ becomes worthless practically overnight.</p><small>&ndash; <a href="http://www.seomoz.org/blog/the-definitive-guide-to-awesome-web-content">SEO Moz</a></small></blockquote>
+<blockquote><p>After the first few days after the post is published, the traffic will drop down to a mere fraction of what it was, since your readership has simply “been there, done that”. Congratulations; you’re now in a business where your &#8216;product’ becomes worthless practically overnight.</p>
+<small>&ndash; <a href="http://www.seomoz.org/blog/the-definitive-guide-to-awesome-web-content">SEO Moz</a></small>
+</blockquote>
 
 <p>True too often.</p>
 
@@ -84,6 +86,8 @@
 <p>Rather than promote the “little and often” readership, I plan on writing and curating a small number posts.</p>
 
 <p>So I hope you enjoy what you read. If you read something you like &ndash; or dislike &ndash; drop me a line. I know there are more designers and developers in companies like mine. I’d love to meet you.</p>
+
+<p><a href="http://www.twitter.com/tedgoas" class="icnInline icnSocial twitter"><i class="icon-twitter"></i></a> <a href="http://www.twitter.com/tedgoas">Say hi</a>, introduce yourself, and let's chat!</p>
 
 			</div>
 		</article>
@@ -130,4 +134,4 @@ $(document).ready(function() {
 </body>
 </html>
 
-<!-- Stacey(2.3.0): c4953d5839a14f0e1e027c40f60d6ede -->
+<!-- Stacey(2.3.0): 996eba277d31f138d261430f4a4a565c -->

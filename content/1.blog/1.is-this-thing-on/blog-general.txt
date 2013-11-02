@@ -9,17 +9,19 @@ Lots of smart people say that being a good writer is about more than words. Bein
 
 I’ve always agreed with statements like this, though until recently I did little to improve my own writing skills. So I made a place for some of my more well-formed thoughts.
 
-<h2>The Topic</h2>
+##The Topic
 Most of articles and tweets I read come from folks freelancing or working at startups, agencies, and large companies. It’s fascinating reading about how other people work, do neat tricks in CSS or Photoshop, and team up with other super-talented folks to create awesome products.
 
-But I work at a small company in the NYC suburbs, and in many ways it’s a different world. Our pragmatic team is comprised of quite capable, yet largely unknown folks. We design, we develop, we support, we argue. We send last-minute HTML emails for the sales guys. We troubleshoot designs on the CTO’s BlackBerry. We debate marketing manager on the merits of <code>target="blank"</code>. We go from <a href="http://gettingreal.37signals.com/">Getting Real</a> to having roundtable discussions with stakeholders about web 2.0 initiatives. And everything in between.
+But I work at a small company in the NYC suburbs, and in many ways it’s a different world. Our pragmatic team is comprised of quite capable, yet largely unknown folks. We design, we develop, we support, we argue. We send last-minute HTML emails for the sales guys. We troubleshoot designs on the CTO’s BlackBerry. We debate marketing manager on the merits of `target="blank"`. We go from [Getting Real](http://gettingreal.37signals.com/) to having roundtable discussions with stakeholders about web 2.0 initiatives. And everything in between.
 
 So really I have one foot in freelance / agency world and the other foot in the corporate world. I don’t see a lot people talking about that. But I know people like me exist. They must.
 
 So I’m going to talk mostly about what it’s like working on web projects in my little company in the suburbs. Interface design, working directly with clients, internal politics, working with the owner, pushing pixels, performance reviews, supporting IE6, drop shadows, and all that fun stuff.
 
-<h2>On Frequency</h2>
-<blockquote cite="http://www.seomoz.org/blog/the-definitive-guide-to-awesome-web-content"><p>After the first few days after the post is published, the traffic will drop down to a mere fraction of what it was, since your readership has simply “been there, done that”. Congratulations; you’re now in a business where your &#8216;product’ becomes worthless practically overnight.</p><small>&ndash; <a href="http://www.seomoz.org/blog/the-definitive-guide-to-awesome-web-content">SEO Moz</a></small></blockquote>
+##On Frequency
+<blockquote><p>After the first few days after the post is published, the traffic will drop down to a mere fraction of what it was, since your readership has simply “been there, done that”. Congratulations; you’re now in a business where your &#8216;product’ becomes worthless practically overnight.</p>
+<small>&ndash; <a href="http://www.seomoz.org/blog/the-definitive-guide-to-awesome-web-content">SEO Moz</a></small>
+</blockquote>
 
 True too often.
 
@@ -28,3 +30,7 @@ My plan is to write something new every few months. Not relatively often, but I�
 Rather than promote the “little and often” readership, I plan on writing and curating a small number posts.
 
 So I hope you enjoy what you read. If you read something you like &ndash; or dislike &ndash; drop me a line. I know there are more designers and developers in companies like mine. I’d love to meet you.
+
+
+<a href="http://www.twitter.com/tedgoas" class="icnInline icnSocial twitter"><i class="icon-twitter"></i></a> [Say hi](http://www.twitter.com/tedgoas), introduce yourself, and let's chat!
+

@@ -65,9 +65,9 @@
 
 <p>When my client asked about starting a second phase of the project, I re-pitched my reasons for working hourly. They asked for fixed price again, but I explained the benefits of hourly pricing for both sides. (Most of my reasons are explained well <a href="http://orestis.gr/blog/2010/11/06/why-i-bill-hourly/">here</a>). This time my client agreed, and the resulting project was a notable improvement over the first phase.</p>
 
-<p>I learned a valuable lesson with this project: <em>Work at my full rate, for free, or not at all.</em></p>
+<p>I learned a valuable lesson with this project: <strong>Work at my full rate, for free, or not at all.</strong></p>
 
-<h2>On Freelancing</h2>
+<h2>On freelancing</h2>
 
 <p>On weekdays, I am a designer and developer for a medium size company. My full-time salary, when combined with my wife’s, is what we live on.</p>
 
@@ -81,7 +81,7 @@
 
 <p>I’m in a good mood when working like this. If more work is required to make an awesome product, I know I won’t be short-changed for the extra time it takes. I’m motivated to go the extra mile. Clients get what they want and I don’t spend too much unbillable time working.</p>
 
-<h2>Working For Free</h2>
+<h2>Working for free</h2>
 
 <p>However most of my friends can’t afford my rate. But I don’t want them to have an ugly blogspot website, so I do favors when I can. Since I don’t ask friends for money, their expectations are modest, timelines are relaxed, and special requests are fewer. I decide when I’m able to work and how to best accomplish their goals.</p>
 
@@ -145,4 +145,4 @@ $(document).ready(function() {
 </body>
 </html>
 
-<!-- Stacey(2.3.0): c1071158c6ec16ff5d9851912541ac54 -->
+<!-- Stacey(2.3.0): 996eba277d31f138d261430f4a4a565c -->
