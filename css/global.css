@@ -480,9 +480,10 @@ a.menu-link {
 .home h1 {
   margin-top: 5%;
 }
-.home .footer,
+.home .footer .inside,
 .home .footer a {
-  color: #444;
+  color: #999;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
 }
 /* Work Index */
 .work .main {
@@ -1006,10 +1007,15 @@ div.twitter-tweet-rendered {
   border-bottom: 1px solid #eee;
 }
 /* Footer */
-.footer {
+.footer .inside {
   font-size: 15px;
   padding: 1.5% 0;
   color: #ccc;
+  text-align: center;
+}
+.footer li {
+  margin: 0 auto;
+  line-height: 1.5;
 }
 .footer span {
   line-height: 0;
@@ -1017,10 +1023,6 @@ div.twitter-tweet-rendered {
   position: relative;
   top: 4px;
   padding: 0 1%;
-}
-.footer em {
-  float: right;
-  font-style: normal;
 }
 @media screen and (max-width: 1050px) {
   .inside {
@@ -1137,9 +1139,6 @@ div.twitter-tweet-rendered {
     padding: 0;
   }
   /* general */
-  .footer {
-    position: static !important;
-  }
   /* home */
   #backstretch {
     opacity: .5;

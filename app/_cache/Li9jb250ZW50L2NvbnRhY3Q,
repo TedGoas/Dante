@@ -10,6 +10,7 @@
 <title>Contact and Availability &infin; Ted Goas</title>
 <meta name="description" content="<p>My current work status, availability for projects, and contact information.</p>
 ">
+<link type="text/plain" rel="author" href="http://www.tedgoas.com/humans.txt">
 <link rel="stylesheet" href="/css/global.css" type="text/css" media="screen">
 
 <script type="text/javascript">
@@ -68,8 +69,11 @@
 </div>
 <div class="outside footer">
 	<div class="inside">
-		Made in New Jersey <span>&#9874;</span> <a href="/humans.txt" title="know the creators and contributors of this website">humans.txt</a>
-		<em>Trying to bring something to the table.</em>
+		<ul>
+			<li>This website is on <a href="https://github.com/TedGoas/Dante">GitHub</a> &bull; <a href="/humans.txt" title="know the creators and contributors of this website">humans.txt</a></li>
+			<li>Made in New Jersey</li>
+			<li><span>&#9874;</span></li>
+		</ul>
 	</div>
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
@@ -99,4 +103,4 @@ $(document).ready(function() {
 </body>
 </html>
 
-<!-- Stacey(2.3.0): 228ea0b3583f2a8805359ae5a42acf3e -->
+<!-- Stacey(2.3.0): 3625386fe31dbc0bd913af7eb0882359 -->

@@ -159,8 +159,11 @@
 </div>
 <div class="outside footer">
 	<div class="inside">
-		Made in New Jersey <span>&#9874;</span> <a href="/humans.txt" title="know the creators and contributors of this website">humans.txt</a>
-		<em>Trying to bring something to the table.</em>
+		<ul>
+			<li>This website is on <a href="https://github.com/TedGoas/Dante">GitHub</a> &bull; <a href="/humans.txt" title="know the creators and contributors of this website">humans.txt</a></li>
+			<li>Made in New Jersey</li>
+			<li><span>&#9874;</span></li>
+		</ul>
 	</div>
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
@@ -190,4 +193,4 @@ $(document).ready(function() {
 </body>
 </html>
 
-<!-- Stacey(2.3.0): 97c08f1d4ef9063105cd39fbd19a786c -->
+<!-- Stacey(2.3.0): 3625386fe31dbc0bd913af7eb0882359 -->
