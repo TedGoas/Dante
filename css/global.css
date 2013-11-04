@@ -992,6 +992,18 @@ small.meta {
 div.twitter-tweet-rendered {
   margin: 0 auto 1.5em;
 }
+a.medium {
+  display: block;
+  padding: 8px 12px;
+  background: #333;
+  color: #fff;
+  border-left: 4px solid #57ad68;
+}
+a.medium:hover,
+a.medium:focus,
+a.medium:active {
+  background: #222;
+}
 /* Blog Archive */
 .blog .archive {
   margin-top: 25px;

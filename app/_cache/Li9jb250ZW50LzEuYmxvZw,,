@@ -61,6 +61,10 @@
 	<div class="inside">
 		<ul class="archive">
 							<li>
+				<a href="../blog/think-different-designed-with-windows/" title="view the details">Think Different: Designed with Windows</a>
+				<small class="meta">July 8, 2013</small>
+			</li>
+					<li>
 				<a href="../blog/34-for34/" title="view the details">34 for 34</a>
 				<small class="meta">July 8, 2013</small>
 			</li>
@@ -95,8 +99,11 @@
 </div>
 <div class="outside footer">
 	<div class="inside">
-		Made in New Jersey <span>&#9874;</span> <a href="/humans.txt" title="know the creators and contributors of this website">humans.txt</a>
-		<em>Trying to bring something to the table.</em>
+		<ul>
+			<li>This website is on <a href="https://github.com/TedGoas/Dante">GitHub</a> &bull; <a href="/humans.txt" title="know the creators and contributors of this website">humans.txt</a></li>
+			<li>Made in New Jersey</li>
+			<li><span>&#9874;</span></li>
+		</ul>
 	</div>
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
@@ -126,4 +133,4 @@ $(document).ready(function() {
 </body>
 </html>
 
-<!-- Stacey(2.3.0): cbcc62651dd0cb787d3630585ccde314 -->
+<!-- Stacey(2.3.0): 6744d2eb9669535fed465faac051f968 -->
