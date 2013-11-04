@@ -777,8 +777,9 @@ img.email {
 }
 .bio .mast p {
   display: inline-block;
-  margin: 325px auto 0;
+  margin: 300px auto 0;
   font-size: 40px;
+  line-height: 1.1;
   color: #fff;
   padding: 1.5% 2%;
   background: rgba(0, 0, 0, 0.5);
