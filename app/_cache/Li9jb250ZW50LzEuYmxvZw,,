@@ -52,7 +52,7 @@
 	<div class="inside summary">
 		<div>
 			<ul><li class="r"></li><li class="y"></li><li class="g"></li><li class="b"></li><li class="p"></li></ul>
-			<p>Musings from an in-house designer in New Jersey.<br><a href="/blog/is-this-thing-on/">More on what I write about</a><a href="../?/feed/"><img src="http://i.tedgoas.com/icnRss.png" alt="RSS Feed" width="34" height="34"></a></p>
+			<p>Musings from an in-house designer in New Jersey.<br><a href="/blog/is-this-thing-on/">More on what I write about</a><br><a href="../?/feed/" class="icnSocial rss"><i class="icon-rss"></i></a></p>
 		</div>
 	</div>
 	<div class="line"></div>
@@ -62,7 +62,7 @@
 		<ul class="archive">
 							<li>
 				<a href="../blog/think-different-designed-with-windows/" title="view the details">Think Different: Designed with Windows</a>
-				<small class="meta">July 8, 2013</small>
+				<small class="meta">August 6, 2013</small>
 			</li>
 					<li>
 				<a href="../blog/34-for34/" title="view the details">34 for 34</a>
@@ -133,4 +133,4 @@ $(document).ready(function() {
 </body>
 </html>
 
-<!-- Stacey(2.3.0): 6744d2eb9669535fed465faac051f968 -->
+<!-- Stacey(2.3.0): 38a13905c2a33855a43887593e34a8e4 -->

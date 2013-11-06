@@ -111,15 +111,18 @@
 <div class="outside mast mastBottom">
 	<div class="inside summary">
 		<div>
-			<p>Musings from an in-house designer in New Jersey.<br><a href="/blog/is-this-thing-on/">More on what I write about</a><a href="../../?/feed/"><img src="http://i.tedgoas.com/icnRss.png" alt="RSS Feed" width="34" height="34"></a></p>
+			<p>Musings from an in-house designer in New Jersey.<br><a href="/blog/is-this-thing-on/">More on what I write about</a><br><a href="../../?/feed/"class="icnSocial rss"><i class="icon-rss"></i></a></p>
 			<ul><li class="r"></li><li class="y"></li><li class="g"></li><li class="b"></li><li class="p"></li></ul>
 		</div>
 	</div>
 </div>
 <div class="outside footer">
 	<div class="inside">
-		Made in New Jersey <span>&#9874;</span> <a href="/humans.txt" title="know the creators and contributors of this website">humans.txt</a>
-		<em>Trying to bring something to the table.</em>
+		<ul>
+			<li>This website is on <a href="https://github.com/TedGoas/Dante">GitHub</a> &bull; <a href="/humans.txt" title="know the creators and contributors of this website">humans.txt</a></li>
+			<li>Made in New Jersey</li>
+			<li><span>&#9874;</span></li>
+		</ul>
 	</div>
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
@@ -149,4 +152,4 @@ $(document).ready(function() {
 </body>
 </html>
 
-<!-- Stacey(2.3.0): 97c08f1d4ef9063105cd39fbd19a786c -->
+<!-- Stacey(2.3.0): fff14f732ff8a448db7c67b6ad199683 -->
