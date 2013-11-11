@@ -2,7 +2,7 @@ title: Feedback, Fidelity, and Edge Cases
 -
 date: November 10, 2013
 -
-summary: How to ask the right questions at the appropriate stage of design.
+summary: Giving feedback at the appropriate stage of design.
 -
 content:
 Imagine you’ve got an idea about how a feature could work and design a few mockups to help visualize it. Interactions are rudimentary, and odd scenarios haven’t been thought out yet, but that will come later. You just want to know if the concept is good.
@@ -36,4 +36,4 @@ Further reading:
 
 * [Feedback and Fidelity in Design](http://tuhin.co/feedback-fidelity-in-design.html)
 
-<a href="" class="medium">Also posted on Medium</a>
+<a href="https://medium.com/product-design/466c8543202f" class="medium">Also posted on Medium</a>
