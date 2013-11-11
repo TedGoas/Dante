@@ -1,0 +1,26 @@
+.blog .pic {
+  margin: 0;
+}
+.pic img {
+  width: 100%;
+  height: auto;
+}
+.main ol {
+  border-top: 2px solid #eee;
+  border-bottom: 2px solid #eee;
+  padding: 25px 0;
+  margin-bottom: 25px;
+}
+.main ol li {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 150px;
+}
+.main ol li strong {
+  display: block;
+  width: 150px;
+  float: left;
+  margin-left: -150px;
+  font-size: 80%;
+  text-transform: uppercase;
+}

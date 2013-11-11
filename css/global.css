@@ -92,20 +92,20 @@ li {
   list-style-type: none;
 }
 /* clearfix */
+.cf,
+.inside {
+  zoom: 1;
+}
 .cf:before,
-.cf:after,
 .inside:before,
+.cf:after,
 .inside:after {
-  content: "";
+  content: " ";
   display: table;
 }
 .cf:after,
 .inside:after {
   clear: both;
-}
-.cf,
-.inside {
-  zoom: 1;
 }
 /* LESS Variable and Mixins */
 /* Icons */
@@ -302,9 +302,7 @@ a:visited {
   color: #26ade4;
 }
 pre,
-code,
-kbd,
-samp {
+code {
   font-family: "American Typewriter", 'courier new', serif;
   font-size: 15px;
   color: #888;
@@ -331,7 +329,7 @@ hr {
   color: #fff;
   text-shadow: none;
 }
-/* Fading in Typekit fonts ala http://jonikorpi.com/a-smoother-page-load/ */
+/* Fading in Typekit fonts (helps with FOUT) ala http://jonikorpi.com/a-smoother-page-load/ */
 .wf-loading h1,
 .wf-loading h2,
 .wf-loading h3,
@@ -351,8 +349,7 @@ img {
   visibility: visible;
   /* Old IE */
 
-  -webkit-transition: opacity 0.12s ease-in-out;
-  transition: opacity 0.12s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
 }
 /* images */
 img {
@@ -448,16 +445,14 @@ body {
   text-transform: uppercase;
   margin-right: 5%;
 }
-.header li a {
+.header li a,
+.header li:visited {
   font-weight: 500;
+  color: #fff;
 }
 .header li.nSocial {
   float: right;
   margin: 0;
-}
-.header a,
-.header a:visited {
-  color: #fff;
 }
 .header li.nSocial a {
   display: inline-block;
@@ -491,18 +486,16 @@ a.menu-link {
 .home .main .inside p.intro {
   margin-right: 52.5%;
 }
-.home .main a,
-.home .main a:visited {
-  color: #fff;
-  border-bottom: 1px solid #444;
-}
-.home .main a:hover,
-.home .main a:focus,
-.home .main a:active {
-  border-color: #fff;
-}
 .home h1 {
   margin-top: 5%;
+}
+.home .main a,
+.home:visited,
+.home:hover,
+.home:focus,
+.home:active {
+  color: #fff;
+  border-bottom: 1px solid #666666;
 }
 .home .footer .inside,
 .home .footer a {
@@ -555,6 +548,7 @@ a.menu-link {
 }
 .skills img {
   float: left;
+  margin-top: 6px;
 }
 .skills h2 {
   margin-bottom: 50px;
@@ -578,8 +572,10 @@ a.menu-link {
   padding: 50px 0 0 2.5%;
   border-left: 1px solid #eee;
 }
-.skills img {
-  margin-top: 6px;
+.skills .exp p {
+  font-size: 15px;
+  line-height: 1.33;
+  margin-bottom: 50px;
 }
 .skills h3 {
   padding: 8px 0 8px 17px;
@@ -611,11 +607,6 @@ h3.more {
   color: #e4bc26;
   border-color: #e4bc26;
 }
-.exp p {
-  font-size: 15px;
-  line-height: 1.33;
-  margin-bottom: 50px;
-}
 /* Work Sections */
 .workNav a {
   position: fixed;
@@ -642,27 +633,29 @@ h3.more {
   text-align: left;
   font-size: 15px;
 }
-.next {
+.workNav .next {
   right: -3px;
   text-align: right;
   margin-right: -200px;
+}
+.workNav .next:hover {
+  margin: 0;
 }
 .workNav .next i {
   float: left;
   margin: -1px 0 0 -5px;
 }
-.prev {
+.workNav .prev {
   left: -3px;
   text-align: left;
   margin-left: -200px;
 }
+.workNav .prev:hover {
+  margin: 0;
+}
 .workNav .prev i {
   float: right;
   margin: -1px -5px 0 0;
-}
-.next:hover,
-.prev:hover {
-  margin: 0;
 }
 .work figure {
   line-height: 0;

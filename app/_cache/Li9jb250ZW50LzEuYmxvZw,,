@@ -61,6 +61,10 @@
 	<div class="inside">
 		<ul class="archive">
 							<li>
+				<a href="../blog/feedback-fidelity-and-edge-cases/" title="view the details">Feedback, Fidelity, and Edge Cases</a>
+				<small class="meta">November 10, 2013</small>
+			</li>
+					<li>
 				<a href="../blog/think-different-designed-with-windows/" title="view the details">Think Different: Designed with Windows</a>
 				<small class="meta">August 6, 2013</small>
 			</li>
@@ -133,4 +137,4 @@ $(document).ready(function() {
 </body>
 </html>
 
-<!-- Stacey(2.3.0): 38a13905c2a33855a43887593e34a8e4 -->
+<!-- Stacey(2.3.0): edcf619b12d033efe054fbe1aa447877 -->

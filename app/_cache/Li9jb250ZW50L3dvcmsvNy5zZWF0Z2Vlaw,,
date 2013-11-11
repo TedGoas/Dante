@@ -9,6 +9,7 @@
 <link rel="dns-prefetch" href="//www.google-analytics.com">
 <title>SeatGeek &infin; Ted Goas</title>
 <meta name="description" content="SeatGeek is a ticket search engine. They approached me with an established brand and well designed site. But their HTML emails needed help, and that's where I came in.">
+<link type="text/plain" rel="author" href="http://www.tedgoas.com/humans.txt">
 <link rel="stylesheet" href="/css/global.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="../../content/work/7.seatgeek/seatgeek.css" type="text/css" media="screen">
 
@@ -49,9 +50,9 @@
 	</div>
 </div>
 <div class="workNav">
-    <a href="../../work/aid/" title="next project" class="next"><span>&rarr;</span> Advancing Derm</a>
+    <a href="../../work/aid/" title="next project" class="next"><i class="icon-right-open-big"></i> Advancing Derm</a>
 
-    <a href="../../work/clinical-app/" title="previous project" class="prev">Clinical Web App <span>&larr;</span></a>
+    <a href="../../work/clinical-app/" title="previous project" class="prev">Clinical Web App <i class="icon-left-open-big"></i></a>
 
 
 </div>
@@ -105,8 +106,11 @@
 </div>
 <div class="outside footer">
 	<div class="inside">
-		Made in New Jersey <span>&#9874;</span> <a href="/humans.txt" title="know the creators and contributors of this website">humans.txt</a>
-		<em>Trying to bring something to the table.</em>
+		<ul>
+			<li>This website is on <a href="https://github.com/TedGoas/Dante">GitHub</a> &bull; <a href="/humans.txt" title="know the creators and contributors of this website">humans.txt</a></li>
+			<li>Made in New Jersey</li>
+			<li><span>&#9874;</span></li>
+		</ul>
 	</div>
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
@@ -135,4 +139,4 @@ $(document).ready(function() {
 </script>
 </body>
 </html>
-<!-- Stacey(2.3.0): d621fb99ede6bc685ef8dbf7e2ce28ae -->
+<!-- Stacey(2.3.0): d2a5bceca6407886629f90a1de91c9b3 -->
