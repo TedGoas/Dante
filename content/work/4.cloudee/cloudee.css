@@ -1,15 +1,1 @@
-.mast {
-  background: #e8ebeb;
-  background: #8fdfe3 url(i/mastCloudee.jpg) top center repeat;
-  padding: 2.5% 0 0 0;
-  border-bottom: 1px solid #ddd;
-}
-.mast .text {
-  width: 35%;
-}
-.work .imgl figure {
-  width: 50%;
-}
-.work .imgl .text {
-  width: 50%;
-}
+.mast{background:#e8ebeb;background:#8fdfe3 url(i/mastCloudee.jpg) top center repeat;padding:2.5% 0 0 0;border-bottom:1px solid #ddd}.mast .text{width:35%}.work .imgl figure{width:50%}.work .imgl .text{width:50%}
