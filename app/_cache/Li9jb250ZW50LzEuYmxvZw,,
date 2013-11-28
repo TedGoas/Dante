@@ -61,6 +61,10 @@
 	<div class="inside">
 		<ul class="archive">
 							<li>
+				<a href="../blog/cerberus-responsive-email-template/" title="view the details">Cerberus: Simple Patterns for Responsive Email</a>
+				<small class="meta">November 10000, 2013</small>
+			</li>
+					<li>
 				<a href="../blog/feedback-fidelity-and-edge-cases/" title="view the details">Feedback, Fidelity, and Edge Cases</a>
 				<small class="meta">November 10, 2013</small>
 			</li>
@@ -137,4 +141,4 @@ $(document).ready(function() {
 </body>
 </html>
 
-<!-- Stacey(2.3.0): edcf619b12d033efe054fbe1aa447877 -->
+<!-- Stacey(2.3.0): 795fd1628e96ef782c670861992366eb -->

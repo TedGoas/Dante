@@ -62,7 +62,7 @@
 
 <h3>Less Twitter</h3>
 
-<p>I treat Twitter mostly like an RSS feed. I was usually on it intermittently throughout the day and often found myself reading more than making. Now I rely more on things like <a href="http://sidebar.io">Sidebar.io</a> and Keir Whitaker's <a href="http://keirwhitaker.com/archive/categories/weekly-miscellany/">Weekly Miscellany</a> to summarize things. Instapaper helps too.</p>
+<p>I treat Twitter mostly like an RSS feed. I was usually on it intermittently throughout the day and often found myself reading more than making. Now I rely more on things like <a href="http://sidebar.io">Sidebar.io</a> to summarize things. Instapaper helps too.</p>
 
 <h3>More Writing</h3>
 
@@ -82,15 +82,15 @@
 
 <h3>Focus on a Visual Style</h3>
 
-<p>When it comes to aesthetics, I tend to explore a little too often. Exploration is good, but I plan on devoting more time a single direction. I’ve started by creating an HTML &amp; CSS visual kit, compartmentalized of course. I’ll open source it on GitHub when it’s mature.</p>
+<p>When it comes to aesthetics, I tend to explore a little too often. Exploration is good, but I plan on devoting more time a single direction. I started creating a collection of common interface componests in HTML &amp; CSS. If it ever matures, I’ll put it on GitHub.</p>
 
 <h3>More GitHub</h3>
 
-<p>I’d like to contribute more on GitHub. Graphical freebies are nice, but they’re only art. Working code is better.</p>
+<p>I’d like to contribute more on GitHub, on friend’s projects and my own. Graphical freebies are nice, but they’re only art. Working code is better.</p>
 
 <h3>House Cleaning</h3>
 
-<p>I’ll be going through my Dribbble and Twitter follow lists. My goal is to find folks treat these sites like more I do: Quality over quantity, reasonable signal vs. noise ratio, mature online etiquette.</p>
+<p>I’ll be going through my Dribbble and Twitter follow lists to find folks treat these sites like more I do: Quality over quantity, reasonable signal vs. noise ratio, mature online etiquette.</p>
 
 <h3>Be a Better Employee</h3>
 
@@ -109,15 +109,18 @@
 <div class="outside mast mastBottom">
 	<div class="inside summary">
 		<div>
-			<p>Musings from an in-house designer in New Jersey.<br><a href="/blog/is-this-thing-on/">More on what I write about</a><a href="../../?/feed/"><img src="http://i.tedgoas.com/icnRss.png" alt="RSS Feed" width="34" height="34"></a></p>
+			<p>Musings from an in-house designer in New Jersey.<br><a href="/blog/is-this-thing-on/">More on what I write about</a><br><a href="../../?/feed/" class="icnSocial rss"><i class="icon-rss"></i></a></p>
 			<ul><li class="r"></li><li class="y"></li><li class="g"></li><li class="b"></li><li class="p"></li></ul>
 		</div>
 	</div>
 </div>
 <div class="outside footer">
 	<div class="inside">
-		Made in New Jersey <span>&#9874;</span> <a href="/humans.txt" title="know the creators and contributors of this website">humans.txt</a>
-		<em>Trying to bring something to the table.</em>
+		<ul>
+			<li>This website is on <a href="https://github.com/TedGoas/Dante">GitHub</a> &bull; <a href="/humans.txt" title="know the creators and contributors of this website">humans.txt</a></li>
+			<li>Made in New Jersey</li>
+			<li><span>&#9874;</span></li>
+		</ul>
 	</div>
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
@@ -147,4 +150,4 @@ $(document).ready(function() {
 </body>
 </html>
 
-<!-- Stacey(2.3.0): 5d48028fb4744619770d224aa8170bbd -->
+<!-- Stacey(2.3.0): 32466233241bcadb5cfaf72854bfbea2 -->
