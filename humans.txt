@@ -15,8 +15,9 @@
 	Development: HTML by hand in Coda 2. CSS written in LESS and compliled locally into CSS. Stacey App is the content management system.
 	Local Environment: MAMP, GitHub Mac client, ImageOptim
 	Production Environment: Host Gator (Yes, really. They've been great!)
-	Deployment: This website is open-source on GitHub. Changes are committed to the main branch and then deployed to production via FTP using FTPloy. 
+	Deployment: This website is open-source on GitHub. Changes are committed to the master branch and deployed to production via FTP using FTPloy. 
 	Local Issue Tracking & To Do's: Wunderlist
+	Writing: Editorially
 
 /* RESOURCES */
 	Icons: Brankic1979 (http://www.brankic1979.com/icons)
