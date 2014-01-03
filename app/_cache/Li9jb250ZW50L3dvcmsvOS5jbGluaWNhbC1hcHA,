@@ -50,9 +50,9 @@
 	</div>
 </div>
 <div class="workNav">
-    <a href="../../work/seatgeek/" title="next project" class="next"><span>&rarr;</span> SeatGeek</a>
+    <a href="../../work/seatgeek/" title="next project" class="next"><i class="icon-right-open-big"></i> SeatGeek</a>
 
-    <a href="../../work/odds-and-ends/" title="previous project" class="prev">Odds & Ends <span>&larr;</span></a>
+    <a href="../../work/odds-and-ends/" title="previous project" class="prev">Odds & Ends <i class="icon-left-open-big"></i></a>
 
 
 </div>
@@ -127,21 +127,15 @@
 </div>
 <div class="outside footer">
 	<div class="inside">
-		Made in New Jersey <span>&#9874;</span> <a href="/humans.txt" title="know the creators and contributors of this website">humans.txt</a>
-		<em>Trying to bring something to the table.</em>
+		<ul>
+			<li>This website is on <a href="https://github.com/TedGoas/Dante">GitHub</a> &bull; <a href="/humans.txt" title="know the creators and contributors of this website">humans.txt</a></li>
+			<li>Made in New Jersey</li>
+			<li><span>&#9874;</span></li>
+		</ul>
 	</div>
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-<script>
-$(document).ready(function() {
-  var $menu = $('.header nav'),
-    $menulink = $('.menu-link');
-  $menulink.click(function() {
-	  $menulink.toggleClass('active');
-	  $menu.toggleClass('active');
-  return false;
-});});
-</script>
+<script src="/js/global.js"></script>
 <script>
 	var _gaq = _gaq || [];
  	_gaq.push(['_setAccount', 'UA-3248378-1']);
@@ -157,4 +151,4 @@ $(document).ready(function() {
 </script>
 </body>
 </html>
-<!-- Stacey(2.3.0): d099184bb544600e6042ebff09481361 -->
+<!-- Stacey(2.3.0): dae8b0cb57525814de529f2d426ca736 -->

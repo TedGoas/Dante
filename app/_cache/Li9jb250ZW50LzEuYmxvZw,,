@@ -61,6 +61,10 @@
 	<div class="inside">
 		<ul class="archive">
 							<li>
+				<a href="../blog/cerberus-responsive-email-templates/" title="view the details">Cerberus: Simple Patterns for Responsive Email</a>
+				<small class="meta">December 3, 2013</small>
+			</li>
+					<li>
 				<a href="../blog/feedback-fidelity-and-edge-cases/" title="view the details">Feedback, Fidelity, and Edge Cases</a>
 				<small class="meta">November 10, 2013</small>
 			</li>
@@ -111,16 +115,7 @@
 	</div>
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-<script>
-$(document).ready(function() {
-  var $menu = $('.header nav'),
-    $menulink = $('.menu-link');
-  $menulink.click(function() {
-	  $menulink.toggleClass('active');
-	  $menu.toggleClass('active');
-  return false;
-});});
-</script>
+<script src="/js/global.js"></script>
 <script>
 	var _gaq = _gaq || [];
  	_gaq.push(['_setAccount', 'UA-3248378-1']);
@@ -137,4 +132,4 @@ $(document).ready(function() {
 </body>
 </html>
 
-<!-- Stacey(2.3.0): 39be9f90e3126b642dbd2009a7e03161 -->
+<!-- Stacey(2.3.0): 3fc9e3d7604fd0180c0b024b520219af -->

@@ -146,16 +146,7 @@
 	</div>
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-<script>
-$(document).ready(function() {
-  var $menu = $('.header nav'),
-    $menulink = $('.menu-link');
-  $menulink.click(function() {
-	  $menulink.toggleClass('active');
-	  $menu.toggleClass('active');
-  return false;
-});});
-</script>
+<script src="/js/global.js"></script>
 <script>
 	var _gaq = _gaq || [];
  	_gaq.push(['_setAccount', 'UA-3248378-1']);
@@ -172,4 +163,4 @@ $(document).ready(function() {
 </body>
 </html>
 
-<!-- Stacey(2.3.0): aefe83fc180d0ea61827cc3ef1b9d41b -->
+<!-- Stacey(2.3.0): 3fc9e3d7604fd0180c0b024b520219af -->

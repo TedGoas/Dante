@@ -1,3 +1,12 @@
+$(document).ready(function() {
+  var $menu = $('.header nav'),
+    $menulink = $('.menu-link');
+  $menulink.click(function() {
+	  $menulink.toggleClass('active');
+	  $menu.toggleClass('active');
+  return false;
+});});
+
 // http://www.learningjquery.com/2007/10/improved-animated-scrolling-script-for-same-page-links
 $(document).ready(function(){
   $('.projects a').click(function() {
