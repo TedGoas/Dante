@@ -5,7 +5,7 @@ date: January 15, 2014
 summary: If you have the creative urge, it isn’t going to go away. But sometimes it takes a while before you accept the fact.
 -
 content:
-My wife and I are both creative. She’s a teacher/writer and I’m a designer. We both have aspirations outside of our day jobs. She wants to write and illustrate a children’s book. I want to expand my skills down the technology stack and contribute to undeserved industries like healthcare and education.
+My wife and I are both creative. She’s a teacher/writer and I’m a designer. We both have aspirations outside of our day jobs. She wants to write and illustrate a children’s book. I want to expand my skills down the technology stack and contribute to underserved industries like healthcare and education.
 
 > We’re both motivated to put in the time and effort to make these things happen.
 
