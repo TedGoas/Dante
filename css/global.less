@@ -215,7 +215,8 @@ strong,
 b {
 	font-weight: 700;
 }
-small {
+small,
+figcaption {
 	font-size: @fs-s;
 	line-height: 1;
 	opacity: .5;
@@ -936,7 +937,8 @@ img.email {
 	text-align: center;
 }
 .caption,
-small.meta {
+small.meta,
+figcaption {
 	text-align: center;
 	display: block;
 	margin-top: 10px;
@@ -967,6 +969,14 @@ small.meta {
 }
 div.twitter-tweet-rendered {
 	margin: 0 auto 1.5em;
+}
+.blog figure {
+	line-height: 1;
+}
+.blog figure.left.pull {
+	float: left;
+	margin: 0 5% 2.5% -15%;
+	max-width: 75%;
 }
 a.medium {
 	display: block;
@@ -1162,23 +1172,22 @@ a.medium:active {
 	.work .imgl .text,
 	.work .imgl figure,
 	.work .full .text,
-	.work .full figure
-	{
+	.work .full figure {
 		float: none;
 		width: 100% !important;
 	}
 	.work .mast {
 		background-image: none;
-		}
+	}
 	.mast h1 {
 		text-align: center;
-		}
+	}
 	.olay .mast h1 img {
 		width: 75%;
-		}
+	}
 	.sitelink {
 		text-align: center;
-		}
+	}
 	.idid {
 		display: block;
 		text-align: center;
@@ -1218,8 +1227,8 @@ a.medium:active {
 	.timeline li,
 	.timeline li:nth-child(even) {
 		margin: 50px 10px;
-	width: auto;
-		}
+		width: auto;
+	}
 	.timeline li:before,
 	.timeline li:nth-child(even):before {
 		left: -11px;
@@ -1237,6 +1246,10 @@ a.medium:active {
 	.blog .archive {
 		width: 90%;
 	}
+	.blog figure.left.pull {
+		margin-left: -9%;
+		max-width:60%;
+	}
 	.blog .summary div p {
 		white-space: normal;
 	}
@@ -1248,6 +1261,6 @@ a.medium:active {
 		display: block;
 		float: none;
 	}
+	
 }
-
 @import "print.less";

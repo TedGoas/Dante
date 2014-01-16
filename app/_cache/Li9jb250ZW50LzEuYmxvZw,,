@@ -31,7 +31,7 @@
 	<div class="inside">
 		<div class="wrap" id="wrap">
 			<nav>
-				<ul class="primary">
+				<ul>
 		 			<li class="nSocial">
 		 				<a href="http://www.twitter.com/tedgoas" title="What I'm saying" rel="external me" class="icnSocial twitter"><i class="icon-twitter"></i></a>
 		 				<a href="http://www.dribbble.com/tedgoas" title="What I'm designing" rel="external me" class="icnSocial dribbble"><i class="icon-dribbble-1"></i></a>
@@ -61,6 +61,10 @@
 	<div class="inside">
 		<ul class="archive">
 							<li>
+				<a href="../blog/hardest-part-of-being-creative-is-getting-used-to-it/" title="view the details">The Hardest Part of Being Creative is Getting Used To It</a>
+				<small class="meta">January 15, 2014</small>
+			</li>
+					<li>
 				<a href="../blog/cerberus-responsive-email-templates/" title="view the details">Cerberus: Simple Patterns for Responsive Email</a>
 				<small class="meta">December 3, 2013</small>
 			</li>
@@ -132,4 +136,4 @@
 </body>
 </html>
 
-<!-- Stacey(2.3.0): 3fc9e3d7604fd0180c0b024b520219af -->
+<!-- Stacey(2.3.0): 75886ee64476ad0fac76d6b4d1f43f95 -->

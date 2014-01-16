@@ -32,7 +32,7 @@
 	<div class="inside">
 		<div class="wrap" id="wrap">
 			<nav>
-				<ul class="primary">
+				<ul>
 		 			<li class="nSocial">
 		 				<a href="http://www.twitter.com/tedgoas" title="What I'm saying" rel="external me" class="icnSocial twitter"><i class="icon-twitter"></i></a>
 		 				<a href="http://www.dribbble.com/tedgoas" title="What I'm designing" rel="external me" class="icnSocial dribbble"><i class="icon-dribbble-1"></i></a>
@@ -114,4 +114,4 @@
 </script>
 </body>
 </html>
-<!-- Stacey(2.3.0): 4fc8faac76a294918860e3048caed02b -->
+<!-- Stacey(2.3.0): 75886ee64476ad0fac76d6b4d1f43f95 -->
