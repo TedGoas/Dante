@@ -16,8 +16,8 @@
 		get "/blog" do
 		foreach $children do
 			<li>
-				<a href="@url" title="view the details">@title</a>
-				<small class="meta">@date</small>
+				<a href="@url" title="view the details" class="u-url">@title</a>
+				<small class="meta dt-published">@date</small>
 			</li>
 		endforeach
 		end
