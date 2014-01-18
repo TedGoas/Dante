@@ -25,13 +25,21 @@
 <link rel="canonical" href="http://www.tedgoas.com/blog/cerberus-responsive-email-templates/">
 <link rel="meta" type="application/rdf+xml" title="Dublin" href="http://www.tedgoas.com/dublin.rdf">
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<meta name="twitter:site" content="http://www.tedgoas.com/blog/cerberus-responsive-email-templates/">
+<meta name="twitter:title" content="Cerberus: Simple Patterns for Responsive Email">
+<meta name="twitter:description" content="I made a few simple, but solid patterns for responsive HTML emails.">
+<meta name="twitter:creator" content="@tedgoas">
+<meta name="twitter:image" content="https://en.gravatar.com/userimage/69464/b78c0cbe7d1c4553f7afd9150017ef25.jpeg">
+<meta name="twitter:card" content="I made a few simple, but solid patterns for responsive HTML emails.">
+<meta name="twitter:image:src" content="../../content/1.blog/10.cerberus-responsive-email-templates/_hdr/cerberus.jpg:>
+
 </head>
 <body class="blog">
 <div class="outside header">
 	<div class="inside">
 		<div class="wrap" id="wrap">
 			<nav>
-				<ul class="primary">
+				<ul>
 		 			<li class="nSocial">
 		 				<a href="http://www.twitter.com/tedgoas" title="What I'm saying" rel="external me" class="icnSocial twitter"><i class="icon-twitter"></i></a>
 		 				<a href="http://www.dribbble.com/tedgoas" title="What I'm designing" rel="external me" class="icnSocial dribbble"><i class="icon-dribbble-1"></i></a>
@@ -52,10 +60,10 @@
 		<div class="pic"><img src="../../content/1.blog/10.cerberus-responsive-email-templates/_hdr/cerberus.jpg" alt="Cerberus: Simple Patterns for Responsive Email" class="fluid"></div>
 	
 	<div class="inside">
-		<article>
+		<article role="main" class="h-entry">
 			<header>
 				<h1>Cerberus: Simple Patterns for Responsive Email</h1>
-				<small class="meta">December 3, 2013</small>
+				<small class="meta dt-published">December 3, 2013</small>
 			</header>
 			<div class="article">
 				<p>TL;DR: I made another set of <a href="http://tedgoas.github.io/Cerberus/">responsive email templates</a>.</p>
@@ -116,16 +124,7 @@
 	</div>
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-<script>
-$(document).ready(function() {
-  var $menu = $('.header nav'),
-    $menulink = $('.menu-link');
-  $menulink.click(function() {
-	  $menulink.toggleClass('active');
-	  $menu.toggleClass('active');
-  return false;
-});});
-</script>
+<script src="/js/global.js"></script>
 <script>
 	var _gaq = _gaq || [];
  	_gaq.push(['_setAccount', 'UA-3248378-1']);
@@ -142,4 +141,4 @@ $(document).ready(function() {
 </body>
 </html>
 
-<!-- Stacey(2.3.0): 79663ffe58bd7e040842b66e3b16f9ea -->
+<!-- Stacey(2.3.0): 87ad0c2f77a504dc156622bcdf2b9dc5 -->

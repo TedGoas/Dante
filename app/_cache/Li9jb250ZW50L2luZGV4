@@ -25,6 +25,12 @@
 <link rel="canonical" href="http://www.tedgoas.com//">
 <link rel="meta" type="application/rdf+xml" title="Dublin" href="http://www.tedgoas.com/dublin.rdf">
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<meta name="twitter:site" content="@tedgoas">
+<meta name="twitter:title" content="Web Design + Front-End Development">
+<meta name="twitter:description" content="I'm a web designer and front-end developer working on websites, web interfaces, and HTML emails. I write code by hand and build with page speed in mind. I live and work in New Jersey.">
+<meta name="twitter:creator" content="@tedgoas" />
+<meta name="twitter:image" content="https://en.gravatar.com/userimage/69464/b78c0cbe7d1c4553f7afd9150017ef25.jpeg">
+<meta name="twitter:card" content="I'm a web designer and front-end developer working on websites, web interfaces, and HTML emails. I write code by hand and build with page speed in mind. I live and work in New Jersey." />
 </head>
 <body class="home">
 <div class="outside header">
@@ -85,4 +91,4 @@
 </script>
 </body>
 </html>
-<!-- Stacey(2.3.0): 75886ee64476ad0fac76d6b4d1f43f95 -->
+<!-- Stacey(2.3.0): 408444855b533df1fe5f321c58bc0d37 -->

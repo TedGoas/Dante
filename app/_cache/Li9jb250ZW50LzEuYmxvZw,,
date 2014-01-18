@@ -25,6 +25,12 @@
 <link rel="canonical" href="http://www.tedgoas.com/blog/">
 <link rel="meta" type="application/rdf+xml" title="Dublin" href="http://www.tedgoas.com/dublin.rdf">
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<meta name="twitter:site" content="@tedgoas">
+<meta name="twitter:title" content="In House Designer">
+<meta name="twitter:description" content="Stories from an in-house designer in New Jersey.">
+<meta name="twitter:creator" content="@tedgoas" />
+<meta name="twitter:image" content="https://en.gravatar.com/userimage/69464/b78c0cbe7d1c4553f7afd9150017ef25.jpeg">
+<meta name="twitter:card" content="Stories from an in-house designer in New Jersey." />
 </head>
 <body class="blog">
 <div class="outside header">
@@ -61,48 +67,48 @@
 	<div class="inside">
 		<ul class="archive">
 							<li>
-				<a href="../blog/hardest-part-of-being-creative-is-getting-used-to-it/" title="view the details">The Hardest Part of Being Creative is Getting Used To It</a>
-				<small class="meta">January 15, 2014</small>
+				<a href="../blog/hardest-part-of-being-creative-is-getting-used-to-it/" title="view the details" class="u-url">The Hardest Part of Being Creative is Getting Used To It</a>
+				<small class="meta dt-published">January 15, 2014</small>
 			</li>
 					<li>
-				<a href="../blog/cerberus-responsive-email-templates/" title="view the details">Cerberus: Simple Patterns for Responsive Email</a>
-				<small class="meta">December 3, 2013</small>
+				<a href="../blog/cerberus-responsive-email-templates/" title="view the details" class="u-url">Cerberus: Simple Patterns for Responsive Email</a>
+				<small class="meta dt-published">December 3, 2013</small>
 			</li>
 					<li>
-				<a href="../blog/feedback-fidelity-and-edge-cases/" title="view the details">Feedback, Fidelity, and Edge Cases</a>
-				<small class="meta">November 10, 2013</small>
+				<a href="../blog/feedback-fidelity-and-edge-cases/" title="view the details" class="u-url">Feedback, Fidelity, and Edge Cases</a>
+				<small class="meta dt-published">November 10, 2013</small>
 			</li>
 					<li>
-				<a href="../blog/think-different-designed-with-windows/" title="view the details">Think Different: Designed with Windows</a>
-				<small class="meta">August 6, 2013</small>
+				<a href="../blog/think-different-designed-with-windows/" title="view the details" class="u-url">Think Different: Designed with Windows</a>
+				<small class="meta dt-published">August 6, 2013</small>
 			</li>
 					<li>
-				<a href="../blog/34-for34/" title="view the details">34 for 34</a>
-				<small class="meta">July 8, 2013</small>
+				<a href="../blog/34-for34/" title="view the details" class="u-url">34 for 34</a>
+				<small class="meta dt-published">July 8, 2013</small>
 			</li>
 					<li>
-				<a href="../blog/hiring-and-the-black-box/" title="view the details">Hiring and the Black Box</a>
-				<small class="meta">March 14, 2013</small>
+				<a href="../blog/hiring-and-the-black-box/" title="view the details" class="u-url">Hiring and the Black Box</a>
+				<small class="meta dt-published">March 14, 2013</small>
 			</li>
 					<li>
-				<a href="../blog/performance-review/" title="view the details">My Performance Review</a>
-				<small class="meta">March 9, 2013</small>
+				<a href="../blog/performance-review/" title="view the details" class="u-url">My Performance Review</a>
+				<small class="meta dt-published">March 9, 2013</small>
 			</li>
 					<li>
-				<a href="../blog/design-as-a-resource/" title="view the details">Design as a Resource</a>
-				<small class="meta">December 28, 2012</small>
+				<a href="../blog/design-as-a-resource/" title="view the details" class="u-url">Design as a Resource</a>
+				<small class="meta dt-published">December 28, 2012</small>
 			</li>
 					<li>
-				<a href="../blog/i-work-for-free-or-at-my-full-rate/" title="view the details">I work for free or at my full rate</a>
-				<small class="meta">Nov 2, 2012</small>
+				<a href="../blog/i-work-for-free-or-at-my-full-rate/" title="view the details" class="u-url">I work for free or at my full rate</a>
+				<small class="meta dt-published">Nov 2, 2012</small>
 			</li>
 					<li>
-				<a href="../blog/an-open-letter-to-technical-recruiters/" title="view the details">An Open Letter to Technical Recruiters</a>
-				<small class="meta">May 16, 2012</small>
+				<a href="../blog/an-open-letter-to-technical-recruiters/" title="view the details" class="u-url">An Open Letter to Technical Recruiters</a>
+				<small class="meta dt-published">May 16, 2012</small>
 			</li>
 					<li>
-				<a href="../blog/is-this-thing-on/" title="view the details">Musings of an In House Designer</a>
-				<small class="meta">May 16, 2012</small>
+				<a href="../blog/is-this-thing-on/" title="view the details" class="u-url">Musings of an In House Designer</a>
+				<small class="meta dt-published">May 16, 2012</small>
 			</li>
 		
 		
@@ -136,4 +142,4 @@
 </body>
 </html>
 
-<!-- Stacey(2.3.0): 75886ee64476ad0fac76d6b4d1f43f95 -->
+<!-- Stacey(2.3.0): 408444855b533df1fe5f321c58bc0d37 -->
