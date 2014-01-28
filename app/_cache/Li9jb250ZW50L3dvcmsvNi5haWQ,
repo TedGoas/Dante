@@ -26,13 +26,20 @@
 <link rel="canonical" href="http://www.tedgoas.com/work/aid/">
 <link rel="meta" type="application/rdf+xml" title="Dublin" href="http://www.tedgoas.com/dublin.rdf">
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="http://www.tedgoas.com/work/aid/">
+<meta name="twitter:title" content="Advancing Derm">
+<meta name="twitter:description" content="Through Canfield, I designed and built two websites for Advancing Innovation in Dermatology, a non-profit comprised of some of the top names in Dermatology.">
+<meta name="twitter:creator" content="@tedgoas">
+<meta name="twitter:image" content="https://en.gravatar.com/userimage/69464/b78c0cbe7d1c4553f7afd9150017ef25.jpeg">
+<meta name="twitter:card" content="Through Canfield, I designed and built two websites for Advancing Innovation in Dermatology, a non-profit comprised of some of the top names in Dermatology.">
 </head>
 <body class="work aid">
 <div class="outside header">
 	<div class="inside">
 		<div class="wrap" id="wrap">
 			<nav>
-				<ul class="primary">
+				<ul>
 		 			<li class="nSocial">
 		 				<a href="http://www.twitter.com/tedgoas" title="What I'm saying" rel="external me" class="icnSocial twitter"><i class="icon-twitter"></i></a>
 		 				<a href="http://www.dribbble.com/tedgoas" title="What I'm designing" rel="external me" class="icnSocial dribbble"><i class="icon-dribbble-1"></i></a>
@@ -83,14 +90,14 @@
 				<p>From the kickoff meeting to post-launch updates, I played a lead role for building and populating the website.</p>
 				<p>A.I.D. is comprised of some of the top names in Dermatology. I worked closely with a number of members design a concept for the site and gather content. From there, I designed each screen in a quick, open fashion that allowed the team to see the most recent iterations and provide feedback.</p>
 			</div>
-			<figure><img src="/content/work/6.aid/i/aid-people.jpg" alt="Landing Page Design" width="700" height="636"></figure>
+			<figure data-scrollreveal="enter right and move 50px over .4s" ><img src="/content/work/6.aid/i/aid-people.jpg" alt="Landing Page Design" width="700" height="636"></figure>
 		</section>
 		<section class="cf full nobottom">
 			<div class="text">
 				<h2>The Conference</h2>
 				<p>I also planned, designed, and built the website for A.I.D.'s inaugural conference, which aims to build the next generation of successful dermatology companies. I had the same responsibilities listed above and worked with many of the same folks throughout the process.</p>
 			</div>
-			<figure><img src="/content/work/6.aid/i/derm-summit.jpg" alt="Homepage Design" width="1000" height="2050"></figure>
+			<figure data-scrollreveal="enter top and move 50px over .4s" ><img src="/content/work/6.aid/i/derm-summit.jpg" alt="Homepage Design" width="1000" height="2050"></figure>
 		</section>
 	</article>
 </div>
@@ -118,6 +125,7 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 </script>
+<script src="/js/scrollReveal.js"></script>
 </body>
 </html>
-<!-- Stacey(2.3.0): 4fc8faac76a294918860e3048caed02b -->
+<!-- Stacey(2.3.0): 423ca75e09f7d29d9e68ea00aa0eff3f -->

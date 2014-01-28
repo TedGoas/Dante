@@ -1,5 +1,5 @@
 title: Cloudee
 -
-summary: I was contacted by the guys at Boxee to help produce a series of mobile-focused HTML email templates for Cloudee, a new video-sharing service made for the iPhone.
+summary: I created a series of mobile-focused HTML email templates for Cloudee, a mobile video-sharing service from the team behind Boxee. Cloudee was <a href="http://gigaom.com/2013/09/18/cloudee-shut-down/">acquired</a> by Samsung in 2013.
 -
 byline: Share videos with family & close friends

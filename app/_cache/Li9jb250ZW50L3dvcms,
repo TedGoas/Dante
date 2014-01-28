@@ -26,6 +26,15 @@
 <link rel="canonical" href="http://www.tedgoas.com/work/">
 <link rel="meta" type="application/rdf+xml" title="Dublin" href="http://www.tedgoas.com/dublin.rdf">
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="http://www.tedgoas.com/work/">
+<meta name="twitter:title" content="Work">
+<meta name="twitter:description" content="<p>A few gigs and projects that I'm proud to have helped with.</p>
+">
+<meta name="twitter:creator" content="@tedgoas">
+<meta name="twitter:image" content="https://en.gravatar.com/userimage/69464/b78c0cbe7d1c4553f7afd9150017ef25.jpeg">
+<meta name="twitter:card" content="<p>A few gigs and projects that I'm proud to have helped with.</p>
+">
 </head>
 <body class="work">
 <div class="outside header">
@@ -184,4 +193,4 @@
 </body>
 </html>
 
-<!-- Stacey(2.3.0): 75886ee64476ad0fac76d6b4d1f43f95 -->
+<!-- Stacey(2.3.0): 299ea873e20b764e80a2ad0db9d3eead -->

@@ -26,13 +26,20 @@
 <link rel="canonical" href="http://www.tedgoas.com/work/seatgeek/">
 <link rel="meta" type="application/rdf+xml" title="Dublin" href="http://www.tedgoas.com/dublin.rdf">
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="http://www.tedgoas.com/work/seatgeek/">
+<meta name="twitter:title" content="SeatGeek">
+<meta name="twitter:description" content="SeatGeek is a ticket search engine. They approached me with an established brand and well designed site. But their HTML emails needed help, and that's where I came in.">
+<meta name="twitter:creator" content="@tedgoas">
+<meta name="twitter:image" content="https://en.gravatar.com/userimage/69464/b78c0cbe7d1c4553f7afd9150017ef25.jpeg">
+<meta name="twitter:card" content="SeatGeek is a ticket search engine. They approached me with an established brand and well designed site. But their HTML emails needed help, and that's where I came in.">
 </head>
 <body class="work seatgeek">
 <div class="outside header">
 	<div class="inside">
 		<div class="wrap" id="wrap">
 			<nav>
-				<ul class="primary">
+				<ul>
 		 			<li class="nSocial">
 		 				<a href="http://www.twitter.com/tedgoas" title="What I'm saying" rel="external me" class="icnSocial twitter"><i class="icon-twitter"></i></a>
 		 				<a href="http://www.dribbble.com/tedgoas" title="What I'm designing" rel="external me" class="icnSocial dribbble"><i class="icon-dribbble-1"></i></a>
@@ -83,7 +90,7 @@
 				<p>I worked with SeatGeek every step of the way. A typical project would start by discussing design concepts with <a href="https://twitter.com/jackgretz" rel="external Twitter" title="Jack on Twitter">Jack Groetzinger</a> and team, talking through goals and potential pitfalls. After coding and testing each template, I'd work with the engineers* to transform the code into a dynamic format and commit to SeatGeek's GitHub repo.</p>
 				<small>* SeatGeek's engineers are a smart bunch and rarely need my help!</small>
 			</div>
-			<figure><img src="/content/work/7.seatgeek/i/sgPriceAlert.jpg" alt="Transactional Email Template" width="675" height="800"></figure>
+			<figure data-scrollreveal="enter left and move 50px over .4s" ><img src="/content/work/7.seatgeek/i/sgPriceAlert.jpg" alt="Transactional Email Template" width="675" height="800"></figure>
 		</section>
 		<section class="cf imgr nobottom emerging">
 			<div class="text">
@@ -92,7 +99,7 @@
 				<p>I wrote extra media queries to condense multiple columns into a single one, center-justify content blocks, bump up text size, and other small tweaks that make emails easier to digest on a phone.</p>
 				<p>Responsive emails don't have to be boring!</p>
 			</div>
-			<figure><img src="/content/work/7.seatgeek/i/sgResponsive.jpg" alt="Responsive email design" width="675" height="850"></figure>
+			<figure data-scrollreveal="enter right and move 50px over .4s" ><img src="/content/work/7.seatgeek/i/sgResponsive.jpg" alt="Responsive email design" width="675" height="850"></figure>
 		</section>
 		<section class="cf imgl keynote nobottom">
 			<div class="text">
@@ -100,7 +107,7 @@
 				<p>When I was asked to redesign a Keynote presentation for the SeatGeek sales team, I hadn't had much experience working with Keynote. But I stepped out of my comfort zone and had a surprising amount of fun doing it.</p>
 				<p>I learned my way around Keynote's toolbox and was designing full-screen, sales-guy-editable slides in no time. SeatGeek's sales team was blown away with the upgrade and I fell in love with Keynote.</p>
 			</div>
-			<figure><img src="/content/work/7.seatgeek/i/sgKeynote.jpg" alt="Keynote Sesign" width="710" height="575"></figure>
+			<figure data-scrollreveal="enter left and move 50px over .4s" ><img src="/content/work/7.seatgeek/i/sgKeynote.jpg" alt="Keynote Sesign" width="710" height="575"></figure>
 		</section>
 	</article>
 </div>
@@ -128,6 +135,7 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 </script>
+<script src="/js/scrollReveal.js"></script>
 </body>
 </html>
-<!-- Stacey(2.3.0): 4fc8faac76a294918860e3048caed02b -->
+<!-- Stacey(2.3.0): c995dd3201112216ae5fae5b6eb0038b -->

@@ -26,13 +26,20 @@
 <link rel="canonical" href="http://www.tedgoas.com/work/personal/">
 <link rel="meta" type="application/rdf+xml" title="Dublin" href="http://www.tedgoas.com/dublin.rdf">
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="http://www.tedgoas.com/work/personal/">
+<meta name="twitter:title" content="Personal Projects">
+<meta name="twitter:description" content="A small collection of design explorations, prototypes, experiments, and open-source projects.">
+<meta name="twitter:creator" content="@tedgoas">
+<meta name="twitter:image" content="https://en.gravatar.com/userimage/69464/b78c0cbe7d1c4553f7afd9150017ef25.jpeg">
+<meta name="twitter:card" content="A small collection of design explorations, prototypes, experiments, and open-source projects.">
 </head>
 <body class="work olay">
 <div class="outside header">
 	<div class="inside">
 		<div class="wrap" id="wrap">
 			<nav>
-				<ul class="primary">
+				<ul>
 		 			<li class="nSocial">
 		 				<a href="http://www.twitter.com/tedgoas" title="What I'm saying" rel="external me" class="icnSocial twitter"><i class="icon-twitter"></i></a>
 		 				<a href="http://www.dribbble.com/tedgoas" title="What I'm designing" rel="external me" class="icnSocial dribbble"><i class="icon-dribbble-1"></i></a>
@@ -83,7 +90,7 @@
 				<p>This was too awesome to keep to myself.</p>
 				<p><a href="https://github.com/TedGoas/Responsive-Email-XX" class="btn github"><i class="icon-github"></i> View on GitHub</a></p>
 			</div>
-			<figure><a href="http://dribbble.com/shots/1024711-Responsive-Email-Wireframe"><img src="/content/work/5.personal/i/personalEmail.png" alt="Responsive Email diagram" width="700" height="700"></a></figure>
+			<figure data-scrollreveal="enter right and move 50px over .4s" ><a href="http://dribbble.com/shots/1024711-Responsive-Email-Wireframe"><img src="/content/work/5.personal/i/personalEmail.png" alt="Responsive Email diagram" width="700" height="700"></a></figure>
 		</section>
 		<section class="cf imgl nobottom support">
 			<div class="text">
@@ -92,7 +99,7 @@
 				<p>Written in JavaScript, the app is quite small and portable. It's already been forked into two other projects, proving to be quite useful to our support team.</p>
 				<p><a href="http://dribbble.com/shots/642658-Support-App-Rebound" class="btn dribbble"><i class="icon-dribbble-1"></i> View on dribbble</a></p>
 			</div>
-			<figure><a href="http://dribbble.com/shots/642658-Support-App-Rebound"><img src="/content/work/5.personal/i/oddsSupport.jpg" alt="Support App" width="700" height="363"></a></figure>
+			<figure data-scrollreveal="enter left and move 50px over .4s" ><a href="http://dribbble.com/shots/642658-Support-App-Rebound"><img src="/content/work/5.personal/i/oddsSupport.jpg" alt="Support App" width="700" height="363"></a></figure>
 		</section>
 		<section class="cf full">
 			<div class="text">
@@ -100,7 +107,7 @@
 				<p>I designed this to explore Microsoft's Metro design language. The concept below shows how busy each website is so someone can decide to either jump in or pass. It's not as much of an RSS syndicator as it is a customized dashboard. I never built of working version of this, but it was fun to experiment with this design style.</p>
 				<p><a href="http://dribbble.com/shots/714820-Metro-Dashboard/attachments/66934" title="view final on dribbble" class="btn dribbble"><i class="icon-dribbble-1"></i> View on dribbble</a></p>
 			</div>
-			<figure><a href="http://dribbble.com/shots/714820-Metro-Dashboard/attachments/66934" title="view final on dribbble"><img src="/content/work/5.personal/i/oddsDashboard.jpg" alt="Metro style Dashboard" class="fluid" width="1100" height="600"></a></figure>
+			<figure data-scrollreveal="enter top and move 50px over .4s" ><a href="http://dribbble.com/shots/714820-Metro-Dashboard/attachments/66934" title="view final on dribbble"><img src="/content/work/5.personal/i/oddsDashboard.jpg" alt="Metro style Dashboard" class="fluid" width="1100" height="600"></a></figure>
 		</section>
 	</article>
 </div>
@@ -128,6 +135,7 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 </script>
+<script src="/js/scrollReveal.js"></script>
 </body>
 </html>
-<!-- Stacey(2.3.0): 4fc8faac76a294918860e3048caed02b -->
+<!-- Stacey(2.3.0): 27e930a7d1d57a2cb0ca797d8d5ca6f2 -->

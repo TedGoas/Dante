@@ -8,7 +8,7 @@
 <link rel="dns-prefetch" href="http://ajax.googleapis.com">
 <link rel="dns-prefetch" href="//www.google-analytics.com">
 <title>Cloudee &infin; Ted Goas</title>
-<meta name="description" content="I was contacted by the guys at Boxee to help produce a series of mobile-focused HTML email templates for Cloudee, a new video-sharing service made for the iPhone.">
+<meta name="description" content="I created a series of mobile-focused HTML email templates for Cloudee, a mobile video-sharing service from the team behind Boxee. Cloudee was <a href="http://gigaom.com/2013/09/18/cloudee-shut-down/">acquired</a> by Samsung in 2013.">
 <link type="text/plain" rel="author" href="http://www.tedgoas.com/humans.txt">
 <link rel="stylesheet" href="/css/global.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="../../content/work/4.cloudee/cloudee.css" type="text/css" media="screen">
@@ -26,6 +26,13 @@
 <link rel="canonical" href="http://www.tedgoas.com/work/cloudee/">
 <link rel="meta" type="application/rdf+xml" title="Dublin" href="http://www.tedgoas.com/dublin.rdf">
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="http://www.tedgoas.com/work/cloudee/">
+<meta name="twitter:title" content="Cloudee">
+<meta name="twitter:description" content="I created a series of mobile-focused HTML email templates for Cloudee, a mobile video-sharing service from the team behind Boxee. Cloudee was <a href="http://gigaom.com/2013/09/18/cloudee-shut-down/">acquired</a> by Samsung in 2013.">
+<meta name="twitter:creator" content="@tedgoas">
+<meta name="twitter:image" content="https://en.gravatar.com/userimage/69464/b78c0cbe7d1c4553f7afd9150017ef25.jpeg">
+<meta name="twitter:card" content="I created a series of mobile-focused HTML email templates for Cloudee, a mobile video-sharing service from the team behind Boxee. Cloudee was <a href="http://gigaom.com/2013/09/18/cloudee-shut-down/">acquired</a> by Samsung in 2013.">
 </head>
 <body class="work cloudee">
 <div class="outside header">
@@ -60,7 +67,7 @@
 	<div class="inside">
 		<div class="text">
 			<h1><img src="/content/work/4.cloudee/i/logo.png" alt="Cloudee" width="265" height="58"></h1>
-			<p>I was contacted by the guys at Boxee to help produce a series of mobile-focused HTML email templates for Cloudee, a new video-sharing service made for the iPhone.</p>
+			<p>I created a series of mobile-focused HTML email templates for Cloudee, a mobile video-sharing service from the team behind Boxee. Cloudee was <a href="http://gigaom.com/2013/09/18/cloudee-shut-down/">acquired</a> by Samsung in 2013.</p>
 			<div class="idid">
 				<small>My Role</small>
 				<ul>
@@ -76,10 +83,11 @@
 		<section class="cf imgl nobottom">
 			<div class="text">
 				<h2>Mobile First Emails</h2>
-				<p>I worked with Cloudee's talented creative team to bring their designs to life.</p>
-				<p>Where necessary, we worked together to adjust each design based on <a href="http://www.campaignmonitor.com/css/" title="CSS Support in email clients" rel="external">CSS restrictions</a> of popular email clients.</p>
-				<p>After the designs were finalized, I coded and tested each HTML template in several major email clients on both desktop and small screen. Since Cloudee is a mobile app, displaying the emails well on small screens was important. I wrote media queries to adapt the layout in iOS Mail (iPhone + iPad), Android, and mobile Gmail.</p>
-				<img src="/i/emails.png" alt="email clients" class="fluid" height="55" width="350">
+				<p>I collaborated with Cloudee's creative team to transform their email designs into production-ready email code. We worked together to finalize the team's already solid designs, making minor adjustments to improve the consistency of how the emails display across the most used email clients.</p>
+				<p>After finalizing the designs, I coded the templates and bulletproofed them in a variety of web and email clients. The resulting emails were near pixel perfect across the board. Even in Outlook.</p>
+				<p>Being a mobile app, it was paramount that all Cloudee emails display well on small screens. Keeping in mind the original design, I wrote media queries to adapt each layout in iOS Mail and Android Email.</p>
+				<p><img src="/i/emails.png" alt="email clients" class="fluid" height="55" width="350"></p>
+				<p>The project concluded when both the creative director and Cloudee partners approved each template.</p>
 			</div>
 			<figure><img src="/content/work/4.cloudee/i/cloudeeEmailSm.jpg" alt="Softwre Update Email" width="500" height="800"></figure>
 		</section>
@@ -114,4 +122,4 @@
 </script>
 </body>
 </html>
-<!-- Stacey(2.3.0): 75886ee64476ad0fac76d6b4d1f43f95 -->
+<!-- Stacey(2.3.0): 973186b8cfefbba9a0f346eb7df55c66 -->
