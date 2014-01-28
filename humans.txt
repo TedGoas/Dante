@@ -13,8 +13,8 @@
 
 /* WORKFLOW */
 	Design: Photoshop, HTML & CSS.
-	Development: HTML, LESS CSS, JavaScipt written by hand in Coda. LESS is compliled locally using LESS.app for Mac.
-	CMS: Stacey App
+	Development: HTML, LESS CSS, JavaScipt written by hand in Coda. LESS is compiled locally using LESS.app for Mac.
+	CMS: Stacey, Version 2.3.0
 	Local Environment: MAMP
 	Production Environment: Host Gator (Yes, really. They've been great!)
 	Deployment: GitHub (+ GitHub Mac client), FTPloy (deployment from GitHub via FTP). 
