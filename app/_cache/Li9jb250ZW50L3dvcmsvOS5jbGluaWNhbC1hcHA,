@@ -78,7 +78,7 @@
 				</ul>
 			</div>
 		</div>
-		<figure data-scrollreveal="enter right and move 50px over .4s" ><img src="/content/work/9.clinical-app/i/canfield-login.png" alt="Login design" width="590" height="300"></figure>
+		<figure><img src="/content/work/9.clinical-app/i/canfield-login.png" alt="Login design" width="590" height="300"></figure>
 	</div>
 </div>
 <div class="outside">
@@ -159,4 +159,4 @@
 <script src="/js/scrollReveal.js"></script>
 </body>
 </html>
-<!-- Stacey(2.3.0): ae027860cbe9328029c0aab2f2828b3d -->
+<!-- Stacey(2.3.0): f68d07d71cba97796099cae3dff7cec5 -->

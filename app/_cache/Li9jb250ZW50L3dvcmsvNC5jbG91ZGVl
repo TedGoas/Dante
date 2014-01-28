@@ -89,10 +89,10 @@
 				<p><img src="/i/emails.png" alt="email clients" class="fluid" height="55" width="350"></p>
 				<p>The project concluded when both the creative director and Cloudee partners approved each template.</p>
 			</div>
-			<figure><img src="/content/work/4.cloudee/i/cloudeeEmailSm.jpg" alt="Softwre Update Email" width="500" height="800"></figure>
+			<figure data-scrollreveal="enter left and move 50px over .4s" ><img src="/content/work/4.cloudee/i/cloudeeEmailSm.jpg" alt="Softwre Update Email" width="500" height="800"></figure>
 		</section>
 		<section class="cf full nobottom">
-			<figure><img src="/content/work/4.cloudee/i/cloudee-series.jpg" alt="Cloudee series of emails" width="1000" height="500"></figure>
+			<figure data-scrollreveal="enter top and move 50px over .4s" ><img src="/content/work/4.cloudee/i/cloudee-series.jpg" alt="Cloudee series of emails" width="1000" height="500"></figure>
 		</section>
 	</article>
 </div>
@@ -120,6 +120,7 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 </script>
+<script src="/js/scrollReveal.js"></script>
 </body>
 </html>
-<!-- Stacey(2.3.0): 973186b8cfefbba9a0f346eb7df55c66 -->
+<!-- Stacey(2.3.0): f68d07d71cba97796099cae3dff7cec5 -->
