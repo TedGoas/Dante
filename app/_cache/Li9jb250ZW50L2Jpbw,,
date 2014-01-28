@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+<link rel="dns-prefetch" href="//use.typekit.net">
+<link rel="dns-prefetch" href="http://ajax.googleapis.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<title>Bio &infin; Ted Goas</title>
+<meta name="description" content="A few things that helped shape who I am today.">
+<link type="text/plain" rel="author" href="http://www.tedgoas.com/humans.txt">
+<link rel="stylesheet" href="/css/global.css" type="text/css" media="screen">
+
+<script type="text/javascript">
+  (function() {
+    var config = {
+      kitId: 'vzj5lsm',
+      scriptTimeout: 3000
+    };
+    var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/(\s|^)wf-loading(\s|$)/g," ");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script"),d=false;tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(d||a&&a!="complete"&&a!="loaded")return;d=true;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
+  })();
+</script>
+<link rel="alternate" type="application/atom+xml" href="../?/feed/">
+<link rel="canonical" href="http://www.tedgoas.com/bio/">
+<link rel="meta" type="application/rdf+xml" title="Dublin" href="http://www.tedgoas.com/dublin.rdf">
+<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="http://www.tedgoas.com/bio/">
+<meta name="twitter:title" content="Bio">
+<meta name="twitter:description" content="A few things that helped shape who I am today.">
+<meta name="twitter:creator" content="@tedgoas">
+<meta name="twitter:image" content="https://en.gravatar.com/userimage/69464/b78c0cbe7d1c4553f7afd9150017ef25.jpeg">
+<meta name="twitter:card" content="A few things that helped shape who I am today.">
+</head>
+<body class="bio">
+<div class="outside header">
+	<div class="inside">
+		<div class="wrap" id="wrap">
+			<nav>
+				<ul>
+		 			<li class="nSocial">
+		 				<a href="http://www.twitter.com/tedgoas" title="What I'm saying" rel="external me" class="icnSocial twitter"><i class="icon-twitter"></i></a>
+		 				<a href="http://www.dribbble.com/tedgoas" title="What I'm designing" rel="external me" class="icnSocial dribbble"><i class="icon-dribbble-1"></i></a>
+		 				<a href="http://www.github.com/tedgoas" title="What I'm coding" rel="external me" class="icnSocial github"><i class="icon-github"></i></a>
+		 			</li>
+					<li class="nHome"><a href="/" title="home" rel="home" class="ted">Ted Goas</a></li>
+					<li class="nWork"><a href="/work" title="portfolio work">Work</a></li>
+					<li class="nContact"><a href="/contact" title="contact and availability">Contact</a></li>
+					<li class="nBio"><a href="/bio" title="about me">Bio</a></li>
+					<li class="nBlog"><a href="/blog" title="blog">Blog</a></li>
+		 		</ul>
+		 	</nav>
+			<a href="#menu" class="menu-link"><i class="icon-menu"></i> Menu</a>
+		</div>
+	</div>
+</div>
+<div class="outside mast">
+	<div class="inside summary">
+		<p>A few things that helped shape who I am today.</p>
+	</div>
+</div>
+<div class="outside timeline">
+	<div class="inside">
+		<ul>
+			<li class="red">
+				<span>&#8216;79 <img src="http://i.tedgoas.com/icn-diamond.png" width="51" height="53"></span>
+				<div>
+					<img src="http://i.tedgoas.com/bioBorn.jpg" alt="Born" width="450" height="300" class="fluid">
+				</div>
+				<p>I was born on my mother&#8217;s 30th birthday. What are the odds?</p>
+			</li>
+			<li class="purple">
+				<span>&#8216;85 <img src="http://i.tedgoas.com/icn-diamond.png" width="51" height="53"></span>
+				<div>
+					<img src="http://i.tedgoas.com/bioSoccer.jpg" alt="playing soccer" width="450" height="300" class="fluid">
+				</div>
+				<p>Growing up, my parents involved me in a lot of organized sports. I played a little of everything, but got a heavy dose of soccer and hockey.</p>
+			</li>
+			<li class="blue">
+				<span>&#8216;94 <img src="http://i.tedgoas.com/icn-diamond.png" width="51" height="53"></span>
+				<div>
+					<img src="http://i.tedgoas.com/bioStreetFighter.jpg" alt="Street Fighter II" width="450" height="300" class="fluid">
+				</div>
+				<p>Early 90&#8217;s rock. NY Rangers win The Stanley Cup. Street Fighter II. The early 90&#8217;s were my favorite moment in pop culture.</p>
+			</li>
+			<li class="red">
+				<span>&#8216;97 <img src="http://i.tedgoas.com/icn-diamond.png" width="51" height="53"></span>
+				<div>
+					<img src="http://i.tedgoas.com/bioMarist.jpg" alt="Marist College" width="450" height="300" class="fluid">
+				</div>
+				<p>I attended Marist College in NY. I began in Computer Science, but after a year of software programming I changed majors to graphics and design. I graduated in four years despite the switch.</p>
+			</li>
+			<li class="green">
+				<span>&#8216;02 <img src="http://i.tedgoas.com/icn-diamond.png" width="51" height="53"></span>
+				<div>
+					<img src="http://i.tedgoas.com/bioCSS.jpg" alt="css zen garden" width="450" height="300" class="fluid">
+				</div>
+				<p>I discovered <a href="http://www.csszengarden.com/">CSS Zen Garden</a> and taught myself advanced CSS. I started working more off hours and my job started to become a hobby.</p>
+			</li>
+			<li class="blue">
+				<span>&#8216;04 <img src="http://i.tedgoas.com/icn-diamond.png" width="51" height="53"></span>
+				<div>
+					<img src="http://i.tedgoas.com/bioSaraTed.jpg" alt="Sara and Ted" width="450" height="300" class="fluid">
+				</div>
+				<p>I met a girl. One that makes me a better person and whom I consider my intellectual superior. Sara and I began dating.</p>
+			</li>
+			<li class="red">
+				<span>&#8216;05 <img src="http://i.tedgoas.com/icn-diamond.png" width="51" height="53"></span>
+				<div>
+					<img src="http://i.tedgoas.com/bioArizona.jpg" alt="Arizona" width="450" height="300" class="fluid">
+				</div>
+				<p>Sara and I moved to Arizona and earned post-grad degrees. I (finally) learned to question tradition and everything in my life started falling into place.</p>
+			</li>
+			<li class="green">
+				<span>&#8216;07 <img src="http://i.tedgoas.com/icn-diamond.png" width="51" height="53"></span>
+				<div>
+					<img src="http://i.tedgoas.com/bioCode.jpg" alt="code" width="450" height="300" class="fluid">
+				</div>
+				<p>I continued to grow as a designer / developer hybrid, but also got pretty good at designing and coding HTML emails. I also began tinkering with website performance.</p>
+			</li>
+			<li class="blue">
+				<span>&#8216;09 <img src="http://i.tedgoas.com/icn-diamond.png" width="51" height="53"></span>
+				<div>
+					<img src="http://i.tedgoas.com/bioSara.jpg" alt="Sara" width="450" height="300" class="fluid">
+				</div>
+				<p>After three years in Arizona, Sara and I moved back to New Jersey, bought a house, and tied the knot. My best friend is now my partner for life.</p>
+			</li>
+			<li class="red">
+				<span>&#8216;10 <img src="http://i.tedgoas.com/icn-diamond.png" width="51" height="53"></span>
+				<div>
+					<img src="http://i.tedgoas.com/bioCanfield.jpg" alt="Canfield Scientific" width="450" height="300" class="fluid">
+				</div>
+				<p>I landed my current job as a designer at Canfield Scientific, a biotechnology &amp; pharmaceutical company in New Jersey. I spend my days building web products in an industry that sorely needs thoughtful design.</p>
+			</li>
+			<li class="purple">
+				<span>&#8216;12 <img src="http://i.tedgoas.com/icn-diamond.png" width="51" height="53"></span>
+				<div>
+					<img src="http://i.tedgoas.com/bioSebastian.jpg" alt="Sebastian" width="450" height="300" class="fluid">
+				</div>
+				<p>Our first child, Sebastian, arrives! We&#8217;re still getting the hang of the whole parenting thing&#8230;</p>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="outside footer">
+	<div class="inside">
+		<ul>
+			<li>This website is on <a href="https://github.com/TedGoas/Dante">GitHub</a> &bull; <a href="/humans.txt" title="know the creators and contributors of this website">humans.txt</a></li>
+			<li>Made in New Jersey</li>
+			<li><span>&#9874;</span></li>
+		</ul>
+	</div>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script src="/js/global.js"></script>
+<script>
+	var _gaq = _gaq || [];
+ 	_gaq.push(['_setAccount', 'UA-3248378-1']);
+ 	_gaq.push(['_setDomainName', '.tedgoas.com']);
+ 	_gaq.push(['_setAllowHash', 'false']);
+ 	_gaq.push(['_trackPageview']);
+	_gaq.push(['_trackPageLoadTime']);
+	(function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>
+
+<!-- Stacey(2.3.0): f68d07d71cba97796099cae3dff7cec5 -->
