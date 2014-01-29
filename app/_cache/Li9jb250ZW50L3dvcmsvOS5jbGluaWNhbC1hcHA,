@@ -8,7 +8,7 @@
 <link rel="dns-prefetch" href="http://ajax.googleapis.com">
 <link rel="dns-prefetch" href="//www.google-analytics.com">
 <title>Clinical Web App &infin; Ted Goas</title>
-<meta name="description" content="Canfield's clinical web app helps pharmaceutical companies organize trials and keep track of their results. I'm the lead designer and front-end developer on the product, which we continually improve and expand.">
+<meta name="description" content="Canfield's clinical web app helps pharmaceutical companies organize trials and keep track of their results. I'm the lead designer and front-end developer on the product, which we actively maintain and expand.">
 <link type="text/plain" rel="author" href="http://www.tedgoas.com/humans.txt">
 <link rel="stylesheet" href="/css/global.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="../../content/work/9.clinical-app/clinical.css" type="text/css" media="screen">
@@ -29,10 +29,10 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="http://www.tedgoas.com/work/clinical-app/">
 <meta name="twitter:title" content="Clinical Web App">
-<meta name="twitter:description" content="Canfield's clinical web app helps pharmaceutical companies organize trials and keep track of their results. I'm the lead designer and front-end developer on the product, which we continually improve and expand.">
+<meta name="twitter:description" content="Canfield's clinical web app helps pharmaceutical companies organize trials and keep track of their results. I'm the lead designer and front-end developer on the product, which we actively maintain and expand.">
 <meta name="twitter:creator" content="@tedgoas">
 <meta name="twitter:image" content="https://en.gravatar.com/userimage/69464/b78c0cbe7d1c4553f7afd9150017ef25.jpeg">
-<meta name="twitter:card" content="Canfield's clinical web app helps pharmaceutical companies organize trials and keep track of their results. I'm the lead designer and front-end developer on the product, which we continually improve and expand.">
+<meta name="twitter:card" content="Canfield's clinical web app helps pharmaceutical companies organize trials and keep track of their results. I'm the lead designer and front-end developer on the product, which we actively maintain and expand.">
 </head>
 <body class="work clinical">
 <div class="outside header">
@@ -67,7 +67,7 @@
 	<div class="inside">
 		<div class="text">
 			<h1><img src="/content/work/9.clinical-app/i/logo.png" alt="Clinical Web App" width="275" height="37"></h1>
-			<p>Canfield's clinical web app helps pharmaceutical companies organize trials and keep track of their results. I'm the lead designer and front-end developer on the product, which we continually improve and expand.</p>
+			<p>Canfield's clinical web app helps pharmaceutical companies organize trials and keep track of their results. I'm the lead designer and front-end developer on the product, which we actively maintain and expand.</p>
 			<span class="note">* Most of the app is confidential and contains sensitive types of data, so I'll focus on the process of designing and building it rather than what the app actually does.</span>
 			<div class="idid">
 				<small>My Role</small>
@@ -86,23 +86,32 @@
 		<section class="cf imgl">
 			<div class="text">
 				<h2>Research + Wireframes. Lots of Wireframes.</h2>
-				<p>When we started planning, a a clinical trial's process involved fax machines, snail-mailing flash drives, emailing large PDFs, and phone calls. The main goal was to bring several aspects of the clinical trial process online, and to design an experience that our clients wouldn’t be able to live without.</p>
-				<p>A barebones version of the web app already existed, so we had users and some web analytics. We conducted an exhaustive amount of interviews, combed through the analytics, and proposed a number of new approaches for the interface and functionality. This resulted in numerous sets of site maps and wireframes, which we frequently presented and debated both inside and outside the team.</p>
+				<p>When we started, a basic yet functional web app already existed. But despite having access to our app, most of our clients completed their tasks using fax machines, snail-mail, emails (with super-large attachments), and the phone. Our main goal was to bring all aspects of the clinical trial process online using Canfield's web app. So we set out to design a first class experience that our clients wouldn’t be able to live without.</p>
+				<p>Our team combed through app's the analytics, conducted an exhaustive amount of user interviews, and proposed a number of new approaches for the interface and functionality. I created numerous sets of site maps and wireframes, which we frequently presented and debated both inside and outside the team.</p>
 			</div>
-			<figure data-scrollreveal="enter left and move 50px over .4s" ><img src="/content/work/9.clinical-app/i/canfield-wireframe.jpg" alt="wireframes" width="600" height="650"></figure>
+			<figure data-scrollreveal="enter left and move 50px over .4s" >
+				<img src="/content/work/9.clinical-app/i/canfield-wireframe.jpg" alt="wireframes" width="600" height="650">
+				<figcaption>I went through two Field Notes books and used three different wireframing apps.</figcaption>
+			</figure>
 		</section>
 		<section class="cf full">
 			<div class="text">
-				<h2>Design, Iterate, Iterate, Iterate</h2>
-				<p>Once we got a few wireframes nailed down, I began creating higher fidelity versions in Photoshop, and soon thereafter in HTML &amp; CSS. While the app has just a handful of screens, each one has a seemingly infinite number of states and edge cases to account for. Things like oversized photos, missing text fields, and uploads with long file names would often break layouts and force us to rethink and adapt the design. We had the benefit of designing with real content, so used it to test each screen in a myriad of browsers until we were confident in the design's sturdiness.</p>
+				<h2>Design, Iterate, <del>Iterate</del>, <del>Repeat</del>, <del>Go Over</del>, Iterate</h2>
+				<div class="halves cf">
+					<p>Once we got a few wireframes nailed down, I moved into Photoshop and HTML/CSS/JavaScript. I used Photoshop to create a few layouts, but used it mostly to design the site's visual language. We had real content available to us, so we made our mockups in markup and started feeding them with data to see how our wireframes held up.</p>
+					<p>While the app has just a handful of screens, each one has a seemingly infinite number of states and edge cases to account for. Things like oversized photos, missing text fields, and long file names would often break layouts and force us to adapt the design. We uncovered a ton of edge cases and iterated on each screen until we had a sturdy design.</p>
+				</div>
 			</div>
-			<figure data-scrollreveal="enter top and move 50px over .4s" ><img src="/content/work/9.clinical-app/i/canfield-evolution.jpg" alt="evolution of the interface and UI design" width="1000" height="500"></figure>
+			<figure data-scrollreveal="enter top and move 50px over .4s" >
+				<img src="/content/work/9.clinical-app/i/canfield-evolution.jpg" alt="evolution of the interface and UI design" width="1000" height="500">
+			</figure>
 		</section>
 		<section class="cf imgr">
 			<div class="text">
 				<h2>Fine Tuning &amp Bulletproofing</h2>
-				<p>With the interface in place and each function working, we focused on improving each individual task. We looked at the the product's four or five user roles (personas, if you will) and revisited their typical website session, the tasks they're interested in, and how they complete them. All along, we looked for ways to improve each interaction and improve the flow. The number of ‘small wins’ we made at this stage really added up.</p>
-				<p>We had been browser testing along the way, but at this stage we really submerged ourselves in it until every bug was worked out, from the iPad3 down to Internet Explorer 6. The app also makes heavy use of print stylesheets. Every page prints clearly. Even the lightboxes. Even in IE6.</p>
+				<p>With the interface in place and the back-end coming together, we shifted our focus to improving the experience of the most common tasks.</p>
+				<p>Using the product's four or five user roles (personas, if you will), we revisited their typical website session and the tasks they're interested in. We looked for ways to improve each interaction and improve the flow of completing common tasks. The number of ‘small wins’ we made at this stage really added up.</p>
+				<p>We had been browser testing along the way, but this was the stage we really submerged ourselves in it until every bug was worked out, from the iPad3 down to Internet Explorer 6. The app also makes heavy use of print stylesheets. Every page prints clearly. Even the lightbox modals. Even in IE6.</p>
 				<img src="http://i.tedgoas.com/browsers.png" alt="supported browsers" width="150" height="50">
 			</div>
 			<figure data-scrollreveal="enter right and move 50px over .4s" ><img src="/content/work/9.clinical-app/i/canfield-dcf.jpg" alt="online issue tracking" width="600" height="544"></figure>
@@ -110,23 +119,24 @@
 		<section class="cf imgr nobottom">
 			<div class="text">
 				<h2>Release Party</h2>
-				<p>After fixing every bug and double-checking every browser, we could see the fruits of our labor taking shape. But we still had one large problem to address before the big unveil: announcing a website overhaul to a conservative, non-technical user base. <em>gasp!</em></p>
+				<p>After fixing every bug and double-checking every browser, we could see the fruits of our labor taking shape. But we still had one large problem to address before the big unveil: announcing a website overhaul to a conservative, non-technical user base. <em>Gasp!</em></p>
 				<p><img src="/i/logo-cm.png" alt="Campaign Monitor" width="187" height="65"></p>
-				<p>We did this in several waves. First we designed and sent an HTML email announcing the imminent changes (sent with Campaign Monitor). Next, we updated our in-site support docs with new screenshots and training on features. When we pushed the updated site live, we did it after hours (most of our users are in North America) with the whole web team present to put out fires. As one last measure of support, the development team (myself included) worked as customer support for a while.</p>
+				<p>We decided to do this in several waves. First I designed and sent an HTML email announcing the imminent changes (sent with Campaign Monitor). Next, we updated our support docs with new visual aids and training on features. When we finally pushed the updates live, we did it after hours (most of our users are in North America) with the whole web team present to put out fires. As one last measure of support, the development team (myself included) helped field customer support issues for a while.</p>
 			</div>
 			<figure data-scrollreveal="enter right and move 50px over .4s" ><img src="/content/work/9.clinical-app/i/canfield-email.jpg" alt="HTML Email" width="600" height="756"></figure>
 		</section>
 		<section class="cf imgl nobottom ui">
 			<div class="text">
 				<h2>A Scalable Interface Language</h2>
-				<p>As we planned and prototyped new features, I consolidated the app's interface elements and organized them into HTML &amp; CSS classes that can be mixed and matched. This sped up the design process, made interface elements more consistent, and created easy-to-use design patterns for our back-end developers.</p>
+				<p>As we continued building, I consolidated and organized the app's interface elements into HTML &amp; CSS classes that can be mixed and matched. This gave everything a consistent look, gave back-end developers easy-to-use code blocks to use, and sped up the design process.</p>
 			</div>
 			<figure data-scrollreveal="enter left and move 50px over .4s" ><img src="/content/work/9.clinical-app/i/canfield-ui.jpg" alt="Design Style Guide" width="700" height="700"></figure>
 		</section>
 		<section class="cf full nobottom">
 			<div class="text">
 				<h2>The Website is Alive!</h2>
-				<p>In the weeks after the launch, we received an overwhelmingly positive response from our users. Comments ranged from &#8220;The website is more useful now&#8221; to &#8220;the website is simply a pleasure to use&#8221;. But one of the most rewarding aspects of working on this app is that it's evolving, we work on it frequently throughout each year, and I'm helping guide its course.</p>
+				<p>In the weeks after the launch, we received an overwhelmingly positive response from our clients. Comments ranged from &#8220;The website is more useful now&#8221; to &#8220;the website is simply a pleasure to use&#8221;. I think someone even referred to it as the &#8220;Cadillac&#8221; of websites (which is good, right?).</p>
+				<p>But one of the most rewarding aspects of working on this app is that it's evolving. We work on it every month and I'm helping guide its course.</p>
 			</div>
 			<figure data-scrollreveal="enter top and move 50px over .4s" ><img src="/content/work/9.clinical-app/i/clinical-dashboard.png" alt="Dashboard Design" width="1000" height="900"></figure>
 		</section>
@@ -159,4 +169,4 @@
 <script src="/js/scrollReveal.js"></script>
 </body>
 </html>
-<!-- Stacey(2.3.0): f68d07d71cba97796099cae3dff7cec5 -->
+<!-- Stacey(2.3.0): a006e757b7e3d9b2fa99b68c7ebad456 -->
