@@ -8,7 +8,7 @@
 <link rel="dns-prefetch" href="http://ajax.googleapis.com">
 <link rel="dns-prefetch" href="//www.google-analytics.com">
 <title>Personal Projects &infin; Ted Goas</title>
-<meta name="description" content="A small collection of design explorations, prototypes, experiments, and open-source projects.">
+<meta name="description" content="A small collection of design explorations, prototypes, experiments, and open-source projects that I'm proud of.">
 <link type="text/plain" rel="author" href="http://www.tedgoas.com/humans.txt">
 <link rel="stylesheet" href="/css/global.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="../../content/work/5.personal/workPersonal.css" type="text/css" media="screen">
@@ -29,10 +29,10 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="http://www.tedgoas.com/work/personal/">
 <meta name="twitter:title" content="Personal Projects">
-<meta name="twitter:description" content="A small collection of design explorations, prototypes, experiments, and open-source projects.">
+<meta name="twitter:description" content="A small collection of design explorations, prototypes, experiments, and open-source projects that I'm proud of.">
 <meta name="twitter:creator" content="@tedgoas">
 <meta name="twitter:image" content="https://en.gravatar.com/userimage/69464/b78c0cbe7d1c4553f7afd9150017ef25.jpeg">
-<meta name="twitter:card" content="A small collection of design explorations, prototypes, experiments, and open-source projects.">
+<meta name="twitter:card" content="A small collection of design explorations, prototypes, experiments, and open-source projects that I'm proud of.">
 </head>
 <body class="work olay">
 <div class="outside header">
@@ -67,7 +67,7 @@
 	<div class="inside">
 		<div class="text">
 			<h1>Personal Projects</h1>
-			<p>A small collection of design explorations, prototypes, experiments, and open-source projects.</p>
+			<p>A small collection of design explorations, prototypes, experiments, and open-source projects that I'm proud of.</p>
 			<div class="idid">
 				<small>My Role</small>
 				<ul>
@@ -82,32 +82,44 @@
 </div>
 <div class="outside">
 	<article class="inside">
-		<section class="cf imgr nobottom email">
+		<section class="cf imgr email">
 			<div class="text">
-				<h2>Responsive Emails</h2>
-				<p> I started coding responsive emails in early 2013, but after creating a few templates I noticed that I'd reinvented the wheel with each one. So I created a master template that contains a few layout ideas for HTML emails that adapt to small screens and respond to breakpoints.</p>
-				<p>It also includes workarounds for a few HTML email gotchas in such as dodgy box model support in Hotmail, auto-detected links in Yahoo!, and background images in Outlook. With most of my best-practices in this one template, I started most of my emails using the template, ripping out what I didn't need and customizing the rest.</p>
-				<p>This was too awesome to keep to myself.</p>
-				<p><a href="https://github.com/TedGoas/Responsive-Email-XX" class="btn github"><i class="icon-github"></i> View on GitHub</a></p>
+				<h2>Responsive Email XX</h2>
+				<p>I started coding responsive emails in early 2013, but after creating a few templates I noticed that I'd reinvented the wheel each time. So I created a master template with a few layout ideas that adapt to small screens using media queries. I also included workarounds for common HTML email gotchas such as dodgy box model support in Outlook, auto-detected links in Yahoo!, and background images in Gmail.</p>
+				<p>With most of my best-practices in one template, I creating a solid starting point for new emails. I simply ripped out what I didn't need and customized the rest.</p>
+				<p>This was too awesome to keep to myself, so I named it <strong>Responsive Email XX</strong> (mostly because I was drinking Dos Equis while writing it), and put it up on GitHub.</p>
+				<p><a href="https://github.com/TedGoas/Responsive-Email-XX" class="btn github"><i class="icon-github"></i> View on GitHub</a> <a href="http://dribbble.com/shots/1188413-Responsive-Email" class="btn dribbble"><i class="icon-dribbble-1"></i> View on dribbble</a></p>
 			</div>
-			<figure data-scrollreveal="enter right and move 50px over .4s" ><a href="http://dribbble.com/shots/1024711-Responsive-Email-Wireframe"><img src="/content/work/5.personal/i/personalEmail.png" alt="Responsive Email diagram" width="700" height="700"></a></figure>
+			<figure data-scrollreveal="enter right and move 50px over .4s" ><a href="http://dribbble.com/shots/1024711-Responsive-Email-Wireframe"><img src="/content/work/5.personal/i/personalEmail.png" alt="Responsive Email diagram" width="625" height="700"></a></figure>
+		</section>
+		<section class="cf imgl">
+			<div class="text">
+				<h2>Cerberus, Another Responsive Email</h2>
+				<p>Responsive Email XX (above) was my first deep dive with responsive email. I used it for a while and it had some success on GitHub, but after a while its flaws began to surface.</p>
+				<p>So I built another one that combines the best of what's in Responsive Email XX with what I've learned since. I wrote <a href="/blog/cerberus-responsive-email-templates/">a blog post</a> explaining why I made this template, how it works, and what I learned from my second deep dive with responsive emails.</p>
+				<p>This template, called <strong>Cerberus</strong>, focuses on a small number of responsive email patterns that, when combined, go a long way. A mantra of email design is to keep things simple. Where my first attempt failed, I hope this one succeeds.</p>
+				<p><a href="http://tedgoas.github.io/Cerberus/" class="btn github"><i class="icon-github"></i> View on GitHub</a> <a href="http://dribbble.com/shots/1335775-Another-Responsive-Email-Template" class="btn dribbble"><i class="icon-dribbble-1"></i> View on dribbble</a></p>
+			</div>
+			<figure data-scrollreveal="enter left and move 50px over .4s" ><a href="http://dribbble.com/shots/1024711-Responsive-Email-Wireframe"><img src="/content/work/5.personal/i/personalCerberus.jpg" alt="Cerberus Email design and code" width="600" height="700"></a></figure>
 		</section>
 		<section class="cf full support">
 			<div class="text">
 				<h2>Support Details</h2>
-				<p>When Canfield's tech support team starts helping a client, the conversation usually starts with <em>“What is your OS / browser / network settings / etc.”?</em> Seeing an opportunity to work on something fun and off-the-books, I designed a concept for an app that grabs the technical details of a computer environment. From this, a co-worker and I built a working prototype <strong>on our spare time</strong>.</p>
-				<p>Written in JavaScript, the app is quite small and portable. It's already been forked into two other projects, proving to be quite useful to our support team.</p>
-				<p><a href="http://dribbble.com/shots/642658-Support-App-Rebound" class="btn dribbble"><i class="icon-dribbble-1"></i> View on dribbble</a></p>
+				<div class="halves cf">
+					<p>When Canfield's tech support team starts helping a client, conversations usually start with <em>“What is your O.S. / browser / network settings”?</em> Seeing an opportunity to work on something fun, I designed an app that automatically grabs the technical details of a computer environment and routes them via email.</p>
+					<p>Using this design, a co-worker and I built a working prototype in JavaScript <strong>on our spare time</strong>. The resulting app is quite portable and has already been forked into Canfield projects. Not a bad way to spend our free time, eh?</p>
+				</div>
+				<p class="center"><a href="http://dribbble.com/shots/642658-Support-App-Rebound" class="btn dribbble"><i class="icon-dribbble-1"></i> View on dribbble</a></p>
 			</div>
 			<figure data-scrollreveal="enter top and move 50px over .4s" ><a href="http://dribbble.com/shots/642658-Support-App-Rebound"><img src="/content/work/5.personal/i/oddsSupport.jpg" alt="Support App" width="1000" height="500"></a></figure>
 		</section>
 		<section class="cf full">
 			<div class="text">
 				<h2>Activity Dashboard</h2>
-				<p>I designed this to explore Microsoft's Metro design language. The concept below shows how busy each website is so someone can decide to either jump in or pass. It's not as much of an RSS syndicator as it is a customized dashboard. I never built of working version of this, but it was fun to experiment with this design style.</p>
-				<p><a href="http://dribbble.com/shots/714820-Metro-Dashboard/attachments/66934" title="view final on dribbble" class="btn dribbble"><i class="icon-dribbble-1"></i> View on dribbble</a></p>
+				<p>I designed this to learn and explore Microsoft's Metro design language. This concept was designed purely for fun; I never built of working version of it.</p>
+				<p><a href="http://dribbble.com/shots/714820-Metro-Dashboard" title="view final on dribbble" class="btn dribbble"><i class="icon-dribbble-1"></i> View on dribbble</a></p>
 			</div>
-			<figure data-scrollreveal="enter top and move 50px over .4s" ><a href="http://dribbble.com/shots/714820-Metro-Dashboard/attachments/66934" title="view final on dribbble"><img src="/content/work/5.personal/i/oddsDashboard.jpg" alt="Metro style Dashboard" class="fluid" width="1100" height="600"></a></figure>
+			<figure data-scrollreveal="enter top and move 50px over .4s" ><a href="http://dribbble.com/shots/714820-Metro-Dashboard" title="view final on dribbble"><img src="/content/work/5.personal/i/oddsDashboard.jpg" alt="Metro style Dashboard" class="fluid" width="1100" height="600"></a></figure>
 		</section>
 	</article>
 </div>
@@ -138,4 +150,4 @@
 <script src="/js/scrollReveal.js"></script>
 </body>
 </html>
-<!-- Stacey(2.3.0): 9b5c9abafce4f0d2f9ad34bec7b8b3a2 -->
+<!-- Stacey(2.3.0): 9731e693e5c8431906b2b77fc0e7e33f -->

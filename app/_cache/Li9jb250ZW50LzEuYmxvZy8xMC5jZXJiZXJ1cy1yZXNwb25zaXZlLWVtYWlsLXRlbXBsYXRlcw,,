@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+<link rel="dns-prefetch" href="//use.typekit.net">
+<link rel="dns-prefetch" href="http://ajax.googleapis.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<title>Cerberus: Simple Patterns for Responsive Email &infin; Ted Goas</title>
+<meta name="description" content="I made a few simple, but solid patterns for responsive HTML emails.">
+<link type="text/plain" rel="author" href="http://www.tedgoas.com/humans.txt">
+<link rel="stylesheet" href="/css/global.css" type="text/css" media="screen">
+
+<script type="text/javascript">
+  (function() {
+    var config = {
+      kitId: 'vzj5lsm',
+      scriptTimeout: 3000
+    };
+    var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/(\s|^)wf-loading(\s|$)/g," ");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script"),d=false;tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(d||a&&a!="complete"&&a!="loaded")return;d=true;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
+  })();
+</script>
+<link rel="alternate" type="application/atom+xml" href="../../?/feed/">
+<link rel="canonical" href="http://www.tedgoas.com/blog/cerberus-responsive-email-templates/">
+<link rel="meta" type="application/rdf+xml" title="Dublin" href="http://www.tedgoas.com/dublin.rdf">
+<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="http://www.tedgoas.com/blog/cerberus-responsive-email-templates/">
+<meta name="twitter:title" content="Cerberus: Simple Patterns for Responsive Email">
+<meta name="twitter:description" content="I made a few simple, but solid patterns for responsive HTML emails.">
+<meta name="twitter:creator" content="@tedgoas">
+<meta name="twitter:image" content="https://en.gravatar.com/userimage/69464/b78c0cbe7d1c4553f7afd9150017ef25.jpeg">
+<meta name="twitter:card" content="I made a few simple, but solid patterns for responsive HTML emails.">
+</head>
+<body class="blog">
+<div class="outside header">
+	<div class="inside">
+		<div class="wrap" id="wrap">
+			<nav>
+				<ul>
+		 			<li class="nSocial">
+		 				<a href="http://www.twitter.com/tedgoas" title="What I'm saying" rel="external me" class="icnSocial twitter"><i class="icon-twitter"></i></a>
+		 				<a href="http://www.dribbble.com/tedgoas" title="What I'm designing" rel="external me" class="icnSocial dribbble"><i class="icon-dribbble-1"></i></a>
+		 				<a href="http://www.github.com/tedgoas" title="What I'm coding" rel="external me" class="icnSocial github"><i class="icon-github"></i></a>
+		 			</li>
+					<li class="nHome"><a href="/" title="home" rel="home" class="ted">Ted Goas</a></li>
+					<li class="nWork"><a href="/work" title="portfolio work">Work</a></li>
+					<li class="nContact"><a href="/contact" title="contact and availability">Contact</a></li>
+					<li class="nBio"><a href="/bio" title="about me">Bio</a></li>
+					<li class="nBlog"><a href="/blog" title="blog">Blog</a></li>
+		 		</ul>
+		 	</nav>
+			<a href="#menu" class="menu-link"><i class="icon-menu"></i> Menu</a>
+		</div>
+	</div>
+</div>
+<div class="outside main">
+		<div class="pic"><img src="../../content/1.blog/10.cerberus-responsive-email-templates/_hdr/cerberus.jpg" alt="Cerberus: Simple Patterns for Responsive Email" class="fluid"></div>
+	
+	<div class="inside">
+		<article role="main" class="h-entry">
+			<header>
+				<h1>Cerberus: Simple Patterns for Responsive Email</h1>
+				<small class="meta dt-published">December 3, 2013</small>
+			</header>
+			<div class="article">
+				<p>TL;DR: I made another set of <a href="http://tedgoas.github.io/Cerberus/">responsive email templates</a>.</p>
+
+<p><a href="https://github.com/TedGoas/Cerberus" class="btn github"><i class="icon-github"></i> View on GitHub</a></p>
+
+<h2>The Backstory</h2>
+
+<p>Last year I set a personal goal to contribute on GitHub and give back to a community that has taught me so much. A few months ago, I created a fairly in-depth responsive email template containing what I thought was a number of common email patterns. Everything worked in popular email clients, even in Outlook. <a href="https://github.com/TedGoas/Responsive-Email-XX">I put it on GitHub</a>. Some people starred / forked / talked about it. I was happy: I made progress towards my goal.</p>
+
+<p>But after a while, I noticed that I had stopped using it. I found the template so complicated that I sometimes had to relearn parts of it. And if <em>I</em> was having trouble understanding it, I worried about how others were fairing.</p>
+
+<p><strong>Big problem.</strong></p>
+
+<p>In hindsight, I packed way too much into a single template. It became hard to follow how the HTML and CSS matched up. And I only used about half of the layout patterns in production emails. Why did I include so much? No good reason.</p>
+
+<p>So I fixed it.</p>
+
+<p>You may be thinking, “Oh wonderful... another responsive email template.” Yep, I thought about that too. 2013 seemed to be the year of email. Responsive emails took off when <a href="http://zurb.com/playground/responsive-email-templates">Zurb</a> and <a href="https://github.com/InterNations/antwort">InterNations</a> showed it was possible. Lots of folks joined the movement, improving both the code quality and process. <a href="http://www.campaignmonitor.com/">Campaign Monitor</a>, <a href="http://mailchimp.com/">Mail Chimp</a>, and <a href="https://litmus.com/">Litmus</a> all rolled out huge updates and new tools. <a href="http://modernhtmlemail.com/">Books were written</a>. Blogs were started. <a href="http://emailmarketingreactions.tumblr.com/">GIFs were Tumbled</a>. Email even got its <a href="https://litmus.com/conference">first ever conference</a>.</p>
+
+<p>Looking at everything that happened in 2013, I saw a focus on prebuilt templates and design tools like CSS inliners, code previews, template builders. Aside from Brian Grave’s <a href="https://github.com/briangraves/ResponsiveEmailPatterns">responsive email patterns</a>, I didn’t see many resources dedicated to folks who kinda already know what they’re doing<sup>1</sup> and code from scratch by hand.</p>
+
+<p>But that’s how I work and I wanted to make something that’d help folks like me.</p>
+
+<p>So I removed the stuff I never used from my first email and refactored the rest. I compartmentalized the pattern blocks so that they may be mixed and matched to build an email. Everything has good email client support, including Outlook, Android, and even mobile Gmail.</p>
+
+<p>So that’s it. A small number of responsive email patterns that, when combined, go a long way.</p>
+
+<p>A mantra of email design is: keep the layout simple. Where my first attempt failed, I hope this one succeeds.</p>
+
+<p>So if you like doing things by hand and want a few solid code blocks to start with, check out <a href="http://tedgoas.github.io/Cerberus/">Cerberus</a><sup>2</sup> on GitHub. It’s what I use to start every HTML email I create.</p>
+
+<p><a href="https://github.com/TedGoas/Cerberus" class="btn github"><i class="icon-github"></i> View on GitHub</a></p>
+
+<p><sup>1</sup> - Well, not 100% true. Everyone mentioned in this article helps seasoned email designers, whether it’s studying code on GitHub or reading about email tricks and gotchas on blogs / Twitter.</p>
+
+<p><sup>2</sup> - Between desktop, mobile, and Outlook, HTML email is a three-headed dog from hell.</p>
+
+			</div>
+		</article>
+	</div>
+</div>
+<div class="outside mast mastBottom">
+	<div class="inside summary">
+		<div>
+			<p>Musings from an in-house designer in New Jersey.<br><a href="/blog/is-this-thing-on/">More on what I write about</a><br><a href="../../?/feed/" class="icnSocial rss"><i class="icon-rss"></i></a></p>
+			<ul><li class="r"></li><li class="y"></li><li class="g"></li><li class="b"></li><li class="p"></li></ul>
+		</div>
+	</div>
+</div>
+<div class="outside footer">
+	<div class="inside">
+		<ul>
+			<li>This website is on <a href="https://github.com/TedGoas/Dante">GitHub</a> &bull; <a href="/humans.txt" title="know the creators and contributors of this website">humans.txt</a></li>
+			<li>Made in New Jersey</li>
+			<li><span>&#9874;</span></li>
+		</ul>
+	</div>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script src="/js/global.js"></script>
+<script>
+	var _gaq = _gaq || [];
+ 	_gaq.push(['_setAccount', 'UA-3248378-1']);
+ 	_gaq.push(['_setDomainName', '.tedgoas.com']);
+ 	_gaq.push(['_setAllowHash', 'false']);
+ 	_gaq.push(['_trackPageview']);
+	_gaq.push(['_trackPageLoadTime']);
+	(function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>
+
+<!-- Stacey(2.3.0): 08cb05bad285171a4265f72d9908ec52 -->
