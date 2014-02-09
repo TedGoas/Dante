@@ -142,6 +142,9 @@ Class PageData {
     $page->is_last = $page->data['@index'] == $page->data['@siblings_count'];
     # @is_first
     $page->is_first = $page->data['@index'] == 1;
+    
+    # @absolute_url
+		$page->absolute_url = $page->data['@base_url'].'/'.str_replace('./','', $page->file_path);
 
 	# @cache_page
 	$page->bypass_cache = isset($page->data['@bypass_cache']) ? $page->data['@bypass_cache'] : false;

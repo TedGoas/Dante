@@ -33,3 +33,4 @@
 	Joni Korpi: A Smoother Page Load (http://jonikorpi.com/a-smoother-page-load)
 	Scott Robbin: Backstretch.js (https://github.com/srobbin/jquery-backstretch)
 	Julian Lloyd: scrollReveal.js (https://github.com/julianlloyd/scrollReveal.js)
+	Catherine Desrochers: Absolute image path in Stacey (https://getsatisfaction.com/stacey/topics/how_can_i_get_absolute_image_path)

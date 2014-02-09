@@ -28,6 +28,10 @@ Class Asset {
     $this->data['@url'] = $this->link_path;
     $this->data['@file_name'] = $this->file_name;
     $this->data['@name'] = ucfirst(preg_replace(array('/[-_]/', '/\.[\w\d]+?$/', '/^\d+?\./'), array(' ', '', ''), $this->file_name));
+    
+    # @absolute_url
+		$this->data['@absolute_url'] = 'http://'.$_SERVER['HTTP_HOST'].str_replace('/index.php', '', $_SERVER['PHP_SELF']).'/'.str_replace('./','', $file_path);
+
   }
   
 }

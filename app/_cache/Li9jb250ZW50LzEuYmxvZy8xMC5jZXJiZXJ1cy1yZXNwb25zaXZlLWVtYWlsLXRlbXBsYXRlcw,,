@@ -25,13 +25,21 @@
 <link rel="canonical" href="http://www.tedgoas.com/blog/cerberus-responsive-email-templates/">
 <link rel="meta" type="application/rdf+xml" title="Dublin" href="http://www.tedgoas.com/dublin.rdf">
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:site" content="http://www.tedgoas.com/blog/cerberus-responsive-email-templates/">
+<meta property="og:image" content="http://localhost:8888/content/1.blog/10.cerberus-responsive-email-templates/_hdr/cerberus.jpg" />
+<meta name="twitter:image:src" content="http://localhost:8888/content/1.blog/10.cerberus-responsive-email-templates/_hdr/cerberus.jpg">
+
+<meta property="og:author" content="https://www.twitter.com/tedgoas" />
+<meta property="og:type" content="article" />
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:title" content="Cerberus: Simple Patterns for Responsive Email" />
 <meta name="twitter:title" content="Cerberus: Simple Patterns for Responsive Email">
+<meta property="og:description" content="I made a few simple, but solid patterns for responsive HTML emails." />
 <meta name="twitter:description" content="I made a few simple, but solid patterns for responsive HTML emails.">
+<meta name="twitter:domain" content="tedgoas.com">
+<meta name="twitter:site" content="@tedgoas">
 <meta name="twitter:creator" content="@tedgoas">
-<meta name="twitter:image" content="https://en.gravatar.com/userimage/69464/b78c0cbe7d1c4553f7afd9150017ef25.jpeg">
-<meta name="twitter:card" content="I made a few simple, but solid patterns for responsive HTML emails.">
+<meta property="og:site_name" content="Ted Goas's blog" />
+<meta property="og:url" content="http://www.tedgoas.com/blog/cerberus-responsive-email-templates/" />
 </head>
 <body class="blog">
 <div class="outside header">
@@ -140,4 +148,4 @@
 </body>
 </html>
 
-<!-- Stacey(2.3.0): 08cb05bad285171a4265f72d9908ec52 -->
+<!-- Stacey(2.3.0): 7e6e50e3a3f9b9a3c4e1ceba2d0a5dbe -->
