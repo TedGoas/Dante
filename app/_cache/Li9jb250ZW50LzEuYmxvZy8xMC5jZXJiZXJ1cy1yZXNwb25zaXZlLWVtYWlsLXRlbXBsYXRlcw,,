@@ -64,7 +64,7 @@
 	</div>
 </div>
 <div class="outside main">
-		<div class="pic"><img src="../../content/1.blog/10.cerberus-responsive-email-templates/_hdr/cerberus.jpg" alt="Cerberus: Simple Patterns for Responsive Email" class="fluid"></div>
+		<div class="pic"><img src="../../content/1.blog/10.cerberus-responsive-email-templates/_hdr/cerberus.jpg" alt="Cerberus: Simple Patterns for Responsive Email" width="800" height="500" class="fluid"></div>
 	
 	<div class="inside">
 		<article role="main" class="h-entry">
@@ -148,4 +148,4 @@
 </body>
 </html>
 
-<!-- Stacey(2.3.0): 7e6e50e3a3f9b9a3c4e1ceba2d0a5dbe -->
+<!-- Stacey(2.3.0): a77a7da4168d9f9377adce6419e509fb -->

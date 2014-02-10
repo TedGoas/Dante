@@ -25,22 +25,12 @@
 <link rel="canonical" href="http://www.tedgoas.com/blog/">
 <link rel="meta" type="application/rdf+xml" title="Dublin" href="http://www.tedgoas.com/dublin.rdf">
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:site" content="http://www.tedgoas.com/blog/">
-<meta name="twitter:title" content="In House Designer">
-<meta name="twitter:description" content="Stories from an in-house designer in New Jersey.">
-<meta name="twitter:creator" content="@tedgoas">
-<meta name="twitter:image" content="https://en.gravatar.com/userimage/69464/b78c0cbe7d1c4553f7afd9150017ef25.jpeg">
-<meta name="twitter:card" content="Stories from an in-house designer in New Jersey.">
 
-
-
-<meta name="twitter:image:src" content="http://joelglovier.com/img/ogimgs/life.jpg">
 <meta property="og:author" content="https://www.twitter.com/tedgoas" />
 <meta property="og:type" content="article" />
 <meta name="twitter:card" content="summary_large_image">
-<meta property="og:title" content="Five simple goals for 2014" />
-<meta name="twitter:title" content="Five simple goals for 2014">
+<meta property="og:title" content="In House Designer" />
+<meta name="twitter:title" content="In House Designer">
 <meta property="og:description" content="Stories from an in-house designer in New Jersey." />
 <meta name="twitter:description" content="Stories from an in-house designer in New Jersey.">
 <meta name="twitter:domain" content="tedgoas.com">
@@ -159,4 +149,4 @@
 </body>
 </html>
 
-<!-- Stacey(2.3.0): 89d2565dfa1cebb6dffbd344d4a63f5c -->
+<!-- Stacey(2.3.0): a77a7da4168d9f9377adce6419e509fb -->
