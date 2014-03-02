@@ -26,15 +26,21 @@
 <link rel="canonical" href="http://www.tedgoas.com/contact/">
 <link rel="meta" type="application/rdf+xml" title="Dublin" href="http://www.tedgoas.com/dublin.rdf">
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:site" content="http://www.tedgoas.com/contact/">
+
+<meta property="og:author" content="https://www.twitter.com/tedgoas" />
+<meta property="og:type" content="article" />
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:title" content="Contact and Availability" />
 <meta name="twitter:title" content="Contact and Availability">
+<meta property="og:description" content="<p>My current work status, availability for projects, and contact information.</p>
+" />
 <meta name="twitter:description" content="<p>My current work status, availability for projects, and contact information.</p>
 ">
+<meta name="twitter:domain" content="tedgoas.com">
+<meta name="twitter:site" content="@tedgoas">
 <meta name="twitter:creator" content="@tedgoas">
-<meta name="twitter:image" content="https://en.gravatar.com/userimage/69464/b78c0cbe7d1c4553f7afd9150017ef25.jpeg">
-<meta name="twitter:card" content="<p>My current work status, availability for projects, and contact information.</p>
-">
+<meta property="og:site_name" content="Ted Goas's blog" />
+<meta property="og:url" content="http://www.tedgoas.com/contact/" />
 </head>
 <body class="contact">
 <div class="outside header">
@@ -63,7 +69,7 @@
 		<h1>Contact and Availability</h1>
 		<div class="r">
 			<h3>Availability <small><a href="http://status.tedgoas.com" title="detailed status">more info</a></small></h3>
-			<img src="http://i.tedgoas.com/flBusy.png" alt="mostly unavailable" width="457" height="230" class="fluid">
+			<img src="/i/flOpen.png" alt="kinda unavailable" width="457" height="230" class="fluid">
 			<small>I can't start right away, but let's schedule something!</small>
 		</div>
 		<div class="l">
@@ -106,4 +112,4 @@
 </body>
 </html>
 
-<!-- Stacey(2.3.0): f68d07d71cba97796099cae3dff7cec5 -->
+<!-- Stacey(2.3.0): ae9c80fd888018ed6ba03613d82272f1 -->

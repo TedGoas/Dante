@@ -64,7 +64,7 @@
 	</div>
 </div>
 <div class="outside main">
-		<div class="pic"><img src="../../content/1.blog/11.hardest-part-of-being-creative-is-getting-used-to-it/_hdr/hugh-sm.png" alt="The Hardest Part of Being Creative is Getting Used To It" width="700" height="400" class="fluid"></div>
+		<div class="pic"><img src="../../content/1.blog/11.hardest-part-of-being-creative-is-getting-used-to-it/_hdr/hugh-sm.png" alt="The Hardest Part of Being Creative is Getting Used To It" width="700" height="400" class="fluid" data-scrollreveal="enter top and move 50px over .4s"></div>
 	
 	<div class="inside">
 		<article role="main" class="h-entry">
@@ -133,6 +133,7 @@
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 <script src="/js/global.js"></script>
+<script src="/js/scrollReveal.js"></script>
 <script>
 	var _gaq = _gaq || [];
  	_gaq.push(['_setAccount', 'UA-3248378-1']);
@@ -149,4 +150,4 @@
 </body>
 </html>
 
-<!-- Stacey(2.3.0): 9ca0ba8262b63694a13175f8743b1ce4 -->
+<!-- Stacey(2.3.0): 677aceb4072f875e9b7c2fdbc31d16ed -->
