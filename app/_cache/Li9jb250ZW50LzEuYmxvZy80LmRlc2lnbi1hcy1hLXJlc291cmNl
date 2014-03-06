@@ -7,8 +7,8 @@
 <link rel="dns-prefetch" href="//use.typekit.net">
 <link rel="dns-prefetch" href="http://ajax.googleapis.com">
 <link rel="dns-prefetch" href="//www.google-analytics.com">
-<title>The Hardest Part of Being Creative is Getting Used To It &infin; Ted Goas</title>
-<meta name="description" content="If you have the creative urge, it isn’t going to go away. But sometimes it takes a while before you accept the fact.">
+<title>Design as a Resource &infin; Ted Goas</title>
+<meta name="description" content="When design is not considered at the start of a project.">
 <link type="text/plain" rel="author" href="http://www.tedgoas.com/humans.txt">
 <link rel="stylesheet" href="/css/global.css" type="text/css" media="screen">
 
@@ -22,24 +22,24 @@
   })();
 </script>
 <link rel="alternate" type="application/atom+xml" href="../../?/feed/">
-<link rel="canonical" href="http://www.tedgoas.com/blog/hardest-part-of-being-creative-is-getting-used-to-it/">
+<link rel="canonical" href="http://www.tedgoas.com/blog/design-as-a-resource/">
 <link rel="meta" type="application/rdf+xml" title="Dublin" href="http://www.tedgoas.com/dublin.rdf">
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-<meta property="og:image" content="http://localhost:8888/content/1.blog/11.hardest-part-of-being-creative-is-getting-used-to-it/_hdr/hugh-sm.png" />
-<meta name="twitter:image:src" content="http://localhost:8888/content/1.blog/11.hardest-part-of-being-creative-is-getting-used-to-it/_hdr/hugh-sm.png">
+<meta property="og:image" content="http://localhost:8888/content/1.blog/4.design-as-a-resource/_hdr/design-resource.png" />
+<meta name="twitter:image:src" content="http://localhost:8888/content/1.blog/4.design-as-a-resource/_hdr/design-resource.png">
 
 <meta property="og:author" content="https://www.twitter.com/tedgoas" />
 <meta property="og:type" content="article" />
 <meta name="twitter:card" content="summary_large_image">
-<meta property="og:title" content="The Hardest Part of Being Creative is Getting Used To It" />
-<meta name="twitter:title" content="The Hardest Part of Being Creative is Getting Used To It">
-<meta property="og:description" content="If you have the creative urge, it isn’t going to go away. But sometimes it takes a while before you accept the fact." />
-<meta name="twitter:description" content="If you have the creative urge, it isn’t going to go away. But sometimes it takes a while before you accept the fact.">
+<meta property="og:title" content="Design as a Resource" />
+<meta name="twitter:title" content="Design as a Resource">
+<meta property="og:description" content="When design is not considered at the start of a project." />
+<meta name="twitter:description" content="When design is not considered at the start of a project.">
 <meta name="twitter:domain" content="tedgoas.com">
 <meta name="twitter:site" content="@tedgoas">
 <meta name="twitter:creator" content="@tedgoas">
 <meta property="og:site_name" content="Ted Goas's blog" />
-<meta property="og:url" content="http://www.tedgoas.com/blog/hardest-part-of-being-creative-is-getting-used-to-it/" />
+<meta property="og:url" content="http://www.tedgoas.com/blog/design-as-a-resource/" />
 </head>
 <body class="blog">
 <div class="outside header">
@@ -64,51 +64,45 @@
 	</div>
 </div>
 <div class="outside main">
-		<div class="pic"><img src="../../content/1.blog/11.hardest-part-of-being-creative-is-getting-used-to-it/_hdr/hugh-sm.png" alt="The Hardest Part of Being Creative is Getting Used To It" width="700" height="400" class="fluid"></div>
+		<div class="pic"><img src="../../content/1.blog/4.design-as-a-resource/_hdr/design-resource.png" alt="Design as a Resource" width="346" height="317" class="fluid"></div>
 	
 	<div class="inside">
 		<article role="main" class="h-entry">
 			<header>
-				<h1>The Hardest Part of Being Creative is Getting Used To It</h1>
-				<small class="meta dt-published">January 15, 2014</small>
+				<h1>Design as a Resource</h1>
+				<small class="meta dt-published">December 28, 2012</small>
 			</header>
 			<div class="article">
-				<p>My wife and I are both creative. She’s a teacher/writer and I’m a designer. We both have aspirations outside of our day jobs. She wants to write and illustrate a children’s book. I want to expand my skills down the technology stack and contribute to underserved industries like healthcare and education.</p>
+				<p>One day while I was banging away on some CSS, one of my company’s software engineers stopped by my desk and asked if I could design some buttons for her app.</p>
+
+<p>“Buttons?” I asked. “Sure, what are they for?”</p>
+
+<p>She explained how the app performs some complicated image analysis and manipulation. The mechanics worked just fine, in fact the app was about to be QA’d and released. But the company owner had remarked that its visual appearance was a little flat and somebody said “let’s see what the designer can do!”</p>
+
+<p>As the lead (and sometimes only) designer in a small in-house team, small design requests like this often come across my desk. A few buttons for an app, some graphics for a Powerpoint, an icon for an intranet page, whatever. These requests come from projects that consider design as something to be added in late for a “quick win.”</p>
+
+<p>When I asked the software engineer about where the buttons would go and what they’d do, she showed me her app. Needless to say, the app looked as if it considered Windows NT the pinnacle of design. Grey and dull blue, default Windows chrome, and black system fonts everywhere. Every screen was crowded and the flow was tough to follow. The app was not very inviting and made me think only one thing.</p>
+
+<h3>Oh God, why didn’t you come by sooner?!?!</h3>
+
+<p>Like many designers, I believe design should be part of the process from the beginning. But this app treated design as something to be bolted on towards the end.</p>
+
+<p>After seeing the app in action, I was tempted to suggest several changes to improve the overall look and experience. Small changes, but changes nonetheless. But I knew that’s not what I was asked to do; I was asked to create some buttons. To put lipstick on a pig. To add a drop to the ocean.</p>
 
 <blockquote>
-  <p>We’re both motivated to put in the time and effort to make these things happen.</p>
+<p>“The UI is ugly and the experience is confusing. What difference are these buttons really going to make?”</p>
+<small>&ndash; my inner monologue</small>
 </blockquote>
 
-<p>But here’s the thing, we’re also parents to a one year old. Any parent can explain how much changes with the birth of their first child, but I never could’ve imagined the reality before becoming a parent myself. It’s our most jarring lifestyle change to date… and my wife and I are handling it a little differently.</p>
+<p>If project doesn’t regard design as an important role, why should I let it take me away from other projects that do? I earn my living designing things from the ground up and working on complex issues. It's what I enjoy most and where I feel like I’m making a real difference.</p>
 
-<p>My wife is a fantastic mother, wife, provider, and homeowner (we have a house to take care of, too). After a full day of teaching high school English, she comes home and plays an active role in ours son’s life. She also spends time with me and helps with chores. When she finally has time to herself, she uses it to recharge so she has energy to get through the next day. She put her creative aspirations on hold for a few years. She’s accepted that. She’s in survival mode.</p>
+<p>But a set of buttons? Ugh.</p>
 
-<p><strong>But I’m not.</strong></p>
+<p>Sometimes I think about saying that I don’t have time to fit in requests like these buttons simply because I don’t believe they’ll make any difference. But I don’t want to disappoint my coworkers and friends because of my pride. So if someone asks for a button, I give them a button and don’t worry about reinventing the rest of the experience.</p>
 
-<figure class="left pull">
-    <img src="/content/1.blog/11.hardest-part-of-being-creative-is-getting-used-to-it/sebastian.jpg" alt="Sebastian" width="600" height="500" class="fluid">
-    <figcaption>Side-project-Sunday, current day.</figcaption>
-</figure>
+<p>Design doesn’t have to be an integral part of <em>every</em> project. That might be a tough pill to swallow when confronted with tasks like this. But if we create something fast and ship it, we can get back to our bread and butter in no time.</p>
 
-<p>While I match my wife’s efforts with the family and around the house, I still have creative urges when the day is done. My problem is energy. I need to recharge too, more so than before parenthood. But my brain doesn’t stop when I’m beat tired. So my brain gets out of sync with the rest of my body and I can’t find the pause button.</p>
-
-<p>I try to squeeze extra time out of each week: I get up super early, cut out T.V., eat lunch in… but these life hacks buy little in the way of productive time. And I refuse to work through my family responsibilities while “thanking my wife for shouldering the load and being so supportive of my dreams” while I’m busy being a negligent husband and absentee father.</p>
-
-<p>If these urges would just go away, maybe I wouldn’t feel so guilty.</p>
-
-<blockquote>
-  <p>If you have the creative urge, it isn’t going to go away. But sometimes it takes a while before you accept the fact.</p>
-</blockquote>
-
-<p>I’m still listening to my creative urges and trying to find time for them. Writing this is a step in the right direction. Maybe. But maybe I’ll always struggle to find a balance.</p>
-
-<p>I’m still accepting that fact.</p>
-
-<p>—</p>
-
-<p>This was inspired by Hugh Macleod’s <a href="http://gapingvoid.com/ie/">Ignore Everybody</a>, specifically chapter 31.</p>
-
-<p><a href="https://medium.com/p/d5bbbf857581" class="medium">Also posted on Medium</a></p>
+<p>In the case above, I downloaded a PSD button freebie (yay community!), modified the hell out of it, and used it to create a series of buttons for the software engineer’s app. She was happy with the upgrade and I didn’t lose momentum on my core work.</p>
 
 			</div>
 		</article>

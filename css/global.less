@@ -353,6 +353,7 @@ a.btn {
 body {
 	background: #fff url(i/bgPage.png) repeat;
 	overflow-x: hidden;
+	padding-top: 80px;
 }
 .inside {
 	width: 1000px;
@@ -360,17 +361,24 @@ body {
 	text-align: left;
 }
 .main {
-	margin-top: 75px;
+	padding-top: 40px;
 }
 
 /* Header */
 .header {
 	background: #111;
 	letter-spacing: .1em;
-	padding: 10px 0;
-	position: relative;
-	z-index: 1;
+	padding: 25px 0;
+	position: fixed;
+	z-index: 3;
+	top: 0;
+	width: 100%;
+  transition: all 0.3s ease-out;
 }	
+.header-shrink {
+	padding: 10px 0;
+	background: rgba(0,0,0,.8);
+}
 .header nav {
   -webkit-transition: all 0.3s ease-out;  
   transition: all 0.3s ease-out;
@@ -444,9 +452,6 @@ a.menu-link {
 }
 	
 /* Work Index */
-.work .main {
-	margin-top: 25px;
-}
 .projects {
 	border-bottom: 1px solid #eee;
 }
@@ -941,6 +946,9 @@ img.email {
 }
 
 /* Shared Detail and Archive */
+.blog .main {
+	padding-top: 0;
+}
 .blog .article,
 .blog .archive {
 	width: 60%;
@@ -958,12 +966,12 @@ figcaption {
 }
 .blog h1 {
 	text-align: center;
-	margin: 25px auto 0;
+	margin: 0;
 }
 
 /* Blog Detail */
 .blog article header {
-	margin-bottom: 50px;
+	margin: 75	px auto;
 }
 .blog .pic {
 	position: relative;

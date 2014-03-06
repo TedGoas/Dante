@@ -1,31 +1,3 @@
-$(document).ready(function() {
-  var $menu = $('.header nav'),
-    $menulink = $('.menu-link');
-  $menulink.click(function() {
-	  $menulink.toggleClass('active');
-	  $menu.toggleClass('active');
-  return false;
-});});
-
-// http://www.learningjquery.com/2007/10/improved-animated-scrolling-script-for-same-page-links
-$(document).ready(function(){
-  $('.projects a').click(function() {
- if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
- && location.hostname == this.hostname) {
-   var $target = $(this.hash);
-   $target = $target.length && $target
-   || $('[name=' + this.hash.slice(1) +']');
-   if ($target.length) {
-  var targetOffset = $target.offset().top;
-  $('html,body')
-  .animate({scrollTop: targetOffset}, 500);
-    return false;
-   }
- }
-  });
-});
-
-// classy
 /*!
  * classie - class helper functions
  * from bonzo https://github.com/ded/bonzo
@@ -43,10 +15,14 @@ $(document).ready(function(){
 
 'use strict';
 
+// class helper functions from bonzo https://github.com/ded/bonzo
+
 function classReg( className ) {
   return new RegExp("(^|\\s+)" + className + "(\\s+|$)");
 }
 
+// classList support for class management
+// altho to be fair, the api sucks because it won't accept multiple classes at once
 var hasClass, addClass, removeClass;
 
 if ( 'classList' in document.documentElement ) {
@@ -102,39 +78,3 @@ if ( typeof define === 'function' && define.amd ) {
 }
 
 })( window );
-
-// http://tympanus.net/codrops/2013/06/06/on-scroll-animated-header/
-var animatedHeader = (function() {
-
-  var docElem = document.documentElement,
-      header = document.querySelector( '.header' ),
-      didScroll = false,
-      changeHeaderOn = 100;
-
-  function init() {
-      window.addEventListener( 'scroll', function( event ) {
-          if( !didScroll ) {
-              didScroll = true;
-              setTimeout( scrollPage, 50 );
-          }
-      }, false );
-  }
-
-  function scrollPage() {
-      var sy = scrollY();
-      if ( sy >= changeHeaderOn ) {
-          classie.add( header, 'header-shrink' );
-      }
-      else {
-          classie.remove( header, 'header-shrink' );
-      }
-      didScroll = false;
-  }
-
-  function scrollY() {
-      return window.pageYOffset || docElem.scrollTop;
-  }
-
-  init();
-
-})();
