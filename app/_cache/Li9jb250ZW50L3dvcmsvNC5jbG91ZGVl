@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, minimal-ui">
 <link rel="dns-prefetch" href="//use.typekit.net">
 <link rel="dns-prefetch" href="http://ajax.googleapis.com">
 <link rel="dns-prefetch" href="//www.google-analytics.com">
@@ -111,7 +111,7 @@
 		</ul>
 	</div>
 </div>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script src="/js/jquery-1.11.0.min.js"></script>
 <script src="/js/global.js"></script>
 <script>
 	var _gaq = _gaq || [];
@@ -129,4 +129,4 @@
 <script src="/js/scrollReveal.js"></script>
 </body>
 </html>
-<!-- Stacey(2.3.0): 457c9c317adefcb3f82fa3472157ca77 -->
+<!-- Stacey(2.3.0): 4a009ef17c9f1debbb5732b3109dff59 -->
