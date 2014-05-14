@@ -25,6 +25,16 @@ So, we all know what responsive is, right? On column on mobile… and three on w
 	<figcaption>responsive, pretty much</figcaption>
 </figure>
 
+<pre>
+<code>
+/* Force table cells into full width rows */
+td[class="force-row"] {
+	display: block !important;
+	width: 100% !important;
+}
+</code>
+</pre>
+
 In fact, these few lines of CSS are the workhorse of my responsive emails. At a certain breakpoint, the email width and images become fluid, and this class stacks table columns into full width rows. This class is what makes my responsive emails go.
 
 I could talk about [responsive email patterns](http://responsiveemailpatterns.com/) and CSS gotchas all night, but it’s not the code I want to talk about. When I started writing responsive emails, I noticed a few things starting to happen.

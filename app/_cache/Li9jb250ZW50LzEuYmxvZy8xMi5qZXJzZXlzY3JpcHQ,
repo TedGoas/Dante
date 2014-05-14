@@ -92,6 +92,16 @@
     <figcaption>responsive, pretty much</figcaption>
 </figure>
 
+<pre>
+<code>
+/* Force table cells into full width rows */
+td[class="force-row"] {
+    display: block !important;
+    width: 100% !important;
+}
+</code>
+</pre>
+
 <p>In fact, these few lines of CSS are the workhorse of my responsive emails. At a certain breakpoint, the email width and images become fluid, and this class stacks table columns into full width rows. This class is what makes my responsive emails go.</p>
 
 <p>I could talk about <a href="http://responsiveemailpatterns.com/">responsive email patterns</a> and CSS gotchas all night, but it’s not the code I want to talk about. When I started writing responsive emails, I noticed a few things starting to happen.</p>
@@ -179,4 +189,4 @@
 </body>
 </html>
 
-<!-- Stacey(2.3.0): b8ca3638023c73746b3dcc40d04872b9 -->
+<!-- Stacey(2.3.0): caf807464f7720b42f3feccb9984e8d2 -->
