@@ -1093,6 +1093,9 @@ a.medium:active {
 	}
 }
 @media screen and (max-width: @viewport-sm) {
+	h1 {
+		font-size: @fs-xl;
+	}
 	/* Main Navigation */
 	.header {
 		padding: 0;
@@ -1276,8 +1279,15 @@ a.medium:active {
 		width: 90%;
 	}
 	.blog figure.left.pull {
-		margin-left: -9%;
+		margin-left: -10%;
 		max-width:60%;
+	}
+	.blog figure.right.pull {
+		margin-right: -10%;
+		max-width:60%;
+	}
+	.blog figure.center.pull {
+		margin: 0 0 5%;
 	}
 	.blog .summary div p {
 		white-space: normal;
