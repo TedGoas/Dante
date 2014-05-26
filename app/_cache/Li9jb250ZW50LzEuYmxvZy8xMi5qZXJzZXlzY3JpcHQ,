@@ -77,15 +77,17 @@
 
 <hr>
 
-<p>I work at Canfield in New Jersey, where I'm a designer and front-end generalist who helps build medical apps and sites. But I also handle our email design and development, where we’ve been doing responsive emails for about a year.</p>
+<p>I work at Canfield in New Jersey, where I'm a designer and front-end generalist. I spend most of my time building medical apps and sites. But I also handle my company's email design and development, where we’ve been doing responsive emails for about a year.</p>
 
-<p>So, HTML Email is often viewed as a thankless job of handwriting a seemingly endless list of nested table cells styled by in-line CSS and the occasional deprecated HTML tag. Not a very attractive topic. So why do I spend time with HTML email?</p>
+<p>So, HTML email; often viewed as a thankless job of handwriting an endless list of nested tables styled with inline CSS and the occasional deprecated HTML tag. Not a very attractive topic. So why do I spend time with HTML email?</p>
 
-<p>Emails have been a part of every job I’ve had since about 2007. I usually worked on small teams where folks wear multiple hats, and emails have been always something that needs to get done. I went from “I’ll take a crack at email” to “I have experience with email” to “I’m pretty good at email”.</p>
+<p>Emails have been a part of every job I’ve had since about 2007. I usually work on small teams where folks wear multiple hats, and emails have been always something that needed to be done. I started with “I’ll take a crack at email” and progressed to “I have experience with email” and eventually go to “I’m pretty good at email”.</p>
 
-<p>Traditionally this would involve writing lots of archaic, messy markup. But in the last year or so, email has gotten a little more interesting.</p>
+<p>Until rencetly, email involved writing archaic, messy markup. But in the last year or so, email has gotten a little more interesting with the responsive design and newish front-end tools.</p>
 
-<p>So, we all know what responsive is, right? On column on mobile… and three on wide. Responsive email is not really any different.</p>
+<h2>Responsive Email Code</h2>
+
+<p>So, we all know what responsive is, right? On column on mobile... and three on wide. Responsive email is not really any different.</p>
 
 <figure class="center">
     <img src="/content/1.blog/12.jerseyscript/responsive.png" alt="responsive email" width="600" height="400" class="fluid">
@@ -102,9 +104,9 @@ td[class="force-row"] {
 </code>
 </pre>
 
-<p>In fact, these few lines of CSS are the workhorse of my responsive emails. At a certain breakpoint, the email width and images become fluid, and this class stacks table columns into full width rows. This class is what makes my responsive emails go.</p>
+<p>These few lines of CSS are the workhorse of my responsive emails. At a certain breakpoint, the email width and images become fluid, and this class stacks table columns into full width rows. This is what makes my responsive emails go.</p>
 
-<p>I could talk about <a href="http://responsiveemailpatterns.com/">responsive email patterns</a> and CSS gotchas all night, but it’s not the code I want to talk about. When I started writing responsive emails, I noticed a few things starting to happen.</p>
+<p>I could talk about <a href="http://responsiveemailpatterns.com/">responsive email patterns</a> and <a href="www.campaignmonitor.com/css/">CSS gotchas</a> all night, but it’s not the code I want to talk about. When I started writing responsive emails, I noticed a few things starting to happen.</p>
 
 <h2>The Fold is Back</h2>
 
@@ -149,7 +151,7 @@ td[class="force-row"] {
 
 <h2>Conclusion</h2>
 
-<p>Building emails isn’t as terrible as it used to be. The community is better than it’s ever been. So if an email project comes across your plate, instead of jumping into a volcano, maybe it’s worth taking a look.</p>
+<p>Building emails isn’t as terrible as it used to be and the community is better than it’s ever been. So if an email project comes across your plate, instead of jumping into a volcano, maybe it’s worth taking a look.</p>
 
 			</div>
 		</article>
@@ -189,4 +191,4 @@ td[class="force-row"] {
 </body>
 </html>
 
-<!-- Stacey(2.3.0): 629c6be12ad85084a09eb1b2b944cdea -->
+<!-- Stacey(2.3.0): bac17ff7f810660f85e904e2cce9b683 -->

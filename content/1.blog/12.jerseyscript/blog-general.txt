@@ -10,15 +10,17 @@ These are my notes from my talk about responsive email workflow and front-end to
 
 ***
 
-I work at Canfield in New Jersey, where I'm a designer and front-end generalist who helps build medical apps and sites. But I also handle our email design and development, where we’ve been doing responsive emails for about a year.
+I work at Canfield in New Jersey, where I'm a designer and front-end generalist. I spend most of my time building medical apps and sites. But I also handle my company's email design and development, where we’ve been doing responsive emails for about a year.
 
-So, HTML Email is often viewed as a thankless job of handwriting a seemingly endless list of nested table cells styled by in-line CSS and the occasional deprecated HTML tag. Not a very attractive topic. So why do I spend time with HTML email? 
+So, HTML email; often viewed as a thankless job of handwriting an endless list of nested tables styled with inline CSS and the occasional deprecated HTML tag. Not a very attractive topic. So why do I spend time with HTML email? 
 
-Emails have been a part of every job I’ve had since about 2007. I usually worked on small teams where folks wear multiple hats, and emails have been always something that needs to get done. I went from “I’ll take a crack at email” to “I have experience with email” to “I’m pretty good at email”.
+Emails have been a part of every job I’ve had since about 2007. I usually work on small teams where folks wear multiple hats, and emails have been always something that needed to be done. I started with “I’ll take a crack at email” and progressed to “I have experience with email” and eventually go to “I’m pretty good at email”.
 
-Traditionally this would involve writing lots of archaic, messy markup. But in the last year or so, email has gotten a little more interesting.
+Until rencetly, email involved writing archaic, messy markup. But in the last year or so, email has gotten a little more interesting with the responsive design and newish front-end tools.
 
-So, we all know what responsive is, right? On column on mobile… and three on wide. Responsive email is not really any different.
+## Responsive Email Code
+
+So, we all know what responsive is, right? On column on mobile... and three on wide. Responsive email is not really any different.
 
 <figure class="center">
 	<img src="/content/1.blog/12.jerseyscript/responsive.png" alt="responsive email" width="600" height="400" class="fluid">
@@ -35,9 +37,9 @@ td[class="force-row"] {
 </code>
 </pre>
 
-In fact, these few lines of CSS are the workhorse of my responsive emails. At a certain breakpoint, the email width and images become fluid, and this class stacks table columns into full width rows. This class is what makes my responsive emails go.
+These few lines of CSS are the workhorse of my responsive emails. At a certain breakpoint, the email width and images become fluid, and this class stacks table columns into full width rows. This is what makes my responsive emails go.
 
-I could talk about [responsive email patterns](http://responsiveemailpatterns.com/) and CSS gotchas all night, but it’s not the code I want to talk about. When I started writing responsive emails, I noticed a few things starting to happen.
+I could talk about [responsive email patterns](http://responsiveemailpatterns.com/) and [CSS gotchas](www.campaignmonitor.com/css/) all night, but it’s not the code I want to talk about. When I started writing responsive emails, I noticed a few things starting to happen.
 
 ##The Fold is Back
 <figure class="center">
@@ -78,4 +80,4 @@ Folks have incorporated things like [HAML](https://github.com/Omgitsonlyalex/Zen
 On top of that, people are actually experimenting to with email now. In addition to responsive layouts, folks are making emails with [CSS animations](http://www.campaignmonitor.com/blog/post/4035/css3-animation-svg-masks-web-fonts-panics-newsletter), [SVG](http://stylecampaign.com/blog/2014/01/basics-of-svg-in-email/), [custom web fonts](http://templates.mailchimp.com/design/typography/), and [video backgrounds](https://litmus.com/blog/how-to-code-html5-video-background-in-email). I’ve never seen such enthusiasm with email design and development. Email design even got it’s first ever conference last year.
 
 ##Conclusion
-Building emails isn’t as terrible as it used to be. The community is better than it’s ever been. So if an email project comes across your plate, instead of jumping into a volcano, maybe it’s worth taking a look.
+Building emails isn’t as terrible as it used to be and the community is better than it’s ever been. So if an email project comes across your plate, instead of jumping into a volcano, maybe it’s worth taking a look.

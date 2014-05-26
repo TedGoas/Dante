@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, minimal-ui">
+<meta name="viewport" content="width=device-width">
 <link rel="dns-prefetch" href="//use.typekit.net">
 <link rel="dns-prefetch" href="http://ajax.googleapis.com">
 <link rel="dns-prefetch" href="//www.google-analytics.com">
@@ -97,4 +97,4 @@
 </script>
 </body>
 </html>
-<!-- Stacey(2.3.0): caf807464f7720b42f3feccb9984e8d2 -->
+<!-- Stacey(2.3.0): 4237cd1f57f3d4fee83cbdf628b0b0ae -->
