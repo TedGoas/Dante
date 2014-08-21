@@ -74,6 +74,10 @@
 	<div class="inside">
 		<ul class="archive">
 							<li>
+				<a href="../blog/litmus-email-design-conference-2014/" title="view the details" class="u-url">The Email Design Conference 2014</a>
+				<small class="meta dt-published">August 20, 2014</small>
+			</li>
+					<li>
 				<a href="../blog/jerseyscript/" title="view the details" class="u-url">Notes from My JerseyScript Talk on Responsive Email</a>
 				<small class="meta dt-published">May 13, 2014</small>
 			</li>
@@ -152,4 +156,4 @@
 </body>
 </html>
 
-<!-- Stacey(2.3.0): 4237cd1f57f3d4fee83cbdf628b0b0ae -->
+<!-- Stacey(2.3.0): eb492ced5415bfec4cf7177efce848b2 -->
