@@ -38,6 +38,7 @@
 <meta name="twitter:creator" content="@tedgoas">
 <meta property="og:site_name" content="Ted Goas's blog" />
 <meta property="og:url" content="http://www.tedgoas.com/blog/" />
+<meta name="p:domain_verify" content="f0ba8ac9c9222a104dfc0fc75aad2d6b"/>
 </head>
 <body class="blog">
 <div class="outside header">
@@ -147,13 +148,13 @@
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-3248378-1', 'tedgoas.com');
+  ga('create', 'UA-3248378-1', 'auto');
+  ga('send', 'pageview');
   ga('require', 'displayfeatures');
   ga('require', 'linkid', 'linkid.js');
-  ga('send', 'pageview');
 
 </script>
 </body>
 </html>
 
-<!-- Stacey(2.3.0): eb492ced5415bfec4cf7177efce848b2 -->
+<!-- Stacey(2.3.0): 8478b275d8e6113b35c0760f2509ca0d -->

@@ -41,6 +41,7 @@
 <meta name="twitter:creator" content="@tedgoas">
 <meta property="og:site_name" content="Ted Goas's blog" />
 <meta property="og:url" content="http://www.tedgoas.com/blog/litmus-email-design-conference-2014/" />
+<meta name="p:domain_verify" content="f0ba8ac9c9222a104dfc0fc75aad2d6b"/>
 </head>
 <body class="blog">
 <div class="outside header">
@@ -120,7 +121,7 @@
     <figcaption>Alex Ilhan, Ros Hodgekiss, and I</figcaption>
 </figure>
 
-<p>I also had a wonderful time talking with folks I hadn’t previously interacted with. Litmus designed the conference to put different folks together. I channeled my inner-extrovert (which was hard!) and met a number of new folks whom I hope to stay in touch with. <a href="https://twitter.com/priyanka1011">Priyanka Shitole</a>, <a href="https://twitter.com/lydiaroberts">Lydia Robertrs</a>, <a href="https://twitter.com/outsidethepixel">Aurelien Coste</a>, <a href="https://twitter.com/ThomasGrimes">Tommy Grimes</a>, <a href="https://twitter.com/emailrocks">Jay Jhun</a>, <a href="https://twitter.com/jpmeeker">Jason Meeker</a>, and Anthony Tackett, just to name a few.</p>
+<p>I also had a wonderful time talking with folks I hadn’t previously interacted with. Litmus designed the conference to put different folks together. I channeled my inner-extrovert (which was hard!) and met a number of new folks whom I hope to stay in touch with. <a href="https://twitter.com/priyanka1011">Priyanka Shitole</a>, <a href="https://twitter.com/lydiaroberts">Lydia Roberts</a>, <a href="https://twitter.com/outsidethepixel">Aurelien Coste</a>, <a href="https://twitter.com/ThomasGrimes">Tommy Grimes</a>, <a href="https://twitter.com/emailrocks">Jay Jhun</a>, <a href="https://twitter.com/jpmeeker">Jason Meeker</a>, and Anthony Tackett, just to name a few.</p>
 
 <h2>The Conference Outside the Conference</h2>
 
@@ -190,13 +191,13 @@
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-3248378-1', 'tedgoas.com');
+  ga('create', 'UA-3248378-1', 'auto');
+  ga('send', 'pageview');
   ga('require', 'displayfeatures');
   ga('require', 'linkid', 'linkid.js');
-  ga('send', 'pageview');
 
 </script>
 </body>
 </html>
 
-<!-- Stacey(2.3.0): eb492ced5415bfec4cf7177efce848b2 -->
+<!-- Stacey(2.3.0): a0f7ff55807c4862f57377010c04176d -->
