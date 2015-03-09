@@ -75,6 +75,10 @@
 	<div class="inside">
 		<ul class="archive">
 							<li>
+				<a href="../blog/designing-for-medical/" title="view the details" class="u-url">Designing for Medical</a>
+				<small class="meta dt-published">March 5, 2015</small>
+			</li>
+					<li>
 				<a href="../blog/litmus-email-design-conference-2014/" title="view the details" class="u-url">The Email Design Conference 2014</a>
 				<small class="meta dt-published">August 20, 2014</small>
 			</li>
@@ -157,4 +161,4 @@
 </body>
 </html>
 
-<!-- Stacey(2.3.0): 8478b275d8e6113b35c0760f2509ca0d -->
+<!-- Stacey(2.3.0): f7a2fa8c444002c6a301e60f3d0d3a62 -->
