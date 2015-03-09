@@ -2,7 +2,7 @@ title: Designing for Medical
 -
 date: March 9, 2015
 -
-summary: I made a few simple, but solid patterns for responsive HTML emails.
+summary: How my team works and my experience in designing for medical.
 -
 content:
 I've been designing in the medical industry since the summer of 2010. When I joined [Canfield Scientific](http://www.canfieldsci.com), I was excited to help create apps in an industry that's underserved by the design industry.
