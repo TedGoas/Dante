@@ -39,7 +39,7 @@ td[class="force-row"] {
 
 These few lines of CSS are the workhorse of my responsive emails. At a certain breakpoint, the email width and images become fluid, and this class stacks table columns into full width rows. This is what makes my responsive emails go.
 
-I could talk about [responsive email patterns](http://responsiveemailpatterns.com/) and [CSS gotchas](www.campaignmonitor.com/css/) all night, but it’s not the code I want to talk about. When I started writing responsive emails, I noticed a few things starting to happen.
+I could talk about [responsive email patterns](http://responsiveemailpatterns.com/) and [CSS gotchas](http://www.campaignmonitor.com/css/) all night, but it’s not the code I want to talk about. When I started writing responsive emails, I noticed a few things starting to happen.
 
 ##The Fold is Back
 <figure class="center">
