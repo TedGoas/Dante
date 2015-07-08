@@ -75,6 +75,10 @@
 	<div class="inside">
 		<ul class="archive">
 							<li>
+				<a href="../blog/36-for36/" title="view the details" class="u-url">36 for 36</a>
+				<small class="meta dt-published">July 8, 2015</small>
+			</li>
+					<li>
 				<a href="../blog/email-design/" title="view the details" class="u-url">Why You Should Care About Email Design</a>
 				<small class="meta dt-published">April 28, 2015</small>
 			</li>
@@ -165,4 +169,4 @@
 </body>
 </html>
 
-<!-- Stacey(2.3.0): 6a127ceba04fe53dd2e88194c2c74bc3 -->
+<!-- Stacey(2.3.0): 02c923241c541b376aecd4051cb45db9 -->
