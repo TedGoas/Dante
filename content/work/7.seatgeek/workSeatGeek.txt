@@ -1,5 +1,0 @@
-title: SeatGeek
--
-summary: SeatGeek is a ticket search engine. They approached me with an established brand and well designed site. But their HTML emails needed help, and that's where I came in.
--
-byline: Search and compare tickets.

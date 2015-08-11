@@ -1,0 +1,70 @@
+/* Article Heros */
+.article-hero-centered {
+	padding-top: @gutter-medium;
+	text-align: center;
+}
+.article-hero-centered-small {
+	padding: @gutter-medium @gutter-medium 0;
+	text-align: center;
+}
+.article-hero-flush {
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+@media screen and (max-width: @breakpoint-medium) {
+	.article-hero-centered {
+		padding-top: 0;
+	}
+	.article-hero-centered-small {
+		padding: @gutter-small @gutter-small 0;
+	}
+}
+
+/* Article Title */
+.article-title {
+	text-align: center;
+	padding-top: @gutter-medium;
+}
+.article-date {
+	margin-bottom: 10px;
+}
+.twitter-tweet-rendered {
+	margin: 0 auto @gutter-small !important;
+}
+
+/* Article Footer */
+.article-footer {
+	margin-top: -@gutter-small;
+	padding-bottom: @gutter-small;
+	text-align: center;
+	strong {
+		display: block;
+		color: @gray-darkest;
+	}
+}
+
+/* Blog Index */
+.blog-index-ul {
+	width: 90%;
+	margin: auto;
+}
+.blog-index-li {
+	padding: 0 0 @gutter-medium;
+	list-style: none;
+}
+.blog-index-a {
+	text-decoration: none;
+}
+.blog-index-title {
+	font-size: @fs-l;
+	line-height: 1;
+	display: block;
+	margin-bottom: 5px;
+}
+.blog-index-meta {
+	display: block;
+	color: @gray-light;
+	line-height: 1.2;
+}

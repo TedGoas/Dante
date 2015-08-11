@@ -1,0 +1,7 @@
+Title: Misc. Canfield Projects
+----
+Description: Small to Medium Size Projects at Canfield
+----
+Role: Web Design, Front-End Development, Email Design
+----
+Summary: A collection of smaller but notable projects I’ve worked on at Canfield Scientific. These projects involved small teams of just two or three people, so we all wear multiple hats and help out with things outside of our wheelhouse.

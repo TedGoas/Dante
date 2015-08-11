@@ -1,3 +1,10 @@
-title: Contact and Availability
--
-summary: My current work status, availability for projects, and contact information.
+Title: Contact + Availability
+----
+Description: How to contact me and my relative availability for those interested in working together.
+----
+Text:
+If you're interested in **freelance work** and have something small or well-defined, let's chat. Please be aware that I already have a handful of freelance clients, personal projects, and my day job.
+
+If you're looking to fill a **full time or contract gig**, please know that I'm happily employed as a web designer and front-end developer in northern New Jersey and am not on the market. Of course, things change, so I keep this page well updated.
+
+If you want to ask a question, talk shop, or just say hi, drop me an email. I promise I'll reply as soon as my son lets me.

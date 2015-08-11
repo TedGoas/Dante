@@ -1,0 +1,63 @@
+.recruiters {background: #6a8697;font: 18px/24px calibri, arial, sans-serif; color: #333; margin: 0; padding: 0;}
+
+.recruiters nav {padding: 5px 0; background: #647f8f; color: #fff;}
+.recruiters nav ul {margin: 0 auto; padding: 0; width: 960px; text-align: left}
+.recruiters nav li {display: inline; margin: 0;}
+.recruiters nav a, .recruiters nav a:visited {color: #fff;}
+.recruiters nav a span {float: left; margin: 2px 5px 0 0; font-size: .8em;text-decoration: none;}
+.recruiters nav .logo {float: right;}
+.recruiters .logo em {font-family: georgia, serif; font-weight: normal; font-size: .8em;color: #b1bab7; padding-right: 5px;}
+
+.recruiters #wrapper { width: 960px; text-align: left;background: #fff url(window.png) top right repeat-y; margin: 2em auto;-moz-box-shadow: 0 0 15px rgba(0,0,0,.6)}
+
+.recruiters article header {display: block; padding-top: 150px; height: 325px; padding-left: 160px; background: #fff url(window.png) top left no-repeat; }
+.recruiters #meta {display: block; font-size: 11px; color: #000; margin: 0 0 0 -140px;padding-top: 1px;}
+.recruiters #meta span, .recruiters #meta time {padding: 0 4px; background: #f1f16c; font-weight: bold}
+.recruiters #to {font-weight: bold; text-decoration: underline; display: block; margin: 3px 0 0 0;font-size: 14px;}
+.recruiters h1 {font-size: 2em; margin: 9px 15px 0 -25px; height:45px;padding:15px 0 0 20px;}
+.recruiters a, .recruiters a:hover {color: #1122cc}
+.recruiters a:visited {color: #660099;}
+.recruiters a:active; a:focus {color: #dd4b39}
+.recruiters a.twitter {color: #00bbf1}
+
+.recruiters #email {display: block; margin: -50px 0 0 0; padding: 0 80px 0 60px;}
+.recruiters #email section {display: block; padding: 50px 0; border-bottom: 3px dotted #999}
+.recruiters #email h2 {font-family: cambria, georgia, serif; color: #365f91; font-weight: bold; font-size: 1.5em; line-height: 1.2; margin: 0;}
+.recruiters #email h3 {color: #000; font-weight: bold; margin: 0;font-size: 1.1em; margin-top: 2em;}
+.recruiters #email p {margin: 1.25em 0;}
+.recruiters #email ol {margin: 1em 0 0 1em}
+.recruiters #email ol li {list-style-type: decimal}
+.recruiters .suggestion strong {padding: 0 4px; background: #f1f16c; font-weight: bold}
+.recruiters figure {margin: 3em 0; display: block; padding: 0; text-align: center;}
+.recruiters section figure img {margin: auto;border: 2px solid #eee; width: auto; padding: 10px;}
+.recruiters figcaption {font-size: 14px; color: #aaa;}
+.recruiters .icnInline {margin: 0 4px -5px 0;width: 21px;height: 21px;}
+
+.recruiters .update { background: #f4f4f4; padding: 20px 48px 20px 45px; margin: 50px -48px 0 -45px; border-top: 1px solid #ddd;border-bottom: 1px solid #ddd;}
+.recruiters .update h4 {padding: 0 4px; background: #f1f16c; margin: 0; display: inline-block;}
+.recruiters .update h4 time {font-weight: normal; opacity: .33;padding-left: 5px}
+.recruiters #email .update p {margin: 10px 0 0 0;}
+
+.recruiters #emailBottom {background: #fff url(window.png) bottom left no-repeat; padding: 30px 60px 30px 60px; font-size: 12px; line-height: 1.33em}
+.recruiters #emailBottom p {margin: 0;}
+.recruiters #emailBottom p.green {color: #00a41f; font-weight: bold;margin-bottom: 10px;}
+.recruiters .green img {margin: 0 4px -2px 0;}
+
+.recruiters .cf:before,.recruiters .cf:after, .recruiters section:before,.recruiters 	section:after {content:"";display:table;}
+.recruiters .cf:after, .recruiters section:after  {clear:both;}
+.recruiters .cf, .recruiters section {*zoom:1;}
+
+@media (max-width: 1160px) {
+	.recruiters nav {padding: 5px 0;}
+	.recruiters nav ul {width: auto; margin: 0 20px;}
+	.recruiters nav li {margin: 0;}
+	.recruiters #wrapper {width: auto; padding: 20px; margin: 0; background: #fff;}
+	.recruiters article header {background: none; padding: 0; height: auto;}
+	.recruiters #meta {margin: 0; padding: 0; line-height: 1.5}
+	.recruiters #to {display: none;}
+	.recruiters h1 {margin: 1em 0 .5em 0; padding: 0; background: none; line-height: 1.1;}
+	.recruiters #email {padding: 0;}
+	.recruiters section figure img {width: 100%; padding: 0;}
+		.recruiters .update {padding: 2%; width: 100%; margin-left: auto; margin-right: auto; border: 1px solid #ddd;}
+	.recruiters #emailBottom {background: none; padding: 0; margin-top: 5em;}
+}

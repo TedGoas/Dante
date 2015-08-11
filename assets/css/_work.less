@@ -1,0 +1,274 @@
+/* Work Index */
+.page-title--work-list {
+	margin-bottom: 2px;
+}
+.work-list {
+	.clearfix;
+	margin: 0 0 @gutter-medium -.5%;
+}
+.work-list-item {
+	position: relative;
+	width: 49.75%;
+	margin: 0 0 .25% .25%;
+	float: left;
+	line-height: 0;
+}
+.work-item-title {
+	color: #fff;
+	font-weight: @fw-l;
+	text-decoration: none;
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	text-align: center;
+	line-height: 0;
+	margin: 0 auto;
+}
+@media screen and (max-width: @breakpoint-small) {
+	.work-list-item {
+		width: 100%;
+		margin: 0 0 .5%;
+	}
+}
+
+/* Work Detail */
+/* Hero */
+.work-hero {
+	height: 500px;
+	position: relative;
+	text-align: center;
+	background-position: 50% 50%;
+	background-size: cover;
+}
+.work-hero-h1 {
+	width: 100%;
+	position: absolute;
+	bottom: @gutter-small;
+	color: #fff;
+}
+
+/* Section Modifiers */
+.work-section {
+	font-size: @fs-s;
+	padding: @gutter-xlarge 0;
+}
+
+/* Section Headers */
+.work-section-header {
+	text-align: center;
+	padding-bottom: @gutter-large;
+	.byline {
+		display: block;
+		color: @blue;
+		font-size: @fs-xs;
+		text-transform: uppercase;
+		letter-spacing: .1em;
+	}
+	h2 {
+		margin: 0 auto;
+		position: relative;
+		&:after {
+			content: "";
+			display: block;
+			background: rgba(0,0,0,.1);
+			height: 1px;
+			width: 200px;
+			position: absolute;
+			bottom: -@gutter-small;
+			left: 50%;
+			margin-left: -100px;
+		}
+	}
+}
+.work-section-header-mark {
+	margin: 0 auto @gutter-small;
+}
+/* Color and Border Modifiers */
+.work-section--faint {
+	background: rgba(0,0,0,.02);
+}
+.work-section--white-text {
+	.byline,
+	h2,
+	p,
+	li,
+	a {
+		color: #fff;
+	}
+	h2 {
+		&:after {
+			background: rgba(255,255,255,.25);
+		}
+	}
+	.caption {
+		color: rgba(255,255,255,.5);
+	}
+	.caption--border:after {
+		background: rgba(255,255,255,.25);
+	}
+}
+
+/* Intro */
+.work-section-intro {
+	text-align: center;
+	padding: @gutter-large 0;
+}
+.work-section-intro-p {
+	margin-bottom: 0;
+	padding: @gutter-medium 0;
+	font-weight: 300;
+	font-size: @fs-l;
+	position: relative;
+	&:before,
+	&:after {
+		content: "";
+		display: block;
+		background: rgba(0,0,0,.1);
+		height: 1px;
+		width: 200px;
+		position: absolute;
+		left: 50%;
+		margin-left: -100px;
+	}
+	&:before {
+		top: 0;
+	}
+	&:after {
+		bottom: 0;
+	}
+}
+.work-section-intro-button {
+	margin-top: @gutter-medium;
+}
+.work-section--cta-button {
+	text-align: center;
+	margin-bottom: @gutter-medium;
+}
+
+/* Style Guide */
+.work-section-styleguide {
+	padding: @gutter-large 0;
+}
+
+/* Approach */
+.work-section-approach {
+	border-bottom: 1px solid @gray-lightest;
+	padding-bottom: 0;
+	.clearfix;
+	.figure {
+		text-align: center;
+		float: left;
+		width: 100%;
+		margin: -120px auto 0;
+		position: relative;
+		z-index: -1;
+	}
+	img {
+		width: 100%;
+	}
+}
+@media screen and (max-width: @breakpoint-small) {
+	.work-section-approach {
+		.figure {
+			width: 150%;
+			margin: -50px -25% 0;
+		}
+	}
+}
+
+/* Misc Sections */
+.dual-paragraphs {
+	margin-bottom: @gutter-medium;
+}
+.site-link {
+	padding: @gutter-small 0;
+	text-align: center;
+	.unavailable {
+		color: @gray-light;
+	}
+}
+.full-width-figure {
+	text-align: center;
+}
+.uk-grid-tiny {
+	img {
+		margin-bottom: 2px;
+	}
+}
+
+/* Learn */
+.work-section-learn {
+	.work-section-header {
+		padding-bottom: 0;
+		text-align: left;
+		h2 {
+			&:after {
+				left: 0;
+				margin:0;
+			}
+		}
+	}
+}
+.work-section-learn-text {
+	width: 50%;
+}
+.learn-figure {
+	margin-top: @gutter-medium;
+}
+
+/* Article Reference */
+.th-article-a {
+	background: #fff;
+	border: 1px solid rgba(0,0,0,.15);
+	display: block;
+	margin: @gutter-medium auto 0;
+	.clearfix;
+	color: @gray-darker;
+	text-decoration: none;
+	font-size: @fs-s;
+	line-height: 1.3;
+	padding: 15px 5px 0 135px;
+	min-height: 125px;
+	position: relative;
+}
+.th-article-img {
+	position: absolute;
+	left: 0;
+	top: 0;	
+}
+.th-article-title {
+	color: @gray-darkest;
+	display: block;
+}
+.th-article-p {
+	color: @gray-darker;
+}
+.th-article-link {
+	color: @blue;
+	text-decoration: underline;
+}
+
+/* Alternative "Misc' Page layouts */
+.work-section-misc {
+	overflow: hidden;
+	.clearfix;
+	padding: @gutter-xlarge 0 0;
+	.work-section-header {
+		text-align: left;
+		padding: @gutter-small 0;
+	}
+	.flush-bottom {
+		margin-bottom: -100px;
+	}
+}
+
+/* Navigation to Other Work Items */
+.work-navigation {
+	text-align: center;
+	padding: @gutter-small 0;
+}
+.work-navigation-li {
+	list-style: none;
+	display: inline-block;
+	margin: 0 5px;
+}

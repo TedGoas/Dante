@@ -1,0 +1,7 @@
+Title: Clinical Services Web App
+----
+Description: How I Learned to Design with Data
+----
+Role: Interface Design, Front-End Development
+----
+Summary: Canfield’s clinical web app helps pharmaceutical companies organize trials and track their results. Previous workflows involved fax machines, snail mail, the phone, and email. Our goal was to bring everything online in a first class experience that people wouldn’t be able to live without.

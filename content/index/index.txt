@@ -1,3 +1,0 @@
-title: Web Design + Front-End Development
--
-summary: I'm a web designer and front-end developer working on websites, web interfaces, and HTML emails. I write code by hand and build with page speed in mind. I live and work in New Jersey.

@@ -1,20 +1,16 @@
 <?php
 
-# let people know if they are running an unsupported version of PHP
-if(phpversion() < 5) {
-  
-  die('<h3>Stacey requires PHP/5.0 or higher.<br>You are currently running PHP/'.phpversion().'.</h3><p>You should contact your host to see if they can upgrade your version of PHP.</p>');
+define('DS', DIRECTORY_SEPARATOR);
 
+// load kirby
+require(__DIR__ . DS . 'kirby' . DS . 'bootstrap.php');
+
+// check for a custom site.php
+if(file_exists(__DIR__ . DS . 'site.php')) {
+  require(__DIR__ . DS . 'site.php');
 } else {
-
-  # require helpers class so we can use rglob
-  require_once './app/helpers.inc.php';
-  # include any php files which sit in the app folder
-  foreach(Helpers::rglob('./app/**.inc.php') as $include) include_once $include;
-
-  # start the app
-  new Stacey($_GET);
-  
+  $kirby = kirby();
 }
 
-?>
+// render
+echo $kirby->launch();

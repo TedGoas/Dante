@@ -1,5 +1,0 @@
-title: Toys &#8220;R&#8221; Us
--
-summary: I coded and shipped over 300 projects in a 6 month period as a front-end developer for Toys &#8220;R&#8221; Us and its brands. I could describe the high-volume, fast-paced nature of our department in late fall, but just try to imagine what the world's largest toy store is like in the weeks leading up to the holiday season.
--
-byline: The world's largest toy store.

@@ -1,36 +1,40 @@
-/* TEAM */
-	Chef: Ted Goas
-	Site: http://www.tedgoas.com
-	Twitter: @tedgoas
-	Dribbble: http://www.dribbble.com/tedgoas
-	Github: https://github.com/TedGoas
-	Location: Pompton Lakes, New Jersey, United States
+/*
+	TEAM
+*/
+Design, Markup, Code, Good Intentions: Ted Goas.
+Site: http://www.tedgoas.com.
+Twitter: @tedgoas.
+Dribbble: http://www.dribbble.com/tedgoas.
+Github: http://www.github.com/tedgoas.
+Location: New Jersey, United States.
 
-	Copyeditor: Sara Goas
-	Site: http://www.saragoas.com
-	Twitter: @saragoas
-	Location: Pompton Lakes, New Jersey, United States
+Editor and Proofreader: Sara Goas.
+Site: http://www.saragoas.com.
+Twitter: @saragoas.
+Location: New Jersey, United States.
 
-/* WORKFLOW */
-	Design: Photoshop, HTML & CSS.
-	Development: HTML, LESS CSS, JavaScipt written by hand in Coda. LESS is compiled locally using LESS.app for Mac.
-	CMS: Stacey, Version 2.3.0
-	Local Environment: MAMP
-	Production Environment: Host Gator (Yes, really. They've been great!)
-	Deployment: GitHub (+ GitHub Mac client), FTPloy (deployment from GitHub via FTP). 
-	Issue Tracking & To Do's: Wunderlist
-	Writing: Editorially
+/* 
+	RESOURCES
+*/
+Icon font by fontastic.me:
+http://www.fontastic.me
 
-/* RESOURCES */
-	Icons: Brankic1979 (http://www.brankic1979.com/icons)
-	Font Icons: Fontello (http://fontello.com)
-	Web fonts: Typekit (http://www.typekit.com)
-	Map Box (https://www.mapbox.com)
+Font Embedding (Freight Sans) with Typekit:
+http://www.typekit.com
 
-/* THANKS */
-	ImageOptim (http://imageoptim.com)
-	Brad Frost Responsive Toggle Navigation (http://bradfrost.github.com/this-is-responsive/patterns.html)
-	Joni Korpi: A Smoother Page Load (http://jonikorpi.com/a-smoother-page-load)
-	Scott Robbin: Backstretch.js (https://github.com/srobbin/jquery-backstretch)
-	Julian Lloyd: scrollReveal.js (https://github.com/julianlloyd/scrollReveal.js)
-	Catherine Desrochers: Absolute image path in Stacey (https://getsatisfaction.com/stacey/topics/how_can_i_get_absolute_image_path)
+
+/* 
+	SITE + TECHNOLOGY
+*/
+Content Management System:
+Kirby CMS
+
+Built With:
+HTML (HTML5 Doctype), LESS/CSS, Media Queries, jQuery, Dublin, Microformats 
+More: http://builtwith.com/tedgoas.com
+
+Software:
+Photoshop, Illustrator, Coda, ImageOptim, web browsers, Github, FTPloy, Wunderlist
+
+Language:
+English

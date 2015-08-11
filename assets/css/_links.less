@@ -1,0 +1,23 @@
+a {
+	transition: all 150ms ease-in;
+	color: @primary;
+	&:visited {
+		color: @primary-light;	
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		color: @primary-dark;	
+	}
+}
+.link-dark {
+	color: @gray-darkest;
+	&:visited {
+		color: @gray-dark;	
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		color: @primary;	
+	}
+}

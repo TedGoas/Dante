@@ -1,0 +1,89 @@
+html,
+body {
+	font-family: "freight-sans-pro", sans-serif;
+	line-height: 1.4;
+	font-size: @fs-m;
+	color: @gray-darker;
+}
+
+h1 {
+	font-size: @fs-xl;
+	font-weight: @fw-l;
+	line-height: 1.1;
+	color: @gray-darkest;
+}
+h2 {
+	font-size: @fs-l;
+	line-height: 1.2;
+	font-weight: @fw-b;
+	margin: @gutter-medium 0 @gutter-small;
+	color: @gray-darkest;
+}
+h2.caps {
+	font-size: @fs-l * .9;
+	text-transform: uppercase;
+	letter-spacing: .075em;
+}
+h3 {
+	font-size: @fs-l;
+	font-weight: @fw-r;
+	margin: @gutter-medium 0 @gutter-small/2;
+	color: @gray-darkest;
+}
+h4 {
+	font-size: @fs-s;
+	text-transform: uppercase;
+	letter-spacing: .05em;
+	font-weight: @fw-b;
+	color: @gray-darkest;
+}
+@media screen and (max-width: @breakpoint-small) {
+	h1 {
+		font-size: @fs-xl * .75;
+	}
+}
+
+p {
+	margin: 0 0 @gutter-small;
+}
+.caption {
+	color: @gray-light;
+	font-size: @fs-s;
+	display: block;
+	line-height: 1;
+}
+b,
+strong {
+	font-weight: @fw-b;
+}
+.article {
+	ul,
+	ol {
+		margin: 0 0 @gutter-small @gutter-small;
+	}
+	li {
+		margin-bottom: @gutter-small/2;
+	}
+}
+blockquote {
+	padding: 15px @gutter-small;
+	margin-bottom: @gutter-small;
+	background: @gray-faint;
+	font-size: @fs-m;
+	font-style: italic;
+	font-family: georgia;
+	position: relative;
+	&:after {
+		content:"";
+		display: block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		width: 2px;
+		.gradient-ttb(@green,@blue);
+	}
+	p {
+		margin: 10px 0;
+	}
+}

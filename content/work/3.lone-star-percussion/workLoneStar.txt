@@ -1,5 +1,0 @@
-title: Lone Star
--
-summary: When Lone Star Percussion lost its primary designer, I assumed the lead design role and helped push the website accross the finish line using the brand's style guide and front-end framework.
--
-byline: Full service percussion store in Texas.

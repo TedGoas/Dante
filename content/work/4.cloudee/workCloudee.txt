@@ -1,5 +1,0 @@
-title: Cloudee
--
-summary: I created a series of mobile-focused HTML email templates for Cloudee, a mobile video-sharing service from the team behind Boxee. Cloudee was acquired by Samsung in 2013.
--
-byline: Share videos with family & close friends

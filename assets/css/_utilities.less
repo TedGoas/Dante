@@ -1,0 +1,50 @@
+.clearfix {
+	.clearfix;
+}
+img,
+video {
+	max-width: 100%;
+	height: auto;
+}
+.flush-bottom {
+	line-height: 0;
+}
+
+.hr {
+	direction: block;
+	padding: @gutter-medium 0;
+	text-align: center;
+	hr {
+		margin: auto;
+		height: 1px;
+		background: @gray-lighter;
+		width: 215px;
+	}
+	&.loud {
+		hr {
+			margin: auto;
+			height: 2px;
+			.gradient-ltr(@blue,@green);
+		}
+	}
+}
+p + .hr {
+	padding-top: @gutter-small;
+}
+
+br.display-on-mobile {
+	display: none;
+	line-height: 0;
+} 
+br.hide-on-mobile {
+	display: block;
+	line-height: 0;
+}
+@media screen and (max-width: @breakpoint-small) {
+	br.display-on-mobile {
+		display: block;
+	} 
+	br.hide-on-mobile {
+		display: none;
+	}
+}

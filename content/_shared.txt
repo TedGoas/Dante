@@ -1,6 +1,0 @@
-name: Ted Goas
--
-profession: Web Designer and Developer
--
-email: 
-<ted@tedgoas.com>

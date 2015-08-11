@@ -1,5 +1,0 @@
-title: Personal Projects
--
-summary: A small collection of design explorations, prototypes, experiments, and open-source projects that I'm proud of.
--
-byline: Design explorations and open-source code.

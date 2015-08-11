@@ -1,0 +1,48 @@
+.big-ted {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 200px;
+	background: #000 url("/assets/images/ted.jpg") top center no-repeat;
+	background-size: cover;
+}
+.home-intro {
+	text-align: left;
+	color: #fff;
+	width: 52.5%;
+	padding: @gutter-large 0 0 @gutter-large;
+}
+.home-intro--title {
+	margin-bottom: @gutter-small;
+	line-height: 1;
+	font-size: 36px;
+	color: #fff;
+}
+@media screen and (max-width: @breakpoint-medium) {
+	.home-intro {
+		width: 70%;
+	}
+}
+@media screen and (max-width: @breakpoint-small) {
+	.big-ted {
+		top: 50px;
+		left: 0;
+		&:after {
+			content: "";
+			display: block;
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: rgba(0,0,0,.5);
+		}
+	}
+	.home-intro {
+		position: relative;
+		z-index: 1;
+		padding: @gutter-small;
+		width: 100%;
+	}
+}

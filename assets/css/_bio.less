@@ -1,0 +1,210 @@
+body.bio {
+	background: #fcfcfc;
+} 
+.hdr-bio {
+	height: 300px;
+	background: #000 url("/assets/images/bio-hdr.jpg") 50% 50% no-repeat;
+	background-size: cover;
+	position: relative;
+	h1 {
+		color: #fff;
+		font-size: @fs-l;
+		position: absolute;
+		width: 100%;
+		text-align: center;
+		bottom: 15px;
+	}
+}
+
+.timeline-container {
+	position: relative;
+	padding: 150px 0;
+	&:after {
+		content: "";
+		display: block;
+		background: @gray-lightest;
+		width: 3px;
+		margin-left: -1px;
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		bottom: 0;
+		left: 50%;
+	}
+}
+
+.segment {
+	position: absolute;
+	top: 50%;
+	margin-top: -1px;
+	height: 3px;
+	background: @gray-lightest;
+	width: 40%;
+	z-index: 0;
+	&:after {
+		display: block;
+		content: "";
+		height: 6px;
+		width: 6px;
+		border-radius: 50%;
+		border: 3px solid #fcfcfc;
+		position: absolute;
+		margin-top: -5px;
+	}
+}
+.timeline-container > div:nth-child(5n+5) {
+	.segment:after {
+		background: teal;
+	}
+}
+.timeline {
+	position: relative;
+	max-width: 400px;
+	border: 1px solid @gray-lightest;
+	margin: -75px 0;
+	text-align: left;
+}
+.timeline-figure {
+	position: relative;
+	&:after {
+		content: "";
+		display: block;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		height: 75px;
+		position: absolute;
+		z-index: 1;
+		background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+		background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* W3C */
+		opacity: .4;
+	}
+}
+.timeline-date {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 2;
+	padding: 15px 20px;
+}
+.timelime-year {
+	color: #fff;
+	font-size: @fs-s;
+	font-weight: @fw-r;
+	display: inline-block;
+	letter-spacing: .05em;
+	padding: 2px 12px 5px;
+	line-height: 1;
+	border-radius: 15px;
+	border: 2px solid #fff;
+}
+.timeline-img {
+	display: block;
+}
+.timelime-p {
+	font-size: @fs-s;
+	line-height: 1.3;
+	margin: 0;
+	padding: 20px;
+	background: #fff;
+	position: relative;
+	z-index: 3;
+}
+
+.timeline--odd,
+.timeline--even {
+	position: relative;
+	.clearfix;
+}
+
+.timeline--odd {
+	text-align: left;
+	.timeline {
+		float: left;
+	}
+	.segment {
+		right: 50%;
+		&:after {
+			right: -5px;
+		}
+	}
+}
+.timeline--even {
+	text-align: right;
+	.timeline {
+		float: right;
+	}
+	.segment {
+		left: 50%;
+		&:after {
+			left: -5px;
+		}
+	}
+}
+
+.timeline-container > div:nth-child(5n+1) {
+	.segment:after {
+		background: @blue;
+	}
+}
+.timeline-container > div:nth-child(5n+2) {
+	.segment:after {
+		background: @green;
+	}
+}
+.timeline-container > div:nth-child(5n+3) {
+	.segment:after {
+		background: @purple;
+	}
+}
+.timeline-container > div:nth-child(5n+4) {
+	.segment:after {
+		background: @teal;
+	}
+}
+.timeline-container > div:nth-child(5n+5) {
+	.segment:after {
+		background: @red;
+	}
+}
+
+
+@media screen and (max-width: @breakpoint-medium) {
+	.timeline-container {
+		padding: 150px 0;
+		&:after {
+			margin-left: -1px;
+			left: 0;
+		}
+	}
+	.timeline--odd,
+	.timeline--even {
+		text-align: left;
+		.timeline {
+			float: none;
+			margin: @gutter-small 0 @gutter-small @gutter-medium;
+		}
+		.segment {
+			left: 0;
+			&:after {
+				left: -5px;
+			}
+		}
+	}
+}
+@media screen and (max-width: @breakpoint-small) {
+	.timeline-container {
+		padding: @gutter-small 0;
+	}
+	.timeline--odd,
+	.timeline--even {
+		text-align: left;
+		.timeline {
+			margin-left: @gutter-small;
+		}
+	}
+}

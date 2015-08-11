@@ -1,3 +1,0 @@
-foreach $root do
-  :feed_children
-endforeach
