@@ -1,0 +1,140 @@
+# Kirby .htaccess
+
+# ----------------------------------------------------------------------
+# Rewrite Rules
+# ----------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+
+# enable awesome urls. i.e.:
+# http://yourdomain.com/about-us/team
+RewriteEngine on
+RewriteBase /
+
+# Specific URLs:
+RewriteRule ^articles/(.*)$ http://www.tedgoas.com/blog/$1 [R=301,L]
+RewriteRule ^clinical-app/ http://www.tedgoas.com/work/clinical-services/ [R=301,L]
+RewriteRule ^seatgeek/ http://www.tedgoas.com/work/html-email-design/ [R=301,L]
+RewriteRule ^aid/ http://www.tedgoas.com/work/canfield-misc/ [R=301,L]
+RewriteRule ^personal/ http://www.tedgoas.com/work/ [R=301,L]
+RewriteRule ^cloudee/ http://www.tedgoas.com/work/html-email-design/ [R=301,L]
+RewriteRule ^lone-star-percussion/ http://www.tedgoas.com/work/web-ui-design/ [R=301,L]
+RewriteRule ^toys-r-us/ http://www.tedgoas.com/work/html-email-design/ [R=301,L]
+RewriteRule ^odds-and-ends/ http://www.tedgoas.com/work/ [R=301,L]
+
+# Rewrite any calls to *.html, *.json, *.xml, *.atom, *.rss, *.rdf or *.txt if a folder matching * exists
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !public/
+RewriteCond %{DOCUMENT_ROOT}/public/$1.$2 !-f
+RewriteRule (.+)\.(html|json|xml|atom|rss|rdf|txt)$ $1/ [L]
+
+# Add a trailing slash to directories
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !(\.)
+RewriteCond %{REQUEST_URI} !(.*)/$
+RewriteRule ([^/]+)$ $1/ [L]
+
+# Rewrite any calls to /* or /app to the index.php file
+RewriteCond %{REQUEST_URI} /app/$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ index.php?$1 [L]
+
+# Rewrite any file calls to the public directory
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !public/
+RewriteRule ^(.+)$ public/$1 [L]
+
+# make panel links work
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^panel/(.*) panel/index.php [L]
+
+# make site links work
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*) index.php [L]
+
+</IfModule>
+
+# ----------------------------------------------------------------------
+# A little security
+# ----------------------------------------------------------------------
+# block text files in the content folder from being accessed directly
+RewriteRule ^content/(.*)\.(txt|md|mdown)$ error [R=301,L]
+
+# block all files in the site folder from being accessed directly
+RewriteRule ^site/(.*) error [R=301,L]
+
+# block all files in the kirby folder from being accessed directly
+RewriteRule ^kirby/(.*) error [R=301,L]
+
+# "-Indexes" will have Apache block users from browsing folders without a
+# default document Usually you should leave this activated, because you
+# shouldn't allow everybody to surf through every folder on your server (which
+# includes rather private places like CMS system folders).
+<IfModule mod_autoindex.c>
+  Options -Indexes
+</IfModule>
+
+# Block access to "hidden" directories or files whose names begin with a
+# period. This includes directories used by version control systems such as
+# Subversion or Git.
+<IfModule mod_rewrite.c>
+  RewriteCond %{SCRIPT_FILENAME} -d [OR]
+  RewriteCond %{SCRIPT_FILENAME} -f
+  RewriteRule "(^|/)\." - [F]
+</IfModule>
+
+# Block access to backup and source files. These files may be left by some
+# text/html editors and pose a great security danger, when anyone can access
+# them.
+<FilesMatch "(\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|swp)|~)$">
+  Order allow,deny
+  Deny from all
+  Satisfy All
+</FilesMatch>
+
+# ----------------------------------------------------------------------
+# A little speed
+# ----------------------------------------------------------------------
+<IfModule mod_deflate.c>
+# Insert filter
+SetOutputFilter DEFLATE
+
+# Netscape 4.x has some problems...
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+
+# Netscape 4.06-4.08 have some more problems
+BrowserMatch ^Mozilla/4\.0[678] no-gzip
+
+# NOTE: Due to a bug in mod_setenvif up to Apache 2.0.48
+# the above regex won't work. You can use the following
+# workaround to get the desired effect:
+BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
+
+</IfModule>
+
+
+# ----------------------------------------------------------------------
+# ETag removal
+# ----------------------------------------------------------------------
+# FileETag None is not enough for every server.
+<IfModule mod_headers.c>
+  Header unset ETag
+</IfModule>
+
+# Since we're sending far-future expires, we don't need ETags for
+# static content.
+# developer.yahoo.com/performance/rules.html#etags
+FileETag None
+
+
+
+# Additional recommended values
+# Remove comments for those you want to use.
+#
+# AddDefaultCharset UTF-8
+#
+# php_flag short_open_tag on
