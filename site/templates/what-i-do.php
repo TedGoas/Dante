@@ -19,19 +19,142 @@
 						vs.
 					</li>
 					<li class="skills-graph-legend-li relative-skill">
-						<div class="relative-skill-line"></div>
 						Relative Skill
 					</li>
 				</ul>
 			</div>
 			<div class="skills-graph-graph">
-				<div class="skills-graph-line">
-					<img src="/assets/images/skill-graph-lines.png" width="825" height="100" class="skill-graph-lines">
-				</div>
 				<div class="skills-graph-bars">
-					<div class="skills-graph-bar-container">
-						<div class="skills-graph-bar skills-graph-bar--web"></div>
+					
+					<div class="skills-graph-bar-group">
+						<div class="skills-graph-bar-container">
+							<div class="skills-graph-bar-railing skills-graph-bar-railing--pi">
+								<div class="skills-graph-bar skills-graph-bar-pi skills-graph-bar--web-pi"></div>
+							</div>
+							<div class="skills-graph-bar-railing skills-graph-bar-railing--rs">
+								<div class="skills-graph-bar skills-graph-bar-rs skills-graph-bar--web-rs"></div>
+							</div>
+						</div>
+						<div class="skills-graph-label">
+							Web + RWD <br class="hide-on-mobile">Design
+						</div>
 					</div>
+					
+					<div class="skills-graph-bar-group">
+						<div class="skills-graph-bar-container">
+							<div class="skills-graph-bar-railing skills-graph-bar-railing--pi">
+								<div class="skills-graph-bar skills-graph-bar-pi skills-graph-bar--ui-pi"></div>
+							</div>
+							<div class="skills-graph-bar-railing skills-graph-bar-railing--rs">
+								<div class="skills-graph-bar skills-graph-bar-rs skills-graph-bar--ui-rs"></div>
+							</div>
+						</div>
+						<div class="skills-graph-label">
+							App Interface <br class="hide-on-mobile">Design
+						</div>
+					</div>
+					
+					<div class="skills-graph-bar-group">
+						<div class="skills-graph-bar-container">
+							<div class="skills-graph-bar-railing skills-graph-bar-railing--pi">
+								<div class="skills-graph-bar skills-graph-bar-pi skills-graph-bar--product-pi"></div>
+							</div>
+							<div class="skills-graph-bar-railing skills-graph-bar-railing--rs">
+								<div class="skills-graph-bar skills-graph-bar-rs skills-graph-bar--product-rs"></div>
+							</div>
+						</div>
+						<div class="skills-graph-label">
+							Product <br class="hide-on-mobile">Design
+						</div>
+					</div>
+					
+					<div class="skills-graph-bar-group">
+						<div class="skills-graph-bar-container">
+							<div class="skills-graph-bar-railing skills-graph-bar-railing--pi">
+								<div class="skills-graph-bar skills-graph-bar-pi skills-graph-bar--email-pi"></div>
+							</div>
+							<div class="skills-graph-bar-railing skills-graph-bar-railing--rs">
+								<div class="skills-graph-bar skills-graph-bar-rs skills-graph-bar--email-rs"></div>
+							</div>
+						</div>
+						<div class="skills-graph-label">
+							Email <br class="hide-on-mobile">Design
+						</div>
+					</div>
+					
+					<div class="skills-graph-bar-group">
+						<div class="skills-graph-bar-container">
+							<div class="skills-graph-bar-railing skills-graph-bar-railing--pi">
+								<div class="skills-graph-bar skills-graph-bar-pi skills-graph-bar--htmlcss-pi"></div>
+							</div>
+							<div class="skills-graph-bar-railing skills-graph-bar-railing--rs">
+								<div class="skills-graph-bar skills-graph-bar-rs skills-graph-bar--htmlcss-rs"></div>
+							</div>
+						</div>
+						<div class="skills-graph-label">
+							HTML <br class="hide-on-mobile">&amp; CSS
+						</div>
+					</div>
+					
+					<div class="skills-graph-bar-group">
+						<div class="skills-graph-bar-container">
+							<div class="skills-graph-bar-railing skills-graph-bar-railing--pi">
+								<div class="skills-graph-bar skills-graph-bar-pi skills-graph-bar--js-pi"></div>
+							</div>
+							<div class="skills-graph-bar-railing skills-graph-bar-railing--rs">
+								<div class="skills-graph-bar skills-graph-bar-rs skills-graph-bar--js-rs"></div>
+							</div>
+						</div>
+						<div class="skills-graph-label">
+							JavaScript <br class="hide-on-mobile">(jQuery)
+						</div>
+					</div>
+					
+					<div class="skills-graph-bar-group">
+						<div class="skills-graph-bar-container">
+							<div class="skills-graph-bar-railing skills-graph-bar-railing--pi">
+								<div class="skills-graph-bar skills-graph-bar-pi skills-graph-bar--bs-pi"></div>
+							</div>
+							<div class="skills-graph-bar-railing skills-graph-bar-railing--rs">
+								<div class="skills-graph-bar skills-graph-bar-rs skills-graph-bar--bs-rs"></div>
+							</div>
+						</div>
+						<div class="skills-graph-label">
+							Build Systems <br class="hide-on-mobile">+ CMS's
+						</div>
+					</div>
+					
+					<div class="skills-graph-bar-group">
+						<div class="skills-graph-bar-container">
+							<div class="skills-graph-bar-railing skills-graph-bar-railing--pi">
+								<div class="skills-graph-bar skills-graph-bar-pi skills-graph-bar--demos-pi"></div>
+							</div>
+							<div class="skills-graph-bar-railing skills-graph-bar-railing--rs">
+								<div class="skills-graph-bar skills-graph-bar-rs skills-graph-bar--demos-rs"></div>
+							</div>
+						</div>
+						<div class="skills-graph-label">
+							Demos &amp; <br class="hide-on-mobile">Presentations
+						</div>
+					</div>
+					
+					<div class="skills-graph-bar-group">
+						<div class="skills-graph-bar-container">
+							<div class="skills-graph-bar-railing skills-graph-bar-railing--pi">
+								<div class="skills-graph-bar skills-graph-bar-pi skills-graph-bar--lead-pi"></div>
+							</div>
+							<div class="skills-graph-bar-railing skills-graph-bar-railing--rs">
+								<div class="skills-graph-bar skills-graph-bar-rs skills-graph-bar--lead-rs"></div>
+							</div>
+						</div>
+						<div class="skills-graph-label">
+							Leading Teams <br class="hide-on-mobile">&amp; Projects
+						</div>
+					</div>
+					
+					
+					
+<!--
 					<div class="skills-graph-bar-container">
 						<div class="skills-graph-bar skills-graph-bar--ui"></div>
 					</div>
@@ -56,9 +179,6 @@
 				</div>
 				<div class="skills-graph-labels">
 					<div class="skills-graph-label">
-						Web + Mobile <br class="hide-on-mobile">Design
-					</div>
-					<div class="skills-graph-label">
 						Product + UI <br class="hide-on-mobile">Design
 					</div>
 					<div class="skills-graph-label">
@@ -79,8 +199,11 @@
 					<div class="skills-graph-label">
 						Leading Teams <br class="hide-on-mobile">&amp; Projects
 					</div>
+			-->
+
 				</div>
 			</div>
+			
 		</div>
 	</div>
 	
