@@ -1,6 +1,6 @@
 <?php snippet('header') ?>
 <div class="outside hdr-bio">
-	<h1><?php echo $page->summary()->html() ?></h1>
+	<h1><?php echo $page->title()->html() ?></h1>
 </div>
 <div class="outside body">
 	<div class="inside">
