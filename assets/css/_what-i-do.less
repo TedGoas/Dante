@@ -54,7 +54,7 @@
 	z-index: 1;
 	display: inline-block;
 }
-	
+
 .skills-graph-bar {
 	animation-fill-mode:forwards;	
 	animation-duration: 500ms;
@@ -161,10 +161,26 @@
 	animation-name: grow-80;
 	animation-delay: 2000ms;
 }
-
 .skills-graph-label {
 	line-height: 1.2;
 	padding-top: 10px;
+	vertical-align: top;
+}
+@media screen and (max-width: @breakpoint-small) {
+	.skills-graph-bars {
+		.clearfix;
+	}
+	.skills-graph-bar-group {
+		display: block;
+		width: 33%;
+		float: left;
+	}
+	.skills-graph-bar-railing {
+		height: 100px;
+	}
+	.skills-graph-label {
+		height: 75px;
+	}
 }
 
 .what-i-do-summary {
