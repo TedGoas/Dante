@@ -46,6 +46,17 @@ body {
 		left: 200px;
 	}
 }
+@media screen and (max-width: @breakpoint-medium) {
+	.body {
+		&:before {
+			opacity: .5;
+		}
+		&:after {
+			display: none;
+		}
+	}
+}
+
 .narrow-width {
 	margin: auto;
 	width: 67%;
