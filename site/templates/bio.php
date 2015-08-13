@@ -15,7 +15,7 @@
 						</div>
 						<img src="/assets/images/bio-th-babyted.jpg" alt="Baby Ted" width="400" height="300" class="timeline-img">
 					</div>
-					<p class="timelime-p">I was born on my mother’s 30th birthday. What are the odds? This sentence could be a little longer cause the others are three lines.</p>
+					<p class="timelime-p">I was born on my mother’s 30th birthday. What are the odds?</p>
 				</div>
 			</div>
 			
