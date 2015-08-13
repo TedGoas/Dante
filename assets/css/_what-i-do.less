@@ -56,6 +56,9 @@
 }
 
 .skills-graph-bar {
+	-webkit-animation-fill-mode:forwards;	
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-animation-duration: 500ms;
 	animation-fill-mode:forwards;	
 	animation-duration: 500ms;
 	animation-timing-function: ease-in-out;
@@ -69,95 +72,151 @@
 .skills-graph-bar-rs {
 	background: @green;
 }
+@-webkit-keyframes grow-100 {
+  0%  	{ height: 0; }
+  100%	{ height: 100%; }
+}
 @keyframes grow-100 {
-  from  { height: 0; }
-  to 		{ height: 100%; }
+  0%  	{ height: 0; }
+  100%	{ height: 100%; }
+}
+@-webkit-keyframes grow-90 {
+  0%  	{ height: 0; }
+  100%	{ height: 90%; }
 }
 @keyframes grow-90 {
-  from  { height: 0; }
-  to 		{ height: 90%; }
+  0%  	{ height: 0; }
+  100%	{ height: 90%; }
+}
+@-webkit-keyframes grow-80 {
+  0%  	{ height: 0; }
+  100%	{ height: 80%; }
 }
 @keyframes grow-80 {
-  from  { height: 0; }
-  to 		{ height: 80%; }
+  0%  	{ height: 0; }
+  100%	{ height: 80%; }
+}
+@-webkit-keyframes grow-70 {
+  0%  	{ height: 0; }
+  100%	{ height: 70%; }
 }
 @keyframes grow-70 {
-  from  { height: 0; }
-  to 		{ height: 70%; }
+  0%  	{ height: 0; }
+  100%	{ height: 70%; }
+}
+@-webkit-keyframes grow-60 {
+  0%  	{ height: 0; }
+  100%	{ height: 60%; }
 }
 @keyframes grow-60 {
-  from  { height: 0; }
-  to 		{ height: 60%; }
+  0%  	{ height: 0; }
+  100%	{ height: 60%; }
 }
 .skills-graph-bar--web-pi {
+	-webkit-animation-name: grow-90;
+	-webkit-animation-delay: 300ms;
 	animation-name: grow-90;
 	animation-delay: 300ms;
 }
 .skills-graph-bar--web-rs {
+	-webkit-animation-name: grow-80;
+	-webkit-animation-delay: 400ms;
 	animation-name: grow-80;
 	animation-delay: 400ms;
 }
 .skills-graph-bar--ui-pi {
+	-webkit-animation-name: grow-100;
+	-webkit-animation-delay: 500ms;
 	animation-name: grow-100;
 	animation-delay: 500ms;
 }
 .skills-graph-bar--ui-rs {
+	-webkit-animation-name: grow-90;
+	-webkit-animation-delay: 600ms;
 	animation-name: grow-90;
 	animation-delay: 600ms;
 }
 .skills-graph-bar--product-pi {
+	-webkit-animation-name: grow-100;
+	-webkit-animation-delay: 700ms;
 	animation-name: grow-100;
 	animation-delay: 700ms;
 }
 .skills-graph-bar--product-rs {
+	-webkit-animation-name: grow-80;
+	-webkit-animation-delay: 800ms;
 	animation-name: grow-80;
 	animation-delay: 800ms;
 }
 .skills-graph-bar--email-pi {
+	-webkit-animation-name: grow-100;
+	-webkit-animation-delay: 900ms;
 	animation-name: grow-100;
 	animation-delay: 900ms;
 }
 .skills-graph-bar--email-rs {
+	-webkit-animation-name: grow-90;
+	-webkit-animation-delay: 1000ms;
 	animation-name: grow-90;
 	animation-delay: 1000ms;
 }
 .skills-graph-bar--htmlcss-pi {
+	-webkit-animation-name: grow-100;
+	-webkit-animation-delay: 1100ms;
 	animation-name: grow-100;
 	animation-delay: 1100ms;
 }
 .skills-graph-bar--htmlcss-rs {
+	-webkit-animation-name: grow-90;
+	-webkit-animation-delay: 1200ms;
 	animation-name: grow-90;
 	animation-delay: 1200ms;
 }
 .skills-graph-bar--js-pi {
+	-webkit-animation-name: grow-90;
+	-webkit-animation-delay: 1300ms;
 	animation-name: grow-90;
 	animation-delay: 1300ms;
 }
 .skills-graph-bar--js-rs {
+	-webkit-animation-name: grow-60;
+	-webkit-animation-delay: 1400ms;
 	animation-name: grow-60;
 	animation-delay: 1400ms;
 }
 .skills-graph-bar--bs-pi {
+	-webkit-animation-name: grow-70;
+	-webkit-animation-delay: 1500ms;
 	animation-name: grow-70;
 	animation-delay: 1500ms;
 }
 .skills-graph-bar--bs-rs {
+	-webkit-animation-name: grow-60;
+	-webkit-animation-delay: 1600ms;
 	animation-name: grow-60;
 	animation-delay: 1600ms;
 }
 .skills-graph-bar--demos-pi {
+	-webkit-animation-name: grow-90;
+	-webkit-animation-delay: 1700ms;
 	animation-name: grow-90;
 	animation-delay: 1700ms;
 }
 .skills-graph-bar--demos-rs {
+	-webkit-animation-name: grow-80;
+	-webkit-animation-delay: 1800ms;
 	animation-name: grow-80;
 	animation-delay: 1800ms;
 }
 .skills-graph-bar--lead-pi {
+	-webkit-animation-name: grow-100;
+	-webkit-animation-delay: 1900ms;
 	animation-name: grow-100;
 	animation-delay: 1900ms;
 }
 .skills-graph-bar--lead-rs {
+	-webkit-animation-name: grow-80;
+	-webkit-animation-delay: 2000ms;
 	animation-name: grow-80;
 	animation-delay: 2000ms;
 }

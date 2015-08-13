@@ -152,55 +152,6 @@
 						</div>
 					</div>
 					
-					
-					
-<!--
-					<div class="skills-graph-bar-container">
-						<div class="skills-graph-bar skills-graph-bar--ui"></div>
-					</div>
-					<div class="skills-graph-bar-container">
-						<div class="skills-graph-bar skills-graph-bar--htmlcss"></div>
-					</div>
-					<div class="skills-graph-bar-container">
-						<div class="skills-graph-bar skills-graph-bar--js"></div>
-					</div>
-					<div class="skills-graph-bar-container">
-						<div class="skills-graph-bar skills-graph-bar--cms"></div>
-					</div>
-					<div class="skills-graph-bar-container">
-						<div class="skills-graph-bar skills-graph-bar--email"></div>
-					</div>
-					<div class="skills-graph-bar-container">
-						<div class="skills-graph-bar skills-graph-bar--demos"></div>
-					</div>
-					<div class="skills-graph-bar-container">
-						<div class="skills-graph-bar skills-graph-bar--lead"></div>
-					</div>
-				</div>
-				<div class="skills-graph-labels">
-					<div class="skills-graph-label">
-						Product + UI <br class="hide-on-mobile">Design
-					</div>
-					<div class="skills-graph-label">
-						HTML <br class="hide-on-mobile">&amp; CSS
-					</div>
-					<div class="skills-graph-label">
-						JavaScript <br class="hide-on-mobile">(jQuery)
-					</div>
-					<div class="skills-graph-label">
-						CMS's <br class="hide-on-mobile">(no speciality)
-					</div>
-					<div class="skills-graph-label">
-						Email <br class="hide-on-mobile">Design
-					</div>
-					<div class="skills-graph-label">
-						Demos &amp; <br class="hide-on-mobile">Presentations
-					</div>
-					<div class="skills-graph-label">
-						Leading Teams <br class="hide-on-mobile">&amp; Projects
-					</div>
-			-->
-
 				</div>
 			</div>
 			
