@@ -52,29 +52,6 @@
 		</div>
 	</div>
 	
-	<!--
-	<div class="outside work-section work-section--northwestern">
-		<div class="inside">
-			<div class="work-section-header">
-				<h2 class="caps">NorthWestern</h2>
-			</div>
-			<div class="narrow-width dual-paragraphs">
-				<div class="uk-grid">
-					<div class="uk-width-1-2">
-						<p>Since 2011, I've been helping SeatGeek with email design. I designed and developed a framework for a series of transactional templates and dynamic newsletters sent by the SeatGeek website. I also support SeatGeek design team with projects that require new or custom email design work.</p>
-					</div>
-					<div class="uk-width-1-2">
-						<p>Since 2011, I've been helping SeatGeek with email design. I designed and developed a framework for a series of transactional templates and dynamic newsletters sent by the SeatGeek website. I also support SeatGeek design team with projects that require new or custom email design work.</p>
-					</div>
-				</div>
-			</div>
-			<div class="full-width-figure flush-bottom">
-				<img src="/assets/images/work/canfield-misc/northwestern.jpg" height="800" width="1000" alt="Melanoma interactive training app for Northwestern University">
-			</div>
-		</div>
-	</div>
-	-->
-	
 	<div class="outside work-section work-section--white-text work-section--dermsummit">
 		<div class="inside">
 			<div class="work-section-header">

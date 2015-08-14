@@ -121,21 +121,29 @@
 				<h2 class="caps">What I Learned</h2>
 			</div>
 			<div class="work-section-learn-text">
-				<h3>Dealing with Data</h3>
-				<p>This was the first time I designed a complex, data-driven app. It was a learning experience organizing the information architecture tasks and choosing the <em>right</em> data visualizations. Stephen Few's <a href="http://smile.amazon.com/dp/0596100167">Information Dashboard Design</a> will always have a place on my desk.</p>
-				<h3>Scalable, Fast-Loading Interface</h3>
-				<p>TThis is jobs-to-be-done app, which motivated us to make it fast (as if we needed a reason). I was responsible for reducing the # of requests and DNS lookups, optimizing load order, and creating a caching schema.</p>
-				<p>As we built, I organized the app's interface elements into HTML & CSS blocks, giving the other developers code blocks that can be mixed and matched to build new features without my involvement.</p>
-				<a href="/blog/designing-for-medical" class="th-article-a">
-					<img src="/assets/images/th-article-medical.jpg" alt="Designing for Medical" class="th-article-img">
-					<strong class="th-article-title">Related Article</strong>
-					<p class="th-article-p">I wrote a blog post about my experience designing for medical. The principles within guided many of my design decisions.
-						<span class="th-article-link">Read It</span>
-					</p>
-				</a>
+				<div class="uk-grid uk-grid-large">
+					<div class="uk-width-1-2">
+						<strong class="work-section-learn-title">Designing with Data</strong>
+						<p>This was the first time I designed a complex, data-driven app. It was a learning experience organizing the information architecture tasks and choosing the <em>right</em> data visualizations. Stephen Few's <a href="http://smile.amazon.com/dp/0596100167">Information Dashboard Design</a> will always have a place on my desk.</p>
+					</div>
+					<div class="uk-width-1-2">
+						<strong class="work-section-learn-title">Scalable, Fast-Loading Interface</strong>
+						<p>This is jobs-to-be-done app, which motivated us to make it fast (as if we needed a reason). I was responsible for reducing the # of requests and DNS lookups, optimizing load order, and creating a caching schema.</p>
+					</div>
+				</div>
+				<div class="th-article">
+					<a href="/blog/designing-for-medical" class="th-article-a">
+						<img src="/assets/images/th-article-medical.jpg" alt="Designing for Medical" class="th-article-img">
+						<strong class="th-article-title">Related Article</strong>
+						<p class="th-article-p">I wrote a blog post about my experience designing for medical. The principles within guided many of my design decisions.
+							<span class="th-article-link">Read It</span>
+						</p>
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
+
 <?php snippet('work-navigation') ?>
 </div>
 <?php snippet('footer') ?>

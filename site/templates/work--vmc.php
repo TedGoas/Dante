@@ -120,17 +120,25 @@
 				<h2 class="caps">What I Learned</h2>
 			</div>
 			<div class="work-section-learn-text">
-				<h3>UI Should Be Clear and Flexible</h3>
-				<p>As the product grew, I began to anticipate edge cases. I learned not to be cute with navigation in a medical app like this. However good it looks in Photoshop, it’s going to look different when populated with real data. And there is simply no icon for “anthropometric”, so don’t even try that fancy icon menu. It won’t scale.</p>
-				<h3>Dark UI Brings Out Skin Tones</h3>
-				<p>I started out with a light color palette, but we learned that a dark interface is better at highlighting skin tones and features. Since this is a big part of what Canfield does, I’ve begun porting this design language into other projects.</p>
-				<a href="/blog/designing-for-medical" class="th-article-a">
-					<img src="/assets/images/th-article-medical.jpg" alt="Designing for Medical" class="th-article-img">
-					<strong class="th-article-title">Related Article</strong>
-					<p class="th-article-p">I wrote a blog post about my experience designing for medical. The principles within guided many of my design decisions.
-						<span class="th-article-link">Read It</span>
-					</p>
-				</a>
+				<div class="uk-grid uk-grid-large">
+					<div class="uk-width-1-2">
+						<strong class="work-section-learn-title">UI Should Be Clear and Flexible</strong>
+						<p>As the product grew, I began to anticipate edge cases. I learned not to be cute with navigation in a medical app like this. However good it looks in Photoshop, it’s going to look different when populated with real data. And there is simply no icon for “anthropometric”, so don’t even try that fancy icon menu. It won’t scale.</p>
+					</div>
+					<div class="uk-width-1-2">
+						<strong class="work-section-learn-title">Dark UI Brings Out Skin Tones</strong>
+						<p>I started out with a light color palette, but we learned that a dark interface is better at highlighting skin tones and features. Since this is a big part of what Canfield does, I’ve begun porting this design language into other projects.</p>
+					</div>
+				</div>
+				<div class="th-article">
+					<a href="/blog/designing-for-medical" class="th-article-a">
+						<img src="/assets/images/th-article-medical.jpg" alt="Designing for Medical" class="th-article-img">
+						<strong class="th-article-title">Related Article</strong>
+						<p class="th-article-p">I wrote a blog post about my experience designing for medical. The principles within guided many of my design decisions.
+							<span class="th-article-link">Read It</span>
+						</p>
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -197,44 +197,47 @@
 }
 
 /* Learn */
-.work-section-learn {
-	.work-section-header {
-		padding-bottom: 0;
-		text-align: left;
-		h2 {
-			&:after {
-				left: 0;
-				margin:0;
-			}
-		}
-	}
-}
 .work-section-learn-text {
-	width: 50%;
+	width: 80%;
+	margin: auto;
+}
+.work-section-learn-title {
+	font-weight: @fw-b;
+	color: @gray-darkest;
+	display: block;
+	margin-bottom: @gutter-small;
 }
 .learn-figure {
 	margin-top: @gutter-medium;
 }
 
 /* Article Reference */
+.th-article {
+	text-align: center;
+	margin: @gutter-small auto 0 -@gutter-small;
+}
 .th-article-a {
 	background: #fff;
 	border: 1px solid rgba(0,0,0,.15);
-	display: block;
-	margin: @gutter-medium auto 0;
+	display: inline-block;
+	text-align: left;
+	max-width: 500px;
 	.clearfix;
 	color: @gray-darker;
 	text-decoration: none;
 	font-size: @fs-s;
 	line-height: 1.3;
-	padding: 15px 5px 0 135px;
+	padding: 15px 10px 0 135px;
 	min-height: 125px;
 	position: relative;
+	p {
+		margin: 0;
+	}
 }
 .th-article-img {
 	position: absolute;
 	left: 0;
-	top: 0;	
+	top: 0;
 }
 .th-article-title {
 	color: @gray-darkest;

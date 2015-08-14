@@ -130,13 +130,20 @@
 				<h2 class="caps">What I Learned</h2>
 			</div>
 			<div class="work-section-learn-text">
-				<h3>I Was Asked to Lead, But Wasn't In Charge</h3>
-				<p>Stakeholders were often skeptical, risk-averse, and viewed my ideas as threatening “the way it’s always been done.” And this is totally understandable. I learned frame my suggestions as solutions to their problems and <a href="http://muledesign.com/2014/09/13-ways-designers-screw-up-client-presentations">sell my designs</a>.</p>
-				<h3>How My Company Works</h3>
-				<p>I worked with every department and over 100 employees. I learned what everyone’s day-to-day looks like. Who speaks directly with customers. How clients are billed. What support issues keep coming up. And what parts of the website each department depends on most. Learning this was immensely helpful in prioritizing work that had the highest impact on the business.</p>
+				<div class="uk-grid uk-grid-large">
+					<div class="uk-width-1-2">
+						<strong class="work-section-learn-title">I Was Asked to Lead, But Wasn't In Charge</strong>
+						<p>Stakeholders were often skeptical, risk-averse, and viewed my ideas as threatening “the way it’s always been done.” And this is totally understandable. I learned frame my suggestions as solutions to their problems and <a href="http://muledesign.com/2014/09/13-ways-designers-screw-up-client-presentations">sell my designs</a>.</p>
+					</div>
+					<div class="uk-width-1-2">
+						<strong class="work-section-learn-title">How My Company Works</strong>
+						<p>I worked with every department and over 100 employees. I learned what everyone’s day-to-day looks like. Who speaks directly with customers. How clients are billed. What support issues keep coming up. And what parts of the website each department depends on most. Learning this was immensely helpful in prioritizing work that had the highest impact on the business.</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
+
 <?php snippet('work-navigation') ?>
 </div>
 <?php snippet('footer') ?>
