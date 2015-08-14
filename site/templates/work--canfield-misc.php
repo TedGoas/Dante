@@ -66,7 +66,7 @@
 						<p>This is different from everything else I work on at Canfield because I’m the only employee involved in this project. I work directly with the project managers (located in Atlanta and San Francisco) and build everything by myself without developer help, including staging the site and deploying to production.</p>
 					</div>
 				</div>
-				<div class="site-link"><a href="http:/www.dermsummit.com">Visit the Site</a></div>
+				<div class="site-link"><a href="http://www.dermsummit.com">Visit the Site</a></div>
 			</div>
 			<div class="full-width-figure flush-bottom">
 				<img src="/assets/images/work/canfield-misc/derm-summit.jpg" height="800" width="1000" alt="Derm Summit Conference homepage">
