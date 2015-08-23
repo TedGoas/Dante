@@ -25,10 +25,10 @@
 			<div class="narrow-width dual-paragraphs">
 				<div class="uk-grid">
 					<div class="uk-width-1-2">
-						<p>The company website was personal to a lot people, so brought out a lot of emotions. Stakeholders were proud, opinionated, worried, territorial. Everyone had the same goal for the site, but a different opinion on how to get there.</p>
+						<p>The company website is personal to a lot people, so it's redesign brought out a lot of emotions. Stakeholders were proud, opinionated, worried... territorial. Everyone had the same goal for the site, but a different opinion on how to get there. It was my job to capture everyone’s vision and balance it with the needs of the business.</p>
 					</div>
 					<div class="uk-width-1-2">
-						<p>It was my job to capture everyone’s vision and balance it with the needs of the business. I regularly met with the heads of each department to understand their needs and worked directly with the company owner to mold these inputs into a portrait of the company. I led countless design reviews and presentations, organized feedback, and prioritized resulting work within the team. Iterate. Iterate. Iterate.</p>
+						<p>I regularly met with the heads of each department to understand their needs and worked directly with the company owner to mold these inputs into a portrait of the company. I led countless design reviews and presentations, organized feedback, and prioritized resulting work within the team.</p>
 					</div>
 				</div>
 			</div>
@@ -42,7 +42,7 @@
 		<div class="inside">
 			<div class="work-section-header">
 				<strong class="byline">Challenge No. 1</strong>
-				<h2 class="caps">Making Sense of a Diverse Offerings</h2>
+				<h2 class="caps">Making Sense of a Diverse Family of Products</h2>
 			</div>
 			<div class="narrow-width dual-paragraphs">
 				<div class="uk-grid">
@@ -50,7 +50,7 @@
 						<p>Many of Canfield’s products and services are specialized, and they don’t always fit into shared templates very well. I was challenged to design flexible templates that could share some content and code patterns, but allow for custom content as necessary.</p>
 					</div>
 					<div class="uk-width-1-2">
-						<p>I developed a series of templates made up modular blocks that can be mixed and matched to create product and service page. The templates make heavy use of repeatable design patterns and data-driven modules, but still allow for one-off, free-form design when necessary.</p>
+						<p>I developed a series of templates made up modular blocks that can be mixed and matched to create product and service page. The templates make heavy use of repeatable design patterns and data-driven modules, but still allow for one-off, art-directed design when necessary.</p>
 					</div>
 				</div>
 			</div>
@@ -66,7 +66,7 @@
 						<img src="/assets/images/work/canfield-scientific/home-v3.jpg" alt="homepage version #3" class="figure-border-light">
 					</div>
 				</div>
-				<figcaption class="caption caption--border">A few of the many home page designs.</figcaption>
+				<figcaption class="caption caption--border">A few of the many home page iterations.</figcaption>
 			</div>
 		</div>
 	</div>
@@ -80,10 +80,10 @@
 			<div class="narrow-width dual-paragraphs">
 				<div class="uk-grid">
 					<div class="uk-width-1-2">
-						<p>This was a high profile project within the company and emotions ran high. I was in the middle of a few tense meetings. My focus was to ask lots of questions, listen, and keep my biases from leading the design in the wrong direction.</p>
+						<p>This was a high profile project within the company and emotions ran high. I was in the middle of a few tense meetings. I focused on asking lots of questions, listening, and keeping my own biases from leading the design in the wrong direction.</p>
 					</div>
 					<div class="uk-width-1-2">
-						<p>During the planning process, I asked each stakeholder <strong>what success looks like</strong> and recorded their answer. We made small adjustments during the project, but having a documented goal to refer to avoided lots of churn. Ultimately each design we produced succeeded when it solved the problem, not because “everyone liked it.”</p>
+						<p>During the planning process, I asked each stakeholder <strong>what success looks like</strong> and noted their answer. We made small adjustments during the project, but having documented goals to reference avoided lots of churn. Ultimately each design we produced succeeded when it solved the problem, not because “everyone liked it.”</p>
 					</div>
 				</div>
 			</div>
@@ -111,10 +111,10 @@
 			<div class="narrow-width dual-paragraphs">
 				<div class="uk-grid">
 					<div class="uk-width-1-2">
-						<p>As the launch date approached, we made had to priority calls to meet an aggressive timeline. In addition to helping test the site, I spearheaded several meta tasks such as redirecting old site URLs, auditing the SEO-friendliness of the site, and setting up Google Analytics.</p>
+						<p>As the launch date approached, we made had to priority calls to meet an aggressive timeline. In addition to helping test the site, I spearheaded several meta tasks such as redirecting old site URLs, auditing the SEO-friendliness of the new site, and setting up Google Analytics.</p>
 					</div>
 					<div class="uk-width-1-2">
-						<p>Once launched, the new website was met with overwhelming positivity. Clients approached us at conferences, applauding the site’s way-finding systems and refreshed content. Internally, stakeholders have more tools to maintain their area of the site. I constantly seek constructive criticism, but sometimes it’s hard to find.</p>
+						<p>Once launched, the new website was met with overwhelming positivity. Clients approached us at conferences, commending the site’s way-finding systems and refreshed content. Internally, each area of the business is now accurately represented and stakeholders have more tools to maintain their area of the site.</p>
 					</div>
 				</div>
 			</div>
@@ -133,11 +133,11 @@
 				<div class="uk-grid uk-grid-large">
 					<div class="uk-width-1-2">
 						<strong class="work-section-learn-title">I Was Asked to Lead, But Wasn't In Charge</strong>
-						<p>Stakeholders were often skeptical, risk-averse, and viewed my ideas as threatening “the way it’s always been done.” And this is totally understandable. I learned frame my suggestions as solutions to their problems and <a href="http://muledesign.com/2014/09/13-ways-designers-screw-up-client-presentations">sell my designs</a>.</p>
+						<p>Stakeholders were often skeptical, risk-averse, and viewed my ideas as a threat to “the way it’s always been done.” And this is totally understandable. I learned frame my suggestions as solutions to their problems and <a href="http://muledesign.com/2014/09/13-ways-designers-screw-up-client-presentations">sell my designs</a>.</p>
 					</div>
 					<div class="uk-width-1-2">
 						<strong class="work-section-learn-title">How My Company Works</strong>
-						<p>I worked with every department and over 100 employees. I learned what everyone’s day-to-day looks like. Who speaks directly with customers. How clients are billed. What support issues keep coming up. And what parts of the website each department depends on most. Learning this was immensely helpful in prioritizing work that had the highest impact on the business.</p>
+						<p>I worked with every department and over 100 employees. I learned what everyone’s day-to-day looks like. Who speaks directly with customers. How the billing process works. What support issues keep coming up. And what parts of the website each department depends on most. Learning this was immensely helpful in prioritizing work that had the highest impact on the business.</p>
 					</div>
 				</div>
 			</div>
