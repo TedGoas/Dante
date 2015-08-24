@@ -25,10 +25,10 @@
 			<div class="narrow-width dual-paragraphs">
 				<div class="uk-grid">
 					<div class="uk-width-1-2">
-						<p>When we started, a bare-bone version of the app already existed, so we had the benefit of analytics and users to help our research.</p>
+						<p>When we started, a bare-bones version of the app already existed, so we had the benefit of analytics and users to help our research. We started by combing through analytics and interviewing existing users about their current workflow, This got us prototyping new ideas for interface patterns and functionality.</p>
 					</div>
 					<div class="uk-width-1-2">
-						<p>Our team combed through analytics, conducted user interviews, and prototyped new ideas for new interface patterns and functionality. I led several design reviews with wireframes and Photoshop mockups, but quickly moved into the browser and started designing with real data. This helped us uncover the weaknesses in the design and quickly find the blind spots.</p>
+						<p>I led several design reviews with wireframes and Photoshop mockups, but quickly moved into the browser and started designing with real data. This helped us uncover the weaknesses in the design and quickly find the blind spots.</p>
 					</div>
 				</div>
 			</div>
@@ -47,10 +47,10 @@
 			<div class="narrow-width dual-paragraphs">
 				<div class="uk-grid">
 					<div class="uk-width-1-2">
-						<p>This was the first large product I helped design, iterate, and bulletproof. The app has just a handful of screens, but each one has a seemingly infinite number of states, edge cases, and blank slate screens.</p>
+						<p>This was the first large product I helped design, evolve, and bulletproof. The app has just a handful of screens, but each one has a numerous states and seemingly endless number of edge cases.</p>
 					</div>
 					<div class="uk-width-1-2">
-						<p>Things like oversized photos, missing text fields, and long file names would often break layouts and force us to adapt. I worked with the engineers, project managers, and quality control team to surface bugs and verify their fixes using our device lab and virtual machines (old IE versions).</p>
+						<p>Things like oversized photos, missing text fields, and long file names would often break layouts and force us to adapt. I worked with the engineers, project managers, and quality control team to monitor the app's usage, surface bugs, and verify fixes using a small device lab and virtual machines (for old versions of Internet Explorer).</p>
 					</div>
 				</div>
 			</div>
@@ -69,7 +69,7 @@
 			<div class="narrow-width dual-paragraphs">
 				<div class="uk-grid">
 					<div class="uk-width-1-2">
-						<p>I had some prior experience fixing browser bugs, but I really submerged myself in it for this project. In supporting everything from the retina iPads down to Internet Explorer 6, I gained a deep understanding of legacy browser capabilities and graceful degradation.</p>
+						<p>I had some prior experience fixing browser bugs, but I really submerged myself in it for this project. In supporting everything from the retina iPads down to Internet Explorer 6, I gained a deep understanding of browser capabilities and graceful degradation.</p>
 					</div>
 					<div class="uk-width-1-2">
 						<p>The app also makes heavy use of print stylesheets. Every page prints clearly. Even the modal windows. Even in IE6.</p>
@@ -105,7 +105,7 @@
 						<p>In the weeks after the launch, we received an overwhelmingly positive response from our clients. Comments ranged from “the website is more useful now” to “the website is simply a pleasure to use”. Someone even referred to it as the “Cadillac” of clinical websites.</p>
 					</div>
 					<div class="uk-width-1-2">
-						<p>One of the most rewarding aspects of working on this app is that it's evolving. We work on it every month and I'm helping guide its course.</p>
+						<p>One of the most rewarding aspects of working on this app is that it's evolving. We work on it each month and I'm helping guide its course.</p>
 					</div>
 				</div>
 			</div>
@@ -128,7 +128,7 @@
 					</div>
 					<div class="uk-width-1-2">
 						<strong class="work-section-learn-title">Scalable, Fast-Loading Interface</strong>
-						<p>This is jobs-to-be-done app, which motivated us to make it fast (as if we needed a reason). I was responsible for reducing the # of requests and DNS lookups, optimizing load order, and creating a caching schema.</p>
+						<p>This is jobs-to-be-done app, which motivated us to make it fast (as if we needed a reason). I was responsible for reducing the number of requests and DNS lookups, optimizing load order, and creating a caching schema.</p>
 					</div>
 				</div>
 				<div class="th-article">
