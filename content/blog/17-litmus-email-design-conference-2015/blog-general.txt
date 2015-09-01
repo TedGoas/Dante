@@ -27,16 +27,21 @@ In this regard, the development tracks did not disappoint. I came away thinkingâ
 	<img src="/content/blog/17-litmus-email-design-conference-2015/dan-denney.jpg" alt="Be violent and original in your emails" width="700" height="250" class="fluid">
 </figure>
 
-Rob Berinti's [typography talk](https://drive.google.com/open?id=0B2uzG2bvD431aWsyTXRnVG94S3c) solves so many simple, yet frequently annoying email typography issues. Dan Denney, Brian Graves, Lee Munroe, and Aaron Ladage all have me thinking about what parts of my workflow are outdated and no longer appropriate. The TEDCNTACC in my head is full.
+[Rob Berinti](http://berinti.com/)'s [typography talk](https://drive.google.com/open?id=0B2uzG2bvD431aWsyTXRnVG94S3c) solves so many simple, yet frequently annoying email typography issues. [Dan Denney](https://twitter.com/dandenney), [Brian Graves](https://twitter.com/briangraves), [Lee Munroe](https://twitter.com/leemunroe), and [Aaron Ladage](https://twitter.com/aladage) all have me thinking about what parts of my workflow are outdated and no longer appropriate. The TEDCNTACC in my head is full.
+
+<figure class="figure figure-center">
+	<img src="/content/blog/17-litmus-email-design-conference-2015/mike-ragan.jpg" alt="Designing for Image Blocking" width="700" height="375" class="fluid">
+	<figcaption class="caption caption--border">Sketch notes from <a href="https://twitter.com/Mike_Ragan">Mike Ragan</a>'s talk on Images-Off Design</figcaption>
+</figure>
 
 ## Attendee Turned Speaker
 A theme within the conference was people who attended last year's conference as attendees and came back this year as speakers. Well, add me to that list. TEDC14 was my first time attending a design conference and TEDC15 was my first time in a speaking role.
 
-**If this was your first TEDC, you can do this.** #TedCruz16!
+If this was your first TEDC, you can do this! **#TedCruz16**
 
 <figure class="figure figure-center">
 	<img src="/content/blog/17-litmus-email-design-conference-2015/panel.jpg" alt="The web comes to email, but should it?" width="800" height="533" class="fluid">
-	<figcaption class="caption"><a href="https://twitter.com/pbiolsi/status/637354517391101953">Image Credit</a></figcaption>
+	<figcaption class="caption caption--border"><a href="https://twitter.com/pbiolsi/status/637354517391101953">Image Credit</a></figcaption>
 </figure>
 
 ## Ooooooohhh... On the Litmus Tip
@@ -50,12 +55,10 @@ Big thank you to all of the attendees and speakers for making this a special eve
 
 <figure class="figure figure-center">
 	<img src="/content/blog/17-litmus-email-design-conference-2015/after.jpg" alt="The TEDC15 OG's" width="590" height="450" class="fluid">
-	<figcaption class="caption"><a href="https://instagram.com/p/68ZIb3pSd-/">Image Credit</a></figcaption>
+	<figcaption class="caption caption--border"><a href="https://instagram.com/p/68ZIb3pSd-/">Image Credit</a></figcaption>
 </figure>
 
 ## Thank You Narragansett
 <figure class="figure figure-center">
 	<img src="/content/blog/17-litmus-email-design-conference-2015/narragansett.jpg" alt="Narragansett" width="300" height="400" class="fluid">
-	<figcaption class="caption">I took this photo, obv...</figcaption>
 </figure>
-
