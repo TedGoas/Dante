@@ -21,7 +21,7 @@ Litmus did a great job creating a friendly vibe that encouraged everyone to chat
 ## The Main Theme (For Me)
 As a designer, my plan this year is to build up a strong foundation and create a design workflow to support it. Wrapping my head around responsive emails without media queries was a must. Seeing how others use shared code, build systems, and task runners to minimize the manual labor aspect of email was also an important goal.
 
-In this regard, the development tracks did not disappoint. I came away thinking… well Dan Denny [put it well](https://speakerdeck.com/dandenney/the-organized-chaos-of-email-creation):
+In this regard, the development tracks did not disappoint. I came away thinking… well Dan Denney [put it well](https://speakerdeck.com/dandenney/the-organized-chaos-of-email-creation):
 
 <figure class="figure figure-center">
 	<img src="/content/blog/17-litmus-email-design-conference-2015/dan-denney.jpg" alt="Be violent and original in your emails" width="700" height="250" class="fluid">
