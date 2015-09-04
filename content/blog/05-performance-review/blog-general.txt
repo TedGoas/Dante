@@ -18,7 +18,7 @@ In the spirit of that, I’ll be doing less tweeting myself. I’ll still intere
 ## Less Dribbble
 Since 2010, I’ve spent a lot of time on dribbble. Being around talented designers had paid off in spades. But when I see things like [this](http://dribbble.com/search?q=workspace) or [this](http://dribbble.com/search?q=blur+background), I grinds my gears. [Keenan Cummings summarizes my viewpoint well](http://blog.keenancummings.com/post/42506303821/sweet-textures-bro "Sweet textures bro"). We tend to stay in our own little worlds, high-fiving each other and patting each other on the backs.
 
-Dribbble is still part of my workweek, but its focus is more narrow.
+Dribbble is still part of my work week, but its focus is more narrow.
 
 <blockquote class="twitter-tweet"><p>2012 @<a href="https://twitter.com/dribbble">dribbble</a>: The year of the isometric DSLR shot of an iPhone running an app that doesn't work.</p>&mdash; Kyle Neath (@kneath) <a href="https://twitter.com/kneath/status/285794915890384896">December 31, 2012</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -37,5 +37,3 @@ Last year I spent a lot of time becoming a better web builder. It worked. It’s
 
 ## My Family Is Not My Side Project
 Lastly, I don’t want an unhealthy blur between work life and family life. When I’m home, I’m home. If my son if awake, I’m not in front of the computer. If my wife is around, my phone is in my pocket. [My family is not my side project](http://chrisbowler.com/journal/overcoming-project-guilt "Overcoming Project Guilt"). I have hobbies that don't involve an Internet connection.
-  
-<a href="http://www.twitter.com/tedgoas" title="@reply me on Twitter" rel="external me" class="icnInline icnSocial twitter"><i class="icon-twitter"></i></a> Want to chat about this on Twitter?</a>
