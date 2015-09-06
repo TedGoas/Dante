@@ -13,7 +13,7 @@
 	
 	<div class="outside work-section work-section--faint work-section-styleguide">
 		<div class="inside inside--centered">
-			<img src="/assets/images/work/clinical-services/style-guide.png" alt="color pallete and PT Sans font stack" width="713" height="225">
+			<img src="/assets/images/work/clinical-services/style-guide.png" width="1425" height="450" alt="color pallete and PT Sans font stack">
 		</div>
 	</div>
 	
@@ -34,7 +34,7 @@
 			</div>
 		</div>
 		<div class="figure flush-bottom">
-			<img src="/assets/images/work/clinical-services/wireframe.jpg" alt="Evolution of the dashboard design">
+			<img src="/assets/images/work/clinical-services/wireframe.jpg" width="1300" height="500" alt="Evolution of the dashboard design">
 		</div>
 	</div>
 	
@@ -55,7 +55,7 @@
 				</div>
 			</div>
 			<figure class="figure figure-center">
-				<img src="/assets/images/work/clinical-services/segmented-bar-graph.png" alt="Segmented Bar Graph">
+				<img src="/assets/images/work/clinical-services/segmented-bar-graph.png" width="1100" width="750" alt="Segmented Bar Graph">
 			</figure>
 		</div>
 	</div>
@@ -79,13 +79,13 @@
 			<div class="uk-grid">
 				<div class="uk-width-1-2">
 					<figure class="figure figure-center">
-						<img src="/assets/images/work/clinical-services/browser-chrome.jpg">
+						<img src="/assets/images/work/clinical-services/browser-chrome.jpg" width="600" height="491" alt="As rendered in Google Chrome / Win 7">
 						<figcaption class="caption caption--border">Modern Chrome on Windows 7</figcaption>
 					</figure>
 				</div>
 				<div class="uk-width-1-2">
 					<figure class="figure figure-center">
-						<img src="/assets/images/work/clinical-services/browser-ie7.jpg">
+						<img src="/assets/images/work/clinical-services/browser-ie7.jpg"width="600" height="491" alt="As rendered in IE7 / Win XP">
 						<figcaption class="caption caption--border">Internet Explorer 7 on Windows XP</figcaption>
 					</figure>
 				</div>
@@ -110,7 +110,7 @@
 				</div>
 			</div>
 			<figure class="figure figure-center">
-				<img src="/assets/images/work/clinical-services/data-table.png" alt="Data Table">
+				<img src="/assets/images/work/clinical-services/data-table.png" width="1100" width="750" alt="Data Table">
 			</figure>
 		</div>
 	</div>
@@ -133,7 +133,7 @@
 				</div>
 				<div class="th-article">
 					<a href="/blog/designing-for-medical" class="th-article-a">
-						<img src="/assets/images/th-article-medical.jpg" alt="Designing for Medical" class="th-article-img">
+						<img src="/assets/images/th-article-medical.jpg" width="125" height="125" alt="Designing for Medical" class="th-article-img">
 						<strong class="th-article-title">Related Article</strong>
 						<p class="th-article-p">I wrote a blog post about my experience designing for medical. The principles within guided many of my design decisions.
 							<span class="th-article-link">Read It</span>

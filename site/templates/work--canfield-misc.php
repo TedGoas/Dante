@@ -26,7 +26,7 @@
 				<div class="site-link"><div class="unavailable">Currently In Development</div></div>
 			</div>
 			<div class="full-width-figure flush-bottom">
-				<img src="/assets/images/work/canfield-misc/careers.jpg" height="800" width="1000" alt="alt">
+				<img src="/assets/images/work/canfield-misc/careers.jpg" height="800" width="1000" alt="Canfield Careers">
 			</div>
 		</div>
 	</div>

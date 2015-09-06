@@ -13,7 +13,7 @@
 	
 	<div class="outside work-section work-section--faint work-section-styleguide">
 		<div class="inside inside--centered">
-			<img src="/assets/images/work/canfield-scientific/style-guide.png" alt="color pallete and source sans pro font stack" width="713" height="225">
+			<img src="/assets/images/work/canfield-scientific/style-guide.png" alt="color pallete and roboto font stack" width="1425" height="450">
 		</div>
 	</div>
 	
@@ -34,7 +34,7 @@
 			</div>
 		</div>
 		<div class="figure flush-bottom">
-			<img src="/assets/images/work/canfield-scientific/wireframe.jpg">
+			<img src="/assets/images/work/canfield-scientific/wireframe.jpg" width="1300" height="500" alt="planning and wireframes">
 		</div>
 	</div>
 	
@@ -57,13 +57,13 @@
 			<div class="figure">
 				<div class="uk-grid uk-grid-tiny">
 					<div class="uk-width-1-3">
-						<img src="/assets/images/work/canfield-scientific/home-v1.jpg" alt="homepage version #1" class="figure-border-light">
+						<img src="/assets/images/work/canfield-scientific/home-v1.jpg" width="400" height="700" alt="homepage version #1" class="figure-border-light">
 					</div>
 					<div class="uk-width-1-3">
-						<img src="/assets/images/work/canfield-scientific/home-v2.jpg" alt="homepage version #2" class="figure-border-light">
+						<img src="/assets/images/work/canfield-scientific/home-v2.jpg" width="400" height="700" alt="homepage version #2" class="figure-border-light">
 					</div>
 					<div class="uk-width-1-3">
-						<img src="/assets/images/work/canfield-scientific/home-v3.jpg" alt="homepage version #3" class="figure-border-light">
+						<img src="/assets/images/work/canfield-scientific/home-v3.jpg" width="400" height="700" alt="homepage version #3" class="figure-border-light">
 					</div>
 				</div>
 				<figcaption class="caption caption--border">A few of the many home page iterations.</figcaption>
@@ -90,12 +90,12 @@
 			<div class="figure-grid">
 				<div class="uk-grid uk-grid-tiny">
 					<div class="uk-width-1-2">
-						<img src="/assets/images/work/canfield-scientific/grid-library.jpg">
-						<img src="/assets/images/work/canfield-scientific/grid-visia.jpg">
+						<img src="/assets/images/work/canfield-scientific/grid-library.jpg" width="600" height="500" alt="Breakthrough teams">
+						<img src="/assets/images/work/canfield-scientific/grid-visia.jpg" width="600" height="400" alt="Visia product page">
 					</div>
 					<div class="uk-width-1-2">
-						<img src="/assets/images/work/canfield-scientific/grid-veos.jpg">
-						<img src="/assets/images/work/canfield-scientific/grid-innovation.jpg">
+						<img src="/assets/images/work/canfield-scientific/grid-veos.jpg" width="600" height="400" alt="Veos product shot">
+						<img src="/assets/images/work/canfield-scientific/grid-innovation.jpg" width="600" height="500" alt="Innovation">
 					</div>
 				</div>
 			</div>
@@ -119,7 +119,7 @@
 				</div>
 			</div>
 			<figure class="figure figure-center">
-				<img src="/assets/images/work/canfield-scientific/ship.jpg">
+				<img src="/assets/images/work/canfield-scientific/ship.jpg" width="1000" height="800" alt="About Page">
 			</figure>
 		</div>
 	</div>

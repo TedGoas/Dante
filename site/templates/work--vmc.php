@@ -13,7 +13,7 @@
 	
 	<div class="outside work-section work-section--faint work-section-styleguide">
 		<div class="inside inside--centered">
-			<img src="/assets/images/work/vmc/style-guide.png" alt="color pallete and source sans pro font stack" width="713" height="225">
+			<img src="/assets/images/work/vmc/style-guide.png" width="1425" height="450" alt="color pallete and source sans pro font stack">
 		</div>
 	</div>
 	
@@ -34,7 +34,7 @@
 			</div>
 		</div>
 		<div class="figure flush-bottom">
-			<img src="/assets/images/work/vmc/wireframe.jpg">
+			<img src="/assets/images/work/vmc/wireframe.jpg" width="1300" height="500" alt="planning and wireframes">
 		</div>
 	</div>
 	
@@ -57,13 +57,13 @@
 			<div class="uk-grid">
 				<div class="uk-width-1-2">
 					<figure class="figure figure-center">
-						<img src="/assets/images/work/vmc/visia.jpg" alt="Interactive 3D Image Viewer">
+						<img src="/assets/images/work/vmc/visia.jpg" width="600" height="491" alt="Interactive 3D Image Viewer">
 						<figcaption class="caption caption--border">Image Viewing: lots of features added.</figcaption>
 					</figure>
 				</div>
 				<div class="uk-width-1-2">
 					<figure class="figure figure-center">
-						<img src="/assets/images/work/vmc/analytics.jpg" alt="Doctor Analytics">
+						<img src="/assets/images/work/vmc/analytics.jpg" width="600" height="491" alt="Doctor Analytics">
 						<figcaption class="caption caption--border">Analytics: not part of the original plan.</figcaption>
 					</figure>
 				</div>
@@ -88,7 +88,7 @@
 				</div>
 			</div>
 			<figure class="figure figure-center">
-				<img src="/assets/images/work/vmc/education.jpg">
+				<img src="/assets/images/work/vmc/education.jpg" width="1000" height="780" alt="education material">
 				<figcaption class="caption caption--border">Education Section: May be there, might not. Might have one chapter, might have 15.</figcaption>
 			</figure>
 		</div>
@@ -111,7 +111,7 @@
 				</div>
 			</div>
 		</div>
-		<img src="/assets/images/work/vmc/admin-perspective.jpg" class="figure-full-bleed">
+		<img src="/assets/images/work/vmc/admin-perspective.jpg" width="1300" height="725" alt="Doctor Dashboard" class="figure-full-bleed">
 	</div>
 	
 	<div class="outside work-section work-section-learn">
@@ -132,7 +132,7 @@
 				</div>
 				<div class="th-article">
 					<a href="/blog/designing-for-medical" class="th-article-a">
-						<img src="/assets/images/th-article-medical.jpg" alt="Designing for Medical" class="th-article-img">
+						<img src="/assets/images/th-article-medical.jpg" width="125" height="125" alt="Designing for Medical" class="th-article-img">
 						<strong class="th-article-title">Related Article</strong>
 						<p class="th-article-p">I wrote a blog post about my experience designing for medical. The principles within guided many of my design decisions.
 							<span class="th-article-link">Read It</span>
