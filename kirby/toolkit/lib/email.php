@@ -23,17 +23,13 @@ class Email extends Obj {
   const ERROR_INVALID_SERVICE = 5;
   const ERROR_DISABLED = 6;
 
-  static public $services = array();
-  static public $disabled = false;
+  public static $services = array();
+  public static $disabled = false;
 
   public $error = null;
 
   public function __set($key, $value) {
-    if(in_array($key, array('to', 'from', 'replyTo'))) {
-      $this->$key = $this->extractAddress($value);
-    } else {
-      $this->$key = $value;
-    }
+    $this->$key = $value;
   }
 
   /**
@@ -82,7 +78,7 @@ class Email extends Obj {
       if(static::$disabled) throw new Error('Sending emails is disabled', static::ERROR_DISABLED);
 
       // overwrite already set values
-      if(is_array($params) and !empty($params)) {
+      if(is_array($params) && !empty($params)) {
         if(isset($params['service'])) $this->service = $params['service'];
         if(isset($params['options'])) $this->options = $params['options'];
         if(isset($params['to']))      $this->to      = $params['to'];
@@ -188,13 +184,13 @@ email::$services['amazon'] = function($email) {
   $headers[] = 'X-Amzn-Authorization: '. $auth;
   $headers[] = 'Content-Type: application/x-www-form-urlencoded';
 
-  $this->response = remote::post($url, array(
+  $email->response = remote::post($url, array(
     'data'    => $query,
     'headers' => $headers
   ));
 
-  if(!in_array($this->response->code(), array(200, 201, 202, 204))) {
-    throw new Error('The mail could not be sent!', $this->response->code());
+  if(!in_array($email->response->code(), array(200, 201, 202, 204))) {
+    throw new Error('The mail could not be sent!', $email->response->code());
   }
 
 };
@@ -216,18 +212,19 @@ email::$services['mailgun'] = function($email) {
   );
 
   $data = array(
-    'from'     => $email->from,
-    'to'       => $email->to,
-    'subject'  => $email->subject,
-    'text'     => $email->body
+    'from'       => $email->from,
+    'to'         => $email->to,
+    'subject'    => $email->subject,
+    'text'       => $email->body,
+    'h:Reply-To' => $email->replyTo,
   );
 
-  $this->response = remote::post($url, array(
+  $email->response = remote::post($url, array(
     'data'    => $data,
     'headers' => $headers
   ));
 
-  if($this->response->code() != 200) {
+  if($email->response->code() != 200) {
     throw new Error('The mail could not be sent!');
   }
 
@@ -241,7 +238,7 @@ email::$services['postmark'] = function($email) {
   if(empty($email->options['key'])) throw new Error('Invalid Postmark API Key');
 
   // reset the api key if we are in test mode
-  if($email->options['test']) $email->options['key'] = 'POSTMARK_API_TEST';
+  if(a::get($email->options, 'test')) $email->options['key'] = 'POSTMARK_API_TEST';
 
   // the url for postmarks api
   $url = 'https://api.postmarkapp.com/email';

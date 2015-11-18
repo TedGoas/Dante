@@ -32,9 +32,31 @@ class Server {
    * @param  mixed    $default Optional default value, which should be returned if no element has been found
    * @return mixed
    */  
-  static public function get($key = false, $default = null) {
+  public static function get($key = false, $default = null) {
     if(empty($key)) return $_SERVER;
-    return a::get($_SERVER, str::upper($key), $default);
+    $key   = str::upper($key);
+    $value = a::get($_SERVER, $key, $default);
+    return static::sanitize($key, $value);
+  }
+
+  public static function sanitize($key, $value) {
+
+    switch($key) {
+      case 'SERVER_ADDR':
+      case 'SERVER_NAME':
+      case 'HTTP_HOST':
+        $value = strip_tags($value);
+        $value = preg_replace('![^\w.:-]+!iu', '', $value);
+        $value = trim($value, '-');
+        $value = htmlspecialchars($value);
+        break;
+      case 'SERVER_PORT':
+        $value = preg_replace('![^0-9]+!', '', $value);
+        break;
+    }
+
+    return $value;
+
   }
 
 }

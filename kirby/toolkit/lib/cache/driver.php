@@ -22,7 +22,6 @@ abstract class Driver {
    * Set all parameters which are needed to connect to the cache storage
    *
    * @param array $params
-   * @return void
    */
   public function __construct($params = array()) {}
 
@@ -39,7 +38,7 @@ abstract class Driver {
    * @param  int     $minutes
    * @return void
    */
-  abstract function set($key, $value, $minutes = null);
+  public abstract function set($key, $value, $minutes = null);
 
   /**
    * Private method to retrieve the cache value
@@ -48,7 +47,7 @@ abstract class Driver {
    * @param string $key
    * @return object Value
    */
-  abstract function retrieve($key);
+  public abstract function retrieve($key);
 
   /**
    * Get an item from the cache.
@@ -105,7 +104,7 @@ abstract class Driver {
    * Checks when an item in the cache expires
    *
    * @param string $key
-   * @return int
+   * @return mixed
    */
   public function expires($key) {
     // get the Value object
@@ -132,7 +131,7 @@ abstract class Driver {
    * Checks when the cache has been created
    *
    * @param string $key
-   * @return int
+   * @return mixed
    */
   public function created($key) {
     // get the Value object
@@ -179,13 +178,13 @@ abstract class Driver {
    * @param string $key
    * @return boolean
    */
-  abstract function remove($key);
+  public abstract function remove($key);
 
   /**
    * Flush the entire cache
    *
    * @return boolean
    */
-  abstract function flush();
+  public abstract function flush();
 
 }

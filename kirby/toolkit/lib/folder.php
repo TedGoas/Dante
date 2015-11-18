@@ -21,7 +21,7 @@ class Folder {
    * Constructor
    */
   public function __construct($root) {
-    if(file_exists($root) and is_file($root)) throw new Exception('Invalid folder: ' . $root);
+    if(file_exists($root) && is_file($root)) throw new Exception('Invalid folder: ' . $root);
     $this->root = $root;
   }
 
@@ -148,7 +148,7 @@ class Folder {
    * 
    * @param array $ignore
    * @param boolean $plain
-   * @return Collection
+   * @return mixed When $plain is true an array will be returned. Otherwise a Collection
    */
   public function files($ignore = null, $plain = false) {
 
@@ -183,7 +183,7 @@ class Folder {
    * 
    * @param array $ignore
    * @param boolean $plain
-   * @return Collection
+   * @return mixed If $plain is true an array will be returned. Otherwise a Collection
    */
   public function children($ignore = null, $plain = false) {
 

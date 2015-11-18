@@ -1,32 +1,33 @@
-<div class="modal-content">
-  <form class="form" method="post">
-    <fieldset class="fieldset">
-      <div class="field field-with-icon">
-        <label class="label">
-          <?php _l('pages.url.uid.label') ?>
-
-          <a data-element="toggle" data-title="<?php __($page->title()) ?>" class="btn btn-icon label-option" href="#">
-            <?php i('plus-circle', 'left') . _l('pages.url.uid.label.option') ?>
-          </a>
-
-        </label>
-        <div class="field-content">
-          <input data-element="input" class="input" id="page-add-title" type="text" name="uid" placeholder="appendix…" autofocus autocomplete="off" required value="<?php __($page->slug()) ?>">
-          <div class="field-icon">
-            <?php i('chain') ?>
-          </div>
-        </div>
-        <div class="field-help marginalia">
-          <div class="uid-preview">
-            <?php __(ltrim($page->parent()->uri() . '/', '/')) ?><span data-element="preview"><?php __($page->slug()) ?></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="buttons cf">
-        <a class="btn btn-rounded btn-cancel" href="<?php _u($page, 'show') ?>"><?php _l('cancel') ?></a>
-        <input class="btn btn-rounded btn-submit" type="submit" value="<?php _l('save') ?>">
-      </div>
-    </fieldset>
-  </form>
+<div class="modal-content modal-content-medium">
+  <?php echo $form ?>
 </div>
+
+<script>
+
+(function() {
+
+  $.slug.table = <?php echo slugTable() ?>;
+
+  var modal   = $('.modal-content');
+  var toggle  = modal.find('.label a');
+  var input   = modal.find('.input');
+  var preview = modal.find('.uid-preview span');
+
+  toggle.on('click', function() {
+    input.val(toggle.data('title')).trigger('blur').focus();
+    return false;
+  });
+
+  input.on('keyup', function() {
+    preview.text($.slug(input.val()));
+  });
+
+  input.on('blur', function() {
+    var slug = $.slug(input.val());
+    preview.text(slug);
+    input.val(slug);
+  });
+
+})();
+
+</script>

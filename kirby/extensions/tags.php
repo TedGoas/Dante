@@ -71,6 +71,7 @@ kirbytext::$tags['image'] = array(
     'caption',
     'link',
     'target',
+    'popup',
     'rel'
   ),
   'html' => function($tag) {
@@ -103,43 +104,55 @@ kirbytext::$tags['image'] = array(
 
     if(empty($alt)) $alt = pathinfo($url, PATHINFO_FILENAME);
 
-    $image = html::img($url, array(
-      'width'  => $tag->attr('width'),
-      'height' => $tag->attr('height'),
-      'class'  => $tag->attr('imgclass'),
-      'title'  => html($title),
-      'alt'    => html($alt)
-    ));
+    // link builder
+    $_link = function($image) use($tag, $url, $link, $file) {
 
-    if($tag->attr('link')) {
+      if(empty($link)) return $image;
 
       // build the href for the link
       if($link == 'self') {
         $href = $url;
       } else if($file and $link == $file->filename()) {
         $href = $file->url();
+      } else if($tag->file($link)) {
+        $href = $tag->file($link)->url();
       } else {
         $href = $link;
       }
 
-      $image = html::a(url($href), $image, array(
+      return html::a(url($href), $image, array(
         'rel'    => $tag->attr('rel'),
         'class'  => $tag->attr('linkclass'),
-        'title'  => html($tag->attr('title')),
+        'title'  => $tag->attr('title'),
         'target' => $tag->target()
       ));
 
+    };
+
+    // image builder
+    $_image = function($class) use($tag, $url, $alt, $title) {
+      return html::img($url, array(
+        'width'  => $tag->attr('width'),
+        'height' => $tag->attr('height'),
+        'class'  => $class,
+        'title'  => $title,
+        'alt'    => $alt
+      ));
+    };
+
+    if(kirby()->option('kirbytext.image.figure') or !empty($caption)) {
+      $image  = $_link($_image($tag->attr('imgclass')));
+      $figure = new Brick('figure');
+      $figure->addClass($tag->attr('class'));
+      $figure->append($image);
+      if(!empty($caption)) {
+        $figure->append('<figcaption>' . html($caption) . '</figcaption>');
+      }
+      return $figure;
+    } else {
+      $class = trim($tag->attr('class') . ' ' . $tag->attr('imgclass'));
+      return $_link($_image($class));
     }
-
-    $figure = new Brick('figure');
-    $figure->addClass($tag->attr('class'));
-    $figure->append($image);
-
-    if(!empty($caption)) {
-      $figure->append('<figcaption>' . html($caption) . '</figcaption>');
-    }
-
-    return $figure;
 
   }
 );
@@ -151,16 +164,30 @@ kirbytext::$tags['link'] = array(
     'class',
     'title',
     'rel',
+    'lang',
     'target',
     'popup'
   ),
   'html' => function($tag) {
-    return html::a(url($tag->attr('link')), html($tag->attr('text')), array(
+
+    $link = url($tag->attr('link'), $tag->attr('lang'));
+    $text = $tag->attr('text');
+
+    if(empty($text)) {
+      $text = $link;
+    } 
+
+    if(str::isURL($text)) {
+      $text = url::short($text);
+    }
+
+    return html::a($link, $text, array(
       'rel'    => $tag->attr('rel'),
       'class'  => $tag->attr('class'),
-      'title'  => html($tag->attr('title')),
+      'title'  => $tag->attr('title'),
       'target' => $tag->target(),
     ));
+
   }
 );
 
@@ -223,14 +250,23 @@ kirbytext::$tags['youtube'] = array(
   'attr' => array(
     'width',
     'height',
-    'class'
+    'class',
+    'caption'
   ),
   'html' => function($tag) {
+
+    $caption = $tag->attr('caption');
+
+    if(!empty($caption)) {
+      $figcaption = '<figcaption>' . escape::html($caption) . '</figcaption>';
+    } else {
+      $figcaption = null;
+    }
 
     return '<figure class="' . $tag->attr('class', kirby()->option('kirbytext.video.class', 'video')) . '">' . embed::youtube($tag->attr('youtube'), array(
       'width'  => $tag->attr('width',  kirby()->option('kirbytext.video.width')),
       'height' => $tag->attr('height', kirby()->option('kirbytext.video.height')),
-    )) . '</figure>';
+    )) . $figcaption . '</figure>';
 
   }
 );
@@ -239,14 +275,23 @@ kirbytext::$tags['vimeo'] = array(
   'attr' => array(
     'width',
     'height',
-    'class'
+    'class',
+    'caption'
   ),
   'html' => function($tag) {
+
+    $caption = $tag->attr('caption');
+
+    if(!empty($caption)) {
+      $figcaption = '<figcaption>' . escape::html($caption) . '</figcaption>';
+    } else {
+      $figcaption = null;
+    }
 
     return '<figure class="' . $tag->attr('class', kirby()->option('kirbytext.video.class', 'video')) . '">' . embed::vimeo($tag->attr('vimeo'), array(
       'width'  => $tag->attr('width',  kirby()->option('kirbytext.video.width')),
       'height' => $tag->attr('height', kirby()->option('kirbytext.video.height')),
-    )) . '</figure>';
+    )) . $figcaption . '</figure>';
 
   }
 );

@@ -8,11 +8,15 @@ if(!defined('BOM')) define('BOM', "\xEF\xBB\xBF");
 if(!defined('SORT_NATURAL')) define('SORT_NATURAL', 'SORT_NATURAL');
 
 // a super simple autoloader
-function load($classmap) {
-  spl_autoload_register(function($class) use ($classmap) {
+function load($classmap, $base = null) {
+  spl_autoload_register(function($class) use ($classmap, $base) {
     $class = strtolower($class);
     if(!isset($classmap[$class])) return false;
-    include($classmap[$class]);
+    if($base) {
+      include($base . DS . $classmap[$class]);      
+    } else {
+      include($classmap[$class]);
+    }
   });
 }
 
@@ -46,6 +50,7 @@ load(array(
   'embed'                       => __DIR__ . DS . 'lib' . DS . 'embed.php',
   'error'                       => __DIR__ . DS . 'lib' . DS . 'error.php',
   'errorreporting'              => __DIR__ . DS . 'lib' . DS . 'errorreporting.php',
+  'escape'                      => __DIR__ . DS . 'lib' . DS . 'escape.php',
   'exif'                        => __DIR__ . DS . 'lib' . DS . 'exif.php',
   'exif\\camera'                => __DIR__ . DS . 'lib' . DS . 'exif' . DS . 'camera.php',
   'exif\\location'              => __DIR__ . DS . 'lib' . DS . 'exif' . DS . 'location.php',
@@ -71,8 +76,9 @@ load(array(
   'str'                         => __DIR__ . DS . 'lib' . DS . 'str.php',
   'system'                      => __DIR__ . DS . 'lib' . DS . 'system.php',
   'thumb'                       => __DIR__ . DS . 'lib' . DS . 'thumb.php',
-  'tpl'                         => __DIR__ . DS . 'lib' . DS . 'tpl.php',
+  'timer'                       => __DIR__ . DS . 'lib' . DS . 'timer.php',
   'toolkit'                     => __DIR__ . DS . 'lib' . DS . 'toolkit.php',
+  'tpl'                         => __DIR__ . DS . 'lib' . DS . 'tpl.php',
   'upload'                      => __DIR__ . DS . 'lib' . DS . 'upload.php',
   'url'                         => __DIR__ . DS . 'lib' . DS . 'url.php',
   'v'                           => __DIR__ . DS . 'lib' . DS . 'v.php',

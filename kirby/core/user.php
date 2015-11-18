@@ -17,7 +17,7 @@ abstract class UserAbstract {
 
   public function __construct($username) {
 
-    $this->username = str::lower($username);
+    $this->username = str::slug(basename($username));
 
     // check if the account file exists
     if(!file_exists($this->file())) {
@@ -60,7 +60,7 @@ abstract class UserAbstract {
   }
 
   public function __get($key) {
-    return a::get($this->data(), $key);
+    return a::get($this->data(), strtolower($key));
   }
 
   public function __call($key, $arguments = null) {
@@ -91,8 +91,13 @@ abstract class UserAbstract {
     return in_array($this->role()->id(), $roles);
   }
 
+  // support for old 'panel' role permission
   public function hasPanelAccess() {
-    return $this->role()->hasPanelAccess();
+    return $this->role()->hasPermission('panel.access');
+  }
+
+  public function hasPermission($target) {
+    return $this->role()->hasPermission($target);
   }
 
   public function isAdmin() {
@@ -136,41 +141,46 @@ abstract class UserAbstract {
     return file_exists($this->file());
   }
 
+  public function generateKey() {
+    return str::random(64);
+  }
+
+  public function generateSecret($key) {
+    return sha1($this->username() . $key);
+  }
+
   public function login($password) {
+
+    static::logout();
+
     if(!password::match($password, $this->password)) return false;
 
-    $token = $this->generateToken();
-    $key   = $this->generateKey($token);
+    // create a new session id
+    s::regenerateId();
 
-    try {
-      $this->update(array(
-        'token' => $token
-      ));
-    } catch(Exception $e) {
-      throw new Exception('The authentication token could not be stored.');
-    }
+    $key    = $this->generateKey();
+    $secret = $this->generateSecret($key);
 
-    cookie::set('key', $key);
+    s::set('kirby_auth_secret', $secret);
+    s::set('kirby_auth_username', $this->username());
+
+    cookie::set(
+      s::$name . '_auth', 
+      $key, 
+      s::$cookie['lifetime'], 
+      s::$cookie['path'], 
+      s::$cookie['domain'], 
+      s::$cookie['secure'], 
+      s::$cookie['httponly']
+    );
+
     return true;
 
   }
 
-  public function logout() {
-
-    if($this->isCurrent()) {
-      cookie::remove('key');
-    }
-
-    $this->update(array('token' => null));
-
-  }
-
-  public function generateToken() {
-    return sha1($this->username() . str::random(32) . time());
-  }
-
-  public function generateKey($token) {
-    return sha1($this->username()) . '|' . time() . '|' . $token . '|' . base64_encode($this->username());
+  static public function logout() {
+    s::destroy();    
+    cookie::remove(s::$name . '_auth');
   }
 
   public function is($user) {
@@ -252,6 +262,9 @@ abstract class UserAbstract {
     // all usernames must be lowercase
     $data['username'] = str::slug(a::get($data, 'username'));
 
+    // convert all keys to lowercase
+    $data = array_change_key_case($data, CASE_LOWER);
+
     // return the cleaned up data
     return $data;
 
@@ -304,39 +317,40 @@ abstract class UserAbstract {
 
   }
 
+  static public function unauthorize() {
+    s::remove('kirby_auth_secret');
+    s::remove('kirby_auth_username');
+    cookie::remove('kirby_auth');
+  }
+
   static public function current() {
 
-    $key = cookie::get('key');
+    $cookey   = cookie::get(s::$name . '_auth'); 
+    $username = s::get('kirby_auth_username'); 
 
-    if(!$key) return false;
+    if(empty($cookey)) {
+      static::unauthorize();
+      return false;
+    }
 
-    $parts = str::split($key, '|');
-
-    // make sure all three parts are there
-    if(count($parts) != 4) return false;
-
-    $hash     = $parts[0];
-    $time     = $parts[1];
-    $token    = $parts[2];
-    $username = base64_decode($parts[3]);
-
-    // keep logged in for one week
-    if($time < time() - (60 * 60 * 24 * 7)) return false;
+    if(s::get('kirby_auth_secret') !== sha1($username . $cookey)) {
+      static::unauthorize();
+      return false;
+    }
 
     // find the logged in user by token
-    $user = site()->user($username);
-
-    if(!$user) return false;
-
-    // compare the token and the hash as a last check
-    if($user->token() != $token or sha1($user->username()) != $hash) return false;
-
-    return $user;
+    try {
+      $user = new static($username);
+      return $user;
+    } catch(Exception $e) {
+      static::unauthorize();
+      return false;
+    }
 
   }
 
   public function __toString() {
-    return $this->username;
+    return (string)$this->username;
   }
 
 }

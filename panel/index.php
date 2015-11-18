@@ -30,8 +30,30 @@ if(!isset($kirby->roots->index)) {
   $kirby->roots->index = $index;
 }
 
-// create the panel object
-$panel = new Panel($kirby, __DIR__);
+// the default avatar directory
+if(!isset($kirby->roots->avatars)) {
+  $kirby->roots->avatars = $index . DS . 'assets' . DS . 'avatars';
+}
 
-// launch the panel
-echo $panel->launch();
+// the default thumbs directory
+if(!isset($kirby->roots->thumbs)) {
+  $kirby->roots->thumbs = $index . DS . 'thumbs';
+}
+
+try {
+
+  // create the panel object
+  $panel = new Kirby\Panel($kirby, __DIR__);  
+
+  // launch the panel
+  echo $panel->launch();
+
+} catch(Exception $e) {
+
+  // load the fatal screen
+  echo tpl::load(__DIR__ . DS . 'app' . DS . 'layouts' . DS . 'fatal.php', array(
+    'css'     => url::index() . '/assets/css/panel.css',
+    'content' => $e->getMessage()
+  ));
+
+}

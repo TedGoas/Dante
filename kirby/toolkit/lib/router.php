@@ -81,14 +81,23 @@ class Router {
   /**
    * Adds a new route
    *
-   * @param object $route
-   * @return object
+   * @param mixed $pattern
+   * @param mixed $params
+   * @param mixed $optional
+   * @return Obj
    */
   public function register($pattern, $params = array(), $optional = array()) {
 
     if(is_array($pattern)) {
       foreach($pattern as $v) {
-        $this->register($v['pattern'], $v);
+        if(is_array($v['pattern'])) {
+          foreach($v['pattern'] as $p) {
+            $v['pattern'] = $p;
+            $this->register($p, $v);
+          }
+        } else {        
+          $this->register($v['pattern'], $v);
+        }
       }
       return $this;
     }
@@ -115,6 +124,14 @@ class Router {
         $route->method = array($route->method);
       }
 
+    }
+
+    if(is_string($route->filter)) {
+      if(strpos($route->filter, '|') !== false) {
+        $route->filter = str::split($route->filter, '|');
+      } else {
+        $route->filter = array($route->filter);
+      }
     }
 
     foreach($route->method as $method) {
@@ -151,7 +168,7 @@ class Router {
    */
   protected function filterer($filters) {
     foreach((array)$filters as $filter) {
-      if(array_key_exists($filter, $this->filters) and is_callable($this->filters[$filter])) {
+      if(array_key_exists($filter, $this->filters) && is_callable($this->filters[$filter])) {
         call_user_func($this->filters[$filter]);
       }
     }
@@ -188,8 +205,8 @@ class Router {
 
     foreach($routes as $route) {
 
-      if($route->https and !$https) continue;
-      if($route->ajax  and !$ajax)  continue;
+      if($route->https && !$https) continue;
+      if($route->ajax  && !$ajax)  continue;
 
       // handle exact matches
       if($route->pattern == $path) {
@@ -215,8 +232,7 @@ class Router {
 
     }
 
-    if($this->route) {
-      $this->filterer($this->route->filter);
+    if($this->route && $this->filterer($this->route->filter) !== false) {
       return $this->route;
     } else {
       return null;
@@ -227,7 +243,7 @@ class Router {
   /**
    * Translate route URI wildcards into regular expressions.
    *
-   * @param  string  $uri
+   * @param  string  $pattern
    * @return string
    */
   protected function wildcards($pattern) {

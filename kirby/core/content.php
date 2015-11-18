@@ -31,10 +31,10 @@ abstract class ContentAbstract {
     if(empty($this->root) or !is_file($this->root) or !is_readable($this->root)) return;
 
     // read the content file and remove the BOM
-    $this->raw = str_replace("\xEF\xBB\xBF", '', file_get_contents($this->root));
+    $this->raw = str_replace(BOM, '', file_get_contents($this->root));
 
     // explode all fields by the line separator
-    $fields = explode("\n----", $this->raw);
+    $fields = preg_split('!\n----\s*\n*!', $this->raw);
 
     // loop through all fields and add them to the content
     foreach($fields as $field) {
@@ -47,10 +47,8 @@ abstract class ContentAbstract {
       // add the key to the fields list
       $this->fields[] = $key;
 
-      $this->data[$key] = new Field;
-      $this->data[$key]->page  = $this->page;
-      $this->data[$key]->key   = $key;
-      $this->data[$key]->value = trim(substr($field, $pos+1));
+      // add the key object
+      $this->data[$key] = new Field($this->page, $key, trim(substr($field, $pos+1)));
     }
 
   }
@@ -124,16 +122,20 @@ abstract class ContentAbstract {
     if(isset($this->data[$key])) {
       return $this->data[$key];
     } else {
-
-      // return an empty field on demand
-      $field        = new Field();
-      $field->key   = $key;
-      $field->page  = $this->page;
-      $field->value = '';
-
-      return $this->data[$key] = $field;
-
+      // return an empty field as default
+      return $this->data[$key] = new Field($this->page, $key);
     }
+
+  }
+
+  /**
+   * Checks if a field exists
+   * 
+   * @param string $key
+   * @return boolean
+   */
+  public function has($key) {
+    return isset($this->data[strtolower($key)]);
   }
 
   public function __call($method, $arguments = null) {

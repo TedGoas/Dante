@@ -49,7 +49,7 @@ class Roots extends Obj {
   }
 
   public function accounts() {
-    return $this->site() . DS . 'accounts';
+    return isset($this->accounts) ? $this->accounts : $this->site() . DS . 'accounts';
   }
 
   public function blueprints() {
@@ -61,7 +61,7 @@ class Roots extends Obj {
   }
 
   public function cache() {
-    return $this->site() . DS . 'cache';
+    return isset($this->cache) ? $this->cache : $this->site() . DS . 'cache';
   }
 
   public function tags() {
@@ -78,6 +78,10 @@ class Roots extends Obj {
 
   public function controllers() {
     return $this->site() . DS . 'controllers';
+  }
+
+  public function models() {
+    return $this->site() . DS . 'models';
   }
 
   public function templates() {

@@ -64,9 +64,10 @@ function param($key = null, $default = null) {
 /**
  * Smart version of return with an if condition as first argument
  *
- * @param boolean $condition
- * @param string $value The string to be returned if the condition is true
- * @param string $alternative An alternative string which should be returned when the condition is false
+ * @param mixed $condition
+ * @param mixed $value The string to be returned if the condition is true
+ * @param mixed $alternative An alternative string which should be returned when the condition is false
+ * @return null
  */
 function r($condition, $value, $alternative = null) {
   return $condition ? $value : $alternative;
@@ -75,9 +76,9 @@ function r($condition, $value, $alternative = null) {
 /**
  * Smart version of echo with an if condition as first argument
  *
- * @param boolean $condition
- * @param string $value The string to be echoed if the condition is true
- * @param string $alternative An alternative string which should be echoed when the condition is false
+ * @param mixed $condition
+ * @param mixed $value The string to be echoed if the condition is true
+ * @param mixed $alternative An alternative string which should be echoed when the condition is false
  */
 function e($condition, $value, $alternative = null) {
   echo r($condition, $value, $alternative);
@@ -87,6 +88,9 @@ function e($condition, $value, $alternative = null) {
  * Alternative for e()
  *
  * @see e()
+ * @param $condition
+ * @param $value
+ * @param null $alternative
  */
 function ecco($condition, $value, $alternative = null) {
   e($condition, $value, $alternative);
@@ -105,7 +109,7 @@ function dump($variable, $echo = true) {
   } else {
     $output = '<pre>' . print_r($variable, true) . '</pre>';
   }
-  if($echo == true) echo $output;
+  if($echo === true) echo $output;
   return $output;
 }
 
@@ -125,6 +129,7 @@ function attr($name, $value = null) {
  * Creates safe html by encoding special characters
  *
  * @param string $text unencoded text
+ * @param bool $keepTags
  * @return string
  */
 function html($text, $keepTags = true) {
@@ -135,16 +140,36 @@ function html($text, $keepTags = true) {
  * Shortcut for html()
  *
  * @see html()
+ * @param $text
+ * @param bool $keepTags
+ * @return string
  */
-function h($text, $keepTags = false) {
+function h($text, $keepTags = true) {
   return html::encode($text, $keepTags);
 }
 
 /**
  * Shortcut for xml::encode()
+ * 
+ * @param $text
+ * @return string
  */
 function xml($text) {
   return xml::encode($text);
+}
+
+/**
+ * Escape context specific output
+ * 
+ * @param  string  $string  Untrusted data
+ * @param  string  $context Location of output
+ * @param  boolean $strict  Whether to escape an extended set of characters (HTML attributes only)
+ * @return string  Escaped data
+ */
+function esc($string, $context = 'html', $strict = false) {
+  if (method_exists('escape', $context)) {
+    return escape::$context($string, $strict);
+  }
 }
 
 /**
@@ -204,24 +229,32 @@ function gravatar($email, $size = 256, $default = 'mm') {
 }
 
 /**
- * Checks / returns a csfr token
+ * Checks / returns a csrf token
  *
  * @param string $check Pass a token here to compare it to the one in the session
  * @return mixed Either the token or a boolean check result
  */
-function csfr($check = null) {
+function csrf($check = null) {
 
   // make sure a session is started
   s::start();
 
   if(is_null($check)) {
     $token = str::random(64);
-    s::set('csfr', $token);
+    s::set('csrf', $token);
     return $token;
   }
 
-  return ($check === s::get('csfr')) ? true : false;
+  return ($check === s::get('csrf')) ? true : false;
 
+}
+
+/**
+ * Facepalm typo alias
+ * @see csrf()
+ */
+function csfr($check = null) {
+  return csrf($check);
 }
 
 /**
@@ -239,9 +272,9 @@ function call($function, $arguments = array()) {
 
 /**
  * Parses yaml structured text
- *
- * @param string $text
- * @return string parsed text
+ * 
+ * @param $string
+ * @return array
  */
 function yaml($string) {
   return yaml::decode($string);
@@ -263,6 +296,7 @@ function thumb($image, $params = array(), $obj = true) {
  * Simple email sender helper
  *
  * @param array $params
+ * @return Email
  */
 function email($params = array()) {
   return new Email($params);
@@ -270,6 +304,10 @@ function email($params = array()) {
 
 /**
  * Shortcut for the upload class
+ * 
+ * @param $to
+ * @param array $params
+ * @return Upload
  */
 function upload($to, $params = array()) {
   return new Upload($to, $params);
@@ -289,8 +327,10 @@ function invalid($data, $rules, $messages = array()) {
     foreach($validations as $method => $options) {
       if(is_numeric($method)) $method = $options;
       if($method == 'required') {
-        if(!isset($data[$field])) $errors[$field] = a::get($messages, $field, $field);
-      } else {
+        if(!isset($data[$field]) || (empty($data[$field]) && $data[$field] !== 0)) {
+          $errors[$field] = a::get($messages, $field, $field);
+        }
+      } else if(!empty($data[$field]) || $data[$field] === 0) {
         if(!is_array($options)) $options = array($options);
         array_unshift($options, a::get($data, $field));
         if(!call(array('v', $method), $options)) {
@@ -314,6 +354,12 @@ function l($key, $default = null) {
   return l::get($key, $default);
 }
 
+/**
+ * @param $tag
+ * @param bool $html
+ * @param array $attr
+ * @return Brick
+ */
 function brick($tag, $html = false, $attr = array()) {
   return new Brick($tag, $html, $attr);
 }

@@ -83,10 +83,11 @@ class File extends FileAbstract {
    * Renames the file and also its meta info txt
    *  
    * @param string $filename
+   * @param boolean $safeName
    */
-  public function rename($name) {
+  public function rename($name, $safeName = true) {
 
-    $filename = f::safeName($name) . '.' . $this->extension();
+    $filename = $this->createNewFilename($name, $safeName);
     $root     = $this->dir() . DS . $filename;
 
     if($root == $this->root()) return $filename;
@@ -109,6 +110,17 @@ class File extends FileAbstract {
       }
 
     }
+
+    // reset the page cache
+    $this->page->reset();
+
+    // reset the basics
+    $this->root     = $root;
+    $this->filename = $filename;
+    $this->name     = $name;
+    $this->cache    = array();
+
+    cache::flush();
 
     return $filename;
 

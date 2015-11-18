@@ -16,10 +16,10 @@ class DB {
   const ERROR_UNKNOWN_METHOD = 0;
 
   // query shortcuts
-  static public $queries = array();
+  public static $queries = array();
 
   // The singleton Database object
-  static public $connection = null;
+  public static $connection = null;
 
   /**
    * (Re)connect the database
@@ -27,8 +27,8 @@ class DB {
    * @param mixed $params Pass array() to use the default params from the config
    * @return object
    */
-  static public function connect($params = null) {
-    if(is_null($params) and !is_null(static::$connection)) return static::$connection;
+  public static function connect($params = null) {
+    if(is_null($params) && !is_null(static::$connection)) return static::$connection;
     if(is_null($params)) {
 
       // try to connect with the default connection settings
@@ -51,7 +51,7 @@ class DB {
    *
    * @return object
    */
-  static public function connection() {
+  public static function connection() {
     return static::$connection;
   }
 
@@ -61,7 +61,7 @@ class DB {
    * @param string $table
    * @return object Returns a DBQuery object, which can be used to build a full query for that table
    */
-  static public function table($table) {
+  public static function table($table) {
     $connection = db::connect();
     return $connection->table($table);
   }
@@ -74,7 +74,7 @@ class DB {
    * @param array $params
    * @return mixed
    */
-  static public function query($query, $bindings = array(), $params = array()) {
+  public static function query($query, $bindings = array(), $params = array()) {
     $connection = db::connect();
     return $connection->query($query, $bindings, $params);
   }
@@ -86,7 +86,7 @@ class DB {
    * @param array $bindings
    * @return mixed
    */
-  static public function execute($query, $bindings = array()) {
+  public static function execute($query, $bindings = array()) {
     $connection = db::connect();
     return $connection->execute($query, $bindings);
   }
@@ -99,7 +99,7 @@ class DB {
    * @param mixed $arguments
    * @return mixed
    */
-  static public function __callStatic($method, $arguments) {
+  public static function __callStatic($method, $arguments) {
 
     if(isset(static::$queries[$method])) {
       return call(static::$queries[$method], $arguments);
@@ -247,5 +247,5 @@ db::$queries['avg'] = function($table, $column, $where = null) {
  * @return mixed
  */
 db::$queries['sum'] = function($table, $column, $where = null) {
-  return static::table($table)->where($where)->sum($column);
+  return db::table($table)->where($where)->sum($column);
 };

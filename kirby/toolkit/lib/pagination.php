@@ -12,11 +12,13 @@
 class Pagination {
 
   // configuration
-  static public $defaults = array(
-    'variable' => 'page',
-    'method'   => 'param',
-    'page'     => false,
-    'url'      => null,
+  public static $defaults = array(
+    'variable'      => 'page',
+    'method'        => 'param',
+    'omitFirstPage' => true,
+    'page'          => false,
+    'url'           => null,
+    'redirect'      => false,
   );
 
   // options
@@ -46,7 +48,7 @@ class Pagination {
   /**
    * Constructor
    *
-   * @param object $data The collection with all data (KirbyFiles or KirbyPages)
+   * @param mixed $count Either an integer or a Collection
    * @param int $limit The number of items per page
    * @param array $params Additional parameters to control the pagination object
    */
@@ -58,10 +60,10 @@ class Pagination {
     }
 
     $this->options = array_merge(static::$defaults, $params);
-    $this->count   = $count;
-    $this->limit   = $limit;
-    $this->pages   = ceil($this->count / $this->limit);
-    $this->offset  = ($this->page()-1) * $this->limit;
+    $this->count   = (int)$count;
+    $this->limit   = (int)$limit;
+    $this->pages   = (int)ceil($this->count / $this->limit);
+    $this->offset  = (int)(($this->page()-1) * $this->limit);
 
   }
 
@@ -83,15 +85,36 @@ class Pagination {
     // make sure the page is an int
     $this->page = intval($this->page);
 
+    // set the first page correctly
+    if($this->page == 0) {
+      $this->page = 1;
+    }
+
     // sanitize the page if too low
-    if($this->page < 1) $this->page = 1;
+    if($this->page < 1) {
+      $this->redirect();
+      $this->page = 1;
+    }
 
     // sanitize the page if too high
-    if($this->page > $this->pages && $this->count > 0) $this->page = $this->lastPage();
+    if($this->page > $this->pages && $this->count > 0) {
+      $this->redirect();
+      $this->page = $this->lastPage();
+    }
 
     // return the sanitized page number
     return $this->page;
 
+  }
+
+  /**
+   * Redirects to an error page if the redirect option is set
+   * and the pagination is beyond the allowed boundaries
+   */
+  public function redirect() {
+    if($redirect = $this->options['redirect']) {
+      go($redirect);
+    }
   }
 
   /**
@@ -174,7 +197,7 @@ class Pagination {
 
       $query = url::query($this->options['url']);
 
-      if($page == 1) {
+      if($page == 1 && $this->options['omitFirstPage']) {
         unset($query[$this->options['variable']]);
       } else {
         $query[$this->options['variable']] = $page;
@@ -186,7 +209,7 @@ class Pagination {
 
       $params = url::params($this->options['url']);
 
-      if($page == 1) {
+      if($page == 1 && $this->options['omitFirstPage']) {
         unset($params[$this->options['variable']]);
       } else {
         $params[$this->options['variable']] = $page;
@@ -343,8 +366,8 @@ class Pagination {
       return range($this->rangeStart, $this->rangeEnd);
     }
 
-    $this->rangeStart = $this->page - floor($range/2);
-    $this->rangeEnd   = $this->page + floor($range/2);
+    $this->rangeStart = $this->page - (int)floor($range/2);
+    $this->rangeEnd   = $this->page + (int)floor($range/2);
 
     if($this->rangeStart <= 0) {
       $this->rangeEnd += abs($this->rangeStart)+1;

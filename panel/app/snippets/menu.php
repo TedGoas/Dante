@@ -10,12 +10,17 @@
       </a>
     </li>
     <li>
+      <a href="<?php _u('options') ?>">
+        <?php i('gear', 'left') . _l('metatags') ?>
+      </a>
+    </li>
+    <li>
       <a href="<?php _u('users') ?>">
         <?php i('user', 'left') . _l('users') ?>
       </a>
     </li>
     <li>
-      <a href="<?php echo panel()->urls()->logout() ?>">
+      <a href="<?php echo panel()->urls()->logout() ?>" target="_self">
         <?php i('power-off', 'left') . _l('logout') ?>
       </a>
     </li>

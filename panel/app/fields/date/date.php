@@ -2,14 +2,11 @@
 
 class DateField extends InputField {
 
+  public $override = false;
+
   static public $assets = array(
     'js' => array(
-      'moment.min.js',
-      'pikaday.min.js',
-      'date.min.js'
-    ),
-    'css' => array(
-      'pikaday.css'
+      'date.js'
     )
   );
 
@@ -23,14 +20,18 @@ class DateField extends InputField {
   }
 
   public function format() {
-    return str::upper($this->format);
+    $format = str::upper($this->format);
+    return empty($format) ? 'YYYY-MM-DD' : $format;
   }
 
   public function validate() {
     return v::date($this->result());
   }
 
-  public function value() {
+  public function value() {    
+    if($this->override()) {
+      $this->value = $this->default();
+    }
     return !empty($this->value) ? date('Y-m-d', strtotime($this->value)) : null;
   }
 

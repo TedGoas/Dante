@@ -14,10 +14,10 @@
  */
 class Database {
 
-  static public $connectors = array();
+  public static $connectors = array();
 
   // a global array of started connections
-  static public $connections = array();
+  public static $connections = array();
 
   // the established connection
   protected $connection;
@@ -27,6 +27,9 @@ class Database {
 
   // the database type (mysql, sqlite)
   protected $type;
+
+  // the connection id
+  protected $id;
 
   // the optional prefix for table names
   protected $prefix;
@@ -68,7 +71,7 @@ class Database {
    * @param string $id
    * @return object
    */
-  static public function instance($id = null) {
+  public static function instance($id = null) {
     return (is_null($id)) ? a::last(static::$connections) : a::get(static::$connections, $id);
   }
 
@@ -77,7 +80,7 @@ class Database {
    *
    * @return array
    */
-  static public function instances() {
+  public static function instances() {
     return static::$connections;
   }
 
@@ -366,9 +369,9 @@ class Database {
    * @param string $table
    * @return boolean
    */
-  static public function dropTable($table) {
+  public function dropTable($table) {
     $sql = new SQL($this);
-    return $this->execute($sql->dropTable());
+    return $this->execute($sql->dropTable($table));
   }
 
   /**
@@ -387,9 +390,37 @@ class Database {
  * MySQL database connector
  */
 database::$connectors['mysql'] = function($params) {
-  if(!isset($params['host']))     throw new Error('The mysql connection requires a "host" parameter');
-  if(!isset($params['database'])) throw new Error('The mysql connection requires a "database" parameter');
-  return 'mysql:host=' . $params['host'] . ';dbname=' . $params['database'] . ';charset=' . a::get($params, 'charset', 'utf8');
+
+  if(!isset($params['host']) && !isset($params['socket'])) {
+    throw new Error('The mysql connection requires either a "host" or a "socket" parameter');
+  } 
+  
+  if(!isset($params['database'])) {
+    throw new Error('The mysql connection requires a "database" parameter');
+  }
+
+  $parts = array();
+
+  if(!empty($params['host'])) {
+    $parts[] = 'host=' . $params['host'];
+  }
+
+  if(!empty($params['port'])) {
+    $parts[] = 'port=' . $params['port'];
+  }
+
+  if(!empty($params['socket'])) {
+    $parts[] = 'unix_socket=' . $params['socket'];
+  }
+
+  if(!empty($params['database'])) {
+    $parts[] = 'dbname=' . $params['database'];
+  }
+
+  $parts[] = 'charset=' . a::get($params, 'charset', 'utf8');
+
+  return 'mysql:' . implode(';', $parts);
+
 };
 
 

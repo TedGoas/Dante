@@ -14,7 +14,7 @@
 class Cookie {
 
   // configuration
-  static public $salt = 'KirbyToolkitCookieSalt';
+  public static $salt = 'KirbyToolkitCookieSalt';
 
   /**
    * Set a new cookie
@@ -28,17 +28,15 @@ class Cookie {
    * 
    * @param  string  $key The name of the cookie
    * @param  string  $value The cookie content
-   * @param  int     $expires The number of minutes until the cookie expires
+   * @param  int     $lifetime The number of minutes until the cookie expires
    * @param  string  $path The path on the server to set the cookie for
    * @param  string  $domain the domain 
    * @param  boolean $secure only sets the cookie over https
+   * @param  boolean $httpOnly avoids the cookie to be accessed via javascript
    * @return boolean true: the cookie has been created, false: cookie creation failed
    */
-  static public function set($key, $value, $expires = 0, $path = '/', $domain = null, $secure = false) {
-  
-    // convert minutes to seconds    
-    if($expires > 0) $expires = time() + ($expires * 60);
-    
+  public static function set($key, $value, $lifetime = 0, $path = '/', $domain = null, $secure = false, $httpOnly = true) {
+      
     // convert array values to json 
     if(is_array($value)) $value = a::json($value);
 
@@ -49,8 +47,17 @@ class Cookie {
     $_COOKIE[$key] = $value;
     
     // store the cookie
-    return setcookie($key, $value, $expires, $path, $domain, $secure);
+    return setcookie($key, $value, static::lifetime($lifetime), $path, $domain, $secure, $httpOnly);
   
+  }
+
+  /**
+   * Calculates the lifetime for a cookie
+   * 
+   * @return int
+   */
+  public static function lifetime($minutes) {
+    return $minutes > 0 ? (time() + ($minutes * 60)) : 0;
   }
 
   /**
@@ -70,7 +77,7 @@ class Cookie {
    * @param  boolean $secure only sets the cookie over https
    * @return boolean true: the cookie has been created, false: cookie creation failed
    */
-  static public function forever($key, $value, $path = '/', $domain = null, $secure = false) {
+  public static function forever($key, $value, $path = '/', $domain = null, $secure = false) {
     return static::set($key, $value, 2628000, $path, $domain, $secure);
   }
 
@@ -88,7 +95,7 @@ class Cookie {
    * @param  string  $default The default value, which should be returned if the cookie has not been found
    * @return mixed   The found value
    */
-  static public function get($key = null, $default = null) {
+  public static function get($key = null, $default = null) {
     if(is_null($key)) return $_COOKIE;
     $value = isset($_COOKIE[$key]) ? $_COOKIE[$key] : null;
     return empty($value) ? $default : static::parse($value);
@@ -99,7 +106,7 @@ class Cookie {
    * 
    * @return boolean
    */
-  static public function exists($key) {
+  public static function exists($key) {
     return !is_null(static::get($key));
   }
 
@@ -110,7 +117,7 @@ class Cookie {
    * @param string $value
    * @return string
    */
-  static protected function hash($value) {
+  protected static function hash($value) {
     return sha1($value . static::$salt);
   }
 
@@ -118,10 +125,10 @@ class Cookie {
    * Parses the hashed value from a cookie
    * and tries to extract the value 
    * 
-   * @param string $hash
+   * @param string $string
    * @return mixed
    */
-  static protected function parse($string) {
+  protected static function parse($string) {
 
     // extract hash and value
     $parts = str::split($string, '+');
@@ -129,7 +136,7 @@ class Cookie {
     $value = a::last($parts);
 
     // if the hash or the value is missing at all return null
-    if(empty($hash) or empty($value)) return null;
+    if(empty($hash) || empty($value)) return null;
 
     // compare the extracted hash with the hashed value
     if($hash !== static::hash($value)) return null;
@@ -149,12 +156,11 @@ class Cookie {
    * </code>
    * 
    * @param  string  $key The name of the cookie
-   * @param  string  $domain The domain of the cookie
    * @return mixed   true: the cookie has been removed, false: the cookie could not be removed
    */
-  static public function remove($key, $path = '/', $domain = null, $secure = false) {
+  public static function remove($key) {
     unset($_COOKIE[$key]);
-    return setcookie($key, false, -3600, $path, $domain, $secure);
+    return setcookie($key, null, -1, '/');
   }
 
 }
