@@ -17,6 +17,7 @@ RewriteCond %{HTTP_HOST} ^tedgoas.com [NC]
 RewriteRule ^(.*)$ http://www.tedgoas.com/$1 [L,R=301]
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*index\.html\ HTTP/
 RewriteRule ^(.*)index\.html$ /$1 [R=301,L]
+RewriteRule ^(.*)index\.php$ /$1 [R=301,L]
 
 # Specific URLs:
 RewriteRule ^articles/(.*)$ http://www.tedgoas.com/blog/$1 [R=301,L]
