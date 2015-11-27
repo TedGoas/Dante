@@ -1,17 +1,17 @@
 /*
 	TEAM
 */
-Design, Markup, Code, Good Intentions: Ted Goas.
-Site: http://www.tedgoas.com.
-Twitter: @tedgoas.
-Dribbble: http://www.dribbble.com/tedgoas.
-Github: http://www.github.com/tedgoas.
-Location: New Jersey, United States.
+Design, Markup, Code, Good Intentions: Ted Goas
+Site: http://www.tedgoas.com
+Twitter: @tedgoas
+Dribbble: http://www.dribbble.com/tedgoas
+Github: http://www.github.com/tedgoas
+Location: New Jersey, United States
 
-Editor and Proofreader: Sara Goas.
-Site: http://www.saragoas.com.
-Twitter: @saragoas.
-Location: New Jersey, United States.
+Editor and Proofreader: Sara Goas
+Site: http://www.saragoas.com
+Twitter: @saragoas
+Location: New Jersey, United States
 
 /* 
 	RESOURCES
@@ -21,7 +21,6 @@ http://www.fontastic.me
 
 Font Embedding (Freight Sans) with Typekit:
 http://www.typekit.com
-
 
 /* 
 	SITE + TECHNOLOGY
