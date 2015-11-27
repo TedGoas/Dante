@@ -34,10 +34,14 @@ RewriteRule ^work/cloudee/ http://www.tedgoas.com/work/html-email-design/ [R=301
 RewriteRule ^work/lone-star-percussion/ http://www.tedgoas.com/work/web-ui-design/ [R=301,L]
 RewriteRule ^work/toys-r-us/ http://www.tedgoas.com/work/html-email-design/ [R=301,L]
 RewriteRule ^work/odds-and-ends/ http://www.tedgoas.com/work/ [R=301,L]
-RewriteRule ^wmakatto/ http://www.tedgoas.com/work/ [R=301,L]
+RewriteRule ^project-center/ http://www.tedgoas.com/work/ [R=301,L]
+RewriteRule ^latin-percussion/ http://www.tedgoas.com/work/ [R=301,L]
+RewriteRule ^findability-checklist/ http://www.tedgoas.com/work/ [R=301,L]
+RewriteRule ^makatto/ http://www.tedgoas.com/work/ [R=301,L]
 RewriteRule ^toca-percussion/ http://www.tedgoas.com/work/ [R=301,L]
 RewriteRule ^about/ http://www.tedgoas.com/bio/ [R=301,L]
 RewriteRule ^resume/ http://www.tedgoas.com/what-i-do/ [R=301,L]
+RewriteRule ^blog/36-for36/ http://www.tedgoas.com/blog/36-for-36 [R=301,L]
 
 # Rewrite any calls to *.html, *.json, *.xml, *.atom, *.rss, *.rdf or *.txt if a folder matching * exists
 RewriteCond %{REQUEST_FILENAME} !-f
