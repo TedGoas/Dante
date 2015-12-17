@@ -9,6 +9,27 @@
 		</div>
 	</div>
 	
+	<div class="outside work-section work-section--white-text work-section--homeexchange">
+		<div class="inside">
+			<div class="work-section-header">
+				<h2 class="caps">Home Exchange</h2>
+			</div>
+			<div class="narrow-width dual-paragraphs">
+				<div class="uk-grid">
+					<div class="uk-width-1-2">
+						<p>Home Exchange originally approached me to audit and optimize a series of transactional emails in Mandrill. Since then, I’ve worked closely with the team to design a variety of email templates for Mailchimp, including a newsletter, discovery digest, case study, welcome letter, and reverse search template.</p>
+					</div>
+					<div class="uk-width-1-2">
+						<p>As the designs were approved, I built each template in a hybrid manner (responsive without relying on media queries). With a solid baseline established for all major email clients, I used media queries and various email hacks to enhance each template further. Bulletproof buttons, hover effects, preview text, and an optimized images-off view, just to name few of the things. And everything works in from mobile Gmail to Desktop Outlook.</p>
+					</div>
+				</div>
+			</div>
+			<div class="full-width-figure flush-bottom">
+				<img src="/assets/images/work/html-email-design/home-exchange.jpg" height="700" width="800" alt="Home Exchange Transactional Drip Email Templates">
+			</div>
+		</div>
+	</div>
+	
 	<div class="outside work-section work-section--white-text work-section--seatgeek">
 		<div class="inside">
 			<div class="work-section-header">
@@ -47,27 +68,6 @@
 			</div>
 			<div class="full-width-figure flush-bottom">
 				<img src="/assets/images/work/html-email-design/masterstreet.jpg" height="700" width="800" alt="Masterstreet Notification and Digest Email ">
-			</div>
-		</div>
-	</div>
-	
-	<div class="outside work-section work-section--white-text work-section--homeexchange">
-		<div class="inside">
-			<div class="work-section-header">
-				<h2 class="caps">Home Exchange</h2>
-			</div>
-			<div class="narrow-width dual-paragraphs">
-				<div class="uk-grid">
-					<div class="uk-width-1-2">
-						<p>Home Exchange asked me to audit, fix, and optimize a series of transactional and marketing email templates. Rather than write my own code, I was challenge to find solutions using someone else’s code. Outside of my comfort zone, for sure!</p>
-					</div>
-					<div class="uk-width-1-2">
-						<p>Using existing code patterns, I implemented bulletproof buttons, preview text, and an optimized images-off view, just to name few of the things. After running the templates through a barrage of email clients and verifying the tests, I integrated them with Mandrill + MailChimp.</p>
-					</div>
-				</div>
-			</div>
-			<div class="full-width-figure flush-bottom">
-				<img src="/assets/images/work/html-email-design/home-exchange.jpg" height="700" width="800" alt="Home Exchange Transactional Drip Email Templates">
 			</div>
 		</div>
 	</div>
