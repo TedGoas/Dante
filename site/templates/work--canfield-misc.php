@@ -1,7 +1,7 @@
 <?php snippet('header') ?>
 <div class="body">
-	<div class="outside work-hero">
-		<h1 class="work-hero-h1"><?php echo $page->title()->html() ?></h1>
+	<div class="outside work-hero work-hero--canfield-misc">
+		<h1 class="work-hero-h1 page-title-h1"><?php echo $page->title()->html() ?></h1>
 	</div>
 	<div class="outside work-section-intro">
 		<div class="inside inside--centered">
@@ -9,7 +9,7 @@
 		</div>
 	</div>
 	
-	<div class="outside work-section work-section--careers">
+	<div class="outside work-section work-section-flush work-section--careers">
 		<div class="inside">
 			<div class="work-section-header">
 				<h2 class="caps">Canfield Careers</h2>
@@ -31,7 +31,7 @@
 		</div>
 	</div>
 	
-	<div class="outside work-section work-section--email">
+	<div class="outside work-section work-section-flush work-section--canfield-email">
 		<div class="inside">
 			<div class="work-section-header">
 				<h2 class="caps">Email Design</h2>
@@ -52,7 +52,7 @@
 		</div>
 	</div>
 	
-	<div class="outside work-section work-section--white-text work-section--dermsummit">
+	<div class="outside work-section work-section-flush work-section--white-text work-section--dermsummit">
 		<div class="inside">
 			<div class="work-section-header">
 				<h2 class="caps">Derm Summit</h2>
@@ -74,7 +74,7 @@
 		</div>
 	</div>
 	
-	<div class="outside work-section work-section--findmyskincare">
+	<div class="outside work-section work-section-flush work-section--white-text work-section--findmyskincare">
 		<div class="inside">
 			<div class="work-section-header">
 				<h2 class="caps">Find My Skincare</h2>

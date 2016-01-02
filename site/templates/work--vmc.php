@@ -1,7 +1,7 @@
 <?php snippet('header') ?>
 <div class="body">
-	<div class="outside work-hero">
-		<h1 class="work-hero-h1"><?php echo $page->title()->html() ?></h1>
+	<div class="outside work-hero work-hero--vmc">
+		<h1 class="work-hero-h1 page-title-h1"><?php echo $page->title()->html() ?></h1>
 	</div>
 	<div class="outside work-section work-section-intro">
 		<div class="inside inside--centered">
@@ -38,7 +38,7 @@
 		</div>
 	</div>
 	
-	<div class="outside work-section work-section--white-text work-section-challenge1">
+	<div class="outside work-section work-section--white-text work-section-challenge1--vmc">
 		<div class="inside">
 			<div class="work-section-header">
 				<strong class="byline">Challenge No. 1</strong>
@@ -71,7 +71,7 @@
 		</div>
 	</div>
 	
-	<div class="outside work-section work-section-challenge2">
+	<div class="outside work-section work-section-challenge2--vmc">
 		<div class="inside">
 			<div class="work-section-header">
 				<strong class="byline">Challenge No. 2</strong>
@@ -94,7 +94,7 @@
 		</div>
 	</div>
 	
-	<div class="outside work-section work-section--white-text work-section-ship">
+	<div class="outside work-section work-section--white-text work-section-ship--vmc">
 		<div class="inside">
 			<div class="work-section-header">
 				<strong class="byline">How It Turned Out</strong>
@@ -114,7 +114,7 @@
 		<img src="/assets/images/work/vmc/admin-perspective.jpg" width="1300" height="725" alt="Doctor Dashboard" class="figure-full-bleed">
 	</div>
 	
-	<div class="outside work-section work-section-learn">
+	<div class="outside work-section work-section-learn--vmc">
 		<div class="inside">
 			<div class="work-section-header">
 				<h2 class="caps">What I Learned</h2>

@@ -28,7 +28,9 @@
 	padding-top: @gutter-medium;
 }
 .article-date {
-	margin-bottom: 10px;
+	margin-top: 10px;
+	text-transform: uppercase;
+	letter-spacing: .05em;
 }
 .twitter-tweet-rendered {
 	margin: 0 auto @gutter-small !important;
@@ -41,7 +43,7 @@
 	text-align: center;
 	strong {
 		display: block;
-		color: @gray-darkest;
+		color: @gray-darker;
 	}
 }
 
@@ -49,6 +51,7 @@
 .blog-index-ul {
 	width: 90%;
 	margin: auto;
+	text-align: left;
 }
 .blog-index-li {
 	padding: 0 0 @gutter-medium;
@@ -56,15 +59,25 @@
 }
 .blog-index-a {
 	text-decoration: none;
+	&:hover,
+	&:focus,
+	&:active {
+		color: inherit
+	}
+}
+.blog-index-date {
+	display: block;
+	font-size: @fs-s;
+	font-weight: @fw-b;
+	text-transform: uppercase;
+	letter-spacing: .05em;
+	color: @red;
 }
 .blog-index-title {
-	font-size: @fs-l;
+	margin: 2px 0 5px 0;
 	line-height: 1;
-	display: block;
-	margin-bottom: 5px;
 }
-.blog-index-meta {
+.blog-index-summary {
 	display: block;
 	color: @gray-light;
-	line-height: 1.2;
 }

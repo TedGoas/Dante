@@ -15,18 +15,22 @@
 	position: relative;
 	z-index: 1;
 	color: #fff;
-	width: 52.5%;
-	padding: @gutter-large 0 0 @gutter-large;
+	width: 70%;
+	max-width: 750px;
+	padding: @gutter-medium 0 0 @gutter-medium;
 }
 .home-intro--title {
 	margin-bottom: @gutter-small;
-	line-height: 1;
-	font-size: 36px;
+	line-height: 1.1;
+	font-size: @fs-huge;
 	color: #fff;
 }
+.home-intro-p {
+	width: 60%;
+}
 @media screen and (max-width: @breakpoint-medium) {
-	.home-intro {
-		width: 70%;
+	.home-intro-p {
+		width: 100%;
 	}
 }
 @media screen and (max-width: @breakpoint-small) {

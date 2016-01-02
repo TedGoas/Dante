@@ -18,7 +18,7 @@
 			</div>
 			<div class="tatg">
 			  <div class="hr loud"><hr></div>
-				<img src="/assets/images/tatg.png" alt="hi spam bots" width="420" height="65">
+				<img src="/assets/images/email.svg" alt="hi spam bots" width="315" height="30">
 		</article>
 	</div>
 	

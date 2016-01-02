@@ -14,7 +14,7 @@ A small collection of articles that stuck out in my mind this year.
     <img src="/content/blog/19-best-design-articles-2015/ny-gov.jpg" alt="NY.gov redesign" width="750" height="300">
 </figure>
 <h2><a href="https://medium.com/@rachelhaot/how-to-design-for-everybody-4b2870724c4#.3xap642hr">How to Design for Everybody</a></h2>
-Solid, bite-sized nuggets of design advice from a government website redesign. I particularly enjoyed the section Your org chart is not your information architecture since it’s rarely how folks outside an organization think. Also true in the private sector.
+Solid, bite-sized nuggets of design advice from a government website redesign. I particularly enjoyed the section **Your org chart is not your information architecture** since it’s rarely how folks outside an organization think. Also true in the private sector.
 
 <div class="hr"><hr></div>
 

@@ -1,11 +1,8 @@
 @charset "UTF-8";
 @font-face {
   font-family: "ted-goas";
-  src:url("/assets/fonts/ted-goas.eot");
-  src:url("/assets/fonts/ted-goas.eot?#iefix") format("embedded-opentype"),
-    url("/assets/fonts/ted-goas.woff") format("woff"),
-    url("/assets/fonts/ted-goas.ttf") format("truetype"),
-    url("/assets/fonts/ted-goas.svg#ted-goas") format("svg");
+  src:url("/assets/fonts/ted-goas.woff") format("woff"),
+    url("/assets/fonts/ted-goas.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -40,34 +37,34 @@
 }
 
 .icon-nj-new-jersey:before {
-  content: "a";
+  content: "\61";
 }
 .icon-rss:before {
-  content: "b";
-}
-.icon-social-medium:before {
-  content: "c";
+  content: "\62";
 }
 .icon-social-twitter:before {
-  content: "d";
+  content: "\64";
 }
 .icon-social-dribbble:before {
-  content: "e";
+  content: "\65";
 }
 .icon-social-github:before {
-  content: "f";
+  content: "\66";
 }
 .icon-menu:before {
-  content: "g";
+  content: "\67";
 }
 .icon-arrow-small-right:before {
-  content: "h";
+  content: "\68";
 }
 .icon-right-open:before {
-  content: "i";
+  content: "\69";
 }
 .icon-left-open:before {
-  content: "j";
+  content: "\6a";
+}
+.icon-medium:before {
+  content: "\63";
 }
 
 /* Social Icons */
@@ -89,14 +86,18 @@
 	}
 	&.icon-social-github {
 		background: #fff;
-		color: @gray-darkest;
+		color: @gray-darker;
 	}
 	&.icon-social-medium {
 		color: #fff;
 		background: #111;
+		font-size: 16px;
+		line-height: 2.8;
+		position: relative;
+		top: -3px;
 	}
 	&.icon-social-rss {
 		color: #fff;
-		background: #ee8b55;
+		background: @orange;
 	}
 }

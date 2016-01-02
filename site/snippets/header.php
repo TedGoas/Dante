@@ -69,7 +69,7 @@ ZII$I=+7?=:~7?I$MDD77$~I?OZ?+ZI=+I~+?=+$7~II=I88OOOOOZOZZZZZZZZZZ$ZZZZ$$Z$ZZZZZZ
 		<?php echo css($css->url()) ?>
 	<?php endforeach ?>  
 
-	<script src="//use.typekit.net/tme1buh.js"></script>
+	<script src="https://use.typekit.net/vzj5lsm.js"></script>
 	<script>try{Typekit.load({ async: true });}catch(e){}</script>
 	<link rel="alternate" type="application/rss+xml" href="<?php echo url('blog/feed') ?>" title="Blog Feed">
 	<link rel="canonical" href="<?php echo kirby()->request()->url() ?>">
@@ -98,7 +98,9 @@ ZII$I=+7?=:~7?I$MDD77$~I?OZ?+ZI=+I~+?=+$7~II=I88OOOOOZOZZZZZZZZZZ$ZZZZ$$Z$ZZZZZZ
 		<div class="navigation" role="header">
 			<div class="navigation-mobile">
 				<div class="mobile-menu-icon"><i class="icon-menu"></i></div>
-				<a href="/" title="Home" rel="home" class="page-nav-home">Ted Goas</a>
+				<a href="/" title="Home" rel="home" class="page-nav-home">
+					<img src="/assets/images/logo-tedgoas.svg" alt="Ted Goas" width="114" height="20" border="0">
+				</a>
 			</div>
 			<div class="navigation-container">
 				<ul class="page-nav-ul">

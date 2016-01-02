@@ -10,8 +10,8 @@
 	<div class="inside">
 		<article class="narrow-width">
 			<div class="article-title">
-			  <span class="caption article-date"><?php echo $page->date('F d, Y') ?></span>
 			  <h1 class="article-h1"><?php echo $page->title()->html() ?></h1>
+			  <span class="caption article-date"><?php echo $page->date('F d, Y') ?></span>
 			  <div class="hr"><hr></div>
 			</div>
 			<div class"article-content">

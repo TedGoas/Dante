@@ -1,7 +1,7 @@
 <?php snippet('header') ?>
 <div class="body">
-	<div class="outside work-hero">
-		<h1 class="work-hero-h1"><?php echo $page->title()->html() ?></h1>
+	<div class="outside work-hero work-hero--web-design">
+		<h1 class="work-hero-h1 page-title-h1"><?php echo $page->title()->html() ?></h1>
 	</div>
 	<div class="outside work-section-intro">
 		<div class="inside inside--centered">
@@ -9,7 +9,7 @@
 		</div>
 	</div>
 	
-	<div class="outside work-section work-section--white-text work-section--blueshore">
+	<div class="outside work-section work-section-flush work-section--white-text work-section--blueshore">
 		<div class="inside">
 			<div class="work-section-header">
 				<h2 class="caps">Blue Shore Engineering</h2>
@@ -31,7 +31,7 @@
 		</div>
 	</div>
 	
-	<div class="outside work-section work-section--lonestar">
+	<div class="outside work-section work-section-flush work-section--lonestar">
 		<div class="inside">
 			<div class="work-section-header">
 				<h2 class="caps">Lone Star Percussion</h2>
@@ -53,7 +53,7 @@
 		</div>
 	</div>
 	
-	<div class="outside work-section work-section--masterstreet">
+	<div class="outside work-section work-section-flush work-section--masterstreet-web">
 		<div class="inside">
 			<div class="work-section-header">
 				<h2 class="caps">MasterStreet</h2>

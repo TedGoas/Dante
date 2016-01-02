@@ -1,51 +1,61 @@
+/* fonts */
+.sans-serif {
+	font-family: 'freight-sans-pro', sans-serif;
+}
+.serif {
+	font-family: 'freight-text-pro', georgia, serif;
+}
+
+
 html,
 body {
-	font-family: "freight-sans-pro", sans-serif;
+	.sans-serif;
 	line-height: 1.4;
 	font-size: @fs-m;
-	color: @gray-darker;
+	color: @gray-dark;
 }
 
 h1 {
-	font-size: @fs-xl;
-	font-weight: @fw-l;
+	.serif;
+	font-size: @fs-huge;
+	font-weight: @fw-b;
 	line-height: 1.1;
-	color: @gray-darkest;
+	color: @gray-darker;
+}
+.page-title-h1 {
+	.sans-serif;
+	font-weight: @fw-bl;
+	letter-spacing: .025em;
 }
 h2 {
-	font-size: @fs-l;
+	.serif;
+	font-size: @fs-xl;
 	line-height: 1.2;
 	font-weight: @fw-b;
 	margin: @gutter-medium 0 @gutter-small/2;
-	color: @gray-darkest;
-}
-h2.caps {
-	font-size: @fs-l;
-	text-transform: uppercase;
-	letter-spacing: .075em;
+	color: @gray-darker;
 }
 h3 {
+	.serif;
 	font-size: @fs-l;
-	font-weight: @fw-r;
+	font-weight: @fw-b;
 	margin: @gutter-medium 0 @gutter-small/2;
-	color: @gray-darkest;
+	color: @gray-darker;
 }
 h4 {
 	font-size: @fs-s;
-	text-transform: uppercase;
-	letter-spacing: .05em;
 	font-weight: @fw-b;
-	color: @gray-darkest;
+	color: @gray-darker;
 }
 @media screen and (max-width: @breakpoint-small) {
 	h1 {
-		font-size: @fs-xl * .8;
+		font-size: @fs-huge * .8;
 	}
 	h2 {
-		font-size: @fs-l * .8;
+		font-size: @fs-xl * .8;
 	}
 	h2.caps {
-		font-size: @fs-l * .7;
+		font-size: @fs-xl * .7;
 	}
 	h3 {
 		font-size: @fs-l * .8;
@@ -56,7 +66,6 @@ p {
 	margin: 0 0 @gutter-small;
 }
 .caption {
-	color: @gray-light;
 	font-size: @fs-s;
 	display: block;
 	line-height: 1;
@@ -64,6 +73,12 @@ p {
 b,
 strong {
 	font-weight: @fw-b;
+}
+strong.highlighted {
+	color: @gray-darker;
+	background: @yellow;
+	padding: 0 5px;
+	margin-right: 2px;
 }
 .article {
 	ul,
@@ -76,11 +91,11 @@ strong {
 }
 blockquote {
 	padding: 15px @gutter-small;
-	margin-bottom: @gutter-small;
-	background: @gray-faint;
-	font-size: @fs-m;
+	margin: 0 0 @gutter-small -@gutter-small;
+	background: #f6f6f6;
+	font-size: @fs-l;
 	font-style: italic;
-	font-family: georgia;
+	.serif;
 	position: relative;
 	&:after {
 		content:"";
@@ -89,8 +104,8 @@ blockquote {
 		top: 0;
 		bottom: 0;
 		left: 0;
-		width: 2px;
-		.gradient-ttb(@green,@blue);
+		width: 6px;
+		.gradient-ttb(@blue,@purple);
 	}
 	p {
 		margin: 10px 0;
@@ -99,4 +114,9 @@ blockquote {
 .line-through {
 	text-decoration: line-through;
 	opacity: .5;
+}
+
+/* Transitions */
+.text-transition {
+	transition: all 150ms ease-in;
 }

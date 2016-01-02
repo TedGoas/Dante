@@ -1,7 +1,7 @@
 <?php snippet('header') ?>
 <div class="body">
-	<div class="outside work-hero">
-		<h1 class="work-hero-h1"><?php echo $page->title()->html() ?></h1>
+	<div class="outside work-hero work-hero--email-design">
+		<h1 class="work-hero-h1 page-title-h1"><?php echo $page->title()->html() ?></h1>
 	</div>
 	<div class="outside work-section-intro">
 		<div class="inside inside--centered">
@@ -9,7 +9,7 @@
 		</div>
 	</div>
 	
-	<div class="outside work-section work-section--white-text work-section--homeexchange">
+	<div class="outside work-section work-section-flush work-section--white-text work-section--homeexchange">
 		<div class="inside">
 			<div class="work-section-header">
 				<h2 class="caps">Home Exchange</h2>
@@ -30,7 +30,7 @@
 		</div>
 	</div>
 	
-	<div class="outside work-section work-section--white-text work-section--seatgeek">
+	<div class="outside work-section work-section-flush work-section--white-text work-section--seatgeek">
 		<div class="inside">
 			<div class="work-section-header">
 				<h2 class="caps">SeatGeek</h2>
@@ -51,7 +51,7 @@
 		</div>
 	</div>
 	
-	<div class="outside work-section work-section--masterstreet">
+	<div class="outside work-section work-section-flush work-section--masterstreet-email">
 		<div class="inside">
 			<div class="work-section-header">
 				<h2 class="caps">MasterStreet</h2>
@@ -72,7 +72,7 @@
 		</div>
 	</div>
 	
-	<div class="outside work-section work-section--tru">
+	<div class="outside work-section work-section-flush work-section--tru">
 		<div class="inside">
 			<div class="work-section-header">
 				<h2 class="caps">Toys”R”Us / Babies”R”Us</h2>
@@ -83,7 +83,7 @@
 						<p>While contracting at Toys”R”Us, I became the point person in my group for HTML emails and created a best practices guide TRU’s email developers. One of my primary responsibilities was coding and deploying emails; my team shipped about 10-15 in a normal week.</p>
 					</div>
 					<div class="uk-width-1-2">
-						<p>In my down time, I experimented with ways to improve every email. Simple things like adding image dimensions and background colors so the emails looked good before images downloaded. And creating subtle features like drop shadows in code.</p>
+						<p>In my down time, I experimented with ways to improve every email. Simple things like adding image dimensions and background colors so the emails look decent without images downloaded. And creating subtle effects like drop shadows in code.</p>
 					</div>
 				</div>
 			</div>
@@ -93,7 +93,7 @@
 		</div>
 	</div>
 	
-	<div class="outside work-section work-section--cloudee">
+	<div class="outside work-section work-section-flush work-section--cloudee">
 		<div class="inside">
 			<div class="work-section-header">
 				<h2 class="caps">Cloudee</h2>
@@ -114,7 +114,7 @@
 		</div>
 	</div>
 	
-	<div class="outside work-section work-section--white-text work-section--cerberus">
+	<div class="outside work-section work-section-flush work-section--white-text work-section--cerberus">
 		<div class="inside">
 			<div class="work-section-header">
 				<img src="/assets/images/work/html-email-design/cerberus-mark.png" height="75" width="64" alt="Cerberus Logo" class="work-section-header-mark">

@@ -15,7 +15,6 @@
 }
 .work-item-title {
 	color: #fff;
-	font-weight: @fw-l;
 	text-decoration: none;
 	width: 100%;
 	position: absolute;
@@ -47,19 +46,18 @@
 	color: #fff;
 }
 
-/* Section Modifiers */
+/* Work Section */
 .work-section {
 	font-size: @fs-s;
 	padding: @gutter-xlarge 0;
 }
-
 /* Section Headers */
 .work-section-header {
 	text-align: center;
 	padding-bottom: @gutter-large;
 	.byline {
 		display: block;
-		color: @blue;
+		color: @red;
 		font-size: @fs-xs;
 		text-transform: uppercase;
 		letter-spacing: .1em;
@@ -70,20 +68,20 @@
 		&:after {
 			content: "";
 			display: block;
-			background: rgba(0,0,0,.1);
-			height: 1px;
-			width: 200px;
+			background: rgba(0,0,0,.05);
+			height: 6px;
+			width: 50px;
 			position: absolute;
 			bottom: -@gutter-small;
 			left: 50%;
-			margin-left: -100px;
+			margin-left: -25px;
 		}
 	}
 }
 .work-section-header-mark {
 	margin: 0 auto @gutter-small;
 }
-/* Color and Border Modifiers */
+/* Work Section Modifiers */
 .work-section--faint {
 	background: rgba(0,0,0,.02);
 }
@@ -104,9 +102,16 @@
 		color: rgba(255,255,255,.5);
 	}
 	.caption--border:after {
-		background: rgba(255,255,255,.25);
+		background: rgba(255,255,255,.1);
 	}
 }
+.work-section-flush {
+	padding-bottom: 0;
+	.figure {
+		line-height: 0;
+	}
+}
+
 
 /* Intro */
 .work-section-intro {
@@ -116,19 +121,18 @@
 .work-section-intro-p {
 	margin-bottom: 0;
 	padding: @gutter-medium 0;
-	font-weight: 300;
 	font-size: @fs-l;
 	position: relative;
 	&:before,
 	&:after {
 		content: "";
 		display: block;
-		background: rgba(0,0,0,.1);
-		height: 1px;
-		width: 200px;
+		background: @gray-faint;
+		height: 6px;
+		width: 100px;
 		position: absolute;
 		left: 50%;
-		margin-left: -100px;
+		margin-left: -50px;
 	}
 	&:before {
 		top: 0;
@@ -152,7 +156,7 @@
 
 /* Approach */
 .work-section-approach {
-	border-bottom: 1px solid @gray-lightest;
+	border-bottom: 1px solid @gray-lighter;
 	padding-bottom: 0;
 	.clearfix;
 	.figure {
@@ -169,6 +173,7 @@
 }
 @media screen and (max-width: @breakpoint-small) {
 	.work-section-approach {
+		overflow: hidden;
 		.figure {
 			width: 150%;
 			margin: -50px -25% 0;
@@ -178,7 +183,7 @@
 
 /* Misc Sections */
 .dual-paragraphs {
-	margin-bottom: @gutter-medium;
+	margin-bottom: @gutter-small;
 }
 .site-link {
 	padding: @gutter-small 0;
@@ -203,7 +208,7 @@
 }
 .work-section-learn-title {
 	font-weight: @fw-b;
-	color: @gray-darkest;
+	color: @gray-darker;
 	display: block;
 	margin-bottom: @gutter-small;
 }
@@ -240,7 +245,7 @@
 	top: 0;
 }
 .th-article-title {
-	color: @gray-darkest;
+	color: @gray-darker;
 	display: block;
 }
 .th-article-p {
@@ -268,10 +273,170 @@
 /* Navigation to Other Work Items */
 .work-navigation {
 	text-align: center;
-	padding: @gutter-small 0;
 }
 .work-navigation-li {
 	list-style: none;
 	display: inline-block;
-	margin: 0 5px;
+	margin: @gutter-small;
+	text-align: center;
+}
+.work-navigation-byline {
+	font-weight: @fw-r;
+	font-size: @fs-xs;
+	display: block;
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	color: @gray-light;
+}
+@media screen and (max-width: @breakpoint-small) {
+	.work-navigation-li {
+		display: block;
+		margin: @gutter-small auto;
+	}
+}
+
+/* Specific Case Study Pages */
+/* Canfield Scientific */
+.work-hero--canfield-scientific {
+	background-image: url("/assets/images/work/canfield-scientific/hero.jpg");
+	background-color: #4b3e1f;
+}
+.work-section-challenge2--canfield-scientific {
+	background: #1d355e;
+}
+.work-section-ship--canfield-scientific {
+	background: rgba(0,0,0,.02);
+	padding-bottom: 0;
+	border-bottom: 1px solid @gray-lighter;
+	.figure {
+		margin-bottom: 0;
+		line-height: 0;
+	}
+}
+.work-section-learn--canfield-scientific {
+	background: url("/assets/images/work/canfield-scientific/bg-learn.jpg") right center no-repeat;
+	background-size: cover;
+}
+
+/* Clinical Services */
+.work-hero--clinical-services {
+	background-image: url("/assets/images/work/clinical-services/hero.jpg");
+	background-color: #1791a2;
+}
+.work-section-challenge1--clinical-services {
+	background: #111;
+}
+.work-section-challenge2--clinical-services {
+	background: rgba(0,0,0,.02);	
+}
+.work-section-ship--clinical-services {
+	background: #111;
+}
+.work-section-learn--clinical-services {
+	background: url("/assets/images/work/clinical-services/bg-learn.jpg") right center no-repeat;
+	background-size: cover;
+}
+
+/* View My Consult */
+.work-hero--vmc {
+	background-image: url("/assets/images/work/vmc/hero.jpg");
+	background-color: #353535;
+}
+.work-section-challenge1--vmc {
+	background: #333;
+}
+.work-section-challenge2--vmc {
+	background: rgba(0,0,0,.02);
+}
+.work-section-learn--vmc {
+	border-top: 1px solid @gray-lighter;
+	background: url("/assets/images/work/vmc/bg-edu.jpg") top center no-repeat;
+	background-size: cover;
+}
+.work-section-ship--vmc {
+	background: #3a3a3a;
+	padding-bottom: 0;
+	.dual-paragraphs {
+		position: relative;
+		z-index: 1;
+	}
+	.figure-full-bleed {
+		width: 100%;
+		height: auto;
+		line-height: 0;
+		margin-top: -100px;
+	}
+}
+
+/* Canfield Misc */
+.work-hero--canfield-misc {
+	background-image: url("/assets/images/work/canfield-misc/hero.jpg");
+	background-color: #2f253e;
+}
+.work-section--careers {
+	background: #ebeae9;
+	border-bottom: 1px solid @gray-lighter;
+}
+.work-section--dermsummit {
+	background: #1968bc;
+}
+.work-section--findmyskincare {
+	background: #222;
+}
+
+/* Email Design */
+.work-hero--email-design {
+	background-image: url("/assets/images/work/html-email-design/hero.jpg");
+	background-color: #096d61;
+}
+.work-section--seatgeek {
+	background: #0a59ae;
+}
+.work-section--masterstreet-email {
+	background: #f2f4ef;
+}
+.work-section--homeexchange {
+	background: #1d355e;
+}
+.work-section--cloudee {
+	background: #cfedf1;
+}
+.work-section--cerberus {
+	background: #215a78; /* Old browsers */
+	background: -moz-linear-gradient(top,  #215a78 0%, #207c6f 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#215a78), color-stop(100%,#207c6f)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #215a78 0%,#207c6f 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #215a78 0%,#207c6f 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #215a78 0%,#207c6f 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #57545d 0%,#3d3a41 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#215a78', endColorstr='#207c6f',GradientType=0 ); /* IE6-9 */
+	position: relative;
+	.inside {
+		position: relative;
+		z-index: 1;
+	}
+}
+.cerberus-blueprint {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: url("/assets/images/work/html-email-design/cerberus-blueprint.png") repeat;
+}
+
+/* Web + UI Design */
+.work-hero--web-design {
+	background-image: url("/assets/images/work/web-ui-design/hero.jpg");
+	background-color: #353535;
+}
+.work-section--blueshore {
+	background: #30383d;
+}
+.work-section--lonestar {
+	background: #e9e7e0;
+	border-bottom: 1px solid @gray-lighter;
+}
+.work-section--masterstreet-web {
+	border-bottom: 1px solid @gray-lighter;
 }
