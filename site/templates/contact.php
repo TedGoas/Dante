@@ -17,8 +17,10 @@
 				</div>
 			</div>
 			<div class="tatg">
-			  <div class="hr loud"><hr></div>
-				<img src="/assets/images/email.svg" alt="hi spam bots" width="315" height="30">
+				<div class="hr loud"><hr></div>
+				<object type="image/svg+xml" data="/assets/images/email.svg" alt="hi spam bots" width="315" height="30">
+				    ted at tedgoas dot com
+				</object>
 		</article>
 	</div>
 	

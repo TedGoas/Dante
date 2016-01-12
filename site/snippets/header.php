@@ -60,10 +60,10 @@ ZII$I=+7?=:~7?I$MDD77$~I?OZ?+ZI=+I~+?=+$7~II=I88OOOOOZOZZZZZZZZZZ$ZZZZ$$Z$ZZZZZZ
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width">
 	<link rel="dns-prefetch" href="//www.google-analytics.com">
-  <title><?php echo $page->title() ?> &infin; Ted Goas</title>
-  <meta name="description" content="<?php echo $page->description()->html() ?>">
+	<title><?php echo $page->title() ?> &infin; Ted Goas</title>
+	<meta name="description" content="<?php echo $page->description()->html() ?>">
 	<link type="text/plain" rel="author" href="http://www.tedgoas.com/humans.txt">
-  <?php echo css('assets/css/global.css') ?>
+	<?php echo css('assets/css/global.css') ?>
 
 	<?php foreach($page->code()->filterBy('extension', 'css') as $css): ?>
 		<?php echo css($css->url()) ?>
@@ -99,7 +99,9 @@ ZII$I=+7?=:~7?I$MDD77$~I?OZ?+ZI=+I~+?=+$7~II=I88OOOOOZOZZZZZZZZZZ$ZZZZ$$Z$ZZZZZZ
 			<div class="navigation-mobile">
 				<div class="mobile-menu-icon"><i class="icon-menu"></i></div>
 				<a href="/" title="Home" rel="home" class="page-nav-home">
-					<img src="/assets/images/logo-tedgoas.svg" alt="Ted Goas" width="114" height="20" border="0">
+					<object type="image/svg+xml" data="/assets/images/logo-tedgoas.svg" alt="Ted Goas" width="114" height="20" border="0">
+					    Ted Goas
+					</object>
 				</a>
 			</div>
 			<div class="navigation-container">
