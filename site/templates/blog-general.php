@@ -10,9 +10,9 @@
 	<div class="inside">
 		<article class="narrow-width">
 			<div class="article-header">
-			  <h1 class="article-h1"><?php echo $page->title()->html() ?></h1>
-			  <span class="article-date article-date--detail article-meta"><?php echo $page->date('F d, Y') ?></span>
-			  <div class="hr"><hr></div>
+				<h1 class="article-h1"><?php echo $page->title()->html() ?></h1>
+				<span class="blog-meta blog-detail-meta blog-meta--date blog-detail-meta--date"><?php echo $page->date('F d, Y') ?></span>
+				<div class="hr"><hr></div>
 			</div>
 			<div class"article-content">
 			  <?php echo $page->text()->kirbytext() ?>
