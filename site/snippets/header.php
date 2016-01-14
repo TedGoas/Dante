@@ -70,7 +70,7 @@ ZII$I=+7?=:~7?I$MDD77$~I?OZ?+ZI=+I~+?=+$7~II=I88OOOOOZOZZZZZZZZZZ$ZZZZ$$Z$ZZZZZZ
 	<?php endforeach ?>  
 
 	<script src="https://use.typekit.net/vzj5lsm.js"></script>
-	<script>try{Typekit.load({ async: true });}catch(e){}</script>
+	<script>try{Typekit.load({ async: false });}catch(e){}</script>
 	<link rel="alternate" type="application/rss+xml" href="<?php echo url('blog/feed') ?>" title="Blog Feed">
 	<link rel="canonical" href="<?php echo kirby()->request()->url() ?>">
 	<link rel="meta" type="application/rdf+xml" title="Dublin" href="http://www.tedgoas.com/dublin.rdf">
