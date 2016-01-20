@@ -1,6 +1,6 @@
 Title: View My Consult
 ----
-Description: Planning, prototyping, and launching Canfield’s first telemedicine app.
+Description: Planning, prototyping, and launching Canfield's first telemedicine app.
 ----
 Role: Product Design, Interface Design, Front-End Development
 ----

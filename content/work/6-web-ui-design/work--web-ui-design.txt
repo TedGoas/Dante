@@ -1,6 +1,6 @@
 Title: Web & UI Design
 ----
-Description: I help companies, startups, and local business with website and interface design.
+Description: I help companies, startups, and local business with website and interface design
 ----
 Role: Web Design, Front-End Development
 ----

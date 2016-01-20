@@ -1,6 +1,6 @@
 Title: HTML Email Design
 ----
-Description: I help folks level up their email design and marketing.
+Description: I help folks level up their email design and marketing
 ----
 Role: Email Design, Email Development
 ----

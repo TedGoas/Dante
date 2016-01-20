@@ -42,13 +42,13 @@ body {
 	padding: @gutter-small 0;
 	margin: 0 auto @gutter-medium;
 	border-bottom: 6px solid @gray-faint;
-	.clearfix;
-	.page-title-byline {
-		float: left;
-		display: block;
-		font-size: @fs-s;
-		color: @gray-light;
+	h1 small {
+		color: @gray-lighter;
+		font-weight: @fw-r;
+		letter-spacing: 0;
+		font-size: @fs-xl; 
 	}
+	.clearfix;
 	.page-title-ul {
 		float: right;
 		margin: -@fs-huge auto 0;
@@ -65,7 +65,7 @@ body {
 	}
 }
 .page-title--flush-no-border {
-	border-bottom: 0 !important;
+	border-bottom: 0;
 	margin-bottom: 0;
 }
 @media screen and (max-width: @breakpoint-small) {
