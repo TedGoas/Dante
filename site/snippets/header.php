@@ -99,7 +99,7 @@ ZII$I=+7?=:~7?I$MDD77$~I?OZ?+ZI=+I~+?=+$7~II=I88OOOOOZOZZZZZZZZZZ$ZZZZ$$Z$ZZZZZZ
 			<div class="navigation-mobile">
 				<div class="mobile-menu-icon"><i class="icon-menu"></i></div>
 				<a href="/" title="Home" rel="home" class="page-nav-home">
-					<object type="image/svg+xml" data="/assets/images/logo-tedgoas-ko.svg" alt="Ted Goas" width="125" height="40" border="0" class="page-nav-home-logo">
+					<object type="image/svg+xml" data="/assets/images/logo-tedgoas-ko.svg" alt="Ted Goas" width="120" height="40" border="0" class="page-nav-home-logo">
 					    Ted Goas
 					</object>
 				</a>
@@ -126,10 +126,10 @@ ZII$I=+7?=:~7?I$MDD77$~I?OZ?+ZI=+I~+?=+$7~II=I88OOOOOZOZZZZZZZZZZ$ZZZZ$$Z$ZZZZZZ
 					<p class="vcard"><strong class="fn">Ted Goas</strong> <span class="title">is a Designer and Front-End Developer</span> in <span class="region">New Jersey</span>.</p>
 					</p>
 		 			<div class="footer-social">
-		 				<a href="http://www.twitter.com/tedgoas" title="What I'm saying" rel="external me" class="icon-social icon-social-twitter"><i class="icon-twitter"></i></a>
-		 				<a href="http://www.dribbble.com/tedgoas" title="What I'm designing" rel="external me" class="icon-social icon-social-dribbble"><i class="icon-dribbble-1"></i></a>
-		 				<a href="http://www.github.com/tedgoas" title="What I'm coding" rel="external me" class="icon-social icon-social-github"><i class="icon-github"></i></a>
-		 				<a href="https://medium.com/@tedgoas" title="What I'm writing" rel="external me" class="icon-social icon-social-medium"><i class="icon-medium"></i></a>
+		 				<a href="http://www.twitter.com/tedgoas" title="What I'm saying" rel="external me" class="icon-social icon-social-twitter icon-twitter"></a>
+		 				<a href="http://www.dribbble.com/tedgoas" title="What I'm designing" rel="external me" class="icon-social icon-social-dribbble icon-dribbble-1"></a>
+		 				<a href="http://www.github.com/tedgoas" title="What I'm coding" rel="external me" class="icon-social icon-social-github icon-github"></a>
+		 				<a href="https://medium.com/@tedgoas" title="What I'm writing" rel="external me" class="icon-social icon-social-medium icon-medium"></a>
 		 			</div>
 					<p class="imprint">
 						Open source: <a href="https://github.com/TedGoas/Dante">GitHub</a> & <a href="/humans.txt" title="the creators and contributors of this website">humans.txt</a>
