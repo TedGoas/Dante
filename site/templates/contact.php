@@ -11,7 +11,7 @@
 			<div class="av-graph">
 				<div class="av-graph-railing">
 					<div class="av-graph-fill">
-						<div class="caption">I'm fairly booked up, but let's talk!</div>
+						<div class="av-graph-caption">I'm fairly booked up, but let's talk!</div>
 					</div>
 				</div>
 				<ul class="labels-ul">

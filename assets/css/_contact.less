@@ -43,7 +43,7 @@
 		width: 40%;
 	}
 }
-.caption {
+.av-graph-caption {
 	opacity: 0;
 	white-space: nowrap;
 	position: absolute;
@@ -60,7 +60,8 @@
     animation-delay: 1500ms;
     animation-fill-mode:forwards;
 }
-.caption:after, .caption:before {
+.av-graph-caption:after,
+.av-graph-caption:before {
 	top: 100%;
 	left: 50%;
 	border: solid transparent;
@@ -71,13 +72,13 @@
 	pointer-events: none;
 }
 
-.caption:after {
+.av-graph-caption:after {
 	border-color: rgba(255, 255, 255, 0);
 	border-top-color: @blue;
 	border-width: 5px;
 	margin-left: -5px;
 }
-.caption:before {
+.av-graph-caption:before {
 	border-color: rgba(0, 0, 0, 0);
 	border-top-color: #ffffff;
 	border-width: 6px;
@@ -109,7 +110,7 @@
 	float: right;
 }
 @media screen and (max-width: @breakpoint-small) {
-	.caption {
+	.av-graph-caption {
 		max-width: 200px;
 		white-space: normal;
 	}
