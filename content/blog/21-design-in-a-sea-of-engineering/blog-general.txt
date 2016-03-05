@@ -75,7 +75,7 @@ I write HTML so developers can copy and paste the patterns. Using BEM-style clas
 
 > Make the right things easy and the wrong things hard.
 
-Common CSS patterns (atoms and molecules, if you subscribe to Atomic Design) are organized into a global file, similar to how Jonathan Snook moves code [from crust to core](http://snook.ca/archives/html_and_css/code-from-crust-to-core). The remaining CSS stays in area files, no more than one per page. DRY is ideal, but RYALAP is more realistic. Hey, we’re all trying.
+Common CSS patterns (atoms and molecules, if you subscribe to Atomic Design) are organized into a global file, similar to how Jonathan Snook moves code [from crust to core](http://snook.ca/archives/html_and_css/code-from-crust-to-core). The remaining CSS stays in area files, no more than one per page. DRY is ideal, but [RYALAP](https://twitter.com/hashtag/ryalap) is more realistic. Hey, we’re all trying.
 
 I keep the CSS pretty simple so the developers can understand it. They aren’t as familiar with all this pre/post-processor stuff.
 
