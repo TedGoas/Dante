@@ -96,14 +96,16 @@ ZII$I=+7?=:~7?I$MDD77$~I?OZ?+ZI=+I~+?=+$7~II=I88OOOOOZOZZZZZZZZZZ$ZZZZ$$Z$ZZZZZZ
 <body class="<?php echo $page->slug() ?> <?php echo $page->parents() ?>">
 	<div class="page-wrap">
 		<div class="navigation" role="header">
-			<div class="navigation-mobile">
-				<div class="mobile-menu-icon"><i class="icon-menu"></i></div>
-				<a href="/" title="Home" rel="home" class="page-nav-home">
-					<object type="image/svg+xml" data="/assets/images/logo-tedgoas-ko.svg" alt="Ted Goas" width="120" height="40" border="0" class="page-nav-home-logo">
-					    Ted Goas
-					</object>
-				</a>
+			<div class="navigation-mobile hamburger">
+				<div class="hamburger-box">
+					<div class="hamburger-inner"></div>
+				</div>
 			</div>
+			<a href="/" title="Home" rel="home" class="page-nav-home">
+				<object type="image/svg+xml" data="/assets/images/logo-tedgoas-ko.svg" alt="Ted Goas" width="120" height="40" border="0" class="page-nav-home-logo">
+				    Ted Goas
+				</object>
+			</a>
 			<div class="navigation-container">
 				<ul class="page-nav-ul">
 					<li class="page-nav-li page-nav-li--work">

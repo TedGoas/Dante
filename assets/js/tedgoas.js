@@ -1,7 +1,7 @@
 $( document ).ready(function() {
 	
 	// Navigation on Mobile
-	$(".mobile-menu-icon").click(function() {
+	$(".navigation-mobile").click(function() {
 		$(".navigation").toggleClass("active");
 	});
 	

@@ -136,6 +136,90 @@ body.blog .page-nav-li--blog a {
 		padding: 12px 20px;
 		cursor: pointer;
 	}
+	
+	.hamburger {
+		float: right;
+		position: relative;
+		z-index: 1;
+		padding: 13px 30px;
+		display: inline-block;
+		cursor: pointer;
+		vertical-align: middle;
+		transition-property: opacity, -webkit-filter;
+		transition-property: opacity, filter;
+		transition-property: opacity, filter, -webkit-filter;
+		transition-duration: .15s;
+		transition-timing-function: linear;
+	}
+	.hamburger-box {
+	  width: 30px;
+	  height: 24px;
+	  position: relative;
+	}
+	.hamburger-inner {
+	  top: 50%;
+	  margin-top: -2px;
+	}
+	.hamburger-inner,
+	.hamburger-inner::before,
+	.hamburger-inner::after {
+	  width: 30px;
+	  height: 3px;
+	  background-color: #fff;
+	  border-radius: 3px;
+	  position: absolute;
+	  transition-property: -webkit-transform;
+	  transition-property: transform;
+	  transition-property: transform, -webkit-transform;
+	  transition-duration: .15s;
+	  transition-timing-function: ease;
+	}
+	.hamburger-inner::before,
+	.hamburger-inner::after {
+	  content: "";
+	  display: block;
+	}
+	.hamburger-inner::before {
+	  top: -8px;
+	}
+	.hamburger-inner::after {
+	  bottom: -8px;
+	}
+	.hamburger-inner {
+	  transition-duration: .3s;
+	  transition-timing-function: cubic-bezier(0.55, .055, .675, .19);
+	}
+	.hamburger-inner::before {
+	  transition: top .1s .34s ease-in, opacity .1s ease-in;
+	}
+	.hamburger-inner::after {
+	  transition: bottom .1s .34s ease-in, -webkit-transform .3s cubic-bezier(0.55, .055, .675, .19);
+	  transition: bottom .1s .34s ease-in, transform .3s cubic-bezier(0.55, .055, .675, .19);
+	  transition: bottom .1s .34s ease-in, transform .3s cubic-bezier(0.55, .055, .675, .19), -webkit-transform .3s cubic-bezier(0.55, .055, .675, .19);
+	}
+	/* Maybe nest this for better organization (compiled css is gonna be the same anyway) */
+	.active {
+		.hamburger-inner {
+			-webkit-transform: rotate(225deg);
+			      transform: rotate(225deg);
+			transition-delay: .14s;
+			transition-timing-function: cubic-bezier(0.215, .61, .355, 1);
+		}
+		.hamburger-inner::before {
+			top: 0;
+			opacity: 0;
+			transition: top .1s ease-out, opacity .1s .14s ease-out;
+			}
+		.hamburger-inner::after {
+			bottom: 0;
+			-webkit-transform: rotate(-90deg);
+			      transform: rotate(-90deg);
+			transition: bottom .1s ease-out, -webkit-transform .3s .14s cubic-bezier(0.215, .61, .355, 1);
+			transition: bottom .1s ease-out, transform .3s .14s cubic-bezier(0.215, .61, .355, 1);
+			transition: bottom .1s ease-out, transform .3s .14s cubic-bezier(0.215, .61, .355, 1), -webkit-transform .3s .14s cubic-bezier(0.215, .61, .355, 1);
+		}
+	}
+	
 	.navigation-container {
 		position: fixed;
 		top: 50px;
