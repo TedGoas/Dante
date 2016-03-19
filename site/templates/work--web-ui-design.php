@@ -20,10 +20,9 @@
 						<p>Blue Shore approached me with a serviceable, but underwhelming website the owner had created in MS Frontpage. They asked me to take their design and content to the next level while maintaining their established SEO presence.</p>
 					</div>
 					<div class="uk-width-1-2">
-						<p>Blue Shore and I worked together to design a site in the spirit of a marine engineering blueprint (so meta!) in order to appeal to the audience that typically hires them. I’m currently coding the site, ensuring everything translates well in on every device and in search engines.</p>
+						<p>Blue Shore and I worked together to design a site in the spirit of a marine engineering blueprint (so meta!) in order to appeal to the audience that typically hires them.</p>
 					</div>
 				</div>
-				<div class="site-link"><div class="unavailable">Currently In Development</div></div>
 			</div>
 			<div class="full-width-figure flush-bottom">
 				<img src="/assets/images/work/web-ui-design/blueshore.jpg" height="800" width="1000" alt="Blue Shore Engineering Homepage Design">
