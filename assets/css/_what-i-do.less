@@ -4,8 +4,8 @@
 	background: #eaeaea;
 	background-image:
 	linear-gradient(
-		to top right, 
-		#d2d2d2, #eaeaea
+		to bottom right, 
+		#f6f6f6, #edf3f0
 	);
 	.inside {
 		text-align: center;
@@ -70,10 +70,12 @@
 	padding: @gutter-medium 0;
 }
 .what-i-do-summary {
-	.serif;
-	font-style: italic;
-	font-size: @fs-l;
 	padding-right: 10%;
+	p:first-child {
+		.serif;
+		font-style: italic;
+		font-size: @fs-l;
+	}
 }
 .skills-detail-list {
 	margin: 8px 0 @gutter-small;
