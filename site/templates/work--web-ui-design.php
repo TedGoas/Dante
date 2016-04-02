@@ -67,7 +67,6 @@
 						<p>Over several iterations, MasterStreet and I redesigned the site architecture and interaction design of interface. I reorganized profile listings into “cards” to maximize screen real estate and optimized tutor profile pages to be lead forms. I delivered a series of Photoshop comps and a responsive pattern library.</p>
 					</div>
 				</div>
-				<div class="site-link"><div class="unavailable">Site No Longer Online</div></div>
 			</div>
 			<div class="full-width-figure flush-bottom">
 				<img src="/assets/images/work/web-ui-design/masterstreet.jpg" height="800" width="1000" alt="Master Street Homepage Design">
