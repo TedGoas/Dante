@@ -69,35 +69,47 @@
 .skills-detail {
 	padding: @gutter-medium 0;
 }
-.what-i-do-summary {
-	padding-right: 10%;
-	p:first-child {
-		.serif;
-		font-style: italic;
-		font-size: @fs-l;
-	}
-}
 .skills-detail-list {
-	margin: 8px 0 @gutter-small;
+	padding-top: @gutter-small;
+	border-top: 1px solid @gray-lightest;
+}
+.skills-detail-list--good {
+	margin-top: @gutter-small;
+}
+.skills-detail-list--bad {
+	border-bottom: 1px solid @gray-lightest;
+	margin-bottom: @gutter-medium;
+}
+.skills-detail-title {
+	display: block;
 }
 .skills-detail-title--good {
-	color: @green;
 }
 .skills-detail-title--bad {
-	color: @red;
 }
 .skills-detail-ul {
-	padding: 10px 0;
+	padding: 0 0 @gutter-small 0;
 }
 .skills-detail-li {
 	list-style: none;
+	display: inline-block;
 	line-height: 1;
-	padding: 10px 0;
+	padding-right: 10px;
 	margin: 0 auto;
 	font-size: @fs-s;
-}
-@media screen and (max-width: @breakpoint-small) {
-	.what-i-do-summary {
-		padding-right: 0;
+	white-space: nowrap;
+	&:before {
+		.extend-icon;
+		top: 3px;
+		margin-right: 2px;
 	}
 }
+.skills-detail-li--good:before {
+	content: "\6b";
+	color: @green;
+}
+.skills-detail-li--bad:before {
+	content: "\6c";
+	color: @red;
+}
+
