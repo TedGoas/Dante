@@ -32,6 +32,11 @@ class User extends \User {
       throw new Exception(l('users.form.error.update.rights'));
     }
 
+    // users which are not an admin cannot change their role
+    if(!panel()->user()->isAdmin()) {
+      unset($data['role']);
+    }
+
     if(str::length(a::get($data, 'password')) > 0) {
       if(a::get($data, 'password') !== a::get($data, 'passwordconfirmation')) {
         throw new Exception(l('users.form.error.password.confirm'));
@@ -48,6 +53,11 @@ class User extends \User {
     }
 
     parent::update($data);
+
+    // flush the cache in case if the user data is 
+    // used somewhere on the site (i.e. for profiles)
+    kirby()->cache()->flush();
+
     kirby()->trigger('panel.user.update', $this);
 
     return $this;
@@ -77,12 +87,25 @@ class User extends \User {
 
     parent::delete();
 
+    // flush the cache in case if the user data is 
+    // used somewhere on the site (i.e. for profiles)
+    kirby()->cache()->flush();
+
     kirby()->trigger('panel.user.delete', $this);
 
   }
 
-  public function avatar() {
-    return new Avatar($this, parent::avatar());
+  public function avatar($crop = null) {
+    if($crop === null) {
+      return new Avatar($this);      
+    } else {
+      $avatar = $this->avatar();
+      if($avatar->exists()) {
+        return $avatar->crop($crop);
+      } else {
+        return $avatar;
+      }
+    }
   }
 
   public function isCurrent() {

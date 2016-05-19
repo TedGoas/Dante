@@ -8,12 +8,12 @@ use Folder;
 class Installer {
 
   public function isCompleted() {
-    return site()->users()->count() > 0;
+    return (site()->users()->count() > 0 && is_writable(kirby()->roots()->accounts()));
   }
 
   public function problems() {
 
-    $checks   = array('accounts', 'thumbs', 'blueprints', 'content', 'avatars');
+    $checks   = array('allowed', 'accounts', 'thumbs', 'blueprints', 'content', 'avatars');
     $problems = array();
 
     foreach($checks as $c) {
@@ -27,6 +27,10 @@ class Installer {
     
     return empty($problems) ? false : $problems;
 
+  }
+
+  protected function checkAllowed() {
+    return (panel()->isLocal() || kirby()->option('panel.install') === true);
   }
 
   protected function checkAccounts() {

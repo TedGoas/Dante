@@ -10,28 +10,21 @@ use Thumb;
 use Kirby\Panel\Upload;
 use Kirby\Panel\Models\User;
 
-class Avatar extends Media {
+class Avatar extends \Avatar {
 
-  public $user;
+  public function __construct(User $user) {
 
-  public function __construct(User $user, $avatar) {
+    parent::__construct($user);
 
-    $this->user = $user;
-
-    if($avatar) {
-      parent::__construct($avatar->root(), $avatar->url());
-    } else {
-      parent::__construct($this->user->avatarRoot('{safeExtension}'));
+    if(!$this->exists()) {
+      $this->root = $this->user->avatarRoot('{safeExtension}');
+      $this->url  = purl('assets/images/avatar.png');
     }
 
   }
 
   public function form($action, $callback) {
     return panel()->form('avatars/' . $action, $this, $callback);
-  }
-
-  public function url() {
-    return $this->exists() ? parent::url() . '?' . $this->modified() : purl('assets/images/avatar.png');
   }
 
   public function upload() {
@@ -54,15 +47,9 @@ class Avatar extends Media {
       throw $upload->error();
     }
 
-    thumb::$defaults['root'] = dirname($upload->file()->root());
-
-    $thumb = new Thumb($upload->file(), array(
-      'filename'  => $upload->file()->filename(),
-      'overwrite' => true,
-      'width'     => 256,
-      'height'    => 256,
-      'crop'      => true
-    ));
+    // flush the cache in case if the user data is 
+    // used somewhere on the site (i.e. for profiles)
+    kirby()->cache()->flush();
 
     kirby()->trigger('panel.avatar.upload', $this);
 
@@ -79,6 +66,10 @@ class Avatar extends Media {
     if(!parent::delete()) {
       throw new Exception(l('users.avatar.delete.error'));
     } 
+
+    // flush the cache in case if the user data is 
+    // used somewhere on the site (i.e. for profiles)
+    kirby()->cache()->flush();
 
     kirby()->trigger('panel.avatar.delete', $this);
 

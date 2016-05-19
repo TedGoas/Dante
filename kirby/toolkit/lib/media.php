@@ -39,7 +39,7 @@ class Media {
    */
   public function __construct($root, $url = null) {
     $this->url       = $url;
-    $this->root      = realpath($root);
+    $this->root      = $root === null ? $root : realpath($root);
     $this->filename  = basename($root);
     $this->name      = pathinfo($root, PATHINFO_FILENAME);
     $this->extension = strtolower(pathinfo($root, PATHINFO_EXTENSION));
@@ -432,6 +432,17 @@ class Media {
       $size   = (array)getimagesize($this->root);
       $width  = a::get($size, 0, 0);
       $height = a::get($size, 1, 0);
+    } else if($this->extension() == 'svg') {
+      $content = $this->read();
+      $xml     = simplexml_load_string($content);
+      $attr    = $xml->attributes();  
+      $width   = floatval($attr->width); 
+      $height  = floatval($attr->height);
+      if($width == 0 or $height == 0 and !empty($attr->viewBox)) {
+        $box    = str::split($attr->viewBox, ' ');
+        $width  = floatval(a::get($box, 2, 0));
+        $height = floatval(a::get($box, 3, 0));
+      }
     } else {
       $width  = 0;
       $height = 0;
@@ -515,6 +526,7 @@ class Media {
 
     $img = new Brick('img');
     $img->attr('src', $this->url());
+    $img->attr('alt', ' ');
 
     if(is_string($attr) || (is_object($attr) && method_exists($attr, '__toString'))) {
       $img->attr('alt', (string)$attr);
@@ -523,6 +535,48 @@ class Media {
     }
 
     return $img;
+
+  }
+
+  /**
+   * Scales the image if possible
+   * 
+   * @param int $width
+   * @param mixed $height
+   * @param mixed $quality
+   * @return Media
+   */
+  public function resize($width, $height = null, $quality = null) {
+
+    if($this->type() != 'image') return $this;
+
+    $params = array('width' => $width);
+
+    if($height)  $params['height']  = $height;
+    if($quality) $params['quality'] = $quality;
+
+    return new Thumb($this, $params);
+
+  }
+
+  /**
+   * Scales and crops the image if possible
+   * 
+   * @param int $width
+   * @param mixed $height
+   * @param mixed $quality
+   * @return Media
+   */
+  public function crop($width, $height = null, $quality = null) {
+
+    if($this->type() != 'image') return $this;
+
+    $params = array('width' => $width, 'crop' => true);
+
+    if($height)  $params['height']  = $height;
+    if($quality) $params['quality'] = $quality;
+
+    return new Thumb($this, $params);
 
   }
 

@@ -187,10 +187,12 @@ class Html {
 
     if(empty($value) && $value !== '0' && $value !== 0) {
       return false;
+    } else if($value === ' ') {
+      return strtolower($name) . '=""';      
     } else if(is_bool($value)) {
       return $value === true ? strtolower($name) : '';
     } else {
-      return strtolower($name) . '="' . $value . '"';      
+      return strtolower($name) . '="' . ( is_array($value) ? implode(' ', $value) : $value ) . '"';      
     }
 
   }
@@ -218,9 +220,12 @@ class Html {
    * @return string the generated html
    */
   public static function email($email, $text = null, $attr = array()) {
+    if(empty($text)) {
+      // show only the eMail address without additional parameters (if the 'text' argument is empty)
+      $text = str::encode(a::first(str::split($email, '?'))); 
+    }
     $email = str::encode($email);
     $attr  = array_merge(array('href' => 'mailto:' . $email), $attr);
-    if(empty($text)) $text = $email;
     return static::tag('a', $text, $attr);
   }
 

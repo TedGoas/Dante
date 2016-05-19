@@ -12,6 +12,7 @@ use Obj;
 use Kirby\Panel\Models\Page\Blueprint\Pages;
 use Kirby\Panel\Models\Page\Blueprint\Files;
 use Kirby\Panel\Models\Page\Blueprint\Fields;
+use Kirby\Panel\Models\Page\Blueprint\Options;
 
 class Blueprint extends Obj {
 
@@ -29,6 +30,7 @@ class Blueprint extends Obj {
   public $deletable = true;
   public $icon      = 'file-o';
   public $fields    = array();
+  public $options   = null;
 
   public function __construct($name) {
 
@@ -43,6 +45,7 @@ class Blueprint extends Obj {
     $this->type      = a::get($this->yaml, 'type', 'page');
     $this->pages     = new Pages(a::get($this->yaml, 'pages', true));
     $this->files     = new Files(a::get($this->yaml, 'files', true));
+    $this->options   = new Options(a::get($this->yaml, 'options', array()));
 
   }
 
@@ -59,12 +62,11 @@ class Blueprint extends Obj {
     }
 
     // find the matching blueprint file
-    $files = glob(static::$root . DS . $name . '.{php,yaml,yml}', GLOB_BRACE);
+    $file = kirby()->get('blueprint', $name);
 
+    if($file) {
 
-
-    if(!empty($files[0])) {
-      $this->file = $files[0];
+      $this->file = $file;
       $this->name = $name;
       $this->yaml = data::read($this->file, 'yaml');
 
@@ -93,17 +95,13 @@ class Blueprint extends Obj {
   }
 
   static public function exists($name) {
-    return (
-      file_exists(static::$root . DS . strtolower($name) . '.php') or
-      file_exists(static::$root . DS . strtolower($name) . '.yml') or
-      file_exists(static::$root . DS . strtolower($name) . '.yaml')
-    );
+    return kirby()->get('blueprint', $name) ? true : false;
   }
 
   static public function all() {
 
     $files  = dir::read(static::$root);
-    $result = array();
+    $result = array_keys(kirby()->get('blueprint'));
     $home   = kirby()->option('home', 'home');
     $error  = kirby()->option('error', 'error');
 

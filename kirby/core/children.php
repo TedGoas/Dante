@@ -38,7 +38,9 @@ abstract class ChildrenAbstract extends Pages {
    * @param array $data
    */
   public function create($uid, $template, $data = array()) {
-    return page::create($this->page->id() . '/' . $uid, $template, $data);
+    $page = page::create($this->page->id() . '/' . $uid, $template, $data);
+    $this->data[$page->id()] = $page;
+    return $page;
   }
 
   /**
@@ -76,7 +78,11 @@ abstract class ChildrenAbstract extends Pages {
 
     if(!count($args)) {
       return false;
-    } else if(count($args) > 1) {
+    } else if (count($args) === 1 and is_array($args[0])) {
+      $args = $args[0];
+    }
+
+    if(count($args) > 1) {
       $collection = new Children($this->page);
       foreach($args as $id) {
         if($page = $this->find($id)) {
@@ -183,6 +189,19 @@ abstract class ChildrenAbstract extends Pages {
 
     return $this->cache['index'];
 
+  }
+
+  /**
+   * Extended group method
+   * detaches children and converts them to 
+   * a simple pages collection
+   * 
+   * @param function $callback
+   * @return Pages
+   */
+  public function group($callback) {
+    $collection = new Pages($this);
+    return $collection->group($callback);
   }
 
 }
