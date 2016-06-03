@@ -59,6 +59,7 @@ ZII$I=+7?=:~7?I$MDD77$~I?OZ?+ZI=+I~+?=+$7~II=I88OOOOOZOZZZZZZZZZZ$ZZZZ$$Z$ZZZZZZ
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="cleartype" content="on">
 	<link rel="dns-prefetch" href="//www.google-analytics.com">
 	<title><?php echo $page->title() ?> &infin; Ted Goas</title>
 	<meta name="description" content="<?php echo $page->description()->html() ?>">
