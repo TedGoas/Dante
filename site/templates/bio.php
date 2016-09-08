@@ -115,7 +115,7 @@
 						<div class="timeline-date">2010</div>
 						<img src="/assets/images/bio-th-canfield.jpg" alt="Canfield Scientific" width="400" height="300" class="timeline-img">
 					</div>
-					<p class="timelime-p">I landed my current job as a designer at Canfield Scientific, a biotechnology & pharmaceutical company in New Jersey. I spend my days building web products in an industry that sorely needs thoughtful design.</p>
+					<p class="timelime-p">I landed a job as a designer at Canfield Scientific, a biotechnology & pharmaceutical company in New Jersey. I spent my days building web products in an industry that sorely needs thoughtful design.</p>
 				</div>
 			</div>
 		
@@ -137,7 +137,7 @@
 						<div class="timeline-date">2015</div>
 						<img src="/assets/images/bio-th-tedc.jpg" alt="Email Design Conference" width="400" height="300" class="timeline-img">
 					</div>
-					<p class="timelime-p">I wrote more, tweeted less, did a bit of open source, and got a little speaking experience (other than wedding speeches).</p>
+					<p class="timelime-p">I wrote more, tweeted less, did a bit of open source, and got a little professional speaking experience (other than meet ups).</p>
 				</div>
 			</div>
 		
@@ -148,7 +148,18 @@
 						<div class="timeline-date">2015</div>
 						<img src="/assets/images/bio-th-family.jpg" alt="My young family" width="400" height="300" class="timeline-img">
 					</div>
-					<p class="timelime-p">Wren, our second child, arrives just before year's end. What have we gotten ourselves into?</p>
+					<p class="timelime-p">Wren, our second child, arrives just before year's end. We’re still getting the hang of the whole parenting thing…</p>
+				</div>
+			</div>
+		
+			<div class="timeline--even timeline--orange">
+				<div class="segment"></div>
+				<div class="timeline">
+					<div class="timeline-figure">
+						<div class="timeline-date">2016</div>
+						<img src="/assets/images/bio-th-so.jpg" alt="Stack Overflow" width="400" height="300" class="timeline-img">
+					</div>
+					<p class="timelime-p">I joined Stack Overflow's design team, where I work on products that help millions of developers worldwide.</p>
 				</div>
 			</div>
 		
