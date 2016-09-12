@@ -33,7 +33,7 @@ use Kirby\Panel\Models\Page\Blueprint as PageBlueprint;
 
 class Panel {
 
-  static public $version = '2.3.0';
+  static public $version = '2.3.2';
 
   // minimal requirements
   static public $requires = array(
@@ -108,12 +108,15 @@ class Panel {
     // setup the session
     $this->session();
 
-    // setup the multilang site stuff
-    $this->multilang();
+    // load the current translation
+    $this->translation()->load();
 
     // load all Kirby extensions (methods, tags, smartypants)
     $this->kirby->extensions();
     $this->kirby->plugins();
+
+    // setup the multilang site stuff
+    $this->multilang();
 
     // setup the form plugin
     form::$root = array(
@@ -355,20 +358,17 @@ class Panel {
   }
 
   public function language() {
-    return $this->translation;
+    return $this->translation();
   }
 
   public function direction() {
-    return $this->translation->direction();
+    return $this->translation()->direction();
   }
 
   public function launch($path = null) {
 
     // set the timezone for all date functions
     date_default_timezone_set($this->kirby->options['timezone']);
-
-    // load the current translation
-    $this->translation()->load();
 
     $this->path  = $this->kirby->path();
     $this->route = $this->router->run($this->path);

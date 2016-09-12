@@ -9,7 +9,7 @@ use Kirby\Urls;
 
 class Kirby {
 
-  static public $version = '2.3.0';
+  static public $version = '2.3.2';
   static public $instance;
   static public $hooks = array();
   static public $triggered = array();
@@ -298,7 +298,7 @@ class Kirby {
     $routes['homeRedirect'] = array(
       'pattern' => $this->options['home'],
       'action'  => function() {
-        redirect::send(page('home')->url(), 307);
+        redirect::send(site()->homepage()->url(), 307);
       }
     );
 
@@ -697,10 +697,15 @@ class Kirby {
   /**
    * Register a new hook
    * 
-   * @param string $hook The name of the hook
+   * @param string/array $hook The name of the hook
    * @param closure $callback
    */
   public function hook($hook, $callback) {
+
+    if(is_array($hook)) {
+      foreach($hook as $h) $this->hook($h, $callback);
+      return;
+    }
 
     if(isset(static::$hooks[$hook]) and is_array(static::$hooks[$hook])) {
       static::$hooks[$hook][] = $callback;
@@ -722,9 +727,10 @@ class Kirby {
     if(isset(static::$hooks[$hook]) and is_array(static::$hooks[$hook])) {
       foreach(static::$hooks[$hook] as $key => $callback) {
 
-        if(array_key_exists($hook, static::$triggered) && in_array($key, static::$triggered[$hook])) continue;
+        if(!array_key_exists($hook, static::$triggered)) static::$triggered[$hook] = array();
+        if(in_array($key, static::$triggered[$hook])) continue;
 
-        static::$triggered[$hook] = $key;
+        static::$triggered[$hook][] = $key;
 
         try {
           call($callback, $args);        

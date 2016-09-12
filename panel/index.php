@@ -22,11 +22,6 @@ if(file_exists($index . DS . 'site.php')) {
   $kirby = kirby();
 }
 
-// fix the base url for the kirby installation
-if(!isset($kirby->urls->index)) {
-  $kirby->urls->index = dirname($kirby->url());
-}
-
 // the default index directory
 if(!isset($kirby->roots->index)) {
   $kirby->roots->index = $index;

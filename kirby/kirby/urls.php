@@ -8,28 +8,40 @@ use URL;
 
 class Urls {
 
+  public $index;
+  public $content;
+  public $thumbs;
+  public $assets;
+  public $autocss;
+  public $autojs;
+  public $avatars;
+
   public function index() {
 
     if(isset($this->index)) return $this->index;
 
     if(r::cli()) {
-      return $this->index = '/';
+      $index = '/';
     } else {
-      return $this->index = url::base() . preg_replace('!\/index\.php$!i', '', server::get('SCRIPT_NAME'));
+      $index = url::base() . preg_replace('!\/index\.php$!i', '', server::get('SCRIPT_NAME'));
     }
+
+    // fix index URL for the Panel
+    if(function_exists('panel')) $index = dirname($index);
+    return $this->index = $index;
 
   }
 
   public function content() {
-    return isset($this->content) ? $this->content : url::makeAbsolute('content', $this->index);
+    return isset($this->content) ? $this->content : url::makeAbsolute('content', $this->index());
   }
 
   public function thumbs() {
-    return isset($this->thumbs) ? $this->thumbs : url::makeAbsolute('thumbs', $this->index);
+    return isset($this->thumbs) ? $this->thumbs : url::makeAbsolute('thumbs', $this->index());
   }
 
   public function assets() {
-    return isset($this->assets) ? $this->assets : url::makeAbsolute('assets', $this->index);
+    return isset($this->assets) ? $this->assets : url::makeAbsolute('assets', $this->index());
   }
 
   public function autocss() {
