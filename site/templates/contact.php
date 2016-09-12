@@ -20,24 +20,13 @@
 				</ul>
 			</div>
 		</div>
-		<article>
-			<div class="uk-grid">
-				<div class="uk-width-1-3">
-					<p class="contact-primary">During the day, I'm a designer and front-end developer at Canfield Scientific in northern New&nbsp;Jersey.</p>
-				</div>
-				<div class="uk-width-1-3">
-					<p>If you're interested in <strong class="highlighted">freelance work</strong> and have something small or well-defined, let's chat. Please be aware that I already have a handful of freelance clients, personal projects, and my day&nbsp;job.</p>
-				</div>
-				<div class="uk-width-1-3">
-					<p>If you'd like to ask a question, talk shop, or just say hi, please drop me an email! I promise I'll reply as soon as I&nbsp;can.</p>
-				</div>
-			</div>
-			<div class="narrow-width tatg">
-				<div class="hr"><hr></div>
-				<object type="image/svg+xml" data="/assets/images/email.svg" alt="hi spam bots" width="315" height="30" class="em">
-				    ted at tedgoas dot com
-				</object>
-			</div>
+		<article class="narrow-width">
+					<p class="contact-primary">I'm currently a designer and front-end developer at Stack&nbsp;Overflow.</p>
+					<p>If you're interested in <strong class="highlighted">freelance work</strong> and have something small or well-defined, let's chat. Please be aware that I already have a handful of freelance clients, personal projects, and my day job. If you'd like to ask a question, talk shop, or just say hi, please drop me an email! I promise I'll reply as soon as I&nbsp;can.</p>
+					<div class="hr"><hr></div>
+					<object type="image/svg+xml" data="/assets/images/email.svg" alt="hi spam bots" width="315" height="30" class="em">
+					    ted at tedgoas dot com
+					</object>
 		</article>
 	</div>
 	
