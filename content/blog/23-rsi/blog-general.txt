@@ -1,6 +1,6 @@
 Title: How I Keep My RSI at Bay
 ----
-Date: September 30, 2016
+Date: September 29, 2016
 ----
 Description: my experience with repetitive strain injury and how I manage it while working as a web designer and developer.
 ----
@@ -51,3 +51,5 @@ These days I’m rarely in any pain that lasts for more than five minutes. I don
 <div class="hr"><hr></div>
 
 Sometimes we web designers get so into our work we power through and don’t realize we’re hurting ourselves. I’m not going to offer any medical advice (I’m still just a fucking web designer). But if you notice a dull pain starting to grow in your arm or wrist, it’s probably best not to ignore it.
+
+Also published at <a href="https://medium.com/@tedgoas/how-i-keep-my-rsi-at-bay-6ec289d801ca#.hsprm1nlu">on Medium</a>
