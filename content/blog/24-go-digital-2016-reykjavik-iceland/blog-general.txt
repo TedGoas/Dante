@@ -109,7 +109,9 @@ I was chatting with someone between sessions and missed some of this presentatio
 A great way to end the day’s lectures. Words cannot sum up this high-energy talk, you’ve got to see it for yourself. Here is a recent version:
 
 <figure class="figure figure-center">
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/so4A_XmOliI" frameborder="0" allowfullscreen></iframe>
+	<div class="video-wrapper">
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/so4A_XmOliI" frameborder="0" allowfullscreen></iframe>
+	</div>
 </figure>
 
 ## Iceland
