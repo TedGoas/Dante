@@ -2,7 +2,7 @@ Title: Go Digital 2016 in Reykjavik, Iceland
 ----
 Date: November 19, 2016
 ----
-Description: my experience with repetitive strain injury and how I manage it while working as a web designer and developer.
+Description: I attended Go Digital 2016 and visited Reykjavik, Iceland for the first time.
 ----
 Article-Hero-Classes: article-hero-flush
 ----
