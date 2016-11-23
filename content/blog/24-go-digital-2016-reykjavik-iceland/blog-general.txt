@@ -20,7 +20,7 @@ I attended Aarron’s Interface Design workshop on the first day. It focused on 
 	<img src="/content/blog/24-go-digital-2016-reykjavik-iceland/aarron-switching.png" alt="Switching" height="600" width="801">
 </div>
 
-Aaron introduced **Interviews** as good for new ideas with no prototype to test or analytics to reference. Interviews help to discover what drives people to a new product (problem with an existing product, perceived benefit to new one) and what feelings they fight against when doing so (anxiety, existing behaviors, risk of switching). While they can be done remotely over the phone or a video conference, Aarron mentioned how MailChimp sometimes sent two or three employees to meet with clients in-person. When I asked when this kind of investment is appropriate, he responded they typically did it for larger clients and conducted multiple interviews in a single trip. In addition to more FaceTime, in person meetings can sometimes have unplanned events. Like the time an accountant dipped her head into a meeting and the team ended up learning how their client evaluate purchasing decisions. Pretty neat!
+Aaron introduced **Interviews** as good for new ideas with no prototype to test or analytics to reference. Interviews help to discover what drives people to a new product (problem with an existing product, perceived benefit to new one) and what feelings they fight against when doing so (anxiety, existing behaviors, risk of switching). While they can be done remotely over the phone or a video conference, Aarron mentioned how MailChimp sometimes sent two or three employees to meet with clients in-person. When I asked when this kind of investment is appropriate, he responded they typically did it for larger clients and conducted multiple interviews in a single trip. In addition to more face time, in person meetings can sometimes have unplanned events. Like the time an accountant dipped her head into a meeting and the team ended up learning how their client evaluates purchasing decisions. Pretty neat!
 
 <div class="figure figure-center">
 	<img src="/content/blog/24-go-digital-2016-reykjavik-iceland/aarron-journey.png" alt="Customer Journey" height="600" width="801">
@@ -42,7 +42,7 @@ One of the final things Aarron discussed was **Delight**, or designing an enjoya
 	<img src="/content/blog/24-go-digital-2016-reykjavik-iceland/aarron-pyramid1.png" alt="Basic UX Pyramid" height="600" width="801">
 </div>
 
-Aaron’s solution, build some delight in from day 1:
+Aaron’s solution: build some delight in from day 1.
 
 <div class="figure figure-center">
 	<img src="/content/blog/24-go-digital-2016-reykjavik-iceland/aarron-pyramid2.png" alt="Better UX Pyramid" height="600" width="801">
