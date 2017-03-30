@@ -1,9 +1,9 @@
 /* fonts */
 .sans-serif {
-	font-family: 'freight-sans-pro', sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 .serif {
-	font-family: 'freight-text-pro', georgia, serif;
+	font-family: "Hoefler Text", Constantia, "Book Antiqua", Georgia, serif;
 }
 
 html,
@@ -15,27 +15,21 @@ body {
 }
 
 h1 {
-	.serif;
-	font-size: @fs-huge;
-	font-weight: @fw-b;
-	line-height: 1.1;
-	color: @gray-darker;
-}
-.page-title-h1 {
 	.sans-serif;
+	font-size: @fs-huge;
 	font-weight: @fw-bl;
-	letter-spacing: .025em;
+	line-height: 1.2;
+	color: @gray-darker;
+	letter-spacing: .05em;
 }
 h2 {
-	.serif;
 	font-size: @fs-xl;
 	line-height: 1.2;
-	font-weight: @fw-b;
+	font-weight: @fw-bl;
 	margin: @gutter-medium 0 @gutter-small/2;
 	color: @gray-darker;
 }
 h3 {
-	.serif;
 	font-size: @fs-l;
 	font-weight: @fw-b;
 	margin: @gutter-medium 0 @gutter-small/2;
