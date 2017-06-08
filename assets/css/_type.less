@@ -59,10 +59,10 @@ p {
 	margin: 0 0 @gutter-small;
 }
 .caption {
-	font-size: @fs-s;
+	font-size: @fs-xs;
 	display: block;
 	color: @gray-light;
-	line-height: 1;
+	line-height: 1.4;
 }
 b,
 strong {
@@ -84,7 +84,8 @@ strong.highlighted {
 		margin-bottom: @gutter-small/2;
 	}
 }
-blockquote {
+blockquote,
+.article blockquote {
 	padding: 15px @gutter-small;
 	margin: 0 0 @gutter-small -@gutter-small;
 	background: #f6f6f6;
@@ -104,6 +105,11 @@ blockquote {
 	}
 	p {
 		margin: 10px 0;
+	}
+	ul,
+	ol,
+	li:last-child {
+		margin-bottom: 0;
 	}
 }
 .line-through {
