@@ -121,19 +121,19 @@ I learned a lot about Iceland outside of the conference. I hadn’t previously v
 <figure class="figure figure-center-outset">
 	<div class="uk-grid uk-grid-tiny">
 		<div class="uk-width-1-4">
-			<img src="/content/blog/24-go-digital-2016-reykjavik-iceland/iceland-church.jpg" alt="Hotel Key Card" height="600" width="600">
+			<img src="/content/blog/24-go-digital-2016-reykjavik-iceland/iceland-church.jpg" alt="Hallgrímskirkja" height="600" width="600">
 			<figcaption class="caption">Hallgrímskirkja</figcaption>
 		</div>
 		<div class="uk-width-1-4">
-			<img src="/content/blog/24-go-digital-2016-reykjavik-iceland/iceland-city-hall.jpg" alt="Hotel Key Card" height="600" width="600">
+			<img src="/content/blog/24-go-digital-2016-reykjavik-iceland/iceland-city-hall.jpg" alt="Reykjavik City Hall" height="600" width="600">
 			<figcaption class="caption">pool near Reykjavik City Hall</figcaption>
 		</div>
 		<div class="uk-width-1-4">
-			<img src="/content/blog/24-go-digital-2016-reykjavik-iceland/iceland-street.jpg" alt="Hotel Key Card" height="600" width="600">
+			<img src="/content/blog/24-go-digital-2016-reykjavik-iceland/iceland-street.jpg" alt="Downtown Reykjavik" height="600" width="600">
 			<figcaption class="caption">Downtown Reykjavik</figcaption>
 		</div>
 		<div class="uk-width-1-4">
-			<img src="/content/blog/24-go-digital-2016-reykjavik-iceland/iceland-whale-meat.jpg" alt="Hotel Key Card" height="600" width="600">
+			<img src="/content/blog/24-go-digital-2016-reykjavik-iceland/iceland-whale-meat.jpg" alt="Icelandic tapas" height="600" width="600">
 			<figcaption class="caption">Icelandic tapas (including whale meat !!)</figcaption>
 		</div>
 </figure>
