@@ -13,23 +13,20 @@ Site: http://www.saragoas.com
 Twitter: @saragoas
 Location: New Jersey, United States
 
-/* 
+/*
 	RESOURCES
 */
 Icon font by fontastic.me:
 http://www.fontastic.me
 
-Font Embedding (Freight Sans) with Typekit:
-http://www.typekit.com
-
-/* 
+/*
 	SITE + TECHNOLOGY
 */
 Content Management System:
-Kirby CMS
+Kirby CMS: https://getkirby.com
 
 Built With:
-HTML (HTML5 Doctype), LESS/CSS, Media Queries, jQuery, Dublin, Microformats 
+HTML (HTML5 Doctype), LESS/CSS, Media Queries, jQuery, Dublin, Microformats
 More: http://builtwith.com/tedgoas.com
 
 Software:
