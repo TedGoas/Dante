@@ -76,9 +76,12 @@ trait Image {
    */
   public function crop($width, $height = null, $quality = null) {
 
-    $params = ['width' => $width, 'crop' => true];
+    $params = [
+      'width'  => $width,
+      'height' => ($height)? $height : $width,
+      'crop'   => true
+    ];
 
-    if($height)  $params['height']  = $height;
     if($quality) $params['quality'] = $quality;
 
     return $this->thumb($params);
@@ -167,10 +170,19 @@ trait Image {
   /**
    * Blurs the image
    * 
+   * @param boolean|int $px
    * @return Asset
    */
-  public function blur() {
-    return $this->thumb(['blur' => true]);
+  public function blur($px = false) {
+
+    $options = ['blur' => true];
+
+    if($px) {
+      $options['blurpx'] = $px;
+    }
+    
+    return $this->thumb($options);
+  
   }
 
   /**
