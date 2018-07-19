@@ -14,7 +14,7 @@ RewriteBase /
 RewriteRule ^(.*)\.(\d+)(_m_\d+)?\.([^\.]+)$	$1.$4	[L,QSA]
 Options +FollowSymLinks 
 RewriteCond %{HTTP_HOST} ^tedgoas.com [NC] 
-RewriteRule ^(.*)$ http://www.tedgoas.com/$1 [L,R=301]
+RewriteRule ^(.*)$ https://www.tedgoas.com/$1 [L,R=301]
 
 # Automatically redirect /index.html files to their URL directory with .htaccess
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*index\.html\ HTTP/
