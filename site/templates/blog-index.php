@@ -1,27 +1,18 @@
-<?php snippet('header') ?>
-<div class="outside body">
+<?php snippet('page-begin') ?>
+	<h1><?php echo $page->title()->html() ?></h1>
+	<a href="<?php echo url('blog/feed') ?>" title="RSS Feed">Feed</a>
 
-	<div class="inside page-title">
-		<h1 class="page-title-h1"><?php echo $page->title()->html() ?></h1>
-		<ul class="page-title-ul">
-			<li class="page-title-li"><a href="<?php echo url('blog/feed') ?>" title="RSS Feed" class="icon-social icon-social-rss"><i class="icon-rss"></i></a></li>
-		</ul>
-	</div>
-	
-	<div class="blog-index">
-		<ul class="blog-index-ul">
-			<?php foreach(page('blog')->children()->visible()->flip() as $article): ?>
-			<li class="blog-index-li">
-				<a href="<?php echo $article->url() ?>" class="blog-index-a link-dark">
-					<span class="blog-meta blog-index-meta blog-meta--date blog-index-meta--date"><?php echo $article->date('F d, Y') ?></span>
-					<h2 class="blog-index-title"><?php echo $article->title()->html() ?></h2>
-					<span class="blog-meta blog-index-meta blog-index-meta--summary"><?php echo $article->description()->html() ?></span>
-				</a>
-			</li>
-			<?php endforeach ?>
-		</ul>
-	</div>
-
-</div>
-
-<?php snippet('footer') ?>
+	<ul class="list-ls-none">
+		<?php foreach(page('blog')->children()->visible()->flip() as $article): ?>
+		<li class="my4 lh-sm">
+			<a href="<?php echo $article->url() ?>" class="td-none">
+				<h2 class="fs-body1 m0 d-inline-block"><?php echo $article->title()->html() ?></h2>
+			</a>
+			<p class="mt2 mb0 fs-fine"><?php echo $article->description()->html() ?></p>
+			<time class="fs-fine fc-light tt-uppercase ls-2 ff-mono">
+				<?php echo $article->date('F d, Y') ?>
+			</time>
+		</li>
+		<?php endforeach ?>
+	</ul>
+<?php snippet('page-end') ?>

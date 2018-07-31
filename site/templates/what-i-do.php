@@ -1,10 +1,7 @@
-<?php snippet('header') ?>	
-<div class="outside body">
-	
-	<div class="inside page-title page-title--flush-no-border">
-		<h1 class="page-title-h1"><?php echo $page->title()->html() ?></h1>
-	</div>
-	
+<?php snippet('page-begin') ?>
+
+	<h1><?php echo $page->title()->html() ?></h1>
+
 	<div class="skills-chart">
 		<div class="inside">
 			<div class="skills-chart-legend">
@@ -18,8 +15,8 @@
 			</div>
 		</div>
 	</div>
-	
-	<div class="inside">		
+
+	<div class="inside">
 		<div class="uk-grid uk-grid-large">
 			<div class="uk-width-1-2">
 				<div class="what-i-do-summary">
@@ -32,7 +29,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="skills-detail-list skills-detail-list--good">
 			<h4 class="skills-detail-title skills-detail-title--good">I Can Wrangle This Stuff</h4>
 			<ul class="skills-detail-ul">
@@ -56,9 +53,9 @@
 				<li class="skills-detail-li skills-detail-li--bad">Social Media Mgmt</li>
 			</ul>
 		</div>
-	
+
 	</div>
-	
+
 </div>
 <script src="/assets/js/Chart.min.js"></script>
-<?php snippet('footer') ?>
+<?php snippet('page-end') ?>

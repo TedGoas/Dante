@@ -1,0 +1,179 @@
+//  ============================================================================
+//  $  ATOMIC CLASSES
+//  ----------------------------------------------------------------------------
+//  --  FLEX DEFINITION
+//      This starts a flexbox grid and sets it to a row by default.
+//  ----------------------------------------------------------------------------
+.flex { display: flex; .fd-row }
+
+//  ----------------------------------------------------------------------------
+//  --  FLEX DIRECTION
+//      This determines the direction content flows within a parent container.
+//      The default values are row.
+//  ----------------------------------------------------------------------------
+.fd-row                   { -webkit-box-direction: normal; -webkit-box-orient: horizontal; -ms-flex-direction: row; flex-direction: row; }
+.fd-rowreverse            { -webkit-box-direction: reverse; -webkit-box-orient: horizontal; -ms-flex-direction: row-reverse; flex-direction: row-reverse; }
+.fd-column                { -webkit-box-direction: normal; -webkit-box-orient: vertical; -ms-flex-direction: column; flex-direction: column; }
+.fd-columnreverse         { -webkit-box-direction: reverse; -webkit-box-orient: vertical; -ms-flex-direction: column-reverse; flex-direction: column-reverse; }
+
+//  --  FLEX WRAP
+//      This determines if a parent's child items will wrap or not.
+//  ----------------------------------------------------------------------------
+.fw-wrap                  { -ms-flex-wrap: wrap; flex-wrap: wrap; }
+.fw-reverse               { -ms-flex-wrap: wrap-reverse; flex-wrap: wrap-reverse; }
+.fw-none                  { -ms-flex-wrap: none; flex-wrap: none; }
+
+//  --  FLEX FLOW
+//      This is another shorthand property for flex-direction and flex-wrap.
+//      Default value is "row nowrap".
+//  ----------------------------------------------------------------------------
+.ff-row-wrap              { -webkit-box-direction: normal; -webkit-box-orient: horizontal; -ms-flex-flow: row wrap; flex-flow: row wrap; }
+.ff-row-nowrap            { -webkit-box-direction: normal; -webkit-box-orient: horizontal; -ms-flex-flow: row nowrap; flex-flow: row nowrap; }
+.ff-rowreverse-wrap       { -webkit-box-direction: reverse; -webkit-box-orient: horizontal; -ms-flex-flow: row-reverse wrap; flex-flow: row-reverse wrap; }
+.ff-rowreverse-nowrap     { -webkit-box-direction: reverse; -webkit-box-orient: horizontal; -ms-flex-flow: row-reverse nowrap; flex-flow: row-reverse nowrap; }
+.ff-column-wrap           { -webkit-box-direction: normal; -webkit-box-orient: vertical; -ms-flex-flow: column wrap; flex-flow: column wrap; }
+.ff-column-nowrap         { -webkit-box-direction: normal; -webkit-box-orient: vertical; -ms-flex-flow: column nowrap; flex-flow: column nowrap; }
+.ff-columnreverse-wrap    { -webkit-box-direction: reverse; -webkit-box-orient: vertical; -ms-flex-flow: column-reverse wrap; flex-flow: column-reverse wrap; }
+.ff-columnreverse-nowrap  { -webkit-box-direction: reverse; -webkit-box-orient: vertical; -ms-flex-flow: column-reverse nowrap; flex-flow: column-reverse nowrap; }
+
+//  --  JUSTIFY CONTENT
+//      Defines the child alignment along the parent's main axis
+//  ----------------------------------------------------------------------------
+.jc-center                { -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; }
+.jc-end                   { -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; }
+.jc-space-around           { -ms-flex-pack: distribute; justify-content: space-around; }
+.jc-space-between          { -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
+.jc-start                 { -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; }
+
+//  --  ALIGN CONTENT
+//      Aligns the container's lines when there is extra space in the
+//      cross-axis. Note that this only works when a parent container
+//      has more than one line.
+//  ----------------------------------------------------------------------------
+.ac-center                { -ms-flex-line-pack: center; align-content: center; }
+.ac-end                   { -ms-flex-line-pack: end; align-content: flex-end; }
+.ac-space-around           { -ms-flex-line-pack: distribute; align-content: space-around; }
+.ac-space-between          { -ms-flex-line-pack: justify; align-content: space-between; }
+.ac-start                 { -ms-flex-line-pack: start; align-content: flex-start; }
+.ac-stretch               { -ms-flex-line-pack: stretch; align-content: stretch; }
+
+//  --  ALIGN ITEMS
+//      Defines the default behavior for how child items align along
+//      the parent's cross axis. Think of it the cross-axis for
+//      justify-content.
+//  ----------------------------------------------------------------------------
+.ai-baseline              { -webkit-box-align: baseline; -ms-flex-align: baseline; align-items: baseline; }
+.ai-center                { -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+.ai-end                   { -webkit-box-align: end; -ms-flex-align: end; align-items: flex-end; }
+.ai-start                 { -webkit-box-align: start; -ms-flex-align: start; align-items: flex-start; }
+.ai-stretch               { -webkit-box-align: stretch; -ms-flex-align: stretch; align-items: stretch; }
+
+//  --  CENTER ITEMS
+//      A common combination of classes is .jc-center and .ai-center.
+//      Use this class when you want both.
+//  ----------------------------------------------------------------------------
+.grid__center             { .jc-center; .ai-center; }
+
+//  --  ALIGN SELF
+//      Allows child containers to re-align themselves irregardless
+//      of the parent's main axis direction.
+//  ----------------------------------------------------------------------------
+.as-auto                  { -ms-flex-item-align: auto; align-self: auto; }
+.as-baseline              { -ms-flex-item-align: baseline; align-self: baseline; }
+.as-center                { -ms-flex-item-align: center; align-self: center; }
+.as-end                   { -ms-flex-item-align: end; align-self: flex-end; }
+.as-start                 { -ms-flex-item-align: start; align-self: flex-start; }
+.as-stretch               { -ms-flex-item-align: stretch; align-self: stretch; }
+
+//  --  FLEX
+//      Graduating scale of flex-grow and flex-shrink values
+//  ----------------------------------------------------------------------------
+.fl0                      { -webkit-box-flex: 0; -ms-flex: 0 auto; flex: 0 auto; }
+.fl1                      { -webkit-box-flex: 1; -ms-flex: 1 auto; flex: 1 auto; }
+.fl2                      { -webkit-box-flex: 2; -ms-flex: 2 auto; flex: 2 auto; }
+.fl3                      { -webkit-box-flex: 3; -ms-flex: 3 auto; flex: 3 auto; }
+.fl4                      { -webkit-box-flex: 4; -ms-flex: 4 auto; flex: 4 auto; }
+.fl5                      { -webkit-box-flex: 5; -ms-flex: 5 auto; flex: 5 auto; }
+
+//  --  Ordering
+//      Designate a child container's position.
+//  ----------------------------------------------------------------------------
+.order-first              { -webkit-box-ordinal-group: 0; -ms-flex-order: -1; order: -1; }
+.order-last               { -webkit-box-ordinal-group: 2; -ms-flex-order: 1; order: 1; }
+
+//  ============================================================================
+//  $   GRID SPACING
+//      Insert spaces or gutters in between grid cells
+//  ----------------------------------------------------------------------------
+.gs1 {
+	margin-right: -@su1;
+	margin-bottom: -@su1;
+	> .flex-cell {
+		margin-right: @su1;
+		margin-bottom: @su1;
+	}
+}
+.gs2 {
+	margin-right: -@su2;
+	margin-bottom: -@su2;
+	> .flex-cell {
+		margin-right: @su2;
+		margin-bottom: @su2;
+	}
+}
+.gs3 {
+	margin-right: -@su3;
+	margin-bottom: -@su3;
+	> .flex-cell {
+		margin-right: @su3;
+		margin-bottom: @su3;
+	}
+}
+.gs3 {
+	margin-right: -@su3;
+	margin-bottom: -@su3;
+	> .flex-cell {
+		margin-right: @su3;
+		margin-bottom: @su3;
+	}
+}
+.gs4 {
+	margin-right: -@su4;
+	margin-bottom: -@su4;
+	> .flex-cell {
+		margin-right: @su4;
+		margin-bottom: @su4;
+	}
+}
+.gs5 {
+	margin-right: -@su5;
+	margin-bottom: -@su5;
+	> .flex-cell {
+		margin-right: @su5;
+		margin-bottom: @su5;
+	}
+}
+.gs6 {
+	margin-right: -@su6;
+	margin-bottom: -@su6;
+	> .flex-cell {
+		margin-right: @su6;
+		margin-bottom: @su6;
+	}
+}
+
+//  On rows, remove top and bottom margins
+.gsx {
+	margin-bottom: 0;
+    .flex-cell {
+        margin-bottom: 0;
+    }
+}
+
+//  On columns, remove left and right margins
+.gsy {
+	margin-right: 0;
+    .flex-cell {
+        margin-right: 0;
+    }
+}

@@ -1,57 +1,46 @@
-.home {
-	background: #000;
-}	
-.big-ted {
-	position: absolute;
+.home-photo {
+	width: 45%;
+	position: fixed;
 	top: 0;
-	right: 0;
 	bottom: 0;
-	left: 200px;
-	background: #000 url("/assets/images/ted.jpg") top center no-repeat;
+	right: 0;
+	background: url("/assets/images/ted-home.jpg") center top no-repeat;
 	background-size: cover;
+
+	img {
+		display: none;
+	}
 }
 .home-intro {
-	text-align: left;
-	position: relative;
-	z-index: 1;
-	color: #fff;
-	width: 70%;
-	max-width: 750px;
-	padding: @gutter-medium 0 0 @gutter-medium;
+	width: 55%;
 }
-.home-intro--title {
-	margin-bottom: @gutter-small;
-	font-size: @fs-huge;
-	color: #fff;
+.homepage-section-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 0 @su3;
+	margin-left: -@su3;
 }
-.home-intro-p {
-	width: 60%;
-}
-@media screen and (max-width: @breakpoint-medium) {
-	.home-intro-p {
-		width: 100%;
+.card-homepage {
+	display: block;
+	text-decoration: none;
+	padding: @su3;
+	border-radius: @br-sm;
+
+	h3 {
+		margin-bottom: @su2;
+		font-size: @fs-body1;
 	}
-}
-@media screen and (max-width: @breakpoint-small) {
-	.big-ted {
-		top: 50px;
-		left: 0;
-		position: fixed;
-		&:after {
-			content: "";
-			display: block;
-			position: fixed;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			background: rgba(0,0,0,.5);
-		}
+	p {
+		margin: 0;
+		.fc-light;
+		font-size: @fs-caption;
+		line-height: @lh-md;
 	}
-	.home-intro {
-		position: relative;
-		z-index: 1;
-		padding: @gutter-small;
-		width: 100%;
+
+	&:hover,
+	&:focus,
+	&:active {
+		background-color: #fff;
+		.bs-sm;
 	}
 }
