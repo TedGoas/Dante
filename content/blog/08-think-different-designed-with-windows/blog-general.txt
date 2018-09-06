@@ -4,7 +4,7 @@ Date: August 6, 2013
 ----
 Description: I'm a designer who spends most of my time on Windows.
 ----
-Article-Hero-Classes: article-hero-flush
+Article-Hero-Classes: mt5 mb3
 ----
 Text:
 I’m a designer who spends most of my time on Windows. Phew...! I’m glad I got that off my chest. Before I’m ostracized for my choice of OS, let me explain how I got here.

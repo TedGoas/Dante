@@ -7,6 +7,29 @@ img {
 }
 
 //  ----------------------------------------------------------------------------
+//  HORIZONTAL RULES
+//  ----------------------------------------------------------------------------
+
+//  Reset
+hr {
+	padding: 0;
+	margin: 0;
+	outline: 0;
+	background: none;
+	border: 0;
+	width: 100%;
+	display: block;
+}
+
+//  Small
+.hr-sm {
+	max-width: 200px;
+	height: 3px;
+	.my6;
+	background: url("../images/line-x-color.svg") top center repeat-x;
+}
+
+//  ----------------------------------------------------------------------------
 //  BOX SHADOW
 //  ----------------------------------------------------------------------------
 .bs-none	{ box-shadow: none; }
@@ -16,3 +39,33 @@ img {
 .bs-i-sm	{ box-shadow: inset 0 @su1/2 @su3 0 fade(@gray-2, 30%); }
 .bs-i-md	{ box-shadow: inset 0 @su1/2 @su4 0 fade(@gray-3, 35%); }
 .bs-i-lg	{ box-shadow: inset 0 @su1/2 @su5 0 fade(@gray-3, 50%); }
+
+//  ----------------------------------------------------------------------------
+//  HIGHLIGHT
+//  ----------------------------------------------------------------------------
+.highlighted,
+.highlighted-alt {
+	.p-relative;
+	z-index: 1;
+	.px2;
+
+	&:after {
+		content: "";
+		display: block;
+		position: absolute;
+		z-index: -1;
+		top: -5px;
+		right: -7px;
+		bottom: -5px;
+		left: -7px;
+		background-position: center center;
+		background-size: 100% auto;
+		background-repeat: no-repeat;
+	}
+}
+.highlighted:after {
+	background-image: url("/assets/images/highlight-yellow-lg.svg");
+}
+.highlighted-alt:after {
+	background-image: url("/assets/images/highlight-alt-lg.svg");
+}

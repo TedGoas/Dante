@@ -1,46 +1,20 @@
-.home-photo {
-	width: 45%;
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	background: url("/assets/images/ted-home.jpg") center top no-repeat;
-	background-size: cover;
+@media screen and (max-width: @breakpoint-small) {
+	.homepage {
 
-	img {
-		display: none;
-	}
-}
-.home-intro {
-	width: 55%;
-}
-.homepage-section-grid {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-gap: 0 @su3;
-	margin-left: -@su3;
-}
-.card-homepage {
-	display: block;
-	text-decoration: none;
-	padding: @su3;
-	border-radius: @br-sm;
+		.py4;
+		.mx4;
+		.fd-column;
+		.grid--cell12;
 
-	h3 {
-		margin-bottom: @su2;
-		font-size: @fs-body1;
-	}
-	p {
-		margin: 0;
-		.fc-light;
-		font-size: @fs-caption;
-		line-height: @lh-md;
-	}
+		> div {
+			.py4;
+			.px0;
+		}
 
-	&:hover,
-	&:focus,
-	&:active {
-		background-color: #fff;
-		.bs-sm;
+		.bls-dashed-svg,
+		.brs-dashed-svg {
+			background: none !important;
+		}
+
 	}
 }

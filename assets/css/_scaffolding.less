@@ -1,0 +1,82 @@
+// Global Variables
+@breakpoint-small: 	600px;
+@site-width:		900px;
+
+body {
+	text-align: center;
+}
+.body {
+	max-width: @site-width;
+	margin: auto;
+	text-align: left;
+}
+.default-title {
+	.pb4;
+
+	h1 {
+		.mb0;
+	}
+}
+article,
+.default-spacing {
+	.py6;
+	.px3;
+
+	h2,
+	h3,
+	h4,
+	p,
+	ul,
+	ol,
+	blockquote,
+	.twitter-tweet,
+	time,
+	pre,
+	figure.inline,
+	.max-width {
+		.wmx6;
+		.mx0;
+		.d-block;
+	}
+}
+article {
+	p,
+	li {
+		.ff-serif;
+	}
+
+	h2 {
+		.mt5;
+		.mb4;
+	}
+	h3 {
+		.mt5;
+		.mb3;
+	}
+	p {
+		.mb5;
+		.lh-md;
+	}
+
+	figure {
+		.mx0;
+		max-width: @site-width;
+
+		img {
+			.wmx100;
+			.d-block;
+		}
+		figcaption {
+			.fc-light;
+			.fs-caption;
+			.lh-sm;
+			.d-block;
+			.py2;
+		}
+	}
+	.flush {
+		max-width: @site-width;
+		margin-left: -@su3;
+		margin-right: -@su3;
+	}
+}

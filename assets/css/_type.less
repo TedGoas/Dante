@@ -11,17 +11,17 @@ h1, h2, h3, h4, h5, h6, p, ul, ol, li {
 //  ----------------------------------------------------------------------------
 
 //  font-family
-@ff-sans:   -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;;
+@ff-sans:   -apple-system, BlinkMacSystemFont, Avenir, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;;
 @ff-serif:  'Hoefler Text', Constantia, 'Book Antiqua', Georgia, serif;
 @ff-mono:   monospace;
 
 //  font-size
 @fs-fine:		13px;
 @fs-caption:	15px;
-@fs-body1:		18px;
+@fs-body1:		19px;
 @fs-body2:		21px;
-@fs-subheading:	26px;
-@fs-headline1:	30px;
+@fs-subheading:	25px;
+@fs-headline1:	28px;
 @fs-display1:	43px;
 
 //  line-height
@@ -49,6 +49,7 @@ h1 {
 	.fs-display1;
 	.fc-dark;
 	.lh-sm;
+	.fw-black;
 }
 h2 {
 	.fs-headline1;
@@ -57,9 +58,10 @@ h2 {
 	.fw-black;
 }
 h3 {
-	.fs-subheading;
+	.fs-body2;
 	.fc-dark;
 	.lh-sm;
+	.fw-black;
 }
 blockquote,
 blockquote p {
@@ -67,6 +69,10 @@ blockquote p {
 	.fs-italic;
 	.fs-subheading;
 	.fc-light;
+}
+.fw-bold,
+strong {
+	.fw-black;
 }
 
 //  ----------------------------------------------------------------------------
@@ -176,18 +182,40 @@ a {
 		opacity: .75;
 	}
 }
-.article a,
-a.color {
-	color: @blue-7;
-	.td-underline;
+.navigation {
+	a,
+	a:visited {
+		.lh-xs;
+		.mr4;
+		.py1;
+		.px0;
+		white-space: nowrap;
+		text-decoration: none;
+		border-bottom: 2px solid @blue-3;
+		color: @gray-8;
 
+		&:hover,
+		&:focus,
+		&:active {
+			color: @blue-5;
+		}
+	}
+}
+
+article a,
+section a,
+a.color {
+	color: @blue-6;
+	text-decoration: none;
+	border-bottom: 2px solid @gray-3;
+
+	&:visited {
+	}
 	&:hover,
 	&:active,
 	&:focus {
-		color: @teal-8;
+		color: @cyan-8;
+		border-bottom-color: @cyan-4;
 	}
 
-	&:visited {
-		color: @violet-7;
-	}
 }

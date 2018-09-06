@@ -4,7 +4,7 @@ Date: December 3, 2013
 ----
 Description: I made a few simple, but solid patterns for responsive HTML emails.
 ----
-Article-Hero-Classes: article-hero-centered
+Article-Hero-Classes: mt5 mb3
 ----
 Text:
 TL;DR: I made another set of [responsive email templates](http://tedgoas.github.io/Cerberus/).
@@ -29,7 +29,7 @@ Looking at everything that happened in 2013, I saw a focus on prebuilt templates
 
 But that’s how I work and I wanted to make something that’d help folks like me.
 
-So I removed the stuff I never used from my first email and refactored the rest. I compartmentalized the pattern blocks so that they may be mixed and matched to build an email. Everything has good email client support, including Outlook, Android, and even mobile Gmail. 
+So I removed the stuff I never used from my first email and refactored the rest. I compartmentalized the pattern blocks so that they may be mixed and matched to build an email. Everything has good email client support, including Outlook, Android, and even mobile Gmail.
 
 So that’s it. A small number of responsive email patterns that, when combined, go a long way.
 

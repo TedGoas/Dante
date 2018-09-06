@@ -1,5 +1,5 @@
 <?php snippet('page-begin') ?>
-<article class="work-detail">
+<article>
 	<h1><?php echo $page->title()->html() ?></h1>
 	<p><?php echo $page->summary()->html() ?></p>
 

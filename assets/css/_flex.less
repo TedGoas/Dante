@@ -16,6 +16,12 @@
 .fd-column                { -webkit-box-direction: normal; -webkit-box-orient: vertical; -ms-flex-direction: column; flex-direction: column; }
 .fd-columnreverse         { -webkit-box-direction: reverse; -webkit-box-orient: vertical; -ms-flex-direction: column-reverse; flex-direction: column-reverse; }
 
+@media screen and (max-width: @breakpoint-small) {
+	.sm:fd-column {
+		.fd-column;
+	}
+}
+
 //  --  FLEX WRAP
 //      This determines if a parent's child items will wrap or not.
 //  ----------------------------------------------------------------------------
@@ -94,6 +100,22 @@
 .fl3                      { -webkit-box-flex: 3; -ms-flex: 3 auto; flex: 3 auto; }
 .fl4                      { -webkit-box-flex: 4; -ms-flex: 4 auto; flex: 4 auto; }
 .fl5                      { -webkit-box-flex: 5; -ms-flex: 5 auto; flex: 5 auto; }
+
+//  --  FIXED WIDTH
+//  ----------------------------------------------------------------------------
+.grid--cell1	{ flex-basis: 8.333333333%; }
+.grid--cell2	{ flex-basis: 16.666666667%; }
+.grid--cell3	{ flex-basis: 24.999999999%; }
+.grid--cell4	{ flex-basis: 33.333333332%; }
+.grid--cell5	{ flex-basis: 41.666666665%; }
+.grid--cell6	{ flex-basis: 50%; }
+.grid--cell7	{ flex-basis: 58.333333331%; }
+.grid--cell8	{ flex-basis: 66.666666664%; }
+.grid--cell9	{ flex-basis: 74.999999997%; }
+.grid--cell10	{ flex-basis: 83.33333333%; }
+.grid--cell11	{ flex-basis: 91.666666663%; }
+.grid--cell12	{ flex-basis: 100%; }
+
 
 //  --  Ordering
 //      Designate a child container's position.

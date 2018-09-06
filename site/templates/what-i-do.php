@@ -1,61 +1,28 @@
 <?php snippet('page-begin') ?>
-
+<article>
 	<h1><?php echo $page->title()->html() ?></h1>
-
-	<div class="skills-chart">
-		<div class="inside">
-			<div class="skills-chart-legend">
-				<ul class="skills-chart-legend-ul">
-					<li class="skills-chart-legend-li skills-chart-legend-li--interest">Perceived Interest</li>
-					<li class="skills-chart-legend-li skills-chart-legend-li--skill">Relative Skill</li>
-				</ul>
-			</div>
-			<div class="skills-chart-canvas">
-				<canvas id="myChart" width="700" height="500"></canvas>
-			</div>
+	<section>
+		<div class="default-body">
+			<p>I'm a highly adaptable designer best suited in teams where everyone can wear multiple hats. From scoping requirements to planning content – through design and development – collaborating with clients and co-workers is paramount. I prefer designing with others and sharing regular updates rather than working in isolation for long stretches.</p>
+			<p>For the past several years, I've become comfortable in a <strong>double diamond product development process</strong>. I enjoy working in all four stages.</p>
 		</div>
-	</div>
-
-	<div class="inside">
-		<div class="uk-grid uk-grid-large">
-			<div class="uk-width-1-2">
-				<div class="what-i-do-summary">
-					<p>I'm a highly adaptable designer best suited in teams where everyone can wear multiple hats. From scoping requirements to planning content – through design and development – collaborating with clients and co-workers is paramount. I prefer working with others and sharing regular updates rather than disappearing for long stretches and emerging with big surprises.</p>
-				</div>
-			</div>
-			<div class="uk-width-1-2">
-				<div class="what-i-do-summary">
-					<p>My goal is to be a designer-manager hybrid. I enjoy hands-on work and having my own projects. On top of that, I’d like to mentor or manage a small team, making sure they’re happy, inspired, and successfully delivering for their clients. I’m interested in facilitating critiques, discussing new processes, designing exercises, helping with sales leads, and any other problems whether code or people.</p>
-				</div>
-			</div>
-		</div>
-
-		<div class="skills-detail-list skills-detail-list--good">
-			<h4 class="skills-detail-title skills-detail-title--good">I Can Wrangle This Stuff</h4>
-			<ul class="skills-detail-ul">
-				<li class="skills-detail-li skills-detail-li--good">Information Architecture</li>
-				<li class="skills-detail-li skills-detail-li--good">Mobile Design (iOS)</li>
-				<li class="skills-detail-li skills-detail-li--good">Email Marketing</li>
-				<li class="skills-detail-li skills-detail-li--good">Website Performance</li>
-				<li class="skills-detail-li skills-detail-li--good">Source Control (Git, SVN)</li>
-				<li class="skills-detail-li skills-detail-li--good">Copywriting</li>
-				<li class="skills-detail-li skills-detail-li--good">SEO &amp; Findability</li>
-			</ul>
-		</div>
-		<div class="skills-detail-list skills-detail-list--bad">
-			<h4 class="skills-detail-title skills-detail-title--bad">This Stuff, Not So Much</h4>
-			<ul class="skills-detail-ul">
-				<li class="skills-detail-li skills-detail-li--bad">Back-End Programming</li>
-				<li class="skills-detail-li skills-detail-li--bad">Print Design</li>
-				<li class="skills-detail-li skills-detail-li--bad">Logo Design</li>
-				<li class="skills-detail-li skills-detail-li--bad">Illustration</li>
-				<li class="skills-detail-li skills-detail-li--bad">SEO / PPC Campaigns</li>
-				<li class="skills-detail-li skills-detail-li--bad">Social Media Mgmt</li>
-			</ul>
-		</div>
-
-	</div>
-
-</div>
-<script src="/assets/js/Chart.min.js"></script>
+		<figure class="">
+			<img src="" alt="double diamond product development process">
+		</figure>
+		<ul class="default-body">
+			<li class="fs-caption lh-md mb4"><strong>Discover:</strong> Understand the current condition by auditing existing designs, reviewing competitors, interviewing users, “How Might We” brainstorming sessions, and gathering insights.</li>
+			<li class="fs-caption lh-md mb4"><strong>Define:</strong> Synthesize the possibilities identified in the discovery phase and focuses on the most compelling opportunities to pursue. Which matters most? Which should we act on first? What is feasible? The goal is to understand exactly what the project will and won't do, and what "success" will look like.</li>
+			<li class="fs-caption lh-md mb4"><strong>Develop:</strong> Explore the best potential solutions. Designs concepts are created, prototyped, tested, and iterated. This trial and error process helps ideas improve.</li>
+			<li class="fs-caption lh-md"><strong>Deliver:</strong> As confidence in the solution increases, exploration gives way to engineering. Working software is created, optimized, and shipped.</li>
+		</ul>
+	</section>
+	<section class="default-body">
+		<hr role="presentation" aria-role="hidden" class="hr hr-sm mb5 bg-violet-2">
+		<h2>What I'm Working Towards</h2>
+		<p>My goal is to be a <strong class="highlighted">designer-manager hybrid</strong>. I can already do everything mentioned above, but I’d also like to mentor or manage a small team, making sure they’re happy, inspired, and successfully delivering for their clients. I’m interested in facilitating critiques, discussing new processes, designing exercises, helping with sales leads, and any other problems whether code or people.</p>
+	</section>
+</article>
 <?php snippet('page-end') ?>
+
+
+

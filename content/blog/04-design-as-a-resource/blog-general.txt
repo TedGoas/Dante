@@ -4,7 +4,7 @@ Date: December 28, 2012
 ----
 Description: When design is not considered at the start of a project.
 ----
-Article-Hero-Classes: article-hero-centered-small
+Article-Hero-Classes: mt5 mb3
 ----
 Text:
 One day while I was banging away on some CSS, one of my company’s software engineers stopped by my desk and asked if I could design some buttons for her app.

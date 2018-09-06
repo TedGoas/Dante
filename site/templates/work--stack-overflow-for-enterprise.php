@@ -1,27 +1,46 @@
 <?php snippet('page-begin') ?>
-<article class="work-detail">
+<article>
 	<h1><?php echo $page->title()->html() ?></h1>
-	<p><?php echo $page->summary()->html() ?></p>
-
-	<figure>[theming refactor illustration]</figure>
-	<p>Stack Overflow Enterprise is a stand-alone, private instance of Stack Overflow for organizations with large engineering teams.</p>
-	<figure>[Fake Theme (or can we use real clients?)]</figure>
-	<p>Lots of developers trust Stack Overflow and THE place to learn, share, and get answers to their programming questions. However Stack Overflow is default public, so folks can’t ask questions containing sensitive or proprietary data. Stack Overflow for Enterprise is a private, secure version of Stack Overflow for large teams to ask and answer questions amongst themselves.</p>
+	<p class="">Stack Overflow Enterprise is a private instance of Stack Overflow for organizations with large engineering teams. Stack Overflow for Enterprise is a private, secure version of Stack Overflow for large teams to ask and answer questions amongst themselves.</p>
+	<figure class="outset my5">
+		<img src="http://via.placeholder.com/900x600">
+		<figcaption class="stuff">[Fake Theme (or can we use real clients?)]</figcaption>
+	</figure>
+	<h2>My Role</h2>
+	<p>Lots of developers trust Stack Overflow and THE place to get answers to their programming questions, but since Stack Overflow is default public folks can’t always ask questions specific to their company or questions containing sensitive or proprietary data. My team takes core Stack Overflow and figures what should stay the same, what needs to change, and what should be added for our Enterprise clients.</p>
 	<p>My role as product design is two fold:</p>
-	<p>Create features to Enterprise (mostly focused on privacy and community management).</p>
-	<p>Ensure work on “public Stack Overflow” accounts for Enterprise use cases so we maintain feature parity with the rest of the site.</p>
+	<ol>
+		<li>Create features specific to Stack Overflow Enterprise (usually tools to help folks optimize and manage their own community).</li>
+		<li>Work with other product teams to ensure their work can be used in Enterprise (involves reviewing specs and adjusting designs).</li>
+	</ol>
+	<figure class="outset my5">
+		<img src="http://via.placeholder.com/900x600">
+		<figcaption class="stuff">Diagram of an early theming system</figcaption>
+	</figure>
 	<h2>Themes</h2>
-	<p>Data security and privacy are top concerns of Enterprise users. In many cases, folks have their Enterprise site open in one tab and public Stack Overflow open in another. It’s important for folks to know where they are at a glance so they don’t post info in the wrong place. We provide every Enterprise client with a unique, branded theme to help ensure folks that they’re in a safe place.</p>
-	<figure>[diagram of options]</figure>
-	<p>The first major project I took on when I started at Stack Overflow was to create a scalable system that allows us to customize Stack Overflow’s look and feel for current and future enterprise clients. I removed redundant LESS and I refactored LESS variables so they could be overridden by a single line of code. (Eg. gathering all the various definitions of links and assigning them something like `color: @enterprise-link-color`.) This theming system allows us to create new themes in as little as eight lines of LESS.</p>
-	<figure>[code example]</figure>
-	<p>Spinning up a new theme takes about 15 minutes (most of which is spent searching for logos in vector format) and paves the way for allowing admins to update their theme using a web interface (without touching the file system).</p>
+	<p>Data security and privacy are top concerns of Enterprise users. In many cases, folks have their Enterprise site open in one tab and public Stack Overflow open in another. It’s important for folks to know where they are at a glance so they don’t post info in the wrong place. One way we tackle this is to make a branded theme for every client.</p>
+	<p>My first major project at Stack Overflow was to create a scalable system that allows us to customize Stack Overflow’s look and feel for current and future enterprise clients. I removed redundant LESS and I refactored LESS variables so they could be overridden. The resulting LESS architecture allows us to create new themes in as little as eight lines of code. Spinning up a new theme takes about 15 minutes.</p>
+	<figure class="outset my5">
+		<img src="http://via.placeholder.com/900x400">
+		<figcaption class="stuff">[code example > self service theming]</figcaption>
+	</figure>
+	<p>This work paved the way for allowing admins to update their theme without editing any LESS/CSS. I researched, designed, and helped implement an interface for admins to preview and update the look and feel of their site. Not only does this give admins easier control over their site, but it removes theming from the file system (a minor security vulnerability if we ever mistakenly deployed a theme to the wrong client&nbsp;😬).</p>
 	<h2>Community Management</h2>
-	<p>Stack Overflow is default public and roles can only be earned through activity, and that doesn’t jive well for a company discussing proprietary information. So we designed a suite of tools that allow clients to manage their own instance. Who is allowed in, who can see what, who can perform certain actions, that sorta thing.</p>
-	<figure>[Research docs, manage users table]</figure>
-	<p>We regularly speak with our Enterprise clients, so we scheduled several interviews to understand their workflow and requirements. We learned everything from how they manage their own teams to the terms they use at work. Armed with this research, we tested several prototypes using Invision and Google Hangouts until we narrowed on </p>
+	<p>The biggest difference between Stack Overflow and its Enterprise counterpart is that Enterprise instances are managed by a single organization (as opposed to Stack Overflow being managed by the collective public). Stack Overflow for Enterprise can be used any number of ways (including discussing proprietary information), so we designed a suite of tools that allow organizations to manage their own instance however they see fit. Who can log in, who can see what, who can perform certain actions, that sorta thing.</p>
+	<figure class="outset my5">
+		<img src="http://via.placeholder.com/900x400">
+		<figcaption class="stuff">[Research docs, manage users table]</figcaption>
+	</figure>
+	<p>My team regularly speaks with our Enterprise clients about their workflows. Sometimes we ask open-ended questions, while other times we watch them react to a prototype. I also work with our community management team, who work directly with clients and know what makes a Stack Overflow community succeed (and fail). We balance all this research and use it to inform our project requirements and design directions.</p>
+	<figure class="outset my5">
+		<img src="http://via.placeholder.com/900x600">
+		<figcaption class="stuff">"Is my Team using the site? Do we have quality issues anywhere?"</figcaption>
+	</figure>
 	<h2>Tag Watching</h2>
-	<p>Not all work</p>
-	<figure>[Tag Watching flow]</figure>
+	<p>Regarding the Q&A part of Stack Overflow for Enterprise, our goal is to keep the experience consistent with public Stack Overflow and Teams. I had this in mind when I redesigned the workflow for following and ignoring specific tags in Enterprise. I prototyped, tested, and iterated a few designs, noting the small adjustments (such as copy tweaks) we’d want to make when adapting the feature for different product areas.
+	<figure class="outset my5">
+		<img src="http://via.placeholder.com/900x600">
+		<figcaption class="stuff">The workflow and UI that shipped in 2017-2018. It’s since been updated to match what’s on StackOverflow.com.</figcaption>
+	</figure>
 </article>
 <?php snippet('page-end') ?>

@@ -1,4 +1,4 @@
-Title: Canfield Scientific
+Title: Stack Overflow for Enterprise
 ----
 Description: Adapting Stack Overflow for large teams to share private, secure knowledge.
 ----

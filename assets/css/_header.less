@@ -1,277 +1,46 @@
-.navigation {
-	position: fixed;
-	z-index: 100;
-	background: #202021;
-	background: linear-gradient(135deg, #2c2e2c 0%,#202021 100%);
-	top: 0;
-	bottom: 0;
-	left: 0;
-	width: 250px;
-	text-align: left
-}
-a.home {
-	.p4;
-	object {
-		pointer-events: none;
-	}
-	&:hover,
-	&:focus,
-	&:active {
-		opacity: .75;
-	}
-
-}
-.mobile-menu-icon {
-	display: none;
-}
-.page-nav-li {
-	.list-ls-none;
-	.d-block;
-
-	a,
-	a:visited {
-		.lh-xs;
-		padding: @su3 @su5;
-		text-decoration: none;
-		color: #fff;
-
-		&:hover,
-		&:focus,
-		&:active {
-			color: @blue-5;
-		}
-	}
-}
-@media screen and (min-width: @breakpoint-small) {
-	.page-nav-li {
-		&:before {
-			float: left;
-			color: @gray-5 !important;
-			font-size: @fs-fine;
-			margin: 8px 0 0 20px;
-			.ff-mono;
-		}
-		&:nth-child(1):before {
-			content: "01";
-		}
-		&:nth-child(2):before {
-			content: "02";
-		}
-		&:nth-child(3):before {
-			content: "03";
-		}
-		&:nth-child(4):before {
-			content: "04";
-		}
-		&:nth-child(5):before {
-			content: "05";
-		}
-	}
+.header {
+	.bbs-dashed-svg;
 }
 
 /* Selected States */
-body.work .page-nav-li.-work a,
-body.what-i-do .page-nav-li.-what-i-do a,
-body.bio .page-nav-li.-bio a,
-body.contact .page-nav-li.-contact a,
-body.blog .page-nav-li.-blog a {
-	color: @yellow-5;
-}
-/* Footer */
-.footer {
-	.p4;
-	.p-absolute;
-	.b0;
-	.l0;
-	.r0;
-}
-.social {
-	a {
-		.mr3;
-		.td-none;
-		.o5;
-		svg {
-			fill: #fff !important;
-		}
+body.home .-home,
+body.work .-work,
+body.what-i-do .-what-i-do,
+body.bio .-bio,
+body.contact .-contact,
+body.blog .-blog {
+	border-bottom: none;
+	color: @gray-8;
+	font-weight: bold;
+	.highlighted-alt;
 
-		&:hover,
-		&:focus,
-		&:active {
-			.o10;
-			fill: none;
-		}
+	&:hover,
+	&:focus,
+	&:active {
+		color: inherit;
+	}
+	&:after {
+		background-image: url("/assets/images/highlight-alt-lg.svg");
 	}
 }
+
 @media screen and (max-width: @breakpoint-small) {
-	.navigation {
-		.p-relative;
-		bottom: auto;
-		right: 0;
-		width: 100%;
-		height: 50px;
-		.p0;
-	}
-	a.home {
-		.py2;
-		.px3;
-		.p-absolute;
-		top: 4px;
-	}
-	.mobile-menu-icon {
-		display: block;
-		margin-top: 1px;
-		float: right;
-		color: #fff;
-		font-size: @fs-subheading;
-		line-height: 1;
-		padding: 12px 20px;
-		cursor: pointer;
-	}
-
-	.hamburger {
-		float: right;
-		position: relative;
-		z-index: 1;
-		padding: 13px 30px;
-		display: inline-block;
-		cursor: pointer;
-		vertical-align: middle;
-		transition-property: opacity, -webkit-filter;
-		transition-property: opacity, filter;
-		transition-property: opacity, filter, -webkit-filter;
-		transition-duration: .15s;
-		transition-timing-function: linear;
-	}
-	.hamburger-box {
-	  width: 30px;
-	  height: 24px;
-	  position: relative;
-	}
-	.hamburger-inner {
-	  top: 50%;
-	  margin-top: -2px;
-	}
-	.hamburger-inner,
-	.hamburger-inner::before,
-	.hamburger-inner::after {
-	  width: 30px;
-	  height: 3px;
-	  background-color: #fff;
-	  border-radius: 3px;
-	  position: absolute;
-	  transition-property: -webkit-transform;
-	  transition-property: transform;
-	  transition-property: transform, -webkit-transform;
-	  transition-duration: .15s;
-	  transition-timing-function: ease;
-	}
-	.hamburger-inner::before,
-	.hamburger-inner::after {
-	  content: "";
-	  display: block;
-	}
-	.hamburger-inner::before {
-	  top: -8px;
-	}
-	.hamburger-inner::after {
-	  bottom: -8px;
-	}
-	.hamburger-inner {
-	  transition-duration: .3s;
-	  transition-timing-function: cubic-bezier(0.55, .055, .675, .19);
-	}
-	.hamburger-inner::before {
-	  transition: top .1s .34s ease-in, opacity .1s ease-in;
-	}
-	.hamburger-inner::after {
-	  transition: bottom .1s .34s ease-in, -webkit-transform .3s cubic-bezier(0.55, .055, .675, .19);
-	  transition: bottom .1s .34s ease-in, transform .3s cubic-bezier(0.55, .055, .675, .19);
-	  transition: bottom .1s .34s ease-in, transform .3s cubic-bezier(0.55, .055, .675, .19), -webkit-transform .3s cubic-bezier(0.55, .055, .675, .19);
-	}
-	/* Maybe nest this for better organization (compiled css is gonna be the same anyway) */
-	.active {
-		.hamburger-inner {
-			-webkit-transform: rotate(225deg);
-			      transform: rotate(225deg);
-			transition-delay: .14s;
-			transition-timing-function: cubic-bezier(0.215, .61, .355, 1);
-		}
-		.hamburger-inner::before {
-			top: 0;
-			opacity: 0;
-			transition: top .1s ease-out, opacity .1s .14s ease-out;
-			}
-		.hamburger-inner::after {
-			bottom: 0;
-			-webkit-transform: rotate(-90deg);
-			      transform: rotate(-90deg);
-			transition: bottom .1s ease-out, -webkit-transform .3s .14s cubic-bezier(0.215, .61, .355, 1);
-			transition: bottom .1s ease-out, transform .3s .14s cubic-bezier(0.215, .61, .355, 1);
-			transition: bottom .1s ease-out, transform .3s .14s cubic-bezier(0.215, .61, .355, 1), -webkit-transform .3s .14s cubic-bezier(0.215, .61, .355, 1);
-		}
-	}
-
-	.navigation-links {
-		position: fixed;
-		top: 50px;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		background: rgba(0,0,0,.9);
-		opacity: 0;
-		visibility: hidden;
-		transition: all 150ms ease-in;
-	}
 	.header {
-		.mt4;
+		display: block;
 	}
-	.page-nav-li {
-		transform: translateY(-10px);
-		opacity: 0;
-		transition: opacity 200ms linear, transform 200ms ease-out;
-		a,
-		a:visited {
-			font-size: @fs-body1;
-			padding: @su3;
-			.ta-center;
-		}
+	.logo {
+		.fd-column;
+		.ai-start;
+		text-align: left;
 	}
-	.footer {
-    	opacity: 0;
-		transition: opacity 600ms linear;
-		.ta-center;
+	.role {
+		.my3;
 	}
+	.navigation {
+		.pb3;
 
-	.navigation.active {
-		.navigation-links {
-			opacity: 1;
-			visibility: visible;
-		}
-		.page-nav-li {
-			opacity: 1;
-			transform: translateY(0);
-		  &:nth-child(1) {
-			  transition-delay: 150ms;
-		  }
-		  &:nth-child(2) {
-			  transition-delay: 225ms;
-		  }
-		  &:nth-child(3) {
-			  transition-delay: 300ms;
-		  }
-		  &:nth-child(4) {
-			  transition-delay: 375ms;
-		  }
-		  &:nth-child(5) {
-			  transition-delay: 450ms;
-		  }
-		}
-		.footer {
-			opacity: 1;
-			transform: translateY(0);
-			transition-delay: 450ms;
-			z-index: -1;
+		a {
+			.my2;
 		}
 	}
-
 }

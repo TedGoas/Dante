@@ -8,10 +8,10 @@ Article-Hero-Classes: article-hero-flush
 ----
 Text:
 Thirty four things I’ve learned in thirty four years.&#42;
-***
+
 1. Talk 20% of the time; listen 80% of the time. Most people aren’t good at this, whether they admit it or not.
 2. “I think we’re overthinking this” is usually safe to say in a meeting.
-3. Learning to say “not yet” is just as important as learning to say “no”. 
+3. Learning to say “not yet” is just as important as learning to say “no”.
 4. There is a difference between taking offense and standing up for what you believe.
 5. Trends are for suckers.
 6. Retry things you don’t like every once in awhile.
@@ -43,5 +43,5 @@ Thirty four things I’ve learned in thirty four years.&#42;
 32. Fear is a compass pointing true north. Follow the compass.
 33. When writing, always stop when you have one more thing to say.
 34. See #33.
-***
+
 <small>&#42; Mostly things said by people smarter than me.</small>

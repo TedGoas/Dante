@@ -1,9 +1,9 @@
 <?php snippet('page-begin') ?>
-<article class="article blog-post">
+<article>
 
 	<?php if($image = $page->image()): ?>
-	<div class="article-hero <?php echo $page->article_hero_classes() ?>">
-		<img src="<?php echo $image->url() ?>" alt="<?php echo $page->title()->html() ?>" height="<?php echo $page->image()->height() ?>" width="<?php echo $page->image()->width() ?>" class="wmx100 h-auto">
+	<div class="ta-center article-hero <?php echo $page->article_hero_classes() ?>">
+		<img src="<?php echo $image->url() ?>" alt="<?php echo $page->title()->html() ?>" height="<?php echo $page->image()->height() ?>" width="<?php echo $page->image()->width() ?>" class="wmx100 h-auto flush">
 	</div>
 	<?php endif ?>
 

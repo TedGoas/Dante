@@ -4,13 +4,13 @@ Date: July 8, 2015
 ----
 Description: Thirty six things for thirty six years.
 ----
-Article-Hero-Classes: article-hero-centered
+Article-Hero-Classes: mt4
 ----
 Text:
 I’m 36 today. 36. Where the hell did that come from? So yea, I did one of those birthday posts. I did it [two years ago](/blog/34-for34/) too. But <abbr title="For F*ck’s Sake">ffs</abbr> this is not one of those life-lessons posts; I’m not telling any body else how to live, I have enough trouble controlling my own body. This is more like a note to myself. Because I read my own blog. Because I’m cool like that.
 
 Above photo is modified from [Aled Lewis’s brilliant series](https://www.behance.net/gallery/1056111/Make-Something-365). The list below paraphrases from other people too.
-***
+
 1. Have strong opinions, but hold them weakly.
 2. Things in life are rarely as risky as they seem. Don’t worry so much.
 3. Ask for what you want.
@@ -44,4 +44,3 @@ Above photo is modified from [Aled Lewis’s brilliant series](https://www.behan
 31. Fear is still a compass pointing true north.
 32. I can give you all the advice in the world, but in the end you’ll be judged by your profile picture.
 33. I’m done with this stupid list. Learn to quit whenever you feel like it.
-***
