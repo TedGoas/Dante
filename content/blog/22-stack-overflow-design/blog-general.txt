@@ -29,9 +29,9 @@ Stack Overflow’s design team is 100% remote, so just about everything I knew a
 
 When it comes to how things work, almost everything is self service. Stack Overflow has a pretty thorough internal Wiki that contains info on policies, procedures, and benefits... but I didn't have a plan to tackle it. So my process was pretty scattered and reactive.
 
-* “I need to set enroll in a health plan… let’s search for that.”
-* “Ok health plan is done… someone mentioned Trello, I should get access to that.”
-* “Alright, I’m in Trello… hmm at some point I’ll get paid, how does that work?”
+1. “I need to set enroll in a health plan… let’s search for that.”
+2. “Ok health plan is done… someone mentioned Trello, I should get access to that.”
+3. “Alright, I’m in Trello… hmm at some point I’ll get paid, how does that work?”
 
 That was my first few days. I eventually addressed everything, but it took more time than my previous jobs when I had someone walk me through these tasks. Setting up my health benefits and 401k were particularly tough since I don’t understand these subjects very well.
 

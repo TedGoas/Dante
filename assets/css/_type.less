@@ -74,6 +74,9 @@ blockquote p {
 strong {
 	.fw-black;
 }
+ol {
+
+}
 
 //  ----------------------------------------------------------------------------
 //  $   TEXT SIZES
@@ -199,8 +202,8 @@ a {
 	}
 }
 
-article a:not('.img'),
-section a:not('.img'),
+article a,
+section a,
 a.color {
 	color: @blue-6;
 	text-decoration: none;
@@ -214,5 +217,7 @@ a.color {
 		color: @cyan-8;
 		border-bottom-color: @cyan-4;
 	}
-
+}
+a.img {
+	border-bottom: none;
 }
