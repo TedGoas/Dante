@@ -60,3 +60,26 @@
 		transform: rotate(-60deg);
 	}
 }
+
+@media screen and (max-width: @breakpoint-small) {
+	.bio-cards {
+		display: block;
+		margin-top: 0;
+
+	}
+	.bio-card {
+		margin-top: 0;
+		margin-bottom: 80px;
+
+		&:nth-child(even) {
+			margin-top: 0;
+		}
+		&:not(:last-child):after {
+			transform: rotate(60deg);
+			left: calc(50%-5px);
+			right: auto;
+			bottom: -70px;
+			transform: rotate(0deg);
+		}
+	}
+}
