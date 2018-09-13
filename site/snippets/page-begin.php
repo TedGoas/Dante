@@ -98,7 +98,9 @@ ZII$I=+7?=:~7?I$MDD77$~I?OZ?+ZI=+I~+?=+$7~II=I88OOOOOZOZZZZZZZZZZ$ZZZZ$$Z$ZZZZZZ
 		<header role="header" class="header flex ai-center">
 			<div class="px3 pt4 pb5">
 				<div class="mb4 lh-sm flex ai-end gsx gs3 logo">
-					<div class="flex-cell p-relative" style="top: 9px;"><?php snippet('tg-sig-logo') ?></div>
+					<div class="flex-cell p-relative" style="top: 13px;">
+						<?php snippet('tg-sig-logo') ?>
+					</div>
 					<p class="flex-cell mb0 role">Senior Product Designer working remotely at Stack Overflow</p>
 				</div>
 				<div role="navigation" class="navigation flex ff-row-wrap">
