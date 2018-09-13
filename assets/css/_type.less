@@ -37,7 +37,7 @@ h1, h2, h3, h4, h5, h6, p, ul, ol, li {
 .ff-sans	{ font-family: @ff-sans; }
 .ff-serif	{ font-family: @ff-serif; }
 .ff-mono	{ font-family: @ff-mono; }
-.ff-display	{ .ff-mono; }
+.ff-display	{ font-family: 'Permanent Marker', cursive; }
 
 html, body {
 	font-family: @ff-sans;
@@ -57,6 +57,13 @@ h2 {
 	.lh-sm;
 	.fw-black;
 }
+h2.tiny {
+	.fs-caption;
+	.ff-display;
+	.ls-2;
+	.fc-light;
+	.mb3;
+}
 h3 {
 	.fs-body2;
 	.fc-dark;
@@ -73,9 +80,6 @@ blockquote p {
 .fw-bold,
 strong {
 	.fw-black;
-}
-ol {
-
 }
 
 //  ----------------------------------------------------------------------------
@@ -204,19 +208,20 @@ a {
 
 article a,
 .color-links a,
-a.color,
 .a-color {
 	color: @blue-6;
 	text-decoration: none;
 	border-bottom: 2px solid @gray-3;
 
 	&:visited {
+//		color: @grape-6;
+//		border-bottom: 2px solid @gray-3;
 	}
 	&:hover,
 	&:active,
 	&:focus {
-		color: @cyan-8;
-		border-bottom-color: @cyan-4;
+		color: @blue-8;
+		border-bottom-color: @blue-8;
 	}
 }
 a.img {

@@ -9,32 +9,32 @@
 	<div class="bio-cards">
 		<div class="bio-card">
 			<img src="/assets/images/bio/bio-th-babyted.jpg" alt="Baby Ted" width="400" height="300">
-			<h2>1979</h2>
+			<h2 class="-red">1979</h2>
 			<p>I was born on my mother’s 30th birthday. What are the odds?</p>
 		</div>
 
 		<div class="bio-card">
 			<img src="/assets/images/bio/bio-th-soccer.jpg" alt="Playing Soccer" width="400" height="300">
-			<h2>1985</h2>
+			<h2 class="-teal">1985</h2>
 			<p>Growing up, my parents involved me in a lot of organized sports. I played a little of everything, but got a heavy dose of soccer and hockey.</p>
 		</div>
 
 		<div class="bio-card">
 			<img src="/assets/images/bio/bio-th-streetfighter.jpg" alt="Street Fighter 2" width="400" height="300">
-			<h2>1994</h2>
+			<h2 class="-blue">1994</h2>
 			<p>Early 90’s rock. NY Rangers win The Stanley Cup. Street Fighter II. The early 90’s were my favorite moment in pop culture.</p>
 		</div>
 
 
 		<div class="bio-card">
 			<img src="/assets/images/bio/bio-th-marist.jpg" alt="Marist College" width="400" height="300">
-			<h2>1997</h2>
+			<h2 class="-violet">1997</h2>
 			<p>I attended Marist College in NY. I began in Computer Science, but after a year of software programming I changed majors to graphics and design. I graduated in four years despite the switch.</p>
 		</div>
 
 		<div class="bio-card">
 			<img src="/assets/images/bio/bio-th-css-zen-garden.jpg" alt="CSS Zen Garden" width="400" height="300">
-			<h2>2002</h2>
+			<h2 class="-teal">2002</h2>
 			<p>I discovered <a href="http://www.csszengarden.com/001/" class="color">CSS Zen Garden</a> and taught myself advanced CSS. I started working more off hours and my job started to become a hobby.</p>
 		</div>
 

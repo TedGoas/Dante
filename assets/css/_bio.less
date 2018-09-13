@@ -10,29 +10,72 @@
 	margin-top: -@bio-card-margin;
 	position: relative;
 
-	img {
-
-	}
 	h2,
 	p {
-		margin: @su3 0 0;
+		margin: @su2 0 0;
 		.px3;
 	}
 	h2 {
-		.fs-caption;
+		.fs-body1;
 		position: relative;
+		.ff-display;
+		.ls-1;
+		.d-inline-block;
 
 		&:after {
-			background: url("/assets/images/small-circle.svg") center center no-repeat;
+			background-position: center center;
+			background-repeat: no-repeat;
 			display: block;
 			content: "";
 			height: 30px;
 			width: 70px;
 			position: absolute;
-			top: -7px;
-			left: -5px;
+			top: -5px;
+			left: -2px;
 		}
 	}
+	&:nth-child(3n+1) h2 {
+		transform: rotate(-5deg);
+	}
+	&:nth-child(3n+2) h2 {
+		transform: rotate(5deg);
+	}
+	&:nth-child(5n+1) h2 {
+		.fc-red-8;
+
+		&:after {
+			background-image: url("/assets/images/small-circle--red.svg");
+		}
+	}
+	&:nth-child(5n+2) h2 {
+		.fc-blue-6;
+
+		&:after {
+			background-image: url("/assets/images/small-circle--blue.svg");
+		}
+	}
+	&:nth-child(5n+3) h2 {
+		.fc-orange-7;
+
+		&:after {
+			background-image: url("/assets/images/small-circle--orange.svg");
+		}
+	}
+	&:nth-child(5n+4) h2 {
+		.fc-grape-7;
+
+		&:after {
+			background-image: url("/assets/images/small-circle--violet.svg");
+		}
+	}
+	&:nth-child(5n+5) h2 {
+		.fc-teal-6;
+
+		&:after {
+			background-image: url("/assets/images/small-circle--teal.svg");
+		}
+	}
+
 	p {
 		.fs-caption;
 		.lh-md;
@@ -80,6 +123,12 @@
 			right: auto;
 			bottom: -70px;
 			transform: rotate(0deg);
+		}
+
+		h2 {
+			.d-block;
+			.my3;
+			transform: none !important;
 		}
 	}
 }

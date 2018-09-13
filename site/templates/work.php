@@ -4,7 +4,7 @@
 	<h1>Work</h1>
 
 	<section class="mt5">
-		<h2 class="fs-caption tt-uppercase ff-display ls-2 fc-light mb3">Currently</h2>
+		<h2 class="tiny">Currently</h2>
 		<p>I work at Stack Overflow creating better workflows for over 50 million developers.</p>
 		<div class="flex jc-space-between ai-start gs5 gsx sm--fd-column">
 			<a href="/work/stack-overflow" class="card card-work flex-cell grid--cell6">
@@ -21,7 +21,7 @@
 	</section>
 	<hr class="hr-sm">
 	<section class="mt5">
-		<h2 class="fs-caption tt-uppercase ff-display ls-2 fc-light mb3">Before that</h2>
+		<h2 class="tiny">Before that</h2>
 		<p>I worked at Canfield Scientific designing applications that help doctors run their practice and clinicians run their studies.</p>
 		<div class="flex jc-space-between ai-start gs5 gsx sm--fd-column">
 			<a href="/work/canfield-scientific" class="card card-work flex-cell grid--cell6">
@@ -38,7 +38,7 @@
 	</section>
 	<hr class="hr-sm">
 	<section class="mt5">
-		<h2 class="fs-caption tt-uppercase ff-display ls-2 fc-light mb3">Off Hours</h2>
+		<h2 class="tiny">Off Hours</h2>
 		<p>I maintain <a href="http://tedgoas.github.io/Cerberus/" class="color">Cerberus</a> and help folks with emails:</p>
 		<div class="flex jc-space-between ai-start gs5 gsx sm--fd-column">
 			<a href="/work/email-design" class="card card-work flex-cell grid--cell6">

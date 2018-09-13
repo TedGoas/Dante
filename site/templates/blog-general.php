@@ -9,8 +9,8 @@
 
 	<div class="p-default">
 		<div class="article-title">
-			<h1 class="mb2"><?php echo $page->title()->html() ?></h1>
-			<time class="fs-caption fc-light tt-uppercase ls-2 ff-mono">
+			<h1 class="mb2 ff-display"><?php echo $page->title()->html() ?></h1>
+			<time class="fs-caption fc-light tt-uppercase ls-1">
 				<?php echo $page->date('F d, Y') ?>
 			</time>
 			<hr role="presentation" aria-role="hidden" class="hr hr-sm my5 bg-violet-2">
