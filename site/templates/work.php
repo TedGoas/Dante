@@ -1,5 +1,5 @@
 <?php snippet('page-begin') ?>
-<section class="default-spacing">
+<section class="default-spacing color-links">
 
 	<h1>Work</h1>
 
