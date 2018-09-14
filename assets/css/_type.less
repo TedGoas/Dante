@@ -70,12 +70,43 @@ h3 {
 	.lh-sm;
 	.fw-black;
 }
-blockquote,
-blockquote p {
-	.ff-serif;
-	.fs-italic;
-	.fs-subheading;
-	.fc-light;
+article blockquote,
+blockquote {
+	.p5;
+	margin-left: -@su4;
+	margin-right: -@su4;
+	.p-relative;
+	.bts-dashed-svg;
+
+	&:before {
+		display: block;
+		content: "";
+		height: 4px;
+		.bbs-dashed-svg;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+
+	&:after {
+		display: inline-block;
+		content: "“";
+		position: absolute;
+		top: 40px;
+		left: 0;
+		font-size: 100px;
+		color: @gray-2;
+		.ff-display;
+		z-index: -1;
+	}
+	p {
+		.ff-display;
+		.fs-italic;
+		.fs-body2;
+		.fc-light;
+		.m0;
+	}
 }
 .fw-bold,
 strong {
