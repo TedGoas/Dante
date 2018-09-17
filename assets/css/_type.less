@@ -72,31 +72,21 @@ h3 {
 }
 article blockquote,
 blockquote {
-	.p5;
+	.px5;
+	.py2;
 	margin-left: -@su4;
 	margin-right: -@su4;
-	.p-relative;
-	.bts-dashed-svg;
-
-	&:before {
-		display: block;
-		content: "";
-		height: 4px;
-		.bbs-dashed-svg;
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-	}
+	background: url("/assets/images/slanted-vertical.svg") top left repeat-y;
+	position: relative;
 
 	&:after {
 		display: inline-block;
 		content: "“";
 		position: absolute;
-		top: 40px;
-		left: 0;
-		font-size: 100px;
-		color: @gray-2;
+		top: 10px;
+		left: 10px;
+		font-size: 75px;
+		color: @gray-1;
 		.ff-display;
 		z-index: -1;
 	}
