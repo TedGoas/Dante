@@ -1,16 +1,8 @@
+			<footer role="footer" class="d-block px3 py4 bts-dashed-svg color-links">
+				<p class="m0 fc-light fs-caption lh-md">Design and code (except graphics) are open source on <a href="https://github.com/TedGoas/Dante">GitHub</a>. See the <a href="https://github.com/TedGoas/Dante/pull/67">pull request</a> for the current design, or read the <a href="https://www.tedgoas.com/humans.txt">credits</a>.</p>
+			</footer>
 		</div> <!-- .main -->
 	</div> <!-- .body -->
-	<!--
-	<script src="/assets/js/jquery-2.2.0.min.js"></script>
-	<script>
-		$( document ).ready(function() {
-			// Navigation on Mobile
-			$(".navigation-mobile").click(function() {
-				$(".navigation").toggleClass("active");
-			});
-		});
-		</script>
-	-->
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
