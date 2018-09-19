@@ -1,8 +1,42 @@
+.social {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-gap: @su3;
+}
+
+.social-item {
+
+	.social-link {
+		.flex;
+		.td-none;
+	}
+	.social-svg {
+		position: relative;
+		top: 2px;
+	}
+	.social-name {
+		.fs-caption;
+		.lh-md;
+		.a-color;
+		.ml2;
+		.fw-bold;
+	}
+	.social-behavior {
+		.fc-light;
+		.m0;
+		.fs-fine;
+		.lh-sm;
+		.mt2;
+		.d-block;
+	}
+}
+
+
 @media screen and (max-width: @breakpoint-small) {
 	.homepage {
 
-		.py4;
-		.mx4;
+		.py3;
+		.mx3;
 		.fd-column;
 		.grid--cell12;
 
@@ -16,5 +50,9 @@
 			background: none !important;
 		}
 
+	}
+	.social {
+		display: block;
+		.px0;
 	}
 }
