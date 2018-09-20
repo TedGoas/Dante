@@ -13,7 +13,7 @@
 				<p>How we design at Stack Overflow and a few notable&nbsp;projects.</p>
 			</a>
 			<a href="/work/stack-overflow-for-enterprise" class="card card-work flex-cell grid--cell6">
-				<img src="https://via.placeholder.com/450x200">
+				<img src="/assets/images/work/stack-overflow-enterprise/th-enterprise.svg" alt="stack overflow for enterprise" height="200" width="450">
 				<h3>Stack Overflow for Enterprise</h3>
 				<p>How we design Stack Overflow for large&nbsp;teams.</p>
 			</a>
