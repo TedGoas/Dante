@@ -1,7 +1,7 @@
-Title: Canfield Scientific
+Title: Email Design
 ----
-Description: Navigating Company Politics to Create a Best-In-Class Company Website
+Description: Occasionally I help folks design and code HTML emails.
 ----
-Role: Information Architecture, Website Design, Front-End Development, SEO, Email Design
+Role: Email design, Email Development
 ----
-Summary: The corporate website. The face of the company. It hadn't been updated since 2008. A small breakthrough team was tasked with giving it a complete overhaul: content, design, and infrastructure. I helped lead that team.
+Summary: Occasionally I help folks design and code HTML emails.

@@ -42,7 +42,7 @@
 		<p>I usually cherish time away from the computer on night, but of course there are&nbsp;exceptions.</p>
 		<div class="flex jc-space-between ai-start gs5 gsx sm--fd-column">
 			<a href="/work/email-design" class="card card-work flex-cell grid--cell6">
-				<img src="https://via.placeholder.com/450x200">
+				<img src="/assets/images/work/email-design/th.png" alt="freelance email design and development" height="200" width="450">
 				<h3>Freelance Email Design</h3>
 				<p>Occasionally I help folks design and code HTML&nbsp;emails.</p>
 			</a>
