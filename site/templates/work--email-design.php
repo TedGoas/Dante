@@ -2,6 +2,15 @@
 <article>
 	<h1><?php echo $page->title()->html() ?></h1>
 	<p>I love email-design. Email marketing is one of the most effective ways of communication and will be for years to come. I believe it's worth investing in good email-design. I help companies, startups, and local business with email projects by creating email templates from scratch and helping fine-tune existing campaigns.</p>
+	<div class="w100 wmx5">
+		<a href="/blog/email-design" class="card card-small">
+			<img src="/assets/images/work/th-email-design.png" alt="Why You Should Care About Email Design" height="125" width="125">
+			<div>
+				<strong>Related Article</strong>
+				I <span class="faux-link">wrote a blog post</span> about why I think email design is an important skill for designers to have.
+			</div>
+		</a>
+	</div>
 	<hr class="hr-sm">
 	<figure class="my7">
 		<img src="/assets/images/work/email-design/ambit.png" width="600" height="450" alt="alt_text">

@@ -23,5 +23,14 @@
 		<figcaption class="stuff">Exploration for a data table for visits</figcaption>
 	</figure>
 	<p>This was the first time I designed a complex, data-driven app. It was a learning experience organizing the information architecture, choosing the right data visualizations, and designing with rich data sets. Stephen Few's Information Dashboard Design will always have a place on my shelf.</p>
+	<div class="w100 wmx5">
+		<a href="/blog/designing-for-medical" class="card card-small">
+			<img src="/assets/images/work/th-medical-design.png" alt="Designing for Medical" height="125" width="125">
+			<div>
+				<strong>Related Article</strong>
+				I <span class="faux-link">wrote a blog post</span> about my experience designing for medical. The principles within guided many of my design decisions working on this project.
+			</div>
+		</a>
+	</div>
 </article>
 <?php snippet('page-end') ?>

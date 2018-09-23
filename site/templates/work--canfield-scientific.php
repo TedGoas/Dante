@@ -17,7 +17,6 @@
 		<figcaption class="stuff">Various email designs</figcaption>
 	</figure>
 	<p>I was responsible for every email Canfield sent. We sent about marketing 20-25 emails a year, a mixture of promotional, loyalty, event, and digest emails. Our web products also send transactional emails for things like password reset and account confirmation. I work with stakeholders to design each email, code for all popular email clients (Litmus), and schedule deployment in our ESP or codebase, and track metrics.</p>
-	<p>[blog post about designing in a sea of engineering]</p>
 	<figure class="my7">
 		<img src="/assets/images/work/canfield/wireframe-vmc.jpg" width="1000" height="500" alt="wireframe of telemedicine app" class="bordered">
 		<figcaption class="stuff">Early explorations and questions about a telemedicine app</figcaption>
@@ -45,5 +44,14 @@
 	<p>The redesign was met with overwhelming positivity. Clients approached us at conferences, commending the site’s way-finding systems and refreshed content. Each area of the business was now accurately represented and stakeholders have more tools to maintain their area of the site.</p>
 	<h3>What I Learned</h3>
 	<p>Stakeholders were often skeptical, risk-averse, and viewed my ideas as a threat to “the way it’s always been done.” And this is totally understandable. I learned frame my suggestions as solutions to their problems and sell my designs.</p>
+	<div class="w100 wmx5">
+		<a href="/blog/design-in-a-sea-of-engineering" class="card card-small">
+			<img src="/assets/images/work/th-engineering-sea.png" alt="Design in a sea of engineering" height="125" width="125">
+			<div>
+				<strong>Related Article</strong>
+				I <span class="faux-link">wrote a blog post</span> inspired by my experience being the only digital designer at Canfield&nbsp;Scientific.
+			</div>
+		</a>
+	</div>
 </article>
 <?php snippet('page-end') ?>

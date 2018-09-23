@@ -57,5 +57,14 @@
 		<p>The value of a good question and answer exchange is not realized when the question is answered. Rather the true value is fulfilled later: when someone else references the Q&A exchange or when a subject matter expert doesn’t have to answer the same question again…</p>
 	</blockquote>
 	<p>Once users are able to continuously get the right answers on time, they’ll trust and value the product as a reliable, accurate source of information. That’s our theory. We’re currently working to make content more findable within Stack Overflow. We’re retooling our search, creating web hooks, and overhauling transactional emails. We work with our customer success team and frequently speak with customers to find ways to integrate Teams into our developers’ existing workflows.</p>
+	<div class="w100 wmx5">
+		<a href="/blog/stack-overflow-design" class="card card-small">
+			<img src="/assets/images/work/th-joining-stack.png" alt="On Joining Stack Overflow as a Designer" height="125" width="125">
+			<div>
+				<strong>Related Article</strong>
+				I <span class="faux-link">wrote a blog post</span> about my onboarding experience as a product designer at Stack&nbsp;Overflow.
+			</div>
+		</a>
+	</div>
 </article>
 <?php snippet('page-end') ?>
