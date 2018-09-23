@@ -26,7 +26,7 @@
 		<div class="flex jc-space-between ai-start gs5 gsx sm--fd-column">
 			<a href="/work/canfield-scientific" class="card card-work flex-cell grid--cell6">
 				<img src="/assets/images/work/canfield/th-canfield.jpg" alt="model and canfield logo" height="200" width="450">
-				<h3>Working @ Canfield</h3>
+				<h3>Working @ Canfield Scientific</h3>
 				<p>How we designed at Canfield and a few notable&nbsp;projects.</p>
 			</a>
 			<a href="/work/canfield-scientific-clinical-services" class="card card-work flex-cell grid--cell6">
