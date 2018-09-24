@@ -50,9 +50,11 @@
 			<h2 class="tiny">Recent blog posts</h2>
 			<ul class="pl0 list-ls-none">
 			<?php foreach(page('blog')->children()->visible()->flip()->limit(6) as $article): ?>
-				<li class="blog-list-item flex jc-space-between ai-center my4 lh-sm">
-					<a href="<?php echo $article->url() ?>" class="mr1 fs-caption"><?php echo $article->title()->html() ?></a>
-					<time class="ta-right ws-nowrap fs-fine fc-light tt-uppercase ls-1">
+				<li class="blog-list-item flex jc-space-between ai-start my4 lh-sm">
+					<span>
+						<a href="<?php echo $article->url() ?>" class="mr1 fs-caption"><?php echo $article->title()->html() ?></a>
+					</span>
+					<time class="ta-right ws-nowrap fs-fine fc-light tt-uppercase ls-1 mt2">
 						<?php echo $article->date('F d, Y') ?>
 					</time>
 				</li>
