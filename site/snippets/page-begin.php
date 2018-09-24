@@ -95,22 +95,20 @@ ZII$I=+7?=:~7?I$MDD77$~I?OZ?+ZI=+I~+?=+$7~II=I88OOOOOZOZZZZZZZZZZ$ZZZZ$$Z$ZZZZZZ
 </head>
 <body class="<?php echo $page->slug() ?> <?php echo $page->parents() ?>">
 	<div class="body">
-		<header role="header" class="header flex ai-center">
-			<div class="px3 pt4 pb5">
-				<div class="mb4 lh-sm flex ai-end gsx gs3 logo">
-					<div class="flex-cell p-relative" style="top: 13px;">
-						<?php snippet('tg-sig-logo') ?>
-					</div>
-					<p class="flex-cell mb0 role">Senior Product Designer working remotely at Stack Overflow</p>
+		<header role="header" class="header px3 pt4 pb5">
+			<div class="mb4 lh-sm flex ai-end gsx gs3 logo">
+				<div class="flex-cell p-relative" style="top: 13px;">
+					<?php snippet('tg-sig-logo') ?>
 				</div>
-				<div role="navigation" class="navigation flex ff-row-wrap">
-					<a href="/" title="Home" class="td-none d-block p2 -home">Home</a>
-					<a href="/work" title="Portfolio + Case Studies" class="td-none d-block p2 -work">Work</a>
-					<a href="/what-i-do" title="Skills + Interests" class="td-none d-block p2 -what-i-do">What I Do</a>
-					<a href="/bio" title="About Me" class="td-none d-block p2 -bio">A Short Bio</a>
-					<a href="/contact" title="Drop Me a Line" class="td-none d-block p2 -contact">Contact</a>
-					<a href="/blog" title="Articles" class="td-none d-block p2 -blog">Blog</a>
-				</div>
+				<p class="flex-cell mb0 role">Senior Product Designer working remotely at Stack Overflow</p>
+			</div>
+			<div role="navigation" class="navigation flex ff-row-wrap">
+				<a href="/" title="Home" class="td-none d-block p2 -home">Home</a>
+				<a href="/work" title="Portfolio + Case Studies" class="td-none d-block p2 -work">Work</a>
+				<a href="/what-i-do" title="Skills + Interests" class="td-none d-block p2 -what-i-do">What I Do</a>
+				<a href="/bio" title="About Me" class="td-none d-block p2 -bio">A Short Bio</a>
+				<a href="/contact" title="Drop Me a Line" class="td-none d-block p2 -contact">Contact</a>
+				<a href="/blog" title="Articles" class="td-none d-block p2 -blog">Blog</a>
 			</div>
 		</header>
 		<div class="main">

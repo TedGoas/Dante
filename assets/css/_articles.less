@@ -30,6 +30,12 @@ article,
 		.d-block;
 	}
 }
+@media screen and (max-width: @breakpoint-small) {
+	article,
+	.default-spacing {
+		.py4;
+	}
+}
 article {
 	p,
 	li {
@@ -93,7 +99,8 @@ article {
 		.mx0;
 		max-width: @site-width;
 
-		img {
+		img,
+		iframe {
 			.wmx100;
 			.w100;
 			.d-block;

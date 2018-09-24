@@ -119,7 +119,7 @@ A great way to end the day’s lectures. Words cannot sum up this high-energy ta
 I learned a lot about Iceland outside of the conference. I hadn’t previously visited a nordic country. The scenery and architecture are breathtaking, even on a rainy day. Here are some pictures:
 
 <figure class="figure outset">
-    <div class="flex gs1 gsx">
+    <div class="flex gs1 gsx sm--fd-column">
         <div class="flex-cell">
         	<img src="/content/blog/24-go-digital-2016-reykjavik-iceland/iceland-church.jpg" alt="Hallgrímskirkja" height="600" width="600">
 			<figcaption>Hallgrímskirkja</figcaption>
