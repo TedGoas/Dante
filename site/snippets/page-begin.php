@@ -65,7 +65,7 @@
 		<header role="header" class="header px3 pt4 pb5">
 			<div class="mb4 lh-sm flex ai-end gsx gs3 logo">
 				<div class="flex-cell p-relative" style="top: 13px;">
-					<?php snippet('tg-sig-logo') ?>
+					<a href="/"><?php snippet('tg-sig-logo') ?></a>
 				</div>
 				<p class="flex-cell mb0 role">Senior Product Designer working remotely at Stack Overflow</p>
 			</div>
