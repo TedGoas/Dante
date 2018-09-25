@@ -1,7 +1,7 @@
-<?php snippet('header') ?>
+<?php snippet('page-begin') ?>
 <link rel="stylesheet" href="/blog/an-open-letter-to-technical-recruiters/styles.css" />
 <div class="outside recruiters">
-	
+
 <nav class="cf">
 	<ul>
 		<li class="logo"><em>from the desk of</em> <a href="/" title="home">Ted Goas</a></li>
@@ -27,4 +27,4 @@
 
 
 </div>
-<?php snippet('footer') ?>
+<?php snippet('page-end') ?>

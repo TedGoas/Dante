@@ -1,0 +1,7 @@
+Title: Email Design
+----
+Description: Occasionally I help folks design and code HTML emails.
+----
+Role: Email design, Email Development
+----
+Summary: Occasionally I help folks design and code HTML emails.

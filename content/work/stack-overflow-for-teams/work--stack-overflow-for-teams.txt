@@ -1,0 +1,7 @@
+Title: Stack Overflow for Teams
+----
+Description: Designing and iterating on a new product aimed at small-medium engineering teams.
+----
+Role: Research, Information Architecture, Product Design, UI Design, Front-End Development
+----
+Summary: Designing and iterating on a new product aimed at small-medium engineering teams.

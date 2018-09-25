@@ -2,17 +2,17 @@ Title: My Performance Review
 ----
 Date: March 9, 2013
 ----
-Description: I got my performance review. While the feedback was positive overall, no review is complete without citing areas to improve.
+Description: No review is complete without citing areas to improve.
 ----
-Article-Hero-Classes: article-hero-centered
+Article-Hero-Classes: mt4 mb3
 ----
 Text:
 Last week I got my performance review. While the feedback was positive overall, no review is complete without citing areas to improve. After I combined the goals of my managers with my own, my plan for the year looked something like this:
 
-## Less Twitter 
+## Less Twitter
 I treat Twitter mostly like an RSS feed. I was usually on it intermittently throughout the day and often found myself reading more than making. Now I rely more on things like [Sidebar.io](http://sidebar.io) to summarize things. Instapaper helps too.
 
-## More Writing  
+## More Writing
 In the spirit of that, I’ll be doing less tweeting myself. I’ll still interesting links and chat with friends, but instead of tweeting a bunch of half-baked ideas, I’d like to make a few of them into thoughtful articles.
 
 ## Less Dribbble
@@ -29,7 +29,7 @@ When it comes to aesthetics, I tend to explore a little too often. Exploration i
 ## More GitHub
 I’d like to contribute more on GitHub, on friend’s projects and my own. Graphical freebies are nice, but they’re only art. Working code is better.
 
-## House Cleaning 
+## House Cleaning
 I’ll be going through my Dribbble and Twitter follow lists to find folks treat these sites like more I do: Quality over quantity, reasonable signal vs. noise ratio, mature online etiquette.
 
 ## Be a Better Employee

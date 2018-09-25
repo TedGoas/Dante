@@ -2,9 +2,9 @@ Title: Musings of an In House Designer
 ----
 Date: May 16, 2012
 ----
-Description: The first blog post in the new site... just testing the waters. 
+Description: The first blog post in the new site.
 ----
-Article-Hero-Classes: article-hero-centered
+Article-Hero-Classes: mt4
 ----
 Text:
 Lots of smart people say that being a good writer is about more than words. Being a good writer means more than just tying fancy words together. Good writers know how to explain their thoughts clearly. They know what to say&mdash;and what to omit.

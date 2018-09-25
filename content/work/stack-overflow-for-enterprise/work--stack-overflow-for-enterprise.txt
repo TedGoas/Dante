@@ -1,0 +1,7 @@
+Title: Stack Overflow for Enterprise
+----
+Description: Adapting Stack Overflow for large teams to share private, secure knowledge.
+----
+Role: Research, Information Architecture, Product Design, UI Design, Front-End Development
+----
+Summary: Adapting Stack Overflow for large teams to share private, secure knowledge.

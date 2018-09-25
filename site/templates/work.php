@@ -1,66 +1,58 @@
-<?php snippet('header') ?>
-<div class="outside body">
+<?php snippet('page-begin') ?>
+<section class="default-spacing color-links">
 
-	<div class="inside page-title page-title--flush-no-border">
-		<h1 class="page-title-h1">Day Job <small>Select Work from Canfield Scientific</small></h1>
-	</div>
-	
-	<div class="inside">
-		<div class="work-list">
-			<a href="/work/canfield-scientific/" class="work-list-item work-list-item--canfield">
-				<img src="/assets/images/work/canfield-scientific/index-thumb.jpg" width="600" height="350" alt="Canfield Scientific" class="work-list-item-img">
-				<div class="work-list-item-text">
-					<h2 class="work-item-title">Canfield Scientific</h2>
-					<p class="work-item-p">Navigating Company Politics to Create a Best-In-Class Company Website</p>
-				</div>
+	<h1>Work</h1>
+
+	<section class="mt5">
+		<h2 class="tiny">Currently</h2>
+		<p>I work at Stack Overflow creating better workflows for over 50 million&nbsp;developers.</p>
+		<div class="flex jc-space-between ai-start gs5 gsx sm--fd-column">
+			<a href="/work/stack-overflow" class="card card-work flex-cell grid--cell6">
+				<img src="/assets/images/work/stack-overflow/cover.jpg" alt="stack overflow logo above code" height="200" width="450">
+				<h3>Working @ Stack Overflow</h3>
+				<p>How we design at Stack Overflow and a few notable&nbsp;projects.</p>
 			</a>
-			<a href="/work/clinical-services/" class="work-list-item work-list-item--clinical effect-jazz">
-				<img src="/assets/images/work/clinical-services/index-thumb.jpg" width="600" height="350" alt="Clinical Services" class="work-list-item-img">
-				<div class="work-list-item-text">
-					<h2 class="work-item-title">Clinical Services</h2>
-					<p class="work-item-p">How I Learned to Design with Data</p>
-				</div>
-			</a>
-			<a href="/work/view-my-consult/" class="work-list-item work-list-item--vmc">
-				<img src="/assets/images/work/vmc/index-thumb.jpg" width="600" height="350" alt="View My Consult" class="work-list-item-img">
-				<div class="work-list-item-text">
-					<h2 class="work-item-title">View My Consult</h2>
-					<p class="work-item-p">Planning, prototyping, and launching Canfield's first telemedicine app</p>
-				</div>
-			</a>
-			<a href="/work/canfield-misc/" class="work-list-item work-list-item--canfieldmisc">
-				<img src="/assets/images/work/canfield-misc/index-thumb.jpg" width="600" height="350" alt="Misc Design at Canfield" class="work-list-item-img">
-				<div class="work-list-item-text">
-					<h2 class="work-item-title">Misc. Canfield Projects</h2>
-					<p class="work-item-p">Small to Medium Size Projects at Canfield</p>
-				</div>
+			<a href="/work/stack-overflow-for-enterprise" class="card card-work flex-cell grid--cell6">
+				<img src="/assets/images/work/stack-overflow-enterprise/th-enterprise.svg" alt="stack overflow for enterprise" height="200" width="450">
+				<h3>Stack Overflow for Enterprise</h3>
+				<p>How we design Stack Overflow for large&nbsp;teams.</p>
 			</a>
 		</div>
-	</div>
-
-	<div class="inside page-title page-title--flush-no-border">
-		<h1 class="page-title-h1">Off Hours <small>Freelance Work and Past Gigs</small></h1>
-	</div>
-	
-	<div class="inside">
-		<div class="work-list">
-			<a href="/work/html-email-design/" class="work-list-item work-list-item--email">
-				<img src="/assets/images/work/html-email-design/index-thumb.jpg" width="600" height="350" alt="Email Design" class="work-list-item-img">
-				<div class="work-list-item-text">
-					<h2 class="work-item-title">Email Design</h2>
-					<p class="work-item-p">I help folks level up their email design and marketing</p>
-				</div>
+	</section>
+	<hr class="hr-sm">
+	<section class="mt5">
+		<h2 class="tiny">Before that</h2>
+		<p>I worked at Canfield Scientific designing applications that help doctors run their practice and clinicians run their&nbsp;studies.</p>
+		<div class="flex jc-space-between ai-start gs5 gsx sm--fd-column">
+			<a href="/work/canfield-scientific" class="card card-work flex-cell grid--cell6">
+				<img src="/assets/images/work/canfield/th-canfield.jpg" alt="model and canfield logo" height="200" width="450">
+				<h3>Working @ Canfield Scientific</h3>
+				<p>How we designed at Canfield and a few notable&nbsp;projects.</p>
 			</a>
-			<a href="/work/web-ui-design" class="work-list-item work-list-item--webui">
-				<img src="/assets/images/work/web-ui-design/index-thumb.jpg" width="600" height="350" alt="Web & Interface Design" class="work-list-item-img">
-				<div class="work-list-item-text">
-					<h2 class="work-item-title">Web &amp; UI Design</h2>
-					<p class="work-item-p">I help companies, startups, and local business with website and interface design</p>
-				</div>
+			<a href="/work/canfield-scientific-clinical-services" class="card card-work flex-cell grid--cell6">
+				<img src="/assets/images/work/canfield-clinical-services/th-canfield-clinical-services.jpg" alt="model and canfield logo" height="200" width="450">
+				<h3>Clinical Services</h3>
+				<p>How we created a clinical web app for pharmaceutical companies to organize&nbsp;trials.</p>
 			</a>
 		</div>
-	</div>
+	</section>
+	<hr class="hr-sm">
+	<section class="mt5">
+		<h2 class="tiny">Off Hours</h2>
+		<p>I usually cherish time away from the computer on night, but of course there are&nbsp;exceptions.</p>
+		<div class="flex jc-space-between ai-start gs5 gsx sm--fd-column">
+			<a href="/work/email-design" class="card card-work flex-cell grid--cell6">
+				<img src="/assets/images/work/email-design/th.png" alt="freelance email design and development" height="200" width="450">
+				<h3>Freelance Email Design</h3>
+				<p>Occasionally I help folks design and code HTML&nbsp;emails.</p>
+			</a>
+			<a href="https://tedgoas.github.io/Cerberus/" class="card card-work flex-cell grid--cell6">
+				<img src="/assets/images/work/th-cerberus.jpg" alt="Cerberus open source email templates" height="200" width="450">
+				<h3>Cerberus (Open Source)</h3>
+				<p>I created and actively maintain a set of responsive email patterns. ~3K stars on&nbsp;Github.</p>
+			</a>
+		</div>
+	</section>
 
 </div>
-
-<?php snippet('footer') ?>
+<?php snippet('page-end') ?>

@@ -1,123 +1,252 @@
-/* fonts */
-.sans-serif {
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-}
-.serif {
-	font-family: "Hoefler Text", Constantia, "Book Antiqua", Georgia, serif;
-}
-
-html,
-body {
-	.sans-serif;
-	line-height: 1.4;
-	font-size: @fs-m;
-	color: @gray-dark;
+//  ----------------------------------------------------------------------------
+//  TYPE RESETS
+//  ----------------------------------------------------------------------------
+h1, h2, h3, h4, h5, h6, p, ul, ol, li {
+    margin-top: 0;
+    font-size: 1rem;
 }
 
+//  ----------------------------------------------------------------------------
+//  $   TYPE VARIABLES
+//  ----------------------------------------------------------------------------
+
+//  font-family
+@ff-sans:   -apple-system, BlinkMacSystemFont, Avenir, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;;
+@ff-serif:  'Hoefler Text', Constantia, 'Book Antiqua', Georgia, serif;
+@ff-mono:   monospace;
+
+//  font-size
+@fs-fine:		13px;
+@fs-caption:	15px;
+@fs-body1:		19px;
+@fs-body2:		21px;
+@fs-subheading:	25px;
+@fs-headline1:	28px;
+@fs-headline2:	33px;
+@fs-display1:	43px;
+
+//  line-height
+@lh-xs:		100%;
+@lh-sm:     110%;
+@lh-md:     158%;
+@lh-lg:     200%;
+
+//  ----------------------------------------------------------------------------
+//  $   FONT-FAMILIES
+//  ----------------------------------------------------------------------------
+
+.ff-sans	{ font-family: @ff-sans; }
+.ff-serif	{ font-family: @ff-serif; }
+.ff-mono	{ font-family: @ff-mono; }
+.ff-display	{ font-family: 'Permanent Marker', @ff-serif; }
+
+html, body {
+	font-family: @ff-sans;
+	font-size: @fs-body1;
+	line-height: @lh-md;
+	.fc-medium;
+}
 h1 {
-	.sans-serif;
-	font-size: @fs-huge;
-	font-weight: @fw-bl;
-	line-height: 1.2;
-	color: @gray-darker;
-	letter-spacing: .05em;
+	.fs-display1;
+	.fc-dark;
+	.lh-sm;
+	.fw-black;
+	.ff-display;
 }
 h2 {
-	font-size: @fs-xl;
-	line-height: 1.2;
-	font-weight: @fw-bl;
-	margin: @gutter-medium 0 @gutter-small/2;
-	color: @gray-darker;
+	.fs-headline1;
+	.fc-dark;
+	.lh-sm;
+	.fw-black;
+}
+h2.tiny {
+	.fs-caption;
+	.ff-display;
+	.ls-2;
+	.mb3;
 }
 h3 {
-	font-size: @fs-l;
-	font-weight: @fw-b;
-	margin: @gutter-medium 0 @gutter-small/2;
-	color: @gray-darker;
+	.fs-body2;
+	.fc-dark;
+	.lh-sm;
+	.fw-black;
 }
-h4 {
-	font-size: @fs-s;
-	font-weight: @fw-b;
-	color: @gray-darker;
-}
-@media screen and (max-width: @breakpoint-small) {
-	h1 {
-		font-size: @fs-huge * .8;
-	}
-	h2 {
-		font-size: @fs-xl * .8;
-	}
-	h2.caps {
-		font-size: @fs-xl * .7;
-	}
-	h3 {
-		font-size: @fs-l * .8;
-	}
-}
-
-p {
-	margin: 0 0 @gutter-small;
-}
-.caption {
-	font-size: @fs-xs;
-	display: block;
-	color: @gray-light;
-	line-height: 1.4;
-}
-b,
-strong {
-	font-weight: @fw-b;
-}
-strong.highlighted {
-	color: @gray-darker;
-	background: @yellow;
-	padding: 0 5px;
-	margin-right: 2px;
-	white-space: nowrap;
-}
-.article {
-	ul,
-	ol {
-		margin: 0 0 @gutter-small @gutter-small;
-	}
-	li {
-		margin-bottom: @gutter-small/2;
-	}
-}
-blockquote,
-.article blockquote {
-	padding: 15px @gutter-small;
-	margin: 0 0 @gutter-small -@gutter-small;
-	background: #f6f6f6;
-	font-size: @fs-l;
-	font-style: italic;
-	.serif;
+article blockquote,
+blockquote {
+	.px5;
+	.py2;
+	margin-left: -@su4;
+	margin-right: -@su4;
+	background: url("/assets/images/slanted-vertical.svg") top left repeat-y;
 	position: relative;
+
 	&:after {
-		content:"";
-		display: block;
+		display: inline-block;
+		content: "“";
 		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		width: 6px;
-		.gradient-ttb(@blue,@purple);
+		top: 10px;
+		left: 10px;
+		font-size: 75px;
+		color: @gray-1;
+		.ff-display;
+		z-index: -1;
 	}
 	p {
-		margin: 10px 0;
-	}
-	ul,
-	ol,
-	li:last-child {
-		margin-bottom: 0;
+		.ff-display;
+		.fs-italic;
+		.fs-body2;
+		.fc-light;
+		.m0;
 	}
 }
-.line-through {
-	text-decoration: line-through;
-	opacity: .5;
+.fw-bold,
+strong {
+	.fw-black;
 }
 
-/* Transitions */
-.text-transition {
-	transition: all 150ms ease-in;
+//  ----------------------------------------------------------------------------
+//  $   TEXT SIZES
+//  ----------------------------------------------------------------------------
+
+//  Declare font sizes
+.fs-display1    {  font-size: @fs-display1; }
+.fs-headline2   {  font-size: @fs-headline2; }
+.fs-headline1   {  font-size: @fs-headline1; }
+.fs-subheading  {  font-size: @fs-subheading; }
+.fs-body2       {  font-size: @fs-body2; }
+.fs-body1       {  font-size: @fs-body1; }
+.fs-caption   	{  font-size: @fs-caption; }
+.fs-fine        {  font-size: @fs-fine; }
+
+//  ----------------------------------------------------------------------------
+//  TEXT COLORS
+//  ----------------------------------------------------------------------------
+.fc-dark        { color: @fc-dark; }
+.fc-medium      { color: @fc-medium; }
+.fc-light       { color: @fc-light; }
+.fc-faint		{ color: fade(@fc-white,20%); }
+.fc-white		{ color: @fc-white; }
+
+//  ----------------------------------------------------------------------------
+//  LINE HEIGHTS
+//  ----------------------------------------------------------------------------
+.lh-xs          { line-height: @lh-xs; }
+.lh-sm          { line-height: @lh-sm; }
+.lh-md          { line-height: @lh-md; }
+.lh-lg          { line-height: @lh-lg; }
+
+//  ----------------------------------------------------------------------------
+//  TEXT STYLES & UTILITIES
+//  ----------------------------------------------------------------------------
+//  Font Family
+.ff-sans          { font-family: @ff-sans; }
+.ff-serif         { font-family: @ff-serif; }
+.ff-mono          { font-family: @ff-mono; }
+.ff-inherit       { font-family: inherit; }
+
+//  Font Weight
+.fw-normal        { font-weight: 400; }
+.fw-bold          { font-weight: 700; }
+.fw-black         { font-weight: 900; }
+
+//  Font Styles
+.fs-normal        { font-style: normal; }
+.fs-italic        { font-style: italic; }
+.fs-unset         { font-style: unset; }
+
+//  Text Align
+.ta-left          { text-align: left; }
+.ta-center        { text-align: center; }
+.ta-right         { text-align: right; }
+.ta-justify       { text-align: justify; }
+.ta-unset         { text-align: unset; }
+
+//  Text Decoration
+.td-none          { text-decoration: none; }
+.td-underline     { text-decoration: underline; }
+
+//  Text Transform
+.tt-capitalize	  { text-transform: capitalize; }
+.tt-lowercase     { text-transform: lowercase; }
+.tt-uppercase     { text-transform: uppercase; }
+.tt-none          { text-transform: none; }
+.tt-unset         { text-transform: unset; }
+
+//  Latter Spacing
+.ls-0			  { letter-spacing: 0; }
+.ls-1			  { letter-spacing: .05em; }
+.ls-2			  { letter-spacing: .1em; }
+
+//  Whitespace
+.ws-normal        { white-space: normal; }
+.ws-nowrap        { white-space: nowrap; }
+.ws-pre           { white-space: pre; }
+.ws-pre-wrap      { white-space: pre-wrap; }
+.ws-pre-line      { white-space: pre-line; }
+.ws-unset         { white-space: unset; }
+
+//  ============================================================================
+//  $   LISTS
+//  ----------------------------------------------------------------------------
+//  List Style Types
+.list-ls-none          { list-style: none; }
+.list-ls-disc          { list-style-type: disc; }
+.list-ls-circle        { list-style-type: circle; }
+.list-ls-square        { list-style-type: square; }
+.list-ls-decimal       { list-style-type: decimal; }
+.list-ls-unset         { list-style-type: unset; }
+
+//  ============================================================================
+//  $   Links
+//  ----------------------------------------------------------------------------
+a {
+	transition: all 75ms ease-in;
+}
+.link-white,
+.link-white:visited {
+	color: @fc-white;
+
+	&:hover,
+	&:active,
+	&:focus {
+		opacity: .75;
+	}
+}
+.navigation,
+.article-list {
+	a,
+	a:visited {
+		.py1;
+		text-decoration: none;
+		border-bottom: 2px solid @blue-3;
+		color: @gray-8;
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: @blue-5;
+		}
+	}
+}
+
+article a:not(.card),
+.color-links a:not(.card),
+.a-color {
+	color: @blue-6;
+	text-decoration: none;
+	border-bottom: 2px solid @gray-3;
+
+	&:visited {
+		color: @grape-6;
+		border-bottom: 2px solid @gray-3;
+	}
+	&:hover,
+	&:active,
+	&:focus {
+		color: @blue-8;
+		border-bottom-color: @blue-8;
+	}
+}
+a.img {
+	border-bottom: none;
 }

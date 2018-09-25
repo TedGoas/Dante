@@ -115,7 +115,14 @@ class Page extends PageAbstract {
 
     // Kirby is trying to remove the home folder name from the url
     if($this->isHomePage()) {
-      return $this->site->url($lang);
+      $url = $this->site->url($lang);
+
+      // append a query param if the new language is on another domain
+      if($this->site->language->host() !== $this->site->language($lang)->host()) {
+        $url = url::build(['query' => ['language' => 'switch']], $url);
+      }
+
+      return $url;
     } else if($this->parent->isHomePage()) {
       return $this->site->url($lang) . '/' . $this->parent->slug($lang) . '/' . $this->slug($lang);
     } else {
@@ -196,7 +203,7 @@ class Page extends PageAbstract {
 
         // replace all missing fields with values from the default content
         foreach($defaultContent->data as $key => $field) {
-          if(empty($content->data[$key]->value)) {
+          if(!isset($content->data[$key]) || $content->data[$key]->value == '') {
             $content->data[$key] = $field;
           }
         }
@@ -254,7 +261,12 @@ class Page extends PageAbstract {
    */
   public function update($input = array(), $lang = null) {
 
-    $data = a::update($this->content($lang)->toArray(), $input);
+    // normalize keys to make sure that fields are updated correctly
+    $normalizer = data::$adapters['kd']['_normalizeKeys'];
+    $current    = $normalizer($this->content($lang)->toArray());
+    $input      = $normalizer($input);
+
+    $data = a::update($current, $input);
 
     if(!data::write($this->textfile(null, $lang), $data, 'kd')) {
       throw new Exception('The page could not be updated');
@@ -275,7 +287,19 @@ class Page extends PageAbstract {
    */
   public function intendedTemplate() {
     if(isset($this->cache['intendedTemplate'])) return $this->cache['intendedTemplate'];
-    return $this->cache['intendedTemplate'] = $this->content($this->site->defaultLanguage()->code())->exists() ? $this->content()->name() : 'default';
+
+    // check each language's content file
+    // prefer the default language's one (check that one first)
+    foreach($this->site->languages()->sortBy('isDefault', 'desc') as $lang) {
+      $content = $this->content($lang->code());
+
+      // the content file exists, use its file name
+      if($content->exists()) {
+        return $this->cache['intendedTemplate'] = $content->name();
+      }
+    }
+
+    return $this->cache['intendedTemplate'] = 'default';
   }
 
 }

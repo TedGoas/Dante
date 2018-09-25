@@ -1,24 +1,23 @@
-<?php snippet('header') ?>	
-<div class="outside body article">
-	
+<?php snippet('page-begin') ?>
+<article>
+
 	<?php if($image = $page->image()): ?>
-	<div class="article-hero <?php echo $page->article_hero_classes() ?>">
-		<img src="<?php echo $image->url() ?>" alt="<?php echo $page->title()->html() ?>" height="<?php echo $page->image()->height() ?>" width="<?php echo $page->image()->width() ?>">
+	<div class="ta-center article-hero <?php echo $page->article_hero_classes() ?>">
+		<img src="<?php echo $image->url() ?>" alt="<?php echo $page->title()->html() ?>" height="<?php echo $page->image()->height() ?>" width="<?php echo $page->image()->width() ?>" class="wmx100 h-auto flush">
 	</div>
 	<?php endif ?>
-	
-	<div class="inside">
-		<article class="narrow-width">
-			<div class="article-header">
-				<h1 class="article-h1"><?php echo $page->title()->html() ?></h1>
-				<span class="blog-meta blog-detail-meta blog-meta--date blog-detail-meta--date"><?php echo $page->date('F d, Y') ?></span>
-				<div class="hr"><hr></div>
-			</div>
-			<div class"article-content">
-			  <?php echo $page->text()->kirbytext() ?>
-			</div>
-			<?php snippet('article-footer') ?>
-		</article>
+
+	<div class="p-default">
+		<div class="article-title">
+			<h1 class="mb2"><?php echo $page->title()->html() ?></h1>
+			<time class="fs-caption fc-light tt-uppercase ls-1">
+				<?php echo $page->date('F d, Y') ?>
+			</time>
+			<hr role="presentation" aria-role="hidden" class="hr hr-sm my5 bg-violet-2">
+		</div>
+		<?php echo $page->text()->kirbytext() ?>
+		<?php snippet('article-footer') ?>
 	</div>
-</div>
-<?php snippet('footer') ?>
+
+</article>
+<?php snippet('page-end') ?>

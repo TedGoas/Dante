@@ -181,7 +181,7 @@ abstract class PageAbstract {
 
   /**
    * Returns the full URL for the content folder
-   * 
+   *
    * @return string
    */
   public function contentUrl() {
@@ -197,7 +197,10 @@ abstract class PageAbstract {
     if(!isset($this->kirby->options['tinyurl.enabled']) || !$this->kirby->options['tinyurl.enabled']) {
       return $this->url();
     } else {
-      return url($this->kirby->options['tinyurl.folder'] . '/' . $this->hash());
+      // try to use tinyurl.url first, otherwise use tinyurl.folder
+      $base = a::get($this->kirby->options, 'tinyurl.url');
+      if(!$base) $base = a::get($this->kirby->options, 'tinyurl.folder');
+      return url($base . '/' . $this->hash());
     }
   }
 
@@ -243,8 +246,9 @@ abstract class PageAbstract {
       return false;
     }
 
+    $lang = ($this->site->defaultLanguage())? $this->site->defaultLanguage()->code : null;
     foreach($this->kirby->option('cache.ignore') as $pattern) {
-      if(fnmatch($pattern, $this->uri()) === true) {
+      if(fnmatch($pattern, $this->uri($lang)) === true) {
         return false;
       }
     }
@@ -681,7 +685,7 @@ abstract class PageAbstract {
 
   /**
    * Returns a single image
-   * 
+   *
    * @return File
    */
   public function image($filename = null) {
@@ -691,7 +695,7 @@ abstract class PageAbstract {
 
   /**
    * Returns a single video
-   * 
+   *
    * @return File
    */
   public function video($filename = null) {
@@ -701,7 +705,7 @@ abstract class PageAbstract {
 
   /**
    * Returns a single document
-   * 
+   *
    * @return File
    */
   public function document($filename = null) {
@@ -732,7 +736,7 @@ abstract class PageAbstract {
    *
    * @return Field
    */
-  public function title() {    
+  public function title() {
     $title = $this->content()->get('title');
     if($title != '') {
       return $title;
@@ -1007,11 +1011,55 @@ abstract class PageAbstract {
     $templateName = $this->intendedTemplate();
 
     if($this->kirby->registry->get('template', $templateName)) {
-      return $this->cache['template'] = $templateName;  
+      return $this->cache['template'] = $templateName;
     } else {
       return $this->cache['template'] = 'default';
     }
 
+  }
+
+  /**
+   * Returns the representation file extension for the page
+   *
+   * @param string $template Template name to use as base
+   * @return string/false
+   */
+  public function representation($template = null) {
+    if(!$template) $template = $this->template();
+    $cacheKey = 'representation.' . $template;
+
+    // check for a cached representation
+    if(isset($this->cache[$cacheKey])) return $this->cache[$cacheKey];
+
+    // check for a representation from the URL
+    if($this->site->representation && $this->kirby->registry->get('template', $template . '.' . $this->site->representation)) {
+      return $this->cache[$cacheKey] = $this->site->representation;
+    }
+
+    // try to get a representation from the Accept header
+    // this feature is disabled by default because some browsers
+    // have strange Accept headers (e.g. WebKit)
+    if($this->kirby->option('representations.accept')) {
+      // manually add the normal template to the mix as HTML representation
+      $representations = ['__default' => visitor::acceptance('text/html')];
+
+      // add each other available representation
+      foreach($this->kirby->registry->get('template', $template, true) as $representation) {
+        $representation = f::extension($representation);
+        $mime           = f::extensionToMime($representation);
+
+        $representations[$representation] = visitor::acceptance($mime);
+      }
+
+      // return the highest accepted representation
+      if(!empty($representations) && ($max = max($representations)) > 0) {
+        $representation = array_search($max, $representations);
+        if($representation === '__default') $representation = false;
+        return $this->cache[$cacheKey] = $representation;
+      }
+    }
+
+    return $this->cache[$cacheKey] = false;
   }
 
   /**
@@ -1020,10 +1068,29 @@ abstract class PageAbstract {
    * @return string
    */
   public function templateFile() {
-    if($template = $this->kirby->registry->get('template', $this->intendedTemplate())) {
-      return $template;  
+    return $this->_templateFile($this->intendedTemplate());
+  }
+
+  /**
+   * Internal helper method
+   *
+   * @param string $template Template name to use as base
+   * @return string
+   */
+  protected function _templateFile($template) {
+    $representation = $this->representation($template);
+
+    if($representation) {
+      return $this->kirby->registry->get('template', $template . '.' . $representation);
     } else {
-      return $this->kirby->registry->get('template', 'default');
+      if($template = $this->kirby->registry->get('template', $template)) {
+        return $template;
+      } else if($template !== 'default' && $template !== null) {
+        // try to get a representation of the default template
+        return $this->_templateFile('default');
+      } else {
+        return $this->kirby->registry->get('template', 'default');
+      }
     }
   }
 
@@ -1086,6 +1153,11 @@ abstract class PageAbstract {
 
     } else if($this->isErrorPage()) {
       header::notfound();
+    }
+
+    // send the header of the representation
+    if($representation = $this->representation()) {
+      if($mime = f::extensionToMime($representation)) header::type($mime);
     }
 
   }
@@ -1191,7 +1263,12 @@ abstract class PageAbstract {
    */
   public function update($input = array()) {
 
-    $data = a::update($this->content()->toArray(), $input);
+    // normalize keys to make sure that fields are updated correctly
+    $normalizer = data::$adapters['kd']['_normalizeKeys'];
+    $current    = $normalizer($this->content()->toArray());
+    $input      = $normalizer($input);
+
+    $data = a::update($current, $input);
 
     if(!data::write($this->textfile(), $data, 'kd')) {
       throw new Exception('The page could not be updated');
@@ -1206,7 +1283,7 @@ abstract class PageAbstract {
 
   /**
    * Increment a field value by one or a given value
-   * 
+   *
    * @param string $field
    * @param int $by
    * @param int $max
@@ -1224,7 +1301,7 @@ abstract class PageAbstract {
 
   /**
    * Decrement a field value by one or a given value
-   * 
+   *
    * @param string $field
    * @param int $by
    * @param int $min
@@ -1284,7 +1361,7 @@ abstract class PageAbstract {
 
   /**
    * Return the prepended number for the page
-   * or changes it to the number passed as parameter 
+   * or changes it to the number passed as parameter
    */
   public function sort($num = null) {
 
@@ -1367,35 +1444,43 @@ abstract class PageAbstract {
   }
 
   /**
-   * Converts the entire page object into 
+   * Converts the entire page object into
    * a plain PHP array
-   * 
+   *
    * @param closure $callback Filter callback
    * @return array
    */
   public function toArray($callback = null) {
 
-    $data = array(
-      'id'               => $this->id(),
+    $data = [
       'title'            => $this->title()->toString(),
+      'id'               => $this->id(),
+      'uid'              => $this->uid(),
+      'slug'             => $this->slug(),
       'parent'           => $this->parent()->uri(),
-      'dirname'          => $this->dirname(),
-      'diruri'           => $this->diruri(),
+      'uri'              => $this->uri(),
       'url'              => $this->url(),
       'contentUrl'       => $this->contentUrl(),
       'tinyUrl'          => $this->tinyUrl(),
-      'depth'            => $this->depth(),
-      'uri'              => $this->uri(),
       'root'             => $this->root(),
-      'uid'              => $this->uid(),
-      'slug'             => $this->slug(),
+      'dirname'          => $this->dirname(),
+      'diruri'           => $this->diruri(),
+      'depth'            => $this->depth(),
       'num'              => $this->num(),
       'hash'             => $this->hash(),
-      'modified'         => $this->modified(),
+      'modified'         => $this->modified('c'),
       'template'         => $this->template(),
       'intendedTemplate' => $this->intendedTemplate(),
+      'isVisible'        => $this->isVisible(),
+      'isOpen'           => $this->isOpen(),
+      'isActive'         => $this->isActive(),
+      'isHomePage'       => $this->isHomePage(),
+      'isErrorPage'      => $this->isErrorPage(),
+      'isCachable'       => $this->isCachable(),
+      'isWritable'       => $this->isWritable(),
       'content'          => $this->content()->toArray(),
-    );
+      'headers'          => $this->headers(),
+    ];
 
     if(is_null($callback)) {
       return $data;
@@ -1413,8 +1498,15 @@ abstract class PageAbstract {
    */
   public function controller($arguments = array()) {
 
-    $controller = $this->kirby->registry->get('controller', $this->template());
-      
+    // first try to get a controller for the representation
+    $controller = null;
+    if($representation = $this->representation()) {
+      $controller = $this->kirby->registry->get('controller', $this->template() . '.' . $representation);
+    }
+
+    // no representation or no special controller: try the normal one
+    if(!$controller) $controller = $this->kirby->registry->get('controller', $this->template());
+
     if(is_a($controller, 'Closure')) {
       return (array)call_user_func_array($controller, array(
         $this->site,
@@ -1429,9 +1521,9 @@ abstract class PageAbstract {
   }
 
   /**
-   * Converts the entire page array into 
+   * Converts the entire page array into
    * a json string
-   * 
+   *
    * @param closure $callback Filter callback
    * @return string
    */
@@ -1446,6 +1538,27 @@ abstract class PageAbstract {
    */
   public function __toString() {
     return (string)$this->id();
+  }
+
+  /**
+   * Improved var_dump() output
+   *
+   * @return array
+   */
+  public function __debuginfo() {
+
+    $data = $this->toArray();
+
+    return array_merge($data, [
+      'content'    => $this->content(),
+      'children'   => $this->children(),
+      'siblings'   => $this->siblings(false),
+      'files'      => $this->files(),
+    ]);
+  }
+
+  public function __clone() {
+    if(isset($this->cache['content'])) $this->cache['content'] = clone $this->cache['content'];
   }
 
 }

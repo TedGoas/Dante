@@ -1,0 +1,110 @@
+//  ----------------------------------------------------------------------------
+//  BORDER RADIUS
+//  ----------------------------------------------------------------------------
+
+@br-none:	0;
+@br-sm: 	2px;
+@br-md: 	5px;
+@br-lg: 	8px;
+@br-rd: 	50%;
+
+.bar-none	{ border-radius: @br-none; }
+.bar-sm		{ border-radius: @br-sm; }
+.bar-md		{ border-radius: @br-md; }
+.bar-lg		{ border-radius: @br-lg; }
+
+//  ----------------------------------------------------------------------------
+//  BORDER DIRECTION
+//  ----------------------------------------------------------------------------
+//  All Sides
+.baw0           { border-width: 0; }
+.baw1           { border-width: 1px; }
+.baw2           { border-width: 2px; }
+
+//  Top Border
+.btw0           { border-top-width: 0; }
+.btw1           { border-top-width: 1px / 2; }
+.btw2           { border-top-width: 2px; }
+
+//  Right Border
+.brw0           { border-right-width: 0; }
+.brw1           { border-right-width: 1px; }
+.brw2           { border-right-width: 2px; }
+
+//  Bottom Border
+.bbw0           { border-bottom-width: 0; }
+.bbw1           { border-bottom-width: 1px; }
+.bbw2           { border-bottom-width: 2px; }
+
+//  Left Border
+.blw0           { border-left-width: 0; }
+.blw1           { border-left-width: 1px; }
+.blw2           { border-left-width: 2px; }
+
+//  Y-Axis Border
+.byw0           { .btw0; .bbw0; }
+.byw1           { .btw1; .bbw1; }
+.byw2           { .btw2; .bbw2; }
+
+//  X-Axis Border
+.bxw0           { .brw0; .blw0; }
+.bxw1           { .brw1; .blw1; }
+.bxw2           { .brw2; .blw2; }
+
+
+//  ============================================================================
+//  STYLE
+//  ============================================================================
+//  All sides
+.bas-none      	{ border-style: none; }
+.bas-solid      { border-style: solid; }
+.bas-dashed     { border-style: dashed; }
+.bas-dotted     { border-style: dotted; }
+
+//  Top Border
+.bts-none       { border-top-style: none; }
+.bts-solid      { border-top-style: solid; }
+.bts-dashed     { border-top-style: dashed; }
+.bts-dotted     { border-top-style: dotted; }
+
+//  Right Border
+.brs-none       { border-right-style: none; }
+.brs-solid      { border-right-style: solid; }
+.brs-dashed     { border-right-style: dashed; }
+.brs-dotted     { border-right-style: dotted; }
+
+//  Bottom Border
+.bbs-none       { border-bottom-style: none; }
+.bbs-solid      { border-bottom-style: solid; }
+.bbs-dashed     { border-bottom-style: dashed; }
+.bbs-dotted     { border-bottom-style: dotted; }
+
+//  Left Border
+.bls-none       { border-left-style: none; }
+.bls-solid      { border-left-style: solid; }
+.bls-dashed     { border-left-style: dashed; }
+.bls-dotted     { border-left-style: dotted; }
+
+//  ============================================================================
+//  COLOR
+//  ============================================================================
+//  Gray
+.bc-gray-0		{ border-color: @gray-0; }
+.bc-gray-1		{ border-color: @gray-1; }
+.bc-gray-2		{ border-color: @gray-2; }
+.bc-gray-3		{ border-color: @gray-3; }
+.bc-gray-4		{ border-color: @gray-4; }
+.bc-gray-5		{ border-color: @gray-5; }
+.bc-gray-6		{ border-color: @gray-6; }
+.bc-gray-7		{ border-color: @gray-7; }
+.bc-gray-8		{ border-color: @gray-8; }
+.bc-gray-9		{ border-color: @gray-9; }
+
+//  ============================================================================
+//  SVG DASHED BORDER
+//  ============================================================================
+.bls-dashed-svg 	{ background: url("../images/line-y.svg") top left repeat-y; }
+.brs-dashed-svg 	{ background: url("../images/line-y.svg") top right repeat-y; }
+.bts-dashed-svg 	{ background: url("../images/line-x.svg") top left repeat-x; }
+.bbs-dashed-svg 	{ background: url("../images/line-x.svg") bottom left repeat-x; }
+

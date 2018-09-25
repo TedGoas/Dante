@@ -2,9 +2,9 @@ Title: Notes from My JerseyScript Talk on Responsive Email
 ----
 Date: May 13, 2014
 ----
-Description: Notes on my talk about responsive email workflow and front-end tools, from jerseyscript on May 13th 2014.
+Description: Notes on my talk about responsive email from jerseyscript.
 ----
-Article-Hero-Classes: article-hero-centered
+Article-Hero-Classes: mt5 mb4
 ----
 Text:
 These are my notes from my talk about responsive email workflow and front-end tools, from [jerseyscript on May 13th 2014](http://www.meetup.com/jerseyscript/events/180035472/).
@@ -13,7 +13,7 @@ These are my notes from my talk about responsive email workflow and front-end to
 
 I work at Canfield in New Jersey, where I'm a designer and front-end generalist. I spend most of my time building medical apps and sites. But I also handle my company's email design and development, where we’ve been doing responsive emails for about a year.
 
-So, HTML email; often viewed as a thankless job of handwriting an endless list of nested tables styled with inline CSS and the occasional deprecated HTML tag. Not a very attractive topic. So why do I spend time with HTML email? 
+So, HTML email; often viewed as a thankless job of handwriting an endless list of nested tables styled with inline CSS and the occasional deprecated HTML tag. Not a very attractive topic. So why do I spend time with HTML email?
 
 Emails have been a part of every job I’ve had since about 2007. I usually work on small teams where folks wear multiple hats, and emails have been always something that needed to be done. I started with “I’ll take a crack at email” and progressed to “I have experience with email” and eventually go to “I’m pretty good at email”.
 
@@ -23,7 +23,7 @@ Until recently, email involved writing archaic, messy markup. But in the last ye
 
 So, we all know what responsive is, right? On column on mobile... and three on wide. Responsive email is not really any different.
 
-<figure class="figure figure-center">
+<figure>
 	<img src="/content/blog/12-jerseyscript/responsive.png" alt="responsive email" width="600" height="400" class="fluid">
 	<figcaption class="caption">responsive, pretty much</figcaption>
 </figure>
@@ -43,7 +43,7 @@ These few lines of CSS are the workhorse of my responsive emails. At a certain b
 I could talk about [responsive email patterns](http://responsiveemailpatterns.com/) and [CSS gotchas](http://www.campaignmonitor.com/css/) all night, but it’s not the code I want to talk about. When I started writing responsive emails, I noticed a few things starting to happen.
 
 ##The Fold is Back
-<figure class="figure figure-center">
+<figure>
 	<img src="/content/blog/12-jerseyscript/fold.png" alt="the fold" width="740" height="300" class="fluid">
 	<figcaption class="caption">I know this looks bad, but there actually is a fairly well-defined fold on mobile.</figcaption>
 </figure>
@@ -52,10 +52,11 @@ So the web version of “the fold” is has largely been debunked, right? #hotdr
 
 And this constraint was actually a blessing in disguise...
 
-<figure class="figure figure-right-outset">
+<figure>
 	<img src="/content/blog/12-jerseyscript/audit.png" alt="email content audit" width="320" height="600" class="fluid">
 	<figcaption>my company</figcaption>
 </figure>
+
 ##Small Screens Force a Content Audit
 
 At my job, I used to get creative briefs containing long passages of text and a kitchen sink of products. I’d say “We can build this, I just don’t know how it’s going to look like when we’re done.”
@@ -71,7 +72,7 @@ The beginnings of responsive email happened during a golden era in terms of fron
 
 Folks have incorporated things like [HAML](https://github.com/Omgitsonlyalex/ZenithFramework), [CSS preprocessors](http://rodriguezcommaj.com/blog/The-Sass-Switch), and [Grunt](https://medium.com/p/32d607879082) into their workflow. [CSS inliners](http://inliner.cm/) allow us to write CSS like we do on the web. Others [automate monotonous email checks](http://premailer.dialect.ca/) like appending tracking parameters to every link. Litmus is working on an editor made for emails, with things like live-reload and device previews baked right in.
 
-<figure class="figure figure-center-outset">
+<figure class="outset">
 	<img src="/content/blog/12-jerseyscript/logos.png" alt="grunt, sass, HAML, middleman" width="1050" height="200" class="fluid">
 	<figcaption>recent entrants in email workflow</figcaption>
 </figure>

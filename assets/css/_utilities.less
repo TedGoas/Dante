@@ -1,76 +1,72 @@
-/* Clearfix Mixin */
-.clearfix {
-	*zoom: 1;
-  &:before,
-  &:after {
-    content: "";
-    display: table;
-  }
-  &:after {
-    clear: both;
-  }
-}
-.clearfix {
-	.clearfix;
-}
-img,
-video {
-	max-width: 100%;
+//  ----------------------------------------------------------------------------
+//  IMAGES
+//  ----------------------------------------------------------------------------
+img {
 	height: auto;
-}
-// You Tube Videos
-.video-wrapper {
-	position: relative;
-	padding-bottom: 56.25%;
-	padding-top: 25px;
-	height: 0;
-		
-	 iframe {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-	}
-}
-.flush-bottom {
-	line-height: 0;
+	max-width: 100%;
 }
 
-.hr {
+//  ----------------------------------------------------------------------------
+//  HORIZONTAL RULES
+//  ----------------------------------------------------------------------------
+
+//  Reset
+hr {
+	padding: 0;
+	margin: 0;
+	outline: 0;
+	background: none;
+	border: 0;
+	width: 100%;
 	display: block;
-	padding: @gutter-medium 0;
-	text-align: center;
-	hr {
-		margin: auto;
-		height: 2px;
-		background: @gray-faint;
-		width: 125px;
-	}
-	&.loud {
-		hr {
-			margin: auto;
-			.gradient-ltr(@blue,@green);
-		}
-	}
-}
-p + .hr {
-	padding-top: @gutter-small;
 }
 
-br.display-on-mobile {
-	display: none;
-	line-height: 0;
-} 
-br.hide-on-mobile {
-	display: block;
-	line-height: 0;
+//  Small
+.hr-sm {
+	max-width: 190px;
+	height: 6px;
+	.my6;
+	background: url("../images/hr.svg") top left repeat-x;
 }
-@media screen and (max-width: @breakpoint-small) {
-	br.display-on-mobile {
+
+//  ----------------------------------------------------------------------------
+//  BOX SHADOW
+//  ----------------------------------------------------------------------------
+.bs-none	{ box-shadow: none; }
+.bs-sm		{ box-shadow: 0 @su1 @su3 fade(@gray-7, 10%); }
+.bs-md		{ box-shadow: 0 @su2 @su4 fade(@gray-7, 20%); }
+.bs-lg		{ box-shadow: 0 @su3 @su5 fade(@gray-8, 20%); }
+.bs-i-sm	{ box-shadow: inset 0 @su1/2 @su3 0 fade(@gray-2, 30%); }
+.bs-i-md	{ box-shadow: inset 0 @su1/2 @su4 0 fade(@gray-3, 35%); }
+.bs-i-lg	{ box-shadow: inset 0 @su1/2 @su5 0 fade(@gray-3, 50%); }
+
+//  ----------------------------------------------------------------------------
+//  HIGHLIGHT
+//  ----------------------------------------------------------------------------
+.highlighted,
+.highlighted-alt {
+	.p-relative;
+	z-index: 1;
+	.px2;
+	white-space: nowrap;
+
+	&:after {
+		content: "";
 		display: block;
-	} 
-	br.hide-on-mobile {
-		display: none;
+		position: absolute;
+		z-index: -1;
+		top: -5px;
+		right: -7px;
+		bottom: -5px;
+		left: -7px;
+		background-position: center center;
+		background-size: 100% auto;
+		background-repeat: no-repeat;
 	}
+}
+.highlighted:after {
+	background-image: url("/assets/images/highlight-yellow-lg.svg");
+}
+.highlighted-alt:after {
+	background-image: url("/assets/images/highlight-alt-lg.svg");
 }

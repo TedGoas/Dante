@@ -2,9 +2,9 @@ Title: On Joining Stack Overflow as a Designer
 ----
 Date: August 2, 2016
 ----
-Description: What it was like joining the Stack Overflow design team and adapting to the culture.
+Description: Adapting to the Stack Overflow culture.
 ----
-Article-Hero-Classes: article-hero
+Article-Hero-Classes: mb3
 ----
 Text:
 
@@ -12,7 +12,7 @@ I joined [Stack Overflow](http://stackoverflow.com/) about two months ago as a p
 
 ## About Me
 
-Since 2001, I’ve worked in-house for various companies. For 15 years, I worked next to my co-workers and was able to tap someone on the shoulder whenever I wanted. I found this especially useful during those first few days at a new job, when I didn’t know many other people, how things work, or where to find answers to simple questions. I’d latch on to the few people I knew so they’d introduce me around, show me where things are, and help me set up a few things. 
+Since 2001, I’ve worked in-house for various companies. For 15 years, I worked next to my co-workers and was able to tap someone on the shoulder whenever I wanted. I found this especially useful during those first few days at a new job, when I didn’t know many other people, how things work, or where to find answers to simple questions. I’d latch on to the few people I knew so they’d introduce me around, show me where things are, and help me set up a few things.
 
 * Learn about a project I’m taking on? Knock on my boss’s door.
 * Configure my local dev environment so it hits the database? Ask a developer to tap a few keys on my keyboard.
@@ -29,9 +29,9 @@ Stack Overflow’s design team is 100% remote, so just about everything I knew a
 
 When it comes to how things work, almost everything is self service. Stack Overflow has a pretty thorough internal Wiki that contains info on policies, procedures, and benefits... but I didn't have a plan to tackle it. So my process was pretty scattered and reactive.
 
-* “I need to set enroll in a health plan… let’s search for that.”
-* “Ok health plan is done… someone mentioned Trello, I should get access to that.”
-* “Alright, I’m in Trello… hmm at some point I’ll get paid, how does that work?”
+1. “I need to set enroll in a health plan… let’s search for that.”
+2. “Ok health plan is done… someone mentioned Trello, I should get access to that.”
+3. “Alright, I’m in Trello… hmm at some point I’ll get paid, how does that work?”
 
 That was my first few days. I eventually addressed everything, but it took more time than my previous jobs when I had someone walk me through these tasks. Setting up my health benefits and 401k were particularly tough since I don’t understand these subjects very well.
 
@@ -39,10 +39,10 @@ Once all the onboarding stuff was done, though, the self-serve part became quite
 
 Stack Overflow is very generous in helping remote employees furnish a home office. They sent a few lists of common setups (desks, chairs, computers, etc.), but ultimately gave me freedom to choose whatever I wanted within reason. I started conservatively...
 
-<div class="figure figure-center-outset">
+<figure>
 	<img src="/content/blog/22-stack-overflow-design/desk.jpg" alt="My Desk" height="500" width="900">
 	<figcaption>A maxed-out MacBook Pro, two Thunderbolt displays, an adjustable desk, a Herman Miller chair... not exactly roughing it.</figcaption>
-</div>
+</figure>
 
 Same goes for software. A few common things were readily available (Adobe CC, Balsamiq) and others were only an email away (Sketch, Sublime). Setting up local environment wasn’t easy, but is it ever? Stack’s… um, stack is mostly Microsoft-based with lots of user privileges, feature flags, and (depending on what you’re working on) multiple codebases. Considering how big it is, the setup instructions were very well documented and the engineers were helpful with the little things that came up during the process.
 
@@ -58,9 +58,9 @@ In my previous jobs, for better or worse, there were usually a few layers of man
 
 Compared to that, joining Stack Overflow was like…
 
-<div class="figure">
+<figure>
 	<img src="/content/blog/22-stack-overflow-design/hose.jpg" alt="My Desk" height="282" width="425">
-</div>
+</figure>
 
 Stack Overflow defaults to open and transparent regarding information. We use Stack Overflow (of course!), Google Docs, Google Drive, Google Hangouts, Trello, Invision, GitLab, and multiple chat tools. And I was handed the keys to everything when I started.
 
@@ -92,18 +92,18 @@ I’m passing my two month anniversary as I post this. The first four weeks were
 * I went to the DMV without having to take time off.
 * I’m finally using flexbox in production.
 * My phone battery lasts almost four days.
-* I was home to see my daughter crawl for the first time. 
+* I was home to see my daughter crawl for the first time.
 
 I've really enjoyed my time at Stack Overflow so far, I can't say enough good things about working here. Hopefully this gives you a feel of what it was like joining Stack Overflow and help those of you starting off somewhere new as a designer.
 
 <em>Thanks to [Jon Chan](https://twitter.com/jonhmchan), whose [blog post](http://www.jonhmchan.com/blog/2014/1/16/my-first-six-weeks-working-at-stack-overflow) motivated me to write this.</em>
 
-<div class="hr"><hr></div>
+<hr role="presentation" aria-role="hidden" class="hr-sm">
 
 If you’re interested in how I applied for a job at Stack Overflow, I briefly [wrote about it on dribbble](https://dribbble.com/shots/2873870-HTML-Email-Cover-Letter).
 
-<div class="figure figure-center">
+<figure>
 	<a href="https://dribbble.com/shots/2873870-HTML-Email-Cover-Letter">
 		<img src="/content/blog/22-stack-overflow-design/dribbble.gif" alt="HTML Email Cover Letter" height="300" width="400">
 	</a>
-</div>
+</figure>

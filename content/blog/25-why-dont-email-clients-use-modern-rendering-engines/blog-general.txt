@@ -2,9 +2,9 @@ Title: Why don't email clients use modern rendering engines?
 ----
 Date: February 10, 2017
 ----
-Description: Email clients use rendering engines appropriate for displaying emails. This is not always in step with displaying web pages.
+Description: Email clients use rendering engines appropriate for displaying emails.
 ----
-Article-Hero-Classes: article-hero-flush
+Article-Hero-Classes: mb3
 ----
 Text:
 ---
@@ -14,7 +14,7 @@ I came across [this question on Stack Overflow](http://stackoverflow.com/questio
 
 I answered the question on Stack Overflow, but would like to build upon it here. Feel free to vote or comment [on the original post](http://stackoverflow.com/questions/41432973/why-dont-email-clients-use-modern-rendering-engines/41447893#41447893) (more people will find it that way).
 
-<div class="hr"><hr></div>
+<hr role="presentation" aria-role="hidden" class="hr-sm">
 
 **Why don't email clients use modern rendering engines?**
 
@@ -24,10 +24,10 @@ Only a small percent of email users care about HTML/CSS support. Think email mar
 
 Even advanced users don’t often cite good HTML/CSS support as a top concern. Recent innovations give us a little insight as to what folks are frustrated with regarding email clients: help managing incoming messages, more security, less spam, productivity tools, and overall ease of use.
 
-<div class="figure figure-center-outset">
+<figure class="outset">
 	<img src="/content/blog/25-why-dont-email-clients-use-modern-rendering-engines/gmail-inbox.png" alt="Gmail Inbox Features" height="684" width="1000">
 	<figcaption>Good HTML/CSS support: not something your average user cares about.</figcaption>
-</div>
+</figure>
 
 No one cares if it takes developers a long time to use <tables>, deprecated HTML attributes, and inline CSS to create an email. When it comes to changing how emails are rendered… “If it’s not broke, why fix it?” When email clients actually do update rendering, it’s rarely news outside of the tech community. No one cares.
 
@@ -39,15 +39,15 @@ Fun fact: Outlook 2000-2003 rendered email using whatever version of Internet Ex
 
 Overall email clients do their job well. Since HTML/CSS support matters to so few people, changing it is likely not often a priority for product teams that make email clients. Sad trombone.
 
-<div class="hr"><hr></div>
+<hr role="presentation" aria-role="hidden" class="hr-sm">
 
 **However, things are trending in the right direction.** Gmail and Yahoo! app began supporting media queries in most of their products. Outlook for iOS got a huge facelift including good markup support. New email clients that crop up (Mailbox, Nylus. Polymail) generally have good HTML/CSS support compared to web browsers. The majority of clients based on market share use “modern rendering engines,” and CSS support rarely takes a step backwards.
 
-<div class="figure figure-center">
+<figure>
 	<img src="/content/blog/25-why-dont-email-clients-use-modern-rendering-engines/email-client-stats.jpg" alt="Email client status according to Litmus" height="554" width="800">
-</div>
+</figure>
 
-<div class="hr"><hr></div>
+<hr role="presentation" aria-role="hidden" class="hr-sm">
 
 If folks creating email find it time-consuming to work around certain email clients, they can always reference their own email analytics and decide what to focus on. Don’t have many Outlook subscribers? Then code an email using `<div>`s. Don’t need to support every mobile client? Then use media-queries for responsive email.
 

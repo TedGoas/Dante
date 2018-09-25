@@ -4,7 +4,7 @@ Date: January 20, 2016
 ----
 Description: Keep doing what you’re doing.
 ----
-Article-Hero-Classes: article-hero-centered
+Article-Hero-Classes: mt5 mb4
 ----
 Text:
 
@@ -24,7 +24,7 @@ It doesn’t matter if your Facebook redesign is impractical. I don’t care if 
 
 And of course, there’s the part about developing your own skills. That’s super important too. “Just! Build! Websites!” as ShopTalk would say. Here’s a tweet storm that sums up my feelings on that.
 
-<figure class="figure figure-center">
+<figure>
 	<img src="/content/blog/20-an-open-letter-to-designers-of-unsolicited-redesigns-and-unbuildable-apps/notdetails.png" alt="Joel Califa" width="626" height="1301">
 	<figcaption><a href="https://twitter.com/notdetails/status/685504021549969408">https://twitter.com/notdetails/status/685504021549969408</a></figcaption>
 </figure>

@@ -1,57 +1,58 @@
-.home {
-	background: #000;
-}	
-.big-ted {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 200px;
-	background: #000 url("/assets/images/ted.jpg") top center no-repeat;
-	background-size: cover;
+.social {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-gap: @su3;
 }
-.home-intro {
-	text-align: left;
-	position: relative;
-	z-index: 1;
-	color: #fff;
-	width: 70%;
-	max-width: 750px;
-	padding: @gutter-medium 0 0 @gutter-medium;
-}
-.home-intro--title {
-	margin-bottom: @gutter-small;
-	font-size: @fs-huge;
-	color: #fff;
-}
-.home-intro-p {
-	width: 60%;
-}
-@media screen and (max-width: @breakpoint-medium) {
-	.home-intro-p {
-		width: 100%;
+
+.social-item {
+
+	.social-link {
+		.flex;
+		.td-none;
 	}
-}
-@media screen and (max-width: @breakpoint-small) {
-	.big-ted {
-		top: 50px;
-		left: 0;
-		position: fixed;
-		&:after {
-			content: "";
-			display: block;
-			position: fixed;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			background: rgba(0,0,0,.5);
-		}
-	}
-	.home-intro {
+	.social-svg {
 		position: relative;
-		z-index: 1;
-		padding: @gutter-small;
-		width: 100%;
+		top: 2px;
+	}
+	.social-name {
+		.fs-caption;
+		.lh-md;
+		.a-color;
+		.ml2;
+		.fw-bold;
+	}
+	.social-behavior {
+		.fc-light;
+		.m0;
+		.fs-fine;
+		.lh-sm;
+		.mt2;
+		.d-block;
+	}
+}
+
+
+@media screen and (max-width: @breakpoint-small) {
+	.homepage {
+
+		.py3;
+		.mx3;
+		.fd-column;
+		.grid--cell12;
+
+		> div {
+			.py4;
+			.px0;
+		}
+
+		.bls-dashed-svg,
+		.brs-dashed-svg {
+			background: none !important;
+		}
+
+	}
+	.social {
+		display: block;
+		.px0;
 	}
 }

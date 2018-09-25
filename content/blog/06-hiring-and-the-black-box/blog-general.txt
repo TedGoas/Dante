@@ -2,9 +2,9 @@ Title: Hiring and the Black Box
 ----
 Date: March 14, 2013
 ----
-Description: When hiring web designers and developers, there are diamonds in the rough out there.
+Description: There are some diamonds in the rough out there.
 ----
-Article-Hero-Classes: article-hero-centered-small
+Article-Hero-Classes: mt5 mb3
 ----
 Text:
 I often read how some organizations care more about someone's online presence and open source contributions than their resume or college degree. The idea is based on the concept of talking the talk versus walking the walk. I like the idea, but online presence alone can’t drive the hiring process for my company.
@@ -12,7 +12,7 @@ I often read how some organizations care more about someone's online presence an
 ## Small Ponds
 We’ve been interviewing developers and engineers at my day job. We’re located in suburban New Jersey. Not exactly a technology hub. Not even a city. And mostly because of <abbr title="U.S. Food and Drug Administration">FDA</abbr> regulations, we require our employees to work on-site. So unfortunately we can’t hire the best person we find regardless of geographic location. We have to pick from folks within a commutable radius.
 
-Despite the progressive nature of my company’s work, our hiring process is fairly traditional. When we have an opening in my group, we solicit resumes. Based on the collection of Word documents we receive, we call in a few candidates. 
+Despite the progressive nature of my company’s work, our hiring process is fairly traditional. When we have an opening in my group, we solicit resumes. Based on the collection of Word documents we receive, we call in a few candidates.
 
 When we interview for a technical position, my team follows a loose script. The candidate’s technical chops are tested by our developers. There’s a code review and usually a role play towards the end.
 
