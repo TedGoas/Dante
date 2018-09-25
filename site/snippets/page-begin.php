@@ -67,7 +67,7 @@
 				<div class="flex-cell p-relative" style="top: 13px;">
 					<a href="/"><?php snippet('tg-sig-logo') ?></a>
 				</div>
-				<p class="flex-cell mb0 role">Senior Product Designer working remotely at Stack Overflow</p>
+				<p class="flex-cell mb0 role">Senior Product Designer working remotely at Stack&nbsp;Overflow</p>
 			</div>
 			<div role="navigation" class="navigation flex ff-row-wrap">
 				<a href="/" title="Home" class="td-none d-block p2 -home">Home</a>
