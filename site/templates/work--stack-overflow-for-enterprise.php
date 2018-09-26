@@ -28,7 +28,7 @@
 	<h2>Community Management</h2>
 	<p>The biggest difference between Stack Overflow and its Enterprise counterpart is that Enterprise instances are managed by a single organization (as opposed to Stack Overflow being managed by the collective public). Stack Overflow for Enterprise can be used any number of ways (including discussing proprietary information), so we designed a suite of tools that allow organizations to manage their own instance however they see fit. Who can log in, who can see what, who can perform certain actions, that sorta thing.</p>
 	<figure class="my7">
-		<img src="/assets/images/work/stack-overflow-enterprise/manage users.svg" alt="alt_text" height="495" width="1000" class="bordered">
+		<img src="/assets/images/work/stack-overflow-enterprise/manage users.svg" alt="A data table of users that can be searched, sorted, and filtered." height="495" width="1000" class="bordered">
 		<figcaption class="stuff">One of several ways an admin can manage her team's access and privileges.</figcaption>
 	</figure>
 	<p>My team regularly speaks with our Enterprise clients about their workflows. Sometimes we ask open-ended questions, while other times we watch them react to a prototype. I also work with our community management team, who work directly with clients and know what makes a Stack Overflow community succeed (and fail). We balance all this research and use it to inform our project requirements and design directions.</p>

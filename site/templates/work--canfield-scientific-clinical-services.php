@@ -4,7 +4,7 @@
 	<p>Canfield’s clinical web app helps pharmaceutical companies organize trials and track their progress. Existing workflows involved fax machines, snail mail, the phone, and email. Our goal was to bring everything online in a first class experience.</p>
 	<p>A bare-bones version of an app existed, so we started by reviewing analytics and interviewing users. This got us prototyping new workflows, which we’d review internally in design critiques that I’d organize and lead. I started with wireframes, moved into Photoshop, and later wrote HTML/CSS so we could design with real data. This helped us uncover and improve the design’s weaknesses and blind spots.</p>
 	<figure class="my7">
-		<img src="/assets/images/work/canfield-clinical-services/wireframe.jpg" width="1000" height="450" alt="alt_text" class="bordered">
+		<img src="/assets/images/work/canfield-clinical-services/wireframe.jpg" width="1000" height="450" alt="A few iterations of a study dashboard" class="bordered">
 		<figcaption class="stuff">The evolution of a clinical study subject dashboard</figcaption>
 	</figure>
 	<p>The app had just a handful of screens, but each one included numerous states and edge cases. Things like oversized photos, missing text fields, and long file names would often break layouts and force us to adapt. I worked with the engineers, project managers, and quality control team to monitor the app's usage, surface bugs, and verify fixes using a small device lab and virtual machines for browser testing.</p>

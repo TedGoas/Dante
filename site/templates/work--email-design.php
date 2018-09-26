@@ -13,21 +13,21 @@
 	</div>
 	<hr class="hr-sm">
 	<figure class="my7">
-		<img src="/assets/images/work/email-design/ambit.png" width="600" height="450" alt="alt_text">
+		<img src="/assets/images/work/email-design/ambit.png" width="600" height="450" alt="Two email templates designed to appear native to the device they’re opened on.">
 	</figure>
 	<h2>Ambit</h2>
 	<p>I worked with Ambit to translate a few designs of their email-designs into responsive templates that looked native to the device they’re opened on. This involved removing a lot of CSS resets and embracing how emails display differently on different devices.</p>
 	<p><a href="https://ambit.xyz/">Sign up for Ambit emails</a></p>
 	<hr class="hr-sm">
 	<figure class="my7">
-		<img src="/assets/images/work/email-design/market-invoice.png" width="600" height="450" alt="alt_text">
+		<img src="/assets/images/work/email-design/market-invoice.png" width="600" height="450" alt="A drip email and newsletter for Market Invoice">
 	</figure>
 	<h2>Market Invoice</h2>
 	<p>I worked with Market Invoice’s marketing team to code a series of responsive emails with special care to Outlook products (including Windows, iOS, and Android).</p>
 	<p><a href="https://www.marketinvoice.com/">Sign up for Market Invoice emails</a></p>
 	<hr class="hr-sm">
 	<figure class="my7">
-		<img src="/assets/images/work/email-design/home-exchange.png" width="600" height="450" alt="alt_text">
+		<img src="/assets/images/work/email-design/home-exchange.png" width="600" height="450" alt="A newsletter and transactional email for Home Exchange">
 	</figure>
 	<h2>Home Exchange</h2>
 	<p>I worked with Home Exchange to design, code, and test a series of transactional and engagement templates.</p>
@@ -41,7 +41,7 @@
 	<p><a href="https://seatgeek.com/">Sign up for SeatGeek emails</a></p>
 	<hr class="hr-sm">
 	<figure class="my7">
-		<img src="/assets/images/work/email-design/test-lodge.png" width="600" height="450" alt="alt_text">
+		<img src="/assets/images/work/email-design/test-lodge.png" width="600" height="450" alt="A minimal newsletter design">
 	</figure>
 	<h2>Test Lodge</h2>
 	<p>I worked with Test Lodge’s owner to translate his email-design into a hybrid email template while keeping “the code as clean as possible.”</p>

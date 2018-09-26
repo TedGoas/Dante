@@ -6,7 +6,7 @@
 	<h1><?php echo $page->title()->html() ?></h1>
 	<p>Since 2016, I’ve been a Sr. Product Designer at Stack Overflow, where I help create better workflows for over 50 million developers. Most of my work is focused on Stack Overflow for Enterprise, Stack Overflow for Teams, design systems, and anything related to email design. Most of Stack Overflow’s product and engineering teams, including myself, work remotely.</p>
 	<figure class="my7">
-		<img src="/assets/images/work/stack-overflow/stack-general-salary.svg" width="1000" height="680" alt="salary calculator">
+		<img src="/assets/images/work/stack-overflow/stack-general-salary.svg" width="1000" height="680" alt="salary calculator of how Stack Overflow pays its employees">
 		<figcaption class="stuff"><a href="https://stackoverflow.com/company/salary/calculator">Stack Overflow Salary Calculator</figcaption>
 	</figure>
 	<h2>How We Work</h2>
@@ -50,7 +50,7 @@
 		<figcaption class="stuff">Notifying folks to ensure they see a question</figcaption>
 	</figure>
 	<figure class="my7">
-		<img src="/assets/images/work/stack-overflow/stack-teams-search.svg" width="1000" height="310" alt="Search">
+		<img src="/assets/images/work/stack-overflow/stack-teams-search.svg" width="1000" height="310" alt="Advanced search with autocomplete">
 		<figcaption class="stuff">Concept for unified search</figcaption>
 	</figure>
 	<blockquote>
