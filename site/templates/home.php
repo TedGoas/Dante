@@ -64,6 +64,7 @@
 		<div class="pl3 pr5 py5 brs-dashed-svg grid--cell4">
 			<h2 class="tiny">I <u>do</u> have a life, ya know</h2>
 			<p>I enjoy family time with my wife and kids, live music, snowboarding, hockey, soccer, Newcastle Ale, and Troy McClure&nbsp;quotes.</p>
+			<img src="/assets/images/family.jpg" alt="My Family, 2018" width="260" height="165">
 		</div>
 	</section>
 	<section class="homepage py6 px3 social">
