@@ -1,23 +1,12 @@
 /*
 	TEAM
 */
-Design, Markup, Code, Good Intentions: Ted Goas
+Design, Markup, Code, Words, Images: Ted Goas
 Site: http://www.tedgoas.com
 Twitter: @tedgoas
 Dribbble: http://www.dribbble.com/tedgoas
 Github: http://www.github.com/tedgoas
 Location: New Jersey, United States
-
-Editor and Proofreader: Sara Goas
-Site: http://www.saragoas.com
-Twitter: @saragoas
-Location: New Jersey, United States
-
-/*
-	RESOURCES
-*/
-Icon font by fontastic.me:
-http://www.fontastic.me
 
 /*
 	SITE + TECHNOLOGY
@@ -26,11 +15,11 @@ Content Management System:
 Kirby CMS: https://getkirby.com
 
 Built With:
-HTML (HTML5 Doctype), LESS/CSS, Media Queries, jQuery, Dublin, Microformats
+HTML (HTML5 Doctype), LESS/CSS, SVG, Media Queries, Dublin, Microformats
 More: http://builtwith.com/tedgoas.com
 
 Software:
-Photoshop, Illustrator, Coda, ImageOptim, web browsers, Github, FTPloy, Wunderlist
+Sketch, Coda, ImageOptim, web browsers, Github, FTPloy, Wunderlist
 
 Language:
 English
