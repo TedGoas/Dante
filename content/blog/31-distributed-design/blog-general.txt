@@ -28,7 +28,9 @@ While teams should communicate and collaborate often, people tend to work better
     <figcaption><a href="https://m.signalvnoise.com/we-only-hire-the-best-c711c330fc2e">source</a></figcaption>
 </figure>
 
-Remote working doesn’t just benefit employees. It allows companies to hire from a larger and more diverse talent pool instead of only those residing within an hour of the office. How many times have you heard a company say they hire “only the best?” All the best people do not live in one city or want to relocate. Sorry San Francisco.
+Remote working doesn’t just benefit employees. It allows companies to hire from a larger and more diverse talent pool instead of only those residing within an hour of the office. How many times have you heard a company say they hire “only the best?” All the best people do not live in one city or want to relocate.
+
+Sorry, San Francisco.
 
 <figure class="outset">
     <img src="/content/blog/31-distributed-design/aa06.png" alt="Marco and Emma tweets" width="643" height="362" class="bordered">
@@ -43,7 +45,7 @@ Remote work also helps with employee retention. If an employee needs to be home 
 
 So remote working is great, right? <a href="https://www.remoteonly.org/">Everyone wins!</a> But I’m not here to talk about why remote working is great. I’m here to talk about how it actually happens at scale.
 
-Companies are increasingly embracing the idea of “remote” teams, but what does that mean? How is being remote different from a normal office environment? And how can design teams work well together remotely?
+<a href="https://github.com/yanirs/established-remote">Companies are increasingly embracing the idea of “remote” teams</a>, but what does that mean? How is being remote different from a normal office environment? And how can design teams work well together remotely?
 
 If your team is thinking of going remote, or is interested in improving its existing remote policies, I’d like to offer some tips from my experience working remotely at Stack Overflow and how our design team operates day to day.
 
