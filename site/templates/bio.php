@@ -35,7 +35,7 @@
 		<div class="bio-card">
 			<img src="/assets/images/bio/bio-th-css-zen-garden.jpg" alt="CSS Zen Garden" width="400" height="300">
 			<h2 class="-teal">2002</h2>
-			<p>I discovered <a href="http://www.csszengarden.com/001/" class="color">CSS Zen Garden</a> and taught myself advanced CSS. I started working more off hours and my job started to become a hobby.</p>
+			<p>I discovered <a href="http://www.csszengarden.com/001/" class="a-color">CSS Zen Garden</a> and taught myself advanced CSS. I started working more off hours and my job started to become a hobby.</p>
 		</div>
 
 		<div class="bio-card">
