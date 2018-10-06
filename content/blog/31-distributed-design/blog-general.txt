@@ -208,7 +208,7 @@ If everyone takes meetings using video chat, the playing field is equal.
 This extends to design critiques. Typically everyone hops on a video call, the presenter shares their screen, and we take notes in a Google doc. Sometimes we’ll use a tool like Invision to socialize designs and prototypes.
 
 <figure class="outset">
-    <img src="/content/blog/31-distributed-design/aa31.jpg" alt="Netlify branch previews" width="643" height="362" class="bordered">
+    <img src="/content/blog/31-distributed-design/aa31.png" alt="Netlify branch previews" width="643" height="362" class="bordered">
     <figcaption>Netlify branch previews</figcaption>
 </figure>
 
