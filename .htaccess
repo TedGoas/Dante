@@ -14,7 +14,7 @@ RewriteBase /
 RewriteRule ^(.*)\.(\d+)(_m_\d+)?\.([^\.]+)$	$1.$4	[L,QSA]
 Options +FollowSymLinks 
 RewriteCond %{HTTP_HOST} ^tedgoas.com [NC] 
-RewriteRule ^(.*)$ https://www.tedgoas.com/$1 [L,R=301]
+RewriteRule ^(.*)$ https://www.tedgoas.com/$1 [R=301,L]
 
 # Automatically redirect /index.html files to their URL directory with .htaccess
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*index\.html\ HTTP/
@@ -22,7 +22,7 @@ RewriteRule ^(.*)index\.html$ /$1 [R=301,L]
 
 # Automatically redirect /index.php files to their URL directory with .htaccess
 RewriteCond %{THE_REQUEST} (?:/[^/]*)*/index\.php[?#\ ]
-RewriteRule .* %{REQUEST_URI}/../ [L,R=301]
+RewriteRule .* %{REQUEST_URI}/../ [R=301,L]
 
 # Specific URLs:
 RewriteRule ^articles/(.*)$ https://www.tedgoas.com/blog/$1 [R=301,L]
