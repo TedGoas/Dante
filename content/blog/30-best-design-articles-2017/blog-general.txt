@@ -107,7 +107,7 @@ This ^^ has been my reality for the last several years, but that doesn’t mean 
 <hr role="presentation" aria-role="hidden" class="hr-sm">
 
 <figure class="outset">
-    <img src="/content/blog/30-best-design-articles-2017/growing-blue-apron.jpg" alt="" width="1000" height="400">
+    <img src="/content/blog/30-best-design-articles-2017/growing-blue-apron.jpg" alt="Blue Apron slide deck cover" width="1000" height="400">
 </figure>
 <h2><a href="https://bettereveryday.vc/what-i-learned-helping-blue-apron-grow-25x-in-3-5-years-d8b9816a98f9">What I Learned Helping Blue Apron Grow 25X in 3.5 Years</a></h2>
 > Decide where you sit on the “speed vs. polish spectrum.”
