@@ -30,3 +30,8 @@ body {
 img {
     image-rendering: -webkit-optimize-contrast;
 }
+
+/* Get rid of the annoying outline for mouse users but preserves it for keyboard users, and is ignored by browsers that don't support :focus-visible. */
+:focus:not(:focus-visible) {
+	outline: none;
+}
