@@ -7,7 +7,7 @@
 	<p>Since 2016, I’ve been a Sr. Product Designer at Stack Overflow, where I help create better workflows for over 50 million developers. Most of my work is focused on Stack Overflow for Enterprise, Stack Overflow for Teams, design systems, and anything related to email design. Most of Stack Overflow’s product and engineering teams, including myself, work remotely.</p>
 	<figure class="my7">
 		<img src="/assets/images/work/stack-overflow/stack-general-salary.svg" width="1000" height="680" alt="salary calculator of how Stack Overflow pays its employees">
-		<figcaption class="stuff"><a href="https://stackoverflow.com/company/salary/calculator">Stack Overflow Salary Calculator</figcaption>
+		<figcaption class="stuff"><a href="https://stackoverflow.com/company/salary/calculator">Stack Overflow Salary Calculator</a></figcaption>
 	</figure>
 	<h2>How We Work</h2>
 	<p>We follow a <a href="https://www.designcouncil.org.uk/news-opinion/design-process-what-double-diamond">double-diamond product development process</a>. From the early stages of each project, I work with product managers and engineers to create roadmaps, define scope, and write functional specs. From there, I lead design exploration and prototyping, playing a lead role in design critiques, demos, and user research sessions. We iterate until we narrow on a design direction. I help implement the designs in HTML / CSS (LESS) and work with the team to clarify any details or edge cases that come up along the way. The design and front-end are aided and informed by our design system.</p>
