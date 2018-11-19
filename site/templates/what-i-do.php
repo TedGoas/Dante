@@ -7,7 +7,7 @@
 			<p>For the past several years, I've become comfortable in a <strong>double diamond product development process</strong>. I enjoy working in all four stages.</p>
 		</div>
 		<figure class="my6">
-			<img src="/assets/images/process.svg" width="1000" height="470" alt="my product development process">
+			<img src="/assets/images/process.svg" width="1000" height="470" alt="My product development process, described below. Diagram.">
 		</figure>
 		<ol>
 			<li class="mb4"><strong>Discover:</strong> Understand the current condition by auditing existing designs, reviewing competitors, interviewing users, “How Might We” brainstorming sessions, and gathering insights.</li>
