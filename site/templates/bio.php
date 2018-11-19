@@ -25,7 +25,6 @@
 			<p>Early 90’s rock. NY Rangers win The Stanley Cup. Street Fighter II. The early 90’s were my favorite moment in pop culture.</p>
 		</div>
 
-
 		<div class="bio-card">
 			<img src="/assets/images/bio/bio-th-marist.jpg" alt="Marist College" width="400" height="300">
 			<h2 class="-violet">1997</h2>
