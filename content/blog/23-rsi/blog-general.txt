@@ -30,7 +30,7 @@ Around the same time, I encountered a coworker who had battled RSI (he was offic
 I’d be lying if I said I didn’t research this on the Internet, too. Yes, a lot of it is conjecture and anecdotal evidence, but a few commonalities emerged. Common stretches, better equipment, posture advice, stuff like that. I took it with a grain of salt.
 
 <figure>
-	<img src="/content/blog/23-rsi/keyboard.jpg" alt="ergonomic keyboard" height="368" width="600">
+	<img src="/content/blog/23-rsi/keyboard.jpg" alt="An ergonomic keyboard." height="368" width="600">
 </figure>
 
 ##I started small
@@ -38,7 +38,7 @@ I’d be lying if I said I didn’t research this on the Internet, too. Yes, a l
 I should have gone to see a specialist, but wanted to avoid copays and medication. Instead, I focused on the advice I’d gotten so far. Every night, I iced my wrist for 20–30min before sleeping in a brace. The following day, I would stretch several times with elastic bands. I was already going to the gym regularly, but I doubled down on things like pull-ups, arm hangs, and wrist stretches. I used the upright mouse (with a wrist cushion) and an ergonomic keyboard. I adjusted my chair as high as it would go (still too low, but better than before). I moved around the office instead of sitting at the same desk for hours. I took breaks when I noticed the pain creeping in.
 
 <figure>
-	<img src="/content/blog/23-rsi/vertical-mouse.jpg" alt="Evoluent upright mouse" width="300" height="300" class="fluid">
+	<img src="/content/blog/23-rsi/vertical-mouse.jpg" alt="The Evoluent upright mouse I use." width="300" height="300" class="fluid">
 	<figcaption>I own three of these now.</figcaption>
 </figure>
 

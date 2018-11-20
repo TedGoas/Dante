@@ -24,13 +24,13 @@ As a designer, my plan this year is to build up a strong foundation and create a
 In this regard, the development tracks did not disappoint. I came away thinking… well Dan Denney [put it well](https://speakerdeck.com/dandenney/the-organized-chaos-of-email-creation):
 
 <figure class="outset">
-	<img src="/content/blog/17-litmus-email-design-conference-2015/dan-denney.jpg" alt="Be violent and original in your emails" width="700" height="250" class="fluid">
+	<img src="/content/blog/17-litmus-email-design-conference-2015/dan-denney.jpg" alt="Be violent and original in your emails." width="700" height="250" class="fluid">
 </figure>
 
 [Rob Berinti](http://berinti.com/)'s [typography talk](https://drive.google.com/open?id=0B2uzG2bvD431aWsyTXRnVG94S3c) solves so many simple, yet frequently annoying email typography issues. [Dan Denney](https://twitter.com/dandenney), [Brian Graves](https://twitter.com/briangraves), [Lee Munroe](https://twitter.com/leemunroe), and [Aaron Ladage](https://twitter.com/aladage) all have me thinking about what parts of my workflow are outdated and no longer appropriate. The TEDCNTACC in my head is full.
 
 <figure class="outset">
-	<img src="/content/blog/17-litmus-email-design-conference-2015/mike-ragan.jpg" alt="Designing for Image Blocking" width="700" height="375" class="fluid">
+	<img src="/content/blog/17-litmus-email-design-conference-2015/mike-ragan.jpg" alt="Designing for Image Blocking." width="700" height="375" class="fluid">
 	<figcaption>Sketch notes from <a href="https://twitter.com/Mike_Ragan">Mike Ragan</a>'s talk on Images-Off Design</figcaption>
 </figure>
 
@@ -54,11 +54,11 @@ Big thank you to Litmus not only for putting this event together, but for lettin
 Big thank you to all of the attendees and speakers for making this a special event. I hope to keep in touch and see everyone next year!
 
 <figure>
-	<img src="/content/blog/17-litmus-email-design-conference-2015/after.jpg" alt="The TEDC15 OG's" width="590" height="450" class="fluid">
+	<img src="/content/blog/17-litmus-email-design-conference-2015/after.jpg" alt="The TEDC15 OG's." width="590" height="450" class="fluid">
 	<figcaption><a href="https://instagram.com/p/68ZIb3pSd-/">Image Credit</a></figcaption>
 </figure>
 
 ## Thank You Narragansett
 <figure>
-	<img src="/content/blog/17-litmus-email-design-conference-2015/narragansett.jpg" alt="Narragansett" width="300" height="400" class="fluid">
+	<img src="/content/blog/17-litmus-email-design-conference-2015/narragansett.jpg" alt="Can of Narragansett." width="300" height="400" class="fluid">
 </figure>

@@ -77,7 +77,7 @@ And remember: you don't have to be an email expert to have a positive impact.
 All you have to do is care.
 
 <figure class="outset">
-	<img src="/content/blog/15-email-design/i-am-ok-with-email.png" alt="I am ok with email" width="800" height="300">
+	<img src="/content/blog/15-email-design/i-am-ok-with-email.png" alt="I am ok with email." width="800" height="300">
 </figure>
 
 ---

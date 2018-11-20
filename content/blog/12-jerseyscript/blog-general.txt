@@ -24,7 +24,7 @@ Until recently, email involved writing archaic, messy markup. But in the last ye
 So, we all know what responsive is, right? On column on mobile... and three on wide. Responsive email is not really any different.
 
 <figure>
-	<img src="/content/blog/12-jerseyscript/responsive.png" alt="responsive email" width="600" height="400" class="fluid">
+	<img src="/content/blog/12-jerseyscript/responsive.png" alt="Abstract responsive email illustration." width="600" height="400">
 	<figcaption class="caption">responsive, pretty much</figcaption>
 </figure>
 
@@ -44,7 +44,7 @@ I could talk about [responsive email patterns](http://responsiveemailpatterns.co
 
 ##The Fold is Back
 <figure>
-	<img src="/content/blog/12-jerseyscript/fold.png" alt="the fold" width="740" height="300" class="fluid">
+	<img src="/content/blog/12-jerseyscript/fold.png" alt="Diagram of all the the mobile breakpoints." width="740" height="300">
 	<figcaption class="caption">I know this looks bad, but there actually is a fairly well-defined fold on mobile.</figcaption>
 </figure>
 
@@ -53,7 +53,7 @@ So the web version of “the fold” is has largely been debunked, right? #hotdr
 And this constraint was actually a blessing in disguise...
 
 <figure>
-	<img src="/content/blog/12-jerseyscript/audit.png" alt="email content audit" width="320" height="600" class="fluid">
+	<img src="/content/blog/12-jerseyscript/audit.png" alt="Cartoon of simple Apple and Google products vs. you company's overly complicated product." width="320" height="600">
 	<figcaption>my company</figcaption>
 </figure>
 
@@ -73,7 +73,7 @@ The beginnings of responsive email happened during a golden era in terms of fron
 Folks have incorporated things like [HAML](https://github.com/Omgitsonlyalex/ZenithFramework), [CSS preprocessors](http://rodriguezcommaj.com/blog/The-Sass-Switch), and [Grunt](https://medium.com/p/32d607879082) into their workflow. [CSS inliners](http://inliner.cm/) allow us to write CSS like we do on the web. Others [automate monotonous email checks](http://premailer.dialect.ca/) like appending tracking parameters to every link. Litmus is working on an editor made for emails, with things like live-reload and device previews baked right in.
 
 <figure class="outset">
-	<img src="/content/blog/12-jerseyscript/logos.png" alt="grunt, sass, HAML, middleman" width="1050" height="200" class="fluid">
+	<img src="/content/blog/12-jerseyscript/logos.png" alt="Logos for grunt, sass, HAML, and middleman." width="1050" height="200">
 	<figcaption>recent entrants in email workflow</figcaption>
 </figure>
 

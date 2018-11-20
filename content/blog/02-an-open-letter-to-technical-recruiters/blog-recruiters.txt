@@ -19,7 +19,7 @@ Text:
   <h2>Stop sending e-mails based on stored resumes that are out of date.</h2>
   <p>We all know how fast this industry moves. My resume, if you can call it that, changes several times a year. When I update it, I only do so in a handful of locations for all to see. Who has time to contact individual recruiters to make sure they all get a new resume? A resume that will just get outdated in another few months?</p>
   <figure>
-  	<img src="/content/blog/02-an-open-letter-to-technical-recruiters/outdated.png" class="preview">
+  	<img src="/content/blog/02-an-open-letter-to-technical-recruiters/outdated.png" class="preview" alt="A recruiter email with a lot of red flags.">
     <figcaption>Pay attention to the red flags... and that’s just the first line. As you can see, the email just gets worse as it goes on.</figcaption>
   </figure>
   <p class="suggestion"><strong>Suggestion:</strong> Refer to sites like <a href="http://www.linkedin.com/in/tgoas" rel="external">LinkedIn</a> and <a href="http://zerp.ly/tedgoas" rel="external">Zerply</a> where I can update my information and availability publicly and at my leisure</p>
@@ -28,7 +28,7 @@ Text:
   <h2>Read my summary to find out what I am and am not qualified to do.</h2>
   <p>I can work in LAMP environments, but I’m not a MySQL or PHP programmer. I design web apps, but that doesn’t make me a software architect. When keywords found in my resume are matched to a job ad, I can tell. The job I’m being recruited for is always irrelevant. It also shows the email sender doesn’t understand what I do for a living.</p>
   <figure>
-  	<img src="/content/blog/02-an-open-letter-to-technical-recruiters/irrelevant.png" class="preview">
+  	<img src="/content/blog/02-an-open-letter-to-technical-recruiters/irrelevant.png" class="preview" alt="A recruiter email asking me if I want a PPC manager role.">
     <figcaption>Sure, I designed a PPC landing page once... let’s do this!</figcaption>
   </figure>
   <p class="suggestion"><strong>Suggestion:</strong> Do a minute of research before reaching out. Reading <a href="http://www.tedgoas.com" rel="me">my homepage intro</a> only takes  a few seconds. The <a href="http://www.linkedin.com/in/tgoas" rel="external">summary on my LinkedIn profile</a> is ok, too.</p>
@@ -37,7 +37,7 @@ Text:
   <h2>If the email was written by several people, edit and format it before sending.</h2>
   <p>Maybe the I.T. guy wrote the technical part, H.R. wrote the legal part, and the recruiter added a few lines. <strong>There’s nothing wrong with creating a job ad like this.</strong> But when these pieces aren’t edited or massaged a little, everything reads a bit funny. Sometimes the text formatting is not consistent, and that just looks bad (you’re recruiting designers, remember?). If blocks of text are copied and pasted without a bit of formatting, it looks lazy and unprofessional.</p>
   <figure>
-  	<img src="/content/blog/02-an-open-letter-to-technical-recruiters/formatting.png" class="preview">
+  	<img src="/content/blog/02-an-open-letter-to-technical-recruiters/formatting.png" class="preview" alt="A recruiter email with lots of different text formatting.">
     <figcaption>Come on man, what is this?</figcaption>
   </figure>
   <p class="suggestion"><strong>Suggestion:</strong> Edit and format the email so it’s easy to read and understand.</p>
@@ -46,7 +46,7 @@ Text:
   <h2>Let’s chat a bit before connecting on LinkedIn.</h2>
   <p>Sending me a LinkedIn invitation from out of nowhere doesn’t mean we know each other, have worked together, or trust each other. It’s cool if recruiters want to connect, but how about we introduce ourselves first?</p>
   <figure>
-  	<img src="/content/blog/02-an-open-letter-to-technical-recruiters/linkedin.png" class="preview">
+  	<img src="/content/blog/02-an-open-letter-to-technical-recruiters/linkedin.png" class="preview" alt="A LinkedIn invitation to connect with a stranger with lots of connections.">
     <figcaption>And... you are... who? (besides someone with 4,500 connections?)</figcaption>
   </figure>
   <p>But there’s another problem with LinkedIn: I don’t hang out there. I don’t know many designers or developers who do. We hang out in places like <a href="http://twitter.com/TedGoas" rel="external">Twitter</a>, <a href="http://dribbble.com/tedgoas" rel="external">Dribbble</a>, and <a href="https://github.com/tedgoas" rel="external">Github</a>. These sites are usually more up-to-date on things like skill sets and work availability. Recruiters have a better shot in engaging people on sites like these. In fact, my present employer lured me away from a job I liked with an @reply on Twitter.</p>

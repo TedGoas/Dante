@@ -36,7 +36,7 @@ I have a full-time job, a young family, own a house, and enjoy life away from sc
 [That’s what’s on the tin](http://tedgoas.github.io/Cerberus/). Cerberus’s design is grayscale, uses placeholder images, and contains dummy text. It doesn’t even define a font. It’s intentionally simple and unassuming. It does just a few things but it does them really well. Well, that’s the goal anyway.
 
 <figure>
-	<img src="/content/blog/27-open-source/cerberus-preview.png" alt="Cerberus's Design" height="488" width="890">
+	<img src="/content/blog/27-open-source/cerberus-preview.png" alt="Screenshot of Cerberus's design." height="488" width="890">
 	<figcaption>Cerberus (in all it’s beauty)</figcaption>
 </figure>
 
@@ -49,7 +49,7 @@ When considering new features, I think about 37Signals’s “[Start with No”]
 I got no response. Building a four column layout was totally possible, but I never built it because it wasn’t important enough to this person. No one’s asked for it since.
 
 <figure class="outset">
-	<img src="/content/blog/27-open-source/fight-club.jpg" alt="Waiting on the porch in the movie Fight Club" height="532" width="1280">
+	<img src="/content/blog/27-open-source/fight-club.jpg" alt="Waiting on the porch in the movie Fight Club." height="532" width="1280">
 </figure>
 
 It’s like Fight Club. You should only consider features if they’re willing to stand on the porch for three days waiting to be let in.
@@ -90,7 +90,7 @@ As amazingly self-documenting as I think my project is… yea, it’s really not
 - Demos help visualize results.
 
 <figure class="outset">
-	<img src="/content/blog/27-open-source/cerberus-code.png" alt="Cerberus's Code Comments" height="810" width="1278">
+	<img src="/content/blog/27-open-source/cerberus-code.png" alt="Screenshot of Cerberus's code comments." height="810" width="1278">
 	<figcaption>Screenshot of Cerberus’s code; the dark gray text is code comments.</figcaption>
 </figure>
 
@@ -115,28 +115,28 @@ Alright, enough advice. Here are a few simple, focused, and well-documented open
 Getting background images to display in email clients takes a lot of code that I’ll never memorize. This project provides a few options and spits out working code that can be pasted into any email template. It does this _one_ thing _really_ well.
 
 <figure>
-	<img src="/content/blog/27-open-source/bulletproof-background-images-email.png" alt="Background.cm web interface" height="890" width="1488">
+	<img src="/content/blog/27-open-source/bulletproof-background-images-email.png" alt="Background.cm web interface." height="890" width="1488">
 	<figcaption>Backgrounds.cm by Campaign Monitor</figcaption>
 </figure>
 
 ### [Open Color](https://yeun.github.io/open-color/)
 This project researched a color palette optimized for interfaces. It’s been tested for things like accessibility, brightness, and contrast across a range of different screens. The whole project is colors. That’s all it is. Brilliant.
 <figure>
-	<img src="/content/blog/27-open-source/open-color.png" alt="Open Color GitHub repo" height="890" width="1488">
+	<img src="/content/blog/27-open-source/open-color.png" alt="Open Color GitHub repo." height="890" width="1488">
 	<figcaption>Open Color by heeyeun</figcaption>
 </figure>
 
 ### [.htaccess Snippets](https://github.com/phanan/htaccess)
 I don’t know if I’d ever edited an .htaccess without bringing an entire site down… until I found this project. The entire project is the readme.md file, which contains paste-able snippets of common .htaccess commands. I’ll reference this until the day we hire an .htaccess programmer 😆.
 <figure>
-	<img src="/content/blog/27-open-source/htaccess-snippets.png" alt=".htaccess snippets GitHub repo" height="890" width="1488">
+	<img src="/content/blog/27-open-source/htaccess-snippets.png" alt=".htaccess snippets GitHub repo." height="890" width="1488">
 	<figcaption>.htaccess snippets by Phan An</figcaption>
 </figure>
 
 ### [Contract Killer](https://gist.github.com/malarkey/4031110)
 Contract Killer is a popular open source contract for web professionals that translates confusing legal passages into layman’s terms. The entire project is a text document in a GitHub Gist. A contract is part of any freelance project I take on, so I’ve adapted my own version that I use each time.
 <figure>
-	<img src="/content/blog/27-open-source/contract-killer.png" alt="Contract Killer GitHub Gist" height="890" width="1488">
+	<img src="/content/blog/27-open-source/contract-killer.png" alt="Contract Killer GitHub Gist." height="890" width="1488">
 	<figcaption>Contract Killer by Andy Clarke</figcaption>
 </figure>
 
