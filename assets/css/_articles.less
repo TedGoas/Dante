@@ -102,7 +102,6 @@ article {
 		img,
 		iframe {
 			.wmx100;
-			.w100;
 			.d-block;
 		}
 		figcaption {
@@ -116,7 +115,6 @@ article {
 	}
 	.flush {
 		max-width: @site-width;
-		.w100;
 		margin-left: -@su3;
 		margin-right: -@su3;
 	}
@@ -124,5 +122,11 @@ article {
 		.flush;
 		.p3;
 		border: 1px solid @gray-2;
+	}
+}
+
+@media screen and (max-width: @site-width) {
+	article .flush {
+		.w100;
 	}
 }
