@@ -5,7 +5,7 @@
 			<p class="fs-body2 lh-md mb0">I believe design is about taking the complex and chaotic and making it accessible to people. I design things to be understandable, readable, responsive, and as fast as possible. Since 2001, I’ve been trying to create work that is cool enough to show my friends and honest enough to show my&nbsp;parents.</p>
 		</div>
 		<div class="pr3 pl5 py5 grid--cell4">
-			<img src="/assets/images/ted-home.jpg" alt="Photo of Ted Goas smiling in a blue shirt against a brick wall." width="300" height="400">
+			<img src="/assets/images/ted-home-sm.jpg" srcset="/assets/images/ted-home-sm.jpg, /assets/images/ted-home.jpg 2x" alt="Photo of Ted Goas smiling in a blue shirt against a brick wall." width="300" height="400">
 		</div>
 	</section>
 	<section class="bbs-dashed-svg flex ai-stretch homepage color-links">
@@ -64,7 +64,7 @@
 		<div class="pl3 pr5 py5 brs-dashed-svg grid--cell4">
 			<h2 class="tiny">I <u>do</u> have a life, ya know</h2>
 			<p>I enjoy family time with my wife and kids, live music, snowboarding, hockey, soccer, Newcastle Ale, and Troy McClure&nbsp;quotes.</p>
-			<img src="/assets/images/family.jpg" alt="My Family posing on the grass in 2016." width="260" height="165">
+			<img src="/assets/images/family-sm.jpg" srcset="/assets/images/family-sm.jpg, /assets/images/family.jpg 2x" alt="My Family posing on the grass in 2016." width="260" height="165">
 		</div>
 	</section>
 	<section class="homepage py6 px3 social">
