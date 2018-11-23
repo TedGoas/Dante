@@ -7,7 +7,7 @@
 	<p>If you have a <strong class="highlighted">question about Cerberus</strong>, consider opening an issue, <a href="https://twitter.com/TedGoas" rel="external me">pinging me on Twitter</a>, or emailing me.</p>
 	<p>For anything else, shoot me an email!</p>
 	<p>
-		<img src="/assets/images/email.png" alt="My email address." width="330" height="66">
+		<img src="/assets/images/email@1x.png" srcset="/assets/images/email@1x.png, /assets/images/email@2x.png 2x" alt="My email address." width="330" height="66">
 	</p>
 </article>
 <?php snippet('page-end') ?>
