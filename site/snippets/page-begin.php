@@ -32,7 +32,6 @@
 	<meta name="description" content="<?php echo $page->description()->html() ?>">
 	<link type="text/plain" rel="author" href="http://www.tedgoas.com/humans.txt">
 	<?php echo css('assets/css/global.css') ?>
-	<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
 
 	<?php foreach($page->code()->filterBy('extension', 'css') as $css): ?>
 		<?php echo css($css->url()) ?>
