@@ -1,0 +1,151 @@
+Title: Design Systems for Email: Bringing Order to the Chaos
+----
+Date: December 11, 2018
+----
+Description: How we started, what we built, and what we learned building our first email design system at Stack Overflow.
+----
+Article-Hero-Classes: flush
+----
+Text:
+---
+<p class="fs-subheading fs-italic">How we started, what we built, and what we learned building our first email design system at Stack Overflow.</p>
+
+Design systems for the web have become popular as companies realized the need to strengthen the design of their products to compete. But what exactly is a design system and could one work for email?
+
+At Stack Overflow, we’ve been building our email design system for the past few months and thinking about how to scale our email design process across multiple teams. So whether you’re just documenting your most-used code snippets or getting ready to build an email design system, I’d like to share a few lessons we’ve learned about email design systems so far.
+
+<figure class="outset">
+    <img src="/content/blog/32-email-design-systems/email-design-system-homepage.png" alt="homepage for Stack Overflow email design system." width="1209" height="889">
+    <figcaption><a href="https://stackoverflow.design/email/">https://stackoverflow.design/email/</a></figcaption>
+</figure>
+
+But before we get into that…
+
+## What exactly _is_ a design system?
+
+> A design system is a collection of reusable components, guided by clear standards, that can be assembled together to build any number of applications. — <a href="https://www.designbetter.co/design-systems-handbook/introducing-design-systems">Marco Suarez</a>
+
+The definition of a _design system_ varies, but I’m going with this one.
+
+Design systems for the web have become popular as companies realized the need to strengthen the design of their products to compete. A design system helps a team form a shared mental model and codify common, tested patterns to deliver a consistent user experience.
+
+Think of it as a lightweight scaffolding and guidelines to design with, rather than creating stuff from scratch or plain sight.
+
+It cuts down on the need for bespoke design, which is slow, inconsistent, hard to test, and increasingly difficult to maintain over time. As a team grows and work volume increases, it gets harder to maintain alignment and consistency. Bespoke design simply doesn’t scale, and that’s where a design system helps.
+
+An _email_ design system either applies these concepts to HTML emails, or in our case, adds HTML emails to an existing design system.
+
+## Lesson 1: First, feel the pain.
+
+Wait! Hold up… why does Stack Overflow even _need_ a design system for emails?
+
+I’m glad you asked.
+
+When I joined the company in 2016, there wasn’t a process for email design and development. No one at the company was dedicated entirely to email. Folks would build emails the same way they built web pages. They knew mobile email is hard and nothing works in Outlook, but they weren’t familiar with the common gotchas that seasoned email designers “just know.”
+
+This resulted in a bunch of inconsistently designed emails that fell apart in most email clients. For a company that sends four million emails a week, that’s a problem.
+
+At best, a broken email contributes to the <a href="https://www.vanschneider.com/the-broken-window-theory">broken windows theory</a> (“if this email’s broken, I wonder what else is…”) and erodes someone’s trust in us. At worst, it means someone can’t complete a task.
+
+When we put more effort into an email project, the process was slow, designs were inconsistent, and code was hard to test. Without a design system, everything was bespoke design. Bespoke design doesn’t scale.
+
+Our team didn’t have anyone dedicated entirely to email, so we had to find a way to allow more people to build consistently-designed, properly-rendered email. We felt the pain of not having a way for folks to build consistently designed, properly rendered email at scale and identified an email design system as a solution to our problem.
+
+If you don’t feel a similar pain, maybe you don’t need a design system. <a href="https://medium.com/s/story/the-design-system-decision-tree-edba9abdb83b">The Design System Decision Tree</a> is a good read here.
+
+## Lesson 2: Make It Official
+
+> “If a design system is treated as a side project, it’ll probably fail.” — Nathan Curtis
+
+We started with whatever spare time we had between projects. However, our initial efforts were scattered and progress was inconsistent. Whenever we started gaining momentum, we’d get pulled away. We didn’t have regular check-ins or a roadmap.
+
+After a while, we learned that our design system would need to be an official project or the company would just keep pushing to ship product work faster instead of building the infrastructure for a better future.
+
+<figure class="outset">
+    <img src="/content/blog/32-email-design-systems/wheel.png" alt="Cartoon with caveman not interested in wheel." width="1024" height="562">
+</figure>
+
+Stack Overflow sends a massive amount of email but employs just a handful of people with email experience. This presented a huge bottleneck and single point of failure (aka <a href="https://en.wikipedia.org/wiki/Bus_factor">the bus factor</a>). We needed more people who could build email. Here’s how we made our case:
+
+* **Time**: We spend a lot of time solving the same problems over and over again. An email design system will speed us up, empower more people to build email, and free us up to work on other things.
+* **Money:** Our email doesn’t bring in revenue directly, but it drives platform adoption, which does tie to revenue. An email design system helps us put our best foot forward and also eliminates the need to outsource or hire someone dedicated to email. And there’s always the “Take everyone’s salaries and multiply that by the hours spent and here’s how much a typical email project costs” argument.
+* **Consistency:** Our emails are inconsistent and often broken. A design system codifies common patterns, giving designers some creative freedom but keeping them from “just going for it.”
+* **Education:** Only a few people on the team are experienced in email. A design system’s documentation educates everyone else on the team and helps when onboarding new team members.
+
+_“If you allow a small group of employees to build a design system, all these problems go away. It will cost you about X hours a week for Y months.”_
+
+Our pitch went something like that. Yours may vary.
+
+It helps to think about what your boss (or your boss’s boss) cares about. They might not care if a button looks funky in Outlook, but they might care about the extra five hours the team spent QA’ing that email last week or lost sales caused by a button that wasn’t clickable.
+
+Ultimately Stack Overflow recognized our design system as a sanctioned project. We allotted it regular time and started having weekly check-ins.
+
+## Lesson 3: Start Small, Involve Others Early
+While we worked on our pitch described above, we started planning our email design system.
+
+It’s tempting to look at other design systems with elaborate marketing sites containing detailed documentation and organized code for every conceivable component bundled up in an npm package with a build process. It can be paralyzing to consider all that on day one.
+
+We reminded ourselves that these other design systems were the product of months of hard work.
+
+We started small. Like, _really_ small. Like, in a blank Google Doc with editing rights enabled for everyone. We invited folks from all over the company to discuss what email components they use most and what questions they have. Engineering, product managers, marketing… we even got legal involved.
+
+Starting in a Google Doc lowered the barrier to entry and allowed everyone to brainstorm with us without configuring any software or knowing much about design or code. Hearing everyone’s voice at the beginning showed how everyone thinks about email differently.
+
+Only after this initial discovery did we start thinking about design or code.
+
+## Lesson 4: It Doesn’t Have to be Complete to be Useful
+
+When it’s time to start making the actual design system and documentation site, I don’t want to be overly prescriptive since every product and team is unique. If you’ve read this far, you may already have some ideas for your own design system. That’s great!
+
+The only advice I have is to launch as early as possible. Forget those other design systems you saw with 40 components and a 10 page wiki on how everything works.
+
+We launched our design system with only basic typography styles, responsive images, one button style, and a responsive-aware wrapper (the stuff we identified from the Google doc above). That’s it!
+
+## Lesson 5: Documentation
+
+> Another flaw in human character is that everybody wants to build and nobody wants to do maintenance. – Kurt Vonnegut
+
+**Documentation is the most important part of a design system.** There, I said it. A design system lives and dies by its documentation.
+
+We learned this the hard way.
+
+We designed an email template specifically for our <a href="https://stackoverflow.com/teams">Stack Overflow for Teams product</a>, but we didn’t document how it should be used. Our documentation just said “use for teams.” Imagine my reaction when I got an email from our own IT Department who’d used the template to send a company-wide email about our passwords. They interpreted “teams” as “my team name on the org chart.” A perfectly valid interpretation since we skimped on the template’s documentation. Oops!!
+
+Incomplete or outdated documentation can lead people to using patterns for the wrong reasons. <a href="https://blog.codinghorror.com/if-it-isnt-documented-it-doesnt-exist/">If something’s not documented, it may as well not exist</a> and you run the risk of people writing new but duplicate code.
+
+Building design patterns without documentation is akin to dumping a bunch of IKEA parts on a table and saying “Ok now build your bookshelf!” (<a href="http://bradfrost.com/blog/link/4-things-i-know-about-pattern-libraries/">paraphrasing Brad Frost</a>)
+
+<figure class="outset">
+    <img src="/content/blog/32-email-design-systems/lego-aircraft-carrier.jpg" alt="Huge battleship made of Legos." width="1248" height="936">
+    <figcaption>We all love a good lego analogy… without guidelines, eventually someone’s gonna think this is a good idea. <a href="https://www.intercom.com/blog/the-full-stack-design-system/">Image credit</a></figcaption>
+</figure>
+
+Good documentation helps promote new patterns, reduce the need to write new code, and makes implementation easy with code examples and guidelines. It’s worth investing time in developing practices that help you keep updated documentation.
+
+> When building design systems, get into habit of documenting early. You’re building a system and that cannot work if the system is you. – <a href="https://twitter.com/karrisaarinen/status/962018670011559936">Karri Saarinen</a>
+
+These days we document components as we add them. There’s no “Oh I’ll just document this later” going on.
+
+<hr role="presentation" aria-role="hidden" class="hr-sm">
+
+## Wrapping up
+
+Since launching our design system, I’ve seen folks with little email experience building some pretty nice emails on their own and asking us more advanced questions. Folks who used to ask “How do I make a button?” now ask things like “How do I make my three column layout stack in Android Mail 4?” 😯 😃
+
+We still have a lot to do (we still don’t have a proper roadmap), but we’re already seeing our email design system fulfilling its purpose.
+
+> “One of the biggest impacts is people being able to get further without design help. […] It doesn’t mean you don’t need a designer — it’s just that other team members can get further than they could before.” — <a href="https://www.invisionapp.com/inside-design/pattern-library-design-system/">Diana Mounter</a>
+
+One thing I love about this industry is how we openly share stories like this about our work. That’s why I wanted to talk through how we approached our email design system, the decisions we made, and how we’ve been working through the difficulties we’ve encountered.
+
+This is my experience.
+
+If I can leave you with some parting words: Be inclusive. Welcome people into your work. Don’t overcomplicate things. Open Source if you can. #emailgeeks have a lot to share. We’ll all be a better community for it.
+
+If you’re interested in chatting about your experience (and struggles), <a href="https://twitter.com/TedGoas">ping me on Twitter</a> or <a href="https://email.geeks.chat/">message me on email geeks chat</a>!
+
+Special thanks to <a href="https://twitter.com/UxPiper">Piper</a>, <a href="https://twitter.com/balpha">balpha</a>, <a href="https://twitter.com/aaronshekey">Aaron</a>, <a href="https://twitter.com/hellohynes">Josh</a>, <a href="https://twitter.com/courtnycotten">Courtny</a>, <a href="https://www.linkedin.com/in/elainewangprofile/">Elaine</a>, and <a href="https://www.linkedin.com/in/kristinavolovich/">Kristina</a> for help with our email design system and this article.
+
+<hr role="presentation" aria-role="hidden" class="hr-sm">
+
+Also published <a href="https://medium.com/@tedgoas/design-systems-for-email-bringing-order-to-the-chaos-c9d9c85ee46d">on Medium</a>
