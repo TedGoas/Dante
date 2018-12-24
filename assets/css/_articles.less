@@ -113,20 +113,20 @@ article {
 			word-break: break-all;
 		}
 	}
-	.flush {
-		max-width: @site-width;
+	.bordered {
 		margin-left: -@su3;
 		margin-right: -@su3;
-	}
-	.bordered {
-		.flush;
 		.p3;
 		border: 1px solid @gray-2;
 	}
 }
 
 @media screen and (max-width: @site-width) {
-	article .flush {
-		.w100;
+	article {
+		.bordered {
+			margin-left: 0;
+			margin-right: 0;
+		}
+
 	}
 }
