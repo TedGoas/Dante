@@ -22,7 +22,7 @@
 	<hr class="hr-sm">
 	<section class="mt5">
 		<h2 class="tiny">Before that</h2>
-		<p>I worked at Canfield Scientific designing applications that help doctors run their practice and clinicians run their&nbsp;studies.</p>
+		<p>I worked at Canfield Scientific designing applications that help doctors run their practice and clinicians run their clinical&nbsp;studies.</p>
 		<div class="flex jc-space-between ai-start gs5 gsx sm--fd-column">
 			<a href="/work/canfield-scientific" class="card card-work flex-cell grid--cell6">
 				<img src="/assets/images/work/canfield/th-canfield.jpg" alt="model and canfield logo" height="200" width="450">
@@ -39,7 +39,7 @@
 	<hr class="hr-sm">
 	<section class="mt5">
 		<h2 class="tiny">Off Hours</h2>
-		<p>I usually cherish time away from the computer on night, but of course there are&nbsp;exceptions.</p>
+		<p>I usually cherish time away from the computer on nights and weekends, but of course there are&nbsp;exceptions.</p>
 		<div class="flex jc-space-between ai-start gs5 gsx sm--fd-column">
 			<a href="/work/email-design" class="card card-work flex-cell grid--cell6">
 				<img src="/assets/images/work/email-design/th.png" alt="freelance email design and development" height="200" width="450">
