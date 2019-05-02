@@ -25,7 +25,7 @@
 		<h2>How I work</h2>
 		<p>I'm a highly adaptable designer best suited in teams where everyone can wear multiple hats. From scoping requirements to planning content – through design and development – collaborating with clients and co-workers is paramount. I prefer designing with others and sharing regular updates rather than working in isolation for long stretches.</p>
 		<p>For the past several years, I've become comfortable in a <strong>double diamond product development process</strong>. I enjoy working in all five stages.</p>
-\		<figure class="my6">
+		<figure class="my6">
 			<img src="/assets/images/process.svg" width="1000" height="470" alt="My product development process, described below. Diagram.">
 		</figure>
 		<ol>
