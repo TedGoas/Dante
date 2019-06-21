@@ -1,14 +1,7 @@
 //  ----------------------------------------------------------------------------
 //  FONT FACE
 //  ----------------------------------------------------------------------------
-@font-face {
-	font-family: 'Permanent Marker';
-	font-display: fallback;
-	src: 	local('Permanent Marker Regular'),
-			local('PermanentMarker-Regular'),
-			url('../fonts/permanent-marker.woff2') format('woff2'),
-			url('../fonts/permanent-marker.woff') format('woff');
-}
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700|Permanent+Marker&display=swap');
 
 //  ----------------------------------------------------------------------------
 //  TYPE RESETS
@@ -24,14 +17,14 @@ h1, h2, h3, h4, h5, h6, p, ul, ol, li {
 
 //  font-family
 @ff-sans:   -apple-system, BlinkMacSystemFont, Avenir, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;;
-@ff-serif:  'Book Antiqua', Georgia, serif;
+@ff-serif:  Merriweather, Georgia, serif;
 @ff-mono:   monospace;
 
 //  font-size
-@fs-fine:		13px;
+@fs-fine:		12px;
 @fs-caption:	15px;
-@fs-body1:		19px;
-@fs-body2:		21px;
+@fs-body1:		17px;
+@fs-body2:		19px;
 @fs-subheading:	25px;
 @fs-headline1:	28px;
 @fs-headline2:	33px;
@@ -40,7 +33,7 @@ h1, h2, h3, h4, h5, h6, p, ul, ol, li {
 //  line-height
 @lh-xs:		100%;
 @lh-sm:     126%;
-@lh-md:     158%;
+@lh-md:     175%;
 @lh-lg:     200%;
 
 //  ----------------------------------------------------------------------------
@@ -114,6 +107,12 @@ blockquote {
 .fw-bold,
 strong {
 	.fw-black;
+}
+p,
+li {
+	strong {
+		.fc-dark;
+	}
 }
 
 //  ----------------------------------------------------------------------------
