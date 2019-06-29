@@ -4,11 +4,23 @@
 	<section>
 		<h2>What I bring</h2>
 		<p>Things like wireframes, UI prototypes, and code are table stakes for product designers. I believe my primary job as a designer is to enable others to see the future. To see what could be. I do this a few ways:</p>
-		<ul>
-			<li><strong>Facilitate:</strong> Help communicate everyone’s ideas by making them tangible, clarify goals, and check for understanding.</li>
-			<li><strong>Stewardship:</strong> Protect and promote design, spread user perspective throughout the organization.</li>
-			<li><strong>Connoisseurship:</strong> Show folks what good design is, elevate the team’s taste, and hold the quality line.</li>
-		</ul>
+		<div class="flex gsx gs6 py4">
+			<div class="flex-cell">
+				<img src="https://placeimg.com/80/80/any" class="d-block mb3">
+				<h3>Facilitate:</h3>
+				<p class="fs-caption">Help communicate everyone’s ideas by making them tangible, clarify goals, and check for understanding.</p>
+			</div>
+			<div class="flex-cell">
+				<img src="https://placeimg.com/80/80/any" class="d-block mb3">
+				<h3>Stewardship:</h3>
+				<p class="fs-caption">Protect and promote design, spread user perspective throughout the organization.</p>
+			</div>
+			<div class="flex-cell">
+				<img src="https://placeimg.com/80/80/any" class="d-block mb3">
+				<h3>Connoisseurship:</h3>
+				<p class="fs-caption">Show folks what good design is, elevate the team’s taste, and hold the quality line.</p>
+			</div>
+		</div>
 		<p>These help the team make better decisions faster. In addition to pixels and code, I can help teams by...</p>
 		<ul>
 			<li>Starting and maintaining a design system (from getting stakeholder buy-in to creating monthly plans).</li>
