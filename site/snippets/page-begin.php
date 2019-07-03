@@ -64,7 +64,7 @@
 		<header role="header" class="header px3 pt4 pb5">
 			<div class="mb4 lh-sm flex ai-end gsx gs3 logo">
 				<div class="flex-cell p-relative" style="top: 13px;">
-					<a href="/"><?php snippet('tg-sig-logo') ?></a>
+					<a href="/"><img src="/assets/images/tg-sig-logo.svg" alt="Ted Goas logo." width="116" height="46"></a>
 				</div>
 				<p class="flex-cell mb0 role">Senior Product Designer working remotely at Stack&nbsp;Overflow</p>
 			</div>
