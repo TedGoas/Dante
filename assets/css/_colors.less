@@ -1,18 +1,76 @@
 //  ----------------------------------------------------------------------------
-//  $   COLOR VARIABLES
+//  $   COLOR SCHEME
 //  ----------------------------------------------------------------------------
 
+// Dark theme
 body {
+	background: @gray-9;
+	color: @fc-white;
+
+	// Links
+	.a-color {
+		color: @blue-4;
+		border-bottom-color: 2px solid @gray-3;
+		&:visited {
+			color: @grape-4;
+			border-bottom-color: @gray-3;
+		}
+		&:hover,
+		&:active,
+		&:focus {
+			color: @blue-8;
+			border-bottom-color: @blue-8;
+		}
+	}
+	.a-mono {
+		color: @white;
+		border-bottom-color: @blue-3;
+		&:visited {
+			color: @fc-faint;
+			border-bottom-color: @gray-5;
+		}
+		&:hover,
+		&:focus,
+		&:active {
+			color: @blue-5;
+		}
+	}
+}
+
+// Light theme
+body.blog:not(.Articles) {
+	background: #fff;
 	color: @fc-medium;
 }
 
+//  ----------------------------------------------------------------------------
+//  $   TEXT COLORS
+//  ----------------------------------------------------------------------------
+.fc-dark        { color: @fc-dark; }
+.fc-medium      { color: @fc-medium; }
+.fc-light       { color: @fc-light; }
+.fc-faint		{ color: @fc-faint; }
+.fc-white		{ color: @fc-white; }
+
+
+
+//  ----------------------------------------------------------------------------
+//  $   COLOR VARIABLES
+//  ----------------------------------------------------------------------------
+
 //  Font color
-@fc-white:		#fff;
+@fc-white:		@white;
+@fc-faint:		@gray-2;
 @fc-light:		@gray-6;
 @fc-medium:		@gray-8;
 @fc-dark:		@gray-9;
 
+
 //  Colors
+@white: #fff;
+.bg-white { background-color: @white; }
+
+
 @gray-0: #f8f9fa;
 @gray-1: #f1f3f5;
 @gray-2: #e9ecef;
@@ -43,8 +101,6 @@ body {
 .bg-gray-7 { background-color: @gray-7; }
 .bg-gray-8 { background-color: @gray-8; }
 .bg-gray-9 { background-color: @gray-9; }
-
-.bg-white { background-color: #fff; }
 
 @red-0: #fff5f5;
 @red-1: #ffe3e3;

@@ -59,7 +59,7 @@
 	<meta property="og:url" content="<?php echo kirby()->request()->url() ?>">
 	<meta name="p:domain_verify" content="f0ba8ac9c9222a104dfc0fc75aad2d6b">
 </head>
-<body class="<?php echo $page->slug() ?> <?php echo $page->parents() ?>">
+<body class="<?php echo $page->title() ?> <?php echo $page->slug() ?> <?php echo $page->parents() ?>">
 	<div class="body">
 		<header role="header" class="header px3 pt4 pb5">
 			<div class="mb4 lh-sm flex ai-end gsx gs3 logo">

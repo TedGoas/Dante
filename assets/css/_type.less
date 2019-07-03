@@ -49,18 +49,15 @@ html, body {
 	font-family: @ff-sans;
 	font-size: @fs-body1;
 	line-height: @lh-md;
-	.fc-medium;
 }
 h1 {
 	.fs-display1;
-	.fc-dark;
 	.lh-sm;
 	.fw-black;
 	.ff-display;
 }
 h2 {
 	.fs-headline1;
-	.fc-dark;
 	.lh-sm;
 	.fw-black;
 }
@@ -72,7 +69,6 @@ h2.tiny {
 }
 h3 {
 	.fs-body2;
-	.fc-dark;
 	.lh-sm;
 	.fw-black;
 }
@@ -128,15 +124,6 @@ li {
 .fs-body1       {  font-size: @fs-body1; }
 .fs-caption   	{  font-size: @fs-caption; }
 .fs-fine        {  font-size: @fs-fine; }
-
-//  ----------------------------------------------------------------------------
-//  TEXT COLORS
-//  ----------------------------------------------------------------------------
-.fc-dark        { color: @fc-dark; }
-.fc-medium      { color: @fc-medium; }
-.fc-light       { color: @fc-light; }
-.fc-faint		{ color: fade(@fc-white,20%); }
-.fc-white		{ color: @fc-white; }
 
 //  ----------------------------------------------------------------------------
 //  LINE HEIGHTS
@@ -211,17 +198,10 @@ li {
 //  $   Links
 //  ----------------------------------------------------------------------------
 a {
+	text-decoration: none;
+	border-bottom: 2px solid transparent;
 }
-.link-white,
-.link-white:visited {
-	color: @fc-white;
 
-	&:hover,
-	&:active,
-	&:focus {
-		opacity: .75;
-	}
-}
 .navigation,
 .article-list {
 	a,
@@ -229,7 +209,7 @@ a {
 		.py1;
 		text-decoration: none;
 		border-bottom: 2px solid @blue-3;
-		color: @gray-8;
+		color: @white;
 
 		&:hover,
 		&:focus,
