@@ -69,12 +69,12 @@
 				<p class="flex-cell mb0 role">Senior Product Designer working remotely at Stack&nbsp;Overflow</p>
 			</div>
 			<div role="navigation" class="navigation flex ff-row-wrap">
-				<a href="/" title="Home" class="td-none d-block p2 -home">Home</a>
-				<a href="/work" title="Portfolio + Case Studies" class="td-none d-block p2 -work">Work</a>
-				<a href="/what-i-do" title="Skills + Interests" class="td-none d-block p2 -what-i-do">What I Do</a>
-				<a href="/bio" title="About Me" class="td-none d-block p2 -bio">A Short Bio</a>
-				<a href="/contact" title="Drop Me a Line" class="td-none d-block p2 -contact">Contact</a>
-				<a href="/blog" title="Articles" class="td-none d-block p2 -blog">Blog</a>
+				<a href="/" title="Home" class="a-mono d-block p2 -home">Home</a>
+				<a href="/work" title="Portfolio + Case Studies" class="a-mono d-block p2 -work">Work</a>
+				<a href="/what-i-do" title="Skills + Interests" class="a-mono d-block p2 -what-i-do">What I Do</a>
+				<a href="/bio" title="About Me" class="a-mono d-block p2 -bio">A Short Bio</a>
+				<a href="/contact" title="Drop Me a Line" class="a-mono d-block p2 -contact">Contact</a>
+				<a href="/blog" title="Articles" class="a-mono d-block p2 -blog">Blog</a>
 			</div>
 		</header>
 		<div class="main">
