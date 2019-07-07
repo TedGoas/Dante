@@ -4,7 +4,7 @@ Date: July 8, 2019
 ----
 Description: Today is my 40th birthday. Wow. 40.
 ----
-Article-Hero-Classes: wmx
+Article-Hero-Classes: wmx7
 ----
 Text:
 
