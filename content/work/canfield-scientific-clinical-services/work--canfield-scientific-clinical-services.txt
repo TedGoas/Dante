@@ -1,7 +1,0 @@
-Title: Canfield Scientific
-----
-Description: Designing a clinical web app that helps pharmaceutical companies organize trials.
-----
-Role: Information Architecture, Website Design, Front-End Development, SEO, Email Design
-----
-Summary: Designing a clinical web app that helps pharmaceutical companies organize trials.

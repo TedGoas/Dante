@@ -1,7 +1,0 @@
-Title: Enterprise Dashboard
-----
-Description: How we design at Stack Overflow and a few notable projects.
-----
-Role: Research, design discovery, prototyping, UI design, front-end.
-----
-Summary: How we design at Stack Overflow and a few notable projects.
