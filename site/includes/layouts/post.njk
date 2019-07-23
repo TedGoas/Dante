@@ -1,0 +1,73 @@
+---
+layout: default
+---
+
+<main id="main" class="main flex flex-1 flex-col md:flex-row py-10 px-6 lg:px-0 lg:py-20">
+
+    <section id="container-centre" class="flex-1 container ml-auto mr-auto lg:px-32">
+
+        <div class="post-header mb-12 md:mb-20">
+
+            <h1 class="page-title text-3xl md:text-center md:text-5xl lg:text-6xl">{{ title }}</h1>
+
+            <div class="text-sm md:text-base text-gray-600 flex justify-center">
+
+                <p class="author">By {{ site.author.name }}</p>
+
+                <p class="px-2">—</p>
+
+                <time datetime="{{ date }}">
+                    {{ date | dateDisplay }}
+                </time>
+
+                <p class="px-2">—</p>
+
+                <p class="category">Posted in <a href="/">{{ category }}</a></p>
+
+            </div>
+
+            {# featured post image #}
+            {% if featured_image %}
+
+            <figure class="mt-10 md:mt-20">
+
+                <img src="{{ featured_image }}" alt="{{ image_caption }}">
+
+                {% if image_caption %}
+
+                <figcaption class="text-center text-sm italic text-gray-600 mt-4">{{ image_caption }}</figcaption>
+
+                {% endif %}
+
+            </figure>
+
+            {% endif %}
+
+        </div>
+
+        <div class="content post md:px-16">
+
+            {{ content | safe }}
+
+        </div>
+
+        {# author card #}
+        <div class="author-card flex flex-col justify-center w-3/4 md:w-2/5 m-auto mt-16 px-12 pb-12 shadow-md rounded-lg text-center">
+
+            <figure class="mb-4">
+
+                <img class="block rounded-full m-auto w-64 p-8 md:p-12" src="{{ site.author.avatar }}" alt="{{ site.author.name }}">
+
+                <figcaption class="font-bold text-pink-500">{{ site.author.name }}</figcaption>
+
+            </figure>
+
+            <p class="text-sm mb-8">I've spent all my life on top of a mountain, learning the way of the Ninja Dev.</p>
+
+            {% include 'components/social-icons.njk' %}
+
+        </div>
+
+    </section>
+
+</main>
