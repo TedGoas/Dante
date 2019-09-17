@@ -79,13 +79,13 @@ This is one of a few ways to achieve bulletproof buttons in Outlook. Both Litmus
 
 All computers and mobile devices come pre-installed with a limited number of system fonts. Arial, Times New Roman, Verdana, Georgia being some of the most common ones. But Web fonts allow designers to get creative with their typography, allowing them to choose from a large number of web fonts for their designs.
 
-However not every version of Outlook supports web fonts, so it’s important to have a fallback system font defined for those version where web fonts don’t display.
+However [not every version of Outlook supports web fonts](https://www.campaignmonitor.com/css/text-fonts/font-face/), so it’s important to have a fallback system font defined for those version where web fonts don’t display.
 
 Since some versions of Outlook don’t support web fonts, we should include system fonts behind the web font in the font stack.
 
 <script src="https://gist.github.com/TedGoas/468c87aed1ef1c8060211e10a2edf7ea.js"></script>
 
-Rémi Parmentier wrote about a few ways web fonts can be controlled in Outlook. But long story short: web fonts will never display in Windows Outlook, so including system fonts in an email’s font stack as a fallback will ensure everyone sees consistent (though not identical) typography.
+Rémi Parmentier wrote about a few ways [web fonts can be controlled in Outlook](https://emails.hteumeuleu.com/today-i-learned-about-mso-generic-font-family-85b0e4703079). But long story short: web fonts will never display in Windows Outlook, so including system fonts in an email’s font stack as a fallback will ensure everyone sees consistent (though not identical) typography.
 
 ## 5. Bulletproof foreground images
 
@@ -117,4 +117,4 @@ Emails in Outlook can be tricky, so even after following the tips mentioned abov
 
 <hr role="presentation" aria-role="hidden" class="hr-sm">
 
-Also published at <a href=""></a>
+Also published at <a href="https://medium.com/email-design/outlook-rendering-issues-5-tips-to-ensure-your-emails-display-properly-9520b2456166?source=your_stories_page---------------------------">https://medium.com/email-design/outlook-rendering-issues-5-tips-to-ensure-your-emails-display-properly-9520b2456166?source=your_stories_page---------------------------</a>
