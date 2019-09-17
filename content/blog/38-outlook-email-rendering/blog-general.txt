@@ -4,7 +4,7 @@ Date: September 16, 2019
 ----
 Description: Earlier this year, I wrote an internal guide for my co-workers explaining some of the common gotchas that make coding HTML emails for Outlook so tedious. This is a lightly edited version that that article.
 ----
-Article-Hero-Classes: wmx5
+Article-Hero-Classes: wmx8
 ----
 Text:
 
