@@ -11,7 +11,7 @@
 				<img src="/assets/images/work/th-stack-dashboard.png" alt="Health dashboard for Stack Overflow for Teams." height="300" width="150">
 			</div>
 			<div class="card-text">
-				<h3 class="faux-link">Community Heath Dashboard</h3>
+				<h3 class="faux-link">Enterprise Health Dashboard</h3>
 				<p>How we designed a tool that enables folks to understand their community’s health. I led research and design, and helped with product strategy and&nbsp;development.</p>
 			</div>
 		</a>
