@@ -10,15 +10,20 @@ Text:
 
 A small collection of design articles that stuck out in my mind this year. I did this in <a href="/blog/best-design-articles-2018">2018</a> and <a href="/blog/best-design-articles-2017">2017</a> too.
 
+<hr role="presentation" aria-role="hidden" class="hr-sm">
+
 <figure>
     <img src="/content/blog/41-best-design-articles-2019/share.jpg" alt="Closeup of hands on a laptop keyboard." width="880" height="400">
 </figure>
 <h2><a href="https://medium.com/@sara_ann_marie/dont-feel-like-an-expert-share-anyway-661f2f8cd038">Don’t feel like an expert? Share anyway.</a></h2>
-“That’s already been said, I don’t need to repeat it.”
+>“That’s already been said, I don’t need to repeat it.”
+>“I don’t need to share my opinion on X, it’s already obvious.”
 
-“I don’t need to share my opinion on X, it’s already obvious.”
+I talk myself out of speaking up every day.
 
-I talk myself out of speaking up every day. Every. Day. At work. On social media. Among friends. [This is me](https://www.reddit.com/r/infp/comments/8po8rn/what_i_think_vs_what_i_say/). Still a work in progress, but re-reading articles like this is motivating.
+Every. Day.
+
+At work. On social media. Among friends. [This is me](https://www.reddit.com/r/infp/comments/8po8rn/what_i_think_vs_what_i_say/). I’m still a working on improving and re-reading articles like this is motivating.
 
 <hr role="presentation" aria-role="hidden" class="hr-sm">
 
@@ -43,10 +48,12 @@ Rewriting your application from scratch is billed as “the single worst strateg
 <hr role="presentation" aria-role="hidden" class="hr-sm">
 
 <figure>
-    <img src="/content/blog/41-best-design-articles-2019/app-mistakes.jpg" alt="Example of a modal in a app web." width="880" height="400">
+    <img src="/content/blog/41-best-design-articles-2019/tools.jpg" alt="Tools hanging on a tool rack on the wall." width="880" height="400">
 </figure>
-<h2><a href="https://www.nngroup.com/articles/top-10-application-design-mistakes/">Top 10 Application-Design Mistakes</a></h2>
-I usually find Nielson Norman Group posts to be rather dry, but this one. I love how it focuses on the basics. There’s nothing in here about “personalizing the experience” or “delighting the user,” but comparatively elementary considerations like including sensible defaults to speed up and teach uses, and providing helpful error messages that explain what went wrong and how it can be fixed. It’s all about the basics!
+<h2><a href="https://www.intercom.com/blog/videos/tools-design-process/">The tools we use: Challenging dogma in the design process</a></h2>
+A rather cerebral dive into tools in this article / recorded talk. Intercom’s Emmet Connolly shows us how tools augment our abilities, but can also contain biases and can be weaponized if we’re not careful.
+
+Emmet is a great storyteller and provides loads of history. Reminds me of [Wilson Minor’s talk](https://vimeo.com/34017777) a few years ago. I recommend reading or watching this one!
 
 <hr role="presentation" aria-role="hidden" class="hr-sm">
 
@@ -73,22 +80,20 @@ I’m a big fan of Rian van der Merwe’s writing (I ❤️ his [Elezea newslett
 <hr role="presentation" aria-role="hidden" class="hr-sm">
 
 <figure>
+    <img src="/content/blog/41-best-design-articles-2019/design-leadership.jpg" alt="Lego storm trooper painting." width="880" height="400">
+</figure>
+<h2><a href="https://uxdesign.cc/how-to-get-into-design-leadership-386e39774d84">How to get into Design Leadership</a></h2>
+This year I dove headfirst into the “people” part of my job. The soft skills. When I first starting learning about design leadership, I didn’t really know what it was. Articles like helped me learn what design leadership this looks like in practice and how to identify and create opportunities for leading.
+
+<hr role="presentation" aria-role="hidden" class="hr-sm">
+
+<figure>
     <img src="/content/blog/41-best-design-articles-2019/leading-design.jpg" alt="Holding hands." width="880" height="400">
 </figure>
 <h2><a href="https://uxplanet.org/tips-for-leading-a-design-project-a638f5a71884">Tips for leading a design project</a></h2>
 Full disclosure: I helped write this article with a coworker. But here’s the thing: despite that, I’ve referred back to this article several times after we published it.
 
 When taking on a new design projects, there are so many things to consider, questions to ask, solutions to explore... the possibilities can seem endless (and sometimes paralyzing). Donna has a wonderful framework that she applies to each project, which is detailed in this article.
-
-<hr role="presentation" aria-role="hidden" class="hr-sm">
-
-<figure>
-    <img src="/content/blog/41-best-design-articles-2019/tools.jpg" alt="Tools hanging on a tool rack on the wall." width="880" height="400">
-</figure>
-<h2><a href="https://www.intercom.com/blog/videos/tools-design-process/">The tools we use: Challenging dogma in the design process</a></h2>
-A rather cerebral dive into tools in this article / recorded talk. Intercom’s Emmet Connolly shows us how tools augment our abilities, but can also contain biases and can be weaponized if we’re not careful.
-
-Emmet is a great storyteller and provides loads of history. Reminds me of [Wilson Minor’s talk](https://vimeo.com/34017777) a few years ago. I recommend reading or watching this one!
 
 <hr role="presentation" aria-role="hidden" class="hr-sm">
 
@@ -105,16 +110,6 @@ Julie Zhuo has also been an inspiration here, [reminding me](https://mailchi.mp/
 <hr role="presentation" aria-role="hidden" class="hr-sm">
 
 <figure>
-    <img src="/content/blog/41-best-design-articles-2019/remote.jpg" alt="Time lapse of people walking through a gate somewhere in Asia." width="880" height="400">
-</figure>
-<h2><a href="https://mikeindustries.com/blog/archive/2019/08/a-year-of-working-remotely">A Year of Working Remotely</a></h2>
-> Despite what you may read on Twitter, remote work is neither the greatest thing in the world nor the worst. We are not moving to a world where offices go completely away, nor are we going through some sort of phase where remote work will eventually prove to be a giant waste of time. In other words, it’s complicated.
-
-Spot on Mike… spot on.
-
-<hr role="presentation" aria-role="hidden" class="hr-sm">
-
-<figure>
     <img src="/content/blog/41-best-design-articles-2019/ux-career.png" alt="Illustration of man swimming with sharks." width="880" height="400">
 </figure>
 <h2><a href="https://medium.com/google-design/how-to-have-a-successful-ux-career-at-google-or-anywhere-else-ea63624f74de">How to Have a Successful UX Career at Google (Or Anywhere Else)</a></h2>
@@ -127,10 +122,20 @@ To set yourself up for a successful UX career, you need to shift your mindset fr
 <hr role="presentation" aria-role="hidden" class="hr-sm">
 
 <figure>
-    <img src="/content/blog/41-best-design-articles-2019/design-leadership.jpg" alt="Lego storm trooper painting." width="880" height="400">
+    <img src="/content/blog/41-best-design-articles-2019/remote.jpg" alt="Time lapse of people walking through a gate somewhere in Asia." width="880" height="400">
 </figure>
-<h2><a href="https://uxdesign.cc/how-to-get-into-design-leadership-386e39774d84">How to get into Design Leadership</a></h2>
-This year I dove headfirst into the “people” part of my job. The soft skills. When I first starting learning about design leadership, I didn’t really know what it was. Articles like helped me learn what design leadership this looks like in practice and how to identify and create opportunities for leading.
+<h2><a href="https://mikeindustries.com/blog/archive/2019/08/a-year-of-working-remotely">A Year of Working Remotely</a></h2>
+> Despite what you may read on Twitter, remote work is neither the greatest thing in the world nor the worst. We are not moving to a world where offices go completely away, nor are we going through some sort of phase where remote work will eventually prove to be a giant waste of time. In other words, it’s complicated.
+
+Spot on Mike… spot on.
+
+<hr role="presentation" aria-role="hidden" class="hr-sm">
+
+<figure>
+    <img src="/content/blog/41-best-design-articles-2019/app-mistakes.jpg" alt="Example of a modal in a app web." width="880" height="400">
+</figure>
+<h2><a href="https://www.nngroup.com/articles/top-10-application-design-mistakes/">Top 10 Application-Design Mistakes</a></h2>
+I usually find Nielson Norman Group posts to be rather dry, but this one. I love how it focuses on the basics. There’s nothing in here about “personalizing the experience” or “delighting the user,” but comparatively elementary considerations like including sensible defaults to speed up and teach uses, and providing helpful error messages that explain what went wrong and how it can be fixed. It’s all about the basics!
 
 <hr role="presentation" aria-role="hidden" class="hr-sm">
 
