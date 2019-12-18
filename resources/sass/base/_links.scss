@@ -1,14 +1,25 @@
 
 //==========  Links ==========//
 
-.transition {
-    transition: 0.25s color ease-out;
+.link-transition {
+    transition: .1s all ease-out;
 }
 
+/*
+a:not(.link-unstyled) {
+    @apply no-underline text-blue-500 border-solid border-b-2 border-gray-300 link-transition;
+
+*/
 a {
-    @apply no-underline text-pink-500 transition;
+    @apply text-blue-500 underline link-transition;
+
+    text-decoration-color: theme('colors.gray.400');
+    text-decoration-thickness: .125em;
+    text-underline-offset: 2px;
+    text-decoration-skip-ink: auto;
 
     &:hover {
-        @apply text-purple-900;
+        @apply text-blue-600;
+        text-decoration-color: theme('colors.blue.500');
     }
 }

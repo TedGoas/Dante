@@ -1,10 +1,10 @@
 // Config
 // Selectors
 // store selectors for reference so we only call them once
-var $body = document.querySelector('body');
-var $header = document.getElementById('#header');
-var $nav = document.getElementById('#nav');
-var $footer = document.getElementById('#footer');
+// const $body = document.querySelector('body')
+// const $header = document.getElementById('#header')
+// const $nav = document.getElementById('#nav')
+// const $footer = document.getElementById('#footer')
 // Helpers
 var
 /**
@@ -23,5 +23,5 @@ page = function page(name) {
 // add a class of 'intro' to the first paragraph
 // do this on every page apart from the blog page
 if (!page('blog')) {
-  document.querySelector('.content > p').classList.add('intro');
+  document.querySelector('.article > p').classList.add('intro');
 }

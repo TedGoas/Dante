@@ -4,6 +4,6 @@
 if ( !page('blog') )
 {
 
-    document.querySelector('.content > p').classList.add('intro')
+    document.querySelector('.article > p').classList.add('intro')
 
 }

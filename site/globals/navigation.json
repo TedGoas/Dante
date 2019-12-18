@@ -5,16 +5,24 @@
             "url": "/"
         },
         {
-            "label": "About",
-            "url": "/about/"
+            "label": "Work",
+            "url": "/work/"
         },
         {
-            "label": "Blog",
-            "url": "/blog/"
+            "label": "What I Do",
+            "url": "/what-i-do/"
+        },
+        {
+            "label": "A Short Bio",
+            "url": "/bio/"
         },
         {
             "label": "Contact",
             "url": "/contact/"
+        },
+        {
+            "label": "Blog",
+            "url": "/blog/"
         }
     ]
 }

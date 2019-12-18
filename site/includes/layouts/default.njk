@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if meta_title %}{{ meta_title }}{% else %}{{ title }}{% endif %} | {{ site.name }}</title>
+    <title>{% if meta_title %}{{ meta_title }}{% else %}{{ title }}{% endif %} 👀 {{ site.name }}</title>
     <meta name="description" content="{% if meta_description %}{{ meta_description }}{% else %}{{ excerpt }}{% endif %}">
     <link rel="canonical" href="{{ site.url }}{{ page.url }}">
 
@@ -23,7 +23,7 @@
 
 <body {% if body_class %} id="{{ body_class }}"{% endif %} class="min-h-full font-sans text-lg text-purple-darkest leading-normal">
 
-    <div id="wrapper" class="wrapper flex flex-col relative min-h-screen">
+    <div class="w-screen px-3 max-w-4xl mx-auto min-h-screen">
 
         {# include header #}
         {% include "components/header.njk" %}
