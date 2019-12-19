@@ -6,6 +6,34 @@ h1, h2, h3, h4, h5, h6 {
     @apply font-bold leading-tight mt-0 mb-6;
 }
 
+.highlighted,
+.highlighted-alt {
+	position: relative;
+	z-index: 1;
+	@apply p-2;
+	white-space: nowrap;
+
+	&:after {
+		content: "";
+		display: block;
+		position: absolute;
+		z-index: -1;
+		top: -5px;
+		right: -7px;
+		bottom: -5px;
+		left: -7px;
+		background-position: center center;
+		background-size: 100% auto;
+		background-repeat: no-repeat;
+	}
+}
+.highlighted:after {
+	background-image: url("../../../images/misc/highlight-yellow-lg.svg");
+}
+.highlighted-alt:after {
+	background-image: url("../../../images/misc/highlight-alt-lg.svg");
+}
+
 // content
 .article {
 
