@@ -608,6 +608,12 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1.5rem;
 }
 
+.h-tiny {
+  font-family: Permanent Marker, sans-serif;
+  font-size: 1rem;
+  color: #2d3748;
+}
+
 .highlighted,
 .highlighted-alt {
   position: relative;

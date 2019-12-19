@@ -6,6 +6,10 @@ h1, h2, h3, h4, h5, h6 {
     @apply font-bold leading-tight mt-0 mb-6;
 }
 
+.h-tiny {
+	@apply font-display text-base text-gray-800;	
+}
+
 .highlighted,
 .highlighted-alt {
 	position: relative;
