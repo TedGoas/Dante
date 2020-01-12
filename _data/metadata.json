@@ -1,15 +1,15 @@
 {
-  "title": "Your Blog Name",
-  "url": "https://myurl.com/",
-  "description": "I am writing about my experiences as a naval navel-gazer.",
+  "title": "Ted Goas",
+  "url": "https://www.tedgoas.com/",
+  "description": "Principal Product Designer working remotely at Stack Overflow",
   "feed": {
-    "subtitle": "I am writing about my experiences as a naval navel-gazer.",
+    "subtitle": "Principal Product Designer working remotely at Stack Overflow",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
-    "id": "https://myurl.com/"
+    "id": "https://www.tedgoas.com/"
   },
   "author": {
-    "name": "Your Name Here",
-    "email": "youremailaddress@example.com"
+    "name": "Ted Goas",
+    "email": "ted@tedgoas.com"
   }
 }
