@@ -1,7 +1,0 @@
-Title: Working at Stack Overflow
-----
-Description: How we design at Stack Overflow and a few notable projects.
-----
-Role: Information Architecture, Website Design, Front-End Development, SEO, Email Design
-----
-Summary: How we design at Stack Overflow and a few notable projects.
