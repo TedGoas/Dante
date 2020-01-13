@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hylia Starter Kit</title>
+  <title>Ted Goas</title>
 	<subtitle></subtitle>
-	<link href="https://hylia.website/feed.xml" rel="self"/>
-	<link href="https://hylia.website/"/>
+	<link href="https://www.tedgoas.com//feed.xml" rel="self"/>
+	<link href="https://www.tedgoas.com//"/>
 	<updated>2019-06-17T20:00:00-04:00</updated>
-	<id>https://hylia.website</id>
+	<id>https://www.tedgoas.com/</id>
 	<author>
-  <name>Andy Bell</name>
-  <email>me@andy-bell.design</email>
+  <name>Ted Goas</name>
+  <email>ted@tedgoas.com</email>
 	</author>
 	
   
   <entry>
     <title>A simple post</title>
-    <link href="https://hylia.website/posts/a-simple-post/"/>
+    <link href="https://www.tedgoas.com//posts/a-simple-post/"/>
     <updated>2019-06-17T20:00:00-04:00</updated>
-    <id>https://hylia.website/posts/a-simple-post/</id>
+    <id>https://www.tedgoas.com//posts/a-simple-post/</id>
     <content type="html"><![CDATA[
       <p>A simple post to demonstrate how a normal blog post looks on Hylia. Content is all set in the “Body” field as markdown and Eleventy transforms it into a proper HTML post. You can also edit the markdown file directly if you prefer not to use the CMS.</p>
 <p>How about a <code>&lt;blockquote&gt;</code>?</p>
@@ -43,9 +43,9 @@
   
   <entry>
     <title>A post with figures and video</title>
-    <link href="https://hylia.website/posts/a-post-with-figures-and-video/"/>
+    <link href="https://www.tedgoas.com//posts/a-post-with-figures-and-video/"/>
     <updated>2019-06-17T20:00:00-04:00</updated>
-    <id>https://hylia.website/posts/a-post-with-figures-and-video/</id>
+    <id>https://www.tedgoas.com//posts/a-post-with-figures-and-video/</id>
     <content type="html"><![CDATA[
       <p>A post to demonstrate how a blog post looks on Hylia. Content is all set in the “Body” field as markdown and Eleventy transforms it into a proper HTML post. You can also edit the markdown file directly if you prefer not to use the CMS.</p>
 <p>If you want to make an image bleed-out, add a title attribute to it and the front-end will automatically wrap it in a <code>&lt;figure&gt;</code> tag for you.</p>
@@ -65,9 +65,9 @@
   
   <entry>
     <title>A post with code samples</title>
-    <link href="https://hylia.website/posts/a-post-with-code-samples/"/>
+    <link href="https://www.tedgoas.com//posts/a-post-with-code-samples/"/>
     <updated>2019-06-17T20:00:00-04:00</updated>
-    <id>https://hylia.website/posts/a-post-with-code-samples/</id>
+    <id>https://www.tedgoas.com//posts/a-post-with-code-samples/</id>
     <content type="html"><![CDATA[
       <p>The best way to demo a code post is to display a real life post, so check out this one from <a href="https://andy-bell.design/wrote/creating-a-full-bleed-css-utility/">andy-bell.design</a> about a full bleed CSS utility.</p>
 <hr>
