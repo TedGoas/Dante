@@ -11,15 +11,15 @@ a:not(.link-unstyled) {
 
 */
 a {
-    @apply text-blue-600 underline link-transition;
+    @apply text-blue-6 underline link-transition;
 
-    text-decoration-color: theme('colors.gray.400');
+    text-decoration-color: theme('colors.gray.4');
     text-decoration-thickness: .125em;
     text-underline-offset: 2px;
     text-decoration-skip-ink: auto;
 
     &:hover {
-        @apply text-blue-600;
-        text-decoration-color: theme('colors.blue.500');
+        @apply text-blue-6;
+        text-decoration-color: theme('colors.blue.5');
     }
 }

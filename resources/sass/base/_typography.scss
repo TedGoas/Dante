@@ -7,7 +7,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .h-tiny {
-	@apply font-display text-base text-gray-800;	
+	@apply font-display text-base text-gray-8;
 }
 
 .highlighted,
@@ -47,7 +47,7 @@ h1, h2, h3, h4, h5, h6 {
 
         // intro paragraph
 		&.intro {
-			@apply border-b border-gray-200 text-2xl pb-10 mb-10 font-light text-gray-500;
+			@apply border-b border-gray-2 text-2xl pb-10 mb-10 font-light text-gray-5;
 
 			@screen md {
                 @apply text-3xl;
