@@ -1,5 +1,8 @@
 .nav {
-  &__list {
+  ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: none;
@@ -7,24 +10,12 @@
     &::-webkit-scrollbar {
       display: none;
     }
-
-    > * + * {
-      margin-left: get-size(500);
-    }
   }
-
-  &__item {
-    padding: get-size(300) 0;
-    flex-shrink: 0;
+  li {
+    margin-right: 10px;
 
     a {
-      color: currentColor;
-
-      @include apply-utility('weight', 'mid');
-
-      &:not(:hover) {
-        text-decoration: none;
-      }
+      padding: 5px;
     }
   }
 }

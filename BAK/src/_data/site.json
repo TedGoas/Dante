@@ -1,0 +1,13 @@
+{
+  "showThemeCredit": false,
+  "name": "Edward Goas",
+  "shortDesc": "Ted Goas is a Principal Product Designer working remotely at Stack Overflow.",
+  "url": "https://www.tedgoas.com/",
+  "authorEmail": "ted@tedgoas.com",
+  "authorHandle": "@tedgoas",
+  "authorName": "Ted Goas",
+  "enableThirdPartyComments": false,
+  "maxPostsPerPage": 5,
+  "paymentPointer": "",
+  "faviconPath": "/images/favicon.png"
+}

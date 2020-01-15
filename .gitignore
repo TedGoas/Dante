@@ -1,12 +1,17 @@
-# OS generated files #
-######################
+*.log
+npm-debug.*
+*.scssc
+*.log
+*.swp
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+.sass-cache
+node_modules
+dist 
 
-# Kirby #
-######################
+# Specifics
+
+# Hide design tokens
+src/scss/_tokens.scss
+
+# Hide compiled CSS
+src/_includes/assets/*
