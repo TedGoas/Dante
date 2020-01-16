@@ -3,18 +3,18 @@
 
 // headings
 h1, h2, h3, h4, h5, h6 {
-    @apply font-bold leading-tight mt-0 mb-6;
+    @apply font-bold leading-tight mt-0 mb-6 text-white;
 }
 
 .h-tiny {
-	@apply font-display text-base text-gray-8;
+	@apply font-display text-base;
 }
 
 .highlighted,
 .highlighted-alt {
+  @apply p-2 text-gray-9;
 	position: relative;
 	z-index: 1;
-	@apply p-2;
 	white-space: nowrap;
 
 	&:after {
@@ -32,10 +32,10 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 .highlighted:after {
-	background-image: url("../../../images/misc/highlight-yellow-lg.svg");
+	background-image: url("../../../images/misc/highlight-yellow.svg");
 }
 .highlighted-alt:after {
-	background-image: url("../../../images/misc/highlight-alt-lg.svg");
+	background-image: url("../../../images/misc/highlight-green.svg");
 }
 
 // content

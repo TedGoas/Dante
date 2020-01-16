@@ -5,9 +5,11 @@ module.exports = {
       sans: ['arial', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
       mono: ['Roboto Mono', 'monospace'],
-      display: ['Permanent Marker', 'sans-serif'],
+      display: ['Rock Salt', 'sans-serif'],
     },
     colors: {
+      white: '#fff',
+
       gray: {
         0: '#f8f9f',
         1: '#f1f3f5',
