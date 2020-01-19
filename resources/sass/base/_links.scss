@@ -4,21 +4,22 @@
 .link-transition {
     transition: .1s all ease-out;
 }
+a {
+  @apply text-cyan-4 link-transition font-bold;
 
-/*
-a:not(.link-unstyled) {
-    @apply no-underline text-blue-500 border-solid border-b-2 border-gray-300 link-transition;
+  text-decoration-thickness: .125em;
+  text-underline-offset: 3px;
+  text-decoration-skip-ink: auto;
 
-*/
+  &:hover {
+      @apply underline;
+      text-decoration-color: theme('colors.cyan.4');
+  }
+}
+
 a:not(.link-nav) {
-    @apply text-cyan-4 link-transition;
+}
 
-    text-decoration-thickness: .125em;
-    text-underline-offset: 3px;
-    text-decoration-skip-ink: auto;
-
-    &:hover {
-        @apply underline;
-        text-decoration-color: theme('colors.cyan.4');
-    }
+a.link-nav.active:hover {
+  @apply no-underline;
 }

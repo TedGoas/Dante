@@ -1,15 +1,15 @@
-<header class="text-center hd-border-bottom pt-3">
-	<a class="leading-none link-unstyled m-auto inline-block" href="/" aria-label="Back to home">
+<header class="header-site hd-border-bottom pt-3">
+	<a class="logo leading-none" href="/" aria-label="Back to home">
 		<img src="/images/logo/tg-sig-logo.svg" alt="Ted Goas signature logo." height="97" width="197" border="0">
 	</a>
-	<div class="byline pb-2 text-sm text-gray-700">
+	<div class="byline text-sm text-gray-6">
 		Principal Product Designer working remotely at Stack Overflow
 	</div>
-	<nav class="m-auto inline-block pb-4">
+	<nav class="nav">
 		<ul class="flex flex-row flex-wrap">
 			{% for item in navigation.main %}
 			<li>
-				<a href="{{ item.url | safe }}" class="link-nav mr-4 {% if page.url == item.url %}active highlighted-alt{% endif %}
+				<a href="{{ item.url | safe }}" class="link-nav mr-8 {% if page.url == item.url %}active highlighted-alt{% endif %}
 				">{{ item.label }}</a>
 			</li>
 			{% endfor %}
