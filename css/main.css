@@ -658,7 +658,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #adb5bd;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 767px) {
   .article p.intro {
     font-size: 1.875rem;
   }
@@ -682,30 +682,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .container{
   width: 100%;
-}
-
-@media (min-width: 640px){
-  .container{
-    max-width: 640px;
-  }
-}
-
-@media (min-width: 768px){
-  .container{
-    max-width: 768px;
-  }
-}
-
-@media (min-width: 1024px){
-  .container{
-    max-width: 1024px;
-  }
-}
-
-@media (min-width: 1280px){
-  .container{
-    max-width: 1280px;
-  }
 }
 
 .header-site {
@@ -3613,7 +3589,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .font-serif{
-  font-family: Merriweather, serif;
+  font-family: serif;
 }
 
 .font-mono{
@@ -7557,7 +7533,7 @@ h1, h2, h3, h4, h5, h6 {
   z-index: auto;
 }
 
-@media (min-width: 640px){
+@media (max-width: 639px){
   .sm\:appearance-none{
     appearance: none;
   }
@@ -10441,7 +10417,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .sm\:font-serif{
-    font-family: Merriweather, serif;
+    font-family: serif;
   }
 
   .sm\:font-mono{
@@ -14386,7 +14362,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-@media (min-width: 768px){
+@media (max-width: 767px){
   .md\:appearance-none{
     appearance: none;
   }
@@ -17270,7 +17246,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .md\:font-serif{
-    font-family: Merriweather, serif;
+    font-family: serif;
   }
 
   .md\:font-mono{
@@ -21215,7 +21191,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-@media (min-width: 1024px){
+@media (max-width: 1023px){
   .lg\:appearance-none{
     appearance: none;
   }
@@ -24099,7 +24075,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .lg\:font-serif{
-    font-family: Merriweather, serif;
+    font-family: serif;
   }
 
   .lg\:font-mono{
@@ -28044,7 +28020,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-@media (min-width: 1280px){
+@media (max-width: 1279px){
   .xl\:appearance-none{
     appearance: none;
   }
@@ -30928,7 +30904,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .xl\:font-serif{
-    font-family: Merriweather, serif;
+    font-family: serif;
   }
 
   .xl\:font-mono{
