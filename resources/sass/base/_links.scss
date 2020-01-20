@@ -16,10 +16,6 @@ a {
       text-decoration-color: theme('colors.cyan.4');
   }
 }
-
-a:not(.link-nav) {
-}
-
 a.link-nav.active:hover {
   @apply no-underline;
 }

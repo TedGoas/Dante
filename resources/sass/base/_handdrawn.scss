@@ -12,3 +12,9 @@
 .hd-border-right {
     background: url("../../../images/misc/hd-border-y.svg") top right repeat-y;
 }
+
+@screen sm {
+  .sm\:hd-none {
+    background: none;
+  }
+}

@@ -29,6 +29,17 @@
 
 //==========  Typography ==========//
 
+// Text colors
+.tc-light {
+  @apply text-gray-5;
+}
+.tc-medium {
+  @apply text-gray-3;
+}
+.tc-dark {
+  @apply text-white;
+}
+
 // headings
 h1, h2, h3, h4, h5, h6 {
     @apply font-bold leading-tight tracking-wide mt-0 mb-6 text-white;
