@@ -1,6 +1,6 @@
 <header class="header-site hd-border-bottom pt-3 sm:block">
 	<a class="logo leading-none" href="/" aria-label="Back to home">
-		<img src="/images/logo/tg-sig-logo.svg" alt="Ted Goas signature logo." height="97" width="197" border="0">
+		<img src="/images/logo/tg-sig-logo.svg" alt="Ted Goas signature logo." height="60" width="122" border="0">
 	</a>
 	<div class="byline text-sm text-gray-6 sm:mt-2 sm:mb-4">
 		Principal Product Designer working remotely at Stack&nbsp;Overflow
@@ -9,7 +9,7 @@
 		<ul class="flex flex-row flex-wrap">
 			{% for item in navigation.main %}
 			<li>
-				<a href="{{ item.url | safe }}" class="link-nav mr-8 {% if page.url == item.url %}active highlighted-alt{% endif %}
+				<a href="{{ item.url | safe }}" class="link-nav mr-8 {% if page.url == item.url %}active highlighted{% endif %}
 				">{{ item.label }}</a>
 			</li>
 			{% endfor %}

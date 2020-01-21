@@ -2,9 +2,9 @@
 .header-site {
   display: grid;
   align-items: center;
-  grid-template-columns: 197px 1fr;
+  grid-template-columns: 122px 1fr;
   grid-column-gap: 2rem;
-  grid-row-gap: 0;
+  grid-row-gap: .5em;
   @apply mt-6 pb-6;
 
   .logo {

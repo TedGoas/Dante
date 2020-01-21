@@ -813,7 +813,7 @@ a.link-nav.active:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
+  font-family: Rock Salt, sans-serif;
   line-height: 1.25;
   letter-spacing: 0.025em;
   margin-top: 0;
@@ -821,29 +821,33 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
 }
 
+.page-title {
+  font-size: 3rem;
+}
+
 .h-tiny {
-  font-family: Rock Salt, sans-serif;
   font-size: 1rem;
 }
 
 .highlighted,
-.highlighted-alt {
+.highlighted-long {
   padding: 0.5rem;
   color: #212529;
+  font-weight: 700;
   position: relative;
   z-index: 1;
   white-space: nowrap;
 }
 
 .highlighted:after,
-  .highlighted-alt:after {
+  .highlighted-long:after {
   content: "";
   display: block;
   position: absolute;
   z-index: -1;
-  top: -5px;
+  top: -4px;
   right: -7px;
-  bottom: -5px;
+  bottom: -4px;
   left: -7px;
   background-position: center center;
   background-size: 100% auto;
@@ -851,18 +855,30 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .highlighted:after {
-  background-image: url("../../../images/misc/highlight-yellow.svg");
+  background-image: url("../../../images/misc/highlight.svg");
 }
 
-.highlighted-alt:after {
-  background-image: url("../../../images/misc/highlight-yellow-alt.svg");
+.highlighted-long:after {
+  background-image: url("../../../images/misc/highlight--long.svg");
 }
 
-.article p {
-  margin-bottom: 2rem;
+article {
+  font-size: 1.125rem;
 }
 
-.article p.intro {
+article p, article li, article h1, article h2, article h3, article h4 {
+  max-width: 48rem;
+}
+
+article h1.page-title {
+  margin-top: -0.5rem;
+}
+
+article p {
+  margin-bottom: 1.5rem;
+}
+
+article p.intro {
   border-bottom-width: 1px;
   border-color: #e9ecef;
   font-size: 1.5rem;
@@ -873,7 +889,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 767px) {
-  .article p.intro {
+  article p.intro {
     font-size: 1.875rem;
   }
 }
@@ -907,9 +923,9 @@ h1, h2, h3, h4, h5, h6 {
 .header-site {
   display: grid;
   align-items: center;
-  grid-template-columns: 197px 1fr;
+  grid-template-columns: 122px 1fr;
   grid-column-gap: 2rem;
-  grid-row-gap: 0;
+  grid-row-gap: .5em;
   margin-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
@@ -924,6 +940,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .header-site .nav {
   grid-area: 2 / 2 / 3 / 3;
+}
+
+.main {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  background: url("../../../images/misc/hd-border-x.svg") bottom left repeat-x;
+  flex-grow: 1;
 }
 
 .appearance-none{

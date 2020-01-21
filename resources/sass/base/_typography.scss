@@ -42,16 +42,18 @@
 
 // headings
 h1, h2, h3, h4, h5, h6 {
-    @apply font-bold leading-tight tracking-wide mt-0 mb-6 text-white;
+    @apply font-display leading-tight tracking-wide mt-0 mb-6 text-white;
 }
-
+.page-title {
+  @apply text-5xl;
+}
 .h-tiny {
-	@apply font-display text-base;
+	@apply text-base;
 }
 
 .highlighted,
-.highlighted-alt {
-  @apply p-2 text-gray-9;
+.highlighted-long {
+  @apply p-2 text-gray-9 font-bold;
 	position: relative;
 	z-index: 1;
 	white-space: nowrap;
@@ -61,9 +63,9 @@ h1, h2, h3, h4, h5, h6 {
 		display: block;
 		position: absolute;
 		z-index: -1;
-		top: -5px;
+		top: -4px;
 		right: -7px;
-		bottom: -5px;
+		bottom: -4px;
 		left: -7px;
 		background-position: center center;
 		background-size: 100% auto;
@@ -71,26 +73,33 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 .highlighted:after {
-	background-image: url("../../../images/misc/highlight-yellow.svg");
+	background-image: url("../../../images/misc/highlight.svg");
 }
-.highlighted-alt:after {
-	background-image: url("../../../images/misc/highlight-yellow-alt.svg");
+.highlighted-long:after {
+	background-image: url("../../../images/misc/highlight--long.svg");
 }
 
 // content
-.article {
+article {
+  @apply text-lg;
 
-	// paragraph
+  p, li, h1, h2, h3, h4 {
+    @apply max-w-3xl;
+  }
+
+  h1.page-title {
+    @apply -mt-2;
+  }
+
 	p {
-		@apply mb-8;
+		@apply mb-6;
 
-        // intro paragraph
 		&.intro {
 			@apply border-b border-gray-2 text-2xl pb-10 mb-10 font-light text-gray-5;
 
 			@screen md {
-                @apply text-3xl;
-            }
+        @apply text-3xl;
+      }
 		}
-    }
+  }
 }
