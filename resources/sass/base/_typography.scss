@@ -112,6 +112,36 @@ article {
       }
 		}
   }
+  ul, ol {
+    @apply mb-6 ml-8;
+
+    li {
+      @apply mb-6 relative leading-snug;
+    }
+  }
+  ul li:before {
+    @apply absolute inline-block bg-yellow-4 opacity-50;
+    content: "";
+    width: 0.4rem;
+    height: 0.4rem;
+    top: 0.6rem;
+    left: -1.5rem;
+    //transform: rotate(45deg);
+	}
+  ol {
+		counter-reset: ordered-list;
+
+		li:before {
+      @apply text-sm font-bold absolute inline-block text-right text-yellow-4 opacity-50;
+      counter-increment: ordered-list;
+      content: counter(ordered-list);
+      top: .25rem;
+      left: -2rem;
+		}
+		li:nth-child(-n+9):before {
+			content: "0" counter(ordered-list);
+		}
+	}
   blockquote {
     @apply py-2 pl-8 mb-6 text-xl;
     background: url("../../images/misc/hd-quote.svg") top left repeat-y;

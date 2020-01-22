@@ -913,6 +913,51 @@ article p.intro {
   }
 }
 
+article ul, article ol {
+  margin-bottom: 1.5rem;
+  margin-left: 2rem;
+}
+
+article ul li, article ol li {
+  margin-bottom: 1.5rem;
+  position: relative;
+  line-height: 1.375;
+}
+
+article ul li:before {
+  position: absolute;
+  display: inline-block;
+  background-color: #ffd43b;
+  opacity: 0.5;
+  content: "";
+  width: 0.4rem;
+  height: 0.4rem;
+  top: 0.6rem;
+  left: -1.5rem;
+}
+
+article ol {
+  counter-reset: ordered-list;
+}
+
+article ol li:before {
+  font-size: 0.875rem;
+  font-weight: 700;
+  position: absolute;
+  display: inline-block;
+  text-align: right;
+  color: #ffd43b;
+  opacity: 0.5;
+  counter-increment: ordered-list;
+  content: counter(ordered-list);
+  top: .25rem;
+  left: -2rem;
+}
+
+article ol li:nth-child(-n+9):before {
+  content: "0" counter(ordered-list);
+}
+
 article blockquote {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
