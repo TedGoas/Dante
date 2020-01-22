@@ -45,7 +45,7 @@ h1, h2, h3, h4, h5, h6 {
     @apply font-display leading-tight tracking-wide mt-0 mb-6 text-white;
 }
 .page-title {
-  @apply text-5xl;
+  @apply text-5xl leading-tight;
 }
 .h-tiny {
 	@apply text-base;
@@ -83,12 +83,22 @@ h1, h2, h3, h4, h5, h6 {
 article {
   @apply text-lg;
 
-  p, li, h1, h2, h3, h4 {
+  p, ol, ul, h2, h3, h4, blockquote, .twitter-tweet, time {
     @apply max-w-3xl;
   }
+  time,
+  pre {
+  	@apply block;
+  }
 
-  h1.page-title {
+  .page-title {
     @apply -mt-2;
+  }
+  h2 {
+    @apply text-3xl leading-tight mt-16;
+  }
+  h3 {
+    @apply text-xl leading-tight my-8;
   }
 
 	p {
@@ -101,5 +111,16 @@ article {
         @apply text-3xl;
       }
 		}
+  }
+  blockquote {
+    @apply py-2 pl-8 mb-6 text-xl;
+    background: url("../../images/misc/hd-quote.svg") top left repeat-y;
+
+    p {
+      @apply mb-0;
+    }
+  }
+  code {
+    @apply px-2 py-1 text-sm bg-gray-8 border border-gray-7 rounded text-red-4;
   }
 }

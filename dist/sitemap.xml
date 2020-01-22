@@ -1,39 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://www.tedgoas.com/blog/post-1/</loc>
-        <lastmod>2020-1-20</lastmod>
+        <loc>https://www.tedgoas.com/blog/is-this-thing-on/</loc>
+        <lastmod>2020-1-21</lastmod>
     </url>
     <url>
-        <loc>https://www.tedgoas.com/blog/post-2/</loc>
-        <lastmod>2020-1-20</lastmod>
+        <loc>https://www.tedgoas.com/blog/i-work-for-free-or-at-my-full-rate/</loc>
+        <lastmod>2020-1-21</lastmod>
     </url>
     <url>
-        <loc>https://www.tedgoas.com/blog/post-3/</loc>
-        <lastmod>2020-1-20</lastmod>
+        <loc>https://www.tedgoas.com/blog/design-as-a-resource/</loc>
+        <lastmod>2020-1-21</lastmod>
+    </url>
+    <url>
+        <loc>https://www.tedgoas.com/blog/performance-review/</loc>
+        <lastmod>2020-1-21</lastmod>
+    </url>
+    <url>
+        <loc>https://www.tedgoas.com/blog/hiring-and-the-black-box/</loc>
+        <lastmod>2020-1-21</lastmod>
     </url>
     <url>
         <loc>https://www.tedgoas.com/bio/</loc>
-        <lastmod>2020-1-20</lastmod>
+        <lastmod>2020-1-21</lastmod>
     </url>
     <url>
         <loc>https://www.tedgoas.com/blog/</loc>
-        <lastmod>2020-1-20</lastmod>
+        <lastmod>2020-1-21</lastmod>
     </url>
     <url>
         <loc>https://www.tedgoas.com/contact/</loc>
-        <lastmod>2020-1-20</lastmod>
+        <lastmod>2020-1-21</lastmod>
     </url>
     <url>
         <loc>https://www.tedgoas.com/</loc>
-        <lastmod>2020-1-20</lastmod>
+        <lastmod>2020-1-21</lastmod>
     </url>
     <url>
         <loc>https://www.tedgoas.com/what-i-do/</loc>
-        <lastmod>2020-1-20</lastmod>
+        <lastmod>2020-1-21</lastmod>
     </url>
     <url>
         <loc>https://www.tedgoas.com/work/</loc>
-        <lastmod>2020-1-20</lastmod>
+        <lastmod>2020-1-21</lastmod>
     </url>
 </urlset>

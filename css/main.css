@@ -823,6 +823,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .page-title {
   font-size: 3rem;
+  line-height: 1.25;
 }
 
 .h-tiny {
@@ -866,12 +867,30 @@ article {
   font-size: 1.125rem;
 }
 
-article p, article li, article h1, article h2, article h3, article h4 {
+article p, article ol, article ul, article h2, article h3, article h4, article blockquote, article .twitter-tweet, article time {
   max-width: 48rem;
 }
 
-article h1.page-title {
+article time,
+  article pre {
+  display: block;
+}
+
+article .page-title {
   margin-top: -0.5rem;
+}
+
+article h2 {
+  font-size: 1.875rem;
+  line-height: 1.25;
+  margin-top: 4rem;
+}
+
+article h3 {
+  font-size: 1.25rem;
+  line-height: 1.25;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 article p {
@@ -892,6 +911,32 @@ article p.intro {
   article p.intro {
     font-size: 1.875rem;
   }
+}
+
+article blockquote {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 2rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  background: url("../../images/misc/hd-quote.svg") top left repeat-y;
+}
+
+article blockquote p {
+  margin-bottom: 0;
+}
+
+article code {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  font-size: 0.875rem;
+  background-color: #343a40;
+  border-width: 1px;
+  border-color: #495057;
+  border-radius: 0.25rem;
+  color: #ff8787;
 }
 
 .hd-border-bottom {
@@ -947,6 +992,27 @@ article p.intro {
   padding-bottom: 2.5rem;
   background: url("../../../images/misc/hd-border-x.svg") bottom left repeat-x;
   flex-grow: 1;
+}
+
+.hr {
+  height: 8px;
+  background: url("../../images/misc/hd-hr.svg") top left repeat-x;
+}
+
+.hr-above {
+  position: relative;
+  padding-top: 4rem;
+}
+
+.hr-above:before {
+  display: block;
+  height: 8px;
+  background: url("../../images/misc/hd-hr.svg") top left repeat-x;
+  position: absolute;
+  top: 0;
+  margin-top: 1.5rem;
+  width: 14rem;
+  content: "";
 }
 
 .appearance-none{
