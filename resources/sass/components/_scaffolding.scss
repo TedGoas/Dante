@@ -3,14 +3,28 @@
   @apply py-10 hd-border-bottom flex-grow;
 }
 .hr {
+  @apply w-56 mx-0;
   height: 8px;
   background: url("../../images/misc/hd-hr.svg") top left repeat-x;
 }
+p + .hr {
+  @apply my-8;
+}
 .hr-above {
-  @apply relative pt-16;
+  @apply relative pt-20;
 
   &:before {
-    @apply block hr absolute top-0 mt-6 w-56;
+    @apply block hr absolute top-0 mt-10 w-56;
     content: "";
+  }
+}
+
+article {
+  figure {
+    @apply block mb-8;
+
+    figcaption {
+      @apply text-sm tc-light mt-4;
+    }
   }
 }

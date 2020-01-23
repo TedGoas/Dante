@@ -1040,24 +1040,46 @@ article code {
 }
 
 .hr {
+  width: 14rem;
+  margin-left: 0;
+  margin-right: 0;
   height: 8px;
   background: url("../../images/misc/hd-hr.svg") top left repeat-x;
+}
+
+p + .hr {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .hr-above {
   position: relative;
-  padding-top: 4rem;
+  padding-top: 5rem;
 }
 
 .hr-above:before {
   display: block;
+  width: 14rem;
+  margin-left: 0;
+  margin-right: 0;
   height: 8px;
   background: url("../../images/misc/hd-hr.svg") top left repeat-x;
   position: absolute;
   top: 0;
-  margin-top: 1.5rem;
+  margin-top: 2.5rem;
   width: 14rem;
   content: "";
+}
+
+article figure {
+  display: block;
+  margin-bottom: 2rem;
+}
+
+article figure figcaption {
+  font-size: 0.875rem;
+  color: #adb5bd;
+  margin-top: 1rem;
 }
 
 .appearance-none{

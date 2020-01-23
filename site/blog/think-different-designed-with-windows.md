@@ -1,5 +1,5 @@
 ---
-title: Think Different, Designed with Windows
+title: "Think Different: Designed with Windows"
 date: 2013-08-06
 body_class: blog
 featured_image: /images/blog/windows_xp.jpg
