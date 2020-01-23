@@ -9,8 +9,7 @@
 		<ul class="flex flex-row flex-wrap sm:leading-loose">
 			{% for item in navigation.main %}
 			<li>
-				<a href="{{ item.url | safe }}" class="link-nav mr-8 {% if page.url == item.url %}active highlighted{% endif %}
-				">{{ item.label }}</a>
+				<a href="{{ item.url | safe }}" class="link-nav mr-8 {% if page.url == item.url %}active highlighted{% endif %}">{{ item.label }}</a>
 			</li>
 			{% endfor %}
 		</ul>
