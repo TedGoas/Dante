@@ -150,6 +150,9 @@ article {
       @apply mb-0;
     }
   }
+  .twitter-tweet {
+    @apply pb-3;
+  }
   code {
     @apply px-2 py-1 text-sm bg-gray-8 border border-gray-7 rounded text-red-4;
   }

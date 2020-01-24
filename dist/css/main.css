@@ -971,6 +971,10 @@ article blockquote p {
   margin-bottom: 0;
 }
 
+article .twitter-tweet {
+  padding-bottom: 0.75rem;
+}
+
 article code {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -1211,6 +1215,10 @@ article blockquote {
 
 article blockquote p {
   margin-bottom: 0;
+}
+
+article .twitter-tweet {
+  padding-bottom: 0.75rem;
 }
 
 article code {
