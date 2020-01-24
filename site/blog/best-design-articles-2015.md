@@ -15,14 +15,14 @@ A small collection of articles that stuck out in my mind this year.
 <h2><a href="https://medium.com/@rachelhaot/how-to-design-for-everybody-4b2870724c4#.3xap642hr">How to Design for Everybody</a></h2>
 Solid, bite-sized nuggets of design advice from a government website redesign. I particularly enjoyed the section **Your org chart is not your information architecture** since it’s rarely how folks outside an organization think. Also true in the private sector.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden" class="hr hr-lg">
 
 <h2><a href="https://medium.com/user-research/never-ask-what-they-want-3-better-questions-to-ask-in-user-interviews-aeddd2a2101e#.nbi1t1263">Never Ask What They Want</a></h2>
 > “If you jump to asking users about how they think something can be better from the start, you only get their opinion, not how they actually deal with their current problem.”
 
 Users are best at explaining their goals and workflow tendencies. Don’t just build whatever people say they want.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden" class="hr hr-lg">
 
 <figure>
     <img src="/images/blog/best-of-2015/imgur.png" alt="Imgur logo." width="750" height="300">
@@ -30,14 +30,14 @@ Users are best at explaining their goals and workflow tendencies. Don’t just b
 <h2><a href="https://medium.com/@gerstenzang/16-product-things-i-learned-at-imgur-4e58b936759c#.nb4cnfobc">16 product things I learned at Imgur</a></h2>
 I did not expect this level of mature product thinking from a site about GIFs. This short listicle caught me off guard in the best possible way.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden" class="hr hr-lg">
 <figure>
     <img src="/images/blog/best-of-2015/ghost-car.jpg" alt="Screenshot of Super Mario Ghost Car." width="750" height="300">
 </figure>
 <h2><a href="https://blog.intercom.io/only-competitor-that-matters/">The Only Competitor That Matters</a></h2>
 The clichéd piece of advice to “ignore your competitors” makes a good sound byte, but it’s not too practical for those who work in a small, competitive spaces. This article talks about what to look for when watching the competition. Complete with Mario Kart reference!
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden" class="hr hr-lg">
 
 <figure>
     <img src="/images/blog/best-of-2015/amazon.png" alt="A lot of Amazon tabs." width="750" height="300">
@@ -46,7 +46,7 @@ The clichéd piece of advice to “ignore your competitors” makes a good sound
 At a certain point, a design might stop catering to new features being piled on. This year, a few of my designs reached this point. Articles like this helped me realize when it’s time to modify or consolidate a design in the face of new content.
 > “Each incremental menu item is not a big deal, and provides a lot of value downstream, but a slight incremental cost. But do this enough times, and you’ll start to pollute the overall design aesthetic, which is a public good that all features share.”
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden" class="hr hr-lg">
 
 <figure>
     <img src="/images/blog/best-of-2015/roadmap.png" alt="Example of Product Roadmap." width="750" height="300">
@@ -56,7 +56,7 @@ At a certain point, a design might stop catering to new features being piled on.
 
 Project roadmaps don’t just involve building new things. Intercom offers advice on auditing parts of a project, picking out things that folks don’t use much, and reconsidering their utility.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden" class="hr hr-lg">
 
 <figure>
     <img src="/images/blog/best-of-2015/waterbed.jpg" alt="Two porcupines discussing a how a waterbed was a bad idea." width="750" height="300">
@@ -66,7 +66,7 @@ Project roadmaps don’t just involve building new things. Intercom offers advic
 
 Sound familiar? It does to me. A nice, short read on product design definition.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden" class="hr hr-lg">
 
 <figure>
     <img src="/images/blog/best-of-2015/active-collab.jpg" alt="Preview of Acive Collab redesign." width="750" height="300">
@@ -75,7 +75,7 @@ Sound familiar? It does to me. A nice, short read on product design definition.
 Along same lines as the above, this case study details how designers reduced and streamlined a product that had lost its way. I thoroughly enjoyed the section titled The problem of too much functionality.
 > “It’s much easier to add features and create an illusion that the software is powerful than to actually invest effort, understand the needs of real users, and develop the product accordingly.”
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden" class="hr hr-lg">
 
 <figure>
     <img src="/images/blog/best-of-2015/wired.jpg" alt="Beautiful products. Illustration." width="750" height="300">
@@ -83,7 +83,7 @@ Along same lines as the above, this case study details how designers reduced and
 <h2><a href="http://www.wired.com/2015/05/google-ventures-not-every-product-needs-beautiful/">Not Every Product Needs to Be Beautiful</a></h2>
 Due to time and resource constraints, I’m often unable to revisit projects to polish visuals or refactor code. Although most every product or site is usable, I’m often nagged by the feeling that I hadn’t given it my all. Appears I’m not alone.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden" class="hr hr-lg">
 
 <figure>
     <img src="/images/blog/best-of-2015/lead.jpg" alt="Asked to Lead, but not in charge." width="750" height="300">
@@ -91,7 +91,7 @@ Due to time and resource constraints, I’m often unable to revisit projects to 
 <h2><a href="https://medium.com/seo-build-your-backlinks/getting-from-why-should-i-to-why-not-real-marketing-leadership-59ce5c35b2a0#.4jexgd8bj">Getting from ‘Why Should I?’ to ‘Why Not?’</a></h2>
 Stakeholders achieve their goals through careful planning and execution while minimizing change and risk. To them, I am a threat. This article helped me step into their shoes and think about how to sell my work (which is as important as creating it).
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden" class="hr hr-lg">
 
 <figure>
     <img src="/images/blog/best-of-2015/supporting-people.jpg" alt="Browser support." width="750" height="300">
@@ -100,7 +100,7 @@ Stakeholders achieve their goals through careful planning and execution while mi
 <h2><a href="http://mrmrs.io/writing/2015/09/01/supporting-people/">Supporting People</a></h2>
 Whenever I find myself complaining about old browsers / email clients, I re-read this. Helps put things in perspective.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden" class="hr hr-lg">
 
 <figure>
     <img src="/images/blog/best-of-2015/burnout.jpg" alt="Phantom Burnout." width="750" height="300">
@@ -109,7 +109,7 @@ Whenever I find myself complaining about old browsers / email clients, I re-read
 <h2><a href="http://ajsharp.svbtle.com/phantom-burnout">Phantom Burnout</a></h2>
 Tinkering. Lack of focus. Feeling worn down and tired. Being frequently and easily distracted. I’ve been going through small bouts with phantom burnout for a year or two. It’s never obvious when it shows up, so I’m always watching out for it.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden" class="hr hr-lg">
 
 <figure>
     <img src="/images/blog/best-of-2015/letter.jpg" alt="Old photo of lady reading a letter." width="750" height="300">
@@ -117,6 +117,6 @@ Tinkering. Lack of focus. Feeling worn down and tired. Being frequently and easi
 <h2><a href="https://medium.com/message/how-to-email-with-an-old-friend-when-you-probably-wont-rekindle-the-friendship-f3b734d3698c#.mb1p1v7j9">How to Email with an Old Friend After Falling Out of Touch</a></h2>
 Without small talk or awkward moments.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden" class="hr hr-lg">
 
 Also published at <a href="https://medium.com/@tedgoas/the-best-design-things-i-read-in-2015-95c54edb11dc#.qh08vhi0q">https://medium.com/@tedgoas/the-best-design-things-i-read-in-2015-95c54edb11dc#.qh08vhi0q</a>

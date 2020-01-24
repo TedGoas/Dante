@@ -1296,11 +1296,6 @@ body#blog .nav li:last-of-type a:after {
   background: url("../../images/misc/hd-hr.svg") top left repeat-x;
 }
 
-p + .hr {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
 .hr-above {
   position: relative;
   padding-top: 5rem;
@@ -1318,6 +1313,16 @@ p + .hr {
   margin-top: 2.5rem;
   width: 14rem;
   content: "";
+}
+
+article .hr {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+article .hr-lg {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 }
 
 article figure {

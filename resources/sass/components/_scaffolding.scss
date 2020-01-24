@@ -7,9 +7,6 @@
   height: 8px;
   background: url("../../images/misc/hd-hr.svg") top left repeat-x;
 }
-p + .hr {
-  @apply my-8;
-}
 .hr-above {
   @apply relative pt-20;
 
@@ -20,6 +17,12 @@ p + .hr {
 }
 
 article {
+  .hr {
+    @apply my-8;
+  }
+  .hr-lg {
+    @apply my-16;
+  }
   figure {
     @apply block mb-8 max-w-full;
 
