@@ -1323,6 +1323,7 @@ p + .hr {
 article figure {
   display: block;
   margin-bottom: 2rem;
+  max-width: 100%;
 }
 
 article figure figcaption {

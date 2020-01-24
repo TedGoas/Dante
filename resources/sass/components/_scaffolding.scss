@@ -21,7 +21,7 @@ p + .hr {
 
 article {
   figure {
-    @apply block mb-8;
+    @apply block mb-8 max-w-full;
 
     figcaption {
       @apply text-sm mt-4 text-gray-5;
