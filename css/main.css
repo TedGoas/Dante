@@ -924,6 +924,16 @@ article ul li, article ol li {
   line-height: 1.375;
 }
 
+article b, article strong {
+  color: #fff;
+  background-color: #343a40;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 0.25rem;
+}
+
 article ul li:before {
   position: absolute;
   display: inline-block;
@@ -1168,6 +1178,16 @@ article ul li, article ol li {
   margin-bottom: 1.5rem;
   position: relative;
   line-height: 1.375;
+}
+
+article b, article strong {
+  color: #fff;
+  background-color: #343a40;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 0.25rem;
 }
 
 article ul li:before {

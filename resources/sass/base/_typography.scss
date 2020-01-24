@@ -119,6 +119,9 @@ article {
       @apply mb-6 relative leading-snug;
     }
   }
+  b, strong {
+    @apply text-white bg-gray-8 py-1 px-2 rounded;
+  }
   ul li:before {
     @apply absolute inline-block bg-yellow-4 opacity-50;
     content: "";
@@ -126,7 +129,6 @@ article {
     height: 0.4rem;
     top: 0.6rem;
     left: -1.5rem;
-    //transform: rotate(45deg);
 	}
   ol {
 		counter-reset: ordered-list;
