@@ -12,7 +12,7 @@ layout: default
       {% endif %}
       <h1 class="page-title mb-4">{{ title }}</h1>
       <time datetime="{{ date }}" class="uppercase text-base tc-light">
-          {{ date.toUTCString() | dateDisplay }}
+          {{ date | dateDisplay }}
       </time>
       <div class="hr-above">
           {{ content | safe }}
