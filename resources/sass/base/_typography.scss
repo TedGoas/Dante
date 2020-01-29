@@ -66,14 +66,15 @@ h1, h2, h3, h4, h5, h6 {
     @apply leading-tight tracking-wide mt-0 mb-6 text-white font-bold;
 }
 h1,
+.h-tiny,
 blockquote {
   @apply font-display;
 }
 .page-title {
-  @apply text-4xl leading-tight;
+  @apply text-5xl leading-tight;
 }
 .h-tiny {
-	@apply text-base uppercase;
+	@apply text-lg uppercase;
 }
 
 .highlighted,

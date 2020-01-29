@@ -839,17 +839,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1,
+.h-tiny,
 blockquote {
   font-family: Kalam, sans-serif;
 }
 
 .page-title {
-  font-size: 2.25rem;
+  font-size: 3rem;
   line-height: 1.25;
 }
 
 .h-tiny {
-  font-size: 1rem;
+  font-size: 1.125rem;
   text-transform: uppercase;
 }
 
