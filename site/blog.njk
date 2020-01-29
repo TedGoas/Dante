@@ -12,7 +12,7 @@ title: Blog
     {% for post in collections.blog %}
     <li class="mb-4 flex justify-between items-center sm:block sm:mb-4">
       <a href="{{ post.url }}" class="text-base">{{ post.data.title }}</a>
-      <time datetime="{{ post.date }}" class="whitespace-no-wrap text-sm uppercase tc-light sm-mt1">
+      <time datetime="{{ post.date }}" class="whitespace-no-wrap pl-4 text-sm uppercase tc-light sm-mt1">
           {{ post.date | dateDisplay }}
       </time>
     </li>
