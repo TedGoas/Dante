@@ -15,10 +15,10 @@ module.exports = {
       // => @media (max-width: 1279px) { ... }
     },
     fontFamily: {
-      sans: ['arial', 'sans-serif'],
+      sans: ['sans-serif'],
       serif: ['serif'],
-      mono: ['Roboto Mono', 'monospace'],
-      display: ['Rock Salt', 'sans-serif'],
+      mono: ['IBM Plex Mono', 'monospace'],
+      display: ['Kalam', 'sans-serif'],
     },
     colors: {
       white: '#fff',

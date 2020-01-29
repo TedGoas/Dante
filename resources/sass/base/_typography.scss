@@ -1,31 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Kalam:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i,700&display=swap');
+
+/*
 @font-face {
-  font-family: 'Rock Salt';
+  font-family: 'Kalam';
   font-display: swap;
-  src: local('Permanent Marker.'),
-    url('/fonts/rock-salt-regular.woff2') format('woff2'),
-    url('/fonts/rock-salt-regular.woff') format('woff');
+  font-style: normal;
+  font-weight: 400;
+  src: local('Kalam.'),
+    url('/fonts/Kalam-Regular.ttf') format('ttf'),
+    url('/fonts/kalam-v10-latin-regular.woff2') format('woff2'),
+    url('/fonts/kalam-v10-latin-regular.woff') format('woff');
 }
 @font-face {
-  font-family: 'Roboto Mono';
+  font-family: 'Kalam Bold';
   font-display: swap;
-  src: local('Roboto Mono'),
-    url('/fonts/roboto-mono-regular.woff2') format('woff2'),
-    url('/fonts/roboto-mono-regular.woff') format('woff');
+  font-style: normal;
+  font-weight: 700;
+  src: local('Kalam'),
+    url('/fonts/kalam-v10-latin-700.woff2') format('woff2'),
+    url('/fonts/kalam-v10-latin-700.woff') format('woff');
 }
 @font-face {
-  font-family: 'Roboto Mono Italic';
+  font-family: 'IBM Plex Mono';
   font-display: swap;
-  src: local('Roboto Mono Italic'),
-    url('/fonts/roboto-mono-italic.woff2') format('woff2'),
-    url('/fonts/roboto-mono-italic.woff') format('woff');
+  font-style: normal;
+  font-weight: 400;
+  src: local('IBM Plex Mono'), local('IBMPlexMono'),
+    url('/fonts/ibm-plex-mono-v5-latin-regular.woff2') format('woff2'),
+    url('/fonts/ibm-plex-mono-v5-latin-regular.woff') format('woff');
 }
 @font-face {
-  font-family: 'Roboto Mono Bold';
-  font-display: swap;
-  src: local('Roboto Mono Bold'),
-    url('/fonts/roboto-mono-700.woff2') format('woff2'),
-    url('/fonts/roboto-mono-700.woff') format('woff');
+  font-family: 'IBM Plex Mono Italic';
+  font-style: italic;
+  font-weight: 400;
+  src: local('IBM Plex Mono'), local('IBMPlexMono'),
+    url('/fonts/ibm-plex-mono-v5-latin-italic.woff2') format('woff2'),
+    url('/fonts/ibm-plex-mono-v5-latin-italic.woff') format('woff');
 }
+@font-face {
+  font-family: 'IBM Plex Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: local('IBM Plex Mono'), local('IBMPlexMono'),
+    url('/fonts/ibm-plex-mono-v5-latin-700.woff2') format('woff2'),
+    url('/fonts/ibm-plex-mono-v5-latin-700.woff') format('woff');
+}
+*/
 
 //==========  Typography ==========//
 
@@ -42,13 +63,17 @@
 
 // headings
 h1, h2, h3, h4, h5, h6 {
-    @apply font-display leading-tight tracking-wide mt-0 mb-6 text-white;
+    @apply leading-tight tracking-wide mt-0 mb-6 text-white font-bold;
+}
+h1,
+blockquote {
+  @apply font-display;
 }
 .page-title {
-  @apply text-5xl leading-tight;
+  @apply text-4xl leading-tight;
 }
 .h-tiny {
-	@apply text-base;
+	@apply text-base uppercase;
 }
 
 .highlighted,
@@ -145,7 +170,7 @@ article {
 		}
 	}
   blockquote {
-    @apply py-2 pl-8 mb-6 text-xl;
+    @apply py-2 pl-8 mb-6 text-2xl leading-snug font-normal;
     background: url("../../images/misc/hd-quote.svg") top left repeat-y;
 
     p {
