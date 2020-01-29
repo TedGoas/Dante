@@ -64,9 +64,11 @@ pagination:
             <h2 class="h-tiny">Recent blog posts</h2>
             <ul>
               {% for post in articles %}
-              <li class="mb-4">
-                <a href="{{ post.url }}">{{ post.data.title }}</a>
-                <span class="block text-sm tc-light"></span>
+              <li class="mb-4 flex justify-between items-start sm:block sm:mb-4">
+                <a href="{{ post.url }}" >{{ post.data.title }}</a>
+                <time datetime="{{ post.date | dateDisplay }}" class="whitespace-no-wrap pl-4 pt-1 text-sm uppercase tc-light sm-mt1">
+                    {{ post.date | dateDisplay }}
+                </time>
               </li>
               {% endfor %}
             </ul>
