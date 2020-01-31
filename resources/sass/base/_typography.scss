@@ -109,7 +109,16 @@ blockquote {
 article {
   @apply text-lg;
 
-  p, ol, ul, h2, h3, h4, blockquote, .twitter-tweet, time {
+  p,
+  ol,
+  ul,
+  h2,
+  h3,
+  h4,
+  blockquote,
+  .twitter-tweet,
+  time,
+  pre code {
     @apply max-w-3xl;
   }
   time,
@@ -138,14 +147,16 @@ article {
       }
 		}
   }
-  ul, ol {
+  ul,
+  ol {
     @apply mb-6 ml-8;
 
     li {
       @apply mb-6 relative leading-snug;
     }
   }
-  b, strong {
+  b,
+  strong {
     @apply text-white bg-gray-8 py-1 px-2 rounded;
   }
   ul li:before {
@@ -182,6 +193,16 @@ article {
     @apply pb-3;
   }
   code {
-    @apply px-2 py-1 text-sm bg-gray-8 border border-gray-7 rounded text-red-4;
+    @apply inline-block  px-1 py-0 text-sm bg-gray-8 border border-gray-7 rounded;
+
+    &.code-block {
+      @apply block overflow-x-auto mb-6;
+    }
+    &:not(.hljs) {
+      @apply text-red-4;
+    }
+  }
+  pre code {
+    @apply block mb-6 p-3;
   }
 }

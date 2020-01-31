@@ -4,6 +4,7 @@ body_class: blog
 featured_image: /images/blog/interactive-email.webp
 image_caption: A wall with holes in it resembling a punch card.
 excerpt: I recently coded my first interactive email using punched card coding. I wrote about what I did and how it works.
+highlightjs: true
 ---
 
 **TL;DR:** I coded my first interactive email using radio buttons to toggle on/off states without using JavaScript.
@@ -50,17 +51,16 @@ The HTML uses the radio input along with the `:checked` attribute to show and hi
 
 ### HTML
 
-```
-<input type="radio" name="vote" id="ArrowUpLg" style="display: none !important; max-height: 0; visibility: hidden;">
-<label for="ArrowUpLg" class="ArrowUpLg" style="cursor: pointer;">
-  <img src="ArrowUpLg.png" height="36" width="36">
-</label>
+<pre><code class="code-block html">&lt;input type="radio" name="vote" id="ArrowUpLg" style="display: none !important; max-height: 0; visibility: hidden;"&gt;
+&lt;label for="ArrowUpLg" class="ArrowUpLg" style="cursor: pointer;"&gt;
+  &lt;img src="ArrowUpLg.png" height="36" width="36"&gt;
+&lt;/label&gt;
 
-<input type="radio" name="vote" id="ArrowUpLgactive" style="display: none!important; max-height: 0; visibility: hidden;">
-<label for="ArrowUpLgactive" class="ArrowUpLgactive" style="cursor: pointer; display: none;">
-  <img src="ArrowUpLgactive.png" height="36" width="36">
-</label>
-```
+&lt;input type="radio" name="vote" id="ArrowUpLgactive" style="display: none!important; max-height: 0; visibility: hidden;"&gt;
+&lt;label for="ArrowUpLgactive" class="ArrowUpLgactive" style="cursor: pointer; display: none;"&gt;
+  &lt;img src="ArrowUpLgactive.png" height="36" width="36"&gt;
+&lt;/label&gt;
+</code></pre>
 
 The actual radio button is visually hidden and linked to from their `<label>` tag using the `for` and `id` attributes. The image file is wrapped inside the `<label>` to make the click/tap area nice and big.
 
@@ -70,8 +70,7 @@ So the base HTML and CSS inserts and positions each icon state in the email, and
 
 ### CSS
 
-```
-#ArrowUpLg:checked + .ArrowUpLg {
+<pre><code class="css">#ArrowUpLg:checked + .ArrowUpLg {
   display: none !important;
 }
 #ArrowUpLg:checked ~ .ArrowUpLgactive {
@@ -80,7 +79,7 @@ So the base HTML and CSS inserts and positions each icon state in the email, and
 #ArrowDownLg:checked + .ArrowDownLg {
   display: none !important;
 }
-```
+</code></pre>
 
 When an icon is clicked, the `<label>` tag, it checks the hidden radio button.
 

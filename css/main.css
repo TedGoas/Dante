@@ -891,7 +891,16 @@ article {
   font-size: 1.125rem;
 }
 
-article p, article ol, article ul, article h2, article h3, article h4, article blockquote, article .twitter-tweet, article time {
+article p,
+  article ol,
+  article ul,
+  article h2,
+  article h3,
+  article h4,
+  article blockquote,
+  article .twitter-tweet,
+  article time,
+  article pre code {
   max-width: 48rem;
 }
 
@@ -937,18 +946,21 @@ article p.intro {
   }
 }
 
-article ul, article ol {
+article ul,
+  article ol {
   margin-bottom: 1.5rem;
   margin-left: 2rem;
 }
 
-article ul li, article ol li {
+article ul li,
+    article ol li {
   margin-bottom: 1.5rem;
   position: relative;
   line-height: 1.375;
 }
 
-article b, article strong {
+article b,
+  article strong {
   color: #fff;
   background-color: #343a40;
   padding-top: 0.25rem;
@@ -1012,16 +1024,32 @@ article .twitter-tweet {
 }
 
 article code {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
+  display: inline-block;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  padding-top: 0;
+  padding-bottom: 0;
   font-size: 0.875rem;
   background-color: #343a40;
   border-width: 1px;
   border-color: #495057;
   border-radius: 0.25rem;
+}
+
+article code.code-block {
+  display: block;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+article code:not(.hljs) {
   color: #ff8787;
+}
+
+article pre code {
+  display: block;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem;
 }
 
 .hd-border-bottom {
@@ -1044,6 +1072,94 @@ article code {
   .sm\:hd-none {
     background: none;
   }
+}
+
+.hljs {
+  color: #74c0fc;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #868e96;
+}
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-formula {
+  color: #c678dd;
+}
+
+.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst {
+  color: #e06c75;
+}
+
+.hljs-literal {
+  color: #56b6c2;
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta-string {
+  color: #ffe066;
+}
+
+.hljs-built_in,
+.hljs-class .hljs-title {
+  color: #e6c07b;
+}
+
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number {
+  color: #d19a66;
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title {
+  color: #ff8787;
+}
+
+.hljs-value {
+  color: #8ce99a;
+}
+
+.hljs-id {
+  color: #da77f2;
+}
+
+.hljs-class {
+  color: #da77f2;
+}
+
+.hljs-pseudo {
+  color: #3bc9db;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: 700;
+}
+
+.hljs-link {
+  text-decoration: underline;
 }
 
 .container{

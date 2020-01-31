@@ -4,6 +4,7 @@ body_class: blog
 featured_image: /images/blog/jerseyscript/jerseyscript.png
 image_caption:
 excerpt: Notes on my talk about responsive email from jerseyscript.
+highlightjs: true
 ---
 
 These are my notes from my talk about responsive email workflow and front-end tools, from [jerseyscript on May 13th 2014](http://www.meetup.com/jerseyscript/events/180035472/).
@@ -27,7 +28,7 @@ So, we all know what responsive is, right? On column on mobile... and three on w
 	<figcaption class="caption">responsive, pretty much</figcaption>
 </figure>
 
-<pre><code>/* Force table cells into full width rows */
+<pre><code class="code-block css">/* Force table cells into full width rows */
 td[class="force-row"] {
 	display: block !important;
 	width: 100% !important;

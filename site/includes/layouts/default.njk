@@ -60,6 +60,10 @@
     </div>
 
     {# include scripts #}
+    {% if highlightjs %}
+    <script src="/javascript/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    {% endif %}
     {% if helpers.environment == "development" %}
     <script src="/javascript/main.js"></script>
     {% else %}
