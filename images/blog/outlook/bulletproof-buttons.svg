@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="736px" height="100px" viewBox="0 0 736 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>bulletproof buttons</title>
+    <desc>Created with Sketch.</desc>
+    <g id="bulletproof-buttons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="divider" transform="translate(339.000000, -200.000000)">
+            <path d="M29.5,0 L29.5,500" id="Line" stroke="#E64320" stroke-width="2" stroke-linecap="square" stroke-dasharray="6,10"></path>
+            <rect id="Rectangle" fill="#FFFFFF" x="0" y="235" width="58" height="30"></rect>
+            <text id="vs" font-family="Consolas-Bold, Consolas" font-size="24" font-weight="bold" fill="#E64320">
+                <tspan x="16.3046875" y="256">vs</tspan>
+            </text>
+        </g>
+        <g id="before" transform="translate(0.000000, 15.000000)">
+            <rect id="Rectangle" stroke="#0077CC" stroke-width="2" fill="#FFFFFF" x="1" y="1" width="298" height="68"></rect>
+            <rect id="Rectangle" stroke="#0077CC" stroke-width="2" fill="#0077CC" x="82" y="25" width="136" height="24"></rect>
+            <text id="I’m-a-button" font-family=".SFNSDisplay, .SF NS Display" font-size="24" font-weight="normal" fill="#FFFFFF">
+                <tspan x="88.5644531" y="44">I’m a button</tspan>
+            </text>
+        </g>
+        <g id="after" transform="translate(436.000000, 15.000000)">
+            <rect id="Rectangle" stroke="#0077CC" stroke-width="2" fill="#0077CC" x="1" y="1" width="298" height="68"></rect>
+            <rect id="Rectangle" stroke="#0077CC" stroke-width="2" fill="#0077CC" x="82" y="25" width="136" height="24"></rect>
+            <text id="I’m-a-button" font-family=".SFNSDisplay, .SF NS Display" font-size="24" font-weight="normal" fill="#FFFFFF">
+                <tspan x="88.5644531" y="44">I’m a button</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
