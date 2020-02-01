@@ -24,7 +24,9 @@ Until recently, email involved writing archaic, messy markup. But in the last ye
 So, we all know what responsive is, right? On column on mobile... and three on wide. Responsive email is not really any different.
 
 <figure>
-	<img src="/images/blog/jerseyscript/responsive.png" alt="Abstract responsive email illustration." width="600" height="400">
+	<div class="bg-white px-3 inline-block rounded">
+		<img src="/images/blog/jerseyscript/responsive.png" alt="Abstract responsive email illustration." width="600" height="400">
+	</div>
 	<figcaption class="caption">responsive, pretty much</figcaption>
 </figure>
 
@@ -42,7 +44,9 @@ I could talk about [responsive email patterns](http://responsiveemailpatterns.co
 ## The Fold is Back
 
 <figure>
-	<img src="/images/blog/jerseyscript/fold.png" alt="Diagram of all the the mobile breakpoints." width="740" height="300">
+	<div class="bg-white p-3 inline-block rounded">
+		<img src="/images/blog/jerseyscript/fold.png" alt="Diagram of all the the mobile breakpoints." width="740" height="300">
+	</div>
 	<figcaption class="caption">I know this looks bad, but there actually is a fairly well-defined fold on mobile.</figcaption>
 </figure>
 
