@@ -16,6 +16,12 @@ a {
       text-decoration-color: theme('colors.cyan.4');
   }
 }
-a.link-nav.active:hover {
-  @apply no-underline;
+a.link-nav.active,
+a.workitem {
+
+  &:hover,
+  &:active,
+  &:focus {
+    @apply no-underline;
+  }
 }

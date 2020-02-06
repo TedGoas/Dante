@@ -1,0 +1,33 @@
+
+.workitem {
+  .workitem-image,
+  .workitem-text,
+  .workitem-background {
+    transition: 300ms all ease-in;
+  }
+
+  .workitem-background {
+    @apply opacity-25 bg-center bg-no-repeat;
+    background-image: url(/images/misc/bg-marks.svg);
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+
+    .workitem-image {
+      transform: scale(110%);
+    }
+    .workitem-text {
+      transform: translateX(.5em);
+    }
+    .workitem-background {
+      @apply opacity-75;
+    }
+    .workitem-text,
+    .workitem-background {
+      transform: translateY(.25em);
+    }
+  }
+
+}

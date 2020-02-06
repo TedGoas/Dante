@@ -766,7 +766,10 @@ a:hover {
   text-decoration-color: #3bc9db;
 }
 
-a.link-nav.active:hover {
+a.link-nav.active:hover, a.link-nav.active:active, a.link-nav.active:focus,
+a.workitem:hover,
+a.workitem:active,
+a.workitem:focus {
   text-decoration: none;
 }
 
@@ -1449,6 +1452,38 @@ article figure figcaption {
   font-size: 0.875rem;
   margin-top: 1rem;
   color: #adb5bd;
+}
+
+.workitem .workitem-image,
+.workitem .workitem-text,
+.workitem .workitem-background {
+  transition: 300ms all ease-in;
+}
+
+.workitem .workitem-background {
+  opacity: 0.25;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(/images/misc/bg-marks.svg);
+}
+
+.workitem:hover .workitem-image, .workitem:focus .workitem-image, .workitem:active .workitem-image {
+  transform: scale(110%);
+}
+
+.workitem:hover .workitem-text, .workitem:focus .workitem-text, .workitem:active .workitem-text {
+  transform: translateX(0.5em);
+}
+
+.workitem:hover .workitem-background, .workitem:focus .workitem-background, .workitem:active .workitem-background {
+  opacity: 0.75;
+}
+
+.workitem:hover .workitem-text,
+.workitem:hover .workitem-background, .workitem:focus .workitem-text,
+.workitem:focus .workitem-background, .workitem:active .workitem-text,
+.workitem:active .workitem-background {
+  transform: translateY(0.25em);
 }
 
 .appearance-none{
@@ -8250,32 +8285,12 @@ article figure figcaption {
   width: 100vw;
 }
 
-.z-0{
-  z-index: 0;
+.-z-1{
+  z-index: -1;
 }
 
-.z-10{
-  z-index: 10;
-}
-
-.z-20{
-  z-index: 20;
-}
-
-.z-30{
-  z-index: 30;
-}
-
-.z-40{
-  z-index: 40;
-}
-
-.z-50{
-  z-index: 50;
-}
-
-.z-auto{
-  z-index: auto;
+.-z-10{
+  z-index: -10;
 }
 
 @media (max-width: 639px){
@@ -15078,32 +15093,12 @@ article figure figcaption {
     width: 100vw;
   }
 
-  .sm\:z-0{
-    z-index: 0;
+  .sm\:-z-1{
+    z-index: -1;
   }
 
-  .sm\:z-10{
-    z-index: 10;
-  }
-
-  .sm\:z-20{
-    z-index: 20;
-  }
-
-  .sm\:z-30{
-    z-index: 30;
-  }
-
-  .sm\:z-40{
-    z-index: 40;
-  }
-
-  .sm\:z-50{
-    z-index: 50;
-  }
-
-  .sm\:z-auto{
-    z-index: auto;
+  .sm\:-z-10{
+    z-index: -10;
   }
 }
 
@@ -21907,32 +21902,12 @@ article figure figcaption {
     width: 100vw;
   }
 
-  .md\:z-0{
-    z-index: 0;
+  .md\:-z-1{
+    z-index: -1;
   }
 
-  .md\:z-10{
-    z-index: 10;
-  }
-
-  .md\:z-20{
-    z-index: 20;
-  }
-
-  .md\:z-30{
-    z-index: 30;
-  }
-
-  .md\:z-40{
-    z-index: 40;
-  }
-
-  .md\:z-50{
-    z-index: 50;
-  }
-
-  .md\:z-auto{
-    z-index: auto;
+  .md\:-z-10{
+    z-index: -10;
   }
 }
 
@@ -28736,32 +28711,12 @@ article figure figcaption {
     width: 100vw;
   }
 
-  .lg\:z-0{
-    z-index: 0;
+  .lg\:-z-1{
+    z-index: -1;
   }
 
-  .lg\:z-10{
-    z-index: 10;
-  }
-
-  .lg\:z-20{
-    z-index: 20;
-  }
-
-  .lg\:z-30{
-    z-index: 30;
-  }
-
-  .lg\:z-40{
-    z-index: 40;
-  }
-
-  .lg\:z-50{
-    z-index: 50;
-  }
-
-  .lg\:z-auto{
-    z-index: auto;
+  .lg\:-z-10{
+    z-index: -10;
   }
 }
 
@@ -35565,31 +35520,11 @@ article figure figcaption {
     width: 100vw;
   }
 
-  .xl\:z-0{
-    z-index: 0;
+  .xl\:-z-1{
+    z-index: -1;
   }
 
-  .xl\:z-10{
-    z-index: 10;
-  }
-
-  .xl\:z-20{
-    z-index: 20;
-  }
-
-  .xl\:z-30{
-    z-index: 30;
-  }
-
-  .xl\:z-40{
-    z-index: 40;
-  }
-
-  .xl\:z-50{
-    z-index: 50;
-  }
-
-  .xl\:z-auto{
-    z-index: auto;
+  .xl\:-z-10{
+    z-index: -10;
   }
 }

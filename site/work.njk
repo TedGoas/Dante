@@ -1,22 +1,25 @@
 ---
 layout: default
-meta_title: About
-meta_description: About page description
-body_class: about
-title: About
+meta_title: Work
+meta_description: A collection of case studies.
+body_class: work
+title: Work
 ---
 
-<main id="main" class="main container m-auto flex flex-1 flex-col md:flex-row py-10 px-6 lg:px-0 lg:py-20">
+<main class="main">
+  <h1 class="page-title">{{ title }}</h1>
 
-    <section id="container-centre" class="flex-1">
-
-        <h1 class="page-title text-5xl">{{ title }}</h1>
-
-        <div class="content">
-           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dolor ipsum voluptatum dicta eveniet commodi molestiae! Suscipit, magnam cumque, illum ab amet ipsum deserunt distinctio est dolore dolor ad ipsa cupiditate minus soluta, possimus accusamus.</p><p> Ipsa facilis sint, beatae aperiam enim expedita voluptas dolores suscipit reiciendis similique alias, odio repellendus placeat asperiores error laboriosam eligendi accusantium in eos! Dolores labore excepturi doloremque. Rem ipsa quae tempore dignissimos doloribus recusandae quam quibusdam mollitia ex voluptas, repellat dolor et beatae sint nesciunt ad cupiditate cum debitis dolorum earum? Error adipisci optio in ea accusamus incidunt eligendi consequatur, quod impedit dolorem atque quaerat?
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dolor ipsum voluptatum dicta eveniet commodi molestiae! Suscipit, magnam cumque, illum ab amet ipsum deserunt distinctio est dolore dolor ad ipsa cupiditate minus soluta, possimus accusamus. Ipsa facilis sint, beatae aperiam enim expedita voluptas dolores suscipit reiciendis similique alias, odio repellendus placeat asperiores error laboriosam eligendi accusantium in eos! Dolores labore excepturi doloremque. Rem ipsa quae tempore dignissimos doloribus recusandae quam quibusdam mollitia ex voluptas, repellat dolor et beatae sint nesciunt ad cupiditate cum debitis dolorum earum? Error adipisci optio in ea accusamus incidunt eligendi consequatur, quod impedit dolorem atque quaerat?</p>
-        </div>
-
-    </section>
-
+    {% for post in collections.work | reverse %}
+    <a href="{{ post.url }}" class="workitem overflow-hidden relative mb-4 px-6 pt-6 max-w-3xl unstyled flex items-start">
+      <div class="pr-6 workitem-image">
+        <img src="https://picsum.photos/600/400">
+      </div>
+      <div class="text-white pt-3 workitem-text">
+        <h2 class="text-4xl leading-none mb-3">{{ post.data.title }}</h2>
+        <p class="font-normal text-xl leading-snug">{{ post.data.excerpt }}</p>
+      </div>
+      <div class="workitem-background absolute inset-0 -z-1 rounded {{ post.data.indexColor }}"></div>
+    </a>
+    {% endfor %}
+  </ul>
 </main>
