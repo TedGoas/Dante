@@ -5,17 +5,14 @@ meta_description: Articles written by Ted Goas 😎
 body_class: blog
 title: Blog
 ---
-
-<main class="main">
-  <h1 class="page-title">{{ title }}</h1>
-  <ul class="w-screen max-w-3xl">
-    {% for post in collections.blog %}
-    <li class="mb-4 flex items-start justify-between sm:block sm:mb-4">
-      <a href="{{ post.url }}" class="text-base">{{ post.data.title }}</a>
-      <time datetime="{{ post.date | dateDisplay }}" class="whitespace-no-wrap pl-4 pt-1 text-sm uppercase tc-light sm-mt1">
-          {{ post.date | dateDisplay }}
-      </time>
-    </li>
-    {% endfor %}
-  </ul>
-</main>
+<h1 class="page-title">{{ title }}</h1>
+<ul class="w-screen max-w-3xl">
+  {% for post in collections.blog %}
+  <li class="mb-4 flex items-start justify-between sm:block sm:mb-4">
+    <a href="{{ post.url }}" class="text-base">{{ post.data.title }}</a>
+    <time datetime="{{ post.date | dateDisplay }}" class="whitespace-no-wrap pl-4 pt-1 text-sm uppercase tc-light sm-mt1">
+        {{ post.date | dateDisplay }}
+    </time>
+  </li>
+  {% endfor %}
+</ul>

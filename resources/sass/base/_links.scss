@@ -25,3 +25,9 @@ a.workitem {
     @apply no-underline;
   }
 }
+a.mono {
+  @apply text-white;
+  &:hover {
+      text-decoration-color: theme('colors.white');
+  }
+}

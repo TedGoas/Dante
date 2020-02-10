@@ -1,15 +1,14 @@
-<header class="header-site hd-border-bottom sm:block">
-	<a class="logo leading-none" href="/" aria-label="Back to home">
-		<img src="/images/logo/tg-sig-logo.svg" alt="Ted Goas signature logo." height="60" width="122" border="0">
-	</a>
-	<div class="byline text-sm text-gray-6 sm:mt-2 sm:mb-4">
-		Principal Product Designer working remotely at Stack&nbsp;Overflow
+<header class="site-header hd-border-right">
+	<div class="py-10 px-6 hd-border-bottom sm:p-3">
+		<a class="logo leading-none" href="/" aria-label="Back to home">
+			<img src="/images/logo/tg-sig-logo.svg" alt="Ted Goas signature logo." height="60" width="122" border="0">
+		</a>
 	</div>
-	<nav class="nav">
-		<ul class="flex flex-row flex-wrap sm:leading-loose">
+	<nav class="nav pt-5 px-6 sm:px-3">
+		<ul>
 			{% for item in navigation.main %}
-			<li>
-				<a href="{{ item.url | safe }}" class="link-nav mr-8 {% if page.url == item.url %}active highlighted{% endif %}">{{ item.label }}</a>
+			<li class="my-2 sm:inline-block sm:mr-3 sm:my-0">
+				<a href="{{ item.url | safe }}" class="link-nav text-lg py-1 px-2 inline-block {% if page.url == item.url %}active highlighted{% endif %}">{{ item.label }}</a>
 			</li>
 			{% endfor %}
 		</ul>
