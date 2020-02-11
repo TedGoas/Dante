@@ -1401,6 +1401,7 @@ body#blog .nav li:last-of-type a:after {
 .main {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
+  background: url("../../../images/misc/hd-border-x.svg") bottom left repeat-x;
   flex-grow: 1;
 }
 
