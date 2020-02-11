@@ -1,22 +1,4 @@
 //==========  Header ==========//
-.header-site {
-  display: grid;
-  align-items: center;
-  grid-template-columns: 122px 1fr;
-  grid-column-gap: 2rem;
-  grid-row-gap: .5em;
-  @apply mt-6 pb-6;
-
-  .logo {
-    grid-area: 1 / 1 / 3 / 2;
-  }
-  .byline {
-    grid-area: 1 / 2 / 2 / 3;
-  }
-  .nav {
-    grid-area: 2 / 2 / 3 / 3;
-  }
-}
 
 // HACK: to get blog nav item highlighted
 // This CSS is repeated from _typography.scss
