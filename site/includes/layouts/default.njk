@@ -46,17 +46,13 @@
 
 <body {% if body_class %} id="{{ body_class }}"{% endif %} class="min-h-full bg-gray-9 font-mono text-base tc-medium leading-normal">
 
-    <div class="min-h-screen site-layout">
+    <div class="flex flex-col min-h-screen">
 
         {# include header #}
         {% include "components/header.njk" %}
 
-        <main class="site-content relative">
-          <div class="absolute inset-y-0 overflow-y-auto sm:static">
-            {# include content #}
-            {{ content | safe }}
-          </div>
-        </main>
+        {# include content #}
+        {{ content | safe }}
 
         {# include footer #}
         {% include "components/footer.njk" %}
