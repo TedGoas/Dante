@@ -962,8 +962,8 @@ article ul li,
   line-height: 1.375;
 }
 
-article b,
-  article strong {
+article b:not(.highlighted):not(.highlighted-long),
+  article strong:not(.highlighted):not(.highlighted-long) {
   color: #fff;
   background-color: #343a40;
   padding-top: 0.25rem;
