@@ -5,14 +5,14 @@
     transition: .1s all ease-out;
 }
 a {
-  @apply text-cyan-4 link-transition font-bold;
+  @apply text-cyan-4 link-transition font-bold underline;
 
-  text-decoration-thickness: .125em;
+  text-decoration-thickness: .1em;
   text-underline-offset: 3px;
   text-decoration-skip-ink: auto;
+  text-decoration-color: theme('colors.gray.7');
 
   &:hover {
-      @apply underline;
       text-decoration-color: theme('colors.cyan.4');
   }
 }

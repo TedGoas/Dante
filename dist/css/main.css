@@ -756,13 +756,14 @@ a {
   color: #3bc9db;
   transition: .1s all ease-out;
   font-weight: 700;
-  text-decoration-thickness: .125em;
+  text-decoration: underline;
+  text-decoration-thickness: .1em;
   text-underline-offset: 3px;
   text-decoration-skip-ink: auto;
+  text-decoration-color: #495057;
 }
 
 a:hover {
-  text-decoration: underline;
   text-decoration-color: #3bc9db;
 }
 
