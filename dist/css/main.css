@@ -753,7 +753,7 @@ video {
 }
 
 a {
-  color: #3bc9db;
+  color: #ff6b6b;
   transition: .1s all ease-out;
   font-weight: 700;
   text-decoration: underline;
@@ -764,13 +764,11 @@ a {
 }
 
 a:hover {
-  text-decoration-color: #3bc9db;
+  text-decoration-color: #ff6b6b;
 }
 
-a.link-nav.active:hover, a.link-nav.active:active, a.link-nav.active:focus,
-a.workitem:hover,
-a.workitem:active,
-a.workitem:focus {
+a.link-nav.active,
+a.workitem {
   text-decoration: none;
 }
 

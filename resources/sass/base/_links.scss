@@ -5,7 +5,7 @@
     transition: .1s all ease-out;
 }
 a {
-  @apply text-cyan-4 link-transition font-bold underline;
+  @apply text-red-5 link-transition font-bold underline;
 
   text-decoration-thickness: .1em;
   text-underline-offset: 3px;
@@ -13,15 +13,10 @@ a {
   text-decoration-color: theme('colors.gray.7');
 
   &:hover {
-      text-decoration-color: theme('colors.cyan.4');
+      text-decoration-color: theme('colors.red.5');
   }
 }
 a.link-nav.active,
 a.workitem {
-
-  &:hover,
-  &:active,
-  &:focus {
-    @apply no-underline;
-  }
+  @apply no-underline;
 }
