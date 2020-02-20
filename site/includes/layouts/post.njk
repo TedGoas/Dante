@@ -7,7 +7,7 @@ permalink: "/{{ page.fileSlug }}/"
     <article>
       {# featured post image #}
       {% if featured_image %}
-      <figure class="mb-10">
+      <figure class="mb-10 unbound site-width">
           <img src="{{ featured_image }}" alt="{{ image_caption }}">
       </figure>
       {% endif %}
@@ -15,9 +15,7 @@ permalink: "/{{ page.fileSlug }}/"
       <time datetime="{{ date }}" class="uppercase text-base tc-light">
           {{ page.date | dateDisplay }}
       </time>
-      <div class="hr-above">
-          {{ content | safe }}
-      </div>
+      <hr class="hr">
+        {{ content | safe }}
     </article>
-
 </main>

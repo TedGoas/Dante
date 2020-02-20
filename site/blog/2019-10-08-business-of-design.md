@@ -53,7 +53,7 @@ Stripe announced credit cards on the same day as an Apple event and still domina
 
 Entire companies are formed as wrappers for better UX. Nest Thermostats, Simple Bank, Square's POS systems are all examples. Look at Target in the 90s: They were a Walmart / Kmart ripoff until they started investing in design. Now look at them.
 
-<figure>
+<figure class="unbound">
     <img src="/images/blog/business/product-collage.jpg" alt="" width="1200" height="300">
 	<figcaption>Nest thermostat, Square reader, Simple card.</figcaption>
 </figure>

@@ -1375,11 +1375,46 @@ body#blog .nav li:last-of-type a:after {
   background-image: url("../../../images/misc/highlight.svg");
 }
 
+.site-width {
+  width: 100vw;
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .main {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
-  background: url("../../../images/misc/hd-border-x.svg") bottom left repeat-x;
   flex-grow: 1;
+}
+
+.main article h1,
+  .main article h2,
+  .main article h3,
+  .main article h4,
+  .main article figure:not(.unbound),
+  .main article p,
+  .main article ol,
+  .main article ul,
+  .main article blockquote,
+  .main article pre,
+  .main article hr,
+  .main article time,
+  .main article .twitter-tweet {
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main article figure {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.main article .unbound img {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hr {
@@ -1388,25 +1423,6 @@ body#blog .nav li:last-of-type a:after {
   margin-right: 0;
   height: 8px;
   background: url("../../images/misc/hd-hr.svg") top left repeat-x;
-}
-
-.hr-above {
-  position: relative;
-  padding-top: 5rem;
-}
-
-.hr-above:before {
-  display: block;
-  width: 14rem;
-  margin-left: 0;
-  margin-right: 0;
-  height: 8px;
-  background: url("../../images/misc/hd-hr.svg") top left repeat-x;
-  position: absolute;
-  top: 0;
-  margin-top: 2.5rem;
-  width: 14rem;
-  content: "";
 }
 
 article .hr {

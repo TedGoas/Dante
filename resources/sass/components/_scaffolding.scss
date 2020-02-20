@@ -1,19 +1,41 @@
-//==========  Buttons ==========//
+.site-width {
+  @apply w-screen max-w-5xl mx-auto;
+}
+
 .main {
-  @apply py-10 hd-border-bottom flex-grow;
+  @apply py-10 flex-grow;
+
+  article {
+    h1,
+    h2,
+    h3,
+    h4,
+    figure:not(.unbound),
+    p,
+    ol,
+    ul,
+    blockquote,
+    pre,
+    hr,
+    time,
+    .twitter-tweet
+    {
+      @apply max-w-3xl mx-auto;
+    }
+    figure {
+      @apply mx-auto text-center;
+    }
+    .unbound {
+      img {
+        @apply mx-auto;
+      }
+    }
+  }
 }
 .hr {
   @apply w-56 mx-0;
   height: 8px;
   background: url("../../images/misc/hd-hr.svg") top left repeat-x;
-}
-.hr-above {
-  @apply relative pt-20;
-
-  &:before {
-    @apply block hr absolute top-0 mt-10 w-56;
-    content: "";
-  }
 }
 
 article {
