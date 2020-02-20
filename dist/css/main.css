@@ -1417,7 +1417,7 @@ body#blog .nav li:last-of-type a:after {
   margin-right: auto;
 }
 
-.hr {
+hr {
   width: 14rem;
   margin-left: 0;
   margin-right: 0;
@@ -1425,9 +1425,9 @@ body#blog .nav li:last-of-type a:after {
   background: url("../../images/misc/hd-hr.svg") top left repeat-x;
 }
 
-article .hr {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+article hr {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 article .hr-lg {

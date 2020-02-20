@@ -82,7 +82,7 @@ Organizations become more competitive when they deliver better-designed products
 
 > UX strategies add a new tool to the business toolbox: the power of well-designed products and services. - [Jared Spool](https://medium.com/@jmspool/the-making-of-an-organization-changing-ux-strategy-88135de43ab3)
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 A big thank you to Aaron Shekey, Talal Sarwani, Will Cole, and Kezia Frayjo for helping me find the words for this article.
 

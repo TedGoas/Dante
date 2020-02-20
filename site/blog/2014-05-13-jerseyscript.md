@@ -9,7 +9,7 @@ highlightjs: true
 
 These are my notes from my talk about responsive email workflow and front-end tools, from [jerseyscript on May 13th 2014](http://www.meetup.com/jerseyscript/events/180035472/).
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 I work at Canfield in New Jersey, where I'm a designer and front-end generalist. I spend most of my time building medical apps and sites. But I also handle my company's email design and development, where we’ve been doing responsive emails for about a year.
 

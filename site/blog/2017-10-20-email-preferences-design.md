@@ -49,7 +49,7 @@ First, we needed to fix our legacy system in order to avoid becoming the bad act
 * **Be clear** about what’s possible.
 * **Be quick** in removing roadblocks and honoring users’ wishes.
 
-<div class="hr"><hr></div>
+<div><hr></div>
 
 ## Common Pitfalls (and what we did to solve them)
 

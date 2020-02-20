@@ -102,7 +102,7 @@ People didn’t know how to help because I didn’t tell them. face-palm-dot-gif
 
 I created [some contribution guidelines](http://tedgoas.github.io/Cerberus/#contribute) in the project’s docs to help steer the project in the direction I wanted to see it go and direct help where it’s needed most. So I don’t get a pull request out of nowhere with some changes I don’t want.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 ## Examples!!
 
@@ -138,7 +138,7 @@ Contract Killer is a popular open source contract for web professionals that tra
 	<figcaption>Contract Killer by Andy Clarke</figcaption>
 </figure>
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 ## Wrapping up
 
@@ -152,6 +152,6 @@ I’m so happy you made it this far! So, to recap:
 
 Are you grinding on an open source project? Thinking about starting one? I’d love to know if you found something in here useful. Please leave a comment or [ping me on Twitter](https://twitter.com/TedGoas). On the off-chance you’ve used [Cerberus](http://tedgoas.github.io/Cerberus/), I’d love to hear about it! ✌️
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 Also published <a href="https://medium.com/@tedgoas/anyone-can-open-source-9de60ce54e62">on Medium</a>

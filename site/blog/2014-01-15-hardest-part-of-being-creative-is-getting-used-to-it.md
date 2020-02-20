@@ -33,7 +33,7 @@ I’m still listening to my creative urges and trying to find time for them. Wri
 
 I’m still accepting that fact.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 This was inspired by Hugh Macleod’s <a href="http://gapingvoid.com/ie/">Ignore Everybody</a>, specifically chapter 31.
 

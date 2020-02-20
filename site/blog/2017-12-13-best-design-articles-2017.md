@@ -15,7 +15,7 @@ A small collection of articles that stuck out in my mind this year.
 
 I thought about design leadership a lot in 2017. I [wrote about it too](https://medium.com/@tedgoas/silent-leadership-f236e62ba60d). I enjoyed Andrew’s story about how he transitioned from an individual contributor to a design manager at Facebook; very relatable to any mid-senior level designer contemplating their step career step.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 <figure>
     <img src="/images/blog/best-of-2017/five-tool-designer.png" alt="design swiss army knife. Illustration." width="1000" height="400">
@@ -25,7 +25,7 @@ I thought about design leadership a lot in 2017. I [wrote about it too](https://
 
 Mike Davidson briefly describes five traits he looks for when hiring designers. I particularly enjoyed the paragraph about (surprise surprise) leadership. A short and solid article explaining how design is about people just as much as it is about pixels. Oh, and there’s a _highly contentious_ sixth trait at the end of the article (that I agree with).
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 <figure>
     <img src="/images/blog/best-of-2017/accessibility.jpg" alt="Person focusing closely on mobile device." width="1000" height="400">
@@ -34,7 +34,7 @@ Mike Davidson briefly describes five traits he looks for when hiring designers. 
 
 So many accessibility posts concentrate on designing for screen readers and folks with vision disorders. This post contains quotes from actual people with disorders like ADHD, autism, dyslexia, and hand tremor (not your garden variety disorders). Reading it was a real eye opener and changed the way I think about the accessible web.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 <figure>
     <img src="/images/blog/best-of-2017/stack-overflow-remote.png" alt="Home office illustrations." width="1000" height="400">
@@ -43,7 +43,7 @@ So many accessibility posts concentrate on designing for screen readers and folk
 
 I work for Stack Overflow, a company that’s massively ahead of the curve in terms of work-life balance and policies for remote employees. But a first-in-class remote culture doesn’t just happen, it takes a lot of work. This article talks about how we pull it off.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 <figure>
     <img src="/images/blog/best-of-2017/design-systems.jpg" alt="The iconic tennis court scene in The Founder." width="1000" height="400">
@@ -54,7 +54,7 @@ I work for Stack Overflow, a company that’s massively ahead of the curve in te
 
 Design Systems are #sohot right now, but getting buy in to make one for your company or client isn’t always easy. Jina tells a wonderful story about why it’s worth it to invest in how you build products even when the fruits of your labor won’t be immediately apparent.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 <figure>
     <img src="/images/blog/best-of-2017/full-stack-design-system.jpg" alt="Giant Lego battleship." width="1000" height="400">
@@ -65,7 +65,7 @@ Design Systems are #sohot right now, but getting buy in to make one for your com
 
 Many Design Systems are really just Pattern Libraries: a big box of UI Lego pieces that can be assembled in near-infinite ways. But you don’t want to end up with something like the photo above. Combining these design patterns effectively is just as important as building them in the first place.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 <figure>
     <img src="/images/blog/best-of-2017/ignorance.jpg" alt="THINK rubber stamp." width="1000" height="400">
@@ -79,7 +79,7 @@ It’s tempting to soak up every piece of advice and data on any given idea, but
 
 > Instead of meeting each new challenge with an open mind and fresh enthusiasm, he let his past experiences limit his creativity and his positive outlook.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 <figure>
     <img src="/images/blog/best-of-2017/competitive-research.png" alt="Research results in a spreadsheet." width="1000" height="400">
@@ -88,7 +88,7 @@ It’s tempting to soak up every piece of advice and data on any given idea, but
 
 Product Designers have to cover a lot of ground and research wasn’t one of my strongest skills coming into 2017. With the guidance of a few co-workers and and a few articles like this one, I leveled up my research skill this past year. Wayfair’s design team put together an excellent overview of how they conduct research and present findings; great for any beginner looking to improve their research skills.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 <figure>
     <img src="/images/blog/best-of-2017/ux-bar.png" alt="Creative Market's functional spec." width="1000" height="400">
@@ -101,7 +101,7 @@ At Stack Overflow, product designers write their own functional specs before ope
 
 It’s cheaper to brainstorm and collaborate in a Google Doc than in Sketch. Spending time upfront in writing a UX plan saves a ton of design time down the line.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 <figure>
     <img src="/images/blog/best-of-2017/data-heavy-design.png" alt="Large form wireframe design." width="1000" height="400">
@@ -112,7 +112,7 @@ It’s cheaper to brainstorm and collaborate in a Google Doc than in Sketch. Spe
 
 This ^^ has been my reality for the last several years, but that doesn’t mean that complex screens can’t be well designed. This case study shows how WebEngage redesigned a product that supports elaborate use-cases and extensive features.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 <figure>
     <img src="/images/blog/best-of-2017/growing-blue-apron.jpg" alt="Blue Apron slide deck cover." width="1000" height="400">
@@ -125,7 +125,7 @@ This ^^ has been my reality for the last several years, but that doesn’t mean 
 
 Melody Koh tells the story of how Blue Apron grew from a small startup to a mature company and shares a few insights learned from the growing pains that occurred along the way.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 <figure>
     <iframe src="https://player.vimeo.com/video/242036572" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -134,10 +134,10 @@ Melody Koh tells the story of how Blue Apron grew from a small startup to a matu
 
 Technically this isn’t something I read, but this might be the best conference talk or podcast episode I listened to this year. Dave Rupert talks about video games, why the term “minimum viable product” is 🙄, and how to design something with more than 5 people and have it not go to shit.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 2017 was another great year of folks being generous with their time and knowledge. Y’all continue to make me a better designer, employee, and person; thank you!
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 Also published at <a href="https://medium.com/@tedgoas/the-best-design-things-i-read-in-2017-2c53c969fb0c">https://medium.com/@tedgoas/the-best-design-things-i-read-in-2017-2c53c969fb0c</a>

@@ -32,15 +32,15 @@
     }
   }
 }
-.hr {
+hr {
   @apply w-56 mx-0;
   height: 8px;
   background: url("../../images/misc/hd-hr.svg") top left repeat-x;
 }
 
 article {
-  .hr {
-    @apply my-8;
+  hr {
+    @apply my-12;
   }
   .hr-lg {
     @apply my-16;

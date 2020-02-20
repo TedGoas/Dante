@@ -217,7 +217,7 @@ As docs grow, a design system becomes a record of shared knowledge, accessible t
 
 Writing documentation also made me challenge a lot of assumptions I’d been carrying around in my head for too long. I have the discussion above once every few months, where someone asks a seemingly innocent question that just blows up my world (for the better). So documentation truly helps everyone, from the new hire who’s ramping up to the seasoned professional who thinks they know it all.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 ## Wrapping up
 
@@ -242,7 +242,7 @@ If I can leave you with some parting words: Be inclusive. Welcome people into yo
 
 If you’re interested in chatting about your experience (and struggles), <a href="https://twitter.com/TedGoas">ping me on Twitter</a> or <a href="https://email.geeks.chat/">message me on email geeks chat</a>!
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 Special thanks to <a href="https://twitter.com/UxPiper">Piper</a>, <a href="https://twitter.com/balpha">balpha</a>, <a href="https://twitter.com/aaronshekey">Aaron</a>, <a href="https://twitter.com/hellohynes">Josh</a>, <a href="https://twitter.com/courtnycotten">Courtny</a>, <a href="https://www.linkedin.com/in/elainewangprofile/">Elaine</a>, and <a href="https://www.linkedin.com/in/kristinavolovich/">Kristina</a> for help with our email design system and this article.
 

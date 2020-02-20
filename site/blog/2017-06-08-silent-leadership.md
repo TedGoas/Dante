@@ -55,6 +55,6 @@ I’m not quite ready to take over my boss’s job and detach myself from design
 
 Do you have similar thoughts? At a crossroads in your career? Recently been through a transition or promotion? I’d love to hear your story here or on [Twitter](https://twitter.com/TedGoas).
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 Also published <a href="https://medium.com/@tedgoas/silent-leadership-f236e62ba60d">on Medium</a>

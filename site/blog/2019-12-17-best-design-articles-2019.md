@@ -8,7 +8,7 @@ excerpt: A small collection of articles that stuck out in my mind this year.
 
 A small collection of design articles that stuck out in my mind this year. I did this in <a href="/blog/best-design-articles-2018">2018</a> and <a href="/blog/best-design-articles-2017">2017</a> too.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 <figure>
     <img src="/images/blog/best-of-2019/share.jpg" alt="Closeup of hands on a laptop keyboard." width="880" height="400">
@@ -24,7 +24,7 @@ Every. Day.
 
 At work. On social media. Among friends. [This is me](https://www.reddit.com/r/infp/comments/8po8rn/what_i_think_vs_what_i_say/). I’m still a working on improving and re-reading articles like this is motivating.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 <figure>
     <img src="/images/blog/best-of-2019/knowledge.jpg" alt="Floating book." width="880" height="400">
@@ -37,7 +37,7 @@ An insight into Warren Buffet’s thinking. The whole article is worth your time
 
 Avoid expiring information (easily digestible news that won’t be relevant next month). It’s a distraction.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 <figure>
     <img src="/images/blog/best-of-2019/rewrites.jpg" alt="Old VS Studio vs new VS Code." width="880" height="400">
@@ -48,7 +48,7 @@ Rewriting your application from scratch is often billed as “the single worst s
 
 This article looks at how Netscape, Basecamp, Visual Studio, Gmail, Fogbugz, and FreshBooks all rewrote their products at one point. Some worked out, others didn’t.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 <figure>
     <img src="/images/blog/best-of-2019/tools.jpg" alt="Tools hanging on a tool rack on the wall." width="880" height="400">
@@ -59,7 +59,7 @@ A rather cerebral dive into tools. Intercom’s Emmet Connolly shows us how tool
 
 Emmet is a great storyteller and provides loads of history. Reminds me of [Wilson Minor’s talk](https://vimeo.com/34017777) a few years ago. I recommend reading or watching this one!
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 <figure>
     <img src="/images/blog/best-of-2019/3step.png" alt="Stick figures counting 1, 2, 3." width="880" height="400">
@@ -74,7 +74,7 @@ Simple to say, harder to practice. If your product development process involves 
 
 >Nothing helps reduce scope creep more than coming back to the problem statement and the success metrics. You can solve many problems in many ways, but you can also build a beautiful product that solves no problems.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 <figure>
     <img src="/images/blog/best-of-2019/postmark.png" alt="Postmark brand illustration." width="880" height="400">
@@ -85,7 +85,7 @@ I’m a big fan of Rian van der Merwe’s writing (I ❤️ his [Elezea newslett
 
 As a product designer, I’ve learned how a good product manager is worth their weight in gold and I enjoy reading Rian’s takes on various aspects of product development and strategy.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 <figure>
     <img src="/images/blog/best-of-2019/design-leadership.jpg" alt="Lego storm trooper painting." width="880" height="400">
@@ -94,7 +94,7 @@ As a product designer, I’ve learned how a good product manager is worth their 
 
 This year I dove head first into the “people” part of my job. The soft skills. When I first starting learning about design leadership, I didn’t really know what it was. Articles like this helped me learn what design leadership this looks like in practice, and how to both identify and create opportunities for leading as a designer.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 <figure>
     <img src="/images/blog/best-of-2019/leading-design.jpg" alt="Holding hands." width="880" height="400">
@@ -105,7 +105,7 @@ Full disclosure: I helped write this article with a coworker. But here’s the t
 
 When taking on a new design projects, there are so many things to consider, questions to ask, solutions to explore… the possibilities can seem endless (and sometimes paralyzing). Donna has a wonderful framework that she applies to each project, which is detailed in this article.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 <figure>
     <img src="/images/blog/best-of-2019/manager.jpg" alt="Coffee mug with the word 'Boss' on it." width="880" height="400">
@@ -118,7 +118,7 @@ As an experienced designer, I’d been thinking about what’s next and thought 
 
 Julie Zhuo has also been an inspiration here, [reminding us](https://mailchi.mp/juliezhuo/the-looking-glass-growing-leadership-performance-improvement-plans-and-design-white-mages?e=9a4bbb7e2b) that any designer can help make the designers around them better and have an impact that’s greater than that of a single person.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 <figure>
     <img src="/images/blog/best-of-2019/ux-career.png" alt="Illustration of man swimming with sharks." width="880" height="400">
@@ -133,7 +133,7 @@ As the title suggests, this article is not limited to Google employees. In fact 
 
 [7 things every designer should know about business](https://www.beyondusers.com/7-things-every-designer-should-know-about-business) dives into this topic a bit deeper.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 <figure>
     <img src="/images/blog/best-of-2019/remote.jpg" alt="Time lapse of people walking through a gate somewhere in Asia." width="880" height="400">
@@ -144,7 +144,7 @@ As the title suggests, this article is not limited to Google employees. In fact 
 
 Spot on Mike… spot on.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 <figure>
     <img src="/images/blog/best-of-2019/app-mistakes.jpg" alt="Example of a modal in a app web." width="880" height="400">
@@ -155,7 +155,7 @@ I usually find Nielson Norman Group posts to be rather dry, but the listicle for
 
 There’s nothing in here about “personalizing the experience” or “delighting the user.” Each point focuses on basic things like including sensible defaults to speed up and teach users, and providing helpful error messages that explain what went wrong and how it can be fixed. Basic things that are often overlooked.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 2019 was another great year of folks being generous with their time and knowledge. Y’all continue to make me a better designer, employee, and person; thank you!
 

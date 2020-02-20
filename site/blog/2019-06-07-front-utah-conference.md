@@ -13,7 +13,7 @@ This week I attended [Front Utah](https://www.frontutah.com/conference/). I chos
 
 ☝️ This is how I approach conferences, to learn what I need to learn. Here are a few things from Front that tickled my brain:
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 ## Letting go of process and accepting controlled chaos
 [Wade Shearer](https://www.linkedin.com/in/wadeshearer/), Workfront
@@ -26,7 +26,7 @@ Some process is good, but too much is lethal. Team alignment > process.
 
 **Think more about** how to create a north star that doesn’t get lost in docs or presentations.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 ## Your product is only as good as your teamwork
 [Maggie Crowley](https://twitter.com/maggiecrowley), Drift
@@ -35,7 +35,7 @@ My main takeaway from Maggie’s talk was to learn when to stop iterating and ta
 
 **Think more about** creating a framework that informs when to take a big swing.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 ## Radical collaboration and trust; breaking down silos and building products at scale
 [Kim Williams](https://twitter.com/kimwms_), Indeed
@@ -50,7 +50,7 @@ It’s important to know yourself (your super power and achilles heel), but equa
 
 **Think more about** how to create an environment where everyone feels supported, empowered, and does their best work.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 ## Who will build the next million products?
 [Vlad Magdalin](https://twitter.com/callmevlad), Weblow
@@ -61,7 +61,7 @@ Just 1 in 400 people worldwide know how to code. The “No Code” movement is c
 
 **Think more about** this “No Code” movement and how to adapt.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 ## Designing Change
 [Matt Ström](https://twitter.com/ilikescience), Bitly
@@ -75,7 +75,7 @@ We encounter four challenges when designing change:
 
 **Think more about** keeping the north star in plain sight, so we even see it even when we’re in the weeds.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 ## Blind spots and bents: Designing around your product biases
 [Samantha Warren](https://twitter.com/samanthatoy), Adobe
@@ -86,7 +86,7 @@ Historically Typekit was designed by type nerds for type nerds. At some point th
 
 **Think more about** how to stay close to customers and avoid designing for myself.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 ## Designing a modular onboarding system
 [Cindy Chang](https://twitter.com/cindyjchang), Intercom
@@ -97,7 +97,7 @@ Intercom’s on boarding efforts were spread across teams and time zones, and wi
 
 **Think more about** what an onboarding design system would look like at Stack Overflow.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 ## The incumbents dilemma: How large organizations are being disrupted by their own assumptions
 [Thor Ernstsson](https://twitter.com/ThorErnstsson), Alpha
@@ -108,7 +108,7 @@ Customers are divinely discontent. You can’t rest on your laurels, your custom
 
 **Think more about** who could overtake Stack Overflow and why we are (or are not) doing anything about it.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 ## The business value of design
 [Mark Rawlins](https://twitter.com/digimarkus), Vivint
@@ -121,11 +121,11 @@ The business of design sells. Customers care about experience and will pay for i
 
 Think more about taking a big swing on something, the 10x experience.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 I also enjoyed listening to [Nate Walkingshaw](https://twitter.com/nwalkingshaw), [Frank Yoo](https://twitter.com/frankyoo), and [Emily Campbell](https://twitter.com/elou), three great storytellers whose presentations were very inspirational.
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 <figure>
     <img src="/images/blog/utah/front-conference.jpg" alt="Wade Shearer talking on stage." width="1000" height="500">
@@ -134,6 +134,6 @@ I also enjoyed listening to [Nate Walkingshaw](https://twitter.com/nwalkingshaw)
 
 Many thanks to [Ben](https://twitter.com/benpeck) and [Front team](https://twitter.com/front) for organizing and executing a wonderful conference. They created a great environment and I’d highly recommend for designers interested in leveling up their product and business acumen. It’s definitely worth the trip! Utah’s beauty only sweetens the deal ✌️
 
-<hr role="presentation" aria-role="hidden" class="hr">
+<hr role="presentation" aria-role="hidden">
 
 Also published at <a href="https://medium.com/@tedgoas/front-utah-4374df2190b1">https://medium.com/@tedgoas/front-utah-4374df2190b1</a>
