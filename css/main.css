@@ -1054,6 +1054,11 @@ article pre code {
   padding: 0.75rem;
 }
 
+article p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 .hd-border-bottom {
   background: url("../../../images/misc/hd-border-x.svg") bottom left repeat-x;
 }
@@ -1477,6 +1482,47 @@ article figure figcaption {
 .workitem:focus .workitem-background, .workitem:active .workitem-text,
 .workitem:active .workitem-background {
   transform: translateY(0.25em);
+}
+
+/* Custom Grids */
+
+.grid-sotheming {
+  display: grid;
+}
+
+.grid-sotheming .preview {
+  grid-column: 2 / 4;
+  grid-row: 1 / 4;
+}
+
+.grid-sotheming .code {
+  grid-column: 1 / 3;
+  grid-row: 2 / 5;
+  z-index: -1;
+}
+
+.grid-sointegrations {
+  display: grid;
+}
+
+.grid-sointegrations .jira {
+  grid-row: 1 / 4;
+  grid-column: 1 / 3;
+}
+
+.grid-sointegrations .github {
+  grid-row: 3 / 6;
+  grid-column: 2 / 4;
+}
+
+.grid-sointegrations .slack {
+  grid-row: 5 / 8;
+  grid-column: 1 / 3;
+}
+
+.grid-sointegrations .stackoverflow {
+  grid-row: 7 / 10;
+  grid-column: 2 / 4;
 }
 
 .appearance-none{

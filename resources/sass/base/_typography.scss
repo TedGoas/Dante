@@ -205,4 +205,8 @@ article {
   pre code {
     @apply block mb-6 p-3;
   }
+
+  p {
+    @apply my-0;
+  }
 }
