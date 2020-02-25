@@ -201,12 +201,12 @@ article {
     &:not(.hljs) {
       @apply text-red-4;
     }
+    p {
+      @apply my-0;
+    }
   }
   pre code {
     @apply block mb-6 p-3;
   }
 
-  p {
-    @apply my-0;
-  }
 }

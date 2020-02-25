@@ -1048,15 +1048,15 @@ article code:not(.hljs) {
   color: #ff8787;
 }
 
+article code p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 article pre code {
   display: block;
   margin-bottom: 1.5rem;
   padding: 0.75rem;
-}
-
-article p {
-  margin-top: 0;
-  margin-bottom: 0;
 }
 
 .hd-border-bottom {

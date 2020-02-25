@@ -54,9 +54,17 @@ I created Stack Overflow’s theming system into something we could scale for ou
 
 One way to personalize Stack Overflow is to watch tags. Watching tags weights questions in those tags more. These tags also appear as shortcuts in the sidebar and you can also receive an email digests of questions within those tags in varying frequency. We wanted to streamline the existing feature on public Stack Overflow for our Enterprise product.
 
-<figure>[tag watching]</figure>
+<figure class="my-12">
+    <img src="/images/work/stackoverflow/tag-watching-hovers.png" alt="" width="733">
+    <figcaption>Popover states and dev notes about defaults.</figcaption>
+</figure>
 
 I prototyped, tested, and iterated a few designs, noting the small adjustments (such as copy tweaks) we’d want to make when adapting the feature for different product areas. We shipped this version, which was later improved by Pawel and Aaron to what’s on in the product today.
+
+<figure class="unbound my-12">
+    <img src="/images/work/stackoverflow/tag-watching-sidebar.png" alt="" width="1470">
+    <figcaption>Sidebar widget states and dev notes on proposed changes.</figcaption>
+</figure>
 
 ## Documentation
 
@@ -110,18 +118,18 @@ Stack Overflow assembled a tiger team of folks. Everyone focused on a different 
 When I joined Stack Overflow, we didn’t send much email aside from a few messages sent to active Q&A users and basic things like resetting a password. Email templates were inconsistent and often broken in many places. I helped standardize our email design, fixed our rendering issues, and set us up to take some bigger swings with our email announcements.
 
 <figure class="unbound max-w-5xl">
-    <div class="flex gs4 sm:block">
+    <div class="flex items-center p-4 rounded bg-gray-8 gs4 sm:block">
         <div class="flex--cell sm:mx-auto sm:mb-4">
-            <img src="/images/work/stackoverflow/teams-email.png" alt="" width="680">
+            <img src="/images/work/stackoverflow/email-teams.png" alt="Teams product launch email." width="680">
         </div>
         <div class="flex--cell sm:mx-auto sm:mb-4">
-            <img src="/images/work/stackoverflow/teams-email.png" alt="" width="680">
+            <img src="/images/work/stackoverflow/email-10th.png" alt="10th anniversary email." width="680">
         </div>
         <div class="flex--cell sm:mx-auto">
-            <img src="/images/work/stackoverflow/teams-email.png" alt="" width="680">
+            <img src="/images/work/stackoverflow/email-research.png" alt="user research recruitment email." width="680">
         </div>
     </div>
-    <figcaption>Email designs for Teams, Teams, and Teams.</figcaption>
+    <figcaption>Email designs for Teams product launch (<a href="https://stackoverflow.design/email/templates/examples/teams.html">live code</a>), 10th anniversary (<a href="https://stackoverflow.design/email/templates/examples/10th.html">live code</a>), and user research recruitment.</figcaption>
 </figure>
 
 As our email program evolved and we started to send better-targeted emails, I helped redesign our email preference center to keep pace. My coworker and I wrote about our design goals and published a UX case study for this project.
@@ -200,7 +208,15 @@ Language and tone are very important when participating on Stack Overflow. What 
 
 Developers love dark mode. The community mentions it often and our survey data backs that up. With a co-worker leading efforts to bring dark mode to the website, I explored what it would take to bring dark mode to email.
 
-View on Codepen
+<figure>
+    <video controls width="750" class="rounded" autoplay="true" controls="false" loop="true" muted="true">
+        <source src="/images/work/stackoverflow/email-dark-mode.mp4" type="video/mp4">
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+    <figcaption>Adapting Stack Overflow's email for dark mode.</figcaption>
+</figure>
+
+<a href="https://codepen.io/tedgoas/pen/zYGNamR">View on Codepen</a>
 
 ---
 
