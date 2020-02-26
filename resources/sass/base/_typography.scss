@@ -193,7 +193,7 @@ article {
     @apply pb-3;
   }
   code {
-    @apply inline-block  px-1 py-0 text-sm bg-gray-8 border border-gray-7 rounded;
+    @apply inline-block px-1 py-0 text-sm bg-gray-8 border border-gray-7 rounded;
 
     &.code-block {
       @apply block overflow-x-auto mb-6;
@@ -204,6 +204,9 @@ article {
     p {
       @apply my-0;
     }
+  }
+  figure code.code-block {
+    @apply mb-0;
   }
   pre code {
     @apply block mb-6 p-3;

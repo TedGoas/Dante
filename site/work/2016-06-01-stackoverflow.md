@@ -22,13 +22,15 @@ Stack Overflow Enterprise was Stack Overflow’s first private Q&A product and I
 
 ## Theming
 
+Data security and privacy are top concerns of Enterprise customers. In many cases, folks have their Enterprise site open in one tab and public Stack Overflow open in another. It’s important for folks to know where they are at a glance so they don’t post info in the wrong place. One way we tackle this is to make a branded theme for every client.
+
 <figure class="unbound max-w-5xl">
     <div class="grid-sotheming sm:block">
         <div class="preview sm:mb-4">
             <img src="/images/work/stackoverflow/theming-preview.png" alt="" width="600">
         </div>
         <div class="code">
-            <pre><code class="less code-block text-left rounded max-w-2xl">@import "less/_enterprise-base.less";
+            <pre><code class="code-block text-left rounded max-w-2xl scss">@import "less/_enterprise-base.less";
 
 //  ======================================
 //  User-defined variables
@@ -41,12 +43,10 @@ Stack Overflow Enterprise was Stack Overflow’s first private Q&A product and I
 @accent-color:          #007733;
 
 //  Overrides and customizations
-@font-family:           -apple-system, BlinkMacSystemFont, Avenir, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;</code>
+@font-family:           -apple-system, BlinkMacSystemFont, Avenir, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;</code></pre>
         </div>
     </div>
 </figure>
-
-Data security and privacy are top concerns of Enterprise customers. In many cases, folks have their Enterprise site open in one tab and public Stack Overflow open in another. It’s important for folks to know where they are at a glance so they don’t post info in the wrong place. One way we tackle this is to make a branded theme for every client.
 
 I created Stack Overflow’s theming system into something we could scale for our enterprise clients. I refactored existing LESS variables so they could be overridden and removed lots of redundant CSS. The resulting LESS architecture allowed us to create new themes in as little as eight lines of code. Balpha have since evolved this system to include the entire Stack Exchange network, and I designed a UI that allows folks to create their own themes without writing any code.
 
@@ -94,11 +94,37 @@ My team regularly speaks with our Enterprise clients about their workflows. Some
 
 At one point when conducting research interviews, several clients mentioned that our settings weren’t organized well and some features were hard to find and understand.
 
-Hearing this, I pitched a redesign of our private Q&A settings section, including significant information architecture updates.
+Hearing this, I pitched a redesign of our private Q&A settings, including an information architecture updates, an overhaul of each page's copy, and the addition of visual aides.
 
-<figure>[Admin IA]</figure>
+<figure class="unbound max-w-5xl">
+    <div class="bg-white p-4 rounded inline-block">
+        <img src="/images/work/stackoverflow/admin-rep.png" alt="" width="860">
+    </div>
+    <figcaption>Visual cues that show how changing repuation levels will impact users.</figcaption>
+</figure>
 
 I worked with our customer success teams to identify the most used features, organized them using card sorting exercises, and created a flexible information structure that supports multiple private Q&A products, now and in the future.
+
+<figure class="unbound max-w-5xl my-12">
+    <div class="flex gs4">
+        <div class="flex--cell">
+            <img src="/images/work/stackoverflow/admin-bulletin.png" alt="Custom text added to the community bulletin." width="282">
+        </div>
+        <div class="flex--cell">
+            <img src="/images/work/stackoverflow/admin-footer.png" alt="Custom text added to the site footer." width="282">
+        </div>
+        <div class="flex--cell">
+            <img src="/images/work/stackoverflow/admin-ask.png" alt="Custom text when asking a question." width="282">
+        </div>
+        <div class="flex--cell">
+            <img src="/images/work/stackoverflow/admin-markdown.png" alt="Custom text when formatting markdown" width="282">
+        </div>
+        <div class="flex--cell">
+            <img src="/images/work/stackoverflow/admin-tag.png" alt="Custom text when tagging." width="282">
+        </div>
+    </div>
+    <figcaption>I created a set of illustrations to point out where things appear in the product.</figcaption>
+</figure>
 
 ## Teams
 
@@ -108,7 +134,7 @@ In 2017, the Stack Overflow created a new tier of private Q&A product called Sta
     <div class="inline-block">
         <img src="/images/work/stackoverflow/teams-empty-state.png" alt="" width="1000">
     </div>
-    <figcaption>Wireframe concept for onboarding empty states.</figcaption>
+    <figcaption>Wireframe concept for onboarding empty states. Teams was originally called "Channels."</figcaption>
 </figure>
 
 Stack Overflow assembled a tiger team of folks. Everyone focused on a different area, with each piece coming together at the end. One area I focused on was the empty state part of onboarding: what happens after you’ve completed the signup flow and and land in the product for the very first time. It was an extremely interesting project and also really challenging given the limited period of time we had for this work.
@@ -222,4 +248,4 @@ Developers love dark mode. The community mentions it often and our survey data b
 
 ## Health Dashboard and Leaderboards
 
-A few projects are so large that I wrote a separate case study for them. Check out the health dashboard and leaderboards. These are the big swings!
+A few projects are so large that I wrote a separate case study for them. Check out the health dashboard and leaderboards.
