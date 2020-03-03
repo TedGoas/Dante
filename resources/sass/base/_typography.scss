@@ -135,7 +135,10 @@ article {
   h3 {
     @apply text-xl leading-tight my-8;
   }
-
+  hr + h2,
+  hr + h3 {
+    @apply mt-0;
+  }
 	p {
 		@apply mb-6;
 

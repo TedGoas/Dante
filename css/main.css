@@ -932,6 +932,11 @@ article h3 {
   margin-bottom: 2rem;
 }
 
+article hr + h2,
+  article hr + h3 {
+  margin-top: 0;
+}
+
 article p {
   margin-bottom: 1.5rem;
 }
@@ -1451,7 +1456,8 @@ article .hr-lg {
 
 article figure {
   display: block;
-  margin-bottom: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
   max-width: 100%;
 }
 
@@ -1459,6 +1465,12 @@ article figure figcaption {
   font-size: 0.875rem;
   margin-top: 1rem;
   color: #adb5bd;
+}
+
+article figure.bordered img {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #343a40;
 }
 
 .workitem .workitem-image,

@@ -40,6 +40,7 @@ hr {
 }
 
 article {
+
   hr {
     @apply my-12;
   }
@@ -47,10 +48,13 @@ article {
     @apply my-16;
   }
   figure {
-    @apply block mb-8 max-w-full;
+    @apply block my-16 max-w-full;
 
     figcaption {
       @apply text-sm mt-4 text-gray-5;
+    }
+    &.bordered img {
+      @apply border border-solid border-gray-8;
     }
   }
 }
