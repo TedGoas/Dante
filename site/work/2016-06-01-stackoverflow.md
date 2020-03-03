@@ -143,8 +143,8 @@ Stack Overflow assembled a tiger team of folks. Everyone focused on a different 
 
 When I joined Stack Overflow, we didn’t send much email aside from a few messages sent to active Q&A users and basic things like resetting a password. Email templates were inconsistent and often broken in many places. I helped standardize our email design, fixed our rendering issues, and set us up to take some bigger swings with our email announcements.
 
-<figure class="unbound max-w-5xl">
-    <div class="flex items-center p-4 rounded bg-gray-8 gs4 sm:block">
+<figure class="unbound  bordered">
+    <div class="flex items-center gs4 sm:block">
         <div class="flex--cell sm:mx-auto sm:mb-4">
             <img src="/images/work/stackoverflow/email-teams.png" alt="Teams product launch email." width="680">
         </div>
