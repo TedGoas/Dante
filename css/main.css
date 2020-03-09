@@ -1546,6 +1546,30 @@ article figure.bordered img {
   grid-column: 2 / 4;
 }
 
+.grid-hmw {
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
+@media (max-width: 639px) {
+  .grid-hmw {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-states {
+  display: grid;
+  grid-gap: .5em;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+@media (max-width: 639px) {
+  .grid-states {
+    grid-template-columns: 1fr;
+  }
+}
+
 .appearance-none{
   appearance: none;
 }
