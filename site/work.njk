@@ -10,16 +10,15 @@ title: Work
   <h1 class="page-title">{{ title }}</h1>
 
     {% for post in collections.work | reverse %}
-    <a href="{{ post.url }}" class="workitem overflow-hidden relative mb-4 px-6 pt-6 max-w-3xl unstyled flex items-start">
-      <div class="pr-6 workitem-image">
-        <img src="https://picsum.photos/600/400">
+    <a href="{{ post.url }}" class="workitem flex mb-6 p-3 max-w-3xl unstyled border border-solid border-gray-8 hover:border-gray-7 sm:block">
+      <div class="workitem-image mr-6">
+        <img src="https://picsum.photos/400/300" class="w-full">
       </div>
-      <div class="text-white pt-3 workitem-text">
-        <h2 class="text-4xl leading-none mb-3">{{ post.data.title }}</h2>
-        <p class="font-normal text-xl leading-snug">{{ post.data.excerpt }}</p>
+      <div class="text-white pt-3 workitem-text max-w-sm relative">
+        <h2 class="text-2xl leading-none mb-3">{{ post.data.title }}</h2>
+        <p class="font-normal text-lg leading-snug">{{ post.data.excerpt }}</p>
+        <span class="arrow absolute bottom-0 right-0 opacity-0">--></span>
       </div>
-      <div class="workitem-background absolute inset-0 -z-1 rounded {{ post.data.indexColor }}"></div>
     </a>
     {% endfor %}
-  </ul>
 </main>

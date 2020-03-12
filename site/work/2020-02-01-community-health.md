@@ -2,7 +2,7 @@
 title: Community Health Dashboard
 indexColor: bg-blue-7
 body_class: work
-excerpt: Designing a dashboard that helps clients see the return on their investment while reducing customer support overhead.
+excerpt: I led the discovery and design of a dashboard that helps clients see the return on their investment while reducing customer support overhead.
 ---
 
 At Stack Overflow, we work with our Enterprise clients to manage their own private Stack Overflow community. But understanding a community’s metrics wasn’t always easy.

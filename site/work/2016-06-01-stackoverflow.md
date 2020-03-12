@@ -2,7 +2,7 @@
 title: Stack Overflow
 indexColor: bg-orange-7
 body_class: work
-excerpt: How we design at Stack Overflow and a few notable projects.
+excerpt: How we approach design at Stack Overflow and a few notable projects.
 highlightjs: true
 ---
 

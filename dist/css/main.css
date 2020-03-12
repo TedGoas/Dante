@@ -772,7 +772,7 @@ a:hover {
 }
 
 a.link-nav.active,
-a.workitem {
+a.unstyled {
   text-decoration: none;
 }
 
@@ -1473,36 +1473,12 @@ article figure.bordered img {
   border-color: #343a40;
 }
 
-.workitem .workitem-image,
-.workitem .workitem-text,
-.workitem .workitem-background {
-  transition: 300ms all ease-in;
+.workitem {
+  transition: all 75ms ease-in;
 }
 
-.workitem .workitem-background {
-  opacity: 0.25;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: url(/images/misc/bg-marks.svg);
-}
-
-.workitem:hover .workitem-image, .workitem:focus .workitem-image, .workitem:active .workitem-image {
-  transform: scale(110%);
-}
-
-.workitem:hover .workitem-text, .workitem:focus .workitem-text, .workitem:active .workitem-text {
-  transform: translateX(0.5em);
-}
-
-.workitem:hover .workitem-background, .workitem:focus .workitem-background, .workitem:active .workitem-background {
-  opacity: 0.75;
-}
-
-.workitem:hover .workitem-text,
-.workitem:hover .workitem-background, .workitem:focus .workitem-text,
-.workitem:focus .workitem-background, .workitem:active .workitem-text,
-.workitem:active .workitem-background {
-  transform: translateY(0.25em);
+.workitem:hover .arrow {
+  opacity: 1;
 }
 
 /* Custom Grids */
