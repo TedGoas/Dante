@@ -20,6 +20,12 @@ body#blog .nav li:last-of-type a {
 		background-position: center center;
 		background-size: 100% auto;
 		background-repeat: no-repeat;
-    background-image: url("../../../images/misc/highlight.svg");
+		background-image: url("../../../images/misc/highlight-muted.svg");
+	}
+}
+
+.social a:not(:hover) {
+	path, polygon {
+		fill: theme('colors.gray.6')
 	}
 }

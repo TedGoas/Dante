@@ -1,10 +1,6 @@
 {
     "main": [
         {
-            "label": "Home",
-            "url": "/"
-        },
-        {
             "label": "Work",
             "url": "/work/"
         },

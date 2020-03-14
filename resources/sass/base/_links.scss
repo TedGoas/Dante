@@ -7,7 +7,7 @@
 a {
   @apply text-red-5 link-transition font-bold underline;
 
-  text-decoration-thickness: .1em;
+  text-decoration-thickness: .15em;
   text-underline-offset: 3px;
   text-decoration-skip-ink: auto;
   text-decoration-color: theme('colors.gray.7');
@@ -19,4 +19,7 @@ a {
 a.link-nav.active,
 a.unstyled {
   @apply no-underline;
+}
+a.muted {
+  @apply text-white;
 }
