@@ -1411,7 +1411,7 @@ body#blog .nav li:last-of-type a:after {
 .home-posts-grid .home-posts-title {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
-  height: auto;
+  margin-bottom: 0;
 }
 
 .home-posts-grid .home-posts-list {

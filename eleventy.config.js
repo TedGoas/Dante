@@ -1,12 +1,12 @@
-const htmlmin = require("html-minifier")
+const htmlmin = require("html-minifier");
 
 module.exports = eleventyConfig => {
 
     // Add a readable date formatter filter to Nunjucks
-    eleventyConfig.addFilter("dateDisplay", require("./filters/dates.js"))
+    eleventyConfig.addFilter("dateDisplay", require("./filters/dates.js"));
 
     // Add a HTML timestamp formatter filter to Nunjucks
-    eleventyConfig.addFilter("htmlDateDisplay", require("./filters/timestamp.js"))
+    eleventyConfig.addFilter("htmlDateDisplay", require("./filters/timestamp.js"));
 
     // Minify our HTML
     eleventyConfig.addTransform("htmlmin", (content, outputPath) => {
@@ -19,21 +19,21 @@ module.exports = eleventyConfig => {
             return minified;
         }
         return content;
-    })
+    });
 
     // Collections
     eleventyConfig.addCollection('blog', collection => {
         return collection.getFilteredByTag('blog').reverse()
-    })
+    });
 
     // Layout aliases
-    eleventyConfig.addLayoutAlias('default', 'layouts/default.njk')
-    eleventyConfig.addLayoutAlias('post', 'layouts/post.njk')
+    eleventyConfig.addLayoutAlias('default', 'layouts/default.njk');
+    eleventyConfig.addLayoutAlias('post', 'layouts/post.njk');
 
     // Include our static assets
-    eleventyConfig.addPassthroughCopy("css")
-    eleventyConfig.addPassthroughCopy("javascript")
-    eleventyConfig.addPassthroughCopy("images")
+    eleventyConfig.addPassthroughCopy("css");
+    eleventyConfig.addPassthroughCopy("javascript");
+    eleventyConfig.addPassthroughCopy("images");
 
     return {
         templateFormats: ["md", "njk"],

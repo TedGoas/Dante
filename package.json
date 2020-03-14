@@ -14,6 +14,7 @@
   "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^0.8.3",
+    "@11ty/eleventy-plugin-rss": "^1.0.7",
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@fullhuman/postcss-purgecss": "^1.2.0",
