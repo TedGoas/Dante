@@ -1431,7 +1431,7 @@ body#blog .nav li:last-of-type a:after {
 }
 
 .site-width {
-  width: 100vw;
+  width: 100%;
   max-width: 64rem;
   margin-left: auto;
   margin-right: auto;
