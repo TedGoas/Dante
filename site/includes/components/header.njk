@@ -1,9 +1,9 @@
-<header class="site-width flex py-4 justify-between items-center hd-border-bottom sm:block">
-	<a class="w-1/6 leading-none" href="/" aria-label="Back to home">
+<header class="site-width flex py-4 justify-between items-center hd-border-bottom md:block">
+	<a class="w-1/6 leading-none sm:w-full" href="/" aria-label="Back to home">
 		<img src="/images/logo/tg-sig-logo.svg" alt="Ted Goas signature logo." height="60" width="122" border="0">
 	</a>
-	<nav class="nav w-4/6">
-		<ul class="flex flex-row flex-wrap justify-center sm:leading-loose">
+	<nav class="nav w-4/6 sm:w-full md:py-4 md:-m-2">
+		<ul class="flex flex-row flex-wrap justify-center md:justify-start">
 			{% for item in navigation.main %}
 			<li>
 				<a href="{{ item.url | safe }}" class="link-nav muted mx-4 {% if page.url == item.url %}active highlighted{% endif %}">{{ item.label }}</a>
@@ -11,7 +11,7 @@
 			{% endfor %}
 		</ul>
 	</nav>
-	<aside class="social flex justify-end w-1/6">
+	<aside class="social flex justify-end w-1/6 md:w-full md:justify-start">
 		<a href="https://twitter.com/TedGoas" rel="me" class="p-2">
 			<svg role="img" aria-label="true" class="" width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 				<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
