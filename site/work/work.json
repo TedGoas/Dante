@@ -1,5 +1,5 @@
 {
     "layout": "layouts/work",
-    "permalink": "/{{ page.fileSlug }}/",
+    "permalink": "/work/{{ page.fileSlug }}/",
     "tags": "work"
 }
