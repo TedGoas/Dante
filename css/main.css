@@ -932,8 +932,8 @@ article h2 {
 article h3 {
   font-size: 1.25rem;
   line-height: 1.25;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 article hr + h2,
@@ -942,7 +942,7 @@ article hr + h2,
 }
 
 article p {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 article p.intro {
@@ -963,15 +963,15 @@ article p.intro {
 
 article ul,
   article ol {
-  margin-bottom: 1.5rem;
-  margin-left: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  padding-left: 2rem;
 }
 
 article ul li,
     article ol li {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   position: relative;
-  line-height: 1.375;
 }
 
 article b:not(.highlighted):not(.highlighted-long),
@@ -988,8 +988,8 @@ article b:not(.highlighted):not(.highlighted-long),
 article ul li:before {
   position: absolute;
   display: inline-block;
-  background-color: #ffd43b;
-  opacity: 0.5;
+  background-color: #ffe066;
+  opacity: 0.75;
   content: "";
   width: 0.4rem;
   height: 0.4rem;

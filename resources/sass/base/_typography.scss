@@ -133,14 +133,14 @@ article {
     @apply text-3xl leading-tight mt-16;
   }
   h3 {
-    @apply text-xl leading-tight my-8;
+    @apply text-xl leading-tight my-12;
   }
   hr + h2,
   hr + h3 {
     @apply mt-0;
   }
 	p {
-		@apply mb-6;
+		@apply mb-8;
 
 		&.intro {
 			@apply border-b border-gray-2 text-2xl pb-10 mb-10 font-light text-gray-5;
@@ -152,10 +152,10 @@ article {
   }
   ul,
   ol {
-    @apply mb-6 ml-8;
+    @apply my-12 pl-8;
 
     li {
-      @apply mb-6 relative leading-snug;
+      @apply mb-4 relative;
     }
   }
   b:not(.highlighted):not(.highlighted-long),
@@ -163,7 +163,7 @@ article {
     @apply text-white bg-gray-8 py-1 px-2 rounded;
   }
   ul li:before {
-    @apply absolute inline-block bg-yellow-4 opacity-50;
+    @apply absolute inline-block bg-yellow-3 opacity-75;
     content: "";
     width: 0.4rem;
     height: 0.4rem;
