@@ -50,6 +50,11 @@ article {
   figure {
     @apply block my-16 max-w-full;
 
+    img,
+    video {
+      margin-left: auto;
+      margin-right: auto;
+    }
     figcaption {
       @apply text-sm mt-4 text-gray-5;
     }

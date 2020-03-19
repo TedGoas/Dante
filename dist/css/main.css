@@ -1498,6 +1498,12 @@ article figure {
   max-width: 100%;
 }
 
+article figure img,
+  article figure video {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 article figure figcaption {
   font-size: 0.875rem;
   margin-top: 1rem;
