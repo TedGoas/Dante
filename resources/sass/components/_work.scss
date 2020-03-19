@@ -2,6 +2,9 @@
 .workitem {
   transition: all 75ms ease-in;
   
+  .arrow {
+    transition: all 75ms ease-in;
+  }
   &:hover .arrow {
     @apply opacity-100;
   }

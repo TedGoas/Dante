@@ -1,8 +1,9 @@
 ---
 title: Community Health Dashboard
-indexColor: bg-blue-7
 body_class: work
 excerpt: I led the discovery and design of a dashboard that helps clients see the return on their investment while reducing customer support overhead.
+thumb_lg: /images/work/health-dashboard/thumb-lg.jpg
+thumb_sm: /images/work/health-dashboard/thumb-sm.jpg
 ---
 
 At Stack Overflow, we work with our Enterprise clients to manage their own private Stack Overflow community. But understanding a community’s metrics wasn’t always easy.

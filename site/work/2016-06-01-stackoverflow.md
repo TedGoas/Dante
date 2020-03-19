@@ -1,8 +1,9 @@
 ---
 title: Stack Overflow
-indexColor: bg-orange-7
 body_class: work
 excerpt: How we approach design at Stack Overflow and a few notable projects.
+thumb_lg: /images/work/stackoverflow/thumb-lg.jpg
+thumb_sm: /images/work/stackoverflow/thumb-sm.jpg
 highlightjs: true
 ---
 

@@ -1514,6 +1514,10 @@ article figure.bordered img {
   transition: all 75ms ease-in;
 }
 
+.workitem .arrow {
+  transition: all 75ms ease-in;
+}
+
 .workitem:hover .arrow {
   opacity: 1;
 }
