@@ -2,11 +2,14 @@
 
 // HACK: to get blog nav item highlighted
 // This CSS is repeated from _typography.scss
+.link-nav.active,
+body#work .nav li:first-of-type a,
 body#blog .nav li:last-of-type a {
-  @apply p-2 text-gray-9 font-bold no-underline;
+  	@apply p-2 text-gray-9 font-bold no-underline;
 	position: relative;
 	z-index: 1;
 	white-space: nowrap;
+	color: theme('colors.gray.9');
 
 	&:after {
 		content: "";
@@ -20,7 +23,7 @@ body#blog .nav li:last-of-type a {
 		background-position: center center;
 		background-size: 100% auto;
 		background-repeat: no-repeat;
-		background-image: url("../../../images/misc/highlight-muted.svg");
+		background-image: url("../../../images/misc/highlight--muted.svg");
 	}
 }
 
@@ -28,4 +31,6 @@ body#blog .nav li:last-of-type a {
 	path, polygon {
 		fill: theme('colors.gray.6')
 	}
+}
+.link-nav.active {
 }

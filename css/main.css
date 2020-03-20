@@ -882,7 +882,6 @@ blockquote {
   z-index: -1;
   top: -4px;
   right: -7px;
-  bottom: -4px;
   left: -7px;
   background-position: center center;
   background-size: 100% auto;
@@ -891,10 +890,12 @@ blockquote {
 
 .highlighted:after {
   background-image: url("../../../images/misc/highlight.svg");
+  bottom: 0;
 }
 
 .highlighted-long:after {
   background-image: url("../../../images/misc/highlight--long.svg");
+  bottom: -2px;
 }
 
 article {
@@ -1372,6 +1373,8 @@ article pre code {
   }
 }
 
+.link-nav.active,
+body#work .nav li:first-of-type a,
 body#blog .nav li:last-of-type a {
   padding: 0.5rem;
   color: #212529;
@@ -1380,9 +1383,12 @@ body#blog .nav li:last-of-type a {
   position: relative;
   z-index: 1;
   white-space: nowrap;
+  color: #212529;
 }
 
-body#blog .nav li:last-of-type a:after {
+.link-nav.active:after,
+  body#work .nav li:first-of-type a:after,
+  body#blog .nav li:last-of-type a:after {
   content: "";
   display: block;
   position: absolute;
@@ -1394,7 +1400,7 @@ body#blog .nav li:last-of-type a:after {
   background-position: center center;
   background-size: 100% auto;
   background-repeat: no-repeat;
-  background-image: url("../../../images/misc/highlight-muted.svg");
+  background-image: url("../../../images/misc/highlight--muted.svg");
 }
 
 .social a:not(:hover) path, .social a:not(:hover) polygon {

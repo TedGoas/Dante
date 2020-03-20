@@ -91,7 +91,6 @@ blockquote {
 		z-index: -1;
 		top: -4px;
 		right: -7px;
-		bottom: -4px;
 		left: -7px;
 		background-position: center center;
 		background-size: 100% auto;
@@ -100,9 +99,11 @@ blockquote {
 }
 .highlighted:after {
 	background-image: url("../../../images/misc/highlight.svg");
+  bottom: 0;
 }
 .highlighted-long:after {
 	background-image: url("../../../images/misc/highlight--long.svg");
+  bottom: -2px;
 }
 
 // content

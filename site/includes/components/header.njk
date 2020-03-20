@@ -6,7 +6,7 @@
 		<ul class="flex flex-row flex-wrap justify-center md:justify-start">
 			{% for item in navigation.main %}
 			<li>
-				<a href="{{ item.url | safe }}" class="link-nav muted mx-4 {% if page.url == item.url %}active highlighted{% endif %}">{{ item.label }}</a>
+				<a href="{{ item.url | safe }}" class="link-nav muted mx-4 {% if page.url == item.url %}active{% endif %}">{{ item.label }}</a>
 			</li>
 			{% endfor %}
 		</ul>
