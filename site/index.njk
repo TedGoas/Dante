@@ -43,9 +43,9 @@ pagination:
     <h2 class="h-tiny home-posts-title sm:mb-8">Recent blog posts</h2>
     <ul class="home-posts-list">
       {% for post in articles %}
-      <li class="mb-4 flex justify-between items-start sm:block sm:mb-4">
+      <li class="mb-4 flex justify-between items-start sm:block sm:mb-6">
         <a href="{{ post.url }}">{{ post.data.title }}</a>
-        <time datetime="{{ post.date | dateDisplay }}" class="whitespace-no-wrap pl-4 pt-1 text-xs uppercase tc-light sm-mt1">
+        <time datetime="{{ post.date | dateDisplay }}" class="whitespace-no-wrap pt-1 text-xs uppercase tc-light pl-2 sm:block sm:pl-0">
           {{ post.date | dateDisplay }}
         </time>
       </li>

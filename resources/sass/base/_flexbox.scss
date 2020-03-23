@@ -4,7 +4,8 @@
     @apply  max-w-full; // prevent horizontal scrollbars
 
     > .flex--cell {
-        margin: 0 $spacing / 2; // Horizontal gutters
+        margin-left: $spacing / 2; // Horizontal gutters
+        margin-right: $spacing / 2; // Horizontal gutters
         @apply flex-1; // Even columns
 
     }

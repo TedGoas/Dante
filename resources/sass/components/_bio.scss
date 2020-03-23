@@ -2,38 +2,42 @@ $bio-card-margin: 125px;
 
 //==========  Bio ==========//
 .bio-cards {
-  display: grid;
+	display: grid;
 	grid-gap: 0 20%;
-  align-items: start;
+	align-items: start;
 	grid-template-columns: repeat(2, 40%);
 	margin-top: $bio-card-margin;
 }
 .bio-card {
-  @apply relative p-3;
-  margin-top: -$bio-card-margin;
-  background-color: rgba(0,0,0,.25);
+	@apply relative p-3;
+	margin-top: -$bio-card-margin;
+	background-color: rgba(0,0,0,.25);
 
-  &:before {
-    @apply absolute block w-3 h-3 right-0 bottom-0 opacity-50;
-    content:"";
-  }
+	&:before {
+		@apply absolute block w-3 h-3 right-0 bottom-0 opacity-50;
+		content:"";
+	}
 
+		img {
+			width: 100%;
+		}
 	h2,
 	p {
-    @apply pl-4;
+		@apply pl-4;
 	}
-  p {
-    @apply text-base mb-2;
-  }
+	p {
+		@apply text-base mb-2;
+	}
 	h2 {
-    @apply mt-5 mb-3 relative text-sm inline-block tracking-wider;
+		@apply mt-5 mb-3 relative text-sm inline-block tracking-wider;
 
 		&:after {
-      @apply block absolute left-0 bg-center bg-no-repeat;
+			@apply block absolute left-0 bg-center bg-no-repeat;
 			content: "";
 			height: 35px;
 			width: 80px;
-			top: -7px;
+			top: -8px;
+			left: -3px;
 		}
 	}
 	&:nth-child(3n+1) h2 {
@@ -43,63 +47,62 @@ $bio-card-margin: 125px;
 		transform: rotate(5deg);
 	}
 	&:nth-child(5n+1) {
-    &:before {
-      @apply bg-red-5;
-    }
-    h2 {
-  		@apply text-red-5;
-  		&:after {
-  			background-image: url("/images/bio/small-circle--red.svg");
-  		}
-    }
+		&:before {
+		@apply bg-red-5;
+		}
+		h2 {
+			@apply text-red-5;
+			&:after {
+				background-image: url("/images/bio/small-circle--red.svg");
+			}
+		}
 	}
 	&:nth-child(5n+2) {
-    &:before {
-      @apply bg-blue-4;
-    }
-    h2 {
-  		@apply text-blue-4;
-  		&:after {
-  			background-image: url("/images/bio/small-circle--blue.svg");
-  		}
-    }
+		&:before {
+			@apply bg-blue-4;
+		}
+		h2 {
+			@apply text-blue-4;
+			&:after {
+				background-image: url("/images/bio/small-circle--blue.svg");
+			}
+		}
 	}
 	&:nth-child(5n+3) {
-    &:before {
-      @apply bg-orange-4;
-    }
-    h2 {
-  		@apply text-orange-4;
-  		&:after {
-  			background-image: url("/images/bio/small-circle--orange.svg");
-  		}
-    }
+		&:before {
+		@apply bg-orange-4;
+		}
+		h2 {
+			@apply text-orange-4;
+			&:after {
+				background-image: url("/images/bio/small-circle--orange.svg");
+			}
+		}
 	}
 	&:nth-child(5n+4) {
-    &:before {
-      @apply bg-grape-4;
-    }
-    h2 {
-  		@apply text-grape-4;
-  		&:after {
-  			background-image: url("/images/bio/small-circle--grape.svg");
-  		}
-    }
+		&:before {
+		@apply bg-grape-4;
+		}
+		h2 {
+			@apply text-grape-4;
+			&:after {
+				background-image: url("/images/bio/small-circle--grape.svg");
+			}
+		}
 	}
 	&:nth-child(5n+5) {
-    &:before {
-      @apply bg-green-4;
-    }
-    h2 {
-  		@apply text-green-4;
-  		&:after {
-  			background-image: url("/images/bio/small-circle--green.svg");
-  		}
-    }
+		&:before {
+		@apply bg-green-4;
+		}
+		h2 {
+			@apply text-green-4;
+			&:after {
+				background-image: url("/images/bio/small-circle--green.svg");
+			}
+		}
 	}
 
 	&:not(:last-child):after {
-    @apply block absolute bg-center bg-no-repeat;
 		content: "";
 		height: 60px;
 		width: 30px;
@@ -121,26 +124,16 @@ $bio-card-margin: 125px;
 
 @screen sm {
 	.bio-cards {
-    @apply block mt-0;
+    	@apply block mt-0;
 	}
 	.bio-card {
-		@apply mt-0;
-		margin-bottom: 80px;
+		&:nth-child(even),
+		&:nth-child(odd) {
+			@apply mt-0 mb-6;
 
-		&:nth-child(even) {
-			@apply mt-0;
-		}
-		&:not(:last-child):after {
-      @apply right-auto;
-			transform: rotate(60deg);
-			left: calc(50%-5px);
-			bottom: -70px;
-			transform: rotate(0deg);
-		}
-
-		h2 {
-      @apply block my-3;
-			transform: none !important;
+			&:not(:last-child):after {
+				display: none;
+			}
 		}
 	}
 }

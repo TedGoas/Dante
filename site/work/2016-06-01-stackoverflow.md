@@ -107,17 +107,17 @@ Hearing this, I pitched a redesign of our private Q&A settings, including an inf
 I worked with our customer success teams to identify the most used features, organized them using card sorting exercises, and created a flexible information structure that supports multiple private Q&A products, now and in the future.
 
 <figure class="unbound max-w-5xl my-12">
-    <div class="flex gs4">
-        <div class="flex--cell">
+    <div class="flex gs4 sm:block">
+        <div class="flex--cell sm:mb-4">
             <img src="/images/work/stackoverflow/admin-bulletin.png" alt="Custom text added to the community bulletin." width="282">
         </div>
-        <div class="flex--cell">
+        <div class="flex--cell sm:mb-4">
             <img src="/images/work/stackoverflow/admin-footer.png" alt="Custom text added to the site footer." width="282">
         </div>
-        <div class="flex--cell">
+        <div class="flex--cell sm:mb-4">
             <img src="/images/work/stackoverflow/admin-ask.png" alt="Custom text when asking a question." width="282">
         </div>
-        <div class="flex--cell">
+        <div class="flex--cell sm:mb-4">
             <img src="/images/work/stackoverflow/admin-markdown.png" alt="Custom text when formatting markdown" width="282">
         </div>
         <div class="flex--cell">
@@ -231,7 +231,7 @@ Language and tone are very important when participating on Stack Overflow. What 
 
 ---
 
-### [Email dark mode gif]
+### Dark mode support in email
 
 Developers love dark mode. The community mentions it often and our survey data backs that up. With a co-worker leading efforts to bring dark mode to the website, I explored what it would take to bring dark mode to email.
 
@@ -244,9 +244,3 @@ Developers love dark mode. The community mentions it often and our survey data b
 </figure>
 
 <a href="https://codepen.io/tedgoas/pen/zYGNamR">View on Codepen</a>
-
----
-
-## Health Dashboard and Leaderboards
-
-A few projects are so large that I wrote a separate case study for them. Check out the health dashboard and leaderboards.
