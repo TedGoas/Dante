@@ -104,6 +104,8 @@ $bio-card-margin: 125px;
 
 	&:not(:last-child):after {
 		content: "";
+		position: absolute;
+		display: block;
 		height: 60px;
 		width: 30px;
 		margin-top: -$bio-card-margin;

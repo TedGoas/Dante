@@ -1340,6 +1340,8 @@ article pre code {
 
 .bio-card:not(:last-child):after {
   content: "";
+  position: absolute;
+  display: block;
   height: 60px;
   width: 30px;
   margin-top: -125px;
