@@ -1,11 +1,12 @@
-# OS generated files #
-######################
-.DS_Store
-.DS_Store?
+# OS generated files
 ._*
+.cache
+.DS_Store
 .Spotlight-V100
 .Trashes
 ehthumbs.db
 Thumbs.db
-node_modules
+
+# Folders to ignore
+/node_modules/
 .vscode
