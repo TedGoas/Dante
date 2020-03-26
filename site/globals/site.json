@@ -5,16 +5,11 @@
         "name": "Ted Goas",
         "email": "ted@tedgoas.com",
         "handle": "@tedgoas",
-        "avatar": "/images/blog/author.jpg"
+        "avatar": "/images/meta/tedgoas.jpg"
     },
     "images": {
-        "favicon": "/images/favicon.ico",
-        "twitter": "/images/meta/twitter.jpg",
-        "og": "/images/meta/og.jpg"
-    },
-    "social_links": {
-        "facebook": "https://www.facebook.com",
-        "twitter": "https://twitter.com/joe_dyer1",
-        "linkedin": "https://www.linkedin.com"
+        "favicon": "/favicon.ico",
+        "twitter": "/images/meta/tedgoas.jpg",
+        "og": "/images/meta/tedgoas.jpg"
     }
 }
