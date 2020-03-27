@@ -1,4 +1,14 @@
+# OS generated files
+._*
+.cache
 .DS_Store
-node_modules/
+.Spotlight-V100
+.Trashes
+.vscode
+ehthumbs.db
+Thumbs.db
+
+# Files and folders to ignore
 dist/
+node_modules/
 package-lock.json
