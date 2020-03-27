@@ -1,0 +1,15 @@
+ <?xml version="1.0"?>
+<!DOCTYPE rdf:RDF SYSTEM "http://dublincore.org/2000/12/01-dcmes-xml-dtd.dtd">
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc ="http://purl.org/dc/elements/1.1/">
+ <rdf:Description rdf:about="http://www.tedgoas.com/">
+		 <dc:title>Ted Goas. Senior Product Designer working remotely at Stack Overflow.</dc:title>
+		 <dc:description>I’m a reliable product designer and front-end developer working on websites, applications, and HTML emails. I design things to be understandable, credible, easy to navigate, and fast.</dc:description>
+		 <dc:language>EN</dc:language>
+		 <dc:contributor>Ted Goas</dc:contributor>
+		 <dc:creator>Ted Goas</dc:creator>
+		 <dc:publisher>Ted Goas</dc:publisher>
+		 <dc:format>text/html</dc:format>
+		 <dc:source>http://www.tedgoas.com/</dc:source>
+	 </rdf:Description>
+ </rdf:RDF>
