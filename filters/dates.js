@@ -29,5 +29,5 @@ module.exports = function(date, part) {
     23 : "rd",
     31 : "st"
   };
-  return d.getDate() + (ordinal[d.getDate()] || "th") + " " + month[d.getMonth()] + ", " + d.getUTCFullYear();
+  return month[d.getMonth()] + " " + d.getDate() + (ordinal[d.getDate()] || "th") + ", " + d.getUTCFullYear();
 }

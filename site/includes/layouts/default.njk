@@ -1,47 +1,52 @@
 <!doctype html>
+<!--
+             `.`       /`  ```````````````
+        ````....`....`````````.`     `-..`                  ``:
+/```............                     `...`             /`..``.-.`
+``````    ....                      ....`           ``...`    `..`
+         `...`                      ...`           ....`       `
+        `....                      `...          `...`
+        .../       `              `...         `...`                                 ```        ```
+       ....    ``../`     ``..........        ....`                   ````      ````...`  `........
+       ...`   ......`    ....`......-        ....           `...`   `......````..``...` `....```
+      ...`  :......`   -....   .....        ....         ``.....` `......-.....` /...` ....`
+      ..:-  -..```   `....`  `.....`       ....`        `..` ...``...` `.-``..```-...` ....````
+     ...`  ...`    `.....- `...`...`      `...`     .-`.`   `..` ...- `..- .....-...`   ``.......`
+    :-..   ....  `..``...`...` `..`       ....`   ``-.`    `... `...`....`  ````:..`   `..````...`
+    ...`    `....``    ````    ...`       `..````..``     `..`   ......`         ..`  .......``.
+    `.`                        ..-.       `......`      ``..`                    ```
+     `                         ..`          ``   ```   `...
+                                                `.. ``...`
+                                               ....-:..
+                                               ``..``
+
+-->
+
 <html lang="en" class="min-h-full antialiased">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if meta_title %}{{ meta_title }}{% else %}{{ title }}{% endif %} | {{ site.name }}</title>
+    <title>{% if meta_title %}{{ meta_title }}{% else %}{{ title }}{% endif %} :: {{ site.name }}</title>
     <meta name="description" content="{% if meta_description %}{{ meta_description }}{% else %}{{ excerpt }}{% endif %}">
-    {% if page.fileSlug === 'blog' %}
-        <meta name="robots" content="noindex,follow" />
-    {% else %}
-        <meta name="robots" content="index,follow" />
-    {% endif %}
-
-    {# if your site's entire CSS comes in under 14kb, you may want to inline in the head #}
-    {# include main.css if in development mode #}
-    {% if helpers.environment === "development" %}
-        <link rel="stylesheet" href="/css/main.css">
-    {% else %}
-        {# else, use the minified css file for production #}
-        <link rel="stylesheet" href="/css/main.min.css">
-    {% endif %}
-
-    {# include scripts #}
-    {% if helpers.environment === "development" %}
-        <script src="/js/main.js" defer></script>
-    {% else %}
-        <script src="/js/main.min.js" defer></script>
-    {% endif %}
-
-    {# include social meta tags #}
-    {% include "components/social-meta.njk" %}
-
-    {# lastly include favicon, fonts, etc #}
-    <link rel="icon" type="image/png" href="{{ site.images.favicon }}">
-
-    {# canonical #}
     <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+    {# include main.css in development mode #}
+    {% if helpers.environment == "development" %}
+    <link rel="stylesheet" href="/css/main.css">
+    {% else %}
+    {# otherwise, use main.min.css #}
+    <link rel="stylesheet" href="/css/main.min.css">
+    {% endif %}
+    {# for performance gains over the network, if your site's entire CSS comes in under 16kb, you may want to consider just having it inlined in the head #}
+
+    {# social meta tags and assets like fonts, favicons etc, should be last #}
+    {% include "components/social-meta.njk" %}
+    <link rel="icon" type="image/png" href="{{ site.images.favicon }}">
 </head>
 
-<body {% if body_class %} id="{{ body_class }}"{% endif %} class="text-purple-900 leading-normal text-lg">
+<body {% if body_class %} id="{{ body_class }}"{% endif %} class="min-h-full bg-gray-9 font-mono text-base tc-medium leading-normal">
 
-    <a class="sr-only" href="#main">Skip to content</a>
-
-    <div id="wrapper" class="wrapper pb-16 md:pb-0 flex flex-col relative min-h-screen">
+    <div class="flex flex-col px-3 mx-auto min-h-screen">
 
         {# include header #}
         {% include "components/header.njk" %}
@@ -54,8 +59,16 @@
 
     </div>
 
-    {# include mobile nav #}
-    {% include "components/mobile-nav.njk" %}
+    {# include scripts #}
+    {% if highlightjs %}
+    <script src="/javascript/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    {% endif %}
+    {% if helpers.environment == "development" %}
+    <script src="/javascript/main.js"></script>
+    {% else %}
+    <script src="/javascript/main.min.js"></script>
+    {% endif %}
 
 </body>
 </html>

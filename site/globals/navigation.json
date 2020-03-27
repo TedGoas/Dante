@@ -1,20 +1,24 @@
 {
     "main": [
         {
-            "label": "Home",
-            "url": "/"
+            "label": "Work",
+            "url": "/work/"
         },
         {
-            "label": "About",
-            "url": "/about/"
+            "label": "Values",
+            "url": "/values/"
         },
         {
-            "label": "Blog",
-            "url": "/blog/"
+            "label": "A Short Bio",
+            "url": "/bio/"
         },
         {
             "label": "Contact",
             "url": "/contact/"
+        },
+        {
+            "label": "Blog",
+            "url": "/blog/"
         }
     ]
 }
