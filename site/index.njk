@@ -4,10 +4,6 @@ meta_title: Home
 meta_description: I’m a reliable product designer and front-end developer working on websites, applications, and HTML emails.
 body_class: home
 title: I’m a reliable product designer and front-end developer working on websites, applications, and HTML emails.
-pagination:
-  data: collections.blog
-  size: 10
-  alias: articles
 ---
 
 <main class="main max-w-3xl mx-auto">
@@ -42,7 +38,8 @@ pagination:
   <section class="home-posts-grid sm:block">
     <h2 class="h-tiny home-posts-title sm:mb-8">Recent blog posts</h2>
     <ul class="home-posts-list">
-      {% for post in articles %}
+      {% set latest_posts = collections.blog %}
+      {% for post in latest_posts.slice(0,10) %}
       <li class="mb-4 flex justify-between items-start sm:block sm:mb-6">
         <a href="{{ post.url }}">{{ post.data.title }}</a>
         <time datetime="{{ post.date | dateDisplay }}" class="whitespace-no-wrap pt-1 text-xs uppercase tc-light pl-2 sm:block sm:pl-0">
