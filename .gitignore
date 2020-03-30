@@ -1,12 +1,14 @@
-# OS generated files #
-######################
-.DS_Store
-.DS_Store?
+# OS generated files
 ._*
+.cache
+.DS_Store
 .Spotlight-V100
 .Trashes
+.vscode
 ehthumbs.db
 Thumbs.db
 
-# Kirby #
-######################
+# Files and folders to ignore
+dist/
+node_modules/
+package-lock.json

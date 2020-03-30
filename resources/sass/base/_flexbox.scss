@@ -1,0 +1,31 @@
+//==========  Flexbox horizontal spacing ==========//
+@mixin gutter-spacing($spacing) {
+    margin: 0 -($spacing / 2);
+    @apply  max-w-full; // prevent horizontal scrollbars
+
+    > .flex--cell {
+        margin-left: $spacing / 2; // Horizontal gutters
+        margin-right: $spacing / 2; // Horizontal gutters
+        @apply flex-1; // Even columns
+
+    }
+}
+
+// Utility classes
+  .gs1    { @include gutter-spacing(0.25rem); }
+  .gs2    { @include gutter-spacing(0.5rem); }
+  .gs3    { @include gutter-spacing(0.75rem); }
+  .gs4    { @include gutter-spacing(1rem); }
+  .gs5    { @include gutter-spacing(1.25rem); }
+  .gs6    { @include gutter-spacing(1.5rem); }
+  .gs8    { @include gutter-spacing(2rem); }
+  .gs10   { @include gutter-spacing(2.5rem); }
+  .gs12   { @include gutter-spacing(3rem); }
+  .gs16   { @include gutter-spacing(4rem); }
+  .gs20   { @include gutter-spacing(5rem); }
+  .gs24   { @include gutter-spacing(6rem); }
+  .gs32   { @include gutter-spacing(8rem); }
+  .gs40   { @include gutter-spacing(10rem); }
+  .gs48   { @include gutter-spacing(12rem); }
+  .gs56   { @include gutter-spacing(14rem); }
+  .gs64   { @include gutter-spacing(16rem); }

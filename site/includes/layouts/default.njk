@@ -1,0 +1,74 @@
+<!doctype html>
+<!--
+             `.`       /`  ```````````````
+        ````....`....`````````.`     `-..`                  ``:
+/```............                     `...`             /`..``.-.`
+``````    ....                      ....`           ``...`    `..`
+         `...`                      ...`           ....`       `
+        `....                      `...          `...`
+        .../       `              `...         `...`                                 ```        ```
+       ....    ``../`     ``..........        ....`                   ````      ````...`  `........
+       ...`   ......`    ....`......-        ....           `...`   `......````..``...` `....```
+      ...`  :......`   -....   .....        ....         ``.....` `......-.....` /...` ....`
+      ..:-  -..```   `....`  `.....`       ....`        `..` ...``...` `.-``..```-...` ....````
+     ...`  ...`    `.....- `...`...`      `...`     .-`.`   `..` ...- `..- .....-...`   ``.......`
+    :-..   ....  `..``...`...` `..`       ....`   ``-.`    `... `...`....`  ````:..`   `..````...`
+    ...`    `....``    ````    ...`       `..````..``     `..`   ......`         ..`  .......``.
+    `.`                        ..-.       `......`      ``..`                    ```
+     `                         ..`          ``   ```   `...
+                                                `.. ``...`
+                                               ....-:..
+                                               ``..``
+
+-->
+
+<html lang="en" class="min-h-full antialiased">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if meta_title %}{{ meta_title }}{% else %}{{ title }}{% endif %} :: {{ site.name }}</title>
+    <meta name="description" content="{% if meta_description %}{{ meta_description }}{% else %}{{ excerpt }}{% endif %}">
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+    {# include main.css in development mode #}
+    {% if helpers.environment == "development" %}
+    <link rel="stylesheet" href="/css/main.css">
+    {% else %}
+    {# otherwise, use main.min.css #}
+    <link rel="stylesheet" href="/css/main.min.css">
+    {% endif %}
+    {# for performance gains over the network, if your site's entire CSS comes in under 16kb, you may want to consider just having it inlined in the head #}
+
+    {# social meta tags and assets like fonts, favicons etc, should be last #}
+    {% include "components/social-meta.njk" %}
+    <link rel="icon" type="image/png" href="{{ site.images.favicon }}">
+</head>
+
+<body {% if body_class %} id="{{ body_class }}"{% endif %} class="min-h-full bg-gray-9 font-mono text-base tc-medium leading-normal">
+
+    <div class="flex flex-col px-3 mx-auto min-h-screen">
+
+        {# include header #}
+        {% include "components/header.njk" %}
+
+        {# include content #}
+        {{ content | safe }}
+
+        {# include footer #}
+        {% include "components/footer.njk" %}
+
+    </div>
+
+    {# include scripts #}
+    {% if highlightjs %}
+    <script src="/javascript/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    {% endif %}
+    {% if helpers.environment == "development" %}
+    <script src="/javascript/main.js"></script>
+    {% else %}
+    <script src="/javascript/main.min.js"></script>
+    {% endif %}
+
+</body>
+</html>

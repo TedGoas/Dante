@@ -1,0 +1,20 @@
+//==========  Hand drawn elements ==========//
+
+.hd-border-bottom {
+    background: url("../../../images/misc/hd-border-x.svg") bottom left repeat-x;
+}
+.hd-border-top {
+    background: url("../../../images/misc/hd-border-x.svg") top left repeat-x;
+}
+.hd-border-left {
+    background: url("../../../images/misc/hd-border-y.svg") top left repeat-y;
+}
+.hd-border-right {
+    background: url("../../../images/misc/hd-border-y.svg") top right repeat-y;
+}
+
+@screen sm {
+  .sm\:hd-none {
+    background: none;
+  }
+}

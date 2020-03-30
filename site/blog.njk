@@ -1,0 +1,21 @@
+---
+layout: default
+meta_title: Blog
+meta_description: Articles written by Ted Goas 😎
+body_class: blog
+title: Blog
+---
+
+<main class="main site-width">
+  <h1 class="page-title">{{ title }}</h1>
+  <ul class="w-screen max-w-3xl">
+    {% for post in collections.blog %}
+    <li class="mb-4 flex items-start justify-between sm:block sm:mb-6">
+      <a href="{{ post.url }}" class="text-base">{{ post.data.title }}</a>
+      <time datetime="{{ post.date | dateDisplay }}" class="whitespace-no-wrap pt-1 text-xs uppercase tc-light pl-2 sm:block sm:pl-0">
+        {{ post.date | dateDisplay }}
+      </time>
+    </li>
+    {% endfor %}
+  </ul>
+</main>
