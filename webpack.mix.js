@@ -65,20 +65,16 @@ mix
                     'h3',
                     'h4',
                     'p',
+                    'ol',
+                    'ul',
+                    'li',
+                    'hr',
                     'blockquote',
-                    'breadcrumbs',
                     'content',
                     'form',
                     'input',
                     'textarea',
-                    'intro',
-                    'btn',
-                    'loaded',
-                    'page-title',
-                    'required',
-                    'row',
-                    'visually-hidden',
-                    'menu-visible'
+                    'visually-hidden'
                 ]
             })
 
@@ -87,5 +83,3 @@ mix
             .minify(paths.javascript.dest + 'main.js')
 
     }
-
-
