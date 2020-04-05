@@ -112,7 +112,7 @@ When taking on a new design projects, there are so many things to consider, ques
 </figure>
 <h2><a href="https://charity.wtf/2019/09/08/reasons-not-to-be-a-manager/">17 reasons not to be a manager</a></h2>
 
-I applied for a management job at my company this year. I went for it hard… but didn’t get it *and with good reason, which I won’t get into here). Suffice to say this article came across my screen at an interesting time.
+I applied for a management job at my company this year. I went for it hard… but didn’t get it (and with good reason, which I won’t get into here). Suffice to say this article came across my screen at an interesting time.
 
 As an experienced designer, I’d been thinking about what’s next and thought management was the natural progression. Reading posts like Charity’s made me realize management isn’t the only path.
 

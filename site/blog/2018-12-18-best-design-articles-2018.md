@@ -1,7 +1,7 @@
 ---
 title: The Best Design Things I Read in 2018
 body_class: blog
-featured_image: /images/blog/best-of-2018/hero.png
+featured_image: /images/blog/best-of-2018/-hero.jpg
 image_caption: Best of 2018.
 excerpt: A small collection of articles that stuck out in my mind this year.
 ---

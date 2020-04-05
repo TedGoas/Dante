@@ -12,8 +12,8 @@ My timeline was abuzz, I clicked, I saw, I ooh-ed, and aah-ed. I scrolled up and
 
 Stripe had announced the first of two new products in a week, and with that came [another beautiful landing page](https://stripe.com/corporate-card). I mean [look at this thing](https://dribbble.com/shots/7122831-The-Stripe-Corporate-Card):
 
-<figure>
-	<video id="video-126055" poster="https://cdn.dribbble.com/users/561057/screenshots/7122831/media/b140a4caa19daa123f065927bef4bcc8.png" playsinline="true" muted="true" autoplay="" loop="" data-silent="false"  class="w100 wmx7" src="https://cdn.dribbble.com/users/561057/screenshots/7122831/media/7fcf6dc9ab148a59fe3d0349f4c93ef2.mp4"></video>
+<figure class="unbound">
+	<video id="video-126055" width="800" poster="https://cdn.dribbble.com/users/561057/screenshots/7122831/media/b140a4caa19daa123f065927bef4bcc8.png" playsinline="true" muted="true" autoplay="" loop="" data-silent="false" src="https://cdn.dribbble.com/users/561057/screenshots/7122831/media/7fcf6dc9ab148a59fe3d0349f4c93ef2.mp4"></video>
 	<figcaption><a href="https://dribbble.com/shots/7122831-The-Stripe-Corporate-Card?source=post_page-----31356308f10a----------------------">The Stripe Corporate Card</a> 😍</figcaption>
 </figure>
 
