@@ -66,7 +66,7 @@ How many times have you joined a new service and gotten opted into EVERY SINGLE 
 
 We reorganized our email categories and reconsidered how folks are opted into each one. We made email subscriptions trigger-based wherever possible. For example, we don’t send you any Jobs emails until you engage with the Jobs product (apply for a job, set status to ‘looking’, etc.). We don’t send you any community emails until you’ve participated. We don’t opt you into any newsletters. And no, we don’t employ any pop-ups imploring you (or shaming you) to sign up. We don’t even have an email signup form on most pages.
 
-<figure class="unbound w-max-5xl>
+<figure>
     <img src="/images/blog/email-preferences/email-footer.png" alt="Stack Overflow's email footer." height="180" width="800">
     <figcaption class="caption">Our email footer</figcaption>
 </figure>
