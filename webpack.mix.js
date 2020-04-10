@@ -74,7 +74,9 @@ mix
                     'form',
                     'input',
                     'textarea',
-                    'visually-hidden'
+                    'visually-hidden',
+                    'twitter-tweet',
+                    'gist'
                 ]
             })
 
