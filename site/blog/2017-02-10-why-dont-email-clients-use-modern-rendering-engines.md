@@ -41,7 +41,7 @@ Overall email clients do their job well. Since HTML/CSS support matters to so fe
 
 **However, things are trending in the right direction.** Gmail and Yahoo! app began supporting media queries in most of their products. Outlook for iOS got a huge facelift including good markup support. New email clients that crop up (Mailbox, Nylus. Polymail) generally have good HTML/CSS support compared to web browsers. The majority of clients based on market share use “modern rendering engines,” and CSS support rarely takes a step backwards.
 
-<figure>
+<figure class="unbound max-w-xl">
 	<img src="/images/blog/email-rendering-engines/email-client-stats.jpg" alt="Email client status according to Litmus." height="554" width="800">
 </figure>
 
