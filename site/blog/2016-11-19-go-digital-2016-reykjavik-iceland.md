@@ -152,7 +152,7 @@ Keep in touch 🇮🇸
 &ndash; Ted
 [@tedgoas](https://twitter.com/tedgoas)
 
-<hr role="presentation" aria-role="hidden">
+---
 
 Fun Fact: For hotels that require a room key to keep the electricity on in the room, any card will work in the slot. Useful for when you only have one room key and want to charge a laptop while you go out to dinner.
 
@@ -161,6 +161,6 @@ Fun Fact: For hotels that require a room key to keep the electricity on in the r
 	<figcaption>hat tip <a href="http://www.webstock.org.nz/talks/a-peculiar-journey/">Harry Roberts</a></figcaption>
 </figure>
 
-<hr role="presentation" aria-role="hidden">
+---
 
 Also published <a href="https://medium.com/@tedgoas/go-digital-2016-in-reykjavik-iceland-f7d449682838#.bjkpvubh1">on Medium</a>
