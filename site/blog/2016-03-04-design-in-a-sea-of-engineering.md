@@ -24,7 +24,6 @@ This is how the design process usually works at Canfield.
 
 ---
 <figure>
-	<img src="/images/blog/design-in-a-sea-of-engineering/notes.svg" alt="" width="294">
 </figure>
 
 I attend every kickoff meeting I can get into. Kickoff meetings are key in establishing vision, identifying who can help in certain areas, and seeing who has skin in the game. I listen, ask questions, take notes, and afterwards, send everyone a copy to explain what I took away from the meeting. Documenting this up front is key, which I’ll explain a little later.
@@ -33,7 +32,6 @@ I usually don’t get to talk directly to our clients. While I’d love to get i
 
 ---
 <figure>
-	<img src="/images/blog/design-in-a-sea-of-engineering/flowchart.svg" alt="" width="294">
 </figure>
 
 The design fidelity I start with varies with each project. For web projects, I usually wireframe in HTML/CSS/JS. For iOS design, I use a visual tool like Sketch because I don’t know how to code for iOS. Ryan Singer has a good article about [choosing design fidelity](https://m.signalvnoise.com/the-fidelity-curve-weighing-the-costs-and-benefits-of-interface-design-mockups-b259634807e2#.fhppkuoc7). Either way, I start by creating the core screens and linking them together to give a feel of the experience and flow. My initial designs are low fidelity, because changes ~always~ come in internal demos.
@@ -44,7 +42,6 @@ After a few rounds of this, hopefully the design is looking pretty solid. Sweet!
 
 ---
 <figure>
-	<img src="/images/blog/design-in-a-sea-of-engineering/binary.svg" alt="" width="294">
 </figure>
 
 For projects where a developer will be doing all the the code (eg. iOS), I lean on tools like Photoshop, Sketch, Principle, and Marvel to produce high fidelity mockups and interactions. If I can’t help build the actual thing, I visually document the design so the developer doesn’t have to guess. Design hand-offs are followed by lots of short, frequent chats about implementation as the dev goes. These chats teach me about constraints and considerations of a platform, which inform future projects.
@@ -53,7 +50,6 @@ This is about all I have to say about native mobile design, as I’m still prett
 
 ---
 <figure>
-	<img src="/images/blog/design-in-a-sea-of-engineering/draw.svg" alt="" width="294">
 </figure>
 
 For web sites and applications, I can help build the thing, so I start transforming my prototype HTML/CSS/JS into something more production ready. Sometimes I design a full page or a few visual patterns in Photoshop to give myself something to aim for, but code and a browser are my BFF’s at this point. I can tackle viewports, performance, browser bugs, interaction timing, and content issues all while designing the page. Pretty great. Lots of folks advocate for this, so I won’t drive it into the ground.
@@ -67,7 +63,6 @@ So I design with the future in mind. That menu has five items now, but adding a 
 ---
 
 <figure>
-	<img src="/images/blog/design-in-a-sea-of-engineering/code.svg" alt="" width="294">
 </figure>
 
 I write HTML so developers can copy and paste the patterns. Using BEM-style class naming system not only cuts down on specificity errors, but it’s intentionally verbose class names explain exactly what each HTML pattern is for. This helps prevent developers from pasting things where they don’t belong. Ex. pasting the pattern for `.product-details-menu` into the blog section. I’m also digging into Dan Mall’s concept of [content vs. display patterns](http://danielmall.com/articles/content-display-patterns/), which could improve this further.
@@ -91,7 +86,6 @@ JavaScript is the area where I have the most overlap with our engineers. Usually
 
 ---
 <figure>
-	<img src="/images/blog/design-in-a-sea-of-engineering/discuss.svg" alt="" width="294">
 </figure>
 
 Remember, the overarching goal here is to empower developers to design screens. A big part of that is **being available** when a developer has a question or becomes stuck, even if I’ve moved to different project. Some conversations are general, like explaining why things are named the way they are. Some are specific, like how to lay out a screen by combining code patterns (whiteboards are great for this). These conversations help unblock developers and improve the system.
@@ -100,7 +94,6 @@ But sometimes the code a developer needs just isn’t there. They will be tempte
 
 ---
 <figure>
-	<img src="/images/blog/design-in-a-sea-of-engineering/chat.svg" alt="" width="294">
 </figure>
 
 I read a lot about how other teams talk with customers, design in teams, and constantly refine user experience. While this is not my reality, my team has struck a great balance of shipping good design with a relatively small team. We do as much research as we can, spend time making sure our early design bets are good ones, design in a future-friendly manner, and make sure things don’t deteriorate over time.
