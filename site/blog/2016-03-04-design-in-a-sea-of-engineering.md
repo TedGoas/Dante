@@ -82,8 +82,7 @@ I keep the CSS pretty simple so the developers can understand it. They aren’t 
 * Aside from psuedo selectors, [I rarely nest CSS](http://markdotto.com/2015/07/20/css-nesting/). I’m already using BEM, so I don’t need to incur the risk of making something overly specific and causing an error.
 * I’m mindful to minimize [magic numbers](https://css-tricks.com/magic-numbers-in-css/) and keep my [Shame CSS](http://csswizardry.com/2013/04/shame-css/) to a minimum so the CSS scales safely.
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Solid argument <a href="https://t.co/iRWpVEsjO0">https://t.co/iRWpVEsjO0</a> <a href="https://twitter.com/hashtag/css?src=hash">#css</a> <a href="https://twitter.com/hashtag/webdev?src=hash">#webdev</a> <a href="http://t.co/iUOhhBAhA7">pic.twitter.com/iUOhhBAhA7</a></p>&mdash; Ted Goas (@TedGoas) <a href="https://twitter.com/TedGoas/status/601376543978446848">May 21, 2015</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Solid argument <a href="https://t.co/iRWpVEsjO0">https://t.co/iRWpVEsjO0</a> <a href="https://twitter.com/hashtag/css?src=hash&amp;ref_src=twsrc%5Etfw">#css</a> <a href="https://twitter.com/hashtag/webdev?src=hash&amp;ref_src=twsrc%5Etfw">#webdev</a> <a href="http://t.co/iUOhhBAhA7">pic.twitter.com/iUOhhBAhA7</a></p>&mdash; Ted Goas (@TedGoas) <a href="https://twitter.com/TedGoas/status/601376543978446848?ref_src=twsrc%5Etfw">May 21, 2015</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 This leaves developers with a solid core of (mostly vanilla) CSS patterns that can be combined to create pages. When they encounter something without an obvious HTML pattern, they loop me back into the project (more on that in a bit).
 
