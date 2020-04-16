@@ -22,7 +22,7 @@ So I frequently juggle eight or nine projects at once. I can’t stay on a proje
 
 This is how the design process usually works at Canfield.
 
-<hr role="presentation" aria-role="hidden">
+---
 <figure>
 	<img src="/images/blog/design-in-a-sea-of-engineering/notes.svg" alt="" width="294">
 </figure>
@@ -31,7 +31,7 @@ I attend every kickoff meeting I can get into. Kickoff meetings are key in estab
 
 I usually don’t get to talk directly to our clients. While I’d love to get information first hand and bypass my team’s biases, this is the nature of the business. So I mostly interpret the vision of product managers and Canfield’s owner (who _do_ talk directly to customers). I ask a ton of questions to anyone who is closer to the client than me. Any research is better than no research. With these insights, I start to prototype.
 
-<hr role="presentation" aria-role="hidden">
+---
 <figure>
 	<img src="/images/blog/design-in-a-sea-of-engineering/flowchart.svg" alt="" width="294">
 </figure>
@@ -42,7 +42,7 @@ Leading up to demos, I’m hopeful we’re at least on the right track. We’ve 
 
 After a few rounds of this, hopefully the design is looking pretty solid. Sweet! Time to kick the fidelity up a notch.
 
-<hr role="presentation" aria-role="hidden">
+---
 <figure>
 	<img src="/images/blog/design-in-a-sea-of-engineering/binary.svg" alt="" width="294">
 </figure>
@@ -51,7 +51,7 @@ For projects where a developer will be doing all the the code (eg. iOS), I lean 
 
 This is about all I have to say about native mobile design, as I’m still pretty new at it.
 
-<hr role="presentation" aria-role="hidden">
+---
 <figure>
 	<img src="/images/blog/design-in-a-sea-of-engineering/draw.svg" alt="" width="294">
 </figure>
@@ -64,7 +64,7 @@ My goal is to pair with a developer and establish a design system they can run w
 
 So I design with the future in mind. That menu has five items now, but adding a sixth will cause it to overflow. Let’s solve this issue before we get to six links. The product category only has three products in it now? But it could have 20 by year’s end. And I heard there might be a category with just one product. So let’s anticipate that as best we can.
 
-<hr role="presentation" aria-role="hidden">
+---
 
 <figure>
 	<img src="/images/blog/design-in-a-sea-of-engineering/code.svg" alt="" width="294">
@@ -89,7 +89,7 @@ This leaves developers with a solid core of (mostly vanilla) CSS patterns that c
 
 JavaScript is the area where I have the most overlap with our engineers. Usually the JavaScript I write toggles class names on and off (with CSS doing the rest). I’m comfortable writing JavaScript for prototypes and basic sites, but I look to the engineers for projects that call for optimized, production-ready JavaScript.
 
-<hr role="presentation" aria-role="hidden">
+---
 <figure>
 	<img src="/images/blog/design-in-a-sea-of-engineering/discuss.svg" alt="" width="294">
 </figure>
@@ -98,7 +98,7 @@ Remember, the overarching goal here is to empower developers to design screens. 
 
 But sometimes the code a developer needs just isn’t there. They will be tempted to write one-off HTML/CSS to solve the problem in front of them. Instead I ask them to loop me back into the project. Instead of just fixing the problem at hand, we figure out what the design system needs to do, and then add code in a responsible manner. This stuff is going to spread, remember?
 
-<hr role="presentation" aria-role="hidden">
+---
 <figure>
 	<img src="/images/blog/design-in-a-sea-of-engineering/chat.svg" alt="" width="294">
 </figure>
@@ -107,7 +107,7 @@ I read a lot about how other teams talk with customers, design in teams, and con
 
 This is how I get by as the sole designer working in an engineering led company.
 
-<hr role="presentation" aria-role="hidden">
+---
 
 Thanks to [Jason](https://twitter.com/RodriguezCommaJ), [Jim](https://twitter.com/jimesilverman/), and [Will](https://twitter.com/willgrounds) for help with this article.
 
