@@ -94,6 +94,7 @@ But sometimes the code a developer needs just isn’t there. They will be tempte
 
 ---
 <figure>
+	<img src="/images/blog/design-in-a-sea-of-engineering/chat.svg" alt="" width="294">
 </figure>
 
 I read a lot about how other teams talk with customers, design in teams, and constantly refine user experience. While this is not my reality, my team has struck a great balance of shipping good design with a relatively small team. We do as much research as we can, spend time making sure our early design bets are good ones, design in a future-friendly manner, and make sure things don’t deteriorate over time.
