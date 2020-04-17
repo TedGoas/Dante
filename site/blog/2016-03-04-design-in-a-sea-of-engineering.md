@@ -1,7 +1,7 @@
 ---
 title: Design in a Sea of Engineering
 body_class: blog
-featured_image: /images/blog/design-in-a-sea-of-engineering/ahero.png
+featured_image: /images/blog/design-in-a-sea-of-engineering/hero.svg
 image_caption:
 excerpt: How I get by as the sole designer working in an engineering led company.
 ---
@@ -22,18 +22,18 @@ So I frequently juggle eight or nine projects at once. I can’t stay on a proje
 
 This is how the design process usually works at Canfield.
 
-<hr role="presentation" aria-role="hidden">
+---
 <figure>
-	<img src="/images/blog/design-in-a-sea-of-engineering/vision_2x.png" alt="Project Vision. Illustration." height="200" width="200">
+	<img src="/images/blog/design-in-a-sea-of-engineering/notes.svg" alt="" width="294">
 </figure>
 
 I attend every kickoff meeting I can get into. Kickoff meetings are key in establishing vision, identifying who can help in certain areas, and seeing who has skin in the game. I listen, ask questions, take notes, and afterwards, send everyone a copy to explain what I took away from the meeting. Documenting this up front is key, which I’ll explain a little later.
 
 I usually don’t get to talk directly to our clients. While I’d love to get information first hand and bypass my team’s biases, this is the nature of the business. So I mostly interpret the vision of product managers and Canfield’s owner (who _do_ talk directly to customers). I ask a ton of questions to anyone who is closer to the client than me. Any research is better than no research. With these insights, I start to prototype.
 
-<hr role="presentation" aria-role="hidden">
+---
 <figure>
-	<img src="/images/blog/design-in-a-sea-of-engineering/workflow_2x.png" alt="Workflow and Wireframes. Illustration." height="200" width="200">
+	<img src="/images/blog/design-in-a-sea-of-engineering/flowchart.svg" alt="" width="294">
 </figure>
 
 The design fidelity I start with varies with each project. For web projects, I usually wireframe in HTML/CSS/JS. For iOS design, I use a visual tool like Sketch because I don’t know how to code for iOS. Ryan Singer has a good article about [choosing design fidelity](https://m.signalvnoise.com/the-fidelity-curve-weighing-the-costs-and-benefits-of-interface-design-mockups-b259634807e2#.fhppkuoc7). Either way, I start by creating the core screens and linking them together to give a feel of the experience and flow. My initial designs are low fidelity, because changes ~always~ come in internal demos.
@@ -42,18 +42,18 @@ Leading up to demos, I’m hopeful we’re at least on the right track. We’ve 
 
 After a few rounds of this, hopefully the design is looking pretty solid. Sweet! Time to kick the fidelity up a notch.
 
-<hr role="presentation" aria-role="hidden">
+---
 <figure>
-	<img src="/images/blog/design-in-a-sea-of-engineering/visual-design_2x.png" alt="Visual Design. Illustration." height="200" width="200">
+	<img src="/images/blog/design-in-a-sea-of-engineering/binary.svg" alt="" width="294">
 </figure>
 
 For projects where a developer will be doing all the the code (eg. iOS), I lean on tools like Photoshop, Sketch, Principle, and Marvel to produce high fidelity mockups and interactions. If I can’t help build the actual thing, I visually document the design so the developer doesn’t have to guess. Design hand-offs are followed by lots of short, frequent chats about implementation as the dev goes. These chats teach me about constraints and considerations of a platform, which inform future projects.
 
 This is about all I have to say about native mobile design, as I’m still pretty new at it.
 
-<hr role="presentation" aria-role="hidden">
+---
 <figure>
-	<img src="/images/blog/design-in-a-sea-of-engineering/rwd_2x.png" alt="Responsive Design. Illustration." height="200" width="200">
+	<img src="/images/blog/design-in-a-sea-of-engineering/draw.svg" alt="" width="294">
 </figure>
 
 For web sites and applications, I can help build the thing, so I start transforming my prototype HTML/CSS/JS into something more production ready. Sometimes I design a full page or a few visual patterns in Photoshop to give myself something to aim for, but code and a browser are my BFF’s at this point. I can tackle viewports, performance, browser bugs, interaction timing, and content issues all while designing the page. Pretty great. Lots of folks advocate for this, so I won’t drive it into the ground.
@@ -64,10 +64,10 @@ My goal is to pair with a developer and establish a design system they can run w
 
 So I design with the future in mind. That menu has five items now, but adding a sixth will cause it to overflow. Let’s solve this issue before we get to six links. The product category only has three products in it now? But it could have 20 by year’s end. And I heard there might be a category with just one product. So let’s anticipate that as best we can.
 
-<hr role="presentation" aria-role="hidden">
+---
 
 <figure>
-	<img src="/images/blog/design-in-a-sea-of-engineering/code-editor_2x.png" alt="Code Editor. Illustration." height="200" width="200">
+	<img src="/images/blog/design-in-a-sea-of-engineering/code.svg" alt="" width="294">
 </figure>
 
 I write HTML so developers can copy and paste the patterns. Using BEM-style class naming system not only cuts down on specificity errors, but it’s intentionally verbose class names explain exactly what each HTML pattern is for. This helps prevent developers from pasting things where they don’t belong. Ex. pasting the pattern for `.product-details-menu` into the blog section. I’m also digging into Dan Mall’s concept of [content vs. display patterns](http://danielmall.com/articles/content-display-patterns/), which could improve this further.
@@ -82,32 +82,31 @@ I keep the CSS pretty simple so the developers can understand it. They aren’t 
 * Aside from psuedo selectors, [I rarely nest CSS](http://markdotto.com/2015/07/20/css-nesting/). I’m already using BEM, so I don’t need to incur the risk of making something overly specific and causing an error.
 * I’m mindful to minimize [magic numbers](https://css-tricks.com/magic-numbers-in-css/) and keep my [Shame CSS](http://csswizardry.com/2013/04/shame-css/) to a minimum so the CSS scales safely.
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Solid argument <a href="https://t.co/iRWpVEsjO0">https://t.co/iRWpVEsjO0</a> <a href="https://twitter.com/hashtag/css?src=hash">#css</a> <a href="https://twitter.com/hashtag/webdev?src=hash">#webdev</a> <a href="http://t.co/iUOhhBAhA7">pic.twitter.com/iUOhhBAhA7</a></p>&mdash; Ted Goas (@TedGoas) <a href="https://twitter.com/TedGoas/status/601376543978446848">May 21, 2015</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Solid argument <a href="https://t.co/iRWpVEsjO0">https://t.co/iRWpVEsjO0</a> <a href="https://twitter.com/hashtag/css?src=hash&amp;ref_src=twsrc%5Etfw">#css</a> <a href="https://twitter.com/hashtag/webdev?src=hash&amp;ref_src=twsrc%5Etfw">#webdev</a> <a href="http://t.co/iUOhhBAhA7">pic.twitter.com/iUOhhBAhA7</a></p>&mdash; Ted Goas (@TedGoas) <a href="https://twitter.com/TedGoas/status/601376543978446848?ref_src=twsrc%5Etfw">May 21, 2015</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 This leaves developers with a solid core of (mostly vanilla) CSS patterns that can be combined to create pages. When they encounter something without an obvious HTML pattern, they loop me back into the project (more on that in a bit).
 
 JavaScript is the area where I have the most overlap with our engineers. Usually the JavaScript I write toggles class names on and off (with CSS doing the rest). I’m comfortable writing JavaScript for prototypes and basic sites, but I look to the engineers for projects that call for optimized, production-ready JavaScript.
 
-<hr role="presentation" aria-role="hidden">
+---
 <figure>
-	<img src="/images/blog/design-in-a-sea-of-engineering/communication_2x.png" alt="Communication. Illustration." height="200" width="200">
+	<img src="/images/blog/design-in-a-sea-of-engineering/discuss.svg" alt="" width="294">
 </figure>
 
 Remember, the overarching goal here is to empower developers to design screens. A big part of that is **being available** when a developer has a question or becomes stuck, even if I’ve moved to different project. Some conversations are general, like explaining why things are named the way they are. Some are specific, like how to lay out a screen by combining code patterns (whiteboards are great for this). These conversations help unblock developers and improve the system.
 
 But sometimes the code a developer needs just isn’t there. They will be tempted to write one-off HTML/CSS to solve the problem in front of them. Instead I ask them to loop me back into the project. Instead of just fixing the problem at hand, we figure out what the design system needs to do, and then add code in a responsible manner. This stuff is going to spread, remember?
 
-<hr role="presentation" aria-role="hidden">
+---
 <figure>
-	<img src="/images/blog/design-in-a-sea-of-engineering/compass_2x.png" alt="Compass. Illustration." height="200" width="200">
+	<img src="/images/blog/design-in-a-sea-of-engineering/chat.svg" alt="" width="294">
 </figure>
 
 I read a lot about how other teams talk with customers, design in teams, and constantly refine user experience. While this is not my reality, my team has struck a great balance of shipping good design with a relatively small team. We do as much research as we can, spend time making sure our early design bets are good ones, design in a future-friendly manner, and make sure things don’t deteriorate over time.
 
 This is how I get by as the sole designer working in an engineering led company.
 
-<hr role="presentation" aria-role="hidden">
+---
 
 Thanks to [Jason](https://twitter.com/RodriguezCommaJ), [Jim](https://twitter.com/jimesilverman/), and [Will](https://twitter.com/willgrounds) for help with this article.
 
