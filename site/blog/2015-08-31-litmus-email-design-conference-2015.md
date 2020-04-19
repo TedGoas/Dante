@@ -1,7 +1,7 @@
 ---
 title: The Email Design Conference 2015
 body_class: blog
-featured_image: /images/blog/tedc15/tedc15.png
+featured_image: /images/blog/tedc15/tedc15-header.jpg
 image_caption: The Email Design Conference 2015 artwork.
 excerpt: Notes on my experience attending Litmus's Email Design Conference 2015.
 ---
