@@ -55,7 +55,9 @@ So the web version of “the fold” is has largely been debunked, right? #hotdr
 And this constraint was actually a blessing in disguise...
 
 <figure>
-	<img src="/images/blog/jerseyscript/audit.png" alt="Cartoon of simple Apple and Google products vs. you company's overly complicated product." width="320" height="600">
+	<div class="bg-white p-3 inline-block rounded">
+		<img src="/images/blog/jerseyscript/audit.png" alt="Cartoon of simple Apple and Google products vs. you company's overly complicated product." width="320" height="600">
+	</div>
 	<figcaption>my company</figcaption>
 </figure>
 
@@ -74,9 +76,14 @@ The beginnings of responsive email happened during a golden era in terms of fron
 
 Folks have incorporated things like [HAML](https://github.com/Omgitsonlyalex/ZenithFramework), [CSS preprocessors](http://rodriguezcommaj.com/blog/The-Sass-Switch), and [Grunt](https://medium.com/p/32d607879082) into their workflow. [CSS inliners](http://inliner.cm/) allow us to write CSS like we do on the web. Others [automate monotonous email checks](http://premailer.dialect.ca/) like appending tracking parameters to every link. Litmus is working on an editor made for emails, with things like live-reload and device previews baked right in.
 
-<figure>
-	<img src="/images/blog/jerseyscript/logos.png" alt="Logos for grunt, sass, HAML, and middleman." width="1050" height="200">
-	<figcaption>recent entrants in email workflow</figcaption>
+<figure class="unbound max-w-5xl">
+	<div class="grid--4col--2x2col">
+		<img src="/images/blog/jerseyscript/grunt.svg" alt="Grunt logo." width="149">
+		<img src="/images/blog/jerseyscript/sass.svg" alt="Sass logo." width="200">
+		<img src="/images/blog/jerseyscript/middleman.svg" alt="mMiddleman logo." width="213">
+		<img src="/images/blog/jerseyscript/haml.svg" alt="HAML logo." width="162">
+	</div>
+	<figcaption>Recent entrants in email workflow</figcaption>
 </figure>
 
 **The resulting email code is still pretty messy, but the way we author emails is becoming much less painful. The annoying parts are getting automated and testing is getting quicker.**
