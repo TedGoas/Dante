@@ -39,7 +39,8 @@ I love this quote, but unfortunately it doesn’t carry much weight in our world
 But here's the rub: Compared to consumer-focused products, we have a small number of large customers. If we lose business because we turn down special requests, it hurts. So we listen and sometimes build a feature that we don’t fully understand. Our willingness to do this keeps customers coming back with the confidence that we'll make what they need. I imagine this is similar to [building for enterprise clients](http://spencerfry.com/building-for-the-enterprise).
 
 ## Everything is an Option
-<figure class="bg-gray-4 inline-block p-2">
+
+<figure class="unbound max-w-5xl bg-gray-1 p-4 rounded">
 	<img src="/images/blog/medical/ui-bloat.png" alt="Interface Bloat. Cartoon." height="190" width="920">
 </figure>
 

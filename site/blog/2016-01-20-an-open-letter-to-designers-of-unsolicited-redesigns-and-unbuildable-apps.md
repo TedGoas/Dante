@@ -1,7 +1,7 @@
 ---
 title: An Open Letter to Designers of Unsolicited Redesigns and Unbuildable Apps
 body_class: blog
-featured_image: /images/blog/open-letter/youtube.png
+featured_image: /images/blog/open-letter/facebook-redesign.png
 image_caption: An unsolicated redesign of Youtube.
 excerpt: Keep doing what you’re doing.
 ---
