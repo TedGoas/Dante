@@ -1,7 +1,7 @@
 ---
 title: Notes from My JerseyScript Talk on Responsive Email
 body_class: blog
-featured_image: /images/blog/jerseyscript/jerseyscript.png
+featured_image: /images/blog/jerseyscript/jerseyscript.svg
 image_caption:
 excerpt: Notes on my talk about responsive email from jerseyscript.
 highlightjs: true
