@@ -22,7 +22,7 @@ It’s tempting to hop on a Retina MacBook Pro with the latest shiny and make gr
 
 Too often our tools define us. We’ve designed a bubble around our little web community and some of us aren’t too keen on looking outside. Occasionally while using Windows, I’ll see a recently launched website with improperly coded icon fonts, horizontal scrollbars on a maximized browser window, or web fonts so thin they are illegible. _Très careless!_
 
-> To design and develop on Windows machines is to work in the most adverse environment first. &ndash; <a href="http://the-pastry-box-project.net/jon-tan/2012-november-15/">Jon Tan</a>
+> To design and develop on Windows machines is to work in the most adverse environment first. &ndash; <a href="https://the-pastry-box-project.net/jon-tan/2012-november-15">Jon Tan</a>
 
 For reasons like these, I keep Windows close throughout my process. It has positive side effects in my everyday workflow, even if I’m developing on a Mac. I design and code defensively. I automatically write CSS that works in old versions Internet Explorer. I steer clear of web fonts without good font hinting. I write CSS3 and HTML5 judiciously, keeping track of the differences that will surface across browsers. I watch for bottlenecks or breakage caused by JavaScript. I spent more time than I’d like to admit in Internet Explorer, testing font stacks, sizes, contrast, and whatnot. Knowing the nuances of rendering engines on Windows helps when designing and coding.
 
