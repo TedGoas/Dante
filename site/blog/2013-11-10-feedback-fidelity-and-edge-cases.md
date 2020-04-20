@@ -10,13 +10,19 @@ Imagine you’ve got an idea about how a feature could work and design a few moc
 
 But when you shop it around, someone asks an edge case question.
 
-> 1. **You:** Here’s a mockup of a messaging system between doctors and patients. It works much like an instant messaging app. Is this an easy and safe way for doctors and patients to contact each other?
-> 2. **Engineer #1:** Wait, how would this work if an assistant used it to answer messages on behalf of the doctor?
-> 3. **You:** I’m not sure yet, is that a common scenario?
-> 4. **Engineer #1:** No, but it’s possible, so we have to plan for it.
-> 5. **You:** Ok, well we’re just discussing the basic idea right now.
-> 6. **Engineer #1:** Oh right, let’s continue.
-> 7. **Engineer #2:** Wait! What about searching through archived messages?
+> **You:** Here’s a mockup of a messaging system between doctors and patients. It works much like an instant messaging app. Is this an easy and safe way for doctors and patients to contact each other?
+
+> **Engineer #1:** Wait, how would this work if an assistant used it to answer messages on behalf of the doctor?
+
+> **You:** I’m not sure yet, is that a common scenario?
+
+> **Engineer #1:** No, but it’s possible, so we have to plan for it.
+
+> **You:** Ok, well we’re just discussing the basic idea right now.
+
+> **Engineer #1:** Oh right, let’s continue.
+
+> **Engineer #2:** Wait! What about searching through archived messages?
 
 You’ve barely started to shape the idea when a coworker asks a question meant for way later. Momentum slows because someone gave feedback meant for a different design fidelity. Even worse is when it changes the mindset of others and they chime in with more edge cases. Products can quickly lose focus when the team tries to solve too many things at once.
 
