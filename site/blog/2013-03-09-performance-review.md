@@ -1,8 +1,8 @@
 ---
 title: My Performance Review
 body_class: blog
-featured_image: /images/blog/review.png
-image_caption: Bill Lumberg from Office Space
+featured_image: /images/blog/review.svg
+image_caption: Trophies and awards.
 excerpt: No review is complete without citing areas to improve.
 ---
 

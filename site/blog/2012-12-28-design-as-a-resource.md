@@ -1,7 +1,7 @@
 ---
 title: Design as a Resource
 body_class: blog
-featured_image: /images/blog/design-resource.png
+featured_image: /images/blog/creative-zone.png
 image_caption: Computer with sticky notes on it
 excerpt: When design is not considered at the start of a project.
 ---
@@ -27,6 +27,10 @@ After seeing the app in action, I was tempted to suggest several changes to impr
 If project doesn’t regard design as an important role, why should I let it take me away from other projects that do? I earn my living designing things from the ground up and working on complex issues. It's what I enjoy most and where I feel like I’m making a real difference.
 
 But a set of buttons? Ugh.
+
+<figure>
+	<img src="/images/blog/design-tools.svg" alt="Design tools illustration." width="320" >
+</figure>
 
 Sometimes I think about saying that I don’t have time to fit in requests like these buttons simply because I don’t believe they’ll make any difference. But I don’t want to disappoint my coworkers and friends because of my pride. So if someone asks for a button, I give them a button and don’t worry about reinventing the rest of the experience.
 

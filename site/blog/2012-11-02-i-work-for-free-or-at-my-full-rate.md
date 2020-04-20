@@ -1,7 +1,7 @@
 ---
 title: I work for free or at my full rate
 body_class: blog
-featured_image: /images/blog/work-expensive-or-free.jpg
+featured_image: /images/blog/rate.svg
 image_caption: Piggy bank illustration
 excerpt: When I take on freelance projects, I work for free or at my full rate.
 ---

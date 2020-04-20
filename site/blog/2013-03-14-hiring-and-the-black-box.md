@@ -1,7 +1,7 @@
 ---
 title: Hiring and the Black Box
 body_class: blog
-featured_image: /images/blog/black-box.jpg
+featured_image: /images/blog/black-box.svg
 image_caption: A literal black box
 excerpt: There are some diamonds in the rough out there.
 ---
