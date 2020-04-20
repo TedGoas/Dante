@@ -2,7 +2,6 @@
 .grid--4col--2x2col {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
     align-items: center;
 
   @screen sm {

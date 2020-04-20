@@ -11,7 +11,7 @@ excerpt: How we started, what we built, and what we learned building our first e
 Email design systems are a way to improve the consistency of email designs and help teams scale their email production. At Stack Overflow, we’ve been building an email design system to support the company’s email production. Before I get into that, I’d like to give a little background about myself.
 
 <figure>
-  <div class="bg-white px-3">
+  <div class="bg-white px-3 rounded">
     <img src="/images/blog/email-design-systems/background.png" alt="Old software icons." width="1600" height="400">
   </div>
   <figcaption>Tools of the trade, circa 2001.</figcaption>
@@ -103,7 +103,7 @@ How about using whatever spare time there is between projects? Sounds logical. I
 After a while, we learned that our design system would need to be an official project or the company would just keep pushing to ship product work faster instead of building a better future.
 
 <figure>
-    <img src="/images/blog/email-design-systems/wheel.png" alt="Cartoon of caveman selling a wheel." width="1024" height="562">
+    <img src="/images/blog/email-design-systems/wheel.png" alt="Cartoon of caveman selling a wheel." width="1024" height="562" class="rounded">
 </figure>
 
 So, we felt the pain, right? We knew we needed a better way to build email and thought an email design system would do that, but how do we convince the boss? Here’s how we made our case:
@@ -192,7 +192,7 @@ Imagine my reaction when I got an email from our own IT Department who’d used 
 This has since been fixed, but we learned that incomplete or outdated documentation can lead people to using things for the wrong reasons. I mentioned how design systems are often compared to legos. Building blocks can be combined to build any number of things. But if legos are provided without instructions, eventually someone’s gonna think this is a good idea:
 
 <figure>
-    <img src="/images/blog/email-design-systems/lego-aircraft-carrier.jpg" alt="Giant lego aircraft carrier." width="1248" height="936">
+    <img src="/images/blog/email-design-systems/lego-aircraft-carrier.jpg" alt="Giant lego aircraft carrier." width="1248" height="936" class="rounded">
     <figcaption>We all love a good lego analogy… <a href="https://www.intercom.com/blog/the-full-stack-design-system/">Image credit</a></figcaption>
 </figure>
 

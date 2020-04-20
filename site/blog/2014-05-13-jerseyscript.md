@@ -30,7 +30,7 @@ So, we all know what responsive is, right? On column on mobile... and three on w
 	<figcaption class="caption">responsive, pretty much</figcaption>
 </figure>
 
-<pre><code class="code-block css">/* Force table cells into full width rows */
+<pre><code class="code-block php">/* Force table cells into full width rows */
 td[class="force-row"] {
 	display: block !important;
 	width: 100% !important;
@@ -77,7 +77,7 @@ The beginnings of responsive email happened during a golden era in terms of fron
 Folks have incorporated things like [HAML](https://github.com/Omgitsonlyalex/ZenithFramework), [CSS preprocessors](http://rodriguezcommaj.com/blog/The-Sass-Switch), and [Grunt](https://medium.com/p/32d607879082) into their workflow. [CSS inliners](http://inliner.cm/) allow us to write CSS like we do on the web. Others [automate monotonous email checks](http://premailer.dialect.ca/) like appending tracking parameters to every link. Litmus is working on an editor made for emails, with things like live-reload and device previews baked right in.
 
 <figure class="unbound max-w-5xl">
-	<div class="grid--4col--2x2col">
+	<div class="grid--4col--2x2col gap-4">
 		<img src="/images/blog/jerseyscript/grunt.svg" alt="Grunt logo." width="149">
 		<img src="/images/blog/jerseyscript/sass.svg" alt="Sass logo." width="200">
 		<img src="/images/blog/jerseyscript/middleman.svg" alt="mMiddleman logo." width="213">

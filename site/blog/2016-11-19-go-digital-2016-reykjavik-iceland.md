@@ -114,24 +114,24 @@ A great way to end the day’s lectures. Words cannot sum up this high-energy ta
 
 I learned a lot about Iceland outside of the conference. I hadn’t previously visited a nordic country. The scenery and architecture are breathtaking, even on a rainy day. Here are some pictures:
 
-<figure>
-	<div class="flex flex-1 flex-row gs1 sm:flex-col">
-		<div class="flex--cell sm:pb-8">
+<figure class="unbound max-w-5xl">
+	<div class="grid--4col--2x2col gap-2 items-start">
+		<figure class="my-0">
 			<img src="/images/blog/iceland/iceland-church.jpg" alt="Hallgrímskirkja." height="600" width="600">
 			<figcaption>Hallgrímskirkja</figcaption>
-		</div>
-		<div class="flex--cell sm:pb-8">
+		</figure>
+		<figure class="my-0">
 			<img src="/images/blog/iceland/iceland-city-hall.jpg" alt="Reykjavik City Hall." height="600" width="600">
 			<figcaption>pool near Reykjavik City Hall</figcaption>
-		</div>
-		<div class="flex--cell sm:pb-8">
+		</figure>
+		<figure class="my-0">
 			<img src="/images/blog/iceland/iceland-street.jpg" alt="Downtown Reykjavik." height="600" width="600">
 			<figcaption>Downtown Reykjavik</figcaption>
-		</div>
-		<div class="flex--cell">
+		</figure>
+		<figure class="my-0">
 			<img src="/images/blog/iceland/iceland-whale-meat.jpg" alt="Icelandic tapas, including whale in a jar." height="600" width="600">
 			<figcaption>Icelandic tapas (including whale meat !!)</figcaption>
-		</div>
+		</figure>
 	</div>
 </figure>
 
