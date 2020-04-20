@@ -1,7 +1,7 @@
 ---
 title: On Joining Stack Overflow as a Designer
 body_class: blog
-featured_image: /images/blog/stack-overflow-design/cover.jpg
+featured_image: /images/blog/stack-overflow-design/cover.png
 image_caption: Stack Overflow logo on top of code.
 excerpt: Adapting to the Stack Overflow culture.
 ---

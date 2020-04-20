@@ -782,6 +782,19 @@ video {
   flex: 1 1 0%;
 }
 
+.grid--4col--2x2col {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+}
+
+@media (max-width: 639px) {
+  .grid--4col--2x2col {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+
 .hd-border-bottom {
   background: url("../../../images/misc/hd-border-x.svg") bottom left repeat-x;
 }

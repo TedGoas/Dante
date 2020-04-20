@@ -130,24 +130,24 @@ Netflix fails tests every day, and that’s ok as long as it leads to better pro
 ## Copenhagen
 When not at the conference, we explored what Danish culture has to offer. We biked around the city, explored a few museums, and partook in smorgasbord. Copenhagen is a great town in which to spend a few days.
 
-<figure class="figure outset">
-	<div class="flex flex-1 flex-row gs1 sm:flex-col">
-		<div class="flex--cell sm:pb-8">
+<figure class="unbound max-w-5xl">
+	<div class="grid--4col--2x2col gap-2 items-start">
+		<figure class="my-0">
 			<img src="/images/blog/design-matters-copenhagen/carlsberg-brewery.jpg" alt="Carlsbery Brewery." height="500" width="500">
 			<figcaption>Carlsberg Brewery</figcaption>
-		</div>
-		<div class="flex--cell sm:pb-8">
+		</figure>
+		<figure class="my-0">
 			<img src="/images/blog/design-matters-copenhagen/street-food.jpg" alt="Copenhagen street food." height="500" width="500">
 			<figcaption>Copenhagen street food</figcaption>
-		</div>
-		<div class="flex--cell sm:pb-8">
+		</figure>
+		<figure class="my-0">
 			<img src="/images/blog/design-matters-copenhagen/nyhavn.jpg" alt="Nyhavn Canal." height="500" width="500">
 			<figcaption>Nyhavn Canal</figcaption>
-		</div>
-		<div class="flex--cell">
+		</figure>
+		<figure class="my-0">
 			<img src="/images/blog/design-matters-copenhagen/torvehallerne.jpg" alt="Carlsberg Brewery." height="500" width="500">
 			<figcaption>Torvehallerne</figcaption>
-		</div>
+		</figure>
 	</div>
 </figure>
 

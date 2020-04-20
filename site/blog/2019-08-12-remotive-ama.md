@@ -25,7 +25,7 @@ In a typical day I have ~2 hours of meetings, and the rest is spent writing (Goo
 We are very remote friendly, but not truly worldwide. We’re in about 15 countries, spanning from Slovenia to California. We have one fella in Russia at the moment, but it’s not his permanent location. And we have a few in Australia, but most folks are between CET and PST time zones.
 
 <figure>
-    <img src="/images/blog/remotive/distribution.png" alt="Graph of where employees live in the world." width="540" height="283">
+    <img src="/images/blog/remotive/distribution.png" alt="Graph of where employees live in the world." width="540" height="283" class="rounded">
     <figcaption>Approximate breakdown of where folks work from.</figcaption>
 </figure>
 

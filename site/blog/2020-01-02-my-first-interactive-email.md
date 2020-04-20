@@ -112,9 +112,9 @@ This was my first foray into punched card coding. It’s a pretty steep learning
 
 Punched card coding can involve radio buttons, checkboxes, or button tags to achieve a number of things. Javascript still isn’t supported in any email client, but we can still toggle state, build tabs, reveal a hidden menu, build a carousel, and more.
 
-<div class="bg-white p-3 rounded-sm inline-block mb-8">
+<figure class="bg-white p-3 rounded mb-8">
 	<img src="https://i.imgur.com/b1b23iq.png" alt="illustrations of types of interactive emails, c/o Email Monks">
-</div>
+</figure>
 
 [More on punched card coding](https://www.webdesignerdepot.com/2015/10/punched-card-coding-the-secret-of-interactive-email/)
 

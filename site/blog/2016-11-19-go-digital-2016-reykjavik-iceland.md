@@ -14,19 +14,19 @@ The following are a **_few partial_** recaps of the workshops and sessions I wen
 
 I attended Aarron’s Interface Design workshop on the first day. It focused on “building the right thing” rather than “build the thing right”. Because building an actual working MVP is hard, and if it fails it can be really expensive. We ran a modified version of GV’s Sprint in one day.
 
-<figure>
+<figure class="unbound max-w-2xl">
 	<img src="/images/blog/iceland/aarron-switching.png" alt="Switching from a current product to new product. Diagram." height="600" width="801">
 </figure>
 
 Aaron introduced **Interviews** as good for new ideas with no prototype to test or analytics to reference. Interviews help to discover what drives people to a new product (problem with an existing product, perceived benefit to new one) and what feelings they fight against when doing so (anxiety, existing behaviors, risk of switching). While they can be done remotely over the phone or a video conference, Aarron mentioned how MailChimp sometimes sent two or three employees to meet with clients in-person. When I asked when this kind of investment is appropriate, he responded they typically did it for larger clients and conducted multiple interviews in a single trip. In addition to more face time, in person meetings can sometimes have unplanned events. Like the time an accountant dipped her head into a meeting and the team ended up learning how their client evaluates purchasing decisions. Pretty neat!
 
-<figure>
+<figure class="unbound max-w-2xl">
 	<img src="/images/blog/iceland/aarron-journey.png" alt="Customer journey, Diagram." height="600" width="801">
 </figure>
 
 Another thing Aaron touched on was **Ideating**. There is a saying in design school: “100 thumbnails”, meaning create 100 tiny thumbnails of what something could look like. The idea is to get every possible idea out of your head so you can fairly evaluate them. In modern UI design, 100 thumbnails is pretty crazy, about eight should do. Aaron challenged us to create eight thumbnails in five minutes (I could only muster four!). As designers, sometimes we have a mental model in our head when starting a new design, and instead of creating a number of varying designs, we pick one idea and refine it. Trouble is, the first design may not be the right design. This exercise fights that bias and forces us to explore ideas that might not seem like the right idea at first.
 
-<figure>
+<figure class="unbound max-w-2xl">
 	<img src="/images/blog/iceland/aarron-flow-notation.png" alt="Flow Notation, Diagram." height="600" width="801">
 </figure>
 
@@ -36,13 +36,13 @@ Another thing Aaron touched on was **Ideating**. There is a saying in design sch
 
 One of the final things Aarron discussed was **Delight**, or designing an enjoyable experience. This term is thrown around our industry a bit. Folks put it at the top of the product design pyramid: after everything else is done we’ll sprinkle on ~some delight~ to seal the deal. Problem is this means delight is an afterthought that gets treated as a nice-to-have on an already finished product. Worse, it seems forced into an experience where it doesn’t fit.
 
-<figure>
+<figure class="unbound max-w-2xl">
 	<img src="/images/blog/iceland/aarron-pyramid1.png" alt="Basic UX Pyramid, Diagram." height="600" width="801">
 </figure>
 
 Aaron’s solution: build some delight in from day 1.
 
-<figure>
+<figure class="unbound max-w-2xl">
 	<img src="/images/blog/iceland/aarron-pyramid2.png" alt="Better UX Pyramid, Diagram." height="600" width="801">
 </figure>
 
@@ -50,7 +50,7 @@ Instead of building **UP** the product pyramid, build slowly from the side (it�
 
 Throughout the workshop, the audience broke into teams and worked through each step. At the end of the workshop, each group had job story, an annotated storyboard, and a lot of questions. Here’s the one from my group:
 
-<figure>
+<figure class="unbound max-w-2xl">
 	<img src="/images/blog/iceland/aarron-workshop.jpg" alt="Interview results, group thumbnails, user journey, and flow chart." height="600" width="801">
 </figure>
 
@@ -60,7 +60,7 @@ Throughout the workshop, the audience broke into teams and worked through each s
 
 Jared’s keynote was about UX design at an organizational level. He argued that design happens no matter what, even if folks don’t realize it. Having a dedicated design team is good. Having designers embedded into teams is even better. But a lot of people can end up influencing the design, not just designers. The CEO, a project manager, a lawyer. When it comes to design, an organization is only as good as its weakest link. For an organization to cross its tipping point, everyone in the organization must have basic design training. This can be a BIG shift in culture, but it can pay big dividends. Nothing immersive, say [two hours every six weeks](https://medium.com/@jmspool/fast-path-to-a-great-ux-increased-exposure-hours-afde796f2e43#.yz2wvvs6o).
 
-<figure>
+<figure class="unbound max-w-xl">
 	<img src="/images/blog/iceland/jared-tipping-point.jpg" alt="Jared Spool on stage." height="600" width="801">
 </figure>
 
@@ -114,24 +114,24 @@ A great way to end the day’s lectures. Words cannot sum up this high-energy ta
 
 I learned a lot about Iceland outside of the conference. I hadn’t previously visited a nordic country. The scenery and architecture are breathtaking, even on a rainy day. Here are some pictures:
 
-<figure>
-	<div class="flex flex-1 flex-row gs1 sm:flex-col">
-		<div class="flex--cell sm:pb-8">
+<figure class="unbound max-w-5xl">
+	<div class="grid--4col--2x2col gap-2 items-start">
+		<figure class="my-0">
 			<img src="/images/blog/iceland/iceland-church.jpg" alt="Hallgrímskirkja." height="600" width="600">
 			<figcaption>Hallgrímskirkja</figcaption>
-		</div>
-		<div class="flex--cell sm:pb-8">
+		</figure>
+		<figure class="my-0">
 			<img src="/images/blog/iceland/iceland-city-hall.jpg" alt="Reykjavik City Hall." height="600" width="600">
 			<figcaption>pool near Reykjavik City Hall</figcaption>
-		</div>
-		<div class="flex--cell sm:pb-8">
+		</figure>
+		<figure class="my-0">
 			<img src="/images/blog/iceland/iceland-street.jpg" alt="Downtown Reykjavik." height="600" width="600">
 			<figcaption>Downtown Reykjavik</figcaption>
-		</div>
-		<div class="flex--cell">
+		</figure>
+		<figure class="my-0">
 			<img src="/images/blog/iceland/iceland-whale-meat.jpg" alt="Icelandic tapas, including whale in a jar." height="600" width="600">
 			<figcaption>Icelandic tapas (including whale meat !!)</figcaption>
-		</div>
+		</figure>
 	</div>
 </figure>
 
@@ -152,15 +152,15 @@ Keep in touch 🇮🇸
 &ndash; Ted
 [@tedgoas](https://twitter.com/tedgoas)
 
-<hr role="presentation" aria-role="hidden">
+---
 
 Fun Fact: For hotels that require a room key to keep the electricity on in the room, any card will work in the slot. Useful for when you only have one room key and want to charge a laptop while you go out to dinner.
 
-<figure>
+<figure class="unbound max-w-2xl">
 	<img src="/images/blog/iceland/iceland-hotel-card.jpg" alt="I stuck my CVS card in the slot to keep my hotel room's power on when I wasn't there." height="600" width="801">
 	<figcaption>hat tip <a href="http://www.webstock.org.nz/talks/a-peculiar-journey/">Harry Roberts</a></figcaption>
 </figure>
 
-<hr role="presentation" aria-role="hidden">
+---
 
 Also published <a href="https://medium.com/@tedgoas/go-digital-2016-in-reykjavik-iceland-f7d449682838#.bjkpvubh1">on Medium</a>

@@ -1,7 +1,7 @@
 ---
 title: Cerberus Hybrid Email Templates
 body_class: blog
-featured_image: /images/blog/cerberus/cerberus3.png
+featured_image: /images/blog/cerberus/cerberus3.svg
 image_caption: Wireframe of a mobile phone.
 excerpt: I released a third version of Cerberus, including a hybrid template.
 ---
@@ -14,7 +14,7 @@ I’ve been writing HTML emails for a while. I’d become comfortable making res
 
 I’ve heard of hybrid email design as a way to enforce responsive email layouts in email clients that don’t support media queries (like Gmail). It seemed like a good idea, but it required a significant amount of extra work and anyway, email isn’t the main function of my job. Clients weren’t asking for it. So I procrastinated learning hybrid design.
 
-<figure>
+<figure class="bg-white p-8 w-64 max-w-full rounded">
 	<img src="/images/blog/cerberus/no-media-queries.jpg" alt="No media queries allowed. Cartoon." width="210" height="198">
 </figure>
 

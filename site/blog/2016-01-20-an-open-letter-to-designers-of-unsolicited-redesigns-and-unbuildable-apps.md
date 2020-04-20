@@ -1,7 +1,7 @@
 ---
 title: An Open Letter to Designers of Unsolicited Redesigns and Unbuildable Apps
 body_class: blog
-featured_image: /images/blog/open-letter/youtube.png
+featured_image: /images/blog/open-letter/facebook-redesign.png
 image_caption: An unsolicated redesign of Youtube.
 excerpt: Keep doing what you’re doing.
 ---
@@ -23,7 +23,7 @@ It doesn’t matter if your Facebook redesign is impractical. I don’t care if 
 And of course, there’s the part about developing your own skills. That’s super important too. “Just! Build! Websites!” as ShopTalk would say. Here’s a tweet storm that sums up my feelings on that.
 
 <figure>
-	<img src="/images/blog/open-letter/notdetails.png" alt="Screesnhot of Joel Califa tweets linked below." width="626" height="1301">
+	<img src="/images/blog/open-letter/notdetails.png" alt="Screesnhot of Joel Califa tweets linked below." width="626" height="1301" class="rounded">
 	<figcaption><a href="https://twitter.com/notdetails/status/685504021549969408">https://twitter.com/notdetails/status/685504021549969408</a></figcaption>
 </figure>
 

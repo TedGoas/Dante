@@ -65,7 +65,7 @@ Bulletproof buttons allow us to build buttons with code instead of images, makin
 Unfortunately Outlook doesn’t recognize link tags as block elements, nor does it allow us to change the display of inline tags using the display property. This means we can’t effectively style an `<a href=””>` tag by itself. Instead we have to wrap the link in a `<table>` and duplicate a few CSS properties to ensure the button looks like a button in Outlook.
 
 <figure>
-<div class="px-3 bg-gray-8 inline-block rounded-sm">
+<div class="px-3 bg-gray-8 inline-block rounded">
     <img src="/images/blog/outlook/bulletproof-buttons.svg" alt="" width="736" height="100">
   </div>
   <figcaption>Regular button display vs bulletproof button display.</figcaption>
