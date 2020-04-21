@@ -70,13 +70,17 @@ mix
                     'li',
                     'hr',
                     'blockquote',
+                    'figure',
                     'content',
                     'form',
                     'input',
                     'textarea',
+                    'code',
+                    'pre',
                     'visually-hidden',
                     'twitter-tweet',
-                    'gist'
+                    'gist',
+                    '/hljs/'
                 ]
             })
 
