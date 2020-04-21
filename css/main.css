@@ -1208,6 +1208,7 @@ article code {
   border-width: 1px;
   border-color: #495057;
   border-radius: 0.25rem;
+  text-align: left;
 }
 
 article code.code-block {

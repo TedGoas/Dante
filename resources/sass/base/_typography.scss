@@ -197,7 +197,7 @@ article {
     @apply pb-3;
   }
   code {
-    @apply inline-block px-1 py-0 text-sm bg-gray-8 border border-gray-7 rounded;
+    @apply inline-block px-1 py-0 text-sm bg-gray-8 border border-gray-7 rounded text-left;
 
     &.code-block {
       @apply mb-6;
