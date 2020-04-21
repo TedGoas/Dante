@@ -32,8 +32,8 @@ So, we all know what responsive is, right? On column on mobile... and three on w
 
 <pre><code class="code-block php">/* Force table cells into full width rows */
 td[class="force-row"] {
-	display: block !important;
-	width: 100% !important;
+    display: block !important;
+    width: 100% !important;
 }
 </code></pre>
 
