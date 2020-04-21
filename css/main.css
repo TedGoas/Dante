@@ -595,6 +595,8 @@ video {
   height: auto;
 }
 
+/* purgecss start ignore */
+
 .gs1 {
   margin: -0.125rem;
   max-width: 100%;
@@ -1206,12 +1208,13 @@ article code {
   border-width: 1px;
   border-color: #495057;
   border-radius: 0.25rem;
+  text-align: left;
 }
 
 article code.code-block {
+  margin-bottom: 1.5rem;
   display: block;
   overflow-x: auto;
-  margin-bottom: 1.5rem;
 }
 
 article code:not(.hljs) {
@@ -1233,9 +1236,13 @@ article pre code {
   padding: 0.75rem;
 }
 
+/* purgecss end ignore */
+
 .container{
   width: 100%;
 }
+
+/* purgecss start ignore */
 
 .bio-cards {
   display: grid;
@@ -1633,6 +1640,8 @@ article figure.bordered img {
     grid-template-columns: 1fr;
   }
 }
+
+/* purgecss end ignore */
 
 .sr-only{
   position: absolute;
