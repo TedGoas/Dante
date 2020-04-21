@@ -61,13 +61,13 @@
 
     {# include scripts #}
     {% if highlightjs %}
-    <script src="/javascript/highlight.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     {% endif %}
     {% if helpers.environment == "development" %}
-    <script src="/javascript/main.js"></script>
+    <script src="/js/main.js"></script>
     {% else %}
-    <script src="/javascript/main.min.js"></script>
+    <script src="/js/main.min.js"></script>
     {% endif %}
 
 </body>

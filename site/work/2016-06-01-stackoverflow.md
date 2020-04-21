@@ -31,7 +31,7 @@ Data security and privacy are top concerns of Enterprise customers. In many case
             <img src="/images/work/stackoverflow/theming-preview.png" alt="" width="600">
         </div>
         <div class="code">
-            <pre><code class="code-block text-left rounded max-w-2xl javascript">@import "less/_enterprise-base.less";
+            <pre><code class="code-block text-left rounded max-w-2xl scss">@import "less/_enterprise-base.less";
 
 //  ======================================
 //  User-defined variables
