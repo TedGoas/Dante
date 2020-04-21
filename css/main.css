@@ -595,6 +595,8 @@ video {
   height: auto;
 }
 
+/* purgecss start ignore */
+
 .gs1 {
   margin: -0.125rem;
   max-width: 100%;
@@ -1233,9 +1235,13 @@ article pre code {
   padding: 0.75rem;
 }
 
+/* purgecss end ignore */
+
 .container{
   width: 100%;
 }
+
+/* purgecss start ignore */
 
 .bio-cards {
   display: grid;
@@ -1633,6 +1639,8 @@ article figure.bordered img {
     grid-template-columns: 1fr;
   }
 }
+
+/* purgecss end ignore */
 
 .sr-only{
   position: absolute;
