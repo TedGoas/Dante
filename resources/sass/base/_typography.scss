@@ -200,7 +200,9 @@ article {
     @apply inline-block px-1 py-0 text-sm bg-gray-8 border border-gray-7 rounded;
 
     &.code-block {
-      @apply block overflow-x-auto mb-6;
+      @apply mb-6;
+      display: block;
+      overflow-x: auto;
     }
     &:not(.hljs) {
       @apply text-red-4;

@@ -1209,9 +1209,9 @@ article code {
 }
 
 article code.code-block {
+  margin-bottom: 1.5rem;
   display: block;
   overflow-x: auto;
-  margin-bottom: 1.5rem;
 }
 
 article code:not(.hljs) {
