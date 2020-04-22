@@ -1,14 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Kalam:400,700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i,700&display=swap');
-
-/*
 @font-face {
   font-family: 'Kalam';
   font-display: swap;
   font-style: normal;
   font-weight: 400;
-  src: local('Kalam.'),
-    url('/fonts/Kalam-Regular.ttf') format('ttf'),
+  src: local('Kalam'),
     url('/fonts/kalam-v10-latin-regular.woff2') format('woff2'),
     url('/fonts/kalam-v10-latin-regular.woff') format('woff');
 }
@@ -46,7 +41,6 @@
     url('/fonts/ibm-plex-mono-v5-latin-700.woff2') format('woff2'),
     url('/fonts/ibm-plex-mono-v5-latin-700.woff') format('woff');
 }
-*/
 
 //==========  Typography ==========//
 
