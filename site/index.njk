@@ -6,8 +6,8 @@ body_class: home
 title: I’m a reliable product designer and front-end developer working on websites, applications, and HTML emails.
 ---
 
-<main class="main max-w-3xl mx-auto">
-  <section class="hd-border-bottom pb-12 mb-12">
+<main role="main" class="main max-w-3xl mx-auto">
+  <section role="region" class="hd-border-bottom pb-12 mb-12">
     <div class="flex flex-row-reverse mb-4 sm:block">
       <div class="flex-1">
         <img src="/images/misc/ted-goas.jpg" alt="Photo of Ted Goas smiling in a blue shirt against a brick wall." width="150" height="">
@@ -16,7 +16,7 @@ title: I’m a reliable product designer and front-end developer working on webs
     </div>
     <p class="text-xl">I believe design is about taking the complex and chaotic and making it accessible to people. I design things to be understandable, readable, responsive, and as fast as possible. Since 2001, I’ve been trying to create work that is cool enough to show my friends and honest enough to show my parents.</p>
   </section>
-  <section class="hd-border-bottom pb-12 mb-12">
+  <section role="region" class="hd-border-bottom pb-12 mb-12">
     <h2 class="h-tiny mb-8">Work</h2>
     <div class="flex gs8 sm:block">
       <div class="flex--cell sm:mb-12">
@@ -35,7 +35,7 @@ title: I’m a reliable product designer and front-end developer working on webs
       </div>
     </div>
   </section>
-  <section class="home-posts-grid sm:block">
+  <section role="region" class="home-posts-grid sm:block">
     <h2 class="h-tiny home-posts-title sm:mb-8">Recent blog posts</h2>
     <ul class="home-posts-list">
       {% set latest_posts = collections.blog %}
