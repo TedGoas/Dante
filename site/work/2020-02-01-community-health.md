@@ -105,7 +105,7 @@ Overall we’ve seen our customer success team spending less time walking client
 
 ## Following up some more
 
-During one of our "cool down" periods, I reviewed what we shipped and compared it to our competitive teardowns and best practices. I saw a few opportunities for improvement that had a good chance of getting prioritzed.
+During one of our “cool down” periods, I reviewed what we shipped and compared it to our competitive teardowns and best practices. I saw a few opportunities for improvement that had a good chance of getting prioritzed.
 
 <figure class="unbound">
     <img src="/images/work/health-dashboard/proposed-changes.png" alt="I pitched a few changes to the design of our graphs." width="1374" class="rounded">
