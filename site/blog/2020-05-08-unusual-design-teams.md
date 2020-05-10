@@ -4,7 +4,6 @@ body_class: blog
 featured_image: /images/blog/unusual-teams/team.svg
 image_caption: Illustration from Undraw.co.
 excerpt: It’s rare for a researcher to manage a product designer. This is how it played out for us.
-highlightjs: true
 ---
 
 By [Beth Devine](https://twitter.com/bethadevine) and [Ted Goas](https://twitter.com/TedGoas)

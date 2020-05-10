@@ -4,6 +4,7 @@ body_class: blog
 featured_image: /images/blog/interactive-email.webp
 image_caption: A wall with holes in it resembling a punch card.
 excerpt: I recently coded my first interactive email using punched card coding. I wrote about what I did and how it works.
+highlightjs: true
 ---
 
 **TL;DR:** I coded my first interactive email using radio buttons to toggle on/off states without using JavaScript.
