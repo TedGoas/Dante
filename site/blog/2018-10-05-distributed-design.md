@@ -185,6 +185,7 @@ In a typical office, you have face-to-face meetings. When a group of people is s
     <img src="/images/blog/distributed-design/aa27.jpg" alt="Hi-five in a meeting." width="643" height="362">
     <figcaption>Chemistry!</figcaption>
 </figure>
+
 Design critiques, sprints, and code reviews run into similar issues since they often involve folks huddling around a screen or grabbing a room, having rapid discussions, and generating ideas from the chemistry.
 
 How can we recreate these collaborative moments in a remote capacity?
@@ -194,6 +195,7 @@ How can we recreate these collaborative moments in a remote capacity?
     <img src="/images/blog/distributed-design/aa29.jpg" alt="A team meeting in video chat." width="643" height="362">
     <figcaption>A typical meeting</figcaption>
 </figure>
+
 If one person’s remote, everyone’s remote, remember? Here’s a typical team meeting. Everyone circled is in the New York office. The ones with arrows are sitting at the same desk. But here we all are, taking the same call in video chat. This is the amount of dedication we have. It’s pretty common to walk around the office and see two people on a Hangout even though their desks are next to each other! (It’s also possible they’re just lazy…).
 
 If everyone takes meetings using video chat, the playing field is equal.
@@ -329,34 +331,40 @@ That said, Stack Overflow tries to recreate fun office stuff in a remote capacit
     <img src="/images/blog/distributed-design/aa48.jpg" alt="Remote bev bash over Zoom." width="643" height="362">
     <figcaption>We are all actually drinking something I swear.</figcaption>
 </figure>
+
 We have “Remote Beverage Bashes” every Friday. Each week someone schedules a Zoom call and sets a theme that we never really follow. Employees grab a beverage of their choice and just chat. Folks can pop in to say hi or stay for the entire thing.
 
 <figure>
     <img src="/images/blog/distributed-design/aa49.png" alt="Donut.ai homepage." width="643" height="362">
     <figcaption><a href="https://www.donut.com/">Donut</a></figcaption>
 </figure>
+
 We have Stack Roulette, where folks are paired with two other employees from different parts of the company. The rules are similar to the bev bash; the idea is to meet folks outside your immediate team and just chat. Things like <a href="https://www.donut.com/">Donut</a> productize this.
 
 <figure>
     <img src="/images/blog/distributed-design/aa50.jpg" alt="holiday party / Gervasio’s remote dinner" width="643" height="362">
 </figure>
+
 Each office has a Holiday party in December, so any remotes that are near the offices are invited. Every remote that’s too far away is offered a stipend to create their own festivities, whether it’s a really nice night out with their partners or just a big dinner for family.
 
 <figure>
     <img src="/images/blog/distributed-design/aa51.jpg" alt="Group photo from the San Diego Stack Overflow meetup." width="643" height="362">
 </figure>
+
 About once a year, we bring all of our employees together for a week of face time. While we do talk about the company and projects, the focus is on camaraderie, not profits. “Once a year, we meet together for one week so we work well together the other 51” or something like that. We also have smaller team mini-meetups as company finances allow.
 
 <figure>
     <img src="/images/blog/distributed-design/aa52.jpg" alt="Paddle boating in Copenhagen." width="643" height="362">
     <figcaption>A few Stack designers paddle boating in Copenhagen after attending Design Matters</figcaption>
 </figure>
+
 We have an education budget that we can use on conferences. Many times a few of us will pick the same conference and make a mini-meetup out of it.
 
 <figure>
     <img src="/images/blog/distributed-design/aa54.jpg" alt="Non-dominant-hand self-portrait examples." width="643" height="362">
     <figcaption>Task: draw your self portrait with your non-dominant-hand. HARD!</figcaption>
 </figure>
+
 We generally prioritize non-work-related communication. Example: We end our weekly design meeting with a fun activity, anything from question of the week to stretching to non-dominant-hand self-portrait.
 
 There are so many ways to stretch video chat so it feels almost like being together. Of course, <em>actually being together</em> once in a while is crucial too.
