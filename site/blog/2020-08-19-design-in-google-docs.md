@@ -100,4 +100,8 @@ I’ve been working this way for the past few years and love it. Folks on my tea
 
 Do you have a similar process? Does your doc look a little different? I’d love to trade notes! <a href="https://twitter.com/TedGoas">Ping me on twitter</a> or <a href="/contact/">send me an email</a>.
 
+---
+
+Thanks to [Vicky Cheng](https://www.vickyrycheng.com/) for feedback on early drafts of this article.
+
 Also posted [on Medium](https://medium.com/@tedgoas/all-design-projects-should-start-in-a-google-doc-20ad24f75a8c).
