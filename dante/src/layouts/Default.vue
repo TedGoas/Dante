@@ -1,15 +1,21 @@
 <template>
   <div class="layout">
-    <header class="header">
+    <header class="header" role="banner">
       <strong>
-        <g-link to="/">{{ $static.metadata.siteName }}</g-link>
+        <g-link to="/"><g-image src="~/assets/img/tg-sig-logo.svg" :alt="$static.metadata.siteName"/></g-link>
       </strong>
-      <nav class="nav">
-        <g-link class="nav__link" to="/">Home</g-link>
-        <g-link class="nav__link" to="/about/">About</g-link>
+      <nav role="navigation" aria-label="Main Navigation">
+        <g-link to="/work/">Works</g-link>
+        <g-link to="/values/">Values</g-link>
+        <g-link to="/bio/">Bio</g-link>
+        <g-link to="/articles/">Articles</g-link>
       </nav>
+      <g-image src="~/assets/img/tg-sig-email.svg" alt="ted at tedgoas dot com"/>
     </header>
-    <slot/>
+  <slot/>
+  <footer>
+    footer!
+  </footer>
   </div>
 </template>
 
@@ -23,28 +29,6 @@ query {
 
 <style>
 body {
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  margin:0;
-  padding:0;
-  line-height: 1.5;
 }
 
-.layout {
-  max-width: 760px;
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  height: 80px;
-}
-
-.nav__link {
-  margin-left: 20px;
-}
 </style>
