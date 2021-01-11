@@ -1,9 +1,18 @@
 <template>
   <header class="header">
-    <g-link to="/"><h1>👨‍💻 {{siteName}}</h1></g-link>
-    <ClientOnly>
-      <ThemeToggle />
-    </ClientOnly>
+    <g-link to="/"><g-image src="~/assets/img/tg-sig-logo.svg" alt="$static.metadata.siteName"/></g-link>
+    <nav role="navigation" aria-label="Main Navigation">
+      <g-link to="/work/">Works</g-link>
+      <g-link to="/values/">Values</g-link>
+      <g-link to="/bio/">Bio</g-link>
+      <g-link to="/articles/">Articles</g-link>
+    </nav>
+    <div>
+      <g-image src="~/assets/img/tg-sig-email.svg" alt="ted at tedgoas dot com"/>
+      <ClientOnly>
+        <ThemeToggle />
+      </ClientOnly>
+    </div>
   </header>
 </template>
 
@@ -17,13 +26,5 @@ export default {
 </script>
 
 <style lang="scss">
-  .header {
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
-    a {
-      color:inherit;
-      border-bottom: none;
-    }
-  }
+
 </style>
