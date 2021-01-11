@@ -33,13 +33,6 @@ export default {
     --footer-link-color: #ADADAD;
 }
 
-[theme="sepia"] {
-    --app-background-color: #F1E7D0;
-    --app-font-color:#433422;
-    --link-color: #004732;
-    --footer-link-color: #686868;
-}
-
 body {
   background-color: var(--app-background-color);
   color: var(--app-font-color);
