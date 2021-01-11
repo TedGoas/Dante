@@ -5,9 +5,9 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'Gridsome Minimal Blog Starter',
-  siteUrl: 'https://gridsome-starter-minimal-blog.netlify.com/',
-  siteDescription: 'A minimalist blog built with Gridsome',
+  siteName: 'Ted Goas',
+  siteUrl: 'https://www.tedgoas.com/',
+  siteDescription: 'I’m a reliable product designer and front-end developer working on websites, applications, and HTML emails.',
   plugins: [
     {
       use: '@gridsome/source-filesystem',
