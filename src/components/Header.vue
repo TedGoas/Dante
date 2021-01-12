@@ -5,7 +5,7 @@
       <g-link to="/work/">Works</g-link>
       <g-link to="/values/">Values</g-link>
       <g-link to="/bio/">Bio</g-link>
-      <g-link to="/articles/">Articles</g-link>
+      <g-link to="/Blog/">Blog</g-link>
     </nav>
     <div>
       <g-image src="~/assets/img/tg-sig-email.svg" alt="ted at tedgoas dot com"/>
