@@ -1,6 +1,7 @@
 <template>
   <Layout>
-    <section class="posts">
+    <section>
+      <h1>Blog</h1>
       <PostList v-for="year in years" :key="year" :year="year" />
     </section>
   </Layout>
@@ -13,7 +14,7 @@ export default {
     PostList,
   },
   metaInfo: {
-    title: "A simple blog"
+    title: "Blog"
   },
   computed: {
     years() {
