@@ -4,6 +4,10 @@ export default [
     component: () => import(/* webpackChunkName: "page--src--templates--post-vue" */ "/Users/tedgoas/Documents/GitHub/Dante/src/templates/Post.vue")
   },
   {
+    path: "/work/",
+    component: () => import(/* webpackChunkName: "page--src--pages--work-vue" */ "/Users/tedgoas/Documents/GitHub/Dante/src/pages/Work.vue")
+  },
+  {
     path: "/blog/",
     component: () => import(/* webpackChunkName: "page--src--pages--blog-vue" */ "/Users/tedgoas/Documents/GitHub/Dante/src/pages/Blog.vue")
   },

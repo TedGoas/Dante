@@ -1,5 +1,5 @@
 <template>
-    <layout>
+    <div>
         <section>
             <div>
                 <h2>Dialpad</h2>
@@ -24,7 +24,7 @@
             When not in front of a screen I like to exercise, snowboard, both watch and play hockey and soccer, work on my house, and explore New Jersey with my wife and kids.</p>
             </div>
         </section>
-    </layout>
+    </div>
 </template>
 
 <style lang="scss">
