@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <article>
+    <article role="main">
       <header>
         <h1>{{$page.post.title}}</h1>
         <p>

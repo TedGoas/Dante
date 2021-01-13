@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <section>
+    <section role="main">
       <h1>Blog</h1>
       <PostList v-for="year in years" :key="year" :year="year" />
     </section>
