@@ -4,7 +4,7 @@
       <header>
         <h1>{{$page.post.title}}</h1>
         <p>
-          <time>{{ $page.post.date}}</time> · <i>{{$page.post.timeToRead}} min read</i>
+          <time>{{$page.post.date}}</time> · <i>{{$page.post.timeToRead}} min read</i>
         </p>
       </header>
       <div v-html="$page.post.content" />

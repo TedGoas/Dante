@@ -8,6 +8,10 @@ export default [
     component: () => import(/* webpackChunkName: "page--src--pages--work-vue" */ "/Users/tedgoas/Documents/GitHub/Dante/src/pages/Work.vue")
   },
   {
+    path: "/values/",
+    component: () => import(/* webpackChunkName: "page--src--pages--values-vue" */ "/Users/tedgoas/Documents/GitHub/Dante/src/pages/Values.vue")
+  },
+  {
     path: "/blog/",
     component: () => import(/* webpackChunkName: "page--src--pages--blog-vue" */ "/Users/tedgoas/Documents/GitHub/Dante/src/pages/Blog.vue")
   },
