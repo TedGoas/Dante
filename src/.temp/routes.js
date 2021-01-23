@@ -12,6 +12,10 @@ export default [
     component: () => import(/* webpackChunkName: "page--src--pages--values-vue" */ "/Users/tedgoas/Documents/GitHub/Dante/src/pages/Values.vue")
   },
   {
+    path: "/bio/",
+    component: () => import(/* webpackChunkName: "page--src--pages--bio-vue" */ "/Users/tedgoas/Documents/GitHub/Dante/src/pages/Bio.vue")
+  },
+  {
     path: "/blog/",
     component: () => import(/* webpackChunkName: "page--src--pages--blog-vue" */ "/Users/tedgoas/Documents/GitHub/Dante/src/pages/Blog.vue")
   },
