@@ -14,12 +14,7 @@ module.exports = {
       options: {
         path: 'content/posts/**/*.md',
         typeName: 'Post',
-        route: '/blog/:title',
-        remark: {
-          plugins: [
-            ['@gridsome/remark-prismjs', {transformInlineCode: true}]
-          ]
-        }
+        route: '/blog/:title'
       }
     },
     {
@@ -59,5 +54,22 @@ module.exports = {
         })
       }
     }
-  ]
+  ],
+  transformers: {
+    // Add markdown support to all file-system sources
+    remark: {
+      plugins: [
+        [ 'gridsome-plugin-remark-twitter'],
+        [
+          "gridsome-remark-figure-caption",
+          {
+            // All the options here are optional
+            figureClassName: "",
+            imageClassName: "",
+            captionClassName: "",
+          },
+        ],
+      ],
+    },
+  },
 }
