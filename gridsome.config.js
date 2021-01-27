@@ -60,15 +60,6 @@ module.exports = {
     remark: {
       plugins: [
         [ 'gridsome-plugin-remark-twitter'],
-        [
-          "gridsome-remark-figure-caption",
-          {
-            // All the options here are optional
-            figureClassName: "",
-            imageClassName: "",
-            captionClassName: "",
-          },
-        ],
       ],
     },
   },

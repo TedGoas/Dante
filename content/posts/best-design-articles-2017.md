@@ -10,8 +10,10 @@ date: 2017-12-13
 A small collection of articles that stuck out in my mind this year.
 
 <figure>
-    <img src="/images/blog/best-of-2017/facebook-design-leader.jpg" alt="Facebook designers using laptops." width="1000" height="400">
+
+![Facebook designers using laptops.](./images/best-of-2017/facebook-design-leader.jpg)
 </figure>
+
 <h2><a href="https://medium.com/facebook-design/tips-for-becoming-a-design-leader-7f32513b4c3f">Tips for Becoming a Design Leader</a></h2>
 
 I thought about design leadership a lot in 2017. I [wrote about it too](https://medium.com/@tedgoas/silent-leadership-f236e62ba60d). I enjoyed Andrew’s story about how he transitioned from an individual contributor to a design manager at Facebook; very relatable to any mid-senior level designer contemplating their step career step.
