@@ -9,19 +9,14 @@ date: 2018-12-18
 
 A small collection of design articles that stuck out in my mind this year. <a href="/blog/best-design-articles-2017">I did this last year too</a>.
 
-<figure>
-    <img src="/images/blog/best-of-2018/tables.png" alt="Preview of HTML Table." width="700" height="400">
-</figure>
-
+![Preview of HTML Table.](./images/best-of-2018/tables.png)
 <h2><a href="https://uxdesign.cc/designing-tables-for-reusability-490a3760533">Designing Tables for Reusability</a></h2>
 
 I designed a lot of data tables this year. Designing tables is <strong>hard</strong> because they usually contain a bunch of competing UX decisions. What makes a good dribbble shot usually does not make a good working product. This article is an interesting look into how one team refactored their data tables and created a coherent set of patterns that cover all their use cases.
 
 <hr role="presentation" aria-role="hidden">
 
-<figure>
-    <img src="/images/blog/best-of-2018/hubspot.png" alt="Redesign illustration." width="700" height="400">
-</figure>
+![Redesign illustration.](./images/best-of-2018/hubspot.png)
 
 <h2><a href="https://medium.com/hubspot-product/people-over-pixels-b962c359a14d">How building a design system empowers your team to focus on people — not pixels.</a></h2>
 
@@ -29,50 +24,35 @@ This year I read a lot stories about how teams created their design system, but 
 
 <hr role="presentation" aria-role="hidden">
 
-<figure>
-    <img src="/images/blog/best-of-2018/writing-well.png" alt="On Writing Well book cover." width="700" height="400">
-</figure>
-
+![On Writing Well book cover.](./images/best-of-2018/writing-well.png)
 <h2><a href="https://sivers.org/book/OnWritingWell">Derek Sivers’s notes for “On Writing Well”</a></h2>
 
 I picked up a copy of _On Writing Well_ but it’s somewhat of a long and dense read. Derek Sivers summarizes large topics digestible nuggets, making it a great companion to the book.
 
 <hr role="presentation" aria-role="hidden">
 
-<figure>
-    <img src="/images/blog/best-of-2018/able.png" alt="Able, Allow, Should quadrant diagram." width="700" height="400">
-</figure>
-
+![Able, Allow, Should quadrant diagram.](./images/best-of-2018/able.png)
 <h2><a href="https://medium.com/facebook-design/able-allowed-should-navigating-modern-tech-ethics-50f54f0df7d6">Able, Allowed, Should</a></h2>
 
 It hasn’t been an easy few years for a lot of tech companies and many are starting to look inward at their own ethics. Product teams spend a lot of time thinking about what we’re _able_ to build (what’s possible) and what we’re _allowed_ to build (what’s within company goals, what’s legal), but need to think more about what we _should_ build (what’s ethically responsible). Margaret Gould Stewart explains how her team at Facebook is thinking about this.
 
 <hr role="presentation" aria-role="hidden">
 
-<figure>
-    <img src="/images/blog/best-of-2018/ux-copy.png" alt="Copywriteres vs UX Writers diagram." width="700" height="400">
-</figure>
-
+![Copywriteres vs UX Writers diagram.](./images/best-of-2018/ux-copy.png)
 <h2><a href="https://medium.com/r/?url=https%3A%2F%2Fuxdesign.cc%2Fhow-to-build-a-better-product-with-ux-writing-926d78209ce8">How to build a better product with UX writing</a></h2>
 
 Words are the most important part of an interface and this year I tried to level up my UX writing and microcopy skills. This article explains exactly what UX writing is, how it differs from a traditional marketing copy, and what to strive for when writing good interface copy.
 
 <hr role="presentation" aria-role="hidden">
 
-<figure>
-    <img src="/images/blog/best-of-2018/zoom.jpg" alt="Microscope zoomed in." width="700" height="400">
-</figure>
-
+![Microscope zoomed in.](./images/best-of-2018/zoom.jpg)
 <h2><a href="https://uxdesign.cc/the-importance-of-zooming-out-in-the-design-process-feea24ee7422">The importance of zooming out in the design process</a></h2>
 
 As designers, we need to zoom in to our work’s details, but also zoom out and understand it at a strategic level. Switching between the designer role and creative director role is <strong>hard</strong>. Fabricio’s offers some great advice. Since reading, I’ve been training myself to pause and ask myself _“What am I trying to do/say here?”_ throughout my design process.
 
 <hr role="presentation" aria-role="hidden">
 
-<figure>
-    <img src="/images/blog/best-of-2018/functions.png" alt="Product as functions flow diagram." width="700" height="400">
-</figure>
-
+![Product as functions flow diagram.](./images/best-of-2018/functions.png)
 <h2><a href="http://www.feltpresence.com/functions.html">Products Are Functions</a></h2>
 
 > Products are easier to reason about when you think of them as functions. They transform an input situation into an output situation. This lets you describe what the product does as a transformation of the user’s circumstance instead of a bundle of features.
@@ -81,30 +61,21 @@ Every once in a while, I read an article that makes me pause and rethink the way
 
 <hr role="presentation" aria-role="hidden">
 
-<figure>
-    <img src="/images/blog/best-of-2018/manager.jpg" alt="Track and field race." width="700" height="400">
-</figure>
-
+![Track and field race.](./images/best-of-2018/manager.jpg)
 <h2><a href="https://medium.com/s/story/should-i-become-a-manager-bfebe857a457">Should You Become a Manager?</a></h2>
 
 I’m at a crossroads in my design career and have been thinking about what my next move should be. I <a href="https://medium.com/@tedgoas/silent-leadership-f236e62ba60d">wrote about it last year</a> and still haven’t quite figured it out. One possibility is pursuing a design management role. Speaking with other managers and reading articles like this helped paint a picture of what that would be like.
 
 <hr role="presentation" aria-role="hidden">
 
-<figure>
-    <img src="/images/blog/best-of-2018/polaris.png" alt="Preview of Shopify sites on various devices." width="700" height="400">
-</figure>
-
+![Preview of Shopify sites on various devices.](./images/best-of-2018/polaris.png)
 <h2><a href="https://ux.shopify.com/the-system-always-kicks-back-d94b945407f2">The system always kicks back</a></h2>
 
 Yet another article about design systems. But this one focuses on what happens _after_ it’s created. Anyone working on a design system can relate to these tales. I particularly liked the section **Systems Attract Systems People**. It explains how a design systems team can become homogeneous over time, which negatively impacts the product. This whole article is great, but this section stuck out for me.
 
 <hr role="presentation" aria-role="hidden">
 
-<figure>
-    <img src="/images/blog/best-of-2018/strategy.jpg" alt="Strategy key on keyboard." width="700" height="400">
-</figure>
-
+![Strategy key on keyboard.](./images/best-of-2018/strategy.jpg)
 <h2><a href="https://medium.com/@joulee/how-to-be-strategic-f6630a44f86b">How to be Strategic</a></h2>
 
 > The core problem was that I didn’t really understand what strategy was. Nobody had ever explained it to me. I figured “being strategic” was just engaging in high-level product discussions.

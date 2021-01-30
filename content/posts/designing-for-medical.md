@@ -30,8 +30,8 @@ We strive to design interfaces so that users know exactly what they’re looking
 In the spirit of accuracy, data is usually presented in it’s entirety. We don’t crop, abbreviate, truncate, or reorder content for the sake of aesthetics. Worst case: we're accused of misrepresenting data. But usually it just means the app gets populated with a few long strings of text and images that don't line up perfectly. Sure it bugs me to see that, but I'm not the customer.
 
 ## One-Off Requests Are A Thing
-<blockquote class="twitter-tweet" lang="en"><p>How to make terrible software:&#10;&#10;1. Make promises for one-off features for a single client&#10;&#10;2. Implement them&#10;&#10;3. Repeat</p>&mdash; Ryan Florence (@ryanflorence) <a href="https://twitter.com/ryanflorence/status/227967938005700609">July 25, 2012</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+https://twitter.com/ryanflorence/status/227967938005700609
 
 I love this quote, but unfortunately it doesn’t carry much weight in our world. Many clinical trials are different from one another and doctors often have their own way of running their practice, so we’re frequently asked to adapt our apps or create a special feature that benefits only a small number of users.
 
@@ -41,9 +41,7 @@ But here's the rub: Compared to consumer-focused products, we have a small numbe
 
 ## Everything is an Option
 
-<figure class="unbound max-w-5xl bg-gray-1 p-4 rounded">
-	<img src="/images/blog/medical/ui-bloat.png" alt="Interface Bloat. Cartoon." height="190" width="920">
-</figure>
+![Interface Bloat, Cartoon.](./images/medical/ui-bloat.png)
 
 A by-product of catering to requests like this is a large, carefully engineered product with lots of features and options. Most of our interfaces are configurable, either by user preference or permission level. Each option makes each interface more unpredictable. Depending on what's enabled, a single screen can take many forms. It's a challenge to design interfaces flexible enough to handle every scenario. In Internet Explorer.
 
@@ -88,10 +86,7 @@ And of course, not _everything_ I work on is exciting. Like fixing bugs in IE 7 
 ## Wrapping Up
 So that's it. Despite it's drawbacks, I'm tremendously proud to be in this field and helping people make better decisions about their body. We don't use the latest web tools or design bleeding-edge interfaces. But that's fine, because:
 
-<div class="embedded-tweet">
-	<blockquote class="twitter-tweet" lang="en"><p>The world doesn&#39;t need new and innovative interaction patterns as much as designers believe. It just needs shit to work.</p>&mdash; Cemre Güngör (@gem_ray) <a href="https://twitter.com/gem_ray/status/481855135610847233">June 25, 2014</a></blockquote>
-	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
+> The world doesn&#39;t need new and innovative interaction patterns as much as designers believe. It just needs shit to work.</p>&mdash; Cemre Güngör (@gem_ray)
 
 And in this industry, shit doesn't always just work. That's what my team is working on.
 

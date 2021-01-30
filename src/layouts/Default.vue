@@ -37,4 +37,11 @@ body {
   background-color: var(--app-background-color);
   color: var(--app-font-color);
 }
+a {
+  color: pink;
+
+  &:visited {
+    color: magenta;
+  }
+}
 </style>
