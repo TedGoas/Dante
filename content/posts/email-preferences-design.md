@@ -15,31 +15,24 @@ This is the first in a two part series about how we’re overhauling Stack Overf
 
 When I hear folks talk about email, usually it goes something like this:
 
-<figure>
-	<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Want to receive unwanted emails for the rest of your life, and possibly the life of your children? Stay at a hotel ONCE.</p>&mdash; Fabio Carneiro, but with crippling depression (@flcarneiro) <a href="https://twitter.com/flcarneiro/status/492699321532698626?ref_src=twsrc%5Etfw">July 25, 2014</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</figure>
+https://twitter.com/flcarneiro/status/492699321532698626
 
 …or this…
 
-<figure>
-	<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">What they don&#39;t tell you about college is HOW MANY UNSOLICITED EMAIL NEWSLETTERS YOUR SCHOOL SENDS YOU EVERY DAY!!!!!!</p>&mdash; bteef (@brennateefy) <a href="https://twitter.com/brennateefy/status/827006416472780801?ref_src=twsrc%5Etfw">February 2, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-</figure>
+https://twitter.com/brennateefy/status/827006416472780801
 
 …or this:
 
-<figure>
-	<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">There’s a special place in hell for services that require log in to unsubscribe from their newsletter.</p>&mdash; Sara Soueidan 🐦 (@SaraSoueidan) <a href="https://twitter.com/SaraSoueidan/status/885181468103847936?ref_src=twsrc%5Etfw">July 12, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></figure>
+https://twitter.com/SaraSoueidan/status/885181468103847936?
 
 I can’t blame them; why trust anyone when there are so many bad actors out there? Sometimes it seems like you mysteriously get on an email list and have to jump through hoops to get off.
 
 Until about a year ago, Stack Overflow didn’t send much email aside from a few messages sent to active Q&A users and basic things like resetting a password. We’ve been working hard to ramp up Stack Overflow’s email program and send better targeted emails. As our email program evolved, we knew our email preferences needed to keep pace. Our existing design wasn’t going to cut it, so we set out to redesign Stack Overflow’s email preference center.
 
-<figure class="unbound w-max-5xl">
-    <img src="/images/blog/email-preferences/existing-preferences.png" alt="Stack Overflow's previous email preferences." height="600" width="1134" class="rounded">
-    <figcaption class="caption">We can do better</figcaption>
+<figure>
+
+![Stack Overflow's previous email preferences.](./images/email-preferences/existing-preferences.png)
+<figcaption class="caption">We can do better</figcaption>
 </figure>
 
 ## Our Goal
@@ -57,8 +50,9 @@ First, we needed to fix our legacy system in order to avoid becoming the bad act
 ### Pitfall #1: Inundating folks with emails after signup
 
 <figure>
-    <img src="/images/blog/email-preferences/opted-into-everything.png" alt="Photo of someone automatically opted into every email." height="400" width="1000" class="rounded">
-    <figcaption class="caption">Aww hell no!</figcaption>
+
+![Photo of someone automatically opted into every email.](./images/email-preferences/opted-into-everything.png)
+<figcaption class="caption">Aww hell no!</figcaption>
 </figure>
 
 How many times have you joined a new service and gotten opted into EVERY SINGLE EMAIL THEY SEND? Yeah, we didn’t want to be that guy… but at the same time, we were underselling ourselves by playing it too conservative with email. Users frequently made comments like "Oh I didn’t know you had x/y/z feature." Rather than just not send any email at all, we had to convince ourselves that we could do it in a responsible way.
@@ -68,8 +62,9 @@ How many times have you joined a new service and gotten opted into EVERY SINGLE 
 We reorganized our email categories and reconsidered how folks are opted into each one. We made email subscriptions trigger-based wherever possible. For example, we don’t send you any Jobs emails until you engage with the Jobs product (apply for a job, set status to ‘looking’, etc.). We don’t send you any community emails until you’ve participated. We don’t opt you into any newsletters. And no, we don’t employ any pop-ups imploring you (or shaming you) to sign up. We don’t even have an email signup form on most pages.
 
 <figure>
-    <img src="/images/blog/email-preferences/email-footer.png" alt="Stack Overflow's email footer." height="180" width="800" class="rounded">
-    <figcaption class="caption">Our email footer</figcaption>
+
+![Stack Overflow's email footer.](./images/email-preferences/email-footer.png)
+<figcaption class="caption">Our email footer</figcaption>
 </figure>
 
 And when we do email you, we tell you why. Every email includes a reason you got email. We watched our language and made sure our internal speak didn’t end up in the text (such as "Profile merge expired," "Active status decayed," and other glorious names we give emails at Stack Overflow).
@@ -89,8 +84,9 @@ So many times, I sign up for a service and get an email I didn’t expect.
 When a preference center gives me a lot of options, I want to know what exactly each of those options actually means. A list of vague categories like "Announcements" or "Product Updates" doesn’t set clear expectations about what email I’d receive and how often I’d receive them.
 
 <figure>
-    <img src="/images/blog/email-preferences/what-are-these-emails.png" alt="Screen of vaguely-described emails." height="200" width="700" class="rounded">
-    <figcaption class="caption">What… exactly are these?</figcaption>
+
+![Screen of vaguely-described emails.](./images/email-preferences/what-are-these-emails.png)
+<figcaption class="caption">What… exactly are these?</figcaption>
 </figure>
 
 Same goes for when I receive an email. So many times, I’ve arrived at a preferences page after clicking "unsubscribe" in an email and have no idea which email I just turned off. It’s often hard to tell exactly what category controls a certain email, so I have to guess and disable certain message types until I stop getting the ones I don’t want any more.
@@ -99,9 +95,7 @@ We addressed this by including a brief explanation of each email category. Where
 
 If the unsubscribe link is clicked in any email, we bring you to your email preferences with that email highlighted so it’s clear what you just unsubscribed from. Regardless of how you end up in your email preferences, we want your experience to be as good as possible.
 
-<figure>
-    <img src="/images/blog/email-preferences/stackmail-unsubscribe.png" alt="Stack Overflow confirms email unsubscribes." height="180" width="880" class="rounded">
-</figure>
+![Stack Overflow confirms email unsubscribes.](./images/email-preferences/stackmail-unsubscribe.png)
 
 Stack Overflow highlights the email you unsubscribed from so you don’t have to guess.
 
@@ -120,8 +114,9 @@ When updating your email preferences, how many times have you been forced to…
 * …wait a week for it to process?
 
 <figure>
-    <img src="/images/blog/email-preferences/processing-request.png" alt="Ee are processing your unsubscribe." height="150" width="900" class="rounded">
-    <figcaption class="caption">This is where I mark emails as spam.</figcaption>
+
+![We are processing your unsubscribe.](./images/email-preferences/processing-request.png)
+<figcaption class="caption">This is where I mark emails as spam.</figcaption>
 </figure>
 
 > There is nothing worse than making the user do more than completely necessary when it comes to trying to remove themselves from communications.- [Becs Rivett-Kemm](https://medium.com/@Conversio/sorting-out-our-email-marketing-opt-ins-223ca92483e7#.awwrvphxz)
@@ -133,8 +128,9 @@ We provide a one-click unsubscribe wherever we can. We did a lot of discovery an
 You can edit most of your Stack Overflow emails on a phone, without logging in, with a single click or tap. Changes are instant. And no, we don’t send [an unsubscribe confirmation email](https://postmarkapp.com/blog/dont-send-unsubscribe-confirmation-emails).
 
 <figure>
-    <img src="/images/blog/email-preferences/stack-overflow-email-preferences.png" alt="Stack Overflow's email preferences redesign." height="900" width="1250" class="rounded">
-    <figcaption class="caption">Our email preferences redesign</figcaption>
+
+![Stack Overflow's email preferences redesign.](./images/email-preferences/stack-overflow-email-preferences.png)
+<figcaption class="caption">Our email preferences redesign</figcaption>
 </figure>
 
 #### TAKEAWAY:

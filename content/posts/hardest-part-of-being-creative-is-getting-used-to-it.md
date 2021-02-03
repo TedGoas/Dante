@@ -18,8 +18,9 @@ My wife is a fantastic mother, wife, provider, and homeowner (we have a house to
 **But I’m not.**
 
 <figure>
-	<img src="/images/blog/creative/sebastian.jpg" alt="Sebastian and I running around outside." width="600" height="500">
-	<figcaption>Side-project-Sunday, current day.</figcaption>
+
+![Sebastian and I running around outside.](./images/creative/sebastian.jpg)
+<figcaption>Side-project-Sunday, current day.</figcaption>
 </figure>
 
 While I match my wife’s efforts with the family and around the house, I still have creative urges when the day is done. My problem is energy. I need to recharge too, more so than before parenthood. But my brain doesn’t stop when I’m beat tired. So my brain gets out of sync with the rest of my body and I can’t find the pause button.

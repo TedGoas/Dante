@@ -11,8 +11,7 @@ date: 2015-04-28
 
 This is what I think about most when it comes to email design. You might rather jump in a volcano than wrestle with archaic markup and inline CSS. Let someone else deal with email, amirite?
 
-<blockquote class="twitter-tweet" lang="en"><p>If I was in a room with Hitler and an HTML email and I had a gun with two bullets, I’d shoot the email twice.</p>&mdash; OJ (@tallglassofoj) <a href="https://twitter.com/tallglassofoj/status/587716233585360896">April 13, 2015</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+https://twitter.com/tallglassofoj/status/587716233585360896
 
 Ok maybe this is a bit extreme, but email design doesn’t get much love.
 
@@ -58,15 +57,7 @@ You already know this stuff.
 
 Email even has its own favorite scapegoat: Outlook is the Internet Explorer of email design.
 
-
-<figure>
-	<video style="width:542px;height:626px;" autoplay loop controls>
-	  <source src="/images/blog/email-design/chanel.mp4" type='video/mp4'/>
-	  <source src="/images/blog/email-design/chanel.webm" type='video/webm'/>
-	</video>
-	<br>
-	<figcaption><a href="http://uk-edm.chanel.com/HM?b=bZdiPI9UAVmR33yOK7o3BiZi84zanRwTU2Gf7KbBZLLA1dVHV6XfiD6Pq2c_QgWb&c=w0IAVWgFPFor_06s_ZqA2Q" target="blank">original source</a></figcaption>
-</figure>
+![Animated email design from Chanel.](./images/email-design/chanel.gif)
 
 ---
 
@@ -76,9 +67,7 @@ And remember: you don't have to be an email expert to have a positive impact.
 
 All you have to do is care.
 
-<figure>
-	<img src="/images/blog/email-design/i-am-ok-with-email.png" alt="I am ok with email." width="800" height="300">
-</figure>
+![I am ok with email.](./images/email-design/i-am-ok-with-email.png)
 
 ---
 

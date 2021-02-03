@@ -9,8 +9,7 @@ date: 2019-06-07
 
 This week I attended [Front Utah](https://www.frontutah.com/conference/). I chose this conference because I’m growing more interested in the business and product management side of being a product designer. Going to a product management conference seemed like overkill, so I was happy to find Front’s mix of user experience and product management. On top of that, the case study format showed what each concept looks like in practice. Each presenter talked about things that actually happened on their teams. Super tactical.
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">After attending many conferences, I&#39;ve realized:<br><br>I don&#39;t attend to learn. <br><br>I attend to learn what I need to learn.</p>&mdash; Cory House (@housecor) <a href="https://twitter.com/housecor/status/891471910235758592?ref_src=twsrc%5Etfw">July 30, 2017</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+https://twitter.com/housecor/status/891471910235758592
 
 ☝️ This is how I approach conferences, to learn what I need to learn. Here are a few things from Front that tickled my brain:
 
@@ -129,8 +128,9 @@ I also enjoyed listening to [Nate Walkingshaw](https://twitter.com/nwalkingshaw)
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/utah/front-conference.jpg" alt="Wade Shearer talking on stage." width="1000" height="500">
-    <figcaption>Wade Shearer on stage.</figcaption>
+
+![Wade Shearer talking on stage.](./images/utah/front-conference.jpg)
+<figcaption>Wade Shearer on stage.</figcaption>
 </figure>
 
 Many thanks to [Ben](https://twitter.com/benpeck) and [Front team](https://twitter.com/front) for organizing and executing a wonderful conference. They created a great environment and I’d highly recommend for designers interested in leveling up their product and business acumen. It’s definitely worth the trip! Utah’s beauty only sweetens the deal ✌️

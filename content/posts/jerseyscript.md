@@ -25,10 +25,9 @@ Until recently, email involved writing archaic, messy markup. But in the last ye
 So, we all know what responsive is, right? On column on mobile... and three on wide. Responsive email is not really any different.
 
 <figure>
-	<div class="bg-white px-3 inline-block rounded">
-		<img src="/images/blog/jerseyscript/responsive.png" alt="Abstract responsive email illustration." width="600" height="400">
-	</div>
-	<figcaption class="caption">responsive, pretty much</figcaption>
+
+![Abstract responsive email illustration.](./images/jerseyscript/responsive.png)
+<figcaption class="caption">responsive, pretty much</figcaption>
 </figure>
 
 <pre><code class="code-block php">/* Force table cells into full width rows */
@@ -45,10 +44,9 @@ I could talk about [responsive email patterns](http://responsiveemailpatterns.co
 ## The Fold is Back
 
 <figure>
-	<div class="bg-white p-3 inline-block rounded">
-		<img src="/images/blog/jerseyscript/fold.png" alt="Diagram of all the the mobile breakpoints." width="740" height="300">
-	</div>
-	<figcaption class="caption">I know this looks bad, but there actually is a fairly well-defined fold on mobile.</figcaption>
+
+![Diagram of all the the mobile breakpoints.](./images/jerseyscript/fold.png)
+<figcaption class="caption">I know this looks bad, but there actually is a fairly well-defined fold on mobile.</figcaption>
 </figure>
 
 So the web version of “the fold” is has largely been debunked, right? #hotdrama. Whatever. But phones are much closer to one another than desktop displays. I have a tiny device lab of popular phones, and even on Androids, the fold line usually falls around the same place. So old discussions about content appearing “above the fold” were renewed.
@@ -56,10 +54,9 @@ So the web version of “the fold” is has largely been debunked, right? #hotdr
 And this constraint was actually a blessing in disguise...
 
 <figure>
-	<div class="bg-white p-3 inline-block rounded">
-		<img src="/images/blog/jerseyscript/audit.png" alt="Cartoon of simple Apple and Google products vs. you company's overly complicated product." width="320" height="600">
-	</div>
-	<figcaption>my company</figcaption>
+
+![Cartoon of simple Apple and Google products vs. you company's overly complicated product.](./images/jerseyscript/audit.png)
+<figcaption>my company</figcaption>
 </figure>
 
 ## Small Screens Force a Content Audit
@@ -77,14 +74,18 @@ The beginnings of responsive email happened during a golden era in terms of fron
 
 Folks have incorporated things like [HAML](https://github.com/Omgitsonlyalex/ZenithFramework), [CSS preprocessors](http://rodriguezcommaj.com/blog/The-Sass-Switch), and [Grunt](https://medium.com/p/32d607879082) into their workflow. [CSS inliners](http://inliner.cm/) allow us to write CSS like we do on the web. Others [automate monotonous email checks](http://premailer.dialect.ca/) like appending tracking parameters to every link. Litmus is working on an editor made for emails, with things like live-reload and device previews baked right in.
 
-<figure class="unbound max-w-5xl">
-	<div class="grid--4col--2x2col gap-4">
-		<img src="/images/blog/jerseyscript/grunt.svg" alt="Grunt logo." width="149">
-		<img src="/images/blog/jerseyscript/sass.svg" alt="Sass logo." width="200">
-		<img src="/images/blog/jerseyscript/middleman.svg" alt="mMiddleman logo." width="213">
-		<img src="/images/blog/jerseyscript/haml.svg" alt="HAML logo." width="162">
-	</div>
-	<figcaption>Recent entrants in email workflow</figcaption>
+<figure>
+<div>
+
+![Grunt logo.](./images/jerseyscript/grunt.svg)
+
+![Sass logo.](./images/jerseyscript/sass.svg)
+
+![Middleman logo.](./images/jerseyscript/middleman.svg)
+
+![HAML logo](./images/jerseyscript/haml.svg)
+</div>
+<figcaption>Recent entrants in email workflow</figcaption>
 </figure>
 
 **The resulting email code is still pretty messy, but the way we author emails is becoming much less painful. The annoying parts are getting automated and testing is getting quicker.**

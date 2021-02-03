@@ -15,21 +15,15 @@ The following are a **_few partial_** recaps of the workshops and sessions I wen
 
 I attended Aarron’s Interface Design workshop on the first day. It focused on “building the right thing” rather than “build the thing right”. Because building an actual working MVP is hard, and if it fails it can be really expensive. We ran a modified version of GV’s Sprint in one day.
 
-<figure class="unbound max-w-2xl">
-	<img src="/images/blog/iceland/aarron-switching.png" alt="Switching from a current product to new product. Diagram." height="600" width="801">
-</figure>
+![Switching from a current product to new product. Diagram.](./images/iceland/aarron-switching.png)
 
 Aaron introduced **Interviews** as good for new ideas with no prototype to test or analytics to reference. Interviews help to discover what drives people to a new product (problem with an existing product, perceived benefit to new one) and what feelings they fight against when doing so (anxiety, existing behaviors, risk of switching). While they can be done remotely over the phone or a video conference, Aarron mentioned how MailChimp sometimes sent two or three employees to meet with clients in-person. When I asked when this kind of investment is appropriate, he responded they typically did it for larger clients and conducted multiple interviews in a single trip. In addition to more face time, in person meetings can sometimes have unplanned events. Like the time an accountant dipped her head into a meeting and the team ended up learning how their client evaluates purchasing decisions. Pretty neat!
 
-<figure class="unbound max-w-2xl">
-	<img src="/images/blog/iceland/aarron-journey.png" alt="Customer journey, Diagram." height="600" width="801">
-</figure>
+![Customer journey, Diagram.](./images/iceland/aarron-journey.png)
 
 Another thing Aaron touched on was **Ideating**. There is a saying in design school: “100 thumbnails”, meaning create 100 tiny thumbnails of what something could look like. The idea is to get every possible idea out of your head so you can fairly evaluate them. In modern UI design, 100 thumbnails is pretty crazy, about eight should do. Aaron challenged us to create eight thumbnails in five minutes (I could only muster four!). As designers, sometimes we have a mental model in our head when starting a new design, and instead of creating a number of varying designs, we pick one idea and refine it. Trouble is, the first design may not be the right design. This exercise fights that bias and forces us to explore ideas that might not seem like the right idea at first.
 
-<figure class="unbound max-w-2xl">
-	<img src="/images/blog/iceland/aarron-flow-notation.png" alt="Flow Notation, Diagram." height="600" width="801">
-</figure>
+![Flow Notation, Diagram.](./images/iceland/aarron-flow-notation.png)
 
 [**Flow Notation**](https://signalvnoise.com/posts/1926-a-shorthand-for-designing-ui-flows) is an interesting concept. It’s like extremely-granular, text-only user flows. It’s important not jump into sketching UI too soon. but rather pause, break it down, make sure we’re designing the right thing.
 
@@ -37,23 +31,17 @@ Another thing Aaron touched on was **Ideating**. There is a saying in design sch
 
 One of the final things Aarron discussed was **Delight**, or designing an enjoyable experience. This term is thrown around our industry a bit. Folks put it at the top of the product design pyramid: after everything else is done we’ll sprinkle on ~some delight~ to seal the deal. Problem is this means delight is an afterthought that gets treated as a nice-to-have on an already finished product. Worse, it seems forced into an experience where it doesn’t fit.
 
-<figure class="unbound max-w-2xl">
-	<img src="/images/blog/iceland/aarron-pyramid1.png" alt="Basic UX Pyramid, Diagram." height="600" width="801">
-</figure>
+![Basic UX Pyramid, Diagram.](./images/iceland/aarron-pyramid1.png)
 
 Aaron’s solution: build some delight in from day 1.
 
-<figure class="unbound max-w-2xl">
-	<img src="/images/blog/iceland/aarron-pyramid2.png" alt="Better UX Pyramid, Diagram." height="600" width="801">
-</figure>
+![Better UX Pyramid, Diagram.](./images/iceland/aarron-pyramid2.png)
 
 Instead of building **UP** the product pyramid, build slowly from the side (it’s _all four things_ but only one feature, then it’s _all four things_ and two features, and so on). This was eye opening for me, it’s quite different from the way I work.
 
 Throughout the workshop, the audience broke into teams and worked through each step. At the end of the workshop, each group had job story, an annotated storyboard, and a lot of questions. Here’s the one from my group:
 
-<figure class="unbound max-w-2xl">
-	<img src="/images/blog/iceland/aarron-workshop.jpg" alt="Interview results, group thumbnails, user journey, and flow chart." height="600" width="801">
-</figure>
+![Interview results, group thumbnails, user journey, and flow chart.](./images/iceland/aarron-workshop.jpg)
 
 ## Conference
 
@@ -61,17 +49,13 @@ Throughout the workshop, the audience broke into teams and worked through each s
 
 Jared’s keynote was about UX design at an organizational level. He argued that design happens no matter what, even if folks don’t realize it. Having a dedicated design team is good. Having designers embedded into teams is even better. But a lot of people can end up influencing the design, not just designers. The CEO, a project manager, a lawyer. When it comes to design, an organization is only as good as its weakest link. For an organization to cross its tipping point, everyone in the organization must have basic design training. This can be a BIG shift in culture, but it can pay big dividends. Nothing immersive, say [two hours every six weeks](https://medium.com/@jmspool/fast-path-to-a-great-ux-increased-exposure-hours-afde796f2e43#.yz2wvvs6o).
 
-<figure class="unbound max-w-xl">
-	<img src="/images/blog/iceland/jared-tipping-point.jpg" alt="Jared Spool on stage." height="600" width="801">
-</figure>
+![Jared Spool on stage.](./images/iceland/jared-tipping-point.jpg)
 
 Another thing Jared talked about not shipping a product until it’s well-designed. If something works technically, meets business goals, but isn’t thoughtfully designed, don’t ship it and fix it later. “Later” will never happen. If design is not prioritized, it’s like eating edible food. Yea, it gets the job done, but won’t attract too many people.
 
 One last thing I found interesting was how Jared graphed out a user journey. Seems like great way to visualize what step(s) of an experience users struggle with. I’m thinking of applying this to our usability test reports.
 
-<figure>
-	<img src="/images/blog/iceland/jared-journey-graph.png" alt="User Journey Graph. Diagram." height="500" width="500">
-</figure>
+![User Journey Graph. Diagram.](./images/iceland/jared-journey-graph.png)
 
 Jared’s whole talk is [available online](https://www.uie.com/jared-live/#talks).
 
@@ -87,9 +71,7 @@ Many of the techniques Aarron talked about produce data. Survey results, transcr
 
 Nathan spoke about designs systems. With more than a few under his belt, he suggests starting by defining typography, color, iconography, and spacing, and getting those into variables with modifiers. Nail that first.
 
-<figure>
-	<img src="/images/blog/iceland/nathan-variables.jpg" alt="CSS Variables and Tokens. Diagram." height="600" width="801">
-</figure>
+![CSS Variables and Tokens. Diagram.](./images/iceland/nathan-variables.jpg)
 
 When it comes to site implementation, Nathan recommends starting with the most popular, app-like views (rather than marketing pages or *gasp* the home page). Starting with the most used, complicated views and branching out makes the other areas easier to tackle.
 
@@ -115,26 +97,28 @@ A great way to end the day’s lectures. Words cannot sum up this high-energy ta
 
 I learned a lot about Iceland outside of the conference. I hadn’t previously visited a nordic country. The scenery and architecture are breathtaking, even on a rainy day. Here are some pictures:
 
-<figure class="unbound max-w-5xl">
-	<div class="grid--4col--2x2col gap-2 items-start">
-		<figure class="my-0">
-			<img src="/images/blog/iceland/iceland-church.jpg" alt="Hallgrímskirkja." height="600" width="600">
-			<figcaption>Hallgrímskirkja</figcaption>
-		</figure>
-		<figure class="my-0">
-			<img src="/images/blog/iceland/iceland-city-hall.jpg" alt="Reykjavik City Hall." height="600" width="600">
-			<figcaption>pool near Reykjavik City Hall</figcaption>
-		</figure>
-		<figure class="my-0">
-			<img src="/images/blog/iceland/iceland-street.jpg" alt="Downtown Reykjavik." height="600" width="600">
-			<figcaption>Downtown Reykjavik</figcaption>
-		</figure>
-		<figure class="my-0">
-			<img src="/images/blog/iceland/iceland-whale-meat.jpg" alt="Icelandic tapas, including whale in a jar." height="600" width="600">
-			<figcaption>Icelandic tapas (including whale meat !!)</figcaption>
-		</figure>
-	</div>
+<div>
+<figure>
+
+![Hallgrímskirkja.](./images/iceland/iceland-church.jpg)
+<figcaption>Hallgrímskirkja</figcaption>
 </figure>
+<figure>
+
+![Reykjavik City Hall.](./images/iceland/iceland-city-hall.jpg)
+<figcaption>pool near Reykjavik City Hall</figcaption>
+</figure>
+<figure>
+
+![Downtown Reykjavik.](./images/iceland/iceland-street.jpg)
+<figcaption>Downtown Reykjavik</figcaption>
+</figure>
+<figure>
+
+![Icelandic tapas, including whale in a jar.](./images/iceland/iceland-whale-meat.jpg)
+<figcaption>Icelandic tapas (including whale meat !!)</figcaption>
+</figure>
+</div>
 
 Here are some tidbits I learned from various conversations:
 
@@ -157,9 +141,10 @@ Keep in touch 🇮🇸
 
 Fun Fact: For hotels that require a room key to keep the electricity on in the room, any card will work in the slot. Useful for when you only have one room key and want to charge a laptop while you go out to dinner.
 
-<figure class="unbound max-w-2xl">
-	<img src="/images/blog/iceland/iceland-hotel-card.jpg" alt="I stuck my CVS card in the slot to keep my hotel room's power on when I wasn't there." height="600" width="801">
-	<figcaption>hat tip <a href="http://www.webstock.org.nz/talks/a-peculiar-journey/">Harry Roberts</a></figcaption>
+<figure>
+
+![I stuck my CVS card in the slot to keep my hotel room's power on when I wasn't there.](./images/iceland/iceland-hotel-card.jpg)
+<figcaption>hat tip <a href="http://www.webstock.org.nz/talks/a-peculiar-journey/">Harry Roberts</a></figcaption>
 </figure>
 
 ---
