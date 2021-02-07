@@ -37,12 +37,8 @@ Four years after learning about punched card coding, I finally found a good pilo
 The “Happy Path UX" allows someone to view an answer to their question and optionally vote on or accept it as the best answer, all without leaving their inbox. This is what I built:
 
 <figure>
-<p class="codepen" data-height="400" data-theme-id="dark" data-default-tab="html,result" data-user="tedgoas" data-slug-hash="MWYpazJ" style="height: 400px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Voting in Email">
-  <span>See the Pen <a href="https://codepen.io/tedgoas/pen/MWYpazJ">
-  Voting in Email</a> by Ted (<a href="https://codepen.io/tedgoas">@tedgoas</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script><script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+https://codepen.io/tedgoas/pen/MWYpazJ
 <figcaption>Try clicking the icons on the left!</figcaption>
 </figure>
 
@@ -113,9 +109,7 @@ This was my first foray into punched card coding. It’s a pretty steep learning
 
 Punched card coding can involve radio buttons, checkboxes, or button tags to achieve a number of things. Javascript still isn’t supported in any email client, but we can still toggle state, build tabs, reveal a hidden menu, build a carousel, and more.
 
-<figure class="bg-white p-3 rounded mb-8">
-	<img src="https://i.imgur.com/b1b23iq.png" alt="illustrations of types of interactive emails, c/o Email Monks">
-</figure>
+![illustrations of types of interactive emails, c/o Email Monks.](https://i.imgur.com/b1b23iq.png)
 
 [More on punched card coding](https://www.webdesignerdepot.com/2015/10/punched-card-coding-the-secret-of-interactive-email/)
 

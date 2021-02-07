@@ -59,7 +59,9 @@ module.exports = {
     // Add markdown support to all file-system sources
     remark: {
       plugins: [
-        [ 'gridsome-plugin-remark-twitter'],
+        [ '@noxify/gridsome-plugin-remark-embed', {
+          'enabledProviders' : ['Youtube', 'Twitter', 'Gist', 'Codepen'],
+      }]
       ],
     },
   },
