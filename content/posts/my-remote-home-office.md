@@ -17,8 +17,9 @@ I’m a home-body and like being around my wife and kids, so I opted for a home 
 
 
 <figure>
-    <img src="/images/blog/home-office/location.jpg" alt="Outside office with doors.open next to front door." width="1000" height="500">
-    <figcaption>My office is in a high traffic area.</figcaption>
+
+![Outside office with doors.open next to front door.](./images/home-office/location.jpg)
+<figcaption>My office is in a high traffic area.</figcaption>
 </figure>
 
 My office is located right off the front door and near the kitchen. I was initially worried about having my office in a high traffic area, especially since the doors are glass, but it turned out to be a non-issue. The house is big enough that I’m not on top of anyone else and I can close the door when I need privacy. My family usually honors the open/closed door policy, though [there are exceptions](http://www.tedgoas.com/content/blog/31-distributed-design/aa58.jpg) 👧.
@@ -26,8 +27,9 @@ My office is located right off the front door and near the kitchen. I was initia
 ## Furniture and equipment
 
 <figure>
-    <img src="/images/blog/home-office/desk.jpg" alt="Standing desk with laptop and two external monitors." width="1000" height="500">
-    <figcaption>My standing desk, laptop, and monitors.</figcaption>
+
+![Standing desk with laptop and two external monitors.](./images/home-office/desk.jpg)
+<figcaption>My standing desk, laptop, and monitors.</figcaption>
 </figure>
 
 I have a standing desk, chair, and upright mouse which helps with [my RSI](/blog/rsi) and health in general. I change my standing vs. sitting position every hour or two throughout the day. The rest is fairly basic: A MacBook Pro with a couple external monitors and backup hard drive.
@@ -37,23 +39,26 @@ _Protip:_ When everyone’s home and streaming Netflix and whatnot, my internet 
 ## The rest
 
 <figure>
-    <img src="/images/blog/home-office/personal.jpg" alt="My personal desk and iMac." width="1000" height="500">
-    <figcaption>My personal iMac is always an arm’s length away.</figcaption>
+
+![My personal desk and iMac.](./images/home-office/personal.jpg)
+<figcaption>My personal iMac is always an arm’s length away.</figcaption>
 </figure>
 
 My personal computer is in the same room. I keep my work life and personal life pretty well separated, so things like my music and personal email live exclusively on my personal computer but are still close by while I’m working.
 
 
 <figure>
-    <img src="/images/blog/home-office/pano.jpg" alt="Soccer scarves hung around the office." width="1450" height="250">
-    <figcaption>Scarves are hung around the entire room, 17 total (so far).</figcaption>
+
+![Soccer scarves hung around the office.](./images/home-office/pano.jpg)
+<figcaption>Scarves are hung around the entire room, 17 total (so far).</figcaption>
 </figure>
 
 I’m a soccer (or _football_, if you like) fan and collect scarves from places I visit. No, I’m not a supporter of all these clubs, but they make for great conversation starters in research sessions! I also like maps and have two giant ones hanging in my office, including this one of the United States where I traced the routes I took when I drove cross country and back:
 
 <figure>
-    <img src="/images/blog/home-office/maps.jpg" alt="US map with driving route traced in marker." width="1000" height="500">
-    <figcaption>I traced my route from NYC to Phoenix and back on this map. It’s in black marker, a little tough to see here.</figcaption>
+
+![US map with driving route traced in marker.](./images/home-office/maps.jpg)
+<figcaption>I traced my route from NYC to Phoenix and back on this map. It’s in black marker, a little tough to see here.</figcaption>
 </figure>
 
 My office doesn’t double as a lounge area, kids playroom, or spare bedroom. I don’t have things like a couch, a TV, or video games in here. This helps me set boundaries while working from home: when I’m in my office, I’m usually working.
@@ -61,8 +66,9 @@ My office doesn’t double as a lounge area, kids playroom, or spare bedroom. I 
 ## Leaving the office
 
 <figure>
-    <img src="/images/blog/home-office/local-coffee-shop-library.jpg" alt="table at my coffee shop and two areas of the library." width="1000" height="500">
-    <figcaption>My local coffee shop (left) and library (top right and bottom right).</figcaption>
+
+![Table at my coffee shop and two areas of the library.](./images/home-office/local-coffee-shop-library.jpg)
+<figcaption>My local coffee shop (left) and library (top right and bottom right).</figcaption>
 </figure>
 
 Rambunctious kids, house guests, cabin fever… sometimes I just need to get out of the house. I work outside my house once or twice a month. My go-to places are the local coffee shop and the library. The former offers great coffee and chatter and the latter offers lots of space and quiet. Both offer reliable WiFi. I’m deliberate with the _kind_ of work I do since I don’t bring my large screens with me (can you imagine if I _did_ 😂).

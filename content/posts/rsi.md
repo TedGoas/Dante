@@ -13,7 +13,7 @@ This post talks about my experience with RSI (Repetitive Strain Injury) and how 
 
 <em>Before we go any further, here’s a fun disclaimer! I’m Pretty Sure™ I have some form of RSI and [not carpal tunnel](https://smile.amazon.com/gp/product/0965510999?pldnSite=1). I haven’t been diagnosed by a specialist. If it doesn’t go without saying, nothing that follows constitutes as medical advice. But you’re smart enough to know not to take medical advice from a fucking web designer who's blogging, right? Ok then.</em>
 
-<hr role="presentation" aria-role="hidden" class="hr-sm">
+<hr role="presentation" aria-role="hidden">
 
 I decided to write this after reading [Adam Morse’s tale of RSI](https://medium.com/@mrmrs_/i-got-rsi-and-what-happened-next-wasnt-surprising-at-all-63ddb58b5e3f#.fj81ep83h). His case sounded pretty severe, but you don’t need to live in San Francisco or be in front of a screen 24/7 to develop RSI. This can happen to anyone.
 
@@ -27,17 +27,16 @@ Around the same time, I encountered a coworker who had battled RSI (he was offic
 
 I’d be lying if I said I didn’t research this on the Internet, too. Yes, a lot of it is conjecture and anecdotal evidence, but a few commonalities emerged. Common stretches, better equipment, posture advice, stuff like that. I took it with a grain of salt.
 
-<figure>
-	<img src="/images/blog/rsi/keyboard.jpg" alt="An ergonomic keyboard." height="368" width="600">
-</figure>
+![An ergonomic keyboard.](./images/rsi/keyboard.jpg)
 
 ## I started small
 
 I should have gone to see a specialist, but wanted to avoid copays and medication. Instead, I focused on the advice I’d gotten so far. Every night, I iced my wrist for 20–30min before sleeping in a brace. The following day, I would stretch several times with elastic bands. I was already going to the gym regularly, but I doubled down on things like pull-ups, arm hangs, and wrist stretches. I used the upright mouse (with a wrist cushion) and an ergonomic keyboard. I adjusted my chair as high as it would go (still too low, but better than before). I moved around the office instead of sitting at the same desk for hours. I took breaks when I noticed the pain creeping in.
 
 <figure>
-	<img src="/images/blog/rsi/vertical-mouse.jpg" alt="The Evoluent upright mouse I use." width="300" height="300">
-	<figcaption>I own three of these now.</figcaption>
+
+![The Evoluent upright mouse I use.](./images/rsi/vertical-mouse.jpg)
+<figcaption>I own three of these now.</figcaption>
 </figure>
 
 At first these things didn’t seem to make a difference. But after about two weeks, I turned a corner. I got used to the mouse. I could work a little longer before the pain set in; when it did come, it would subside faster.
@@ -46,7 +45,7 @@ Eventually I was able to drop the ice and brace. I also ditched the keyboard; I 
 
 These days I’m rarely in any pain that lasts for more than five minutes. I don’t have to take extended breaks away from the computer. I never took medication. My RSI doesn’t seem to be getting any worse. Most importantly, I never had to consider changing careers.
 
-<hr role="presentation" aria-role="hidden" class="hr-sm">
+<hr role="presentation" aria-role="hidden">
 
 Sometimes we web designers get so into our work we power through and don’t realize we’re hurting ourselves. I’m not going to offer any medical advice (I’m still just a fucking web designer). But if you notice a dull pain starting to grow in your arm or wrist, it’s probably best not to ignore it.
 

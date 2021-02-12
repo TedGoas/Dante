@@ -24,8 +24,9 @@ Only a small percent of email users care about HTML/CSS support. Think email mar
 Even advanced users don’t often cite good HTML/CSS support as a top concern. Recent innovations give us a little insight as to what folks are frustrated with regarding email clients: help managing incoming messages, more security, less spam, productivity tools, and overall ease of use.
 
 <figure>
-	<img src="/images/blog/email-rendering-engines/gmail-inbox.png" alt="Gmail Inbox features." height="684" width="1000" class="rounded">
-	<figcaption>Good HTML/CSS support: not something your average user cares about.</figcaption>
+
+![Gmail Inbox features.](./images/email-rendering-engines/gmail-inbox.png)
+<figcaption>Good HTML/CSS support: not something your average user cares about.</figcaption>
 </figure>
 
 No one cares if it takes developers a long time to use `<table>`s, deprecated HTML attributes, and inline CSS to create an email. When it comes to changing how emails are rendered… “If it’s not broke, why fix it?” When email clients actually do update rendering, it’s rarely news outside of the tech community. No one cares.
@@ -42,9 +43,7 @@ Overall email clients do their job well. Since HTML/CSS support matters to so fe
 
 **However, things are trending in the right direction.** Gmail and Yahoo! app began supporting media queries in most of their products. Outlook for iOS got a huge facelift including good markup support. New email clients that crop up (Mailbox, Nylus. Polymail) generally have good HTML/CSS support compared to web browsers. The majority of clients based on market share use “modern rendering engines,” and CSS support rarely takes a step backwards.
 
-<figure class="unbound max-w-xl">
-	<img src="/images/blog/email-rendering-engines/email-client-stats.jpg" alt="Email client status according to Litmus." height="554" width="800" class="rounded">
-</figure>
+![Email client status according to Litmus.](./images/email-rendering-engines/email-client-stats.jpg)
 
 ---
 

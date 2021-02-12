@@ -26,8 +26,9 @@ In a typical day I have ~2 hours of meetings, and the rest is spent writing (Goo
 We are very remote friendly, but not truly worldwide. We’re in about 15 countries, spanning from Slovenia to California. We have one fella in Russia at the moment, but it’s not his permanent location. And we have a few in Australia, but most folks are between CET and PST time zones.
 
 <figure>
-    <img src="/images/blog/remotive/distribution.png" alt="Graph of where employees live in the world." width="540" height="283" class="rounded">
-    <figcaption>Approximate breakdown of where folks work from.</figcaption>
+
+![Graph of where employees live in the world.](./images/remotive/distribution.png)
+<figcaption>Approximate breakdown of where folks work from.</figcaption>
 </figure>
 
 Here’s a graph that shows a breakdown, but note that most of the Sales team is in NYC so it really skews this graph. Our product team is mostly remote / distributed.
@@ -44,9 +45,10 @@ Our whole company uses the Google Suite, and thankfully Google Calendar does a g
 
 When I joined Stack Overflow, I wasn’t looking for a remote job specifically. I had a bad couple of weeks at my office job and decided to “see what was out there” job-wise. Since I had a good job, I had the privilege of job-hunting at my own pace.
 
-<figure class="wmx6">
-    <img src="/images/blog/remotive/stack-800x600.gif" alt="Rotating GIF of HTML email cover letters I designed." width="800" height="600">
-    <figcaption>My HTML email cover letter.</figcaption>
+<figure>
+
+![Rotating GIF of HTML email cover letters I designed.](./images/remotive/stack-800x600.gif)
+<figcaption>My HTML email cover letter.</figcaption>
 </figure>
 
 I saw the ad for a product design role at Stack Overflow on dribbble’s job board. I applied by <a href="https://dribbble.com/shots/2873870-HTML-Email-Cover-Letter">designing and sending a HTML email as my cover letter</a>, which helped me stand out and helped get my foot in the door. From there, the interview process was relatively typical and ended with an offer that I accepted.
@@ -95,8 +97,9 @@ In order:
 <a href="/blog/my-remote-home-office">I wrote a blog post about just that</a>. TL;DR: I usually work from my home office, which looks like this:
 
 <figure>
-    <img src="/images/blog/remotive/desk.jpg" alt="My home office." width="500" height="250">
-    <figcaption>My home office, including a standing desk, chair, upright mouse, and headset.</figcaption>
+
+![My home office.](./images/remotive/desk.jpg)
+<figcaption>My home office, including a standing desk, chair, upright mouse, and headset.</figcaption>
 </figure>
 
 ## What happens to the internet when Stack Overflow goes down?
@@ -105,6 +108,6 @@ In order:
 
 We do have a few outages a year, but they’re mostly short-lived. They usually happen when most of us are working, so folks are always around to work on it immediately. We had an outage earlier this week: our team was able to bring the site back up in read-only mode after a few minutes, and back fully in half an hour.
 
-<hr role="presentation" aria-role="hidden" class="hr-sm">
+<hr role="presentation" aria-role="hidden">
 
 Also published at <a href="https://blog.prototypr.io/what-its-like-working-remotely-on-stack-overflow-s-product-design-team-c3a4034c265e">https://blog.prototypr.io/what-its-like-working-remotely-on-stack-overflow-s-product-design-team-c3a4034c265e</a>

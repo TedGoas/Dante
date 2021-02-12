@@ -20,8 +20,7 @@ Since 2010, I’ve spent a lot of time on dribbble. Being around talented design
 
 Dribbble is still part of my work week, but its focus is more narrow.
 
-<blockquote class="twitter-tweet"><p>2012 @<a href="https://twitter.com/dribbble">dribbble</a>: The year of the isometric DSLR shot of an iPhone running an app that doesn't work.</p>&mdash; Kyle Neath (@kneath) <a href="https://twitter.com/kneath/status/285794915890384896">December 31, 2012</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+> 2012 dribbble: The year of the isometric DSLR shot of an iPhone running an app that doesn't work. mdash; [Kyle Neath](https://twitter.com/kneath/)
 
 ## Focus on a Visual Style
 When it comes to aesthetics, I tend to explore a little too often. Exploration is good, but I plan on devoting more time a single direction. I started creating a collection of common interface componests in HTML & CSS. If it ever matures, I’ll put it on GitHub.

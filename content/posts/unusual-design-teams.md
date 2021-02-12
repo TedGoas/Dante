@@ -49,9 +49,10 @@ That being said, with someone at Ted’s level of seniority a fair performance r
 
 As it turns out, a senior designer has good reason to focus more broadly on design leadership and strategy than the specifics of design itself. Therefore I focused on leadership and strategy topics like coalition building and stakeholder relationships, which were areas I personally worked on as well.
 
-<figure class="unbound">
-    <img src="/images/blog/unusual-teams/solution.svg" alt="" width="448" height="258" class="rounded">
-	<figcaption>Illustration from Undraw.</figcaption>
+<figure>
+
+![](./images/unusual-teams/solution.svg)
+<figcaption>Illustration from Undraw.</figcaption>
 </figure>
 
 ## Career development: Wow, that’s a steep hill
@@ -66,7 +67,7 @@ I found that worksheets lent structure to big picture thoughts and aspirations t
 
 However this didn’t turn out to be a huge issue. These days the skills I’m trying to improve aren’t things like color theory, responsive design, or CSS layouts… they’re things like emotional intelligence, business acumen, and leadership skills. Reminds me of this tweet:
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">junior engineer: I&#39;m going to learn all the tools and syntax! when I&#39;m senior, this knowledge will help me solve important problems<br><br>senior engineer: wtf? the most important problems are people problems, this doesn&#39;t have anything to do with code at all</p>&mdash; Ian Coldwater 📦💥 (@IanColdwater) <a href="https://twitter.com/IanColdwater/status/1255556803913490434?ref_src=twsrc%5Etfw">April 29, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+https://twitter.com/IanColdwater/status/1255556803913490434
 
 These skills aren’t unique to designers. Beth was incredibly good at coaching me through these topics and suggesting opportunities at the company to practice what we discussed.
 
@@ -76,7 +77,7 @@ These skills aren’t unique to designers. Beth was incredibly good at coaching 
 
 I don’t know how much I improved my hard skills as a designer working under Beth. Since she has a different background, she couldn’t help me with things like improving my interaction design skills and learning CSS Grid. But instead of saying “Ted you should look into X” or “Here’s how you should do Y”, Beth would make more general suggestions and leave it up to me to figure out the details. Besides as I mentioned above, I was most interested in people and business topics, and Beth was a wonderful mentor and coach there.
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">The managers you trust the most make you feel like they’ll break the rules for you.</p>&mdash; Steph (@Soengle) <a href="https://twitter.com/Soengle/status/1252620713757863936?ref_src=twsrc%5Etfw">April 21, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+https://twitter.com/Soengle/status/1252620713757863936
 
 Beth used her platform as a manager to recognize me in front of the company, find me leadership opportunities, and relay information she was privy to within the company. She always made me feel valued and I felt like she had my back.
 
@@ -88,9 +89,10 @@ If Ted did not feel like I was in his corner, he wouldn’t bother to bring up q
 
 As a researcher, managing a designer successfully relied on the same principles of management that any pair would follow. The onus is on the manager to demonstrate genuine interest and good faith in their new team member, and set the stage for that person to grow as much as they would like. Then it’s up to the other person to reciprocate.
 
-<figure class="unbound">
-    <img src="/images/blog/unusual-teams/goals.svg" alt="" width="442" height="244" class="rounded">
-	<figcaption>Illustration from Undraw.</figcaption>
+<figure>
+
+![](./images/unusual-teams/goals.svg)
+<figcaption>Illustration from Undraw.</figcaption>
 </figure>
 
 [Ted Goas](https://twitter.com/TedGoas) is a Principal Product Designer and [Beth Devine](https://twitter.com/bethadevine) is a User Experience Researcher and Design Team Lead at Stack Overflow. Article originally posted [on Medium](https://medium.com/@beth_ux/unusual-design-teams-when-research-manages-design-d45e7ad96628).

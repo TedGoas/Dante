@@ -35,8 +35,9 @@ I have a full-time job, a young family, own a house, and enjoy life away from sc
 [That’s what’s on the tin](http://tedgoas.github.io/Cerberus/). Cerberus’s design is grayscale, uses placeholder images, and contains dummy text. It doesn’t even define a font. It’s intentionally simple and unassuming. It does just a few things but it does them really well. Well, that’s the goal anyway.
 
 <figure>
-	<img src="/images/blog/open-source/cerberus-preview.png" alt="Screenshot of Cerberus's design." height="488" width="890">
-	<figcaption>Cerberus (in all it’s beauty)</figcaption>
+
+![Screenshot of Cerberus's design.](./images/open-source/cerberus-preview.png)
+<figcaption>Cerberus (in all it’s beauty)</figcaption>
 </figure>
 
 When considering new features, I think about 37Signals’s “[Start with No”](https://gettingreal.37signals.com/ch05_Start_With_No.php) in Getting Real. A while back, I was asked to extend Cerberus’s three-column layout to support four columns.
@@ -47,9 +48,7 @@ When considering new features, I think about 37Signals’s “[Start with No”]
 
 I got no response. Building a four column layout was totally possible, but I never built it because it wasn’t important enough to this person. No one’s asked for it since.
 
-<figure class="outset">
-	<img src="/images/blog/open-source/fight-club.jpg" alt="Waiting on the porch in the movie Fight Club." height="532" width="1280">
-</figure>
+![Waiting on the porch in the movie Fight Club.](./images/open-source/fight-club.jpg)
 
 It’s like Fight Club. You should only consider features if they’re willing to stand on the porch for three days waiting to be let in.
 
@@ -72,11 +71,9 @@ I had a lot of these moments. It was very frustrating.
 
 But it made me appreciate things like accessibility, download speed, industry-specific compliance (higher education, healthcare, government, etc.), and browser / device support. I don’t want to knowingly exclude folks from being able to use my project.
 
-<figure>
-	<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">The world doesn&#39;t need new and innovative interaction patterns as much as designers believe. It just needs shit to work.</p>&mdash; Cemre Güngör (@gem_ray) <a href="https://twitter.com/gem_ray/status/481855135610847233">June 25, 2014</a></blockquote>
-	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-	<figcaption>Too often in tech, “shit doesn’t just work.”</figcaption>
-</figure>
+> The world doesn&#39;t need new and innovative interaction patterns as much as designers believe. It just needs shit to work.</p>&mdash; Cemre Güngör (@gem_ray)
+
+Too often in tech, shit doesn’t “just work.”
 
 ## 5. Double-Down on Documentation
 As amazingly self-documenting as I think my project is… yea, it’s really not. Prioritizing documentation makes a project more approachable and understandable. I try to remind myself that no one is in my brain but me (I hope). All those decisions I made in my head may as well not even exist to anyone else unless they’re documented somewhere.
@@ -88,9 +85,10 @@ As amazingly self-documenting as I think my project is… yea, it’s really not
 - Thoughtful discussions in GitHub issues and pull requests explain what ideas were considered and why they were implemented (or not implemented).
 - Demos help visualize results.
 
-<figure class="outset">
-	<img src="/images/blog/open-source/cerberus-code.png" alt="Screenshot of Cerberus's code comments." height="810" width="1278">
-	<figcaption>Screenshot of Cerberus’s code; the dark gray text is code comments.</figcaption>
+<figure>
+
+![creenshot of Cerberus's code comments.](./images/open-source/cerberus-code.png)
+<figcaption>Screenshot of Cerberus’s code; the dark gray text is code comments.</figcaption>
 </figure>
 
 ## 6. Include Instructions on How to Contribute
@@ -114,29 +112,36 @@ Alright, enough advice. Here are a few simple, focused, and well-documented open
 Getting background images to display in email clients takes a lot of code that I’ll never memorize. This project provides a few options and spits out working code that can be pasted into any email template. It does this _one_ thing _really_ well.
 
 <figure>
-	<img src="/images/blog/open-source/bulletproof-background-images-email.png" alt="Background.cm web interface." height="890" width="1488">
-	<figcaption>Backgrounds.cm by Campaign Monitor</figcaption>
+
+![Background.cm web interface.](./images/open-source/bulletproof-background-images-email.png)
+<figcaption>Backgrounds.cm by Campaign Monitor</figcaption>
 </figure>
 
 ### [Open Color](https://yeun.github.io/open-color/)
 This project researched a color palette optimized for interfaces. It’s been tested for things like accessibility, brightness, and contrast across a range of different screens. The whole project is colors. That’s all it is. Brilliant.
+
 <figure>
-	<img src="/images/blog/open-source/open-color.png" alt="Open Color GitHub repo." height="890" width="1488">
-	<figcaption>Open Color by heeyeun</figcaption>
+
+![Open Color GitHub repo.](./images/open-source/open-color.png)
+<figcaption>Open Color by heeyeun</figcaption>
 </figure>
 
 ### [.htaccess Snippets](https://github.com/phanan/htaccess)
 I don’t know if I’d ever edited an .htaccess without bringing an entire site down… until I found this project. The entire project is the readme.md file, which contains paste-able snippets of common .htaccess commands. I’ll reference this until the day we hire an .htaccess programmer 😆.
+
 <figure>
-	<img src="/images/blog/open-source/htaccess-snippets.png" alt=".htaccess snippets GitHub repo." height="890" width="1488">
-	<figcaption>.htaccess snippets by Phan An</figcaption>
+
+![.htaccess snippets GitHub repo.](./images/open-source/htaccess-snippets.png)
+<figcaption>.htaccess snippets by Phan An</figcaption>
 </figure>
 
 ### [Contract Killer](https://gist.github.com/malarkey/4031110)
 Contract Killer is a popular open source contract for web professionals that translates confusing legal passages into layman’s terms. The entire project is a text document in a GitHub Gist. A contract is part of any freelance project I take on, so I’ve adapted my own version that I use each time.
+
 <figure>
-	<img src="/images/blog/open-source/contract-killer.png" alt="Contract Killer GitHub Gist." height="890" width="1488">
-	<figcaption>Contract Killer by Andy Clarke</figcaption>
+
+![Contract Killer GitHub Gist.](./images/open-source/contract-killer.png)
+<figcaption>Contract Killer by Andy Clarke</figcaption>
 </figure>
 
 <hr role="presentation" aria-role="hidden">

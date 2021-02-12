@@ -25,18 +25,15 @@ I first heard the term “Silent Leadership” from [Fabio Carneiro](https://twi
 
 The idea is to focus on more than just design. Don’t just be a good designer, be a good co-worker and professional. [You don’t earn a leadership position with your headphones on](https://medium.com/leading-design/7-problems-growing-design-teams-face-5fd94292d405#.ypjlirc33). If you’re already doing the job of a design leader, it’s your best way in.
 
-<figure>
-	<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Want to be well-known in your industry? Help as many people as you can.<br><br>Having a good reputation opens all kinds of doors.</p>&mdash; Justin Jackson (@mijustin) <a href="https://twitter.com/mijustin/status/835922584684285952">February 26, 2017</a></blockquote>
-	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-	<figcaption>Applicable here and elsewhere</figcaption>
-</figure>
+https://twitter.com/mijustin/status/835922584684285952
 
 ## Work for a Company that Looks for Silent Leadership
 But doing this is only part of the battle. You also have to be working for a company that has its eyes open for silent leadership. Cap Watkins talked about how Buzzfeed thinks about the career path of its designers at [Asbury Agile 2016](https://www.asburyagile.com/schedule.html) (graphic below). [Buffer](https://open.buffer.com/career-framework/), [Basecamp](https://github.com/basecamp/handbook/blob/master/making-a-career.md), and [Facebook](https://medium.com/facebook-design/tips-for-becoming-a-design-leader-7f32513b4c3f) have all written about career advancement options for their staff. They all include career paths that don’t involve management.
 
 <figure>
-	<img src="/images/blog/silent-leadership/cap-watkins.png" alt="Cap Watkins at Asbury Agile 2016, Diagram." height="450" width="600">
-	<figcaption class="mt3">At BuzzFeed, IC and manager tracks are parallel, not sequential. Eg. moving from a Sr. Product Designer to a Creative direction is a lateral move rather than a promotion.</figcaption>
+
+![Cap Watkins at Asbury Agile 2016, Diagram.](./images/silent-leadership/cap-watkins.png)
+<figcaption class="mt3">At BuzzFeed, IC and manager tracks are parallel, not sequential. Eg. moving from a Sr. Product Designer to a Creative direction is a lateral move rather than a promotion.</figcaption>
 </figure>
 
 I particularly like how Buffer explains its framework:
