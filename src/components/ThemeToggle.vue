@@ -33,7 +33,23 @@ export default {
 </script>
 
 <style lang="scss">
-    .theme-toggle {
-        cursor: pointer;
+:root {
+  --theme-toggle: #fff;
+  --theme-toggle-hover: #ccc;
+}
+[theme="light"] {
+  --theme-toggle: #000;
+  --theme-toggle-hover: #444;
+}
+
+.theme-toggle {
+    cursor: pointer;
+    color: var(--theme-toggle);
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: var(--theme-toggle-hover);
     }
+}
 </style>
