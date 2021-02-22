@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400&display=swap');
 
 :root { /* Dark theme */
 
@@ -57,15 +57,31 @@ export default {
 	--spacing96: 	9.6rem;
 	--spacingn96: 	-9.6rem;
 
+	/* Widths */
+	--width1:	108px;
+	--width2:	216px;
+	--width3:	332px;
+	--width4:	464px;
+	--width5:	628px;
+	--width6:	756px;
+	--width7:	912px;
+	--width8:	1024px;
+
 	/* Colors */
 	--cyan: 		#3bc9db;
 	--cyan-light: 	#99e9f2;
 	--cyan-dark: 	#1098ad;
-
+	--white:		#fff;
+	--ash:			#dee2e6;
+	--gray-dark:	#868e96;
+	--gray-darkest:	#212529;
 
 	/* Variable Definitions */
-    --site-background-color: #0E091D;
-    --site-font-color: #fff;
+    --site-background-color: 	#0E091D;
+    --site-font-color: 			var(--text-color);
+
+	--text-color:		var(--white);		
+	--text-color-light:	var(--ash);	
 
 	--link-color:					var(--cyan);
 	--link-color-visited:			var(--cyan-light);
@@ -76,7 +92,10 @@ export default {
 
 [theme="light"] {
     --site-background-color: 	#edf2ff;
-    --apsitep-font-color: 		black;
+    --site-font-color: 			var(--text-color);
+
+	--text-color:		var(--gray-darkest);		
+	--text-color-light:	var(--gray-dark);	
 }
 
 /* Atomic Classes */
@@ -245,7 +264,11 @@ a {
 		text-decoration-color: var(--link-underline-color-hover);
 	}
 }
-
+h1,
+h2,
+h3 {
+	color: var(--text-color-dark);
+}
 h1 {
 	font-size: var(--fs-title);
 	font-family: var(--font-display);
