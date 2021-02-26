@@ -1,0 +1,23 @@
+//==========  Imports  ==========//
+
+// Import Tailwind preflight
+@tailwind base;
+
+
+// Import our custom base styles
+/* purgecss start ignore */
+@import 'base/all';
+/* purgecss end ignore */
+
+// Import Tailwind components
+@tailwind components;
+
+
+// Import our custom component styles
+/* purgecss start ignore */
+@import 'components/all';
+/* purgecss end ignore */
+
+// Import Tailwind utilities
+// TailwindCSS recommends leaving utilities till last to ensure they aren't overwritten.
+@tailwind utilities;

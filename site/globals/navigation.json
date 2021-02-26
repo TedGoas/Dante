@@ -1,0 +1,24 @@
+{
+    "main": [
+        {
+            "label": "Work",
+            "url": "/work/"
+        },
+        {
+            "label": "Values",
+            "url": "/values/"
+        },
+        {
+            "label": "A Short Bio",
+            "url": "/bio/"
+        },
+        {
+            "label": "Contact",
+            "url": "/contact/"
+        },
+        {
+            "label": "Blog",
+            "url": "/blog/"
+        }
+    ]
+}

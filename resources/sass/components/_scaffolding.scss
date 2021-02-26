@@ -1,0 +1,68 @@
+.site-width {
+  @apply w-full max-w-5xl mx-auto;
+}
+
+.main {
+  @apply py-10 flex-grow;
+
+  article {
+    h1,
+    h2,
+    h3,
+    h4,
+    figure:not(.unbound),
+    p,
+    ol,
+    ul,
+    blockquote,
+    pre,
+    hr,
+    time,
+    .twitter-tweet,
+    .gist
+    {
+      @apply max-w-3xl mx-auto;
+    }
+    figure {
+      @apply mx-auto text-center;
+    }
+    .unbound {
+      img {
+        @apply mx-auto;
+      }
+    }
+  }
+}
+hr {
+  @apply w-56 mx-0;
+  border: none;
+  height: 8px;
+  background: url("../../images/misc/hd-hr.svg") top left repeat-x;
+}
+
+article {
+
+  hr {
+    @apply my-12;
+  }
+  .hr-lg {
+    @apply my-16;
+  }
+  figure {
+    @apply block my-16 max-w-full;
+
+    &:not(.justified){
+      img,
+      video {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    figcaption {
+      @apply text-sm mt-4 text-gray-5;
+    }
+    &.bordered img {
+      @apply border border-solid border-gray-8;
+    }
+  }
+}
