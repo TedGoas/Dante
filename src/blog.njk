@@ -1,0 +1,15 @@
+---
+layout: layouts/base.njk
+title: Blog
+description: Articles written by Ted.
+---
+<ul>
+	{%- for post in collections.blog | reverse -%}
+	  <li>
+		<h3><a href="{{ post.url | url }}">{{ post.data.title }}</a> | {{ post.date }}</h3>
+		{% if post.data.teaser %}
+		  <p>{{ post.data.teaser }}</p>
+		{% endif %}
+	  </li>
+	{%- endfor -%}
+</ul>
