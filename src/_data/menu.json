@@ -1,0 +1,18 @@
+[
+    {
+        "label": "Work",
+        "url": "/work"
+    },
+    {
+        "label": "Values",
+        "url": "/values"
+    },
+    {
+        "label": "Bio",
+        "url": "/bio"
+    },
+    {
+        "label": "Blog",
+        "url": "/blog"
+    }
+]

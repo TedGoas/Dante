@@ -1,0 +1,13 @@
+<header id="header" class="">
+    <div class="logo">
+        <a href="{{ '/' | url }}">
+            <img src="" alt="{{ site.title }}">
+        </a>
+    </div>
+    <nav role="navigation" aria-label="Main Navigation">
+        {% for item in menu %}
+        <a href="{{ item.url | url }}" class="">{{ item.label }}</a>
+        {% endfor %}
+    </nav>
+    <img src="" alt="ted at tedgoas dot com">
+</header>

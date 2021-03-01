@@ -1,14 +1,44 @@
-# Dante (www.tedgoas.com)
+# Vredeburg
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a1d36fc9-4471-4679-902c-337449ccb59d/deploy-status)](https://app.netlify.com/sites/vredeburg/deploys)
 
-This is my website's uncompiled source code. [Humans.txt](https://github.com/TedGoas/Dante/blob/master/humans.txt) contains information about how the site is built, my process, resources used, and credits.
+A simple starter project to create a blog using Eleventy and Tailwind CSS
 
-Built with [Eleventy](https://www.11ty.dev/) ([Skeleventy](https://skeleventy.netlify.com/)) and [TailwindCSS](https://tailwindcss.com).
+<details>
+  <summary>Screenshot</summary>
+  
+  ![](https://i.imgur.com/wGj2YZD.jpg)
+</details>
 
----
+See demo [here](https://vredeburg.netlify.app)!
 
-To get up and running:
+## Getting Started
+1. Clone this repository
+```bash
+git clone https://github.com/dafiulh/vredeburg.git blog-name
+```
+2. Navigate to the directory
+```bash
+cd blog-name
+```
+3. Install dependencies
+```bash
+npm install
+```
 
-1. Clone this repo.
-2. Install dependencies by running `npm install`.
-3. Develop locally by running `npm run dev`.
-4. Prepare to deploy by running `npm run production`.
+### Use in development
+```bash
+npm start
+```
+
+### Build for production
+```bash
+npm run build
+```
+
+### For debugging purposes
+```bash
+npm run debug
+```
+
+## Configuration
+To change the title, description, author data, menu/nav item, etc, go to `src/_data/`.
