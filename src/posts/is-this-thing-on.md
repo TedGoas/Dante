@@ -1,7 +1,7 @@
 ---
 title: Musings of an In House Designer
 body_class: blog
-thumb: /img/lumberg.jpg
+featured_image: "/assets/img/lumberg.jpg"
 description: The first blog post in the new site.
 date: 2012-05-16
 ---
