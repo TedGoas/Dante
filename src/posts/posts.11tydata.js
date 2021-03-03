@@ -2,13 +2,13 @@ module.exports = {
   layout: 'post',
   title: 'Untitled',
   eleventyComputed: {
-    permalink: (data) => `${data.page.fileSlug}/index.html`,
-    thumb: (data) => {
-      if (data.thumb) {
-        if (data.thumb.search(/^https?:\/\//) !== -1) {
-          return data.thumb;
+    permalink: (data) => `blog/${data.page.fileSlug}/index.html`,
+    featured_image: (data) => {
+      if (data.featured_image) {
+        if (data.featured_image.search(/^https?:\/\//) !== -1) {
+          return data.featured_image;
         }
-        return `/assets/img/${data.thumb}`;
+        return `/assets/img/${data.featured_image}`;
       } else {
         return false;
       }
