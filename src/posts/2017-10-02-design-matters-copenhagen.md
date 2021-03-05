@@ -21,7 +21,7 @@ Rahul Sen kicked off the conference by talking about how it’s ok, even good, t
 Rahul argued that failure is a core design muscle, that making new mistakes and failing at new things helps our designs to evolve. [Thoughtful design isn’t afraid to be wrong](https://twitter.com/dabossard/status/912950897570873344).
 
 <figure>
-	<img src="/images/blog/design-matters-copenhagen/talk-rahul.jpg" alt="Rahul Sen on stage." width="800" height="400">
+	<img src="/assets/img/design-matters-copenhagen/talk-rahul.jpg" alt="Rahul Sen on stage." width="800" height="400">
 </figure>
 
 his was a great way to open the conference. Hearing this helped put me at ease.
@@ -30,7 +30,7 @@ his was a great way to open the conference. Hearing this helped put me at ease.
 Hazel Jennings talked about writing in product and interface design. She focused not only on language and tone, but on context and timing also. For example, when Instagram adds a new feature, the in-app messaging is designed in a way that doesn’t interrupt someone while they’re taking a picture. Hazel reminded us not to force people to use a product how WE want them to, but allow them use it how THEY want to.
 
 <figure>
-    <img src="/images/blog/design-matters-copenhagen/talk-hazel.jpg" alt="Hazel Jennings on stage." width="800" height="400">
+    <img src="/assets/img/design-matters-copenhagen/talk-hazel.jpg" alt="Hazel Jennings on stage." width="800" height="400">
     <figcaption>Don’t waste people’s time with poorly timed updates, education, and text.</figcaption>
 </figure>
 
@@ -59,7 +59,7 @@ Brent Palmer talked about how to talk about design to non-designers. It’s a ha
 He used ZenDesk as an example. They had a hard time explaining their 2016 rebrand to their own people. They couldn’t see the value.
 
 <figure class="figure outset">
-    <img src="/images/blog/design-matters-copenhagen/realistic-ven-diagram.png" alt="Realistic Venn Diagram." height="363" width="1000">
+    <img src="/assets/img/design-matters-copenhagen/realistic-ven-diagram.png" alt="Realistic Venn Diagram." height="363" width="1000">
 </figure>
 
 To convince someone to change something you must appeal to reason and intuition.
@@ -78,7 +78,7 @@ When they have an design proposal to announce internally, ZenDesk creates highli
 Katy and Mary started by talking about design debt. Historically, LinkedIn added a new section every time a new team was formed. Each of these sections used a dated design aesthetic and was built on its own tech stack. The site didn’t share code across different parts of the product. LinkedIn’s team needed to fix things that fell by the wayside during the company’s hyper-growth. They needed a unified redesign across their fragmented products.
 
 <figure>
-    <img src="/images/blog/design-matters-copenhagen/talk-tsai-iu.jpg" alt="Katy Tsai & Maria Iu on stage." width="800" height="400">
+    <img src="/assets/img/design-matters-copenhagen/talk-tsai-iu.jpg" alt="Katy Tsai & Maria Iu on stage." width="800" height="400">
 </figure>
 
 LinkedIn started by creating a war room. 42 teams contributed, everything from SRE to Legal, all involved from the start. “How would you handle onboarding?” “How should we verify email?” Having so many different people in the room led to interesting conversations. The war room’s space was used to review competitors and sketch ideas. The walls were covered with design concepts.
@@ -96,7 +96,7 @@ A lot of people don’t realize Chrome is a designed experience. It’s both lov
 **Stay out of the way.** Be consistent, not uniform. (Eg. don’t follow Android design patterns on iOS). It’s the difference between being an app and being a platform. Questioning failure when it doesn’t work is hard. Questioning success can be even harder.
 
 <figure>
-    <img src="/images/blog/design-matters-copenhagen/talk-amy.jpg" alt="Amy Roberts on stage." width="800" height="400">
+    <img src="/assets/img/design-matters-copenhagen/talk-amy.jpg" alt="Amy Roberts on stage." width="800" height="400">
     <figcaption>The success might not be the thing you actually make.</figcaption>
 </figure>
 
@@ -121,7 +121,7 @@ They used this data to build Netflix’s current UI, which allows users to view 
 3. Fear of failure is not a good enough reason not to try. Keep with it, even if you don’t see the fruits of your labor right away.
 
 <figure>
-    <img src="/images/blog/design-matters-copenhagen/talk-sam.jpg" alt="Sam Horner on stage." width="800" height="400">
+    <img src="/assets/img/design-matters-copenhagen/talk-sam.jpg" alt="Sam Horner on stage." width="800" height="400">
     <figcaption>The success might not be the thing you actually make.</figcaption>
 </figure>
 
@@ -133,19 +133,19 @@ When not at the conference, we explored what Danish culture has to offer. We bik
 <figure class="unbound max-w-5xl">
 	<div class="grid--4col--2x2col gap-2 items-start">
 		<figure class="my-0">
-			<img src="/images/blog/design-matters-copenhagen/carlsberg-brewery.jpg" alt="Carlsbery Brewery." height="500" width="500">
+			<img src="/assets/img/design-matters-copenhagen/carlsberg-brewery.jpg" alt="Carlsbery Brewery." height="500" width="500">
 			<figcaption>Carlsberg Brewery</figcaption>
 		</figure>
 		<figure class="my-0">
-			<img src="/images/blog/design-matters-copenhagen/street-food.jpg" alt="Copenhagen street food." height="500" width="500">
+			<img src="/assets/img/design-matters-copenhagen/street-food.jpg" alt="Copenhagen street food." height="500" width="500">
 			<figcaption>Copenhagen street food</figcaption>
 		</figure>
 		<figure class="my-0">
-			<img src="/images/blog/design-matters-copenhagen/nyhavn.jpg" alt="Nyhavn Canal." height="500" width="500">
+			<img src="/assets/img/design-matters-copenhagen/nyhavn.jpg" alt="Nyhavn Canal." height="500" width="500">
 			<figcaption>Nyhavn Canal</figcaption>
 		</figure>
 		<figure class="my-0">
-			<img src="/images/blog/design-matters-copenhagen/torvehallerne.jpg" alt="Carlsberg Brewery." height="500" width="500">
+			<img src="/assets/img/design-matters-copenhagen/torvehallerne.jpg" alt="Carlsberg Brewery." height="500" width="500">
 			<figcaption>Torvehallerne</figcaption>
 		</figure>
 	</div>

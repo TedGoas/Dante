@@ -25,7 +25,7 @@ In a typical day I have ~2 hours of meetings, and the rest is spent writing (Goo
 We are very remote friendly, but not truly worldwide. We’re in about 15 countries, spanning from Slovenia to California. We have one fella in Russia at the moment, but it’s not his permanent location. And we have a few in Australia, but most folks are between CET and PST time zones.
 
 <figure>
-    <img src="/images/blog/remotive/distribution.png" alt="Graph of where employees live in the world." width="540" height="283" class="rounded">
+    <img src="/assets/img/remotive/distribution.png" alt="Graph of where employees live in the world." width="540" height="283" class="rounded">
     <figcaption>Approximate breakdown of where folks work from.</figcaption>
 </figure>
 
@@ -44,7 +44,7 @@ Our whole company uses the Google Suite, and thankfully Google Calendar does a g
 When I joined Stack Overflow, I wasn’t looking for a remote job specifically. I had a bad couple of weeks at my office job and decided to “see what was out there” job-wise. Since I had a good job, I had the privilege of job-hunting at my own pace.
 
 <figure class="wmx6">
-    <img src="/images/blog/remotive/stack-800x600.gif" alt="Rotating GIF of HTML email cover letters I designed." width="800" height="600">
+    <img src="/assets/img/remotive/stack-800x600.gif" alt="Rotating GIF of HTML email cover letters I designed." width="800" height="600">
     <figcaption>My HTML email cover letter.</figcaption>
 </figure>
 
@@ -94,7 +94,7 @@ In order:
 <a href="/blog/my-remote-home-office">I wrote a blog post about just that</a>. TL;DR: I usually work from my home office, which looks like this:
 
 <figure>
-    <img src="/images/blog/remotive/desk.jpg" alt="My home office." width="500" height="250">
+    <img src="/assets/img/remotive/desk.jpg" alt="My home office." width="500" height="250">
     <figcaption>My home office, including a standing desk, chair, upright mouse, and headset.</figcaption>
 </figure>
 

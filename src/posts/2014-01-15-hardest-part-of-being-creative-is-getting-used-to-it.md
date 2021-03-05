@@ -17,7 +17,7 @@ My wife is a fantastic mother, wife, provider, and homeowner (we have a house to
 **But I’m not.**
 
 <figure>
-	<img src="/images/blog/creative/sebastian.jpg" alt="Sebastian and I running around outside." width="600" height="500">
+	<img src="/assets/img/creative/sebastian.jpg" alt="Sebastian and I running around outside." width="600" height="500">
 	<figcaption>Side-project-Sunday, current day.</figcaption>
 </figure>
 

@@ -38,7 +38,7 @@ Once all the onboarding stuff was done, though, the self-serve part became quite
 Stack Overflow is very generous in helping remote employees furnish a home office. They sent a few lists of common setups (desks, chairs, computers, etc.), but ultimately gave me freedom to choose whatever I wanted within reason. I started conservatively...
 
 <figure>
-	<img src="/images/blog/stack-overflow-design/desk.jpg" alt="My home office desk." height="500" width="900">
+	<img src="/assets/img/stack-overflow-design/desk.jpg" alt="My home office desk." height="500" width="900">
 	<figcaption>A maxed-out MacBook Pro, two Thunderbolt displays, an adjustable desk, a Herman Miller chair... not exactly roughing it.</figcaption>
 </figure>
 
@@ -57,7 +57,7 @@ In my previous jobs, for better or worse, there were usually a few layers of man
 Compared to that, joining Stack Overflow was like…
 
 <figure>
-	<img src="/images/blog/stack-overflow-design/hose.jpg" alt="Little girl getting sprayed in the face by a hose." height="282" width="425">
+	<img src="/assets/img/stack-overflow-design/hose.jpg" alt="Little girl getting sprayed in the face by a hose." height="282" width="425">
 </figure>
 
 Stack Overflow defaults to open and transparent regarding information. We use Stack Overflow (of course!), Google Docs, Google Drive, Google Hangouts, Trello, Invision, GitLab, and multiple chat tools. And I was handed the keys to everything when I started.
@@ -102,6 +102,6 @@ If you’re interested in how I applied for a job at Stack Overflow, I briefly [
 
 <figure>
 	<a href="https://dribbble.com/shots/2873870-HTML-Email-Cover-Letter">
-		<img src="/images/blog/stack-overflow-design/dribbble.gif" alt="The HTML Email Cover Letter I sent when applying for jobs." height="300" width="400">
+		<img src="/assets/img/stack-overflow-design/dribbble.gif" alt="The HTML Email Cover Letter I sent when applying for jobs." height="300" width="400">
 	</a>
 </figure>

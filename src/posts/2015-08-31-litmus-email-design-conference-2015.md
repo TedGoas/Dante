@@ -22,13 +22,13 @@ As a designer, my plan this year is to build up a strong foundation and create a
 In this regard, the development tracks did not disappoint. I came away thinking… well Dan Denney [put it well](https://speakerdeck.com/dandenney/the-organized-chaos-of-email-creation):
 
 <figure>
-	<img src="/images/blog/tedc15/dan-denney.jpg" alt="Be violent and original in your emails." width="700" height="250">
+	<img src="/assets/img/tedc15/dan-denney.jpg" alt="Be violent and original in your emails." width="700" height="250">
 </figure>
 
 [Rob Berinti](http://berinti.com/)'s [typography talk](https://drive.google.com/open?id=0B2uzG2bvD431aWsyTXRnVG94S3c) solves so many simple, yet frequently annoying email typography issues. [Dan Denney](https://twitter.com/dandenney), [Brian Graves](https://twitter.com/briangraves), [Lee Munroe](https://twitter.com/leemunroe), and [Aaron Ladage](https://twitter.com/aladage) all have me thinking about what parts of my workflow are outdated and no longer appropriate. The TEDCNTACC in my head is full.
 
 <figure class="outset">
-	<img src="/images/blog/tedc15/mike-ragan.jpg" alt="Designing for Image Blocking." width="700" height="375">
+	<img src="/assets/img/tedc15/mike-ragan.jpg" alt="Designing for Image Blocking." width="700" height="375">
 	<figcaption>Sketch notes from <a href="https://twitter.com/Mike_Ragan">Mike Ragan</a>'s talk on Images-Off Design</figcaption>
 </figure>
 
@@ -38,7 +38,7 @@ A theme within the conference was people who attended last year's conference as 
 If this was your first TEDC, you can do this! **#TedCruz16**
 
 <figure>
-	<img src="/images/blog/tedc15/panel.jpg" alt="The web comes to email, but should it?" width="800" height="533">
+	<img src="/assets/img/tedc15/panel.jpg" alt="The web comes to email, but should it?" width="800" height="533">
 	<figcaption><a href="https://twitter.com/pbiolsi/status/637354517391101953">Image Credit</a></figcaption>
 </figure>
 
@@ -52,11 +52,11 @@ Big thank you to Litmus not only for putting this event together, but for lettin
 Big thank you to all of the attendees and speakers for making this a special event. I hope to keep in touch and see everyone next year!
 
 <figure>
-	<img src="/images/blog/tedc15/after.jpg" alt="The TEDC15 OG's." width="590" height="450">
+	<img src="/assets/img/tedc15/after.jpg" alt="The TEDC15 OG's." width="590" height="450">
 	<figcaption><a href="https://instagram.com/p/68ZIb3pSd-/">Image Credit</a></figcaption>
 </figure>
 
 ## Thank You Narragansett
 <figure>
-	<img src="/images/blog/tedc15/narragansett.jpg" alt="Can of Narragansett." width="300" height="400">
+	<img src="/assets/img/tedc15/narragansett.jpg" alt="Can of Narragansett." width="300" height="400">
 </figure>

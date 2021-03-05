@@ -29,7 +29,7 @@ If project doesn’t regard design as an important role, why should I let it tak
 But a set of buttons? Ugh.
 
 <figure>
-	<img src="/images/blog/design-tools.svg" alt="Design tools illustration." width="320" >
+	<img src="/assets/img/design-tools.svg" alt="Design tools illustration." width="320" >
 </figure>
 
 Sometimes I think about saying that I don’t have time to fit in requests like these buttons simply because I don’t believe they’ll make any difference. But I don’t want to disappoint my coworkers and friends because of my pride. So if someone asks for a button, I give them a button and don’t worry about reinventing the rest of the experience.

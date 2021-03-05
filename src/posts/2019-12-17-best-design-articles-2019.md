@@ -27,7 +27,7 @@ At work. On social media. Among friends. [This is me](https://www.reddit.com/r/i
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2019/knowledge.jpg" alt="Floating book." width="880" height="400">
+    <img src="/assets/img/best-of-2019/knowledge.jpg" alt="Floating book." width="880" height="400">
 </figure>
 <h2><a href="https://fs.blog/2019/02/compounding-knowledge/">Compounding knowledge</a></h2>
 
@@ -40,7 +40,7 @@ Avoid expiring information (easily digestible news that won’t be relevant next
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2019/rewrites.jpg" alt="Old VS Studio vs new VS Code." width="880" height="400">
+    <img src="/assets/img/best-of-2019/rewrites.jpg" alt="Old VS Studio vs new VS Code." width="880" height="400">
 </figure>
 <h2><a href="https://medium.com/@herbcaudill/lessons-from-6-software-rewrite-stories-635e4c8f7c22">Lessons from 6 software rewrite stories</a></h2>
 
@@ -51,7 +51,7 @@ This article looks at how Netscape, Basecamp, Visual Studio, Gmail, Fogbugz, and
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2019/tools.jpg" alt="Tools hanging on a tool rack on the wall." width="880" height="400">
+    <img src="/assets/img/best-of-2019/tools.jpg" alt="Tools hanging on a tool rack on the wall." width="880" height="400">
 </figure>
 <h2><a href="https://www.intercom.com/blog/videos/tools-design-process/">The tools we use: Challenging dogma in the design process</a></h2>
 
@@ -62,7 +62,7 @@ Emmet is a great storyteller and provides loads of history. Reminds me of [Wilso
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2019/3step.png" alt="Stick figures counting 1, 2, 3." width="880" height="400">
+    <img src="/assets/img/best-of-2019/3step.png" alt="Stick figures counting 1, 2, 3." width="880" height="400">
 </figure>
 <h2><a href="https://uxdesign.cc/how-to-solve-problems-6bf14222e424?">A three-step framework for solving problems</a></h2>
 
@@ -77,7 +77,7 @@ Simple to say, harder to practice. If your product development process involves 
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2019/postmark.png" alt="Postmark brand illustration." width="880" height="400">
+    <img src="/assets/img/best-of-2019/postmark.png" alt="Postmark brand illustration." width="880" height="400">
 </figure>
 <h2><a href="https://www.productboard.com/blog/postmark-age-product-excellence/">Age of product excellence</a></h2>
 
@@ -88,7 +88,7 @@ As a product designer, I’ve learned how a good product manager is worth their 
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2019/design-leadership.jpg" alt="Lego storm trooper painting." width="880" height="400">
+    <img src="/assets/img/best-of-2019/design-leadership.jpg" alt="Lego storm trooper painting." width="880" height="400">
 </figure>
 <h2><a href="https://uxdesign.cc/how-to-get-into-design-leadership-386e39774d84">How to get into design leadership</a></h2>
 
@@ -97,7 +97,7 @@ This year I dove head first into the “people” part of my job. The soft skill
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2019/leading-design.jpg" alt="Holding hands." width="880" height="400">
+    <img src="/assets/img/best-of-2019/leading-design.jpg" alt="Holding hands." width="880" height="400">
 </figure>
 <h2><a href="https://uxplanet.org/tips-for-leading-a-design-project-a638f5a71884">Tips for leading a design project</a></h2>
 
@@ -108,7 +108,7 @@ When taking on a new design projects, there are so many things to consider, ques
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2019/manager.jpg" alt="Coffee mug with the word 'Boss' on it." width="880" height="400">
+    <img src="/assets/img/best-of-2019/manager.jpg" alt="Coffee mug with the word 'Boss' on it." width="880" height="400">
 </figure>
 <h2><a href="https://charity.wtf/2019/09/08/reasons-not-to-be-a-manager/">17 reasons not to be a manager</a></h2>
 
@@ -121,7 +121,7 @@ Julie Zhuo has also been an inspiration here, [reminding us](https://mailchi.mp/
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2019/ux-career.png" alt="Illustration of man swimming with sharks." width="880" height="400">
+    <img src="/assets/img/best-of-2019/ux-career.png" alt="Illustration of man swimming with sharks." width="880" height="400">
 </figure>
 <h2><a href="https://medium.com/google-design/how-to-have-a-successful-ux-career-at-google-or-anywhere-else-ea63624f74de">How to have a successful UX career at Google (or anywhere else)</a></h2>
 
@@ -136,7 +136,7 @@ As the title suggests, this article is not limited to Google employees. In fact 
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2019/remote.jpg" alt="Time lapse of people walking through a gate somewhere in Asia." width="880" height="400">
+    <img src="/assets/img/best-of-2019/remote.jpg" alt="Time lapse of people walking through a gate somewhere in Asia." width="880" height="400">
 </figure>
 <h2><a href="https://mikeindustries.com/blog/archive/2019/08/a-year-of-working-remotely">A year of working remotely</a></h2>
 
@@ -147,7 +147,7 @@ Spot on Mike… spot on.
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2019/app-mistakes.jpg" alt="Example of a modal in a app web." width="880" height="400">
+    <img src="/assets/img/best-of-2019/app-mistakes.jpg" alt="Example of a modal in a app web." width="880" height="400">
 </figure>
 <h2><a href="https://www.nngroup.com/articles/top-10-application-design-mistakes/">Top 10 Application-Design Mistakes</a></h2>
 

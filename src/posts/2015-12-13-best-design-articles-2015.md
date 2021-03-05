@@ -9,7 +9,7 @@ description:  A small collection of articles that stuck out in my mind this year
 A small collection of articles that stuck out in my mind this year.
 
 <figure>
-    <img src="/images/blog/best-of-2015/ny-gov.jpg" alt="NY.gov redesign." width="750" height="300">
+    <img src="/assets/img/best-of-2015/ny-gov.jpg" alt="NY.gov redesign." width="750" height="300">
 </figure>
 
 <h2><a href="https://medium.com/@rachelhaot/how-to-design-for-everybody-4b2870724c4#.3xap642hr">How to Design for Everybody</a></h2>
@@ -27,7 +27,7 @@ Users are best at explaining their goals and workflow tendencies. Don’t just b
 ---
 
 <figure>
-    <img src="/images/blog/best-of-2015/imgur.png" alt="Imgur logo." width="750" height="300">
+    <img src="/assets/img/best-of-2015/imgur.png" alt="Imgur logo." width="750" height="300">
 </figure>
 
 <h2><a href="https://medium.com/@gerstenzang/16-product-things-i-learned-at-imgur-4e58b936759c#.nb4cnfobc">16 product things I learned at Imgur</a></h2>
@@ -36,7 +36,7 @@ I did not expect this level of mature product thinking from a site about GIFs. T
 
 ---
 <figure>
-    <img src="/images/blog/best-of-2015/ghost-car.jpg" alt="Screenshot of Super Mario Ghost Car." width="750" height="300">
+    <img src="/assets/img/best-of-2015/ghost-car.jpg" alt="Screenshot of Super Mario Ghost Car." width="750" height="300">
 </figure>
 
 <h2><a href="https://blog.intercom.io/only-competitor-that-matters/">The Only Competitor That Matters</a></h2>
@@ -46,7 +46,7 @@ The clichéd piece of advice to “ignore your competitors” makes a good sound
 ---
 
 <figure>
-    <img src="/images/blog/best-of-2015/amazon.png" alt="A lot of Amazon tabs." width="750" height="300">
+    <img src="/assets/img/best-of-2015/amazon.png" alt="A lot of Amazon tabs." width="750" height="300">
 </figure>
 
 <h2><a href="http://andrewchen.co/product-design-debt-versus-technical-debt/">Product Design Debt Versus Technical Debt</a></h2>
@@ -58,7 +58,7 @@ At a certain point, a design might stop catering to new features being piled on.
 ---
 
 <figure>
-    <img src="/images/blog/best-of-2015/roadmap.png" alt="Example of Product Roadmap." width="750" height="300">
+    <img src="/assets/img/best-of-2015/roadmap.png" alt="Example of Product Roadmap." width="750" height="300">
 </figure>
 
 <h2><a href="https://blog.intercom.io/before-you-plan-your-product-roadmap/">Before You Plan Your Next Product Roadmap</a></h2>
@@ -70,7 +70,7 @@ Project roadmaps don’t just involve building new things. Intercom offers advic
 ---
 
 <figure>
-    <img src="/images/blog/best-of-2015/waterbed.jpg" alt="Two porcupines discussing a how a waterbed was a bad idea." width="750" height="300">
+    <img src="/assets/img/best-of-2015/waterbed.jpg" alt="Two porcupines discussing a how a waterbed was a bad idea." width="750" height="300">
 </figure>
 
 <h2><a href="https://medium.com/first-round-insiders/the-high-price-of-the-wrong-solution-609e706d3b0#.3hy1g495u">The High Price of the Wrong Solution</a></h2>
@@ -82,7 +82,7 @@ Sound familiar? It does to me. A nice, short read on product design definition.
 ---
 
 <figure>
-    <img src="/images/blog/best-of-2015/active-collab.jpg" alt="Preview of Acive Collab redesign." width="750" height="300">
+    <img src="/assets/img/best-of-2015/active-collab.jpg" alt="Preview of Acive Collab redesign." width="750" height="300">
 </figure>
 
 <h2><a href="https://blog.activecollab.com/redesigning-active-collab-393608cb019b#.r07aucg0j">Redesigning Active Collab</a></h2>
@@ -93,7 +93,7 @@ Along same lines as the above, this case study details how designers reduced and
 ---
 
 <figure>
-    <img src="/images/blog/best-of-2015/wired.jpg" alt="Beautiful products. Illustration." width="750" height="300">
+    <img src="/assets/img/best-of-2015/wired.jpg" alt="Beautiful products. Illustration." width="750" height="300">
 </figure>
 
 <h2><a href="http://www.wired.com/2015/05/google-ventures-not-every-product-needs-beautiful/">Not Every Product Needs to Be Beautiful</a></h2>
@@ -103,7 +103,7 @@ Due to time and resource constraints, I’m often unable to revisit projects to 
 ---
 
 <figure>
-    <img src="/images/blog/best-of-2015/lead.jpg" alt="Asked to Lead, but not in charge." width="750" height="300">
+    <img src="/assets/img/best-of-2015/lead.jpg" alt="Asked to Lead, but not in charge." width="750" height="300">
 </figure>
 
 <h2><a href="https://medium.com/seo-build-your-backlinks/getting-from-why-should-i-to-why-not-real-marketing-leadership-59ce5c35b2a0#.4jexgd8bj">Getting from ‘Why Should I?’ to ‘Why Not?’</a></h2>
@@ -113,7 +113,7 @@ Stakeholders achieve their goals through careful planning and execution while mi
 ---
 
 <figure>
-    <img src="/images/blog/best-of-2015/supporting-people.jpg" alt="Browser support." width="750" height="300">
+    <img src="/assets/img/best-of-2015/supporting-people.jpg" alt="Browser support." width="750" height="300">
 	<figcaption>credit: <a href="https://dribbble.com/shots/317426-Internet-Explorer-is-killing-the-web">Ivo Mynttinen</a></figcaption>
 </figure>
 
@@ -124,7 +124,7 @@ Whenever I find myself complaining about old browsers / email clients, I re-read
 ---
 
 <figure>
-    <img src="/images/blog/best-of-2015/burnout.jpg" alt="Phantom Burnout." width="750" height="300">
+    <img src="/assets/img/best-of-2015/burnout.jpg" alt="Phantom Burnout." width="750" height="300">
 	<figcaption>credit: <a href="https://dribbble.com/shots/1173121-The-Burnout">Arno Kathollnig</a></figcaption>
 </figure>
 
@@ -135,7 +135,7 @@ Tinkering. Lack of focus. Feeling worn down and tired. Being frequently and easi
 ---
 
 <figure>
-    <img src="/images/blog/best-of-2015/letter.jpg" alt="Old photo of lady reading a letter." width="750" height="300">
+    <img src="/assets/img/best-of-2015/letter.jpg" alt="Old photo of lady reading a letter." width="750" height="300">
 </figure>
 
 <h2><a href="https://medium.com/message/how-to-email-with-an-old-friend-when-you-probably-wont-rekindle-the-friendship-f3b734d3698c#.mb1p1v7j9">How to Email with an Old Friend After Falling Out of Touch</a></h2>

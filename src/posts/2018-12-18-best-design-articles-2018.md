@@ -9,7 +9,7 @@ description:  A small collection of articles that stuck out in my mind this year
 A small collection of design articles that stuck out in my mind this year. <a href="/blog/best-design-articles-2017">I did this last year too</a>.
 
 <figure>
-    <img src="/images/blog/best-of-2018/tables.png" alt="Preview of HTML Table." width="700" height="400">
+    <img src="/assets/img/best-of-2018/tables.png" alt="Preview of HTML Table." width="700" height="400">
 </figure>
 
 <h2><a href="https://uxdesign.cc/designing-tables-for-reusability-490a3760533">Designing Tables for Reusability</a></h2>
@@ -19,7 +19,7 @@ I designed a lot of data tables this year. Designing tables is <strong>hard</str
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2018/hubspot.png" alt="Redesign illustration." width="700" height="400">
+    <img src="/assets/img/best-of-2018/hubspot.png" alt="Redesign illustration." width="700" height="400">
 </figure>
 
 <h2><a href="https://medium.com/hubspot-product/people-over-pixels-b962c359a14d">How building a design system empowers your team to focus on people — not pixels.</a></h2>
@@ -29,7 +29,7 @@ This year I read a lot stories about how teams created their design system, but 
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2018/writing-well.png" alt="On Writing Well book cover." width="700" height="400">
+    <img src="/assets/img/best-of-2018/writing-well.png" alt="On Writing Well book cover." width="700" height="400">
 </figure>
 
 <h2><a href="https://sivers.org/book/OnWritingWell">Derek Sivers’s notes for “On Writing Well”</a></h2>
@@ -39,7 +39,7 @@ I picked up a copy of _On Writing Well_ but it’s somewhat of a long and dense 
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2018/able.png" alt="Able, Allow, Should quadrant diagram." width="700" height="400">
+    <img src="/assets/img/best-of-2018/able.png" alt="Able, Allow, Should quadrant diagram." width="700" height="400">
 </figure>
 
 <h2><a href="https://medium.com/facebook-design/able-allowed-should-navigating-modern-tech-ethics-50f54f0df7d6">Able, Allowed, Should</a></h2>
@@ -49,7 +49,7 @@ It hasn’t been an easy few years for a lot of tech companies and many are star
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2018/ux-copy.png" alt="Copywriteres vs UX Writers diagram." width="700" height="400">
+    <img src="/assets/img/best-of-2018/ux-copy.png" alt="Copywriteres vs UX Writers diagram." width="700" height="400">
 </figure>
 
 <h2><a href="https://medium.com/r/?url=https%3A%2F%2Fuxdesign.cc%2Fhow-to-build-a-better-product-with-ux-writing-926d78209ce8">How to build a better product with UX writing</a></h2>
@@ -59,7 +59,7 @@ Words are the most important part of an interface and this year I tried to level
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2018/zoom.jpg" alt="Microscope zoomed in." width="700" height="400">
+    <img src="/assets/img/best-of-2018/zoom.jpg" alt="Microscope zoomed in." width="700" height="400">
 </figure>
 
 <h2><a href="https://uxdesign.cc/the-importance-of-zooming-out-in-the-design-process-feea24ee7422">The importance of zooming out in the design process</a></h2>
@@ -69,7 +69,7 @@ As designers, we need to zoom in to our work’s details, but also zoom out and 
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2018/functions.png" alt="Product as functions flow diagram." width="700" height="400">
+    <img src="/assets/img/best-of-2018/functions.png" alt="Product as functions flow diagram." width="700" height="400">
 </figure>
 
 <h2><a href="http://www.feltpresence.com/functions.html">Products Are Functions</a></h2>
@@ -81,7 +81,7 @@ Every once in a while, I read an article that makes me pause and rethink the way
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2018/manager.jpg" alt="Track and field race." width="700" height="400">
+    <img src="/assets/img/best-of-2018/manager.jpg" alt="Track and field race." width="700" height="400">
 </figure>
 
 <h2><a href="https://medium.com/s/story/should-i-become-a-manager-bfebe857a457">Should You Become a Manager?</a></h2>
@@ -91,7 +91,7 @@ I’m at a crossroads in my design career and have been thinking about what my n
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2018/polaris.png" alt="Preview of Shopify sites on various devices." width="700" height="400">
+    <img src="/assets/img/best-of-2018/polaris.png" alt="Preview of Shopify sites on various devices." width="700" height="400">
 </figure>
 
 <h2><a href="https://ux.shopify.com/the-system-always-kicks-back-d94b945407f2">The system always kicks back</a></h2>
@@ -101,7 +101,7 @@ Yet another article about design systems. But this one focuses on what happens _
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2018/strategy.jpg" alt="Strategy key on keyboard." width="700" height="400">
+    <img src="/assets/img/best-of-2018/strategy.jpg" alt="Strategy key on keyboard." width="700" height="400">
 </figure>
 
 <h2><a href="https://medium.com/@joulee/how-to-be-strategic-f6630a44f86b">How to be Strategic</a></h2>

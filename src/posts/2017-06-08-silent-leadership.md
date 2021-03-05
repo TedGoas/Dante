@@ -34,7 +34,7 @@ The idea is to focus on more than just design. Don’t just be a good designer, 
 But doing this is only part of the battle. You also have to be working for a company that has its eyes open for silent leadership. Cap Watkins talked about how Buzzfeed thinks about the career path of its designers at [Asbury Agile 2016](https://www.asburyagile.com/schedule.html) (graphic below). [Buffer](https://open.buffer.com/career-framework/), [Basecamp](https://github.com/basecamp/handbook/blob/master/making-a-career.md), and [Facebook](https://medium.com/facebook-design/tips-for-becoming-a-design-leader-7f32513b4c3f) have all written about career advancement options for their staff. They all include career paths that don’t involve management.
 
 <figure>
-	<img src="/images/blog/silent-leadership/cap-watkins.png" alt="Cap Watkins at Asbury Agile 2016, Diagram." height="450" width="600">
+	<img src="/assets/img/silent-leadership/cap-watkins.png" alt="Cap Watkins at Asbury Agile 2016, Diagram." height="450" width="600">
 	<figcaption class="mt3">At BuzzFeed, IC and manager tracks are parallel, not sequential. Eg. moving from a Sr. Product Designer to a Creative direction is a lateral move rather than a promotion.</figcaption>
 </figure>
 

@@ -25,7 +25,7 @@ So, we all know what responsive is, right? On column on mobile... and three on w
 
 <figure>
 	<div class="bg-white px-3 inline-block rounded">
-		<img src="/images/blog/jerseyscript/responsive.png" alt="Abstract responsive email illustration." width="600" height="400">
+		<img src="/assets/img/jerseyscript/responsive.png" alt="Abstract responsive email illustration." width="600" height="400">
 	</div>
 	<figcaption class="caption">responsive, pretty much</figcaption>
 </figure>
@@ -45,7 +45,7 @@ I could talk about [responsive email patterns](http://responsiveemailpatterns.co
 
 <figure>
 	<div class="bg-white p-3 inline-block rounded">
-		<img src="/images/blog/jerseyscript/fold.png" alt="Diagram of all the the mobile breakpoints." width="740" height="300">
+		<img src="/assets/img/jerseyscript/fold.png" alt="Diagram of all the the mobile breakpoints." width="740" height="300">
 	</div>
 	<figcaption class="caption">I know this looks bad, but there actually is a fairly well-defined fold on mobile.</figcaption>
 </figure>
@@ -56,7 +56,7 @@ And this constraint was actually a blessing in disguise...
 
 <figure>
 	<div class="bg-white p-3 inline-block rounded">
-		<img src="/images/blog/jerseyscript/audit.png" alt="Cartoon of simple Apple and Google products vs. you company's overly complicated product." width="320" height="600">
+		<img src="/assets/img/jerseyscript/audit.png" alt="Cartoon of simple Apple and Google products vs. you company's overly complicated product." width="320" height="600">
 	</div>
 	<figcaption>my company</figcaption>
 </figure>
@@ -78,10 +78,10 @@ Folks have incorporated things like [HAML](https://github.com/Omgitsonlyalex/Zen
 
 <figure class="unbound max-w-5xl">
 	<div class="grid--4col--2x2col gap-4">
-		<img src="/images/blog/jerseyscript/grunt.svg" alt="Grunt logo." width="149">
-		<img src="/images/blog/jerseyscript/sass.svg" alt="Sass logo." width="200">
-		<img src="/images/blog/jerseyscript/middleman.svg" alt="mMiddleman logo." width="213">
-		<img src="/images/blog/jerseyscript/haml.svg" alt="HAML logo." width="162">
+		<img src="/assets/img/jerseyscript/grunt.svg" alt="Grunt logo." width="149">
+		<img src="/assets/img/jerseyscript/sass.svg" alt="Sass logo." width="200">
+		<img src="/assets/img/jerseyscript/middleman.svg" alt="mMiddleman logo." width="213">
+		<img src="/assets/img/jerseyscript/haml.svg" alt="HAML logo." width="162">
 	</div>
 	<figcaption>Recent entrants in email workflow</figcaption>
 </figure>

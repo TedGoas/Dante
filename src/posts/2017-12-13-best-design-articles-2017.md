@@ -9,7 +9,7 @@ description:  A small collection of articles that stuck out in my mind this year
 A small collection of articles that stuck out in my mind this year.
 
 <figure>
-    <img src="/images/blog/best-of-2017/facebook-design-leader.jpg" alt="Facebook designers using laptops." width="1000" height="400">
+    <img src="/assets/img/best-of-2017/facebook-design-leader.jpg" alt="Facebook designers using laptops." width="1000" height="400">
 </figure>
 <h2><a href="https://medium.com/facebook-design/tips-for-becoming-a-design-leader-7f32513b4c3f">Tips for Becoming a Design Leader</a></h2>
 
@@ -18,7 +18,7 @@ I thought about design leadership a lot in 2017. I [wrote about it too](https://
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2017/five-tool-designer.png" alt="design swiss army knife. Illustration." width="1000" height="400">
+    <img src="/assets/img/best-of-2017/five-tool-designer.png" alt="design swiss army knife. Illustration." width="1000" height="400">
     <figcaption>Image Credit <a href="https://dribbble.com/shots/927116-Know-your-tools">Larry Buchanan</a></figcaption>
 </figure>
 <h2><a href="https://mikeindustries.com/blog/archive/2017/02/the-five-tool-designer">The Five-Tool Designer</a></h2>
@@ -28,7 +28,7 @@ Mike Davidson briefly describes five traits he looks for when hiring designers. 
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2017/accessibility.jpg" alt="Person focusing closely on mobile device." width="1000" height="400">
+    <img src="/assets/img/best-of-2017/accessibility.jpg" alt="Person focusing closely on mobile device." width="1000" height="400">
 </figure>
 <h2><a href="https://axesslab.com/accessibility-according-to-pwd/">Accessibility According to Actual People with Disabilities</a></h2>
 
@@ -37,7 +37,7 @@ So many accessibility posts concentrate on designing for screen readers and folk
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2017/stack-overflow-remote.png" alt="Home office illustrations." width="1000" height="400">
+    <img src="/assets/img/best-of-2017/stack-overflow-remote.png" alt="Home office illustrations." width="1000" height="400">
 </figure>
 <h2><a href="https://stackoverflow.blog/2017/09/29/making-remote-work-behind-scenes/">Making Remote Work</a></h2>
 
@@ -46,7 +46,7 @@ I work for Stack Overflow, a company that’s massively ahead of the curve in te
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2017/design-systems.jpg" alt="The iconic tennis court scene in The Founder." width="1000" height="400">
+    <img src="/assets/img/best-of-2017/design-systems.jpg" alt="The iconic tennis court scene in The Founder." width="1000" height="400">
 </figure>
 <h2><a href="https://publication.design.systems/design-systems-are-for-people-a484620b6988">Design Systems are for People</a></h2>
 
@@ -57,7 +57,7 @@ Design Systems are #sohot right now, but getting buy in to make one for your com
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2017/full-stack-design-system.jpg" alt="Giant Lego battleship." width="1000" height="400">
+    <img src="/assets/img/best-of-2017/full-stack-design-system.jpg" alt="Giant Lego battleship." width="1000" height="400">
 </figure>
 <h2><a href="https://blog.intercom.com/the-full-stack-design-system/">The Full Stack Design System</a></h2>
 
@@ -68,7 +68,7 @@ Many Design Systems are really just Pattern Libraries: a big box of UI Lego piec
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2017/ignorance.jpg" alt="THINK rubber stamp." width="1000" height="400">
+    <img src="/assets/img/best-of-2017/ignorance.jpg" alt="THINK rubber stamp." width="1000" height="400">
     <figcaption>Image Credit <a href="https://dribbble.com/shots/2227208-think-stamp">BRINT</a></figcaption>
 </figure>
 <h2><a href="https://m.signalvnoise.com/ignorance-got-a-bad-rap-19ccaeb301af">Ignorance Got a Bad Rap</a></h2>
@@ -82,7 +82,7 @@ It’s tempting to soak up every piece of advice and data on any given idea, but
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2017/competitive-research.png" alt="Research results in a spreadsheet." width="1000" height="400">
+    <img src="/assets/img/best-of-2017/competitive-research.png" alt="Research results in a spreadsheet." width="1000" height="400">
 </figure>
 <h2><a href="https://medium.com/wayfair-design/a-designers-guide-to-competitor-research-914b0deee25a">A Designer’s Guide to Competitor Research</a></h2>
 
@@ -91,7 +91,7 @@ Product Designers have to cover a lot of ground and research wasn’t one of my 
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2017/ux-bar.png" alt="Creative Market's functional spec." width="1000" height="400">
+    <img src="/assets/img/best-of-2017/ux-bar.png" alt="Creative Market's functional spec." width="1000" height="400">
 </figure>
 <h2><a href="https://medium.com/building-creative-market/raising-our-user-experience-design-bar-1b03e371abee">Raising Our User Experience Design Bar</a></h2>
 
@@ -104,7 +104,7 @@ It’s cheaper to brainstorm and collaborate in a Google Doc than in Sketch. Spe
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2017/data-heavy-design.png" alt="Large form wireframe design." width="1000" height="400">
+    <img src="/assets/img/best-of-2017/data-heavy-design.png" alt="Large form wireframe design." width="1000" height="400">
 </figure>
 <h2><a href="https://blog.prototypr.io/designing-for-a-data-heavy-platform-33cbcc0dbe7a">Designing for a Data-Heavy Platform</a></h2>
 
@@ -115,7 +115,7 @@ This ^^ has been my reality for the last several years, but that doesn’t mean 
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2017/growing-blue-apron.jpg" alt="Blue Apron slide deck cover." width="1000" height="400">
+    <img src="/assets/img/best-of-2017/growing-blue-apron.jpg" alt="Blue Apron slide deck cover." width="1000" height="400">
 </figure>
 <h2><a href="https://bettereveryday.vc/what-i-learned-helping-blue-apron-grow-25x-in-3-5-years-d8b9816a98f9">What I Learned Helping Blue Apron Grow 25X in 3.5 Years</a></h2>
 

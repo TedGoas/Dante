@@ -41,7 +41,7 @@ But here's the rub: Compared to consumer-focused products, we have a small numbe
 ## Everything is an Option
 
 <figure class="unbound max-w-5xl bg-gray-1 p-4 rounded">
-	<img src="/images/blog/medical/ui-bloat.png" alt="Interface Bloat. Cartoon." height="190" width="920">
+	<img src="/assets/img/medical/ui-bloat.png" alt="Interface Bloat. Cartoon." height="190" width="920">
 </figure>
 
 A by-product of catering to requests like this is a large, carefully engineered product with lots of features and options. Most of our interfaces are configurable, either by user preference or permission level. Each option makes each interface more unpredictable. Depending on what's enabled, a single screen can take many forms. It's a challenge to design interfaces flexible enough to handle every scenario. In Internet Explorer.

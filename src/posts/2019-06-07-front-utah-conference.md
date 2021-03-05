@@ -128,7 +128,7 @@ I also enjoyed listening to [Nate Walkingshaw](https://twitter.com/nwalkingshaw)
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/utah/front-conference.jpg" alt="Wade Shearer talking on stage." width="1000" height="500">
+    <img src="/assets/img/utah/front-conference.jpg" alt="Wade Shearer talking on stage." width="1000" height="500">
     <figcaption>Wade Shearer on stage.</figcaption>
 </figure>
 

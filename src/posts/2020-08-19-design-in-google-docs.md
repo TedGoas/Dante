@@ -46,7 +46,7 @@ Designing as a team early prevents designing by committee later.
 When doing design discovery, it’s best to cast a wide net early and consider wildly different solutions. Words are great at this. They’re quick to tear down a problem, build up potential solutions, and talk through use cases. At this fidelity, changes are still cheap
 
 <figure class="max-w-full">
-	<img src="/images/blog/google-doc/exploration.jpg" alt="Refinement vs exploration diagram showing how refining too early can miss the best solution." height="800" width="1248">
+	<img src="/assets/img/google-doc/exploration.jpg" alt="Refinement vs exploration diagram showing how refining too early can miss the best solution." height="800" width="1248">
     <figcaption>Image credit <a href="https://twitter.com/destraynor/status/1087398748479733760">Des Traynor</a></figcaption>
 </figure>
 
@@ -62,7 +62,7 @@ If we start with pictures too soon, it’s easier to fall in love with an implem
 Sticking to words keeps everyone focused on the problem and those impacted. It’s a great way to achieve consensus around a design before diving into the details.
 
 <figure class="max-w-full">
-	<img src="/images/blog/google-doc/google-doc.svg" alt="" height="350" width="900">
+	<img src="/assets/img/google-doc/google-doc.svg" alt="" height="350" width="900">
 </figure>
 
 ## What it looks like in practice

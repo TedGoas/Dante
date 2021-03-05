@@ -12,7 +12,7 @@ Email design systems are a way to improve the consistency of email designs and h
 
 <figure>
   <div class="bg-white px-3 rounded">
-    <img src="/images/blog/email-design-systems/background.png" alt="Old software icons." width="1600" height="400">
+    <img src="/assets/img/email-design-systems/background.png" alt="Old software icons." width="1600" height="400">
   </div>
   <figcaption>Tools of the trade, circa 2001.</figcaption>
 </figure>
@@ -36,14 +36,14 @@ We realized we’d have to change the way we build emails and one way we’re do
 Wait, hold up! What exactly is a design system? I mentioned it’s a way to improve emails at scale, but how?
 
 <figure>
-    <img src="/images/blog/email-design-systems/brand-guide.png" alt="Spotify brand guide homepage." width="1200" height="928">
+    <img src="/assets/img/email-design-systems/brand-guide.png" alt="Spotify brand guide homepage." width="1200" height="928">
     <figcaption>Spotify brand guide</figcaption>
 </figure>
 
 Is it a like brand guide…? These sites that show you how to use a brand’s logo and colors…? Not exactly. Brand guides include design guidance, but lack code examples.
 
 <figure>
-    <img src="/images/blog/email-design-systems/pattern-library.png" alt="Mailchimp pattern library grid page." width="1200" height="928">
+    <img src="/assets/img/email-design-systems/pattern-library.png" alt="Mailchimp pattern library grid page." width="1200" height="928">
     <figcaption>Mailchimp pattern library</figcaption>
 </figure>
 
@@ -60,7 +60,7 @@ It reduces the need for bespoke design, which is slow, inconsistent, hard to tes
 The best design systems cover not only the what, but also how, when, and why of design. Design systems for the web have become popular as companies realized the need to strengthen the design of their products to compete. Design systems for the web have become popular as companies realized the need to strengthen the design of their products to compete. An email design system takes these same principles and applies them to email design and production.
 
 <figure>
-    <img src="/images/blog/email-design-systems/stacks.png" alt="Stacks email homepage." width="1200" height="928">
+    <img src="/assets/img/email-design-systems/stacks.png" alt="Stacks email homepage." width="1200" height="928">
     <figcaption><a href="https://stackoverflow.design/email/">Stack Overflow's design system</a></figcaption>
 </figure>
 
@@ -69,7 +69,7 @@ Here is what [Stack Overflow’s design system](https://stackoverflow.design/) l
 [The email section](https://stackoverflow.design/email/) contains a few starter email templates, common email components like buttons and text styles, and guidelines for how to use it all. Everything is on-brand and tested in 70+ email clients. What this does it enables more people to create consistently-designed, properly-rendered email without being an email design expert.
 
 <figure>
-    <img src="/images/blog/email-design-systems/simpsons.gif" alt="Simpsons dog and cat rolling around on pile of money." width="498" height="372">
+    <img src="/assets/img/email-design-systems/simpsons.gif" alt="Simpsons dog and cat rolling around on pile of money." width="498" height="372">
 </figure>
 
 So email design systems are great! They’ll the fix all our email problems and we should all be using them to create all their emails, problem solved, right? Well… not necessarily. And that leads me to the first of five lessons I’ve learned while working on Stack Overflow’s email design system:
@@ -83,7 +83,7 @@ When I joined Stack Overflow, there wasn’t a process for email design and deve
 For a company that sends four million emails a week, that’s a problem. At best, a broken email contributes to [the broken windows theory](https://www.vanschneider.com/the-broken-window-theory) _(“if this email’s broken, I wonder what else at Stack Overflow is…”)_ and erodes someone’s trust in us. At worst, it means someone can’t complete a task, like if a button doesn’t click.
 
 <figure>
-    <img src="/images/blog/email-design-systems/old-emails.png" alt="Six old Stack Overflow emails." width="1600" height="800">
+    <img src="/assets/img/email-design-systems/old-emails.png" alt="Six old Stack Overflow emails." width="1600" height="800">
     <figcaption>Sample of older emails at Stack Overflow</figcaption>
 </figure>
 
@@ -103,7 +103,7 @@ How about using whatever spare time there is between projects? Sounds logical. I
 After a while, we learned that our design system would need to be an official project or the company would just keep pushing to ship product work faster instead of building a better future.
 
 <figure>
-    <img src="/images/blog/email-design-systems/wheel.png" alt="Cartoon of caveman selling a wheel." width="1024" height="562" class="rounded">
+    <img src="/assets/img/email-design-systems/wheel.png" alt="Cartoon of caveman selling a wheel." width="1024" height="562" class="rounded">
 </figure>
 
 So, we felt the pain, right? We knew we needed a better way to build email and thought an email design system would do that, but how do we convince the boss? Here’s how we made our case:
@@ -129,13 +129,13 @@ While it’s good to do a little competitive research at the beginning, it can b
 We started small. Like, _really_ small. Like, in a blank Google Doc with editing rights enabled for everyone.
 
 <figure>
-    <img src="/images/blog/email-design-systems/cursor.gif" alt="blinking cursor" width="695" height="150">
+    <img src="/assets/img/email-design-systems/cursor.gif" alt="blinking cursor" width="695" height="150">
 </figure>
 
 We invited folks from all over the company to discuss what email components they use most and what questions they have. Engineering, product managers, marketing… we even got legal involved.
 
 <figure>
-    <img src="/images/blog/email-design-systems/brainstorm.png" alt="Our brainstorm in Google Docs." width="1600" height="800">
+    <img src="/assets/img/email-design-systems/brainstorm.png" alt="Our brainstorm in Google Docs." width="1600" height="800">
 </figure>
 
 Using a Google Doc lowered the barrier to entry and allowed everyone to brainstorm with us without configuring any software or being familiar with code. Hearing everyone’s voice at the beginning showed how everyone thinks about email differently and informed where to focus our initial efforts.
@@ -152,7 +152,7 @@ When it’s time to start making the actual design system and documentation site
 We launched our design system with only basic typography styles, responsive images, one button style, and a responsive-aware wrapper (the stuff we identified from the Google doc above). That’s it. And people started using it.
 
 <figure>
-    <img src="/images/blog/email-design-systems/stacks-emails.png" alt="Progression of Stacks emails." width="1600" height="712">
+    <img src="/assets/img/email-design-systems/stacks-emails.png" alt="Progression of Stacks emails." width="1600" height="712">
     <figcaption>We gradually shipped more email components</figcaption>
 </figure>
 
@@ -164,7 +164,7 @@ Shipping early allows folks to start using the design system right away. You mig
 
 <figure>
   <div class="bg-gray-8 p-4 inline-block rounded">
-    <img src="/images/blog/email-design-systems/button-vs-tag.png" alt="alt" width="780" height="180">
+    <img src="/assets/img/email-design-systems/button-vs-tag.png" alt="alt" width="780" height="180">
   </div>
   <figcaption>Buttons and tags, so similar yet so different.</figcaption>
 </figure>
@@ -184,7 +184,7 @@ We learned this the hard way.
 We have a product offering called Stack Overflow for Teams, a private version of Stack Overflow that companies can buy. We designed an email template specifically for our Stack Overflow for Teams product, but we didn’t really document how it should be used. Our documentation just said “use for teams.”
 
 <figure>
-    <img src="/images/blog/email-design-systems/wrong-docs.png" alt="Example of email template being used incorrectly." width="1600" height="712">
+    <img src="/assets/img/email-design-systems/wrong-docs.png" alt="Example of email template being used incorrectly." width="1600" height="712">
 </figure>
 
 Imagine my reaction when I got an email from our own IT Department who’d used the template to send a company-wide email about our Google Groups account. Our own internal team had interpreted “teams” as “my team name on the org chart.” A perfectly valid interpretation since we skimped on the template’s documentation. Oops!!
@@ -192,7 +192,7 @@ Imagine my reaction when I got an email from our own IT Department who’d used 
 This has since been fixed, but we learned that incomplete or outdated documentation can lead people to using things for the wrong reasons. I mentioned how design systems are often compared to legos. Building blocks can be combined to build any number of things. But if legos are provided without instructions, eventually someone’s gonna think this is a good idea:
 
 <figure>
-    <img src="/images/blog/email-design-systems/lego-aircraft-carrier.jpg" alt="Giant lego aircraft carrier." width="1248" height="936" class="rounded">
+    <img src="/assets/img/email-design-systems/lego-aircraft-carrier.jpg" alt="Giant lego aircraft carrier." width="1248" height="936" class="rounded">
     <figcaption>We all love a good lego analogy… <a href="https://www.intercom.com/blog/the-full-stack-design-system/">Image credit</a></figcaption>
 </figure>
 
@@ -228,7 +228,7 @@ Since launching our design system, I’ve seen folks with little email experienc
 Design should be collaborative, an email design system’s goal isn’t to eliminate the need for a designer. It’s also not to make all emails look the same.
 
 <figure>
-    <img src="/images/blog/email-design-systems/announcements.png" alt="alt" width="1600" height="800">
+    <img src="/assets/img/email-design-systems/announcements.png" alt="alt" width="1600" height="800">
     <figcaption>Emails we sent for big announcements.</figcaption>
 </figure>
 

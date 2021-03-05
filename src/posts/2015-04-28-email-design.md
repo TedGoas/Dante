@@ -60,8 +60,8 @@ Email even has its own favorite scapegoat: Outlook is the Internet Explorer of e
 
 <figure>
 	<video style="width:542px;height:626px;" autoplay loop controls>
-	  <source src="/images/blog/email-design/chanel.mp4" type='video/mp4'/>
-	  <source src="/images/blog/email-design/chanel.webm" type='video/webm'/>
+	  <source src="/assets/img/email-design/chanel.mp4" type='video/mp4'/>
+	  <source src="/assets/img/email-design/chanel.webm" type='video/webm'/>
 	</video>
 	<br>
 	<figcaption><a href="http://uk-edm.chanel.com/HM?b=bZdiPI9UAVmR33yOK7o3BiZi84zanRwTU2Gf7KbBZLLA1dVHV6XfiD6Pq2c_QgWb&c=w0IAVWgFPFor_06s_ZqA2Q" target="blank">original source</a></figcaption>
@@ -76,7 +76,7 @@ And remember: you don't have to be an email expert to have a positive impact.
 All you have to do is care.
 
 <figure>
-	<img src="/images/blog/email-design/i-am-ok-with-email.png" alt="I am ok with email." width="800" height="300">
+	<img src="/assets/img/email-design/i-am-ok-with-email.png" alt="I am ok with email." width="800" height="300">
 </figure>
 
 ---

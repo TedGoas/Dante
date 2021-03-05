@@ -66,7 +66,7 @@ Unfortunately Outlook doesn’t recognize link tags as block elements, nor does 
 
 <figure>
 <div class="px-3 bg-gray-8 inline-block rounded">
-    <img src="/images/blog/outlook/bulletproof-buttons.svg" alt="" width="736" height="100">
+    <img src="/assets/img/outlook/bulletproof-buttons.svg" alt="" width="736" height="100">
   </div>
   <figcaption>Regular button display vs bulletproof button display.</figcaption>
 </figure>
@@ -103,7 +103,7 @@ There’s a lot going on there, let’s break it down:
 
 <figure>
 <div class="px-3 bg-gray-8 inline-block rounded-sm">
-    <img src="/images/blog/outlook/bulletproof-images.svg" alt="" width="736" height="500">
+    <img src="/assets/img/outlook/bulletproof-images.svg" alt="" width="736" height="500">
   </div>
     <figcaption>Regular image display vs bulletproof image display.</figcaption>
 </figure>

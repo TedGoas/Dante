@@ -49,7 +49,7 @@ That being said, with someone at Ted’s level of seniority a fair performance r
 As it turns out, a senior designer has good reason to focus more broadly on design leadership and strategy than the specifics of design itself. Therefore I focused on leadership and strategy topics like coalition building and stakeholder relationships, which were areas I personally worked on as well.
 
 <figure class="unbound">
-    <img src="/images/blog/unusual-teams/solution.svg" alt="" width="448" height="258" class="rounded">
+    <img src="/assets/img/unusual-teams/solution.svg" alt="" width="448" height="258" class="rounded">
 	<figcaption>Illustration from Undraw.</figcaption>
 </figure>
 
@@ -88,7 +88,7 @@ If Ted did not feel like I was in his corner, he wouldn’t bother to bring up q
 As a researcher, managing a designer successfully relied on the same principles of management that any pair would follow. The onus is on the manager to demonstrate genuine interest and good faith in their new team member, and set the stage for that person to grow as much as they would like. Then it’s up to the other person to reciprocate.
 
 <figure class="unbound">
-    <img src="/images/blog/unusual-teams/goals.svg" alt="" width="442" height="244" class="rounded">
+    <img src="/assets/img/unusual-teams/goals.svg" alt="" width="442" height="244" class="rounded">
 	<figcaption>Illustration from Undraw.</figcaption>
 </figure>
 

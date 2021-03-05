@@ -14,7 +14,7 @@ Litmus put in a lot of work to organize and run this conference. Their professio
 Also a **massive thanks to MailChimp**, who paid for my conference ticket and workshop pass. I wouldn’t have been at TEDC without MailChimp. They made my trip happen. Full stop.
 
 <figure>
-	<img src="/images/blog/tedc/mailchimp.jpg" alt="Me and Fabio Carneiro." width="700" height="450" class="fluid">
+	<img src="/assets/img/tedc/mailchimp.jpg" alt="Me and Fabio Carneiro." width="700" height="450" class="fluid">
 	<figcaption>Thank you MailChimp</figcaption>
 </figure>
 
@@ -24,7 +24,7 @@ I’m forever grateful to Litmus and MailChimp for making these few days possibl
 I stayed at the Seaport Hotel, across the street from the conference venue. I was only there to sleep, but it one of the nicest, most comfortable rooms I’ve ever stayed in.
 
 <figure>
-	<img src="/images/blog/tedc/seaport-world-trade-center.jpg" alt="Boston Seaport World Trade Center." width="700" height="450" class="fluid">
+	<img src="/assets/img/tedc/seaport-world-trade-center.jpg" alt="Boston Seaport World Trade Center." width="700" height="450" class="fluid">
 	<figcaption>Boston Seaport World Trade Center</figcaption>
 </figure>
 
@@ -32,7 +32,7 @@ The Seaport World Trade Center is a great venue and Litmus designed the conferen
 
 ## The Workshops and Sessions
 <figure>
-	<img src="/images/blog/tedc/litmus-signage.jpg" alt="Conference Signage." width="700" height="450" class="fluid">
+	<img src="/assets/img/tedc/litmus-signage.jpg" alt="Conference Signage." width="700" height="450" class="fluid">
 	<figcaption>Litmus</figcaption>
 </figure>
 
@@ -44,7 +44,7 @@ I was impressed with every talk I attended, but one caught me off guard (in a go
 I’d been looking forward to meeting some of the folks I look up to in the email world. Until the conference, my only outlets were Twitter and email forums. With so many people in the same place, it was nice to hang out in real life (and prove these are real people and not Twitter bots I'd been conversing with). [Brian Graves](https://twitter.com/briangraves), [Brent Walter](https://twitter.com/brent_walter), [Kevin Mandeville](https://twitter.com/KEVINgotbounce), [Fabio Carniero](https://twitter.com/flcarneiro), [Nicole Merlin](https://twitter.com/moonstrips), [Ros Hodgekiss](https://twitter.com/yarrcat), [Alex Ilhan](https://twitter.com/omgitsonlyalex), [Jason Rodriguez](https://twitter.com/RodriguezCommaJ), just to name a few.
 
 <figure>
-	<img src="/images/blog/tedc/alex-ros-ted.jpg" alt="Alex Ilhan, Ros Hodgekiss, and I." width="700" height="450" class="fluid">
+	<img src="/assets/img/tedc/alex-ros-ted.jpg" alt="Alex Ilhan, Ros Hodgekiss, and I." width="700" height="450" class="fluid">
 	<figcaption>Alex Ilhan, Ros Hodgekiss, and I</figcaption>
 </figure>
 
@@ -54,7 +54,7 @@ I also had a wonderful time talking with folks I hadn’t previously interacted 
 As with many conferences, the shop talk didn’t end at 5:30p. Email geeks organized small meetups for dinners and drinks. It was nice hanging out with different folks from different places and talk about more than just email.
 
 <figure class="figure figure-center-outset">
-	<img src="/images/blog/tedc/tedc-collage.jpg" alt="Fun @ TEDC14." width="1050" height="200" class="fluid">
+	<img src="/assets/img/tedc/tedc-collage.jpg" alt="Fun @ TEDC14." width="1050" height="200" class="fluid">
 	<figcaption>Email, drinks, and something called “Crab Bonanza”</figcaption>
 </figure>
 
@@ -71,14 +71,14 @@ Oh, and you should sign up for Litmus Builder. It's a browser based editor with 
 
 ## Our Hackaton
 <figure>
-	<img src="/images/blog/tedc/alex-hacking.jpg" alt="Alex Ilhan on a laptop." width="700" height="450" class="fluid">
+	<img src="/assets/img/tedc/alex-hacking.jpg" alt="Alex Ilhan on a laptop." width="700" height="450" class="fluid">
 	<figcaption>Alex hacking on my email</figcaption>
 </figure>
 
 Before the conference, Alex Ilhan and I had the idea of having an email hackathon. I designed an email and brought it to the conference for him to live-code. But that’s another blog post!
 
 <figure>
-	<img src="/images/blog/tedc/schwag.jpg" alt="Litmus swag." width="700" height="450" class="fluid">
+	<img src="/assets/img/tedc/schwag.jpg" alt="Litmus swag." width="700" height="450" class="fluid">
 	<figcaption>Until next year!</figcaption>
 </figure>
 

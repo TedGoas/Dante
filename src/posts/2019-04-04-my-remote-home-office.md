@@ -16,7 +16,7 @@ I’m a home-body and like being around my wife and kids, so I opted for a home 
 
 
 <figure>
-    <img src="/images/blog/home-office/location.jpg" alt="Outside office with doors.open next to front door." width="1000" height="500">
+    <img src="/assets/img/home-office/location.jpg" alt="Outside office with doors.open next to front door." width="1000" height="500">
     <figcaption>My office is in a high traffic area.</figcaption>
 </figure>
 
@@ -25,7 +25,7 @@ My office is located right off the front door and near the kitchen. I was initia
 ## Furniture and equipment
 
 <figure>
-    <img src="/images/blog/home-office/desk.jpg" alt="Standing desk with laptop and two external monitors." width="1000" height="500">
+    <img src="/assets/img/home-office/desk.jpg" alt="Standing desk with laptop and two external monitors." width="1000" height="500">
     <figcaption>My standing desk, laptop, and monitors.</figcaption>
 </figure>
 
@@ -36,7 +36,7 @@ _Protip:_ When everyone’s home and streaming Netflix and whatnot, my internet 
 ## The rest
 
 <figure>
-    <img src="/images/blog/home-office/personal.jpg" alt="My personal desk and iMac." width="1000" height="500">
+    <img src="/assets/img/home-office/personal.jpg" alt="My personal desk and iMac." width="1000" height="500">
     <figcaption>My personal iMac is always an arm’s length away.</figcaption>
 </figure>
 
@@ -44,14 +44,14 @@ My personal computer is in the same room. I keep my work life and personal life 
 
 
 <figure>
-    <img src="/images/blog/home-office/pano.jpg" alt="Soccer scarves hung around the office." width="1450" height="250">
+    <img src="/assets/img/home-office/pano.jpg" alt="Soccer scarves hung around the office." width="1450" height="250">
     <figcaption>Scarves are hung around the entire room, 17 total (so far).</figcaption>
 </figure>
 
 I’m a soccer (or _football_, if you like) fan and collect scarves from places I visit. No, I’m not a supporter of all these clubs, but they make for great conversation starters in research sessions! I also like maps and have two giant ones hanging in my office, including this one of the United States where I traced the routes I took when I drove cross country and back:
 
 <figure>
-    <img src="/images/blog/home-office/maps.jpg" alt="US map with driving route traced in marker." width="1000" height="500">
+    <img src="/assets/img/home-office/maps.jpg" alt="US map with driving route traced in marker." width="1000" height="500">
     <figcaption>I traced my route from NYC to Phoenix and back on this map. It’s in black marker, a little tough to see here.</figcaption>
 </figure>
 
@@ -60,7 +60,7 @@ My office doesn’t double as a lounge area, kids playroom, or spare bedroom. I 
 ## Leaving the office
 
 <figure>
-    <img src="/images/blog/home-office/local-coffee-shop-library.jpg" alt="table at my coffee shop and two areas of the library." width="1000" height="500">
+    <img src="/assets/img/home-office/local-coffee-shop-library.jpg" alt="table at my coffee shop and two areas of the library." width="1000" height="500">
     <figcaption>My local coffee shop (left) and library (top right and bottom right).</figcaption>
 </figure>
 
