@@ -1,7 +1,7 @@
 ---
 title: The Best Design Things I Read in 2019
 body_class: blog
-featured_image: /images/blog/best-of-2019/hero.png
+featured_image: best-of-2019/hero.png
 image_caption: Best of 2019.
 description:  A small collection of articles that stuck out in my mind this year.
 ---
@@ -11,7 +11,7 @@ A small collection of design articles that stuck out in my mind this year. I did
 <hr role="presentation" aria-role="hidden">
 
 <figure>
-    <img src="/images/blog/best-of-2019/share.jpg" alt="Closeup of hands on a laptop keyboard." width="880" height="400">
+    <img src="/assets/img/best-of-2019/share.jpg" alt="Closeup of hands on a laptop keyboard." width="880" height="400">
 </figure>
 <h2><a href="https://medium.com/@sara_ann_marie/dont-feel-like-an-expert-share-anyway-661f2f8cd038">Don’t feel like an expert? Share anyway.</a></h2>
 
