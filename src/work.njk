@@ -1,10 +1,16 @@
 ---
 layout: default
-title: About Me
+title: Work
+pagination:
+    data: collections.work
+    size: 10
+    alias: work
 ---
 
-<article role="main">
-    <header>
-        <h1>Work</h1>
-    </header>
-</article>
+<ul>
+{% for work in collections.work %}
+    <li>
+        <a class="" href="{{ work.url | url }}">{{ work.data.title }}</a>
+    </li>
+{% endfor %}
+</ul>
