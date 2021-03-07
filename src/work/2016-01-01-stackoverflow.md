@@ -5,6 +5,7 @@ excerpt: How we approach design at Stack Overflow and a few notable projects.
 thumb_lg: /images/work/stackoverflow/thumb-lg.jpg
 thumb_sm: /images/work/stackoverflow/thumb-sm.jpg
 highlightjs: true
+year: 2016 - 2020
 ---
 
 I joined Stack Overflow in 2016 as a product designer on their Enterprise product. In addition to Enterprise, I’ve contributed to Documentation, Teams, our design system, and various email marketing projects.

@@ -11,6 +11,7 @@ pagination:
 {% for work in collections.work %}
     <li>
         <a class="" href="{{ work.url | url }}">{{ work.data.title }}</a>
+        <time>{{ work.data.year }}</time>
     </li>
 {% endfor %}
 </ul>
