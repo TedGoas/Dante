@@ -2,8 +2,8 @@
 title: Stack Overflow
 body_class: work
 excerpt: How we approach design at Stack Overflow and a few notable projects.
-thumb_lg: /images/work/stackoverflow/thumb-lg.jpg
-thumb_sm: /images/work/stackoverflow/thumb-sm.jpg
+thumb_lg: /assets/img/stackoverflow/thumb-lg.jpg
+thumb_sm: /assets/img/stackoverflow/thumb-sm.jpg
 highlightjs: true
 year: 2016 - 2020
 ---
@@ -15,7 +15,7 @@ I joined Stack Overflow in 2016 as a product designer on their Enterprise produc
 Stack Overflow Enterprise is a private instance of Stack Overflow for organizations with large engineering teams. Stack Overflow for Enterprise is a private, secure version of Stack Overflow for large teams to ask and answer questions amongst themselves.
 
 <figure class="unbound mt-12">
-    <img src="/images/work/stackoverflow/function.png" alt="" width="1000">
+    <img src="/assets/img/stackoverflow/function.png" alt="" width="1000">
 </figure>
 
 > It’s the same Stack Overflow developers know and love, built for teams to privately share information within their team.
@@ -29,7 +29,7 @@ Data security and privacy are top concerns of Enterprise customers. In many case
 <figure class="unbound max-w-5xl">
     <div class="grid-sotheming sm:block">
         <div class="preview sm:mb-4">
-            <img src="/images/work/stackoverflow/theming-preview.png" alt="" width="600">
+            <img src="/assets/img/stackoverflow/theming-preview.png" alt="" width="600">
         </div>
         <div class="code">
             <pre><code class="code-block text-left rounded max-w-2xl scss">@import "less/_enterprise-base.less";
@@ -57,14 +57,14 @@ I created Stack Overflow’s theming system into something we could scale for ou
 One way to personalize Stack Overflow is to watch tags. Watching tags weights questions in those tags more. These tags also appear as shortcuts in the sidebar and you can also receive an email digests of questions within those tags in varying frequency. We wanted to streamline the existing feature on public Stack Overflow for our Enterprise product.
 
 <figure class="my-12">
-    <img src="/images/work/stackoverflow/tag-watching-hovers.png" alt="" width="733">
+    <img src="/assets/img/stackoverflow/tag-watching-hovers.png" alt="" width="733">
     <figcaption>Popover states and dev notes about defaults.</figcaption>
 </figure>
 
 I prototyped, tested, and iterated a few designs, noting the small adjustments (such as copy tweaks) we’d want to make when adapting the feature for different product areas. We shipped this version, which was later improved by Pawel and Aaron to what’s on in the product today.
 
 <figure class="unbound my-12">
-    <img src="/images/work/stackoverflow/tag-watching-sidebar.png" alt="" width="1470">
+    <img src="/assets/img/stackoverflow/tag-watching-sidebar.png" alt="" width="1470">
     <figcaption>Sidebar widget states and dev notes on proposed changes.</figcaption>
 </figure>
 
@@ -75,7 +75,7 @@ While I focused on Enterprise, another team was working on a then in-beta produc
 I worked with our Product Creative Director on several explorations, including this personalized homepage.
 
 <figure class="unbound">
-    <img src="/images/work/stackoverflow/documentation.png" alt="" width="1454">
+    <img src="/assets/img/stackoverflow/documentation.png" alt="" width="1454">
     <figcaption>Documentation homepage concept.</figcaption>
 </figure>
 
@@ -87,7 +87,7 @@ Stack Overflow Enterprise can be customized in a number of ways. We designed a s
 
 <figure class="unbound">
     <div class="bg-white p-4 rounded inline-block">
-        <img src="/images/work/stackoverflow/manage-users.png" alt="" width="855">
+        <img src="/assets/img/stackoverflow/manage-users.png" alt="" width="855">
     </div>
     <figcaption>Settings screen for controlling user access and privileges.</figcaption>
 </figure>
@@ -100,7 +100,7 @@ Hearing this, I pitched a redesign of our private Q&A settings, including an inf
 
 <figure class="unbound max-w-5xl">
     <div class="bg-white p-4 rounded inline-block">
-        <img src="/images/work/stackoverflow/admin-rep.png" alt="" width="860">
+        <img src="/assets/img/stackoverflow/admin-rep.png" alt="" width="860">
     </div>
     <figcaption>Visual cues that show how changing repuation levels will impact users.</figcaption>
 </figure>
@@ -110,19 +110,19 @@ I worked with our customer success teams to identify the most used features, org
 <figure class="unbound max-w-5xl my-12">
     <div class="flex gs4 sm:block">
         <div class="flex--cell sm:mb-4">
-            <img src="/images/work/stackoverflow/admin-bulletin.png" alt="Custom text added to the community bulletin." width="282">
+            <img src="/assets/img/stackoverflow/admin-bulletin.png" alt="Custom text added to the community bulletin." width="282">
         </div>
         <div class="flex--cell sm:mb-4">
-            <img src="/images/work/stackoverflow/admin-footer.png" alt="Custom text added to the site footer." width="282">
+            <img src="/assets/img/stackoverflow/admin-footer.png" alt="Custom text added to the site footer." width="282">
         </div>
         <div class="flex--cell sm:mb-4">
-            <img src="/images/work/stackoverflow/admin-ask.png" alt="Custom text when asking a question." width="282">
+            <img src="/assets/img/stackoverflow/admin-ask.png" alt="Custom text when asking a question." width="282">
         </div>
         <div class="flex--cell sm:mb-4">
-            <img src="/images/work/stackoverflow/admin-markdown.png" alt="Custom text when formatting markdown" width="282">
+            <img src="/assets/img/stackoverflow/admin-markdown.png" alt="Custom text when formatting markdown" width="282">
         </div>
         <div class="flex--cell">
-            <img src="/images/work/stackoverflow/admin-tag.png" alt="Custom text when tagging." width="282">
+            <img src="/assets/img/stackoverflow/admin-tag.png" alt="Custom text when tagging." width="282">
         </div>
     </div>
     <figcaption>I created a set of illustrations to point out where things appear in the product.</figcaption>
@@ -134,7 +134,7 @@ In 2017, the Stack Overflow created a new tier of private Q&A product called Sta
 
 <figure class="unbound">
     <div class="inline-block">
-        <img src="/images/work/stackoverflow/teams-empty-state.png" alt="" width="1000">
+        <img src="/assets/img/stackoverflow/teams-empty-state.png" alt="" width="1000">
     </div>
     <figcaption>Wireframe concept for onboarding empty states. Teams was originally called "Channels."</figcaption>
 </figure>
@@ -148,13 +148,13 @@ When I joined Stack Overflow, we didn’t send much email aside from a few messa
 <figure class="unbound  bordered">
     <div class="flex items-center gs4 sm:block">
         <div class="flex--cell sm:mx-auto sm:mb-4">
-            <img src="/images/work/stackoverflow/email-teams.png" alt="Teams product launch email." width="680">
+            <img src="/assets/img/stackoverflow/email-teams.png" alt="Teams product launch email." width="680">
         </div>
         <div class="flex--cell sm:mx-auto sm:mb-4">
-            <img src="/images/work/stackoverflow/email-10th.png" alt="10th anniversary email." width="680">
+            <img src="/assets/img/stackoverflow/email-10th.png" alt="10th anniversary email." width="680">
         </div>
         <div class="flex--cell sm:mx-auto">
-            <img src="/images/work/stackoverflow/email-research.png" alt="user research recruitment email." width="680">
+            <img src="/assets/img/stackoverflow/email-research.png" alt="user research recruitment email." width="680">
         </div>
     </div>
     <figcaption>Email designs for Teams product launch (<a href="https://stackoverflow.design/email/templates/examples/teams.html">live code</a>), 10th anniversary (<a href="https://stackoverflow.design/email/templates/examples/10th.html">live code</a>), and user research recruitment.</figcaption>
@@ -163,7 +163,7 @@ When I joined Stack Overflow, we didn’t send much email aside from a few messa
 As our email program evolved and we started to send better-targeted emails, I helped redesign our email preference center to keep pace. My coworker and I wrote about our design goals and published a UX case study for this project.
 
 <figure>
-    <img src="/images/work/stackoverflow/email-prefs.png" alt="" width="788">
+    <img src="/assets/img/stackoverflow/email-prefs.png" alt="" width="788">
     <figcaption>Changing the UX of clicking an unsubscribe link.</figcaption>
 </figure>
 
@@ -175,7 +175,7 @@ Over several weeks, I documented a bunch of email knowledge I’d built up in my
 
 <figure class="unbound">
     <div class="bg-white p-4 rounded inline-block">
-        <img src="/images/work/stackoverflow/stacks.png" alt="" width="1000">
+        <img src="/assets/img/stackoverflow/stacks.png" alt="" width="1000">
     </div>
     <figcaption>Stacks emails design system.</figcaption>
 </figure>
@@ -188,10 +188,10 @@ One way we’re focusing on product adoption and renewals of our private Q&A pro
 
 <figure class="unbound">
     <div class="grid-sointegrations sm:block">
-        <img src="/images/work/stackoverflow/jira.png" alt="Unfurled Jira link." width="552" class="jira shadow-xl -mb-16 sm:mb-4">
-        <img src="/images/work/stackoverflow/github.png" alt="Unfurled GitHub link." width="552" class="github shadow-xl sm:mb-4">
-        <img src="/images/work/stackoverflow/slack.png" alt="Slack integration." width="552" class="slack p-2 bg-white rounded shadow-xl sm:mb-4">
-        <img src="/images/work/stackoverflow/stackoverflow.png" alt="Unfurled Sack Overflow link." width="552" class="stackoverflow p-2 bg-white rounded shadow-xl">
+        <img src="/assets/img/stackoverflow/jira.png" alt="Unfurled Jira link." width="552" class="jira shadow-xl -mb-16 sm:mb-4">
+        <img src="/assets/img/stackoverflow/github.png" alt="Unfurled GitHub link." width="552" class="github shadow-xl sm:mb-4">
+        <img src="/assets/img/stackoverflow/slack.png" alt="Slack integration." width="552" class="slack p-2 bg-white rounded shadow-xl sm:mb-4">
+        <img src="/assets/img/stackoverflow/stackoverflow.png" alt="Unfurled Sack Overflow link." width="552" class="stackoverflow p-2 bg-white rounded shadow-xl">
     </div>
     <figcaption>Link unfurling for Jira, GitHub, Slack, and Stack Overflow links.</figcaption>
 </figure>
@@ -225,7 +225,7 @@ Language and tone are very important when participating on Stack Overflow. What 
 
 <figure class="unbound">
     <div class="bg-white p-4 rounded inline-block">
-        <img src="/images/work/stackoverflow/grammarly.png" alt="" width="1357">
+        <img src="/assets/img/stackoverflow/grammarly.png" alt="" width="1357">
     </div>
     <figcaption>What would Stack Overflow's version of Grammerly look like?</figcaption>
 </figure>
@@ -238,7 +238,7 @@ Developers love dark mode. The community mentions it often and our survey data b
 
 <figure>
     <video controls width="750" class="rounded" autoplay="true" controls="false" loop="true" muted="true">
-        <source src="/images/work/stackoverflow/email-dark-mode.mp4" type="video/mp4">
+        <source src="/assets/img/stackoverflow/email-dark-mode.mp4" type="video/mp4">
         Sorry, your browser doesn't support embedded videos.
     </video>
     <figcaption>Adapting Stack Overflow's email for dark mode.</figcaption>

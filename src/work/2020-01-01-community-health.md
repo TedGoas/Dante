@@ -2,8 +2,8 @@
 title: Community Health Dashboard
 body_class: work
 excerpt: I led the discovery and design of a dashboard that helps clients see the return on their investment while reducing customer support overhead.
-thumb_lg: /images/work/health-dashboard/thumb-lg.jpg
-thumb_sm: /images/work/health-dashboard/thumb-sm.jpg
+thumb_lg: /assets/img/health-dashboard/thumb-lg.jpg
+thumb_sm: /assets/img/health-dashboard/thumb-sm.jpg
 year: 2019
 ---
 
@@ -12,7 +12,7 @@ At Stack Overflow, we work with our Enterprise clients to manage their own priva
 Our theory was that if clients can easily see the return on their investment, they’re likely to continue using our product. Our product didn’t give them a way to do this, so the goal was to give clients a way to monitor and proactively improve the health of their community. Clients that can solve their own problems have a good chance to renewing and growing.
 
 <figure class="unbound">
-    <img src="/images/work/health-dashboard/function.png" alt="A flow chart explaining the product’s function." width="1000">
+    <img src="/assets/img/health-dashboard/function.png" alt="A flow chart explaining the product’s function." width="1000">
 </figure>
 
 Our dashboard should take the same situation and creates a different output.
@@ -29,10 +29,10 @@ After speaking with Customer Success Managers and Engineers, I understood what m
 
 <figure class="unbound max-w-5xl bordered">
     <div class="grid-hmw">
-        <img src="/images/work/health-dashboard/sketch1.jpg" alt="Sketch from a brainstorming session done over video chat." width="600" class="rounded">
-        <img src="/images/work/health-dashboard/sketch2.jpg" alt="Sketch from a brainstorming session done over video chat." width="600" class="rounded">
-        <img src="/images/work/health-dashboard/sketch3.jpg" alt="Sketch from a brainstorming session done over video chat." width="600" class="rounded">
-        <img src="/images/work/health-dashboard/sketch4.jpg" alt="Sketch from a brainstorming session done over video chat." width="600" class="rounded">
+        <img src="/assets/img/health-dashboard/sketch1.jpg" alt="Sketch from a brainstorming session done over video chat." width="600" class="rounded">
+        <img src="/assets/img/health-dashboard/sketch2.jpg" alt="Sketch from a brainstorming session done over video chat." width="600" class="rounded">
+        <img src="/assets/img/health-dashboard/sketch3.jpg" alt="Sketch from a brainstorming session done over video chat." width="600" class="rounded">
+        <img src="/assets/img/health-dashboard/sketch4.jpg" alt="Sketch from a brainstorming session done over video chat." width="600" class="rounded">
     </div>
     <figcaption>Results from a How Might We? sketching done remotely over video chat.</figcaption>
 </figure>
@@ -54,7 +54,7 @@ By now our direction was well validated, so I moved into UI design. Another desi
 Sidenote: Say what you will about “fake work” on dribbble, [I find it incredibly useful](blog/an-open-letter-to-designers-of-unsolicited-redesigns-and-unbuildable-apps).
 
 <figure class="unbound">
-    <img src="/images/work/health-dashboard/dashboard.png" alt="Hi-def artwork of what we shipped." width="1100">
+    <img src="/assets/img/health-dashboard/dashboard.png" alt="Hi-def artwork of what we shipped." width="1100">
     <figcaption>The design we shipped.</figcaption>
 </figure>
 
@@ -65,7 +65,7 @@ As I designed, I wanted to ensure we were presenting the data appropriately and 
 While I worked on the UI design, an engineer laid the code foundation based on the functional spec. We checked in with each other every other day or so, updating the spec with any notable conversations we had.
 
 <figure class="unbound bordered">
-    <img src="/images/work/health-dashboard/front-end.jpg" alt="Screenshot of code editor and live preview in Blisk browser." width="880" class="rounded">
+    <img src="/assets/img/health-dashboard/front-end.jpg" alt="Screenshot of code editor and live preview in Blisk browser." width="880" class="rounded">
     <figcaption>I implemented and polished my design in code.</figcaption>
 </figure>
 
@@ -73,10 +73,10 @@ After I’d designed most of the design’s views and states, I jumped into the 
 
 <figure class="bordered">
     <div class="grid-states">
-        <img src="/images/work/health-dashboard/state1.png" alt="One state of the dashboard's card pattern." width="396">
-        <img src="/images/work/health-dashboard/state2.png" alt="One state of the dashboard's card pattern." width="396">
-        <img src="/images/work/health-dashboard/state3.png" alt="One state of the dashboard's card pattern." width="396">
-        <img src="/images/work/health-dashboard/state4.png" alt="One state of the dashboard's card pattern." width="396">
+        <img src="/assets/img/health-dashboard/state1.png" alt="One state of the dashboard's card pattern." width="396">
+        <img src="/assets/img/health-dashboard/state2.png" alt="One state of the dashboard's card pattern." width="396">
+        <img src="/assets/img/health-dashboard/state3.png" alt="One state of the dashboard's card pattern." width="396">
+        <img src="/assets/img/health-dashboard/state4.png" alt="One state of the dashboard's card pattern." width="396">
     </div>
     <figcaption>I designed and documented our <a href="https://stackoverflow.design/product/components/cards/">design system's card component</a> based on this project.</figcaption>
 </figure>
@@ -98,7 +98,7 @@ We’ve heard some interesting feedback. For instance, clients don’t remember 
 Another thing we’ve heard is the desire to share the dashboard with internal stakeholders (currently it’s only available to admins). After hearing this a few times, I created email digest. We're also considering app notifications and working with our integrations (like Slack and MS Teams) that would make the dashboard’s data more portable.
 
 <figure class="unbound">
-    <img src="/images/work/health-dashboard/email.png" alt="Screenshot of code editor and live preview in Blisk browser." width="1100">
+    <img src="/assets/img/health-dashboard/email.png" alt="Screenshot of code editor and live preview in Blisk browser." width="1100">
     <figcaption>I pitched, designed, and coded an email version of the dashboard's metrics to make the data more portable.</figcaption>
 </figure>
 
@@ -109,7 +109,7 @@ Overall we’ve seen our customer success team spending less time walking client
 During one of our “cool down” periods, I reviewed what we shipped and compared it to our competitive teardowns and best practices. I saw a few opportunities for improvement that had a good chance of getting prioritzed.
 
 <figure class="unbound">
-    <img src="/images/work/health-dashboard/proposed-changes.png" alt="I pitched a few changes to the design of our graphs." width="1374" class="rounded">
+    <img src="/assets/img/health-dashboard/proposed-changes.png" alt="I pitched a few changes to the design of our graphs." width="1374" class="rounded">
     <figcaption>I pitched a few changes to the design of our graphs.</figcaption>
 </figure>
 
