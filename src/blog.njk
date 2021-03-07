@@ -6,7 +6,11 @@ pagination:
     alias: posts
 ---
 
+<ul>
 {% for post in collections.posts %}
-    <a class="" href="{{ post.url | url }}">{{ post.data.title }}</a>
-    {{ post.date | readableDate }}</p>
+    <li>
+        <a class="" href="{{ post.url | url }}">{{ post.data.title }}</a>
+        <time>{{ post.date | readableDate }}</time>
+    </li>
 {% endfor %}
+</ul>
