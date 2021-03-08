@@ -1,15 +1,10 @@
-# Vredeburg
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a1d36fc9-4471-4679-902c-337449ccb59d/deploy-status)](https://app.netlify.com/sites/vredeburg/deploys)
+# Dante (www.tedgoas.com)
 
-A simple starter project to create a blog using Eleventy and Tailwind CSS
+This is my website's uncompiled source code. [Humans.txt](https://github.com/TedGoas/Dante/blob/main/humans.txt) contains information about how the site is built, my process, resources used, and credits.
 
-<details>
-  <summary>Screenshot</summary>
-  
-  ![](https://i.imgur.com/wGj2YZD.jpg)
-</details>
+Built with [Eleventy](https://www.11ty.dev/), [Vredeburg](https://github.com/dafiulh/vredeburg), and [Tailwind CSS](https://tailwindcss.com).
 
-See demo [here](https://vredeburg.netlify.app)!
+---
 
 ## Getting Started
 1. Clone this repository

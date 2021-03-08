@@ -1,7 +1,7 @@
 {
-	"name": "vredeburg",
+	"name": "tedgoas",
 	"version": "1.0.0",
-	"description": "",
+	"description": "Ted Goas is a reliable product designer and front-end developer working on websites, applications, and HTML emails.",
 	"scripts": {
 		"clean": "rimraf dist",
 		"start": "npm run serve",
@@ -12,14 +12,14 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/dafiulh/vredeburg.git"
+		"url": "git+https://github.com/TedGoas/Dante.git"
 	},
-	"author": "Dafiul Haq",
+	"author": "Ted Goas",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/dafiulh/vredeburg/issues"
+		"url": "https://github.com/TedGoas/Dante/issues"
 	},
-	"homepage": "https://github.com/dafiulh/vredeburg#readme",
+	"homepage": "https://github.com/TedGoas/Dante#readme",
 	"devDependencies": {
 		"@11ty/eleventy": "^0.11.1",
 		"@tailwindcss/typography": "^0.3.1",
