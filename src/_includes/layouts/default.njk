@@ -41,19 +41,20 @@
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}">
 </head>	
 
-<body {% if body_class %}id="{{ body_class }}"{% endif %} class="flex flex-col h-screen bg-white text-gray-800 break-words ">
-    {% include "partials/header.njk" %}
-    <main class="mx-7 lg:mx-6 mt-32 flex-grow">
-        {% if layout === "post" %}
-        {{ content | safe }}
-        {% else %}
-        <div class="max-w-5xl mx-auto">
+<body {% if body_class %}id="{{ body_class }}"{% endif %} class="flex flex-col h-screen">
+    <div class="max-w-5xl mx-auto px-2 flex-grow">
+        {% include "partials/header.njk" %}
+        <main >
+            {% if layout === "post" %}
             {{ content | safe }}
-        </div>
-        {% endif %}
-    </main>
-    {% include "partials/footer.njk" %}
+            {% else %}
+            <div>
+                {{ content | safe }}
+            </div>
+            {% endif %}
+        </main>
+        {% include "partials/footer.njk" %}
+    </div>
     <script src="{{ '/assets/js/bundle.js' | url }}"></script>
 </body>
-
 </html>

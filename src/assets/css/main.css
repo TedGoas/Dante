@@ -4,19 +4,41 @@
 
 @layer base {
     body {
+        @apply bg-sitebg text-white break-words;
         font-family: Inter,system-ui,-apple-system,BlinkMacSystemFont,helvetica,Arial,sans-serif;
     }
 }
 
-@layer utilities {
-    .header-shadow {
-        box-shadow: 0 3px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 5px -1px rgba(0, 0, 0, 0.06)
+@layer components {
+    .header {
+        @apply mb-12 py-12 mx-auto;
+        display: flex;
+        align-items: center;
+        background: red;
+    }
+    .logo,
+    .contact {
+        width: 50%;
+        background: purple;
     }
 
-    .visually-hidden { 
-        @apply block absolute h-px w-px overflow-hidden whitespace-nowrap;
-        clip: rect(1px 1px 1px 1px);
-        clip: rect(1px, 1px, 1px, 1px);
-        clip-path: inset(1px);
+    nav {
+        @apply px-4 text-center whitespace-nowrap;
+
+        a,
+        a:visited {
+            margin: 0 var(--spacing4);
+            padding: var(--spacing4) var(--spacing8);
+            color: var(--nav-link-color);
+            text-decoration: none;
+            &.active {
+                background: url(~@/assets/img/nav-active.svg) center center no-repeat;
+                background-size: cover;
+                color: var(--site-background-color);
+            }
+        }
+    }
+    .contact {
+        @apply text-right;
     }
 }
