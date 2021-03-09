@@ -1,13 +1,15 @@
-<header id="header" class="header">
-    <div class="logo">
+<header id="header" class="header mb-12 py-12 mx-auto ">
+    <div class="logo w-1/2">
         <a href="{{ '/' | url }}">
-            <img src="" alt="{{ site.title }}">
+            <img src="/assets/img/tg-sig-logo.svg" width="119" height="56" alt="{{ site.title }}">
         </a>
     </div>
-    <nav role="navigation" aria-label="Main Navigation">
+    <nav role="navigation" aria-label="Main Navigation" class="px-4 text-center whitespace-nowrap">
         {% for item in menu %}
         <a href="{{ item.url | url }}" class="">{{ item.label }}</a>
         {% endfor %}
     </nav>
-    <img src="" alt="ted at tedgoas dot com" class="contact">
+    <div class="contact w-1/2 text-right">
+        <img src="/assets/img/tg-sig-email.svg" width="143" height="36" alt="ted at tedgoas dot com" class="ml-auto">
+    </div>
 </header>

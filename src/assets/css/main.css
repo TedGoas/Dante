@@ -4,26 +4,17 @@
 
 @layer base {
     body {
-        @apply bg-sitebg text-white break-words;
-        font-family: Inter,system-ui,-apple-system,BlinkMacSystemFont,helvetica,Arial,sans-serif;
+        @apply bg-sitebg text-white font-sans break-words;
     }
 }
 
 @layer components {
     .header {
-        @apply mb-12 py-12 mx-auto;
         display: flex;
         align-items: center;
-        background: red;
-    }
-    .logo,
-    .contact {
-        width: 50%;
-        background: purple;
     }
 
     nav {
-        @apply px-4 text-center whitespace-nowrap;
 
         a,
         a:visited {
@@ -37,8 +28,5 @@
                 color: var(--site-background-color);
             }
         }
-    }
-    .contact {
-        @apply text-right;
     }
 }

@@ -15,6 +15,11 @@ module.exports = {
       lg: '1024px',
       xl: '1280px'
     },
+    fontFamily: {
+      'sans': ['"IBM Plex Sans"', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', '"Noto Sans"', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'],
+      'mono': ['ui-monospace', 'SFMono-Regular'],
+      'display': ['"Caveat Brush"', 'Oswald']
+    },
     colors: {
       sitebg: '#0E091D',
       transparent: 'transparent',
