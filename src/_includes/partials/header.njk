@@ -10,7 +10,7 @@
         <a href="{{ item.url | url }}" class=" {% if page.url == item.url %}active{% endif %}">{{ item.label }}</a>
         {% endfor %}
         -->
-        <a href="/work" class=" {{ 'active' if '/work' in page.url }}">Work</a>
+        <a href="/work" class="p4 {{ 'active' if '/work' in page.url }}">Work</a>
         <a href="/values" class=" {{ 'active' if '/values' in page.url }}">Values</a>
         <a href="/bio" class=" {{ 'active' if '/bio' in page.url }}">Bio</a>
         <a href="/blog" class=" {{ 'active' if '/blog' in page.url }}">Blog</a>

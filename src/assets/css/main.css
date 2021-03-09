@@ -13,20 +13,18 @@
         display: flex;
         align-items: center;
     }
-
-    nav {
-
-        a,
-        a:visited {
-            margin: 0 var(--spacing4);
-            padding: var(--spacing4) var(--spacing8);
-            color: var(--nav-link-color);
-            text-decoration: none;
-            &.active {
-                background: url(~@/assets/img/nav-active.svg) center center no-repeat;
-                background-size: cover;
-                color: var(--site-background-color);
-            }
-        }
+    .header a,
+    .header a:visited {
+        @apply p-2;
+    }
+    .header a:hover,
+    .header a:focus,
+    .header a:active {
+        
+    }
+    .header a.active {
+        @apply text-sitebg;
+        background: url(/assets/img/nav-active.svg) center center no-repeat;
+        background-size: cover;
     }
 }
