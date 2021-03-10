@@ -9,18 +9,14 @@
 }
 
 @layer components {
-    .header {
-        display: flex;
-        align-items: center;
-    }
-    .header a,
-    .header a:visited {
+    .header nav a,
+    .header nav a:visited {
         @apply p-2;
     }
-    .header a:hover,
-    .header a:focus,
-    .header a:active {
-        
+    .header nav a:hover,
+    .header nav a:focus,
+    .header nav a:active {
+
     }
     .header a.active {
         @apply text-sitebg;
