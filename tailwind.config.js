@@ -10,10 +10,9 @@ module.exports = {
   },
   theme: {
     screens: {
-      sm: '576px',
-      md: '768px',
-      lg: '1024px',
-      xl: '1280px'
+      sm: {'max':'576px'},
+      md: {'max':'768px'},
+      lg: {'max':'1024px'}
     },
     fontFamily: {
       'sans': ['"IBM Plex Sans"', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', '"Noto Sans"', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'],
