@@ -23,4 +23,8 @@
         background: url(/assets/img/nav-active.svg) center center no-repeat;
         background-size: cover;
     }
+    .social-icon:not(:hover) path, 
+    .social-icon:not(:hover) polygon {
+        fill: theme('colors.gray.500');
+    }
 }
