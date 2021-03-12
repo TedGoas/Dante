@@ -6,17 +6,15 @@
     body {
         @apply bg-sitebg text-white font-sans break-words;
     }
+    a {
+        transition: all 75ms ease;
+    }
 }
 
 @layer components {
     .header nav a,
     .header nav a:visited {
-        @apply p-2;
-    }
-    .header nav a:hover,
-    .header nav a:focus,
-    .header nav a:active {
-
+        @apply p-2 hover:opacity-75;
     }
     .header a.active {
         @apply text-sitebg;
