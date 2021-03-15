@@ -23,7 +23,7 @@ module.exports = {
       'xs': '.875rem',
       'sm': '1rem',
       'base': '1.2rem',
-      'lg': '1.25rem',
+      'lg': '1.35rem',
       'xl': '1.5rem',
       '2xl': '1.875rem',
       '3xl': '2.125rem',
@@ -39,7 +39,8 @@ module.exports = {
       black: colors.black,
       white: colors.white,
       gray: colors.blueGray,
-      teal: colors.teal
+      teal: colors.teal,
+      pink: colors.pink
     },
     extend: {
 

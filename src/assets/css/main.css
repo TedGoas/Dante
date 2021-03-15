@@ -9,9 +9,14 @@
     a {
         transition: all 75ms ease;
     }
+    a:not([class]) {
+        @apply underline text-teal-500;
+    }
 }
 
 @layer components {
+
+    /* Site Header */
     .header nav a,
     .header nav a:visited {
         @apply p-2 hover:opacity-75;
@@ -21,8 +26,58 @@
         background: url(/assets/img/nav-active.svg) center center no-repeat;
         background-size: cover;
     }
+    /* Site Footer */
     .social-icon:not(:hover) path, 
     .social-icon:not(:hover) polygon {
         fill: theme('colors.gray.500');
+    }
+    /* Home */
+    .home-section {
+        @apply relative flex items-start p-16 max-w-2xl mt-40;
+    }
+    .home-section > svg {
+        @apply mr-12 flex-shrink-0;
+    }
+    .home-section p {
+        @apply text-lg;
+    }
+    .home-section:before,
+    .home-section:after {
+        @apply absolute block;
+        height: 200px;
+        width: 200px;
+        content: "";
+    }
+    .home-section:before {
+        @apply top-0 left-0;
+    }
+    .home-section:after {
+        @apply bottom-0 right-0 transform rotate-180;
+    }
+    .home-section--dialpad:before,
+    .home-section--dialpad:after {
+        background-image: url(/assets/img/home/doodle-corner-blue.svg);
+    }
+    .home-section--stackoverflow:before,
+    .home-section--stackoverflow:after {
+        background-image: url(/assets/img/home/doodle-corner-yellow.svg);
+    }
+    .home-section--canfield:before,
+    .home-section--canfield:after {
+        background-image: url(/assets/img/home/doodle-corner-green.svg);
+    }
+    .home-section--misc:before,
+    .home-section--misc:after {
+        background-image: url(/assets/img/home/doodle-corner-pink.svg);
+    }
+    .home-section--misc:after {
+        @apply top-0;
+        transform: scaleX(-1);
+    }
+    .home-section--misc .img:after {
+        @apply absolute block transform rotate-3 bg-pink-500 z-0 top-0 left-0;
+        height: 275px;
+        width: 275px;
+        content: "";
     }
 }
