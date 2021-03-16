@@ -33,13 +33,13 @@
     }
     /* Home */
     .home-section {
-        @apply relative flex items-start p-16 max-w-2xl mt-40;
+        @apply relative flex items-start p-16 max-w-2xl mt-40 sm:flex-col sm:p-8 sm:mt-12;
     }
     .home-section > svg {
-        @apply mr-12 flex-shrink-0;
+        @apply mr-12 flex-shrink-0 sm:mb-8;
     }
     .home-section p {
-        @apply text-lg;
+        @apply text-lg sm:text-base;
     }
     .home-section:before,
     .home-section:after {
