@@ -33,7 +33,7 @@
     }
     /* Home */
     .home-section {
-        @apply relative flex items-start p-16 max-w-2xl mt-40 sm:flex-col sm:p-8 sm:mt-12;
+        @apply relative flex items-start p-16 max-w-2xl mt-40 sm:flex-col sm:p-8 md:mt-12;
     }
     .home-section > svg {
         @apply mr-12 flex-shrink-0 sm:mb-8;
@@ -80,4 +80,43 @@
         width: 275px;
         content: "";
     }
+    .flourish {
+        @apply absolute block bg-no-repeat lg:hidden;
+    }
+    .curl1 {
+        background-image: url(/assets/img/home/doodle-curl1.svg);
+        height: 243px;
+        width: 246px;
+        right: -45%;
+        bottom: -70%;
+    }
+    .curl2 {
+        background-image: url(/assets/img/home/doodle-curl2.svg);
+        height: 225px;
+        width: 350px;
+        left: -55%;
+        bottom: -30%;
+    }
+    .boxes {
+        background-image: url(/assets/img/home/doodle-boxes.svg);
+        height: 207px;
+        width: 261px;
+        left: -55%;
+        top: -40%;
+    }
+    .curl3 {
+        background-image: url(/assets/img/home/doodle-curl3.svg);
+        height: 139px;
+        width: 37px;
+        left: 70%;
+        bottom: -50%;
+    }
+    .toggle {
+        background-image: url(/assets/img/home/doodle-toggle.svg);
+        height: 213px;
+        width: 262px;
+        right: -55%;
+        top: -40%;
+    }
+
 }
