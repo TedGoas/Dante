@@ -3,14 +3,12 @@ layout: default
 ---
 
 <article>
-    <header>
-        {% if featured_image %}
-        <img src="{{ featured_image | url }}" alt=""{% if featured_image_classes %} class="{{ featured_image_classes }}"{% endif %}>
-        {% endif %}
+    {% if featured_image %}
+    <img src="{{ featured_image | url }}" alt=""{% if featured_image_classes %} class="{{ featured_image_classes }}"{% endif %}>
+    {% endif %}
+    <div class="prose">
         <h1>{{ title }}</h1>
         <time>{{ page.date | readableDate }}</time>
-    </header>
-    <div class="prose">
         {{ content | safe }}
     </div>
 </article>

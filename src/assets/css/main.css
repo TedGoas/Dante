@@ -119,4 +119,24 @@
         top: -40%;
     }
 
+    /* Prose */
+    article {
+        @apply flex flex-col items-center;
+    }
+    .prose h1,
+    .prose h2,
+    .prose h3,
+    .prose h4,
+    .prose figure:not(.unbound),
+    .prose p,
+    .prose ol,
+    .prose ul,
+    .prose blockquote,
+    .prose pre,
+    .prose hr,
+    .prose time,
+    .prose .twitter-tweet,
+    .prose .gist {
+        @apply mx-auto text-white text-base;
+    }
 }
