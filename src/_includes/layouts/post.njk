@@ -6,9 +6,11 @@ layout: default
     {% if featured_image %}
     <img src="{{ featured_image | url }}" alt=""{% if featured_image_classes %} class="{{ featured_image_classes }}"{% endif %}>
     {% endif %}
-    <div class="prose">
-        <h1>{{ title }}</h1>
-        <time>{{ page.date | readableDate }}</time>
+    <div class="prose prose-xl">
+        <header class="pt-16">
+            <time>{{ page.date | readableDate }}</time>
+            <h1>{{ title }}</h1>
+        </header>
         {{ content | safe }}
     </div>
 </article>

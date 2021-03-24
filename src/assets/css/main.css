@@ -12,6 +12,9 @@
     a:not([class]) {
         @apply underline text-teal-500;
     }
+    h1 {
+        @apply font-display text-5xl leading-none sm:text-3xl;
+    }
 }
 
 @layer components {
@@ -134,9 +137,14 @@
     .prose blockquote,
     .prose pre,
     .prose hr,
-    .prose time,
     .prose .twitter-tweet,
     .prose .gist {
-        @apply mx-auto text-white text-base;
+        @apply mx-auto text-white;
+    }
+    .prose header h1 {
+        @apply mb-0;
+    }
+    .prose header time {
+        @apply text-gray-400 text-sm;
     }
 }
