@@ -1,8 +1,12 @@
 const pluginTailwind = require('eleventy-plugin-tailwindcss');
+const pluginSass = require("eleventy-plugin-sass");
 
 module.exports = (config) => {
   config.addPlugin(pluginTailwind, {
     src: 'src/assets/css/*'
+  });
+  config.addPlugin(pluginSass, {
+    outputDir: './'
   });
 
   config.setDataDeepMerge(true);
