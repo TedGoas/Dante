@@ -4,3 +4,30 @@ a {
 a:not([class]) {
     @apply underline text-teal-500;
 }
+
+.prose {
+    color: white;
+
+    h1, h2, h3, h4 {
+        color: white;
+    }
+    h1 {
+        @apply text-5xl font-display mb-2;
+    }
+    time {
+        @apply text-sm text-gray-400;
+    }
+    blockquote {
+        @apply py-2 pl-8 text-2xl leading-snug font-normal;
+        background: url("/assets/img/blockquote.svg") top left repeat-y;
+        border: none;
+        color: white;
+    
+        p {
+            @apply my-2;
+        }
+    }
+    figure figcaption {
+        @apply text-sm text-gray-500;
+    }
+}
