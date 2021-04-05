@@ -1,0 +1,6 @@
+a {
+    transition: all 75ms ease;
+}
+a:not([class]) {
+    @apply underline text-teal-500;
+}

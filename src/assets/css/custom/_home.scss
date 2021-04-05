@@ -1,0 +1,106 @@
+.home-section {
+    @apply p-16 max-w-2xl mt-40;
+    position: relative;
+    display: flex;
+    align-items: start;
+
+    @media (max-width: 640px) {
+        @apply p-8 mt-12;
+        flex-direction: columns;
+    }
+}
+.home-section > svg {
+    @apply mr-12 flex-shrink-0;
+
+    @media (max-width: 640px) {
+        @apply mb-8;
+    }
+}
+.home-section p {
+    @apply text-lg;
+
+    @media (max-width: 640px) {
+        @apply text-base;
+    }
+}
+.home-section:before,
+.home-section:after {
+    @apply absolute block;
+    height: 200px;
+    width: 200px;
+    content: "";
+}
+.home-section:before {
+    @apply top-0 left-0;
+}
+.home-section:after {
+    @apply bottom-0 right-0 transform rotate-180;
+}
+.home-section--dialpad:before,
+.home-section--dialpad:after {
+    background-image: url(/assets/img/home/doodle-corner-blue.svg);
+}
+.home-section--stackoverflow:before,
+.home-section--stackoverflow:after {
+    background-image: url(/assets/img/home/doodle-corner-yellow.svg);
+}
+.home-section--canfield:before,
+.home-section--canfield:after {
+    background-image: url(/assets/img/home/doodle-corner-green.svg);
+}
+.home-section--misc:before,
+.home-section--misc:after {
+    background-image: url(/assets/img/home/doodle-corner-pink.svg);
+}
+.home-section--misc:after {
+    @apply top-0;
+    transform: scaleX(-1);
+}
+.home-section--misc .img:after {
+    @apply absolute block transform rotate-3 bg-pink-500 z-0 top-0 left-0;
+    height: 275px;
+    width: 275px;
+    content: "";
+}
+.flourish {
+    @apply absolute block bg-no-repeat;
+
+    @media (max-width: 640px) {
+        @apply hidden;
+    }
+}
+.curl1 {
+    background-image: url(/assets/img/home/doodle-curl1.svg);
+    height: 243px;
+    width: 246px;
+    right: -45%;
+    bottom: -70%;
+}
+.curl2 {
+    background-image: url(/assets/img/home/doodle-curl2.svg);
+    height: 225px;
+    width: 350px;
+    left: -55%;
+    bottom: -30%;
+}
+.boxes {
+    background-image: url(/assets/img/home/doodle-boxes.svg);
+    height: 207px;
+    width: 261px;
+    left: -55%;
+    top: -40%;
+}
+.curl3 {
+    background-image: url(/assets/img/home/doodle-curl3.svg);
+    height: 139px;
+    width: 37px;
+    left: 70%;
+    bottom: -50%;
+}
+.toggle {
+    background-image: url(/assets/img/home/doodle-toggle.svg);
+    height: 213px;
+    width: 262px;
+    right: -55%;
+    top: -40%;
+}

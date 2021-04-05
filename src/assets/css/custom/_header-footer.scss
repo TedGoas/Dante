@@ -1,0 +1,28 @@
+    /* Site Header */
+.header nav {
+    a,
+    a:visited {
+        @apply p-2 mx-2 inline-block;
+        
+        &:hover,
+        &:focus {
+            
+        }
+        &:not(:first-child) {
+            @apply mr-4;
+        }
+        &:not(:last-child) {
+            @apply mr-4;
+        }
+    }
+    a.active {
+        @apply text-sitebg;
+        background: url(/assets/img/nav-active.svg) center center no-repeat;
+        background-size: cover;
+    }
+}
+/* Site Footer */
+.social-icon:not(:hover) path, 
+.social-icon:not(:hover) polygon {
+    @apply fill-current text-gray-500;
+}

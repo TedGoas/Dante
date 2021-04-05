@@ -1,7 +1,9 @@
 @tailwind base;
+
+@import 'custom/scaffolding';
+@import 'custom/typography';
+@import 'custom/header-footer';
+@import 'custom/home';
+
 @tailwind components;
 @tailwind utilities;
-
-body {
-    background: red !important;
-}

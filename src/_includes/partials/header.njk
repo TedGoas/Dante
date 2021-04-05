@@ -10,10 +10,10 @@
         <a href="{{ item.url | url }}" class=" {% if page.url == item.url %}active{% endif %}">{{ item.label }}</a>
         {% endfor %}
         -->
-        <a href="/work" class="p-8 mx-2 inline-block sm:-ml-0 {{ 'active' if '/work' in page.url }}">Work</a>
-        <a href="/values" class="p-8 mx-2 inline-block {{ 'active' if '/values' in page.url }}">Values</a>
-        <a href="/bio" class="p-8 mx-2 inline-block {{ 'active' if '/bio' in page.url }}">Bio</a>
-        <a href="/blog" class="p-8 mx-2 inline-block {{ 'active' if '/blog' in page.url }}">Blog</a>
+        <a href="/work" class="{{ 'active' if '/work' in page.url }}">Work</a>
+        <a href="/values" class="{{ 'active' if '/values' in page.url }}">Values</a>
+        <a href="/bio" class="{{ 'active' if '/bio' in page.url }}">Bio</a>
+        <a href="/blog" class="{{ 'active' if '/blog' in page.url }}">Blog</a>
     </nav>
     <div class="contact w-1/2 text-right sm:w-full sm:text-left">
         <img src="/assets/img/tg-sig-email.svg" width="143" height="36" alt="ted at tedgoas dot com" class="ml-auto sm:ml-0 sm:w-24">
