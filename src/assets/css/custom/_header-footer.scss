@@ -2,7 +2,9 @@
 .header nav {
     a,
     a:visited {
-        @apply p-2 mx-2 inline-block;
+        @apply p-2 mx-2 text-white;
+        display: inline-block;
+        text-decoration: none;
         
         &:hover,
         &:focus {
@@ -25,4 +27,7 @@
 .social-icon:not(:hover) path, 
 .social-icon:not(:hover) polygon {
     @apply fill-current text-gray-500;
+}
+footer p a {
+    color: inherit;
 }

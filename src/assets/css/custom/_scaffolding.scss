@@ -1,3 +1,7 @@
 body {
     @apply bg-sitebg text-white font-sans break-words;
 }
+.writing {
+    width: 65ch;
+    max-width: 100%;
+}

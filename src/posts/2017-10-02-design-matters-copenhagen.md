@@ -130,26 +130,24 @@ Netflix fails tests every day, and that’s ok as long as it leads to better pro
 ## Copenhagen
 When not at the conference, we explored what Danish culture has to offer. We biked around the city, explored a few museums, and partook in smorgasbord. Copenhagen is a great town in which to spend a few days.
 
-<figure class="unbound max-w-5xl">
-	<div class="grid--4col--2x2col gap-2 items-start">
-		<figure class="my-0">
-			<img src="/assets/img/design-matters-copenhagen/carlsberg-brewery.jpg" alt="Carlsbery Brewery." height="500" width="500">
-			<figcaption>Carlsberg Brewery</figcaption>
-		</figure>
-		<figure class="my-0">
-			<img src="/assets/img/design-matters-copenhagen/street-food.jpg" alt="Copenhagen street food." height="500" width="500">
-			<figcaption>Copenhagen street food</figcaption>
-		</figure>
-		<figure class="my-0">
-			<img src="/assets/img/design-matters-copenhagen/nyhavn.jpg" alt="Nyhavn Canal." height="500" width="500">
-			<figcaption>Nyhavn Canal</figcaption>
-		</figure>
-		<figure class="my-0">
-			<img src="/assets/img/design-matters-copenhagen/torvehallerne.jpg" alt="Carlsberg Brewery." height="500" width="500">
-			<figcaption>Torvehallerne</figcaption>
-		</figure>
-	</div>
-</figure>
+<div class="grid grid-cols-2 gap-2 sm:grid-cols-1">
+	<figure class="my-2">
+		<img src="/assets/img/design-matters-copenhagen/carlsberg-brewery.jpg" alt="Carlsbery Brewery." height="500" width="500">
+		<figcaption>Carlsberg Brewery</figcaption>
+	</figure>
+	<figure class="my-2">
+		<img src="/assets/img/design-matters-copenhagen/street-food.jpg" alt="Copenhagen street food." height="500" width="500">
+		<figcaption>Copenhagen street food</figcaption>
+	</figure>
+	<figure class="my-2">
+		<img src="/assets/img/design-matters-copenhagen/nyhavn.jpg" alt="Nyhavn Canal." height="500" width="500">
+		<figcaption>Nyhavn Canal</figcaption>
+	</figure>
+	<figure class="my-2">
+		<img src="/assets/img/design-matters-copenhagen/torvehallerne.jpg" alt="Carlsberg Brewery." height="500" width="500">
+		<figcaption>Torvehallerne</figcaption>
+	</figure>
+</div>
 
 ## Wrapping Up
 It was eye-opening to hear so many stories of project failures. I think Stack Overflow has a pretty good culture regarding failure, but after hearing folks talk about their own failures, I’m going to revisit some of ours to see if there’s anything else we can take away from them before moving forward.

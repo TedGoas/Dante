@@ -1,24 +1,113 @@
+body {
+    @apply text-base;
+}
 a {
+    @apply underline text-teal-500;
     transition: all 75ms ease;
 }
-a:not([class]) {
-    @apply underline text-teal-500;
+
+h1 {
+    @apply text-5xl font-display mb-2 leading-none;
+}
+time {
+    @apply text-sm text-gray-400;
+}
+figure {
+    @apply block my-16 max-w-full;
+
+    &:not(.justified){
+      img,
+      video {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    figcaption {
+        @apply text-xs mt-4 text-center text-gray-400;
+
+        a {
+            color: inherit;
+        }
+    }
+    &.bordered img {
+      @apply border border-solid border-gray-800;
+    }
 }
 
-.prose {
-    color: white;
+hr {
+    @apply py-12 mx-auto;
+    width: 210px;
+    height: 12px;
+    background: url("/assets/img/hr.svg") center center repeat-x;
+    border: 0;
+}
+p + hr {
+    @apply -mt-8;
+}
 
-    h1, h2, h3, h4 {
-        color: white;
+.writing {
+    time,
+    pre {
+        display: block;
     }
-    h1 {
-        @apply text-5xl font-display mb-2;
+
+    .page-title {
+        @apply -mt-2;
     }
-    time {
-        @apply text-sm text-gray-400;
+    h2 {
+        @apply text-2xl leading-tight mt-16 mb-8;
+        font-weight: bold;
+    }
+    h3 {
+        @apply text-xl leading-tight my-16 mb-8;
+        font-weight: bold;
+    }
+    hr + h2,
+    hr + h3 {
+        @apply mt-0;
+    }
+    header + h2 {
+        margin-top: 0;
+    }
+    p {
+        @apply mb-8;
+    }
+    ul,
+    ol {
+        @apply my-12 pl-8;
+
+    li {
+        @apply mb-4 relative;
+    }
+    }
+    b:not(.highlighted):not(.highlighted-long),
+    strong:not(.highlighted):not(.highlighted-long) {
+        @apply text-white bg-gray-800 py-1 px-2 rounded;
+    }
+    ul li:before {
+        @apply absolute inline-block bg-yellow-600;
+        content: "";
+        width: 0.4rem;
+        height: 0.4rem;
+        top: 0.75rem;
+        left: -1.5rem;
+    }
+    ol {
+        counter-reset: ordered-list;
+
+        li:before {
+            @apply text-sm font-bold absolute inline-block text-right text-yellow-600;
+            counter-increment: ordered-list;
+            content: counter(ordered-list);
+            top: .25rem;
+            left: -2rem;
+        }
+        li:nth-child(-n+9):before {
+            content: "0" counter(ordered-list);
+        }
     }
     blockquote {
-        @apply py-2 pl-8 text-2xl leading-snug font-normal;
+        @apply py-1 pl-8 my-16 text-2xl leading-tight font-normal font-display;
         background: url("/assets/img/blockquote.svg") top left repeat-y;
         border: none;
         color: white;
@@ -27,7 +116,30 @@ a:not([class]) {
             @apply my-2;
         }
     }
-    figure figcaption {
-        @apply text-sm text-gray-500;
+    .twitter-tweet {
+        @apply mb-6;
+        margin-top: 0 !important;
+        margin-bottom: theme('spacing.6') !important;
+    }
+    code {
+        @apply inline-block px-1 py-0 text-sm bg-gray-800 border border-gray-700 rounded text-left font-mono;
+
+        &.code-block {
+            @apply mb-6;
+            display: block;
+            overflow-x: auto;
+        }
+        &:not(.hljs) {
+            @apply text-red-400;
+        }
+        p {
+            @apply my-0;
+        }
+    }
+    figure code.code-block {
+        @apply mb-0;
+    }
+    pre code {
+        @apply block mb-6 p-3;
     }
 }

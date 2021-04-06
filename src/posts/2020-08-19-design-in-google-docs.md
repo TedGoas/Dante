@@ -82,7 +82,7 @@ These docs are informal and don’t follow a strict guideline for their structur
 * How we’ll measure results
 * Notable discussions
 
-<a href="https://docs.google.com/document/d/1lBNV2vHFwOXL5CAAgqJ4vedttYmA28aO_QsKLY_k1LY/edit?usp=sharing" class="text-bold">Here’s the template I’m currently using</a>
+<a href="https://docs.google.com/document/d/1lBNV2vHFwOXL5CAAgqJ4vedttYmA28aO_QsKLY_k1LY/edit?usp=sharing"><b>Here’s the template I’m currently using</b></a>
 
 I’ll frequently drop a link to the doc into chat and say “Hey we’re working on this thing, if you’re interested I’d love your feedback” and @mention different teams in relevant parts of the doc and ask them questions.
 
@@ -102,6 +102,4 @@ Do you have a similar process? Does your doc look a little different? I’d love
 
 ---
 
-Thanks to [Vicky Cheng](https://www.vickyrycheng.com/) for feedback on early drafts of this article.
-
-Also posted [on Medium](https://medium.com/@tedgoas/all-design-projects-should-start-in-a-google-doc-20ad24f75a8c).
+Thanks to [Vicky Cheng](https://www.vickyrycheng.com/) for feedback on early drafts of this article. Also posted [on Medium](https://medium.com/@tedgoas/all-design-projects-should-start-in-a-google-doc-20ad24f75a8c).
