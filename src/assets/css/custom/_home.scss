@@ -17,7 +17,7 @@
     }
 }
 .home-section p {
-    @apply text-lg;
+    @apply text-base;
 
     @media (max-width: 640px) {
         @apply text-base;

@@ -1,5 +1,7 @@
     /* Site Header */
 .header nav {
+    @apply text-base;
+
     a,
     a:visited {
         @apply p-2 mx-2 text-white;

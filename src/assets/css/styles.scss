@@ -1,9 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import 'custom/scaffolding';
 @import 'custom/typography';
 @import 'custom/header-footer';
 @import 'custom/home';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
