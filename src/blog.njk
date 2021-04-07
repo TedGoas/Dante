@@ -7,11 +7,11 @@ pagination:
     alias: posts
 ---
 
-<ul>
+<ul class="max-w-prose mx-auto">
 {% for post in collections.posts %}
-    <li>
+    <li class="my-4 leading-snug">
         <a class="" href="{{ post.url | url }}">{{ post.data.title }}</a>
-        <time>{{ post.date | readableDate }}</time>
+        <time class="block">{{ post.date | readableDate }}</time>
     </li>
 {% endfor %}
 </ul>
