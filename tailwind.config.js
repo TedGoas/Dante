@@ -15,9 +15,9 @@ module.exports = {
       lg: {'max':'1024px'}
     },
     fontFamily: {
-      'sans': ['"IBM Plex Sans"', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', '"Noto Sans"', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'],
+      'sans': ['ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
       'mono': ['Menlo', 'Monaco', 'Cascadia Mono', 'Roboto Mono', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', 'monospace'],
-      'display': ['"Caveat Brush"', 'Oswald']
+      'display': ['Caveat Brush', 'cursive']
     },
     fontSize: {
       'xs': '.875rem',

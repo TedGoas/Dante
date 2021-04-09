@@ -1,3 +1,47 @@
+h1 .rough-annotation {
+    opacity: 50%;
+}
+.highlight-yellow {
+    @apply px-4 -mx-2;
+    display: inline-block;
+    position: relative;
+
+    &:before {
+        content: "";
+        display: block;
+        background: url(/assets/img/highlight-yellow.svg) center center no-repeat;
+        position: absolute;
+        background-size: cover;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: -2;
+    }
+    &:after {
+        @apply bg-sitebg;
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        transform: translateX(100%);
+        animation: highlight-animate 500ms;
+        animation-iteration-count: 1;
+    }
+}
+@keyframes highlight-animate {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+  }
+
 .home-section {
     @apply p-16 max-w-2xl mt-40;
     position: relative;
