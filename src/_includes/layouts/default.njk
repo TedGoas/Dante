@@ -55,24 +55,5 @@
         {% include "partials/footer.njk" %}
     </div>
     <script src="{{ '/assets/js/bundle.js' | url }}"></script>
-    <script type="module">
-        import { annotate, annotationGroup } from 'https://unpkg.com/rough-notation?module';
-
-        const n2 = document.querySelector('.box-blue');
-        const n3 = document.querySelector('.box-green');
-        const n4 = document.querySelector('.box-red');
-        const n5 = document.querySelector('.underline-gray');
-        const n6 = document.querySelector('.underline-gray2');
-        
-        const a2 = annotate(n2, { type: 'box', color: '#3BC9DB', animationDuration: 500 });
-        const a3 = annotate(n3, { type: 'box', color: '#059669', animationDuration: 500 });
-        const a4 = annotate(n4, { type: 'box', color: '#B91C1C', animationDuration: 500 });
-        const a5 = annotate(n5, { type: 'underline', color: '#475569', animationDuration: 500, iterations: 2 });
-        const a6 = annotate(n6, { type: 'underline', color: '#475569', animationDuration: 500, iterations: 2 });
-        
-        const ag = annotationGroup([a2, a3, a4, a5, a6]);
-        ag.show();
-        
-    </script>
 </body>
 </html>

@@ -29,7 +29,7 @@ h1 .rough-annotation {
         bottom: 0;
         right: 0;
         transform: translateX(100%);
-        animation: highlight-animate 500ms;
+        animation: highlight-animate 500ms ease-out;
         animation-iteration-count: 1;
     }
 }

@@ -40,3 +40,22 @@ title:
         <div class="img relative flex-shrink-0 ml-12 sm:ml-0 sm:mb-8"><img src="/assets/img/home/tedgoas.jpg" alt="Ted Goas portrait" height="275" width="275" class="z-10 relative transform -rotate-2"></div>
     </section>
 </div>
+
+<script src="https://unpkg.com/rough-notation/lib/rough-notation.iife.js"></script>
+<script>
+ setTimeout(function () {
+    const annotate = RoughNotation.annotate;
+    const annotationGroup = RoughNotation.annotationGroup;
+    const $ = (t) => document.querySelector(t);
+
+    {
+        const a1 = annotate($('.box-blue'), { type: 'box', color: '#3BC9DB', animationDuration: 500 });
+        const a2 = annotate($('.box-green'), { type: 'box', color: '#059669', animationDuration: 500 });
+        const a3 = annotate($('.box-red'), { type: 'box', color: '#B91C1C', animationDuration: 500 });
+        const a4 = annotate($('.underline-gray'), { type: 'underline', color: '#475569', animationDuration: 500, iterations: 2 });
+        const a5 = annotate($('.underline-gray2'), { type: 'underline', color: '#475569', animationDuration: 500, iterations: 2 });
+        const ag = annotationGroup([a1, a2, a3, a4, a5]);
+        ag.show();
+    }
+}, 500)();
+</script>
