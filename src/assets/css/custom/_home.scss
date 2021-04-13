@@ -41,6 +41,17 @@ h1 .rough-annotation {
         transform: translateX(100%);
     }
   }
+.tooltip {
+    img {
+        @apply absolute bottom-7 left-2/4 max-w-xs hidden;
+        transform: translateX(-50%);
+    }
+    &:hover img,
+    &:focus img {
+        @apply block;
+    }
+    
+}
 
 .home-section {
     @apply p-16 max-w-2xl mt-40;
