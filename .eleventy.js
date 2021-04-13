@@ -28,9 +28,7 @@ module.exports = (config) => {
 
   config.addCollection('posts', require('./lib/collections/posts'));
   config.addCollection('work', require('./lib/collections/work'));
-  config.addCollection('tagList', require('./lib/collections/tagList'));
   config.addCollection('pagedPosts', require('./lib/collections/pagedPosts'));
-  config.addCollection('pagedPostsByTag', require('./lib/collections/pagedPostsByTag'));
 
   return {
     dir: {
