@@ -1,11 +1,4 @@
-h1 .rough-annotation {
-    opacity: 50%;
-}
 .highlight-yellow {
-    @apply px-4 -mx-2;
-    display: inline-block;
-    position: relative;
-
     &:before {
         content: "";
         display: block;
@@ -40,44 +33,15 @@ h1 .rough-annotation {
     to {
         transform: translateX(100%);
     }
-  }
+}
 .tooltip {
-    img {
-        @apply absolute bottom-7 left-2/4 max-w-xs hidden;
-        transform: translateX(-50%);
-    }
     &:hover img,
     &:focus img {
-        @apply block;
-    }
-    
-}
-
-.home-section {
-    @apply p-16 max-w-2xl mt-40;
-    position: relative;
-    display: flex;
-    align-items: start;
-
-    @media (max-width: 640px) {
-        @apply p-8 mt-12;
-        flex-direction: columns;
+        display: block;
+        transform: translateX(-50%);
     }
 }
-.home-section > svg {
-    @apply mr-12 flex-shrink-0;
 
-    @media (max-width: 640px) {
-        @apply mb-8;
-    }
-}
-.home-section p {
-    @apply text-base;
-
-    @media (max-width: 640px) {
-        @apply text-base;
-    }
-}
 .home-section:before,
 .home-section:after {
     @apply absolute block;
@@ -116,13 +80,6 @@ h1 .rough-annotation {
     height: 275px;
     width: 275px;
     content: "";
-}
-.flourish {
-    @apply absolute block bg-no-repeat;
-
-    @media (max-width: 640px) {
-        @apply hidden;
-    }
 }
 .curl1 {
     background-image: url(/assets/img/home/doodle-curl1.svg);
