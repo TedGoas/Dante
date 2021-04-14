@@ -1,11 +1,7 @@
-body {
-    @apply text-base;
-}
 a {
     @apply underline text-teal-500;
     transition: all 75ms ease;
 }
-
 h1 {
     @apply text-5xl font-display mb-2 leading-none;
 }
@@ -33,7 +29,6 @@ figure {
       @apply border border-solid border-gray-800;
     }
 }
-
 hr {
     @apply py-12 mx-auto;
     width: 210px;
@@ -44,16 +39,12 @@ hr {
 p + hr {
     @apply -mt-8;
 }
-
 .writing {
     time,
     pre {
         display: block;
     }
 
-    .page-title {
-        @apply -mt-2;
-    }
     h2 {
         @apply text-2xl leading-tight mt-16 mb-8;
         font-weight: bold;
@@ -80,8 +71,8 @@ p + hr {
         @apply mb-4 relative;
     }
     }
-    b:not(.highlighted):not(.highlighted-long),
-    strong:not(.highlighted):not(.highlighted-long) {
+    b,
+    strong {
         @apply text-white bg-gray-800 py-1 px-2 rounded;
     }
     ul li:before {
