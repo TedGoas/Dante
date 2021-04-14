@@ -51,7 +51,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" href="{{ '/assets/css/styles.css' | url }}">
     </head>	
-    <body {% if body_class %}id="{{ body_class }}" {% endif %}class="flex flex-col h-screen">
+    <body {% if body_class %}id="{{ body_class }}" {% endif %}class="flex flex-col h-screen bg-sitebg text-white font-sans break-words">
         <div class="max-w-5xl w-full mx-auto px-2 flex-grow">
             {% include "partials/header.njk" %}
             <main >
