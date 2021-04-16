@@ -1,16 +1,17 @@
-$bio-card-margin: 125px;
+:root {
+	--bio-card-margin: 125px;
+}
 
-//==========  Bio ==========//
 .bio-cards {
 	display: grid;
 	grid-gap: 0 20%;
 	align-items: start;
 	grid-template-columns: repeat(2, 40%);
-	margin-top: $bio-card-margin;
+	margin-top: var(--bio-card-margin);
 }
 .bio-card {
 	@apply relative p-3;
-	margin-top: -$bio-card-margin;
+	margin-top: calc(var(--bio-card-margin) * -1);
 	background-color: rgba(255,255,255,.1);
 
 	&:before {
@@ -106,11 +107,11 @@ $bio-card-margin: 125px;
 		display: block;
 		height: 60px;
 		width: 30px;
-		margin-top: -$bio-card-margin;
+		margin-top: calc(var(--bio-card-margin) * -1);
 		background-image: url("/assets/img/bio/arrow.svg");
 	}
 	&:nth-child(even) {
-		margin-top: $bio-card-margin;
+		margin-top: var(--bio-card-margin);
 	}
 	&:nth-child(even):after {
 		left: -100px;
