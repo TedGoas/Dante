@@ -12,3 +12,4 @@ To get up and running:
 2. Install dependencies by running `npm install`.
 3. Develop locally by running `npm run dev`.
 4. Prepare to deploy by running `npm run production`.
+ 
