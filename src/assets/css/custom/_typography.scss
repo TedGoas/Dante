@@ -1,6 +1,16 @@
 a {
-    @apply underline text-teal-500;
-    transition: all 75ms ease;
+    text-decoration: underline;
+    text-decoration-color: #16A34A;
+    text-decoration-thickness: .2rem;
+    color: inherit;
+
+    &:hover,
+    &:focus {
+        @apply text-white;
+    }
+}
+h1, h2, h3, h4 {
+    @apply text-white;
 }
 h1 {
     @apply text-5xl font-display mb-2 leading-none;
@@ -73,10 +83,10 @@ p + hr {
     }
     b,
     strong {
-        @apply text-white bg-gray-800 py-1 px-2 rounded;
+        @apply text-white bg-gray-700 py-1 px-2 rounded;
     }
     ul li:before {
-        @apply absolute inline-block bg-yellow-600;
+        @apply absolute inline-block bg-purple-400;
         content: "";
         width: 0.4rem;
         height: 0.4rem;
@@ -87,7 +97,7 @@ p + hr {
         counter-reset: ordered-list;
 
         li:before {
-            @apply text-sm font-bold absolute inline-block text-right text-yellow-600;
+            @apply text-sm font-bold absolute inline-block text-right text-purple-400;
             counter-increment: ordered-list;
             content: counter(ordered-list);
             top: .25rem;
@@ -101,7 +111,6 @@ p + hr {
         @apply py-1 pl-8 my-16 text-2xl leading-tight font-normal font-display;
         background: url("/assets/img/blockquote.svg") top left repeat-y;
         border: none;
-        color: white;
     
         p {
             @apply my-2;
