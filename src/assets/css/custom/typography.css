@@ -50,6 +50,9 @@ p + hr {
     @apply -mt-8;
 }
 .writing {
+    width: 65ch;
+    margin: auto;
+
     time,
     pre {
         display: block;

@@ -6,7 +6,7 @@ layout: default
     {% if featured_image %}
     <img src="{{ featured_image | url }}" alt=""{% if featured_image_classes %} class="{{ featured_image_classes }}"{% endif %}>
     {% endif %}
-    <div class="writing max-w-prose">
+    <div class="writing">
         <header class="py-12">
             <h1>{{ title }}</h1>
             <time>{{ page.date | readableDate }}</time>
