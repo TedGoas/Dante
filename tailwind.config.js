@@ -5,7 +5,7 @@ module.exports = {
     content: ['./src/**/*.njk', './src/**/*.svg'],
     layers: ['components', 'utilities'],
     options: {
-      safelist: ['header-shadow', '-translate-y-full', 'hidden']
+      safelist: ['hidden', 'gist', 'twitter-tweet', 'visually-hidden', '/hljs/']
     }
   },
   theme: {

@@ -29,7 +29,7 @@
 		@apply text-sm mb-2;
 	}
 	h2 {
-		@apply mt-5 mb-3 relative text-sm inline-block tracking-wider;
+		@apply mt-5 mb-3 relative text-sm inline-block tracking-wider font-mono;
 
 		&:after {
 			@apply block absolute left-0 bg-center bg-no-repeat;
