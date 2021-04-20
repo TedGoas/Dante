@@ -8,6 +8,7 @@
 	align-items: start;
 	grid-template-columns: repeat(2, 40%);
 	margin-top: var(--bio-card-margin);
+	@apply sm:block sm:mt-0;
 }
 .bio-card {
 	@apply relative p-3;
@@ -121,19 +122,12 @@
 		right: -100px;
 		transform: rotate(-60deg);
 	}
-}
-@media (max-width: 640px) {
-	.bio-cards {
-    	@apply block mt-0;
-	}
-	.bio-card {
-		&:nth-child(even),
-		&:nth-child(odd) {
-			@apply mt-0 mb-6;
+	&:nth-child(even),
+	&:nth-child(odd) {
+		@apply sm:mt-0 sm:mb-6;
 
-			&:not(:last-child):after {
-				display: none;
-			}
+		&:not(:last-child):after {
+			@apply sm:hidden;
 		}
 	}
 }
