@@ -13,8 +13,17 @@ h1, h2, h3, h4 {
     @apply text-white;
 }
 h1 {
-    @apply text-5xl font-display mb-2 leading-none;
+    @apply text-5xl font-display leading-none;
 }
+h2 {
+    @apply text-2xl leading-tight;
+    font-weight: bold;
+}
+h3 {
+    @apply text-xl leading-tight;
+    font-weight: bold;
+}
+
 time {
     @apply text-sm text-gray-400;
 }
@@ -39,6 +48,35 @@ figure {
       @apply border border-solid border-gray-800;
     }
 }
+blockquote {
+    @apply py-1 pl-8 my-16 text-2xl leading-tight font-normal font-display;
+    background: url("/assets/img/blockquote.svg") top left repeat-y;
+    border: none;
+
+    p {
+        @apply my-2;
+    }
+}
+.twitter-tweet {
+    @apply mb-6;
+    margin-top: 0 !important;
+    margin-bottom: theme('spacing.6') !important;
+}
+code {
+    @apply inline-block px-1 py-0 text-sm bg-gray-800 border border-gray-700 rounded text-left font-mono;
+
+    &.code-block {
+        @apply mb-6;
+        display: block;
+        overflow-x: auto;
+    }
+    &:not(.hljs) {
+        @apply text-red-400;
+    }
+    p {
+        @apply my-0;
+    }
+}
 hr {
     @apply py-12 mx-auto;
     width: 210px;
@@ -50,8 +88,20 @@ p + hr {
     @apply -mt-8;
 }
 .writing {
-    width: 65ch;
-    margin: auto;
+    header,
+    p,
+    ol,
+    ul,
+    h2,
+    h3,
+    h4,
+    blockquote,
+    .twitter-tweet,
+    time,
+    pre code {
+        margin: auto;
+        @apply max-w-3xl;
+    }
 
     time,
     pre {
@@ -59,30 +109,27 @@ p + hr {
     }
 
     h2 {
-        @apply text-2xl leading-tight mt-16 mb-8;
-        font-weight: bold;
+        @apply mt-16 mb-8;
     }
     h3 {
-        @apply text-xl leading-tight my-16 mb-8;
-        font-weight: bold;
+        @apply my-16 mb-8;
     }
-    hr + h2,
-    hr + h3 {
-        @apply mt-0;
-    }
-    header + h2 {
-        margin-top: 0;
-    }
-    p {
+    p,
+    blockquote {
         @apply mb-8;
+    }
+    blockquote {
+        p {
+            @apply my-2;
+        }    
     }
     ul,
     ol {
         @apply my-12 pl-8;
 
-    li {
-        @apply mb-4 relative;
-    }
+        li {
+            @apply mb-4 relative;
+        }
     }
     b,
     strong {
@@ -110,39 +157,21 @@ p + hr {
             content: "0" counter(ordered-list);
         }
     }
-    blockquote {
-        @apply py-1 pl-8 my-16 text-2xl leading-tight font-normal font-display;
-        background: url("/assets/img/blockquote.svg") top left repeat-y;
-        border: none;
-    
-        p {
-            @apply my-2;
-        }
-    }
-    .twitter-tweet {
-        @apply mb-6;
-        margin-top: 0 !important;
-        margin-bottom: theme('spacing.6') !important;
-    }
-    code {
-        @apply inline-block px-1 py-0 text-sm bg-gray-800 border border-gray-700 rounded text-left font-mono;
-
-        &.code-block {
-            @apply mb-6;
-            display: block;
-            overflow-x: auto;
-        }
-        &:not(.hljs) {
-            @apply text-red-400;
-        }
-        p {
-            @apply my-0;
-        }
-    }
     figure code.code-block {
         @apply mb-0;
     }
     pre code {
         @apply block mb-6 p-3;
+    }
+    hr + h2,
+    hr + h3 {
+        @apply mt-0;
+    }
+    header + h2 {
+        margin-top: 0;
+    }
+    h2 + ul,
+    h2 + ol {
+        @apply mt-0;
     }
 }
