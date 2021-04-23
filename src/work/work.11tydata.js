@@ -1,5 +1,5 @@
 module.exports = {
-  layout: 'default',
+  layout: 'work',
   title: 'Untitled',
   eleventyComputed: {
     permalink: (data) => `work/${data.page.fileSlug}/index.html`,

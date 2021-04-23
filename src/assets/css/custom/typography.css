@@ -16,7 +16,7 @@ h1 {
     @apply text-5xl font-display leading-none;
 }
 h2 {
-    @apply text-2xl leading-tight;
+    @apply text-3xl leading-tight;
     font-weight: bold;
 }
 h3 {
@@ -109,10 +109,10 @@ p + hr {
     }
 
     h2 {
-        @apply mt-16 mb-8;
+        @apply mt-16 mb-4;
     }
     h3 {
-        @apply my-16 mb-8;
+        @apply my-16 mb-4;
     }
     p,
     blockquote {

@@ -1,9 +1,9 @@
 ---
 title: Stack Overflow
 body_class: work
-excerpt: How we approach design at Stack Overflow and a few notable projects.
-thumb_lg: /assets/img/stackoverflow/thumb-lg.jpg
-thumb_sm: /assets/img/stackoverflow/thumb-sm.jpg
+excerpt: I worked on Stack Overflow's private Q7A products, our design system, and lots of other stuff.
+thumb: /assets/img/stackoverflow/thumb-lg.jpg
+featured_image: /assets/img/stackoverflow/thumb-sm.jpg
 highlightjs: true
 year: 2016 - 2020
 ---
@@ -22,7 +22,7 @@ Stack Overflow Enterprise is a private instance of Stack Overflow for organizati
 
 Stack Overflow Enterprise was Stack Overflow’s first private Q&A product and I was it’s first designer. I worked closely with product managers and engineers to create features that help clients manage and engage their community. I also worked with other product teams to ensure their work can be brought into the Enterprise product.
 
-## Theming
+### Theming
 
 Data security and privacy are top concerns of Enterprise customers. In many cases, folks have their Enterprise site open in one tab and public Stack Overflow open in another. It’s important for folks to know where they are at a glance so they don’t post info in the wrong place. One way we tackle this is to make a branded theme for every client.
 
@@ -52,7 +52,7 @@ Data security and privacy are top concerns of Enterprise customers. In many case
 
 I created Stack Overflow’s theming system into something we could scale for our enterprise clients. I refactored existing LESS variables so they could be overridden and removed lots of redundant CSS. The resulting LESS architecture allowed us to create new themes in as little as eight lines of code. Balpha have since evolved this system to include the entire Stack Exchange network, and I designed a UI that allows folks to create their own themes without writing any code.
 
-## Tag Watching
+### Tag Watching
 
 One way to personalize Stack Overflow is to watch tags. Watching tags weights questions in those tags more. These tags also appear as shortcuts in the sidebar and you can also receive an email digests of questions within those tags in varying frequency. We wanted to streamline the existing feature on public Stack Overflow for our Enterprise product.
 
