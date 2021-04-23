@@ -9,11 +9,11 @@ Built with [Eleventy](https://www.11ty.dev/), [Vredeburg](https://github.com/daf
 ## Getting Started
 1. Clone this repository
 ```bash
-git clone https://github.com/dafiulh/vredeburg.git blog-name
+git clone https://github.com/tedgoas/dante.git blog-name
 ```
 2. Navigate to the directory
 ```bash
-cd blog-name
+cd project-folder
 ```
 3. Install dependencies
 ```bash
