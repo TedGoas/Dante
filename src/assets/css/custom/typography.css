@@ -28,15 +28,8 @@ time {
     @apply text-sm text-gray-400;
 }
 figure {
-    @apply block my-16 max-w-full;
+    @apply block my-16 mx-auto max-w-full text-center;
 
-    &:not(.justified){
-      img,
-      video {
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
     figcaption {
         @apply text-xs mt-4 text-center text-gray-400;
 
@@ -62,7 +55,7 @@ blockquote {
     margin-top: 0 !important;
     margin-bottom: theme('spacing.6') !important;
 }
-code {
+code { /* Stand alone code blocks */
     @apply inline-block px-1 py-0 text-sm bg-gray-800 border border-gray-700 rounded text-left font-mono;
 
     &.code-block {
@@ -75,6 +68,14 @@ code {
     }
     p {
         @apply my-0;
+    }
+}
+.code-preview { /* Code accompanied by a preview */
+    img {
+        @apply rounded-t;
+    }
+    code {
+        @apply rounded-t-none border-t-0;
     }
 }
 hr {
