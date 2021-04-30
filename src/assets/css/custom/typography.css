@@ -30,6 +30,10 @@ time {
 figure {
     @apply block my-16 mx-auto max-w-full text-center;
 
+    img,
+    video {
+        @apply mx-auto;
+    }
     figcaption {
         @apply text-xs mt-4 text-center text-gray-400;
 
@@ -38,7 +42,7 @@ figure {
         }
     }
     &.bordered img {
-      @apply border border-solid border-gray-800;
+      @apply border border-solid border-sitebg;
     }
 }
 blockquote {
