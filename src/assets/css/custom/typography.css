@@ -1,7 +1,8 @@
 a {
     text-decoration: underline;
-    text-decoration-color: #16A34A;
+    text-decoration-color: theme('colors.green.600');
     text-decoration-thickness: .2rem;
+    text-underline-offset: .2em;
     color: inherit;
 
     &:hover,

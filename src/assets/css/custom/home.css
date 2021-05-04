@@ -43,13 +43,16 @@
 }
 
 .link-dialpad {
-    text-decoration-color: #16A34A;
+    text-decoration-color: theme('colors.blue.600');
 }
 .link-stack {
-    text-decoration-color: #16A34A;
+    text-decoration-color: theme('colors.yellow.600');
 }
 .link-canfield {
-    text-decoration-color: #16A34A;
+    text-decoration-color: theme('colors.green.600');
+}
+.link-misc {
+    text-decoration-color: theme('colors.pink.600');
 }
 .home-section:before,
 .home-section:after {
@@ -57,6 +60,7 @@
     height: 200px;
     width: 200px;
     content: "";
+    z-index: -1;
 }
 .home-section:before {
     @apply top-0 left-0;
