@@ -35,7 +35,7 @@ I created Stack Overflow’s first theming system and scaled for our enterprise 
     <img src="/assets/img/stackoverflow/theming-preview.png" alt="Preview of a themed Stack Overflow theme." class="w-full">
     <div class="code">
         <pre><code class="code-block scss">@import "less/_enterprise-base.less";
-⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀
 //  ======================================
 //  User-defined variables
 //  ======================================
@@ -45,9 +45,10 @@ I created Stack Overflow’s first theming system and scaled for our enterprise 
 @topbar-nav-color:      @black-900;
 @link-color:            #2b00f7;
 @accent-color:          #007733;
- ⠀⠀⠀⠀⠀⠀⠀⠀⠀ 
+⠀ 
 //  Overrides and customizations
-@font-family:           -apple-system, BlinkMacSystemFont, Avenir, ’Segoe UI’, Roboto, Helvetica, Arial, sans-serif;</code></pre>
+@font-family:           -apple-system, BlinkMacSystemFont, Avenir, ’Segoe UI’, Roboto, Helvetica, Arial, sans-serif;
+</code></pre>
     </div>
 </figure>
 

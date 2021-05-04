@@ -42,6 +42,15 @@
     }
 }
 
+.link-dialpad {
+    text-decoration-color: #16A34A;
+}
+.link-stack {
+    text-decoration-color: #16A34A;
+}
+.link-canfield {
+    text-decoration-color: #16A34A;
+}
 .home-section:before,
 .home-section:after {
     @apply absolute block;

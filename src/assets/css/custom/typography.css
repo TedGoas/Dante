@@ -60,12 +60,12 @@ blockquote {
     margin-bottom: theme('spacing.6') !important;
 }
 code { /* Stand alone code blocks */
-    @apply inline-block px-1 py-0 text-sm bg-gray-800 border border-gray-700 rounded text-left font-mono;
+    @apply px-1 py-0 text-sm bg-gray-800 border border-gray-700 rounded text-left font-mono;
 
     &.code-block {
         @apply mb-6;
         display: block;
-        overflow-x: auto;
+        overflow-x: auto; 
     }
     &:not(.hljs) {
         @apply text-red-400;
@@ -103,9 +103,9 @@ p + hr {
     blockquote,
     .twitter-tweet,
     time,
-    pre code {
-        margin: auto;
-        @apply max-w-3xl;
+    pre,
+    code {
+        @apply max-w-3xl mx-auto;
     }
 
     time,
@@ -163,20 +163,21 @@ p + hr {
         }
     }
     figure code.code-block {
-        @apply mb-0;
+        margin-bottom: 0;
     }
     pre code {
-        @apply block mb-6 p-3;
+        @apply mb-6 p-3;
+        display: block;
     }
     hr + h2,
     hr + h3 {
-        @apply mt-0;
+        margin-top: 0;
     }
     header + h2 {
         margin-top: 0;
     }
     h2 + ul,
     h2 + ol {
-        @apply mt-0;
+        margin-top: 0;
     }
 }
