@@ -41,7 +41,6 @@
         transform: translateX(-50%);
     }
 }
-
 .link-dialpad {
     text-decoration-color: theme('colors.blue.600');
 }
@@ -54,41 +53,41 @@
 .link-misc {
     text-decoration-color: theme('colors.pink.600');
 }
-.home-section:before,
-.home-section:after {
+.work-section:before,
+.work-section:after {
     @apply absolute block;
     height: 200px;
     width: 200px;
     content: "";
     z-index: -1;
 }
-.home-section:before {
+.work-section:before {
     @apply top-0 left-0;
 }
-.home-section:after {
+.work-section:after {
     @apply bottom-0 right-0 transform rotate-180;
 }
-.home-section--dialpad:before,
-.home-section--dialpad:after {
+.work-section--dialpad:before,
+.work-section--dialpad:after {
     background-image: url(/assets/img/home/doodle-corner-blue.svg);
 }
-.home-section--stackoverflow:before,
-.home-section--stackoverflow:after {
+.work-section--stackoverflow:before,
+.work-section--stackoverflow:after {
     background-image: url(/assets/img/home/doodle-corner-yellow.svg);
 }
-.home-section--canfield:before,
-.home-section--canfield:after {
+.work-section--canfield:before,
+.work-section--canfield:after {
     background-image: url(/assets/img/home/doodle-corner-green.svg);
 }
-.home-section--misc:before,
-.home-section--misc:after {
+.work-section--misc:before,
+.work-section--misc:after {
     background-image: url(/assets/img/home/doodle-corner-pink.svg);
 }
-.home-section--misc:after {
+.work-section--misc:after {
     @apply top-0;
     transform: scaleX(-1);
 }
-.home-section--misc .img:after {
+.work-section--misc .img:after {
     @apply absolute block transform rotate-3 bg-pink-500 z-0 top-0 left-0;
     height: 275px;
     width: 275px;
@@ -119,8 +118,8 @@
     background-image: url(/assets/img/home/doodle-curl3.svg);
     height: 139px;
     width: 37px;
-    left: 70%;
-    bottom: -50%;
+    left: 50%;
+    top: -50%;
 }
 .toggle {
     background-image: url(/assets/img/home/doodle-toggle.svg);
