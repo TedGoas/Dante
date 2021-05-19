@@ -7,6 +7,7 @@ module.exports = (config) => {
   config.addPassthroughCopy('src/assets/files/');
 
   config.addWatchTarget("src/assets/js/");
+  config.addWatchTarget("src/assets/css/");
 
   config.addLayoutAlias('default', 'layouts/default.njk');
   config.addLayoutAlias('post', 'layouts/post.njk');
@@ -15,6 +16,7 @@ module.exports = (config) => {
   config.addFilter('readableDate', require('./lib/filters/readableDate'));
   config.addFilter('minifyJs', require('./lib/filters/minifyJs'));
 
+  config.addTransform('postcss', require('./lib/transforms/postcss'));
   config.addTransform('minifyHtml', require('./lib/transforms/minifyHtml'));
 
   config.addCollection('posts', require('./lib/collections/posts'));
