@@ -1,14 +1,14 @@
 ---
 title: Stack Overflow
 body_class: work
-excerpt: I worked on Stack Overflow’s private Q7A products, our design system, and lots of other stuff.
+excerpt: I worked on Stack Overflow’s private Q&A products, our design system, and lots of other stuff.
 thumb: /assets/img/stackoverflow/thumb-lg.jpg
 featured_image: /assets/img/stackoverflow/thumb-sm.jpg
 highlightjs: true
 year: 2016 - 2020
 ---
 
-I joined Stack Overflow in 2016 as a product designer on their Teams and Enterprise products. Additionally made significant contributions to Documentation (sunset), Stack’s design system, and various email marketing projects.
+I joined Stack Overflow in 2016 as a product designer on their Teams and Enterprise products. I also made significant contributions to Documentation (sunset), the company's design system, and various email marketing projects.
 
 ## Enterprise
 
@@ -16,7 +16,7 @@ Stack Overflow for Enterprise is a private, secure version of Stack Overflow for
 
 > It’s the same Stack Overflow developers know and love, built for teams to privately share information within their team.
 
-As a product deisgner, I focused on:
+As a product designer, I focused on:
 
 1. Building tools for clients to manage their comminuty, and
 2. Bending the public Q&A product in ways that make sense for teams but not the geneal public.
