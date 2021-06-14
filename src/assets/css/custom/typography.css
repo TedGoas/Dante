@@ -55,6 +55,12 @@ blockquote {
         @apply my-2;
     }
 }
+p + blockquote {
+    margin-top: 0;
+}
+abbr {
+    cursor: help;
+}
 .twitter-tweet {
     @apply mb-6;
     margin-top: 0 !important;
