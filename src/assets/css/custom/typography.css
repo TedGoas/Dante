@@ -17,11 +17,11 @@ h1 {
     @apply text-5xl font-display leading-none;
 }
 h2 {
-    @apply text-3xl leading-tight;
+    @apply text-3xl leading-none;
     font-weight: bold;
 }
 h3 {
-    @apply text-xl leading-tight;
+    @apply text-xl leading-none;
     font-weight: bold;
 }
 
