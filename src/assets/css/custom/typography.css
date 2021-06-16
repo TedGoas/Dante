@@ -80,6 +80,9 @@ code {
         @apply my-0;
     }
 }
+pre code {
+    @apply mb-6 p-3;
+}
 .code-preview { /* Code accompanied by a preview */
     img {
         @apply rounded-t;
@@ -114,9 +117,6 @@ p + hr {
     }
     time {
         display: block;
-    }
-    pre code {
-        @apply mb-6 p-3;
     }
     figure code.code-block {
         margin-bottom: 0;
