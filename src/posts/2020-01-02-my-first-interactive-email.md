@@ -70,7 +70,7 @@ So the base HTML and CSS inserts and positions each icon state in the email, and
 
 ### CSS
 
-<pre><code class="css">#ArrowUpLg:checked + .ArrowUpLg {
+<pre><code class="code-block css">#ArrowUpLg:checked + .ArrowUpLg {
   display: none !important;
 }
 #ArrowUpLg:checked ~ .ArrowUpLgactive {

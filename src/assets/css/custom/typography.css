@@ -66,13 +66,12 @@ abbr {
     margin-top: 0 !important;
     margin-bottom: theme('spacing.6') !important;
 }
-code { /* Stand alone code blocks */
-    @apply px-1 py-0 text-sm bg-gray-800 border border-gray-700 rounded text-left font-mono;
+code {
+    @apply px-1 py-0 text-sm bg-gray-800 border border-gray-700 rounded text-left font-mono inline-block;
 
     &.code-block {
-        @apply mb-6;
         display: block;
-        overflow-x: auto; 
+        overflow-x: auto;
     }
     &:not(.hljs) {
         @apply text-red-400;
@@ -110,16 +109,18 @@ p + hr {
     blockquote,
     .twitter-tweet,
     time,
-    pre,
-    code {
+    pre {
         @apply max-w-3xl mx-auto;
     }
-
-    time,
-    pre {
+    time {
         display: block;
     }
-
+    pre code {
+        @apply mb-6 p-3;
+    }
+    figure code.code-block {
+        margin-bottom: 0;
+    }
     h2 {
         @apply mt-16 mb-4;
     }
@@ -168,13 +169,6 @@ p + hr {
         li:nth-child(-n+9):before {
             content: "0" counter(ordered-list);
         }
-    }
-    figure code.code-block {
-        margin-bottom: 0;
-    }
-    pre code {
-        @apply mb-6 p-3;
-        display: block;
     }
     hr + h2,
     hr + h3 {
