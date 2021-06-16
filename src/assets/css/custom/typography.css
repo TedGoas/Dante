@@ -102,6 +102,8 @@ p + hr {
     @apply -mt-8;
 }
 .writing {
+    width: 100%;
+    
     header,
     p,
     ol,
