@@ -1,0 +1,50 @@
+.grid-sointegrations {
+    display: grid;
+  
+    .jira {
+      grid-row: 1 / 4;
+      grid-column: 1 / 3;
+    }
+    .github {
+      grid-row: 3 / 6;
+      grid-column: 2 / 4;
+    }
+    .slack {
+      grid-row: 5 / 8;
+      grid-column: 1 / 3;
+    }
+    .stackoverflow {
+      grid-row: 7 / 10;
+      grid-column: 2 / 4;
+    }
+  }
+
+  .grid-dialpad-analytics {
+    display: grid;
+
+    .snippet {
+      grid-row: 1 / 3;
+      grid-column: 2 / 4;
+    }
+    .saved-search {
+      grid-row: 2 / 4;
+      grid-column: 1 / 3;
+    }
+  }
+
+  .grid-dialpad-research {
+    display: grid;
+
+    .first {
+      grid-row: 1 / 4;
+      grid-column: 1 / 3;
+    }
+    .second {
+      grid-row: 2 / 8;
+      grid-column: 2 / 4;
+    }
+    .third {
+      grid-row: 6 / 9;
+      grid-column: 1 / 3;
+    }
+  }

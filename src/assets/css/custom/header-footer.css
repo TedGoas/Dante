@@ -1,0 +1,11 @@
+/* Site Header */
+.header nav a.active {
+    @apply text-sitebg;
+    background: url(/assets/img/nav-active.svg) center center no-repeat;
+    background-size: cover;
+}
+/* Site Footer */
+.social-icon:not(:hover) path, 
+.social-icon:not(:hover) polygon {
+    @apply fill-current text-gray-500;
+}

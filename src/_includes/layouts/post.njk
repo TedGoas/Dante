@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+<article class="flex flex-col items-center">
+    {% if featured_image %}
+    <img src="{{ featured_image | url }}" alt=""{% if featured_image_classes %} class="{{ featured_image_classes }}"{% endif %}>
+    {% endif %}
+    <div class="writing">
+        <header class="py-12">
+            <h1 class="mb-2">{{ title }}</h1>
+            <time>{{ page.date | readableDate }}</time>
+        </header>
+        {{ content | safe }}
+    </div>
+</article>

@@ -1,14 +1,39 @@
 # Dante (www.tedgoas.com)
 
-This is my website's uncompiled source code. [Humans.txt](https://github.com/TedGoas/Dante/blob/master/humans.txt) contains information about how the site is built, my process, resources used, and credits.
+This is my website's uncompiled source code. [Humans.txt](https://github.com/TedGoas/Dante/blob/main/humans.txt) contains information about how the site is built, my process, resources used, and credits.
 
-Built with [Eleventy](https://www.11ty.dev/) ([Skeleventy](https://skeleventy.netlify.com/)) and [TailwindCSS](https://tailwindcss.com).
+Built with [Eleventy](https://www.11ty.dev/), [Vredeburg](https://github.com/dafiulh/vredeburg), and [Tailwind CSS](https://tailwindcss.com).
 
 ---
 
-To get up and running:
+## Getting Started
+1. Clone this repository
+```bash
+git clone https://github.com/tedgoas/dante.git blog-name
+```
+2. Navigate to the directory
+```bash
+cd project-folder
+```
+3. Install dependencies
+```bash
+npm install
+```
 
-1. Clone this repo.
-2. Install dependencies by running `npm install`.
-3. Develop locally by running `npm run dev`.
-4. Prepare to deploy by running `npm run production`.
+### Use in development
+```bash
+npm start
+```
+
+### Build for production
+```bash
+npm run build
+```
+
+### For debugging purposes
+```bash
+npm run debug
+```
+
+## Configuration
+To change the title, description, author data, menu/nav item, etc, go to `src/_data/`.
