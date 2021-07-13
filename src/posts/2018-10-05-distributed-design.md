@@ -141,14 +141,14 @@ Not ALL communication at Stack Overflow is asynchronous. We thrive on a combinat
     <figcaption>A rough map of where our product team members work from</figcaption>
 </figure>
 
-Our workforce is spread from eastern Europe to Hawaii. Between 10am and 2pm EST, most of the company is working. This is when synchronous communication really kicks. It’s a popular time to schedule meetings, chat replies are faster, and it’s easier to pull someone into a video chat. This provides us with enough time overlap for those quick and timely discussions.
+Our workforce is spread from eastern Europe to Hawaii. Between 10am and 2pm EST, most of the company is working. This is when synchronous communication really kicks. It’s a popular time to schedule meetings, chat replies are faster, and it’s easier to pull someone into a video chat. This provides us with enough time for those quick and timely discussions.
 
 <figure>
     <img src="/assets/img/distributed-design/aa22.jpg" alt="Shipping a big product update over video chat." width="643" height="362">
     <figcaption>Shipping hats!</figcaption>
 </figure>
 
-This time is optimal for more complex tasks like design critiques and shipping big features, like when we shipped a complete redesign of email preferences with team in six timezones.
+This time is optimal for more complex tasks like design critiques and shipping big features, like when we shipped a complete redesign of email preferences with a team in six time zones.
 
 As someone who works in the <abbr title="Eastern Standard Time">EST</abbr> time zone, the biggest trouble I experience is protecting my lunchtime!
 
@@ -166,7 +166,7 @@ We use asynchronous communication throughout the day. Folks chime in on various 
 
 As you may imagine, this creates a lot of notifications and transactional emails (yes we use email too), so we have to be good at managing our preferences. You know that tiny “manage email preferences” link at the bottom of every email? We use it.
 
-The mix of synchronous and asynchronous communication gives us enough time to focus on deep work while ensuring we enough overlap to keep everyone on the same page and moving forward.
+The mix of synchronous and asynchronous communication gives us enough time to focus on deep work while ensuring we have enough overlap to keep everyone on the same page and moving forward.
 
 ## Challenge: Meetings / Critiques / Sprints / Code Reviews
 <figure>
@@ -374,14 +374,14 @@ There are so many ways to stretch video chat so it feels almost like being toget
     <img src="/assets/img/distributed-design/aa56.png" alt="Screenshot of Slack messages with someone working too late." width="643" height="362">
 </figure>
 
-When you work in a office, you leave the building in the evening and that’s it; new ideas typically wait until the next morning. You check email at night, but the work-life divide is clear. But with remote work, your wires can easily get crossed. Your personal space might also be your workplace, and there’s no physical difference between the two. It’s easier to lose track of time or go back to work after-hours.
+When you work in an office, you leave the building in the evening and that’s it; new ideas typically wait until the next morning. You check email at night, but the work-life divide is clear. But with remote work, your wires can easily get crossed. Your personal space might also be your workplace, and there’s no physical difference between the two. It’s easier to lose track of time or go back to work after-hours.
 
 <figure>
     <img src="/assets/img/distributed-design/aa57.png" alt="Open 24/7 illustration." width="643" height="362">
     <figcaption>Too close to home <a href="https://www.and.co/anywhere-workers">source</a></figcaption>
 </figure>
 
-Additionally working from home doesn't leave much time to wind down after work. I used to commute from my office for about 30 minutes, enough time to reflect on my work day and gradually change my thoughts from work-life to home-life. Now some evenings I go from a video meeting to a family dinner in 60 seconds, and my attention definitely suffers. I'll sometimes walk out of my office and start having a conversation with wife, only to ask her to repeat everything because I was still thinking about design systems or something.
+Additionally, working from home doesn't leave much time to wind down after work. I used to commute from my office for about 30 minutes, enough time to reflect on my work day and gradually change my thoughts from work-life to home-life. Now some evenings I go from a video meeting to a family dinner in 60 seconds, and my attention definitely suffers. I'll sometimes walk out of my office and start having a conversation with my wife, only to ask her to repeat everything because I was still thinking about design systems or something.
 
 How can remote teams protect employees from working off hours?
 
@@ -409,7 +409,7 @@ Whatever shape it takes, Stacks helps make sure its remote employees take steps 
     <img src="/assets/img/distributed-design/aa61.jpg" alt="Yeah... remote just won't work for our team." width="643" height="362">
 </figure>
 
-Maybe you’re thinking remote won’t work for your team. Or maybe you tried letting employees work from home and it didn’t go so well, so the idea is scrapped. I hope you took away a few tips on how Stack Overflow overcame the challenges that come with going remote, and if you decide to try (or try again), that you really try in earnest by adopting some remote-first policies.
+Maybe you’re thinking remote won’t work for your team. Or maybe you tried letting employees work from home and it didn’t go so well, so the idea was scrapped. I hope you took away a few tips on how Stack Overflow overcame the challenges that come with going remote, and if you decide to try (or try again), that you really try in earnest by adopting some remote-first policies.
 
 1. Have a proper infrastructure for remote work. Include apps for chat, video conferencing, a good headset, and fast internet.
 2. Encourage folks to dedicate a space that’s just for work.
