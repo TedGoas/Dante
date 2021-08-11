@@ -2,8 +2,6 @@
 title: Stack Overflow
 body_class: work
 excerpt: I worked on Stack Overflow’s private Q&A products, our design system, and lots of other stuff.
-thumb: /assets/img/stackoverflow/thumb-lg.jpg
-featured_image: /assets/img/stackoverflow/thumb-sm.jpg
 highlightjs: true
 year: 2016 - 2020
 ---
