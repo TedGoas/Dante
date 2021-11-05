@@ -6,7 +6,7 @@ image_caption: An illustration of a laptop with design softwre on its display, w
 description: A short guide I wrote for my neighbor who's interested in getting into the tech field.
 ---
 
-I recently chatted with a neighbor who was interested in getting into tech. They already have a degree (two, in fact) and a full-time job, but have always been interesting in computers and weren't using that skill in their day to day. When I mentioned what I do for a living, they asked how they might transition into the field.
+I recently chatted with a neighbor who was interested in getting into tech. They already have a degree (two, in fact) and a full-time job, but have always been interested in computers and weren't using that skill in their day to day. When I mentioned what I do for a living, they asked how they might transition into the field.
 
 I offered a few ideas as we chatted, but realized it'd be more helpful if I collected my thoughts. I ended up writing this guide and sharing with my neighbor.
 
