@@ -2,8 +2,8 @@
 title: Getting into Tech
 body_class: blog
 featured_image: "getting-into-tech/hero.svg"
-image_caption: A short guide I wrote for my neighbor who's interested in getting into the tech field.
-description: An illustration of a laptop with design softwre on its display, with a coffee cup to one side and a cat on the other.
+image_caption: An illustration of a laptop with design softwre on its display, with a coffee cup to one side and a cat on the other.
+description: A short guide I wrote for my neighbor who's interested in getting into the tech field.
 ---
 
 I recently chatted with a neighbor who was interested in getting into tech. They already have a degree (two, in fact) and a full-time job, but have always been interesting in computers and weren't using that skill in their day to day. When I mentioned what I do for a living, they asked how they might transition into the field.
