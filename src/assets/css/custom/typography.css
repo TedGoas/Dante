@@ -58,6 +58,18 @@ blockquote {
 p + blockquote {
     margin-top: 0;
 }
+.callout {
+    @apply p-6 bg-gray-800 rounded-lg relative text-gray-300;
+
+    &[data-emoji] {
+        @apply pl-16;
+
+        &::before {
+            content: attr(data-emoji);
+            @apply absolute left-6;
+        }
+    }
+}
 abbr {
     cursor: help;
 }
@@ -101,6 +113,26 @@ hr {
 p + hr {
     @apply -mt-8;
 }
+table {
+    @apply border border-solid border-gray-700;
+
+    th,
+    td {
+        @apply p-2;
+
+        &:not(:last-child) {
+            @apply border-r border-solid border-gray-700;
+        }
+    }
+    th {
+        @apply bg-gray-900 text-gray-400 text-left text-xs;
+    }
+
+    td {
+        @apply border-t border-solid border-gray-700 text-sm;
+
+    }
+}
 .writing {
     width: 100%;
     
@@ -112,6 +144,8 @@ p + hr {
     h3,
     h4,
     blockquote,
+    .callout,
+    table,
     .twitter-tweet,
     time,
     pre {
@@ -130,8 +164,13 @@ p + hr {
         @apply my-16 mb-4;
     }
     p,
-    blockquote {
+    blockquote,
+    .callout,
+    table {
         @apply mb-8;
+    }
+    table {
+        width: 100%;
     }
     blockquote {
         p {
