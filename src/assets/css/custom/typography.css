@@ -148,7 +148,8 @@ table {
     table,
     .twitter-tweet,
     time,
-    pre {
+    pre,
+    .aligned {
         @apply max-w-3xl mx-auto;
     }
     time {
