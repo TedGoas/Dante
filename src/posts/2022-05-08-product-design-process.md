@@ -24,7 +24,7 @@ And let’s be honest, how do we avoid doing this?
 Some teams have distilled their product design process into a diagram or chart. At Dialpad, we adapted the double-diamond product design process into a triple diamond (influenced [by Zendesk](https://medium.com/zendesk-creative-blog/the-zendesk-triple-diamond-process-fd857a11c179)). Ours looks something like this:
 
 <figure class="max-w-full">
-	<img src="/assets/img/process/triple-diamond.png" alt="A diagram how how Dialpad modifed Zendesk's triple diamond design process." height="" width="1600">
+	<img src="/assets/img/process/triple-diamond.png" alt="A diagram of how Dialpad modified Zendesk's triple diamond design process." height="" width="1600">
     <figcaption>Graphics like this look great in a blog post, but how often are they actually referenced?</figcaption>
 </figure>
 
