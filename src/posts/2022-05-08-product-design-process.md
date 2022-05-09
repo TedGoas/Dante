@@ -2,8 +2,8 @@
 title: A Product Design Process for the Real World
 body_class: blog
 featured_image: "process/hero.png"
-image_caption: An illustration of a laptop with design softwre on its display, with a coffee cup to one side and a cat on the other.
-description: A short guide I wrote for my neighbor who's interested in getting into the tech field.
+image_caption: A few diagrams of popular prudct design processes.
+description: The product design playbook I use to break down and execute on design projects.
 ---
 
 At the start of 2021, Dialpad’s core product was a business phone platform. We supported several use cases, but making and receiving phone calls over the internet was our bread and butter. By the end of the year, however, we acquired two companies and pledged to add email, chat, and social to our product. I was tasked to lead design for a project that would double the size of the product.
