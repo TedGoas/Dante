@@ -2,7 +2,7 @@
 title: A Product Design Process for the Real World
 body_class: blog
 featured_image: "process/hero.png"
-image_caption: A few diagrams of popular prudct design processes.
+image_caption: A few diagrams of popular product design processes.
 description: The product design playbook I use to break down and execute on design projects.
 ---
 
