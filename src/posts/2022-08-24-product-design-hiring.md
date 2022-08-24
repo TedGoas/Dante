@@ -3,7 +3,7 @@ title: Product Design Interview Questions
 body_class: blog
 featured_image: "design-hiring-hero.jpg"
 image_caption: A closeup of someone holding a small sign saying 'What can you do today that you couldn't do a year ago?'.
-description: The product design playbook I use to break down and execute on design projects.
+description: Questions I ask candidates in product design interviews that give me the strongest signal about what they'd bring to our team and what it’d be like to work with them.
 ---
 
 I’ve interviewed a lot of product designers over the last couple years. To help inform my hiring recommendations to my team, I try to find out what each candidate is passionate about, what their strengths and growth areas are, and preferences regarding the kinds of teams on which they like to work. All in the span of about 40 minutes.
