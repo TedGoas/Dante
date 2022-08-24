@@ -82,8 +82,4 @@ I love answers that teach me something new about a product I know or tell me abo
 
 ---
 
-Do you have a favorite question you ask during product design interviews? I’m [@tedgoas on Twitter](https://twitter.com/TedGoas), I’d love to hear about it!
-
----
-
-Thanks to [Meg Risdal](https://twitter.com/MeganRisdal) for reading early drafts of this article.
+Do you have a favorite question you ask during product design interviews? I’m [@tedgoas on Twitter](https://twitter.com/TedGoas), I’d love to hear about it! Thanks to [Meg Risdal](https://twitter.com/MeganRisdal) for reading early drafts of this article.
