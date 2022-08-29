@@ -56,3 +56,13 @@
     margin-bottom: 0;
   }
 }
+.newsletter-form .form-container {
+  margin: 0 !important;
+
+  .emailoctopus-error-message {
+    @apply text-left text-red-400 mb-4 !important;
+  }
+  .emailoctopus-success-message {
+    @apply text-left text-green-400 mb-4 !important;
+  }
+}
