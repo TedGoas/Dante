@@ -66,3 +66,8 @@
     @apply text-left text-green-400 mb-4 !important;
   }
 }
+.newsletter-issues {
+  ul {
+    @apply mt-4;
+  }
+}
