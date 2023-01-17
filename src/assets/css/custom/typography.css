@@ -180,7 +180,7 @@ table {
     }
     ul,
     ol {
-        @apply my-12 pl-8;
+        @apply my-8 pl-8;
 
         li {
             @apply mb-4 relative;
@@ -216,11 +216,17 @@ table {
     hr + h3 {
         margin-top: 0;
     }
-    header + h2 {
+    header + h2,
+    header + h3 {
         margin-top: 0;
     }
     h2 + ul,
     h2 + ol {
         margin-top: 0;
+    }
+    h1, h2, h3 {
+        + blockquote {
+            margin-top: 0;
+        }
     }
 }
