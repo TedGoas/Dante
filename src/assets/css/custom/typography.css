@@ -32,7 +32,8 @@ figure {
     @apply block my-16 mx-auto max-w-full text-center;
 
     img,
-    video {
+    video,
+    .video-embed {
         @apply mx-auto;
     }
     figcaption {
