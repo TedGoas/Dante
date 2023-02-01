@@ -34,7 +34,7 @@ figure {
     img,
     video,
     .video-embed {
-        @apply mx-auto;
+        @apply mx-auto max-w-full sm:h-auto aspect-video;
     }
     figcaption {
         @apply text-xs mt-4 text-center text-gray-400;
