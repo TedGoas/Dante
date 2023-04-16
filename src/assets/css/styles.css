@@ -1,6 +1,11 @@
-@import 'custom/typography.css';
-@import 'custom/header-footer.css';
+@import 'custom/vars.css';
+@import 'custom/base.css';
+@import 'custom/header.css';
+@import 'custom/footer.css';
 @import 'custom/home.css';
+@import 'custom/work.css';
+@import 'custom/values.css';
+@import 'custom/blog.css';
+@import 'custom/newsletter.css';
 @import 'custom/bio.css';
-@import 'custom/misc.css';
 @import 'custom/highlightjs.css';
