@@ -1,0 +1,16 @@
+@font-face {
+  font-family: 'Redaction';
+  src: url('/assets/fonts/Redaction-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'RedactionBold';
+  src: url('/assets/fonts/Redaction-Bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'RedactionItalic';
+  src: url('/assets/fonts/Redaction-Italic.woff2') format('woff2');
+}
+
+body {
+  font-family: 'Redaction', sans-serif;
+}

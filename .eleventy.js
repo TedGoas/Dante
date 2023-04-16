@@ -5,6 +5,7 @@ module.exports = (config) => {
   config.addPassthroughCopy({ 'src/posts/img/': 'assets/img/' });
   config.addPassthroughCopy({ 'src/work/img/': 'assets/img/' });
   config.addPassthroughCopy('src/assets/files/');
+  config.addPassthroughCopy('src/assets/fonts/');
 
   config.addWatchTarget("src/assets/js/");
   config.addWatchTarget("src/assets/css/");
