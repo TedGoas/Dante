@@ -26,7 +26,7 @@
 	},
 	"homepage": "https://github.com/TedGoas/Dante#readme",
 	"devDependencies": {
-		"@11ty/eleventy": "^0.12.1",
+		"@11ty/eleventy": "^2.0.1",
 		"cross-env": "^7.0.3",
 		"html-minifier": "^4.0.0",
 		"luxon": "^1.24.1",
