@@ -1,0 +1,17 @@
+:root {
+
+  --color-dark: #272325;
+  --color-light: #FFF6E6;
+  --color-primary: #1a8fe3;
+
+  --font-size-0: clamp(1rem, calc(0.96rem + 0.22vw), 1.13rem);
+  --font-size-1: clamp(1.25rem, calc(1.16rem + 0.43vw), 1.5rem);
+  --font-size-2: clamp(1.56rem, calc(1.41rem + 0.76vw), 2rem);
+  --font-size-3: clamp(1.95rem, calc(1.71rem + 1.24vw), 2.66rem);
+  --font-size-4: clamp(2.44rem, calc(2.05rem + 1.93vw), 3.55rem);
+
+  --font-display: 'RedactionBold', sans-serif;
+  --font-display-italic: 'RedactionItalic', sans-serif;
+  --font-sans: system-ui, sans-serif;
+  --font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+}

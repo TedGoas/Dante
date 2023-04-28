@@ -12,5 +12,94 @@
 }
 
 body {
-  font-family: 'Redaction', sans-serif;
+  font-family: var(--font-sans);
+  background: var(--color-dark);
+  color: var(--color-light);
+  font-size: var(--font-size-1);
+  line-height: 1.7;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  line-height: 1.1;
+  font-weight: bold;
+  text-wrap: balance;
+}
+h1 {
+  font-size: var(--font-size-4);
+}
+h2 {
+  font-size: var(--font-size-3);
+}
+h3 {
+  font-size: var(--font-size-2);
+}
+ul,
+ol {
+  padding-inline-start: 1em;
+}
+a {
+  color: currentColor;
+  text-decoration-color: var(--color-primary);
+  text-decoration-thickness: 0.3ex;
+  text-underline-offset: 0.3ex;
+}
+.lede {
+  font-size: var(--size-step-2);
+  font-family: var(--font-display-italic);
+  font-style: italic;
+  max-width: 50ch;
+  text-wrap: balance;
+}
+.lede + * {
+  --flow-space: 2em;
+}
+blockquote {
+  padding-inline-start: 1em;
+  border-inline-start: 0.3em solid;
+  font-family: var(--font-display-italic);
+  font-size: var(--font-size-1);
+}
+
+.prose > * + * {
+  margin-block-start: var(--flow-space, 1em);
+}
+.prose {
+  margin-inline: auto;
+  --flow-space: 1em;
+
+  /* Space around stuff */
+  :is(h1, h2, h3, blockquote) {
+    --flow-space: 1.5em;
+  }
+  :is(h1, h2, h3) + * {
+    --flow-space: 0.5em;
+  }
+  :is(hr) {
+    --flow-space: 5em;
+  }  
+
+  /* Line lengths */
+  > * {
+    max-width: 55ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  blockquote {
+    max-width: 50ch;
+  }
+  h1 {
+    max-width: 20ch;
+  }
+  h2,
+  h3 {
+    max-width: 28ch;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
