@@ -1,0 +1,30 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--site-width);
+    margin: 0 auto;
+    padding: var(--spacing16) 0;
+    flex-wrap: wrap;
+
+    .logo {
+        transform: translateY(var(--spacing2));
+    }
+    nav {
+        display: flex;
+        flex-wrap: nowrap;
+        max-width: 100%;
+        overflow-x: auto;
+        font-size: var(--font-size-0);
+        gap: min(var(--spacing16), 6vw);
+        font-family: var(--font-mono);
+
+        .active {
+            text-decoration: none;
+            background: url(/assets/img/header-highlight.svg) center center no-repeat;
+        }
+    }
+    .blockspam {
+        display: none;
+    }
+}

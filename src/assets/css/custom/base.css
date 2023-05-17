@@ -1,14 +1,14 @@
 @font-face {
-  font-family: 'Redaction';
-  src: url('/assets/fonts/Redaction-Regular.woff2') format('woff2');
+  font-family: "Redaction";
+  src: url("/assets/fonts/Redaction-Regular.woff2") format("woff2");
 }
 @font-face {
-  font-family: 'RedactionBold';
-  src: url('/assets/fonts/Redaction-Bold.woff2') format('woff2');
+  font-family: "RedactionBold";
+  src: url("/assets/fonts/Redaction-Bold.woff2") format("woff2");
 }
 @font-face {
-  font-family: 'RedactionItalic';
-  src: url('/assets/fonts/Redaction-Italic.woff2') format('woff2');
+  font-family: "RedactionItalic";
+  src: url("/assets/fonts/Redaction-Italic.woff2") format("woff2");
 }
 
 body {
@@ -16,7 +16,7 @@ body {
   background: var(--color-dark);
   color: var(--color-light);
   font-size: var(--font-size-1);
-  line-height: 1.7;
+  line-height: var(--lh-md);
 }
 
 h1,
@@ -45,6 +45,19 @@ a {
   text-decoration-color: var(--color-primary);
   text-decoration-thickness: 0.3ex;
   text-underline-offset: 0.3ex;
+  transition: all var(--transition-speed-fast) ease-in;
+
+  &.subtle {
+    color: var(--color-dim);
+    text-decoration-color: var(--color-dimmer);
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: var(--color-light);
+        text-decoration-color: var(--color-light);
+    }
+  }
 }
 .lede {
   font-size: var(--size-step-2);
@@ -78,12 +91,12 @@ blockquote {
     --flow-space: 0.5em;
   }
   :is(hr) {
-    --flow-space: 5em;
-  }  
+    --flow-space: var(--spacing48);
+  }
 
   /* Line lengths */
   > * {
-    max-width: 55ch;
+    max-width: var(--content-width);
     margin-left: auto;
     margin-right: auto;
   }
@@ -101,5 +114,8 @@ blockquote {
   img {
     max-width: 100%;
     height: auto;
+  }
+  figcaption {
+    font-size: var(--font-size-0);
   }
 }

@@ -1,17 +1,52 @@
 :root {
 
-  --color-dark: #272325;
-  --color-light: #FFF6E6;
-  --color-primary: #1a8fe3;
+    /* Colors */
+    --color-dark:       #272325;
+    --color-light:      #FFF6E6;
+    --color-dim:        #938C85;
+    --color-dimmer:     #474342;
+    --color-primary:    #1a8fe3;
 
-  --font-size-0: clamp(1rem, calc(0.96rem + 0.22vw), 1.13rem);
-  --font-size-1: clamp(1.25rem, calc(1.16rem + 0.43vw), 1.5rem);
-  --font-size-2: clamp(1.56rem, calc(1.41rem + 0.76vw), 2rem);
-  --font-size-3: clamp(1.95rem, calc(1.71rem + 1.24vw), 2.66rem);
-  --font-size-4: clamp(2.44rem, calc(2.05rem + 1.93vw), 3.55rem);
+    /* Font sizes */
+    --font-size-0: clamp(.8rem, calc(0.82rem + 0.22vw), 1rem);
+    --font-size-1: clamp(1.25rem, calc(1.16rem + 0.43vw), 1.5rem);
+    --font-size-2: clamp(1.56rem, calc(1.41rem + 0.76vw), 2rem);
+    --font-size-3: clamp(1.95rem, calc(1.71rem + 1.24vw), 2.66rem);
+    --font-size-4: clamp(2.44rem, calc(2.05rem + 1.93vw), 3.55rem);
 
-  --font-display: 'RedactionBold', sans-serif;
-  --font-display-italic: 'RedactionItalic', sans-serif;
-  --font-sans: system-ui, sans-serif;
-  --font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+    /* Line Heights */
+    --lh-sm:  1.3rem;
+    --lh-md:  2rem;
+    --lh-lg:  3rem;
+    
+    /* Font families */
+    --font-display: 'RedactionBold', sans-serif;
+    --font-display-italic: 'RedactionItalic', sans-serif;
+    --font-sans: system-ui, sans-serif;
+    --font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+
+    /* Dimensions */
+    --site-width:       75ch;
+    --content-width:    55ch;
+    --width-1:          25ch;
+    --width-2:          35ch;
+    --width-3:          45ch;
+    --width-4:          55ch;
+    --width-5:          65ch;
+
+    /* Spacing */
+    --spacing2:       0.2rem;
+    --spacing4:       0.4rem;
+    --spacing8:       0.8rem;
+    --spacing12:      1.2rem;
+    --spacing16:      1.6rem;
+    --spacing24:      2.4rem;
+    --spacing36:      3.6rem;
+    --spacing48:      4.8rem;
+    --spacing64:      6.4rem;
+    --spacing96:      9.6rem;
+    --spacing128:     12.8rem;
+
+    /* Transitions */
+    --transition-speed-fast:    100ms;
 }
