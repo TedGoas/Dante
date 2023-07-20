@@ -156,6 +156,7 @@ Here’s a short, non-exhaustive list of resources I’ve found helpful in my ow
 - [d.MBA guides](https://d.mba/guides)
 - [🐦 Podcasts for designers wanting to feel more comfortable discussing "strategy"?](https://twitter.com/andybudd/status/1620048544521674752?s=46&t=9oW-lw6MfnW9iMYCHcv4GQ): Some great suggestions in the comments.
 - [Finding and Fostering Great Product Sense](https://staysaasy.com/product/2023/05/14/product-sense.html): On generating profitable ideas and making informed judgments.
+- [Selling to the VP of No](https://www.amazon.com/Selling-VP-No-Dave-Gray/dp/097427030X): Honing those sales skills.
 
 ### Bonus
 
