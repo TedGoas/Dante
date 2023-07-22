@@ -206,6 +206,10 @@ This is especially in the age of Ai.
 
 With Ai eating away at the maker aspects of our job, now is a good time to lean into the [product and business aspects](https://staysaasy.com/product/2023/05/14/product-sense.html) of being a product designer. Strengthening our skills in these areas increases our ability to contribute to our company’s overall success, and future-proof’s our career stability in the process.
 
+Some say it’s good to end with a quote. He says someone else has already said it best. So if you can’t top it, steal from them and go out strong. So here’s one from my buddy Neil:
+
+<blockquote class="twitter-tweet" data-dnt="true" data-theme="dark"><p lang="en" dir="ltr">Product designers who are willing to learn about how businesses operate and grow can become trusted business partners and work directly with founders to impact revenue.<br><br>One of several good ways for design to “get a seat at the table”, command higher rates / salaries, etc.</p>&mdash; Neil Renicker (@tinystride) <a href="https://twitter.com/tinystride/status/1681441579234656264?ref_src=twsrc%5Etfw">July 18, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
 ---
 
 Thanks to [Marshal](https://www.linkedin.com/in/marshalldean/), [Palko](https://www.linkedin.com/in/martel-pablo/), [Silvi](https://www.linkedin.com/in/silvinaklein/), and [Lau](https://www.linkedin.com/in/mlaujasnis/) for reading early versions of this article.
