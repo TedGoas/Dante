@@ -129,7 +129,7 @@ As designers, we sometimes leave this to others and jump straight into requireme
 Once we’ve learned what drives our customers and the business, we’ll have a better idea of how we should be spending our time. We’ll be able to plot each project that comes our way on an Impact vs. Effort matrix with some degree of confidence.
 
 <figure class="max-w-full">
-	<img src="/assets/img/design-strategy/impact-effort.svg" alt="A basic impact-effort graph depicting the relationship between impact and effort. The graph consists of two axes, with the horizontal axis representing effort and the vertical axis representing impact." height="" width="594">
+	<img src="/assets/img/design-strategy/impact-effort.svg" alt="A basic impact-effort graph depicting the relationship between impact and effort. The graph consists of two axes, with the horizontal axis representing effort and the vertical axis representing impact.">
 </figure>
 
 Our time, energy, and attention are not free, we so need to be strategic about how we spend them. Knowing how to prioritize lets us move faster on what matters most.
