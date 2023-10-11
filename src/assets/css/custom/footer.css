@@ -1,0 +1,34 @@
+footer {
+    max-width: var(--width-5);
+    margin: auto;
+    padding: var(--spacing36) 0;
+    font-size: var(--font-size-0);
+    color: var(--color-dim);
+    font-family: var(--font-mono);
+    line-height: var(--lh-sm);
+    text-align: center;
+
+    a {
+
+        &:has(svg) {
+            text-decoration: none;
+        }
+        path,
+        polygon {
+            transition: all var(--transition-speed-fast) ease-in;
+        }
+        &:not(:hover):not(:focus):not(:active) {
+            path,
+            polygon {
+                fill: var(--color-dim);
+            }
+        }
+    }
+    .social {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: var(--spacing8);
+        padding: var(--spacing8) 0;
+    }
+}

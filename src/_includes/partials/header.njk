@@ -1,21 +1,13 @@
-<header id="header" class="header mb-12 py-12 flex items-center sm:mb-6 sm:py-6 sm:block">
-    <div class="logo w-1/2 sm:w-full">
-        <a href="{{ '/' | url }}">
-            <img src="/assets/img/tg-sig-logo.svg" width="119" height="56" alt="{{ site.title }}">
-        </a>
-    </div>
-    <nav role="navigation" aria-label="Main Navigation" class="text-center whitespace-nowrap sm:overflow-y-auto sm:px-0 sm:pb-2 sm:text-left">
-        <!--
-        {% for item in menu %}
-        <a href="{{ item.url | url }}" class=" {% if page.url == item.url %}active{% endif %}">{{ item.label }}</a>
-        {% endfor %}
-        -->
-        <a href="/work" class="{{ 'active' if '/work' in page.url }} p-2 mx-2 text-white inline-block no-underline">Work</a>
-        <a href="/values" class="{{ 'active' if '/values' in page.url }} p-2 mx-2 text-white inline-block no-underline">Values</a>
-        <a href="/bio" class="{{ 'active' if '/bio' in page.url }} p-2 mx-2 text-white inline-block no-underline">Bio</a>
-        <a href="/blog" class="{{ 'active' if '/blog' in page.url }} p-2 mx-2 text-white inline-block no-underline">Blog</a>
+<header id="header" class="header">
+    <a href="{{ '/' | url }}" class="logo">
+        <img src="/assets/img/tg-sig-logo.svg" width="119" height="56" alt="{{ site.title }}">
+    </a>
+    <nav role="navigation" aria-label="Main Navigation">
+        <a href="/work" class="{{ 'active' if '/work' in page.url }}">Work</a>
+        <a href="/values" class="{{ 'active' if '/values' in page.url }}">Values</a>
+        <a href="/bio" class="{{ 'active' if '/bio' in page.url }}">Bio</a>
+        <a href="/blog" class="{{ 'active' if '/blog' in page.url }}">Blog</a>
+        <a href="/newsletter" class="{{ 'active' if '/newsletter' in page.url }}">Newsletter</a>
+		<span>ted<span class="blockspam" aria-hidden="true">No spam plz!</span>@<!-- sdfjsdhfkjypcs -->tedgoas.com</span>
     </nav>
-    <div class="contact w-1/2 text-right sm:w-full sm:text-left">
-        <img src="/assets/img/tg-sig-email.svg" width="143" height="36" alt="ted at tedgoas dot com" class="ml-auto sm:ml-0 sm:w-24">
-    </div>
 </header>

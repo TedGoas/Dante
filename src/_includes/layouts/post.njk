@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<article class="flex flex-col items-center">
+<article class="prose">
     {% if featured_image %}
     <img src="{{ featured_image | url }}" alt=""{% if featured_image_classes %} class="{{ featured_image_classes }}"{% endif %}>
     {% endif %}
