@@ -35,6 +35,9 @@ figure {
     video,
     .video-embed {
         @apply mx-auto max-w-full h-auto;
+    }
+    video,
+    .video-embed {
         aspect-ratio: 16 / 9;
     }
     figcaption {
