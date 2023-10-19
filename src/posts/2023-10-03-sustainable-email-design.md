@@ -1,8 +1,8 @@
 ---
 title: How to design climate-friendly emails
 body_class: blog
-featured_image: "sustainable-email/someone-else.jpg"
-image_caption: Still from Simpsons Trash of the Titans episode with Homer in front of a sign proclaiming 'Can't someone else do it?'
+featured_image: "sustainable-email/hero.jpg"
+image_caption: A photo of earth from space
 description: How sustainable email design can help the planet.
 ---
 
