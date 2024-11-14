@@ -130,7 +130,7 @@ table {
         }
     }
     th {
-        @apply bg-gray-900 text-gray-400 text-left text-xs;
+        @apply bg-gray-800 text-gray-200 text-left text-xs;
     }
 
     td {
