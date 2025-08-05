@@ -1,92 +1,67 @@
-{%- set metaTitle -%}
-    {%- if not title -%}{{ site.title }} - {{ site.description | safe }}
-    {%- else -%}{{ title | safe }} | {{ site.title }}
-    {%- endif -%}
-{%- endset -%}
-{%- set metaDesc -%}
-    {%- if not description -%}{{ site.description | safe }}
-    {%- else -%}{{ description | safe }}
-    {%- endif -%}
-{%- endset -%}
 <!DOCTYPE html>
-<!--
-             `.`       /`  ```````````````
-        ````....`....`````````.`     `-..`                  ``:
-/```............                     `...`             /`..``.-.`
-``````    ....                      ....`           ``...`    `..`
-         `...`                      ...`           ....`       `
-        `....                      `...          `...`
-        .../       `              `...         `...`                                 ```        ```
-       ....    ``../`     ``..........        ....`                   ````      ````...`  `........
-       ...`   ......`    ....`......-        ....           `...`   `......````..``...` `....```
-      ...`  :......`   -....   .....        ....         ``.....` `......-.....` /...` ....`
-      ..:-  -..```   `....`  `.....`       ....`        `..` ...``...` `.-``..```-...` ....````
-     ...`  ...`    `.....- `...`...`      `...`     .-`.`   `..` ...- `..- .....-...`   ``.......`
-    :-..   ....  `..``...`...` `..`       ....`   ``-.`    `... `...`....`  ````:..`   `..````...`
-    ...`    `....``    ````    ...`       `..````..``     `..`   ......`         ..`  .......``.
-    `.`                        ..-.       `......`      ``..`                    ```
-     `                         ..`          ``   ```   `...
-                                                `.. ``...`
-                                               ....-:..
-                                               ``..``
--->
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ metaTitle }}</title>
-        <meta name="title" content="{{ metaTitle }}">
-        <meta name="description" content="{{ metaDesc }}">
-        <meta name="author" content="{{ author.name }}">
-        <meta name="robots" content="index, follow">
-        <link rel="canonical" href="{{ site.url | url }}{{ page.url }}">
-        <link rel="shortcut icon" type="image/png" href="{{ '/assets/img/favicon.png' | url }}">
-        <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | url }}">
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet"> 
-        <link rel="stylesheet" href="{{ '/assets/css/styles.css' | url }}">
-    </head>	
-    <body {% if body_class %}id="{{ body_class }}" {% endif %}class="flex flex-col h-screen bg-sitebg text-gray-100 text-base font-sans break-words">
-        <div class="max-w-5xl w-full mx-auto px-2 flex-grow">
-            {% include "partials/header.njk" %}
-            <main>
-                {% if layout === "post" %}
-                {{ content | safe }}
-                {% else %}
-                {{ content | safe }}
-                {% endif %}
-            </main>
-            {% include "partials/footer.njk" %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title or site.title }}</title>
+  <meta name="description" content="{{ description or site.description }}">
+  
+  <!-- Fragment Mono Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ title or site.title }}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ title or site.title }}">
+  <meta name="twitter:description" content="{{ description or site.description }}">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <div class="nav-brand">
+          <a href="/" class="nav-link">Ted Goas</a>
         </div>
-        <script src="{{ '/assets/js/bundle.js' | url }}"></script>
-        {% if highlightjs %}
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
-        {% endif %}
-        {% if roughjs %}
-        <script src="https://unpkg.com/rough-notation/lib/rough-notation.iife.js"></script>
-        <script>
-        setTimeout(function () {
-            const annotate = RoughNotation.annotate;
-            const annotationGroup = RoughNotation.annotationGroup;
-            const $ = (t) => document.querySelector(t);
-            {
-                const a1 = annotate($('.box-blue'), { type: 'box', color: '#3BC9DB', animationDuration: 500 });
-                const a2 = annotate($('.box-green'), { type: 'box', color: '#059669', animationDuration: 500 });
-                const a3 = annotate($('.box-red'), { type: 'box', color: '#B91C1C', animationDuration: 500 });
-                const a4 = annotate($('.underline-gray'), { type: 'underline', color: '#475569', animationDuration: 500, iterations: 2 });
-                const a5 = annotate($('.underline-gray2'), { type: 'underline', color: '#475569', animationDuration: 500, iterations: 2 });
-                const ag = annotationGroup([a1, a2, a3, a4, a5]);
-                ag.show();
-            }
-        }, 500)();
-        </script>
-        {% endif %}
-        <script async defer src="https://scripts.withcabin.com/hello.js"></script>
-    </body>
+        <ul class="nav-menu">
+          <li><a href="/work" class="nav-link">Work</a></li>
+          <li><a href="/bio" class="nav-link">Bio</a></li>
+          <li><a href="/blog" class="nav-link">Blog</a></li>
+          <li><a href="/values" class="nav-link">Values</a></li>
+          <li><a href="/labs" class="nav-link">Labs</a></li>
+          <li><a href="/newsletter" class="nav-link">Newsletter</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    {{ content | safe }}
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p class="text-mono text-sm text-secondary">
+          © 2025 Ted Goas. Built with <a href="https://www.11ty.dev/">11ty</a>.
+        </p>
+        <nav class="footer-nav">
+          <a href="/rss.xml" class="nav-link text-mono text-sm">RSS</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+</body>
 </html>
