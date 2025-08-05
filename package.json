@@ -8,9 +8,9 @@
 		"eleventy:watch": "cross-env NODE_ENV=development eleventy --watch",
 		"eleventy:build": "cross-env NODE_ENV=production eleventy",
 		"start": "npm run clean && npm run eleventy:serve",
-		"serve": "run-s clean eleventy:serve",
-		"watch": "run-s clean eleventy:watch",
-		"build": "run-s clean eleventy:build",
+		"serve": "npm run clean && npm run eleventy:serve",
+		"watch": "npm run clean && npm run eleventy:watch",
+		"build": "npm run clean && npm run eleventy:build",
 		"debug": "DEBUG=Eleventy* npm run build"
 	},
 	"repository": {
@@ -28,7 +28,6 @@
 		"cross-env": "^7.0.3",
 		"html-minifier": "^4.0.0",
 		"luxon": "^3.4.0",
-		"npm-run-all": "^4.1.5",
 		"rimraf": "^5.0.0",
 		"terser": "^5.24.0"
 	},
