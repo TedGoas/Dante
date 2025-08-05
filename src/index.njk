@@ -1,25 +1,32 @@
 ---
 layout: default
-meta_title: Home
-meta_description: I’m a reliable product designer and front-end developer working on websites, applications, and HTML emails.
-body_class: home
-title: I’m a reliable product designer and front-end developer working on websites, applications, and HTML emails.
-roughjs: true
+title: Ted Goas
+description: Product designer, researcher, and front-end developer
 ---
 
-<div role="main" class="flex flex-col">
-    <section class="text-center max-w-4xl mx-auto mb-40" aria-labelledby="heading">
-        <h1 class="font-display text-4xl leading-none sm:text-3xl">I’m a <span class="highlight-yellow px-4 -mx-2 inline-block relative">reliable</span> product designer and <span class="whitespace-nowrap">front-end</span> developer.</h1>
-        <p class="text-lg mt-8 mx-auto max-w-3xl sm:text-lg">I believe design is about taking the complex and chaotic and making it <strong class="box-blue mx-1">accessible</strong> to people, <strong class="box-green mx-1">responsive</strong>, and as <strong class="box-red mx-1">fast</strong> as possible.</p>
-        <p class="text-lg mt-8 mx-auto max-w-3xl sm:text-lg"">My goal is to create work that’s cool enough to show <span class="underline-gray tooltip relative">my friends <img src="/assets/img/home/friends.jpg" alt="My friends." class="absolute bottom-7 left-2/4 max-w-xs hidden -translate-x-2/4"></span> and honest enough to show <span class="underline-gray2 tooltip relative">my parents <img src="/assets/img/home/parents.jpg" alt="My parents." class="absolute bottom-7 left-2/4 max-w-xs hidden -translate-x-2/4"></span>.</p>
-    </section>
-    {% include "partials/work-list.njk" %}
-    <section class="work-section work-section--misc max-w-4xl p-16 mt-24 flex items-start self-center relative sm:p-8 sm:mt-12  sm:flex-col-reverse">
-        <div>
-            <p>I enjoy <a href="/blog" class="link-misc">writing</a> about things I learn, <a href="https://noti.st/tedgoas" class="link-misc">speaking occasionally</a>, and maintaining <a href="https://github.com/TedGoas/Cerberus" class="link-misc">Cerberus</a> (open source).</p>
-            <p class="mt-6">When not in front of a screen I like to exercise, snowboard, both watch and play hockey and soccer, work on my house, and explore New Jersey with my wife and kids.</p>
-        </div>
-        <div class="img relative flex-shrink-0 ml-12 sm:ml-0 sm:mb-8"><img src="/assets/img/home/tedgoas.jpg" alt="Ted Goas portrait" height="275" width="275" class="z-10 relative transform -rotate-2"></div>
-        <span class="curl3 absolute block bg-no-repeat sm:hidden" aria-hidden="true"></span>
-    </section>
+<div class="container">
+  <section class="hero">
+    <h1>Hi, I'm Ted Goas</h1>
+    <p class="text-xl text-secondary mb-8">
+      I'm a product designer, researcher, and front-end developer. I help teams build better digital products through thoughtful design and clean code.
+    </p>
+    <div class="hero-actions">
+      <a href="/work" class="btn btn-primary">View My Work</a>
+      <a href="/bio" class="btn">Learn More</a>
+    </div>
+  </section>
+
+  <section class="featured-content mt-12">
+    <h2>Recent Work</h2>
+    <div class="work-grid">
+      <article class="work-item">
+        <h3><a href="/work">Case Studies</a></h3>
+        <p class="text-secondary">Explore my design process and outcomes from recent projects.</p>
+      </article>
+      <article class="work-item">
+        <h3><a href="/blog">Latest Posts</a></h3>
+        <p class="text-secondary">Thoughts on design, development, and building products.</p>
+      </article>
+    </div>
+  </section>
 </div>
