@@ -16,7 +16,7 @@ description: Thoughts on design, development, and building products
     {% for post in collections.posts %}
     <article class="blog-item">
       <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
-      <p class="text-secondary text-sm">{{ post.data.date | readableDate }}</p>
+      <p class="text-secondary text-sm">{{ post.date | readableDate }}</p>
       {% if post.data.description %}
       <p class="text-secondary">{{ post.data.description }}</p>
       {% endif %}

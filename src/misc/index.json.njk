@@ -6,7 +6,7 @@ permalink: "/index.json"
     {
         "url": "{{ post.url | url }}",
         "title": "{{ post.data.title }}",
-        "date": "{{ post.data.page.date | readableDate }}"
+        "date": "{{ post.date | readableDate }}"
     }{% if not loop.last %},{% endif %}
     {% endfor %}
 ]

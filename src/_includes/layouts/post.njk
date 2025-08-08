@@ -6,8 +6,8 @@ layout: default
   <article class="post">
     <header class="post-header">
       <h1>{{ title }}</h1>
-      {% if date %}
-      <time class="text-mono text-sm text-secondary">{{ date | readableDate }}</time>
+      {% if page.date %}
+      <time class="text-mono text-sm text-secondary">{{ page.date | readableDate }}</time>
       {% endif %}
     </header>
 
