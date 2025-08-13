@@ -1,3 +1,6 @@
+/* Import Gambetta font from Fontshare */
+@import url('https://api.fontshare.com/v2/css?f[]=gambetta@1,900,700,500,400,300&display=swap');
+
 /* CSS Variables for Design System */
 :root {
   /* Colors - Dark Mode */
@@ -16,17 +19,17 @@
   --color-border-light: #404040;
   
   /* Typography */
-  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Gambetta', georgia, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'Fragment Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
   
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.25rem;
-  --text-2xl: 1.5rem;
-  --text-3xl: 1.875rem;
-  --text-4xl: 2.25rem;
+  --text-xs: 0.9375rem;    /* 0.75rem * 1.25 */
+  --text-sm: 1.09375rem;   /* 0.875rem * 1.25 */
+  --text-base: 1.25rem;    /* 1rem * 1.25 */
+  --text-lg: 1.40625rem;   /* 1.125rem * 1.25 */
+  --text-xl: 1.5625rem;    /* 1.25rem * 1.25 */
+  --text-2xl: 1.875rem;    /* 1.5rem * 1.25 */
+  --text-3xl: 2.34375rem;  /* 1.875rem * 1.25 */
+  --text-4xl: 2.8125rem;   /* 2.25rem * 1.25 */
   
   /* Spacing */
   --space-1: 0.25rem;
@@ -52,12 +55,13 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: var(--text-base);
   scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--font-sans);
+  font-size: var(--text-base);
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
   line-height: 1.6;
@@ -124,7 +128,7 @@ li {
   justify-content: space-between;
   align-items: center;
   font-family: var(--font-mono);
-  font-size: var(--text-sm);
+  font-size: var(--text-xs);
 }
 
 .nav-brand .nav-link {
