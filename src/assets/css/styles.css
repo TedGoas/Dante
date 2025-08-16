@@ -4,7 +4,7 @@
 /* CSS Variables for Design System */
 :root {
   /* Colors - Dark Mode */
-  --color-bg-primary: #0a0a0a;
+  --color-bg-primary: #272325;
   --color-bg-secondary: #1a1a1a;
   --color-bg-tertiary: #2a2a2a;
   
@@ -19,7 +19,7 @@
   --color-border-light: #404040;
   
   /* Typography */
-  --font-sans: 'Gambetta', georgia, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-main: 'Gambetta', georgia, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'Fragment Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
   
   --text-xs: 0.9375rem;    /* 0.75rem * 1.25 */
@@ -60,7 +60,7 @@ html {
 }
 
 body {
-  font-family: var(--font-sans);
+  font-family: var(--font-main);
   font-size: var(--text-base);
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
