@@ -478,3 +478,26 @@ li {
     text-align: center;
   }
 }
+
+/* Homepage */
+.homepage-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: var(--space-2);
+  grid-row-gap: var(--space-2);
+
+  div {
+    background-color: var(--color-bg-secondary);
+    font-size: var(--text-xs);
+    padding: var(--space-4);
+    font-family: var(--font-mono);
+  }
+  .div1 { grid-area: 1 / 1 / 4 / 2; }
+  .div2 { grid-area: 2 / 2 / 4 / 4; }
+  .div3 { grid-area: 2 / 4 / 3 / 5; }
+  .div4 { grid-area: 3 / 4 / 4 / 6; }
+  .div5 { grid-area: 1 / 5 / 3 / 6; }
+}
+  
+  
