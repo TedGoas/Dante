@@ -7,24 +7,28 @@ description: Subscribe to my newsletter
 <div class="container">
   <section class="newsletter-intro">
     <h1>Newsletter</h1>
-    <p class="text-xl text-secondary mb-8">
-      Subscribe to get updates on design, development, and building better products.
+    <p class="text-xl mb-8">
+      I send a newsletter about product design and leadership, with a touch of email and climate tech, once or twice a month.
     </p>
   </section>
 
   <section class="newsletter-signup">
-    <h2>Stay Updated</h2>
-    <p class="mb-6">
-      I share insights on product design, front-end development, and building better digital experiences. 
-      No spam, just thoughtful content delivered to your inbox.
-    </p>
+    <iframe src="https://embeds.beehiiv.com/71d951d8-d80b-4908-b7c3-7b5ec6fb54e7?slim=true" data-test-id="beehiiv-embed" height="52" frameborder="0" scrolling="no" style="margin: 0; border-radius: 0px !important; background-color: transparent;"></iframe>
+    <p>If you subscribe, I promise I’ll never share or sell your info, or track you in a creepy way. You’ll always be able to unsubscribe anytime instantly.</p>
     
-    <form class="newsletter-form">
-      <div class="form-group">
-        <label for="email" class="text-sm text-secondary">Email Address</label>
-        <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Subscribe</button>
-    </form>
+    <h2>Past issues</h2>
+    {% if newsletter.issues and newsletter.issues.length > 0 %}
+      <ul>
+        {% for issue in newsletter.issues %}
+          <li>
+            <a href="{{ issue.url }}" target="_blank" rel="noopener">
+              {{ issue.title }} - {{ issue.date }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>Loading past issues...</p>
+    {% endif %}
   </section>
 </div>
