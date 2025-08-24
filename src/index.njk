@@ -1,25 +1,34 @@
 ---
 layout: default
-meta_title: Home
-meta_description: I’m a reliable product designer and front-end developer working on websites, applications, and HTML emails.
-body_class: home
-title: I’m a reliable product designer and front-end developer working on websites, applications, and HTML emails.
-roughjs: true
+title: Ted Goas
+description: Product designer, researcher, and front-end developer
 ---
 
-<div role="main" class="flex flex-col">
-    <section class="text-center max-w-4xl mx-auto mb-40" aria-labelledby="heading">
-        <h1 class="font-display text-4xl leading-none sm:text-3xl">I’m a <span class="highlight-yellow px-4 -mx-2 inline-block relative">reliable</span> product designer and <span class="whitespace-nowrap">front-end</span> developer.</h1>
-        <p class="text-lg mt-8 mx-auto max-w-3xl sm:text-lg">I believe design is about taking the complex and chaotic and making it <strong class="box-blue mx-1">accessible</strong> to people, <strong class="box-green mx-1">responsive</strong>, and as <strong class="box-red mx-1">fast</strong> as possible.</p>
-        <p class="text-lg mt-8 mx-auto max-w-3xl sm:text-lg"">My goal is to create work that’s cool enough to show <span class="underline-gray tooltip relative">my friends <img src="/assets/img/home/friends.jpg" alt="My friends." class="absolute bottom-7 left-2/4 max-w-xs hidden -translate-x-2/4"></span> and honest enough to show <span class="underline-gray2 tooltip relative">my parents <img src="/assets/img/home/parents.jpg" alt="My parents." class="absolute bottom-7 left-2/4 max-w-xs hidden -translate-x-2/4"></span>.</p>
-    </section>
-    {% include "partials/work-list.njk" %}
-    <section class="work-section work-section--misc max-w-4xl p-16 mt-24 flex items-start self-center relative sm:p-8 sm:mt-12  sm:flex-col-reverse">
-        <div>
-            <p>I enjoy <a href="/blog" class="link-misc">writing</a> about things I learn, <a href="https://noti.st/tedgoas" class="link-misc">speaking occasionally</a>, and maintaining <a href="https://github.com/TedGoas/Cerberus" class="link-misc">Cerberus</a> (open source).</p>
-            <p class="mt-6">When not in front of a screen I like to exercise, snowboard, both watch and play hockey and soccer, work on my house, and explore New Jersey with my wife and kids.</p>
-        </div>
-        <div class="img relative flex-shrink-0 ml-12 sm:ml-0 sm:mb-8"><img src="/assets/img/home/tedgoas.jpg" alt="Ted Goas portrait" height="275" width="275" class="z-10 relative transform -rotate-2"></div>
-        <span class="curl3 absolute block bg-no-repeat sm:hidden" aria-hidden="true"></span>
-    </section>
+<div class="container">
+  <section class="hero">
+    <h1>I’m a product designer, manager, researcher, and sometimes developer.</h1>
+    <p class="text-xl text-secondary mb-8">
+      I lead teams that turn abstract ideas into usable products. I believe design is about taking the complex and chaotic and making it accessible, responsive, and as fast as possible.
+    </p>
+    <p class="text-xl text-secondary mb-8">
+      My goal is to create work that’s cool enough to show my friends and honest enough to show my parents.
+    </p>
+  </section>
+  <section>
+    <div class="homepage-grid">
+      <div class="div1">Cerberus docs site</div>
+      <div class="div2">Dialpad agent inbox</div>
+      <div class="div3">Stack Overflow email</div>
+      <div class="div4">Canfield graph</div>
+      <div class="div5">Dialpad???</div>
+    </div> 
+  </section>
+  <section class="">
+    <p class="text-xl text-secondary mb-8">
+      Currently I lead a team of product designers responsible for <a href="https://www.dialpad.com/">Dialpad</a>'s Support product. Before that I designed <a href="https://stackoverflow.com">Stack Overflow</a>'s first enterprise product and built one of the first <a href="https://stackoverflow.design/email">email design systems</a> ever. Before that I was the founding designer at <a href="https://canfield.com">Canfield Scientific</a>, where I created software for running clinical trials. I also created and sold <a href="https://www.cerberusemail.com/">Cerberus</a>, an open source framework for HTML email development.
+    </p>
+    <p class="text-xl text-secondary mb-8">
+      When not in front of a screen, I like to exercise, snowboard, play hockey and soccer, work on my house, read, and explore New Jersey with my wife and kids.
+    </p>
+  </section>
 </div>
