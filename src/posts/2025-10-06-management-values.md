@@ -123,7 +123,10 @@ Design work is tough, even in the best conditions. As a manager, one of the thin
 
 I still upload unhinged custom emojis to company chat, host silly birthday games over Zoom, and drop funny links in chat.
 
-[cowboy emojis: Cowboy emojis, a tradition started by [a former co-worker](https://www.aaronshekey.com/posts/custom-emojis/).]
+<figure class="max-w-full">
+	<img src="/assets/img/custom-emoji.webp" alt="A series of smiley face emojis with various expressions, all wearing a cowboy hat." height="" width="">
+    <figcaption>Cowboy emojis, a tradition started by <a href="https://www.aaronshekey.com/posts/custom-emojis/">a former co-worker</a>.</figcaption>
+</figure>
 
 Don’t get me wrong, I’m mindful of what I say publicly because I realize the weight my words and actions carry as a leader in the company. But it’s important to lighten the mood once in a while That spirit finds its way back into the work and helps people feel psychologically safe.
 
