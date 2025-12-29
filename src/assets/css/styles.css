@@ -60,6 +60,10 @@
   --inside-max-width: 1200px;
   --outside-max-width: 2000px;
   --container-padding: var(--space-4);
+  
+  /* Grid System */
+  --grid-gutter: 3rem; /* 48px */
+  --grid-margin: 6rem; /* 96px */
 }
 
 /* Utility Classes */
@@ -331,12 +335,21 @@ li {
   width: 100%;
   max-width: var(--outside-max-width);
   margin: 0 auto;
-  padding: 0 var(--container-padding);
+  padding: 0 var(--grid-margin);
 }
+
 .inside-container {
   width: 100%;
   max-width: var(--inside-max-width);
   margin: 0 auto;
+}
+
+/* Grid System */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--grid-gutter);
+  width: 100%;
 }
 
 /* Header */
@@ -669,6 +682,8 @@ li {
 @media (max-width: 768px) {
   :root {
     --container-padding: var(--space-3);
+    --grid-margin: var(--space-4); /* 1rem on mobile */
+    --grid-gutter: var(--space-4); /* 1rem on mobile */
   }
   
   h1 { font-size: var(--text-3xl); }
