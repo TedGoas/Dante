@@ -57,8 +57,8 @@
   --space-20: 5rem;
   
   /* Layout */
-  --inside-max-width: 1200px;
-  --outside-max-width: 2000px;
+  --inside-max-width: 100%;
+  --outside-max-width: 69rem; /* 1290px */
   --container-padding: var(--space-4);
   
   /* Grid System */
@@ -274,6 +274,13 @@ body {
   font-family: var(--font-main);
   font-size: var(--text-base);
   background-color: var(--color-bg-primary);
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 15px,
+    rgba(255, 255, 255, 0.07) 15px,
+    rgba(255, 255, 255, 0.07) 16px
+  );
   color: var(--color-text-primary);
   line-height: 1.6;
   margin: 0;
@@ -332,16 +339,44 @@ li {
 
 /* Layout Components */
 .outside-container {
+  background-color: var(--color-bg-primary);
   width: 100%;
   max-width: var(--outside-max-width);
   margin: 0 auto;
   padding: 0 var(--grid-margin);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    width: 4px;
+    left: -5px;
+    top: 0;
+    bottom: 0;
+    border-left: 2px solid rgba(255, 255, 255, 0.07);
+    border-right: 2px solid rgba(255, 255, 255, 0.07);
+    background-color: var(--color-bg-primary);
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    width: 4px;
+    right: -5px;
+    top: 0;
+    bottom: 0;
+    border-left: 2px solid rgba(255, 255, 255, 0.07);
+    border-right: 2px solid rgba(255, 255, 255, 0.07);
+    background-color: var(--color-bg-primary);
+  }
 }
 
 .inside-container {
   width: 100%;
   max-width: var(--inside-max-width);
   margin: 0 auto;
+  padding: 0 var(--grid-margin);
 }
 
 /* Grid System */
@@ -354,9 +389,22 @@ li {
 
 /* Header */
 .header {
-  /* border-bottom: 1px solid var(--color-border); */
-  padding: var(--space-12) 0;
-  background-color: var(--color-bg-primary);
+  .inside-container{
+    padding: var(--space-12) 0;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      height: 4px;
+      bottom: -2px;
+      left: calc(-1 * var(--grid-margin));
+      right: calc(-1 * var(--grid-margin));
+      border-top: 2px solid rgba(255, 255, 255, 0.07);
+      border-bottom: 2px solid rgba(255, 255, 255, 0.07);
+    }
+  }
 }
 
 .nav {
@@ -610,10 +658,24 @@ li {
 
 /* Footer */
 .footer {
-  border-top: 1px solid var(--color-border);
-  padding: var(--space-8) 0;
-  background-color: var(--color-bg-primary);
-  margin-top: auto;
+
+  .inside-container{
+    padding: var(--space-12) 0;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      height: 4px;
+      top: -2px;
+      left: calc(-1 * var(--grid-margin));
+      right: calc(-1 * var(--grid-margin));
+      border-top: 2px solid rgba(255, 255, 255, 0.07);
+      border-bottom: 2px solid rgba(255, 255, 255, 0.07);
+    }
+  }
+
 }
 
 .footer-content {
