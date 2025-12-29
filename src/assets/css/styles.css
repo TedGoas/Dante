@@ -34,7 +34,7 @@
   --text-xl: 1.5625rem;    /* 1.25rem * 1.25 */
   --text-2xl: 1.875rem;    /* 1.5rem * 1.25 */
   --text-3xl: 2.34375rem;  /* 1.875rem * 1.25 */
-  --text-4xl: 2.8125rem;   /* 2.25rem * 1.25 */
+  --text-4xl: 3.125rem;   /* 2.25rem * 1.25 */
   
   /* Line Height */
   --leading-tight: 1.2;
@@ -444,12 +444,23 @@ li {
 
 /* Hero Sections */
 .hero {
-  max-width: 80%;
-  margin: 0 auto;
 
   & h1 {
     font-size: var(--text-4xl);
     margin-bottom: var(--space-8);
+    
+    .hero-avatar {
+      display: inline-block;
+      width: 1.4em;
+      height: 1.4em;
+      border-radius: 50%;
+      object-fit: cover;
+      vertical-align: middle;
+      margin: -.2em 0 0 .2em;
+    }
+  }
+  & p {
+    max-width: 80%;
   }
   & a {
     white-space: nowrap;
