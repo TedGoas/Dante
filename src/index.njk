@@ -23,13 +23,30 @@ description: Product designer, researcher, and front-end developer
     <div class=""><img src="/assets/img/homepage-dialpad-sidebar.svg" alt=""></div>
   </div> 
 </section>
-<div class="inside-container">
-  <section class="">
-    <p class="text-xl text-secondary leading-normal mb-8">
-      Currently I lead a team of product designers responsible for <a href="https://www.dialpad.com/">Dialpad</a>'s Support product. Before that I designed <a href="https://stackoverflow.com">Stack Overflow</a>'s first enterprise product and built one of the first <a href="https://stackoverflow.design/email">email design systems</a> ever. Before that I was the founding designer at <a href="https://canfield.com">Canfield Scientific</a>, where I created software for running clinical trials. I also created and sold <a href="https://www.cerberusemail.com/">Cerberus</a>, an open source framework for HTML email development.
-    </p>
-    <p class="text-xl text-secondary leading-normal mb-8">
-      When not in front of a screen, I like to exercise, snowboard, play hockey and soccer, work on my house, read, and explore New Jersey with my wife and kids.
-    </p>
+<section class="inside-container py-16">
+  <p class="text-2xl text-secondary leading-normal mb-8 text-bold max-w-67">
+    I believe design is about taking the complex and chaotic and making it <span class="highlight-green">accessible</span> to people, <span class="highlight-red">responsive</span>, and as <span class="highlight-yellow">fast</span> as possible.
+  </p>
+  <section class="two-column-layout">
+    <div class="column-left">
+      <h2 class="text-2xl mb-6">Recent Articles</h2>
+      <ul class="recent-articles-list">
+        {% for post in collections.posts %}
+          {% if loop.index <= 5 %}
+          <li class="recent-article-item">
+            <h3 class="text-lg mb-2">
+              <a href="{{ post.url }}">{{ post.data.title }}</a>
+            </h3>
+            {% if post.data.description %}
+            <p class="text-sm text-muted">{{ post.data.description }}</p>
+            {% endif %}
+          </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="column-right">
+      <!-- Right column content will go here -->
+    </div>
   </section>
 </div>
