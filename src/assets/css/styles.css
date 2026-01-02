@@ -475,19 +475,24 @@ li {
 /* Homepage */
 .homepage-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-column-gap: var(--space-2);
-  grid-row-gap: var(--space-2);
+  align-items: center;
 
   div {
     overflow: hidden;
   }
-  .div1 { grid-area: 1 / 1 / 4 / 2; }
-  .div2 { grid-area: 2 / 2 / 4 / 4; }
-  .div3 { grid-area: 2 / 4 / 3 / 5; }
-  .div4 { grid-area: 3 / 4 / 4 / 6; }
-  .div5 { grid-area: 1 / 5 / 3 / 6; }
+  img {
+    width: 100%;
+    border-radius: 8px;
+
+    &:first-child {
+      border-radius: 0 8px 8px 0;
+    }
+    &:last-child {
+      border-radius: 8px 0 0 8px;
+    }
+  }
 }
 
 
