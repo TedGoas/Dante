@@ -9,8 +9,7 @@
   --color-bg-tertiary: #1e293b; /* slate-800 */
   
   --color-text-primary: #e2e8f0; /* slate-200 */
-  --color-text-secondary: #e2e8f0; /* slate-200 */
-  --color-text-muted: #cbd5e1; /* slate-300 */
+  --color-text-muted: oklch(70.4% 0.04 256.788); /* slate-400 */
   
   --color-accent: #34d399; /* emerald-400 */
   --color-accent-hover: #6ee7b7; /* emerald-300 */
@@ -528,28 +527,9 @@ li {
   margin: 0;
 }
 
-.recent-article-item {
-  margin-bottom: var(--space-6);
+.recent-article-item:not(:last-child) {
+  margin-bottom: var(--space-8);
 }
-
-.recent-article-item:last-child {
-  margin-bottom: 0;
-}
-
-.recent-article-item h3 {
-  margin-bottom: var(--space-2);
-  font-weight: 600;
-}
-
-.recent-article-item h3 a {
-  text-decoration: none;
-  color: var(--color-text-primary);
-}
-
-.recent-article-item h3 a:hover {
-  color: var(--color-accent);
-}
-
 
 /* Work Grid */
 .work-grid {

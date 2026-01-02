@@ -24,21 +24,21 @@ description: Product designer, researcher, and front-end developer
   </div> 
 </section>
 <section class="inside-container py-16">
-  <p class="text-2xl text-secondary leading-normal mb-8 text-bold max-w-67">
+  <p class="text-2xl text-secondary leading-normal mb-8 text-bold max-w-75">
     I believe design is about taking the complex and chaotic and making it <span class="highlight-green">accessible</span> to people, <span class="highlight-red">responsive</span>, and as <span class="highlight-yellow">fast</span> as possible.
   </p>
   <section class="two-column-layout">
     <div class="column-left">
-      <h2 class="text-2xl mb-6">Recent Articles</h2>
+      <h2 class="text-sm mb-6">Recent Articles</h2>
       <ul class="recent-articles-list">
         {% for post in collections.posts %}
           {% if loop.index <= 5 %}
           <li class="recent-article-item">
-            <h3 class="text-lg mb-2">
+            <h3 class="text-md mb-2">
               <a href="{{ post.url }}">{{ post.data.title }}</a>
             </h3>
             {% if post.data.description %}
-            <p class="text-sm text-muted">{{ post.data.description }}</p>
+            <p class="text-xs text-muted text-mono">{{ post.data.description }}</p>
             {% endif %}
           </li>
           {% endif %}
@@ -46,7 +46,8 @@ description: Product designer, researcher, and front-end developer
       </ul>
     </div>
     <div class="column-right">
-      <!-- Right column content will go here -->
+      <h2 class="text-sm mb-6">Newsletter</h2>
+      <p>I write a newsletter about product design and leadership, with a touch of email and climate tech, once a month.</p>
     </div>
   </section>
 </div>
