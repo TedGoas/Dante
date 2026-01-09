@@ -531,6 +531,15 @@ li {
   margin-bottom: var(--space-8);
 }
 
+.beehiiv-embed--homepage {
+  width: 100%;
+  background: transparent;
+
+  #beehiiv-subscribe-form {
+    background: transparent !important;
+  }
+}
+
 /* Work Grid */
 .work-grid {
   display: grid;
@@ -659,6 +668,10 @@ li {
 .newsletter-form {
   max-width: 500px;
   margin-top: var(--space-8);
+}
+
+.newsletter-signup {
+  line-height: 0;
 }
 
 .form-group {
