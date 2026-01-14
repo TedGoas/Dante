@@ -4,48 +4,50 @@ title: Newsletter
 description: Subscribe to my newsletter
 ---
 
-<div class="container">
-  <section class="newsletter-intro">
-    <h1>Newsletter</h1>
-    <p class="text-xl mb-8">
-      I send a newsletter about product design and leadership, with a touch of email and climate tech, once or twice a month.
-    </p>
-  </section>
-
-  <section class="newsletter-signup">
-    <iframe src="https://embeds.beehiiv.com/71d951d8-d80b-4908-b7c3-7b5ec6fb54e7?slim=true" data-test-id="beehiiv-embed" height="52" frameborder="0" scrolling="no" style="margin: 0; border-radius: 0px !important; background-color: transparent;"></iframe>
-    <p>If you subscribe, I promise I’ll never share or sell your info, or track you in a creepy way. You’ll always be able to unsubscribe anytime instantly.</p>
+<div class="inside-container">
+  <h1>Newsletter</h1>
+  
+  <section class="two-column-layout newsletter-layout">
+    <div class="column-left">
+      <p class="mb-0">I write a newsletter about product design and leadership, with a touch of email and climate tech, once a month.</p>
+      <div class="newsletter-signup mt-2 mb-4">
+        <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script><iframe src="https://subscribe-forms.beehiiv.com/a76dbad3-e582-4dcf-9829-dd6e93295b7a" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no"></iframe>
+      </div>
+      <p class="text-xs text-muted text-mono mb-0">I’ll never share or sell your info, or track you in a creepy way. You can unsubscribe anytime instantly and without shaming or begging.</p>
+    </div>
     
-    <h2>Past issues</h2>
-    <ul>
-    {% if newsletter.issues and newsletter.issues.length > 0 %}
-    {% for issue in newsletter.issues %}
-      <li>
-        <a href="{{ issue.url }}" target="_blank" rel="noopener">
-          {{ issue.title }} - {{ issue.date }}
-        </a>
-      </li>
-    {% endfor %}
-    {% else %}
-      <li>Loading past issues...</li>
-    {% endif %}
-      <li><a href="https://eomail4.com/web-version?p=fcecbab8-7c4a-11ee-a2c4-f137121ef617&pt=campaign&t=1699237323&s=65ca2a6b80c3e72fa4e64f9b4804f34b5ee1b4c8fe9992b61583091afc6c0618" target="_blank" rel="noopener">TLFW 17: Linear's design process, Google's climate tools, and email hot spots.</a></li>
-      <li><a href="https://eomail4.com/web-version?p=697c64a2-5e6a-11ee-8807-f99319416746&pt=campaign&t=1695952199&s=d18f2f990c4a6c1550b7707daa338871f1c6018e9f9f807a48ef3bded06d2008" target="_blank" rel="noopener">TLFW 16: Big climate policies, designer-PM relationships, and mundane email tasks.</a></li>
-      <li><a href="https://eomail4.com/web-version?p=ce9ade94-4a6b-11ee-b18e-390631908ed3&pt=campaign&t=1693753771&s=95cefd9fa55d63a1f361842506c2ee923d06b90fdce2ff3ce861d0e31e8ca2c6" target="_blank" rel="noopener">TLFW 15: Random climate thoughts, sustainable email design, realizations from a new manager.</a></li>
-      <li><a href="https://eocampaign1.com/web-version?p=fc8aac78-2a84-11ee-b5d9-f507c07e9500&pt=campaign&t=1690246440&s=98208caf41816dda10b9f42c90ff66603cd63e329fdb81e516009874397d91d9" target="_blank" rel="noopener">TLFW 14: Doing strategy as a designer, a fair way to look at global carbon emissions, and editing code in ESPs.</a></li>
-      <li><a href="https://eocampaign1.com/web-version?p=1c0498d6-19bc-11ee-8f57-971dc944eab8&pt=campaign&t=1688401305&s=cf6af926b12a91bd8b829035094c751d0249fe8a881270cf3fae5e95e734a963" target="_blank" rel="noopener">TLFW 13: Monetizing Cerberus, Config 2023, and a personal carbon footprint dilemma.</a></li>
-      <li><a href="https://eocampaign1.com/web-version?p=b2143f74-02ed-11ee-ae9f-0ff228b3e5fb&pt=campaign&t=1685893079&s=094702d52c6079f21eae115a5617d29da7dc9f37ba2b62f944c743286215c4c7" target="_blank" rel="noopener">TLFW 12: Email's accessibility problem, nature has rights in Aruba, and good product sense.</a></li>
-      <li><a href="https://eocampaign1.com/web-version?p=784802e2-e55d-11ed-a2a1-71133bfc8c19&pt=campaign&t=1682642562&s=cef6fd9f067e0ede97a9cd4e47fe5dcafee29a3fe9ecd5adb8daad34045c1551" target="_blank" rel="noopener">TLFW 11: Outlook is growing up, newsletters > social, and ESGs.</a></li>
-      <li><a href="https://eocampaign1.com/web-version?p=53f237ec-d0f3-11ed-851b-3b49de999e72&pt=campaign&t=1680398022&s=976b33103fd3151fbe2c75b2e0f068921deb222c1974e6ab72aa7bd13d03c45d" target="_blank" rel="noopener">TLFW 10: Coding with AI, designing for AI, and the war on cars.</a></li>
-      <li><a href="https://eocampaign1.com/web-version?p=38da06e4-bbbb-11ed-9eef-0759e038ac71&pt=campaign&t=1678065124&s=78c05aad138928cec4245d23b58a99239b15a3343c26ce50c8a7b59a77586209" target="_blank" rel="noopener">TLFW 09: Building design system teams, unsolicited redesigns, and a case for designers knowing code.</a></li>
-      <li><a href="https://eocampaign1.com/web-version?p=b6464bd8-a59f-11ed-a6d3-c50d697f08bd&pt=campaign&t=1675634129&s=c48067937c16e69eaacec76aa4831ccfebe57a311050dfd2d95b075e0bb7956a" target="_blank" rel="noopener">TLFW 08: Career advancement for senior designers, interviewing tips, and more affordable solar panels.</a></li>
-      <li><a href="https://eocampaign1.com/web-version?p=8f445cae-8624-11ed-91d9-3f103dc6f754&pt=campaign&t=1672176011&s=7d5abe9f425d32c5995ced85207e28ce493425029ac3a1c9be52f8e9054d3e32" target="_blank" rel="noopener">TLFW 07: Parcel Unpacked, design newsletters, and good news you probably didn't hear about.</a></li>
-      <li><a href="https://eocampaign1.com/web-version?p=76edfc18-7441-11ed-ac57-bd214e72da0a&pt=campaign&t=1670206148&s=16eeb0303b95c1f4b12fc89f6f2722215980c77126a38be43f307d2cf996effb" target="_blank" rel="noopener">TLFW 06: Email design systems, working climate into any job, and design craft.</a></li>
-      <li><a href="https://eocampaign1.com/web-version?p=817fd5fc-6357-11ed-8b2c-cd7277d2b9d7&pt=campaign&t=1668346330&s=24d54dc0d660aed9aa9544ea80f04705d34f03a87a71b4d0734967cc06bee111" target="_blank" rel="noopener">TLFW 05: Swim lanes, climate questions for designers, and really good illustrations.</a></li>
-      <li><a href="https://eocampaign1.com/web-version?p=c572cc6e-59df-11ed-b8d1-ddd23c18e614&pt=campaign&t=1667305350&s=f61a0e40092c31deddb5c3678c96dd84174e88d5f2dda0666b8b703f58fd7aa1" target="_blank" rel="noopener">TL2W 04: Tech's blind spot, email code, and immersive worlds.</a></li>
-      <li><a href="https://eocampaign1.com/web-version?p=f602eb72-4e78-11ed-afd1-0607cdff6e39&pt=campaign&t=1666127720&s=3bf792e690e38e4aa82a3c4415d937d24abe2b50ec67eceeeb929430dba1e1b4" target="_blank" rel="noopener">TL2W 03: Design apps, email apps, green apps, and more.</a></li>
-      <li><a href="https://eocampaign1.com/web-version?p=de451e8c-428d-11ed-9a32-0241b9615763&pt=campaign&t=1664921667&s=52c1c7e365923fb3a801ec6c41f23b2cbee1ebf8cbfea08a695d5eadc6508fb4" target="_blank" rel="noopener">TL2W 02: Design Debt, EVs, and Self-Teaching Products</a></li>
-      <li><a href="https://eocampaign1.com/web-version?p=0bf2f492-298b-11ed-9a32-0241b9615763&pt=campaign&t=1663106456&s=1560ec699a3733fc4357c5081bc29c4512d5749e6461252852b965afd89b1802" target="_blank" rel="noopener">TL2W 01: Coaching designers, Uber's Outlook-crashing email, and good climate news. </a></li>
-    </ul>
+    <div class="column-right">
+      <ul>
+      {% if newsletter.issues and newsletter.issues.length > 0 %}
+      {% for issue in newsletter.issues %}
+        <li>
+          <a href="{{ issue.url }}" target="_blank" rel="noopener">
+            {{ issue.title }}
+          </a>
+          <time class="text-xs text-muted text-mono">{{ issue.date }}</time>
+        </li>
+      {% endfor %}
+      {% else %}
+        <li>Loading past issues...</li>
+      {% endif %}
+        <li><a href="https://eomail4.com/web-version?p=fcecbab8-7c4a-11ee-a2c4-f137121ef617&pt=campaign&t=1699237323&s=65ca2a6b80c3e72fa4e64f9b4804f34b5ee1b4c8fe9992b61583091afc6c0618" target="_blank" rel="noopener">TLFW 17: Linear's design process, Google's climate tools, and email hot spots.</a></li>
+        <li><a href="https://eomail4.com/web-version?p=697c64a2-5e6a-11ee-8807-f99319416746&pt=campaign&t=1695952199&s=d18f2f990c4a6c1550b7707daa338871f1c6018e9f9f807a48ef3bded06d2008" target="_blank" rel="noopener">TLFW 16: Big climate policies, designer-PM relationships, and mundane email tasks.</a></li>
+        <li><a href="https://eomail4.com/web-version?p=ce9ade94-4a6b-11ee-b18e-390631908ed3&pt=campaign&t=1693753771&s=95cefd9fa55d63a1f361842506c2ee923d06b90fdce2ff3ce861d0e31e8ca2c6" target="_blank" rel="noopener">TLFW 15: Random climate thoughts, sustainable email design, realizations from a new manager.</a></li>
+        <li><a href="https://eocampaign1.com/web-version?p=fc8aac78-2a84-11ee-b5d9-f507c07e9500&pt=campaign&t=1690246440&s=98208caf41816dda10b9f42c90ff66603cd63e329fdb81e516009874397d91d9" target="_blank" rel="noopener">TLFW 14: Doing strategy as a designer, a fair way to look at global carbon emissions, and editing code in ESPs.</a></li>
+        <li><a href="https://eocampaign1.com/web-version?p=1c0498d6-19bc-11ee-8f57-971dc944eab8&pt=campaign&t=1688401305&s=cf6af926b12a91bd8b829035094c751d0249fe8a881270cf3fae5e95e734a963" target="_blank" rel="noopener">TLFW 13: Monetizing Cerberus, Config 2023, and a personal carbon footprint dilemma.</a></li>
+        <li><a href="https://eocampaign1.com/web-version?p=b2143f74-02ed-11ee-ae9f-0ff228b3e5fb&pt=campaign&t=1685893079&s=094702d52c6079f21eae115a5617d29da7dc9f37ba2b62f944c743286215c4c7" target="_blank" rel="noopener">TLFW 12: Email's accessibility problem, nature has rights in Aruba, and good product sense.</a></li>
+        <li><a href="https://eocampaign1.com/web-version?p=784802e2-e55d-11ed-a2a1-71133bfc8c19&pt=campaign&t=1682642562&s=cef6fd9f067e0ede97a9cd4e47fe5dcafee29a3fe9ecd5adb8daad34045c1551" target="_blank" rel="noopener">TLFW 11: Outlook is growing up, newsletters > social, and ESGs.</a></li>
+        <li><a href="https://eocampaign1.com/web-version?p=53f237ec-d0f3-11ed-851b-3b49de999e72&pt=campaign&t=1680398022&s=976b33103fd3151fbe2c75b2e0f068921deb222c1974e6ab72aa7bd13d03c45d" target="_blank" rel="noopener">TLFW 10: Coding with AI, designing for AI, and the war on cars.</a></li>
+        <li><a href="https://eocampaign1.com/web-version?p=38da06e4-bbbb-11ed-9eef-0759e038ac71&pt=campaign&t=1678065124&s=78c05aad138928cec4245d23b58a99239b15a3343c26ce50c8a7b59a77586209" target="_blank" rel="noopener">TLFW 09: Building design system teams, unsolicited redesigns, and a case for designers knowing code.</a></li>
+        <li><a href="https://eocampaign1.com/web-version?p=b6464bd8-a59f-11ed-a6d3-c50d697f08bd&pt=campaign&t=1675634129&s=c48067937c16e69eaacec76aa4831ccfebe57a311050dfd2d95b075e0bb7956a" target="_blank" rel="noopener">TLFW 08: Career advancement for senior designers, interviewing tips, and more affordable solar panels.</a></li>
+        <li><a href="https://eocampaign1.com/web-version?p=8f445cae-8624-11ed-91d9-3f103dc6f754&pt=campaign&t=1672176011&s=7d5abe9f425d32c5995ced85207e28ce493425029ac3a1c9be52f8e9054d3e32" target="_blank" rel="noopener">TLFW 07: Parcel Unpacked, design newsletters, and good news you probably didn't hear about.</a></li>
+        <li><a href="https://eocampaign1.com/web-version?p=76edfc18-7441-11ed-ac57-bd214e72da0a&pt=campaign&t=1670206148&s=16eeb0303b95c1f4b12fc89f6f2722215980c77126a38be43f307d2cf996effb" target="_blank" rel="noopener">TLFW 06: Email design systems, working climate into any job, and design craft.</a></li>
+        <li><a href="https://eocampaign1.com/web-version?p=817fd5fc-6357-11ed-8b2c-cd7277d2b9d7&pt=campaign&t=1668346330&s=24d54dc0d660aed9aa9544ea80f04705d34f03a87a71b4d0734967cc06bee111" target="_blank" rel="noopener">TLFW 05: Swim lanes, climate questions for designers, and really good illustrations.</a></li>
+        <li><a href="https://eocampaign1.com/web-version?p=c572cc6e-59df-11ed-b8d1-ddd23c18e614&pt=campaign&t=1667305350&s=f61a0e40092c31deddb5c3678c96dd84174e88d5f2dda0666b8b703f58fd7aa1" target="_blank" rel="noopener">TL2W 04: Tech's blind spot, email code, and immersive worlds.</a></li>
+        <li><a href="https://eocampaign1.com/web-version?p=f602eb72-4e78-11ed-afd1-0607cdff6e39&pt=campaign&t=1666127720&s=3bf792e690e38e4aa82a3c4415d937d24abe2b50ec67eceeeb929430dba1e1b4" target="_blank" rel="noopener">TL2W 03: Design apps, email apps, green apps, and more.</a></li>
+        <li><a href="https://eocampaign1.com/web-version?p=de451e8c-428d-11ed-9a32-0241b9615763&pt=campaign&t=1664921667&s=52c1c7e365923fb3a801ec6c41f23b2cbee1ebf8cbfea08a695d5eadc6508fb4" target="_blank" rel="noopener">TL2W 02: Design Debt, EVs, and Self-Teaching Products</a></li>
+        <li><a href="https://eocampaign1.com/web-version?p=0bf2f492-298b-11ed-9a32-0241b9615763&pt=campaign&t=1663106456&s=1560ec699a3733fc4357c5081bc29c4512d5749e6461252852b965afd89b1802" target="_blank" rel="noopener">TL2W 01: Coaching designers, Uber's Outlook-crashing email, and good climate news. </a></li>
+      </ul>
+    </div>
   </section>
 </div>

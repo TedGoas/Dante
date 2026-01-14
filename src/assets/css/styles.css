@@ -27,7 +27,7 @@
   --font-main: 'Gambetta', georgia, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'Fragment Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
   
-  --text-xs: 0.875rem;    /* 0.75rem * 1.25 */
+  --text-xs: 0.75rem;    /* 0.75rem * 1.25 */
   --text-sm: 1rem;   /* 0.875rem * 1.25 */
   --text-base: 1.25rem;    /* 1rem * 1.25 */
   --text-lg: 1.40625rem;   /* 1.125rem * 1.25 */
@@ -92,6 +92,7 @@
 
 /* Margin Utilities - All Directions */
 /* Margin Top */
+.mt-0 { margin-top: 0; }
 .mt-1 { margin-top: var(--space-1); }
 .mt-2 { margin-top: var(--space-2); }
 .mt-3 { margin-top: var(--space-3); }
@@ -106,6 +107,7 @@
 .mt-auto { margin-top: auto; }
 
 /* Margin Right */
+.mr-0 { margin-right: 0; }
 .mr-1 { margin-right: var(--space-1); }
 .mr-2 { margin-right: var(--space-2); }
 .mr-3 { margin-right: var(--space-3); }
@@ -120,6 +122,7 @@
 .mr-auto { margin-right: auto; }
 
 /* Margin Bottom */
+.mb-0 { margin-bottom: 0; }
 .mb-1 { margin-bottom: var(--space-1); }
 .mb-2 { margin-bottom: var(--space-2); }
 .mb-3 { margin-bottom: var(--space-3); }
@@ -134,6 +137,7 @@
 .mb-auto { margin-bottom: auto; }
 
 /* Margin Left */
+.ml-0 { margin-left: 0; }
 .ml-1 { margin-left: var(--space-1); }
 .ml-2 { margin-left: var(--space-2); }
 .ml-3 { margin-left: var(--space-3); }
@@ -148,6 +152,7 @@
 .ml-auto { margin-left: auto; }
 
 /* Margin Vertical (Top and Bottom) */
+.my-0 { margin-top: 0; margin-bottom: 0; }
 .my-1 { margin-top: var(--space-1); margin-bottom: var(--space-1); }
 .my-2 { margin-top: var(--space-2); margin-bottom: var(--space-2); }
 .my-3 { margin-top: var(--space-3); margin-bottom: var(--space-3); }
@@ -162,6 +167,7 @@
 .my-auto { margin-top: auto; margin-bottom: auto; }
 
 /* Margin Horizontal (Left and Right) */
+.mx-0 { margin-left: 0; margin-right: 0; }
 .mx-1 { margin-left: var(--space-1); margin-right: var(--space-1); }
 .mx-2 { margin-left: var(--space-2); margin-right: var(--space-2); }
 .mx-3 { margin-left: var(--space-3); margin-right: var(--space-3); }
@@ -177,6 +183,7 @@
 
 /* Padding Utilities - All Directions */
 /* Padding Top */
+.pt-0 { padding-top: 0; }
 .pt-1 { padding-top: var(--space-1); }
 .pt-2 { padding-top: var(--space-2); }
 .pt-3 { padding-top: var(--space-3); }
@@ -191,6 +198,7 @@
 .pt-auto { padding-top: auto; }
 
 /* Padding Right */
+.pr-0 { padding-right: 0; }
 .pr-1 { padding-right: var(--space-1); }
 .pr-2 { padding-right: var(--space-2); }
 .pr-3 { padding-right: var(--space-3); }
@@ -205,6 +213,7 @@
 .pr-auto { padding-right: auto; }
 
 /* Padding Bottom */
+.pb-0 { padding-bottom: 0; }
 .pb-1 { padding-bottom: var(--space-1); }
 .pb-2 { padding-bottom: var(--space-2); }
 .pb-3 { padding-bottom: var(--space-3); }
@@ -219,6 +228,7 @@
 .pb-auto { padding-bottom: auto; }
 
 /* Padding Left */
+.pl-0 { padding-left: 0; }
 .pl-1 { padding-left: var(--space-1); }
 .pl-2 { padding-left: var(--space-2); }
 .pl-3 { padding-left: var(--space-3); }
@@ -233,6 +243,7 @@
 .pl-auto { padding-left: auto; }
 
 /* Padding Vertical (Top and Bottom) */
+.py-0 { padding-top: 0; padding-bottom: 0; }
 .py-1 { padding-top: var(--space-1); padding-bottom: var(--space-1); }
 .py-2 { padding-top: var(--space-2); padding-bottom: var(--space-2); }
 .py-3 { padding-top: var(--space-3); padding-bottom: var(--space-3); }
@@ -247,6 +258,7 @@
 .py-auto { padding-top: auto; padding-bottom: auto; }
 
 /* Padding Horizontal (Left and Right) */
+.px-0 { padding-left: 0; padding-right: 0; }
 .px-1 { padding-left: var(--space-1); padding-right: var(--space-1); }
 .px-2 { padding-left: var(--space-2); padding-right: var(--space-2); }
 .px-3 { padding-left: var(--space-3); padding-right: var(--space-3); }
@@ -518,6 +530,84 @@ li {
 .column-right {
   display: flex;
   flex-direction: column;
+}
+
+/* Newsletter layout - swap column order visually */
+.newsletter-layout .column-left {
+  order: 2;
+  position: sticky;
+  top: var(--space-3);
+  align-self: flex-start;
+  padding: var(--space-6);
+  border: 1px solid rgba(52, 211, 153, 0.25);
+}
+
+/* Corner flairs for newsletter signup column - all four corners using background gradients */
+.newsletter-layout .column-left::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 12px;
+  height: 12px;
+  border-top: 1px solid var(--color-accent);
+  border-left: 1px solid var(--color-accent);
+  pointer-events: none;
+}
+
+.newsletter-layout .column-left::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 12px;
+  height: 12px;
+  border-bottom: 1px solid var(--color-accent);
+  border-right: 1px solid var(--color-accent);
+  pointer-events: none;
+}
+
+/* Additional corner flairs for top-right and bottom-left using background gradients */
+.newsletter-layout .column-left {
+  background-image: 
+    /* Top-right: horizontal line */
+    linear-gradient(to right, var(--color-accent) 0, var(--color-accent) 12px, transparent 12px),
+    /* Top-right: vertical line */
+    linear-gradient(to bottom, var(--color-accent) 0, var(--color-accent) 12px, transparent 12px),
+    /* Bottom-left: horizontal line */
+    linear-gradient(to left, var(--color-accent) 0, var(--color-accent) 12px, transparent 12px),
+    /* Bottom-left: vertical line */
+    linear-gradient(to top, var(--color-accent) 0, var(--color-accent) 12px, transparent 12px);
+  background-position:
+    top right,
+    top right,
+    bottom left,
+    bottom left;
+  background-size: 12px 1px, 1px 12px, 12px 1px, 1px 12px;
+  background-repeat: no-repeat;
+}
+
+.newsletter-layout .column-right {
+  order: 1;
+}
+
+.newsletter-layout .column-right li {
+  margin-bottom: var(--space-4);
+
+}.newsletter-layout .column-right li time {
+  display: block;
+  margin-top: var(--space-1);
+}
+
+.newsletter-layout .column-right li {
+  line-height: var(--leading-snug);
+}
+
+.newsletter-layout .beehiiv-embed {
+  width: 100%;
+}
+.newsletter-layout .newsletter-signup iframe {
+  height: 45px;
 }
 
 /* Recent Articles */
@@ -867,6 +957,19 @@ li {
     flex-direction: column;
     gap: var(--space-4);
     text-align: center;
+  }
+  
+  .two-column-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .newsletter-layout .column-left {
+    order: 1;
+    margin-bottom: var(--space-12);
+  }
+  
+  .newsletter-layout .column-right {
+    order: 2;
   }
 }
 
