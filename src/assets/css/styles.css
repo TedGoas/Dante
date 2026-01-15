@@ -591,16 +591,25 @@ li {
   order: 1;
 }
 
-.newsletter-layout .column-right li {
-  margin-bottom: var(--space-4);
-
-}.newsletter-layout .column-right li time {
-  display: block;
-  margin-top: var(--space-1);
+/* Generic Article List - used for blog and newsletter */
+.article-list-container {
+  max-width: 800px;
 }
 
-.newsletter-layout .column-right li {
+.article-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.article-list li {
+  margin-bottom: var(--space-4);
   line-height: var(--leading-snug);
+}
+
+.article-list li time {
+  display: block;
+  margin-top: var(--space-1);
 }
 
 .newsletter-layout .beehiiv-embed {
@@ -639,22 +648,6 @@ li {
 }
 
 
-/* Blog List */
-.blog-list {
-  max-width: 800px;
-}
-
-.blog-item {
-  padding: var(--space-2) 0;
-}
-
-.blog-item:last-child {
-  border-bottom: none;
-}
-
-.blog-item h3 {
-  margin-bottom: var(--space-2);
-}
 
 /* Post Layout */
 .post {

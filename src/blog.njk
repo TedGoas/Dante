@@ -7,21 +7,14 @@ description: Thoughts on design, development, and building products
 <div class="inside-container">
   <h1>Blog</h1>
 
-  <section class="blog-list">
-    <ol>
+  <section class="article-list-container">
+    <ul class="article-list">
     {% for post in collections.posts %}
     <li>
-      <article class="blog-item">
-        <h4><a href="{{ post.url }}">{{ post.data.title }}</a></h4>
-        <time>{{ post.date | readableDate }}</time>
-        {% if post.data.description %}
-        <p class="caption">
-          {{ post.data.description }}
-        </p>
-        {% endif %}
-      </article>
+      <a href="{{ post.url }}">{{ post.data.title }}</a>
+      <time class="text-xs text-muted text-mono">{{ post.date | readableDate }}</time>
     </li>
     {% endfor %}
-    </ol>
+    </ul>
   </section>
 </div>
