@@ -1,0 +1,24 @@
+---
+permalink: /rss.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ site.title }} - Blog</title>
+    <description>Thoughts on design, development, and building better products</description>
+    <link>{{ site.url }}</link>
+    <atom:link href="{{ site.url }}/rss.xml" rel="self" type="application/rss+xml"/>
+    <language>en</language>
+    <lastBuildDate>{{ collections.posts | last | readableDate }}</lastBuildDate>
+    {% for post in collections.posts %}
+    <item>
+      <title>{{ post.data.title }}</title>
+      <description>{{ post.data.description or post.templateContent | striptags | truncate(200) }}</description>
+      <link>{{ site.url }}{{ post.url }}</link>
+      <guid>{{ site.url }}{{ post.url }}</guid>
+      <pubDate>{{ post.date | readableDate }}</pubDate>
+    </item>
+    {% endfor %}
+  </channel>
+</rss> 

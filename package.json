@@ -7,12 +7,10 @@
 		"eleventy:serve": "cross-env NODE_ENV=development eleventy --serve",
 		"eleventy:watch": "cross-env NODE_ENV=development eleventy --watch",
 		"eleventy:build": "cross-env NODE_ENV=production eleventy",
-		"postcss": "postcss src/assets/css/styles.css -o dist/assets/css/styles.css",
-		"postcss:watch": "postcss src/assets/css/styles.css -o dist/assets/css/styles.css --watch",
-		"start": "npm run clean && run-p eleventy:serve postcss:watch",
-		"serve": "run-s clean postcss eleventy:serve",
-		"watch": "run-s clean postcss eleventy:watch",
-		"build": "run-s clean postcss eleventy:build",
+		"start": "npm run clean && npm run eleventy:serve",
+		"serve": "npm run clean && npm run eleventy:serve",
+		"watch": "npm run clean && npm run eleventy:watch",
+		"build": "npm run clean && npm run eleventy:build",
 		"debug": "DEBUG=Eleventy* npm run build"
 	},
 	"repository": {
@@ -26,22 +24,13 @@
 	},
 	"homepage": "https://github.com/TedGoas/Dante#readme",
 	"devDependencies": {
-		"@11ty/eleventy": "^0.12.1",
-		"@tailwindcss/typography": "^0.3.1",
+		"@11ty/eleventy": "^3.0.0",
 		"cross-env": "^7.0.3",
 		"html-minifier": "^4.0.0",
-		"luxon": "^1.24.1",
-		"npm-run-all": "^4.1.5",
-		"postcss": "^8.2.10",
-		"postcss-cli": "^8.3.1",
-		"rimraf": "^3.0.2",
-		"tailwindcss": "^2.1.2",
-		"terser": "^4.8.0"
+		"luxon": "^3.4.0",
+		"rimraf": "^5.0.0",
+		"terser": "^5.24.0"
 	},
 	"dependencies": {
-		"autoprefixer": "^10.2.5",
-		"postcss-import": "^14.0.1",
-		"postcss-nested": "^5.0.5",
-		"rough-notation": "^0.5.1"
 	}
 }

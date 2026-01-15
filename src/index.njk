@@ -1,25 +1,55 @@
 ---
 layout: default
-meta_title: Home
-meta_description: I’m a reliable product designer and front-end developer working on websites, applications, and HTML emails.
-body_class: home
-title: I’m a reliable product designer and front-end developer working on websites, applications, and HTML emails.
-roughjs: true
+title: Ted Goas
+description: Product designer, researcher, and front-end developer
 ---
 
-<div role="main" class="flex flex-col">
-    <section class="text-center max-w-4xl mx-auto mb-40" aria-labelledby="heading">
-        <h1 class="font-display text-4xl leading-none sm:text-3xl">I’m a <span class="highlight-yellow px-4 -mx-2 inline-block relative">reliable</span> product designer and <span class="whitespace-nowrap">front-end</span> developer.</h1>
-        <p class="text-lg mt-8 mx-auto max-w-3xl sm:text-lg">I believe design is about taking the complex and chaotic and making it <strong class="box-blue mx-1">accessible</strong> to people, <strong class="box-green mx-1">responsive</strong>, and as <strong class="box-red mx-1">fast</strong> as possible.</p>
-        <p class="text-lg mt-8 mx-auto max-w-3xl sm:text-lg"">My goal is to create work that’s cool enough to show <span class="underline-gray tooltip relative">my friends <img src="/assets/img/home/friends.jpg" alt="My friends." class="absolute bottom-7 left-2/4 max-w-xs hidden -translate-x-2/4"></span> and honest enough to show <span class="underline-gray2 tooltip relative">my parents <img src="/assets/img/home/parents.jpg" alt="My parents." class="absolute bottom-7 left-2/4 max-w-xs hidden -translate-x-2/4"></span>.</p>
-    </section>
-    {% include "partials/work-list.njk" %}
-    <section class="work-section work-section--misc max-w-4xl p-16 mt-24 flex items-start self-center relative sm:p-8 sm:mt-12  sm:flex-col-reverse">
-        <div>
-            <p>I enjoy <a href="/blog" class="link-misc">writing</a> about things I learn, <a href="https://noti.st/tedgoas" class="link-misc">speaking occasionally</a>, and maintaining <a href="https://github.com/TedGoas/Cerberus" class="link-misc">Cerberus</a> (open source).</p>
-            <p class="mt-6">When not in front of a screen I like to exercise, snowboard, both watch and play hockey and soccer, work on my house, and explore New Jersey with my wife and kids.</p>
-        </div>
-        <div class="img relative flex-shrink-0 ml-12 sm:ml-0 sm:mb-8"><img src="/assets/img/home/tedgoas.jpg" alt="Ted Goas portrait" height="275" width="275" class="z-10 relative transform -rotate-2"></div>
-        <span class="curl3 absolute block bg-no-repeat sm:hidden" aria-hidden="true"></span>
-    </section>
+<div class="inside-container">
+  <h1>I'm <img src="/assets/img/th-ted.jpg" alt="Ted" class="hero-avatar"> Ted, a reliable designer, manager, researcher, and sometimes developer.</h1>
+  <p class="text-xl text-secondary leading-normal mb-8">
+      I’m currently a design manager at <a href="https://www.dialpad.com/"><img src="/assets/img/logo-dialpad.svg" alt="" class=""> Dialpad</a>, helping customer support folks do their job. Previously I led <a href="https://stackoverflow.com"><img src="/assets/img/logo-stackoverflow.svg" alt="" class=""> Stack Overflow’s</a> enterprise design team and was <a href="https://canfield.com"><img src="/assets/img/logo-canfield.svg" alt="" class=""> Canfield Scientific’s</a> first design hire.
+  </p>
+  <p class="text-xl text-secondary leading-normal mb-8">
+    I also created and sold <a href="https://www.cerberusemail.com/"><img src="/assets/img/logo-cerberus.svg" alt="" class=""> Cerberus</a>, an open source framework for email development, and built one of the first <a href="https://stackoverflow.design/email/"><img src="/assets/img/logo-emaildesignsystem.svg" alt="" class=""> email design systems</a>.
+    </p>
+</div>
+<section>
+  <div class="homepage-grid">
+    <div class=""><img src="/assets/img/homepage-canfield.png" alt=""></div>
+    <div class=""><img src="/assets/img/homepage-stack-email.svg" alt=""></div>
+    <div class=""><img src="/assets/img/homepage-dialpad-email.png" alt=""></div>
+    <div class=""><img src="/assets/img/homepage-dialpad-sidebar.svg" alt=""></div>
+  </div> 
+</section>
+<section class="inside-container py-16">
+  <p class="text-2xl text-secondary leading-normal mb-8 text-bold max-w-75">
+    I believe design is about taking the complex and chaotic and making it <span class="highlight-green">accessible</span> to people, <span class="highlight-red">responsive</span>, and as <span class="highlight-yellow">fast</span> as possible.
+  </p>
+  <section class="two-column-layout">
+    <div class="column-left">
+      <h2 class="text-sm mb-6">Recent Articles</h2>
+      <ul class="recent-articles-list">
+        {% for post in collections.posts %}
+          {% if loop.index <= 5 %}
+          <li class="recent-article-item">
+            <h3 class="text-md mb-2">
+              <a href="{{ post.url }}">{{ post.data.title }}</a>
+            </h3>
+            {% if post.data.description %}
+            <p class="text-xs text-muted text-mono">{{ post.data.description }}</p>
+            {% endif %}
+          </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="column-right">
+      <h2 class="text-sm mb-6">Newsletter</h2>
+      <p>I write a newsletter about product design and leadership, with a touch of email and climate tech, once a month.</p>
+      <div class="newsletter-signup mt-2 mb-4">
+        <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script><iframe src="https://subscribe-forms.beehiiv.com/a76dbad3-e582-4dcf-9829-dd6e93295b7a" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no"></iframe>
+      </div>
+      <p class="text-xs text-muted text-mono">I’ll never share or sell your info, or track you in a creepy way. You can unsubscribe anytime instantly and without shaming or begging.</p>
+    </div>
+  </section>
 </div>

@@ -13,15 +13,12 @@ Location: New Jersey, United States
 */
 Built With:
 11ty: 11ty.dev/
-Skeleventy: skeleventy.netlify.com/
-TailwindCSS: https://tailwindcss.com/
-SCSS/CSS, PurgeCSS, Webpack, SVG, HTML5, Media Queries, Dublin, Microformats
 More: http://builtwith.com/tedgoas.com
 
 /*
 	SOFTWARE:
 */
-Figma, VS Code, ImageOptim, web browsers, Github
+Figma, Cursor, VS Code with Copilot, ImageOptim, web browsers, Github
 
 /*
 	LANGUAGES:
