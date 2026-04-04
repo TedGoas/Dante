@@ -4,52 +4,70 @@ title: Ted Goas
 description: Product designer, researcher, and front-end developer
 ---
 
-<div class="inside-container">
-  <h1>I'm <img src="/assets/img/th-ted.jpg" alt="Ted" class="hero-avatar"> Ted, a reliable designer, manager, researcher, and sometimes developer.</h1>
-  <p class="text-xl text-secondary leading-normal mb-8">
-      I’m currently a design manager at <a href="https://www.dialpad.com/"><img src="/assets/img/logo-dialpad.svg" alt="" class=""> Dialpad</a>, helping customer support folks do their job. Previously I led <a href="https://stackoverflow.com"><img src="/assets/img/logo-stackoverflow.svg" alt="" class=""> Stack Overflow’s</a> enterprise design team and was <a href="https://canfield.com"><img src="/assets/img/logo-canfield.svg" alt="" class=""> Canfield Scientific’s</a> first design hire.
+<section class="home-hero" aria-labelledby="home-heading">
+  <h1 id="home-heading">
+    I'm
+    <img src="/assets/img/th-ted.jpg" alt="Ted" class="hero-avatar" width="40" height="40">
+    Ted, a reliable designer, manager, researcher, and sometimes developer.
+  </h1>
+  <p class="lede">
+    I’m currently a design manager at
+    <a href="https://www.dialpad.com/"><img src="/assets/img/logo-dialpad.svg" alt="" class="home-hero-logo" width="120" height="24">Dialpad</a>,
+    helping customer support folks do their job. Previously I led
+    <a href="https://stackoverflow.com"><img src="/assets/img/logo-stackoverflow.svg" alt="" class="home-hero-logo" width="120" height="24">Stack Overflow’s</a>
+    enterprise design team and was
+    <a href="https://canfield.com"><img src="/assets/img/logo-canfield.svg" alt="" class="home-hero-logo" width="120" height="24">Canfield Scientific’s</a>
+    first design hire.
   </p>
-  <p class="text-xl text-secondary leading-normal mb-8">
-    I also created and sold <a href="https://www.cerberusemail.com/"><img src="/assets/img/logo-cerberus.svg" alt="" class=""> Cerberus</a>, an open source framework for email development, and built one of the first <a href="https://stackoverflow.design/email/"><img src="/assets/img/logo-emaildesignsystem.svg" alt="" class=""> email design systems</a>.
-    </p>
-</div>
-<section>
-  <div class="homepage-grid">
-    <div class=""><img src="/assets/img/homepage-canfield.png" alt=""></div>
-    <div class=""><img src="/assets/img/homepage-stack-email.svg" alt=""></div>
-    <div class=""><img src="/assets/img/homepage-dialpad-email.png" alt=""></div>
-    <div class=""><img src="/assets/img/homepage-dialpad-sidebar.svg" alt=""></div>
-  </div> 
+  <p class="lede">
+    I also created and sold
+    <a href="https://www.cerberusemail.com/"><img src="/assets/img/logo-cerberus.svg" alt="" class="home-hero-logo" width="120" height="24">Cerberus</a>,
+    an open source framework for email development, and built one of the first
+    <a href="https://stackoverflow.design/email/"><img src="/assets/img/logo-emaildesignsystem.svg" alt="" class="home-hero-logo" width="120" height="24">email design systems</a>.
+  </p>
 </section>
-<section class="inside-container py-16">
-  <p class="text-2xl text-secondary leading-normal mb-8 text-bold max-w-75">
-    I believe design is about taking the complex and chaotic and making it <span class="highlight-green">accessible</span> to people, <span class="highlight-red">responsive</span>, and as <span class="highlight-yellow">fast</span> as possible.
+
+<section class="homepage-showcase" aria-label="Selected work thumbnails">
+  <ul class="homepage-showcase-list">
+    <li><div class="img-placeholder" data-placeholder="Canfield project preview" aria-label="Canfield project preview"></div></li>
+    <li><div class="img-placeholder" data-placeholder="Stack Overflow email preview" aria-label="Stack Overflow email preview"></div></li>
+    <li><div class="img-placeholder" data-placeholder="Dialpad email preview" aria-label="Dialpad email preview"></div></li>
+    <li><div class="img-placeholder" data-placeholder="Dialpad sidebar preview" aria-label="Dialpad sidebar preview"></div></li>
+  </ul>
+</section>
+
+<section class="home-below-fold" aria-label="What I believe about design">
+  <p class="pullquote">
+    I believe design is about taking the complex and chaotic and making it <strong>accessible</strong> to people, <strong>responsive</strong>, and as <strong>fast</strong> as possible.
   </p>
-  <section class="two-column-layout">
-    <div class="column-left">
-      <h2 class="text-sm mb-6">Recent Articles</h2>
+
+  <section class="two-column" aria-label="Recent articles and newsletter">
+    <section class="home-recent" aria-labelledby="recent-articles-heading">
+      <h2 id="recent-articles-heading">Recent Articles</h2>
       <ul class="recent-articles-list">
         {% for post in collections.posts %}
           {% if loop.index <= 5 %}
-          <li class="recent-article-item">
-            <h3 class="text-md mb-2">
-              <a href="{{ post.url }}">{{ post.data.title }}</a>
-            </h3>
-            {% if post.data.description %}
-            <p class="text-xs text-muted text-mono">{{ post.data.description }}</p>
-            {% endif %}
+          <li>
+            <article>
+              <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+              {% if post.data.description %}
+              <p class="article-meta">{{ post.data.description }}</p>
+              {% endif %}
+            </article>
           </li>
           {% endif %}
         {% endfor %}
       </ul>
-    </div>
-    <div class="column-right">
-      <h2 class="text-sm mb-6">Newsletter</h2>
+    </section>
+
+    <section class="home-newsletter" aria-labelledby="newsletter-heading">
+      <h2 id="newsletter-heading">Newsletter</h2>
       <p>I write a newsletter about product design and leadership, with a touch of email and climate tech, once a month.</p>
-      <div class="newsletter-signup mt-2 mb-4">
-        <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script><iframe src="https://subscribe-forms.beehiiv.com/a76dbad3-e582-4dcf-9829-dd6e93295b7a" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no"></iframe>
-      </div>
-      <p class="text-xs text-muted text-mono">I’ll never share or sell your info, or track you in a creepy way. You can unsubscribe anytime instantly and without shaming or begging.</p>
-    </div>
+      <section class="newsletter-signup" aria-label="Newsletter signup">
+        <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+        <iframe src="https://subscribe-forms.beehiiv.com/a76dbad3-e582-4dcf-9829-dd6e93295b7a" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" title="Newsletter signup form"></iframe>
+      </section>
+      <p class="article-meta">I’ll never share or sell your info, or track you in a creepy way. You can unsubscribe anytime instantly and without shaming or begging.</p>
+    </section>
   </section>
-</div>
+</section>

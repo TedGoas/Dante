@@ -2,23 +2,23 @@
 layout: default
 ---
 
-<div class="inside-container">
-  <article class="post">
-    <header class="post-header">
-      <h1>{{ title }}</h1>
-      {% if page.date %}
-      <time class="text-mono text-sm text-secondary">{{ page.date | readableDate }}</time>
-      {% endif %}
-    </header>
+<article class="post">
+  <header class="post-header">
+    <h1>{{ title }}</h1>
+    {% if page.date %}
+    <time datetime="{{ page.date.toISOString() }}">{{ page.date | readableDate }}</time>
+    {% endif %}
+  </header>
 
-    <div class="post-content">
-      {{ content | safe }}
-    </div>
+  <section class="post-body">
+    {{ content | safe }}
+  </section>
 
-    <footer class="post-footer">
-      <nav class="post-nav">
-        <a href="/blog" class="btn">← Back to Blog</a>
-      </nav>
-    </footer>
-  </article>
-</div>
+  <footer class="post-footer">
+    <nav aria-label="Blog">
+      <ul class="post-nav-list">
+        <li><a href="/blog" class="btn">Back to Blog</a></li>
+      </ul>
+    </nav>
+  </footer>
+</article>

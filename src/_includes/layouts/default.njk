@@ -5,64 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ title or site.title }}</title>
   <meta name="description" content="{{ description or site.description }}">
-  
-  <!-- Fragment Mono Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&display=swap" rel="stylesheet">
-  
-  <!-- Styles -->
+
   <link rel="stylesheet" href="/assets/css/styles.css">
-  
-  <!-- Favicon -->
+
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
-  
-  <!-- Open Graph -->
+
   <meta property="og:title" content="{{ title or site.title }}">
   <meta property="og:description" content="{{ description or site.description }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-  
-  <!-- Twitter -->
+
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="{{ title or site.title }}">
   <meta name="twitter:description" content="{{ description or site.description }}">
 </head>
 <body>
-  <header class="header outside-container">
-    <div class="inside-container">
-      <nav class="nav">
-        <div class="nav-brand">
-          <a href="/" class="nav-link">
-            <img src="/assets/img/tg-sig-logo.svg" alt="Ted Goas" class="nav-logo">
-          </a>
-        </div>
-        <ul class="nav-menu">
-          <li><a href="/work" class="nav-link">Work</a></li>
-          <li><a href="/bio" class="nav-link">Bio</a></li>
-          <li><a href="/values" class="nav-link">Values</a></li>
-          <li><a href="/blog" class="nav-link">Blog</a></li>
-          <li><a href="/labs" class="nav-link">Labs</a></li>
-          <li><a href="/newsletter" class="nav-link">Newsletter</a></li>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <header class="site-header">
+    <div class="layout">
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/" class="site-brand-link">
+          <img src="/assets/img/tg-sig-logo.svg" alt="Ted Goas home" width="40" height="40" class="site-logo">
+        </a>
+        <ul class="site-nav-list">
+          <li><a href="/work">Work</a></li>
+          <li><a href="/bio">Bio</a></li>
+          <li><a href="/values">Values</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/labs">Labs</a></li>
+          <li><a href="/newsletter">Newsletter</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="main outside-container">
-    {{ content | safe }}
+  <main id="main" class="site-main">
+    <div class="layout">
+      {{ content | safe }}
+    </div>
   </main>
 
-  <footer class="footer outside-container">
-    <div class="inside-container">
-      <div class="footer-content">
-        <p class="text-mono text-sm text-secondary">
-          Design and code (except graphics) are open source on GitHub. See the pull request for the current design, or read the credits.
-        </p>
-        <nav class="footer-nav">
-          <a href="/rss.xml" class="nav-link text-mono text-sm">RSS</a>
-        </nav>
-      </div>
+  <footer class="site-footer">
+    <div class="layout footer-inner">
+      <p class="text-muted">
+        Design and code (except graphics) are open source on GitHub. See the pull request for the current design, or read the credits.
+      </p>
+      <nav class="site-footer-nav" aria-label="Footer">
+        <ul class="site-nav-list">
+          <li><a href="/rss.xml">RSS feed</a></li>
+        </ul>
+      </nav>
     </div>
   </footer>
 </body>

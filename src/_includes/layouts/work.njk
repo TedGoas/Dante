@@ -2,15 +2,32 @@
 layout: default
 ---
 
-<article class="flex flex-col items-center">
-    {% if featured_image %}
-    <img src="{{ featured_image | url }}" alt=""{% if featured_image_classes %} class="{{ featured_image_classes }}"{% endif %}>
+<article class="work-article">
+  {% if featured_image %}
+  <figure class="work-featured{% if featured_image_classes %} {{ featured_image_classes }}{% endif %}">
+    <div class="img-placeholder" data-placeholder="Project preview" aria-label="Project preview image placeholder"></div>
+    <figcaption class="visually-hidden">Featured project preview</figcaption>
+  </figure>
+  {% endif %}
+
+  <header class="work-header">
+    <h1>{{ title }}</h1>
+    {% if yearParts %}
+    <p class="work-period">
+      <time datetime="{{ yearParts.start }}">{{ yearParts.start }}</time>
+      –
+      {% if yearParts.isPresent %}
+      <span>present</span>
+      {% else %}
+      <time datetime="{{ yearParts.end }}">{{ yearParts.end }}</time>
+      {% endif %}
+    </p>
+    {% elif year %}
+    <p class="work-period">{{ year }}</p>
     {% endif %}
-    <div class="writing">
-        <header class="py-12">
-            <h1 class="mb-2">{{ title }}</h1>
-            <time>{{ year }}</time>
-        </header>
-        {{ content | safe }}
-    </div>
+  </header>
+
+  <section class="work-body writing">
+    {{ content | safe }}
+  </section>
 </article>

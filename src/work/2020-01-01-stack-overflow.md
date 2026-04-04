@@ -20,7 +20,7 @@ As a product designer, I focused on:
 2. Bending the public Q&A product in ways that make sense for teams but not the geneal public.
 
 <figure class="unbound mt-12">
-    <img src="/assets/img/stackoverflow/function.png" alt="" width="1000">
+    <div class="img-placeholder" data-placeholder="Enterprise product illustration" aria-label="Enterprise product illustration"></div>
 </figure>
 
 ### Theming
@@ -30,7 +30,7 @@ Security and privacy were top concerns of Enterprise customers. Many times folks
 I created Stack Overflow’s first theming system and scaled for our enterprise clients. I refactored existing LESS variables so new themes could be created in eight(8) lines of code. Later I designed a UI allowing folks to update their theme without touching code. <a href="https://stackoverflow.com/users/115866/balpha">Balpha</a> and <a href="https://www.aaronshekey.com/work/stackoverflow/">Aaron Shekey</a> have since evolved this system to include the entire Stack Exchange network.
 
 <figure class="max-w-3xl mx-auto code-preview flex flex-col">
-    <img src="/assets/img/stackoverflow/theming-preview.png" alt="Preview of a themed Stack Overflow theme." class="w-full">
+    <div class="img-placeholder" data-placeholder="Preview of a themed Stack Overflow theme." aria-label="Preview of a themed Stack Overflow theme."></div>
     <div class="code">
         <pre><code class="code-block scss">@import "less/_enterprise-base.less";
 ⠀
@@ -57,7 +57,7 @@ Private Q&A products are smaller than public Stack Overflow, so it’s important
 I created and tested a few prototypes that made tag watching more flexible while not overwhelming folks with notifications. <a href="https://rockercreative.com/work/stack-overflow">Paweł Ludwiczak</a> and <a href="https://www.aaronshekey.com/work/stackoverflow/">Aaron Shekey</a> further evolved the design to what’s on in the product today.
 
 <figure class="unbound my-12">
-    <img src="/assets/img/stackoverflow/tag-watching-sidebar.png" alt="" width="1470">
+    <div class="img-placeholder" data-placeholder="Tag watching sidebar UI" aria-label="Tag watching sidebar UI"></div>
     <figcaption>Sidebar widget states and dev notes on proposed changes.</figcaption>
 </figure>
 
@@ -67,7 +67,7 @@ In addition to adjusting the site for average folks, we created a suite of tools
 
 <figure class="unbound">
     <div class="bg-white p-4 rounded inline-block">
-        <img src="/assets/img/stackoverflow/admin-rep.png" alt="" width="860">
+        <div class="img-placeholder" data-placeholder="Admin reputation settings UI" aria-label="Admin reputation settings UI"></div>
     </div>
     <figcaption>Visual cues that show how changing repuation levels will impact users.</figcaption>
 </figure>
@@ -78,7 +78,7 @@ I worked with our customer success teams to identify the most used features, org
 
 <figure>
     <div class="bg-white p-4 rounded inline-block">
-        <img src="/assets/img/stackoverflow/manage-users.png" alt="" width="855">
+        <div class="img-placeholder" data-placeholder="Settings screen for controlling user access and privileges." aria-label="Settings screen for controlling user access and privileges."></div>
     </div>
     <figcaption>Settings screen for controlling user access and privileges.</figcaption>
 </figure>
@@ -95,10 +95,10 @@ How could we productize this so it could scale beyond the Customer Success team?
 
 <figure class="max-w-3xl">
     <div class="grid grid-cols-2 gap-2 sm:grid-cols-2">
-        <img src="/assets/img/stackoverflow/sketch1.jpg" alt="" width="400">
-        <img src="/assets/img/stackoverflow/sketch2.jpg" alt="" width="400">
-        <img src="/assets/img/stackoverflow/sketch3.jpg" alt="" width="400">
-        <img src="/assets/img/stackoverflow/sketch4.jpg" alt="" width="400">
+        <div class="img-placeholder" data-placeholder="How Might We sketch 1" aria-label="How Might We sketch 1"></div>
+        <div class="img-placeholder" data-placeholder="How Might We sketch 2" aria-label="How Might We sketch 2"></div>
+        <div class="img-placeholder" data-placeholder="How Might We sketch 3" aria-label="How Might We sketch 3"></div>
+        <div class="img-placeholder" data-placeholder="How Might We sketch 4" aria-label="How Might We sketch 4"></div>
     </div>
     <figcaption>Results from a How Might We? sketching done remotely over video chat.</figcaption>
 </figure>
@@ -109,7 +109,7 @@ I created several wireframes based on these ideas and shopped them around to my 
 
 <figure>
     <div class="bg-white p-4 rounded inline-block">
-        <img src="/assets/img/stackoverflow/dashboard.png" alt="Hi-def artwork of what we shipped." width="1100">
+        <div class="img-placeholder" data-placeholder="Hi-def artwork of what we shipped." aria-label="Hi-def artwork of what we shipped."></div>
     </div>
     <figcaption>The design we shipped.</figcaption>
 </figure>
@@ -124,10 +124,10 @@ A few times the project started veering towards in an in-depth analytics product
 
 <figure class="max-w-3xl">
     <div class="grid grid-cols-2 gap-2 sm:grid-cols-2">
-        <img src="/assets/img/stackoverflow/state1.png" alt="Metric hover state." width="396">
-        <img src="/assets/img/stackoverflow/state2.png" alt="Metric alternate hover state." width="396">
-        <img src="/assets/img/stackoverflow/state3.png" alt="Metric empty state." width="396">
-        <img src="/assets/img/stackoverflow/state4.png" alt="Metric loading state." width="396">
+        <div class="img-placeholder" data-placeholder="Metric hover state." aria-label="Metric hover state."></div>
+        <div class="img-placeholder" data-placeholder="Metric alternate hover state." aria-label="Metric alternate hover state."></div>
+        <div class="img-placeholder" data-placeholder="Metric empty state." aria-label="Metric empty state."></div>
+        <div class="img-placeholder" data-placeholder="Metric loading state." aria-label="Metric loading state."></div>
     </div>
     <figcaption>I designed and documented <a href="https://stackoverflow.design/product/components/cards/">our design system’s card component</a> based on this project.</figcaption>
 </figure>
@@ -139,7 +139,7 @@ Most feedback from our Enterprise customers came from client interviews, so I’
 After hearing this a few times, I created and shipped an email digest to help solve these problems. We also looked at notifications and integrations (like Slack and MS Teams).
 
 <figure>
-    <img src="/assets/img/stackoverflow/email-dashboard.png" alt="A weekly email of the dashboard metrics." width="1100">
+    <div class="img-placeholder" data-placeholder="A weekly email of the dashboard metrics." aria-label="A weekly email of the dashboard metrics."></div>
     <figcaption>I pitched, designed, and coded an email version of the dashboard’s metrics to make the data more portable.</figcaption>
 </figure>
 
@@ -149,7 +149,7 @@ In 2017, the Stack Overflow began creating a new product called Teams to fill a 
 
 <figure class="unbound">
     <div class="inline-block">
-        <img src="/assets/img/stackoverflow/teams-empty-state.png" alt="" width="1000">
+        <div class="img-placeholder" data-placeholder="Teams onboarding empty state wireframe" aria-label="Teams onboarding empty state wireframe"></div>
     </div>
     <figcaption>Wireframe concept for onboarding empty states. Teams was originally called "Channels."</figcaption>
 </figure>
@@ -160,10 +160,10 @@ We don’t expect our customers to spend all day on Stack Overflow, so make our 
 
 <figure>
     <div class="grid-sointegrations sm:block">
-        <img src="/assets/img/stackoverflow/jira.png" alt="Unfurled Jira link." width="552" class="jira shadow-xl -mb-16 sm:mb-4">
-        <img src="/assets/img/stackoverflow/github.png" alt="Unfurled GitHub link." width="552" class="github shadow-xl sm:mb-4">
-        <img src="/assets/img/stackoverflow/slack.png" alt="Slack integration." width="552" class="slack p-2 bg-white rounded shadow-xl sm:mb-4">
-        <img src="/assets/img/stackoverflow/stackoverflow.png" alt="Unfurled Sack Overflow link." width="552" class="stackoverflow shadow-xl">
+        <div class="img-placeholder" data-placeholder="Unfurled Jira link." aria-label="Unfurled Jira link."></div>
+        <div class="img-placeholder" data-placeholder="Unfurled GitHub link." aria-label="Unfurled GitHub link."></div>
+        <div class="img-placeholder" data-placeholder="Slack integration." aria-label="Slack integration."></div>
+        <div class="img-placeholder" data-placeholder="Unfurled Stack Overflow link." aria-label="Unfurled Stack Overflow link."></div>
     </div>
     <figcaption>Link unfurling for Jira, GitHub, Slack, and Stack Overflow links.</figcaption>
 </figure>
@@ -178,7 +178,7 @@ The email design system empowers non-email-designers to build well-designed, con
 
 <figure class="unbound">
     <div class="bg-white p-4 rounded inline-block">
-        <img src="/assets/img/stackoverflow/stacks.png" alt="" width="1000">
+        <div class="img-placeholder" data-placeholder="Stacks email design system" aria-label="Stacks email design system"></div>
     </div>
     <figcaption>Stacks emails design system.</figcaption>
 </figure>
@@ -190,13 +190,13 @@ When I joined Stack Overflow, the company didn’t send much email aside from a 
 <figure class="bordered">
     <div class="flex items-center gs4 sm:block">
         <div class="flex--cell sm:mx-auto sm:mb-4">
-            <img src="/assets/img/stackoverflow/email-teams.png" alt="Teams product launch email." width="680">
+            <div class="img-placeholder" data-placeholder="Teams product launch email." aria-label="Teams product launch email."></div>
         </div>
         <div class="flex--cell sm:mx-auto sm:mb-4">
-            <img src="/assets/img/stackoverflow/email-10th.png" alt="10th anniversary email." width="680">
+            <div class="img-placeholder" data-placeholder="10th anniversary email." aria-label="10th anniversary email."></div>
         </div>
         <div class="flex--cell sm:mx-auto">
-            <img src="/assets/img/stackoverflow/email-research.png" alt="user research recruitment email." width="680">
+            <div class="img-placeholder" data-placeholder="User research recruitment email." aria-label="User research recruitment email."></div>
         </div>
     </div>
     <figcaption>Email designs for Teams product launch (<a href="https://stackoverflow.design/email/templates/examples/teams.html">live code</a>), 10th anniversary (<a href="https://stackoverflow.design/email/templates/examples/10th.html">live code</a>), and user research recruitment.</figcaption>
@@ -208,7 +208,7 @@ As Stack Overflow’s email program evolved and started to send better-targeted 
 General Data Protection Regulation">GDPR</abbr> compliance, which had just started being enforced. We <a href="/blog/email-preferences-design/">wrote a case study</a> about this project.
 
 <figure>
-    <img src="/assets/img/stackoverflow/email-prefs.png" alt="Screenshot of how an email’s unsubscribe link leads to email preferences." width="788">
+    <div class="img-placeholder" data-placeholder="Screenshot of how an email’s unsubscribe link leads to email preferences." aria-label="Screenshot of how an email’s unsubscribe link leads to email preferences."></div>
     <figcaption>Updating the UX of managing emails subscriptions.</figcaption>
 </figure>
 
@@ -239,7 +239,7 @@ This design exploration productized some of our internal knowledge and experienc
 
 <figure class="unbound">
     <div class="bg-white p-4 rounded inline-block">
-        <img src="/assets/img/stackoverflow/grammarly.png" alt="" width="1357">
+        <div class="img-placeholder" data-placeholder="Grammarly-style exploration for Stack Overflow" aria-label="Grammarly-style exploration for Stack Overflow"></div>
     </div>
     <figcaption>What would Stack Overflow’s version of Grammerly look like?</figcaption>
 </figure>
