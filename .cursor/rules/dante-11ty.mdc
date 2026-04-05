@@ -1,0 +1,48 @@
+---
+description: Dante 11ty site — HTML/CSS, performance, theming, and Eleventy conventions
+alwaysApply: true
+---
+
+# Cursor Rules
+
+## General
+
+- This is a native HTML and CSS project using 11ty. Do not introduce Tailwind, Bootstrap, or any CSS framework
+- Do not add npm packages without asking first and explaining why they're needed
+- Do not generate content — no placeholder text, fake names, or dummy data
+- Always consider page load performance in every suggestion
+
+## CSS
+
+- All colors, spacing, font sizes, and other design values must use CSS custom properties defined in the theme file
+- Use BEM-inspired naming conventions for all classes
+- Do not write inline styles
+- Do not use `!important` without a comment explaining why
+- Prefer CSS solutions over JavaScript for any visual behavior (transitions, toggles, visibility, etc.)
+- Avoid CSS that triggers layout reflow unnecessarily — prefer `transform` and `opacity` for animations
+
+## JavaScript
+
+- Write vanilla JS only — no frameworks, no libraries unless explicitly approved
+- Use progressive enhancement — the page should be functional without JS where possible
+- Defer or async all script tags
+
+## HTML
+
+- Write semantic HTML — use the correct element for the job
+- All images must have descriptive `alt` attributes
+- Use `loading="lazy"` on all images below the fold
+- Use `<picture>` and `srcset` for responsive images where appropriate
+
+## 11ty
+
+- Use 11ty layouts and includes for all repeated structure
+- Blog posts use Markdown with front matter
+- Case studies are HTML files with front matter — do not convert them to Markdown
+- Do not hardcode navigation links — derive them from collections or data files
+
+## Theming
+
+- Never hardcode color values in component CSS — always reference a custom property
+- Theme files live in `themes/` and define all custom properties on `:root`
+- When a theme switcher exists, keep it hidden at launch until explicitly enabled in the UI; do not remove it without approval

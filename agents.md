@@ -63,7 +63,7 @@
 
 ### Deployment
 - **Repository**: Public GitHub repo
-- **Deployment**: Automatic deployment to live server from `master` branch
+- **Deployment**: Netlify — automatic deploys from the connected production branch (e.g. `master`)
 - **Commits**: Handled by Ted (no automatic commits)
 
 ### RSS
