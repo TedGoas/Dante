@@ -18,6 +18,13 @@ html {
   --color-surface-tile: #3d3d3d;
   --color-surface-tile-border: #555555;
   --color-surface-tile-muted: #2f2f2f;
+  --home-hero-max-width: 57rem;
+  --home-hero-headline-size: clamp(2.4rem, 5vw, 4rem);
+  --home-hero-body-size: clamp(1.35rem, 2.1vw, 1.75rem);
+  --home-hero-avatar-size: clamp(3rem, 6.6vw, 5.25rem);
+  --home-hero-company-icon-size: 1.2em;
+  --home-hero-cta-border: #00786f;
+  --color-text-strong: #f8fafc;
 }
 
 body {
@@ -218,22 +225,94 @@ hr {
 }
 
 /* --- Home hero images --- */
+.home-hero {
+  max-width: var(--home-hero-max-width);
+  padding-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.home-hero__headline {
+  margin-bottom: 2.6rem;
+  font-size: var(--home-hero-headline-size);
+  line-height: 1.1;
+  color: var(--color-text-strong);
+}
+
 .hero-avatar {
   display: inline-block;
   vertical-align: middle;
-  width: 1.4em;
-  height: 1.4em;
-  margin: 0 0.15em;
+  width: var(--home-hero-avatar-size);
+  height: var(--home-hero-avatar-size);
+  margin: -0.12em 0.12em 0;
+  border-radius: 50%;
   object-fit: cover;
 }
 
 .home-hero-logo {
   display: inline-block;
   vertical-align: middle;
-  height: 1em;
-  width: auto;
-  max-width: 5.5rem;
-  margin-right: 0.25em;
+  width: var(--home-hero-company-icon-size);
+  height: var(--home-hero-company-icon-size);
+  margin-right: 0.24em;
+}
+
+.home-hero .home-hero__lede {
+  max-width: 56rem;
+  margin-bottom: 1.25rem;
+  font-size: var(--home-hero-body-size);
+  line-height: 1.4;
+  color: var(--color-text-strong);
+}
+
+.home-hero__company-link {
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.home-hero__company-link:hover {
+  text-decoration: underline;
+}
+
+.home-hero__cta-wrap {
+  margin: 1.9rem 0 0;
+}
+
+.home-hero__cta {
+  display: inline-block;
+  border-bottom: 4px solid var(--home-hero-cta-border);
+  padding-bottom: 0.25rem;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: var(--color-text-strong);
+  text-decoration: none;
+}
+
+.home-hero__cta:hover {
+  text-decoration: none;
+}
+
+.home-hero__cta:focus-visible {
+  outline: 2px solid var(--color-text-strong);
+  outline-offset: 4px;
+}
+
+@media (max-width: 640px) {
+  .home-hero {
+    padding-top: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .home-hero__headline {
+    margin-bottom: 1.5rem;
+  }
+
+  .home-hero__lede {
+    margin-bottom: 1rem;
+  }
+
+  .home-hero__cta {
+    font-size: 1.35rem;
+  }
 }
 
 /* --- Components: placeholders --- */
