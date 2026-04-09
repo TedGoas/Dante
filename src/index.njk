@@ -27,47 +27,40 @@ description: Product designer, researcher, and front-end developer
   </p>
 </section>
 
-<section class="homepage-showcase" aria-label="Selected work thumbnails">
-  <ul class="homepage-showcase-list">
-    <li><div class="img-placeholder" data-placeholder="Canfield project preview" aria-label="Canfield project preview"></div></li>
-    <li><div class="img-placeholder" data-placeholder="Stack Overflow email preview" aria-label="Stack Overflow email preview"></div></li>
-    <li><div class="img-placeholder" data-placeholder="Dialpad email preview" aria-label="Dialpad email preview"></div></li>
-    <li><div class="img-placeholder" data-placeholder="Dialpad sidebar preview" aria-label="Dialpad sidebar preview"></div></li>
+<section class="homepage-showcase" aria-label="Selected work">
+  <ul class="home-work-grid">
+    <li class="home-work-grid__item home-work-grid__item--tl-large">
+      <div class="home-work-grid__cell img-placeholder" aria-hidden="true"></div>
+    </li>
+    <li class="home-work-grid__item home-work-grid__item--tr-1">
+      <div class="home-work-grid__cell img-placeholder" aria-hidden="true"></div>
+    </li>
+    <li class="home-work-grid__item home-work-grid__item--tr-2">
+      <div class="home-work-grid__cell img-placeholder" aria-hidden="true"></div>
+    </li>
+    <li class="home-work-grid__item home-work-grid__item--tr-muted">
+      <div class="home-work-grid__cell home-work-grid__cell--muted img-placeholder" aria-hidden="true"></div>
+    </li>
+    <li class="home-work-grid__item home-work-grid__item--ml-top">
+      <div class="home-work-grid__cell img-placeholder" aria-hidden="true"></div>
+    </li>
+    <li class="home-work-grid__item home-work-grid__item--ml-muted">
+      <div class="home-work-grid__cell home-work-grid__cell--muted img-placeholder" aria-hidden="true"></div>
+    </li>
+    <li class="home-work-grid__item home-work-grid__item--mr-large">
+      <div class="home-work-grid__cell img-placeholder" aria-hidden="true"></div>
+    </li>
+    <li class="home-work-grid__item home-work-grid__item--bl-tall-1">
+      <div class="home-work-grid__cell img-placeholder" aria-hidden="true"></div>
+    </li>
+    <li class="home-work-grid__item home-work-grid__item--bl-tall-2">
+      <div class="home-work-grid__cell img-placeholder" aria-hidden="true"></div>
+    </li>
+    <li class="home-work-grid__item home-work-grid__item--br-wide-1">
+      <div class="home-work-grid__cell img-placeholder" aria-hidden="true"></div>
+    </li>
+    <li class="home-work-grid__item home-work-grid__item--br-wide-2">
+      <div class="home-work-grid__cell img-placeholder" aria-hidden="true"></div>
+    </li>
   </ul>
-</section>
-
-<section class="home-below-fold" aria-label="What I believe about design">
-  <p class="pullquote">
-    I believe design is about taking the complex and chaotic and making it <strong>accessible</strong> to people, <strong>responsive</strong>, and as <strong>fast</strong> as possible.
-  </p>
-
-  <section class="two-column" aria-label="Recent articles and newsletter">
-    <section class="home-recent" aria-labelledby="recent-articles-heading">
-      <h2 id="recent-articles-heading">Recent Articles</h2>
-      <ul class="recent-articles-list">
-        {% for post in collections.posts %}
-          {% if loop.index <= 5 %}
-          <li>
-            <article>
-              <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
-              {% if post.data.description %}
-              <p class="article-meta">{{ post.data.description }}</p>
-              {% endif %}
-            </article>
-          </li>
-          {% endif %}
-        {% endfor %}
-      </ul>
-    </section>
-
-    <section class="home-newsletter" aria-labelledby="newsletter-heading">
-      <h2 id="newsletter-heading">Newsletter</h2>
-      <p>I write a newsletter about product design and leadership, with a touch of email and climate tech, once a month.</p>
-      <section class="newsletter-signup" aria-label="Newsletter signup">
-        <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
-        <iframe src="https://subscribe-forms.beehiiv.com/a76dbad3-e582-4dcf-9829-dd6e93295b7a" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" title="Newsletter signup form"></iframe>
-      </section>
-      <p class="article-meta">I’ll never share or sell your info, or track you in a creepy way. You can unsubscribe anytime instantly and without shaming or begging.</p>
-    </section>
-  </section>
 </section>
