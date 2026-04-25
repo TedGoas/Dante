@@ -15,6 +15,9 @@ html {
   --home-work-grid-gap: 0.75rem;
   --home-work-grid-row-min: 4.5rem;
   --home-work-grid-max-width: 72rem;
+  --home-work-grid-aspect-ratio: 4 / 6;
+  --home-work-grid-media-scale: 1;
+  --home-work-grid-media-offset: 0;
   --color-surface-tile: #3d3d3d;
   --color-surface-tile-border: #555555;
   --color-surface-tile-muted: #2f2f2f;
@@ -372,9 +375,6 @@ hr {
 .home-hero .home-hero__lede {
   max-width: 56rem;
   margin-bottom: 1.25rem;
-  font-size: var(--home-hero-body-size);
-  line-height: 1.4;
-  color: var(--color-text-strong);
 }
 
 .home-hero__company-link {
@@ -473,8 +473,9 @@ hr {
 .home-work-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(6, minmax(var(--home-work-grid-row-min), 1fr));
+  grid-template-rows: repeat(6, minmax(0, 1fr));
   gap: var(--home-work-grid-gap);
+  aspect-ratio: var(--home-work-grid-aspect-ratio);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -491,6 +492,30 @@ hr {
   height: 100%;
   min-height: 0;
   box-sizing: border-box;
+}
+
+.home-work-grid__cell--media {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-surface-tile);
+}
+
+.home-work-grid__cell--text {
+  display: grid;
+  align-items: center;
+  padding: var(--home-work-grid-gap);
+}
+
+.home-work-grid__media {
+  position: absolute;
+  top: calc(-1 * var(--home-work-grid-media-offset));
+  left: calc(-1 * var(--home-work-grid-media-offset));
+  width: calc(100% * var(--home-work-grid-media-scale));
+  height: calc(100% * var(--home-work-grid-media-scale));
+  max-width: none;
+  display: block;
+  object-fit: cover;
+  object-position: top left;
 }
 
 .home-work-grid .home-work-grid__cell.img-placeholder {
@@ -546,13 +571,13 @@ hr {
 }
 
 .home-work-grid__item--bl-tall-2 {
-  grid-column: 2 / 3;
+  grid-column: 2 / 4;
   grid-row: 5 / 7;
 }
 
 .home-work-grid__item--br-wide-1 {
-  grid-column: 3 / 5;
-  grid-row: 5 / 6;
+  grid-column: 4 / 5;
+  grid-row: 5 / 7;
 }
 
 .home-work-grid__item--br-wide-2 {
@@ -565,6 +590,7 @@ hr {
     grid-template-columns: 1fr;
     grid-template-rows: none;
     grid-auto-rows: minmax(8rem, auto);
+    aspect-ratio: auto;
   }
 
   .home-work-grid__item--tl-large,
@@ -585,8 +611,9 @@ hr {
 
 /* --- Components: homepage / lists --- */
 .lede {
-  font-size: 1.125rem;
-  color: #9a9a9a;
+  font-size: var(--home-hero-body-size);
+  line-height: 1.4;
+  color: var(--color-text-strong);
 }
 
 .article-list {

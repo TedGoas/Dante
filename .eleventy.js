@@ -2,6 +2,7 @@ module.exports = (config) => {
   config.setDataDeepMerge(true);
 
   config.addPassthroughCopy('src/assets/img/');
+  config.addPassthroughCopy('src/assets/work/');
   config.addPassthroughCopy('src/assets/css/');
   config.addPassthroughCopy({ 'src/posts/img/': 'assets/img/' });
   config.addPassthroughCopy({ 'src/work/img/': 'assets/img/' });
