@@ -30,6 +30,14 @@ html {
   --type-h3-size: clamp(1.25rem, 2vw, 1.55rem);
   --space-prose-flow: 1.15rem;
   --space-prose-section: clamp(2.25rem, 5vw, 3.5rem);
+  --work-list-gap: 0.65rem;
+  --work-gallery-top-margin: clamp(2.5rem, 7vw, 5rem);
+  --work-gallery-gap: clamp(3rem, 8vw, 6rem);
+  --work-gallery-item-gap: 0.85rem;
+  --work-gallery-caption-size: clamp(1.15rem, 1rem + 0.85vw, 1.75rem);
+  --work-gallery-caption-leading: 1.35;
+  --work-gallery-max-width: 72rem;
+  --work-gallery-viewport-gutter: 2rem;
   --home-work-grid-gap: 0.75rem;
   --home-work-grid-row-min: 4.5rem;
   --home-work-grid-max-width: 72rem;
@@ -762,6 +770,18 @@ hr {
   margin-bottom: 2rem;
 }
 
+.work-list ul {
+  display: grid;
+  gap: var(--work-list-gap);
+  margin: var(--space-prose-flow) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.work-list a {
+  font-size: var(--type-h3-size);
+}
+
 .work-item {
   margin-bottom: 3rem;
   padding-bottom: 2rem;
@@ -875,6 +895,51 @@ hr {
 
 .work-body h2 {
   margin-top: var(--space-prose-section);
+}
+
+.work-gallery {
+  display: grid;
+  gap: var(--work-gallery-gap);
+  width: min(calc(100vw - var(--work-gallery-viewport-gutter)), var(--work-gallery-max-width));
+  margin: var(--work-gallery-top-margin) 0 0 50%;
+  transform: translateX(-50%);
+}
+
+.work-gallery__item {
+  display: grid;
+  gap: var(--work-gallery-item-gap);
+  justify-self: center;
+  margin: 0;
+  max-width: 100%;
+  width: fit-content;
+}
+
+.writing .work-gallery__item {
+  margin: 0;
+}
+
+.work-gallery__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: center;
+  gap: var(--work-gallery-gap);
+}
+
+.work-gallery__item img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  background-color: var(--color-surface-tile-muted);
+}
+
+.writing .work-gallery__caption {
+  max-width: var(--measure-prose);
+  margin-top: 0;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--work-gallery-caption-size);
+  line-height: var(--work-gallery-caption-leading);
 }
 
 /* --- Bio timeline --- */
