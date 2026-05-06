@@ -13,23 +13,28 @@ The results show up in both the team and the product. Our feedback system cut de
 
 <section class="work-gallery" aria-label="Dialpad Team work samples">
   <figure class="work-gallery__item">
+    <figcaption class="work-gallery__caption">Dialpad AnalyticsGPT.</figcaption>
+    <p class="work-gallery__description">Description goes here.</p>
     <img src="/assets/work/dialpad-team-analyticsgpt1.svg" alt="Dialpad AnalyticsGPT design." loading="lazy">
-    <figcaption class="work-gallery__caption">Dialpad AnalyticsGPT.</figcaption>
   </figure>
   <figure class="work-gallery__item">
+    <figcaption class="work-gallery__caption">Dialpad AnalyticsGPT.</figcaption>
+    <p class="work-gallery__description">Description goes here.</p>
     <img src="/assets/work/dialpad-team-analyticsgpt2.svg" alt="Dialpad AnalyticsGPT design variation." loading="lazy">
-    <figcaption class="work-gallery__caption">Dialpad AnalyticsGPT.</figcaption>
   </figure>
   <figure class="work-gallery__item">
-    <img src="/assets/work/dialpad-team-chatbot.svg" alt="Dialpad chatbot design." loading="lazy">
     <figcaption class="work-gallery__caption">Dialpad chatbot.</figcaption>
+    <p class="work-gallery__description">Description goes here.</p>
+    <img src="/assets/work/dialpad-team-chatbot.svg" alt="Dialpad chatbot design." loading="lazy">
   </figure>
   <figure class="work-gallery__item">
-    <img src="/assets/work/dialpad-team-ivr.svg" alt="Dialpad IVR design." loading="lazy">
     <figcaption class="work-gallery__caption">Dialpad IVR.</figcaption>
+    <p class="work-gallery__description">Description goes here.</p>
+    <img src="/assets/work/dialpad-team-ivr.svg" alt="Dialpad IVR design." loading="lazy">
   </figure>
   <figure class="work-gallery__item">
-    <img src="/assets/work/dialpad-team-launchpad.svg" alt="Dialpad Launchpad design." loading="lazy">
     <figcaption class="work-gallery__caption">Dialpad Launchpad.</figcaption>
+    <p class="work-gallery__description">Description goes here.</p>
+    <img src="/assets/work/dialpad-team-launchpad.svg" alt="Dialpad Launchpad design." loading="lazy">
   </figure>
 </section>

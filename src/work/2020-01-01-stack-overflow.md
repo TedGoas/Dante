@@ -14,41 +14,50 @@ I helped grow the enterprise product from a single customer to over 30, adapting
 
 <section class="work-gallery" aria-label="Stack Overflow work samples">
   <figure class="work-gallery__item">
-    <img src="/assets/work/stackoverflow-dashboard.svg" alt="Stack Overflow dashboard design." loading="lazy">
     <figcaption class="work-gallery__caption">Stack Overflow dashboard.</figcaption>
+    <p class="work-gallery__description">Description goes here.</p>
+    <img src="/assets/work/stackoverflow-dashboard.svg" alt="Stack Overflow dashboard design." loading="lazy">
   </figure>
   <figure class="work-gallery__item">
-    <img src="/assets/work/stackoverflow-dashboard.png" alt="Stack Overflow dashboard raster design." loading="lazy">
     <figcaption class="work-gallery__caption">Stack Overflow dashboard PNG.</figcaption>
+    <p class="work-gallery__description">Description goes here.</p>
+    <img src="/assets/work/stackoverflow-dashboard.png" alt="Stack Overflow dashboard raster design." loading="lazy">
   </figure>
   <figure class="work-gallery__item">
-    <img src="/assets/work/stackoverflow-email-10th.png" alt="Stack Overflow 10th anniversary email layout." loading="lazy">
     <figcaption class="work-gallery__caption">Stack Overflow email 10th anniversary.</figcaption>
+    <p class="work-gallery__description">Description goes here.</p>
+    <img src="/assets/work/stackoverflow-email-10th.png" alt="Stack Overflow 10th anniversary email layout." loading="lazy">
   </figure>
   <div class="work-gallery__row">
     <figure class="work-gallery__item">
-      <img src="/assets/work/stackoverflow-10th-email.png" alt="Stack Overflow 10th anniversary email design." loading="lazy">
       <figcaption class="work-gallery__caption">Stack Overflow 10th anniversary email.</figcaption>
+      <p class="work-gallery__description">Description goes here.</p>
+      <img src="/assets/work/stackoverflow-10th-email.png" alt="Stack Overflow 10th anniversary email design." loading="lazy">
     </figure>
     <figure class="work-gallery__item">
-      <img src="/assets/work/stackoverflow-email-teams.svg" alt="Stack Overflow Teams email design." loading="lazy">
       <figcaption class="work-gallery__caption">Stack Overflow Teams email.</figcaption>
+      <p class="work-gallery__description">Description goes here.</p>
+      <img src="/assets/work/stackoverflow-email-teams.svg" alt="Stack Overflow Teams email design." loading="lazy">
     </figure>
   </div>
   <figure class="work-gallery__item">
-    <img src="/assets/work/stackoverflow-email-design-system.svg" alt="Stack Overflow email design system." loading="lazy">
     <figcaption class="work-gallery__caption">Stack Overflow email design system.</figcaption>
+    <p class="work-gallery__description">Description goes here.</p>
+    <img src="/assets/work/stackoverflow-email-design-system.svg" alt="Stack Overflow email design system." loading="lazy">
   </figure>
   <figure class="work-gallery__item">
-    <img src="/assets/work/stackoverflow-enterprise-digest.svg" alt="Stack Overflow enterprise digest design." loading="lazy">
     <figcaption class="work-gallery__caption">Stack Overflow enterprise digest.</figcaption>
+    <p class="work-gallery__description">Description goes here.</p>
+    <img src="/assets/work/stackoverflow-enterprise-digest.svg" alt="Stack Overflow enterprise digest design." loading="lazy">
   </figure>
   <figure class="work-gallery__item">
-    <img src="/assets/work/stackoverflow-grammarly.svg" alt="Stack Overflow Grammarly exploration." loading="lazy">
     <figcaption class="work-gallery__caption">Stack Overflow Grammarly exploration.</figcaption>
+    <p class="work-gallery__description">Description goes here.</p>
+    <img src="/assets/work/stackoverflow-grammarly.svg" alt="Stack Overflow Grammarly exploration." loading="lazy">
   </figure>
   <figure class="work-gallery__item">
-    <img src="/assets/work/stackoverflow-integrations.png" alt="Stack Overflow integrations design." loading="lazy">
     <figcaption class="work-gallery__caption">Stack Overflow integrations.</figcaption>
+    <p class="work-gallery__description">Description goes here.</p>
+    <img src="/assets/work/stackoverflow-integrations.png" alt="Stack Overflow integrations design." loading="lazy">
   </figure>
 </section>
