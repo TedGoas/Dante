@@ -4,10 +4,20 @@ layout: default
 
 <article class="post">
   <header class="post-header">
-    <h1>{{ title }}</h1>
-    {% if page.date %}
-    <time datetime="{{ page.date.toISOString() }}">{{ page.date | readableDate }}</time>
+    {% if post_label %}
+    <p class="post-header__eyebrow">{{ post_label }}</p>
     {% endif %}
+    <h1>{{ title }}</h1>
+    {% if description %}
+    <p class="post-header__dek">{{ description }}</p>
+    {% endif %}
+    <p class="post-header__meta">
+      {% if page.date %}
+      <time class="post-header__date" datetime="{{ page.date.toISOString() }}">{{ page.date | readableDate }}</time>
+      <span class="post-header__meta-sep" aria-hidden="true"> · </span>
+      {% endif %}
+      <span>{{ readingMinutes }} min read</span>
+    </p>
   </header>
 
   <section class="post-body">

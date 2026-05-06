@@ -29,7 +29,7 @@
 - Reuse the current logo from the existing site
 
 ### Typography
-- **Mono Font**: Fragment Mono for navigation, captions, and footer
+- **Mono Font**: Atkinson Hyperlegible Mono for navigation, captions, and footer
 - **Sans-Serif**: For all other content
 - **Inspiration**: Typography from https://linear.app/change
 
@@ -55,6 +55,7 @@
 ### HTML Standards
 - **Semantic HTML**: Use `<nav>`, `<article>`, and other semantic elements
 - **Structure**: Minimize unnecessary nested `<div>` elements
+- **Attributed quotes**: In Markdown, optional pattern for this site: finish the quoted line with a dash and a Markdown citation link—for example `- [Author Name](https://example.com/source)`—and Eleventy will move that link into `<footer>...</footer>` automatically (hyphen or en-dash before the `[` matches). Alternatively, use raw HTML `<footer>...</footer>` or `<cite>...</cite>` after the quoted `<p>` for explicit control or non-link attributions.
 
 ### Dependencies
 - **Philosophy**: Keep npm installs minimal

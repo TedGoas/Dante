@@ -1,0 +1,68 @@
+/*
+ * Semantic design tokens (Warman-inspired canvas + yellow accent, Adaline-style borders).
+ * Legacy --color-* names alias here so existing components keep working.
+ */
+:root {
+  /* --- Semantic palette --- */
+  --color-site-bg: #121110;
+  --color-site-fg: #ebe9e4;
+  --color-site-fg-muted: #9b9890;
+  /*
+   * Interactive accent (--color-accent / --color-accent-hover): links, :focus-visible,
+   * hero CTA underline, nav/footer hovers — reserved for affordances.
+   * Decorative (--color-highlight): meta labels, prose markers, quote edge — not for links/buttons.
+   */
+  --color-accent: #d8b84c;
+  --color-accent-hover: #e8ca6a;
+  --color-highlight: #c9a852;
+  /* Hairlines on dark canvas */
+  --color-border-subtle: rgba(235, 233, 228, 0.1);
+  --color-border-strong: rgba(235, 233, 228, 0.18);
+  --border-width-hairline: 1px;
+
+  /* --- Typography stacks --- */
+  --font-serif: Georgia, "Times New Roman", Times, serif;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Atkinson Hyperlegible Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-h1: "Gambetta", Georgia, "Times New Roman", Times, serif;
+
+  /* --- Surfaces (slightly lifted from canvas) --- */
+  --color-surface-raised: #1e1d1b;
+  --color-surface-tile: #1a1918;
+  --color-surface-tile-muted: #161514;
+  --color-surface-tile-border: var(--color-border-subtle);
+
+  /* --- Case study gallery cards (slightly above page canvas) --- */
+  --color-work-gallery-card-bg: #1c1b1a;
+  --color-work-gallery-card-border: rgba(235, 233, 228, 0.08);
+  --color-work-gallery-card-title: var(--color-site-fg);
+  --color-work-gallery-card-description: var(--color-site-fg-muted);
+  --radius-work-gallery-card: 0.5rem;
+  --radius-work-gallery-image: 0;
+  --space-work-gallery-card-padding: clamp(1.25rem, 4vw, 2.5rem);
+
+  /* --- Blog post editorial header --- */
+  --post-header-stack-gap: clamp(0.5rem, 1.5vw, 0.875rem);
+  --post-header-eyebrow-size: 0.75rem;
+  --post-header-eyebrow-tracking: 0.14em;
+  --post-header-dek-size: clamp(1.40625rem, calc(1.3125rem + 0.525vw), 1.6875rem);
+  --post-header-dek-leading: 1.22;
+  --post-header-meta-size: 0.75rem;
+  --post-header-meta-tracking: 0.12em;
+  --post-header-divider-space: clamp(0.75rem, 2vw, 1.25rem);
+
+  /* --- Pullquote / blockquote panels (prose, not embeds) --- */
+  --color-blockquote-bg: var(--color-work-gallery-card-bg);
+  --space-blockquote-padding: clamp(1rem, 3vw, 1.35rem);
+  /** Gap between quoted body and attribution (`<footer>` / `<cite>`) */
+  --space-blockquote-attribution-gap: clamp(0.5rem, 1.25vw, 0.675rem);
+  --radius-blockquote: 0.25rem;
+
+  /* --- Legacy aliases (existing stylesheet) --- */
+  --color-page-bg: var(--color-site-bg);
+  --color-text: var(--color-site-fg);
+  --color-text-muted: var(--color-site-fg-muted);
+  --color-text-strong: var(--color-site-fg);
+  --color-border: var(--color-border-strong);
+  --home-hero-cta-border: var(--color-accent);
+}

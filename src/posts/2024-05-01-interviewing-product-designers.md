@@ -20,7 +20,7 @@ It’s a big commitment on both sides and we only have a short amount of time to
 
 During a routine 1:1, my manager dropped this gem:
 
-> The more you talk to someone, the harder it gets to say no. - [Josh Hynes](https://www.linkedin.com/in/joshuahynes/)
+> The more you talk to someone, the harder it gets to say no. – [Josh Hynes](https://www.linkedin.com/in/joshuahynes/)
 
 It spoke directly to my weakness.
 

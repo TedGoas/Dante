@@ -1,9 +1,18 @@
+const markdownIt = require('markdown-it');
+const markdownItblockquoteAttribution = require('./lib/markdown/markdown-it-blockquote-attribution');
+
 module.exports = (config) => {
+  const mdLib = markdownIt({
+    html: true
+  }).use(markdownItblockquoteAttribution);
+  config.setLibrary('md', mdLib);
+
   config.setDataDeepMerge(true);
 
   config.addPassthroughCopy('src/assets/img/');
   config.addPassthroughCopy('src/assets/work/');
   config.addPassthroughCopy('src/assets/css/');
+  config.addPassthroughCopy('themes/');
   config.addPassthroughCopy({ 'src/posts/img/': 'assets/img/' });
   config.addPassthroughCopy({ 'src/work/img/': 'assets/img/' });
   config.addPassthroughCopy('src/assets/files/');
