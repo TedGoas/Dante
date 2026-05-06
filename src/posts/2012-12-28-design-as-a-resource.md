@@ -22,7 +22,8 @@ Like many designers, I believe design should be part of the process from the beg
 
 After seeing the app in action, I was tempted to suggest several changes to improve the overall look and experience. Small changes, but changes nonetheless. But I knew that’s not what I was asked to do; I was asked to create some buttons. To put lipstick on a pig. To add a drop to the ocean.
 
-> “The UI is ugly and the experience is confusing. What difference are these buttons really going to make?” &ndash; my inner monologue
+> “The UI is ugly and the experience is confusing. What difference are these buttons really going to make?”
+> <footer>My inner monologue</footer>
 
 If project doesn’t regard design as an important role, why should I let it take me away from other projects that do? I earn my living designing things from the ground up and working on complex issues. It's what I enjoy most and where I feel like I’m making a real difference.
 

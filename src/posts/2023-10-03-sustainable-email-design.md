@@ -15,7 +15,7 @@ This is a talk I gave at [Email Camp 2023](https://hello.mailjet.com/email-camp/
 
 ---
 
-> “What we choose to design and, more importantly, what we choose not to design and, even more importantly, who we exclude from the design process — these are all political acts. Knowing this and ignoring it is also a political act, albeit a cowardly one.” — [Mike Monteiro](https://www.ruinedby.design/)
+> “What we choose to design and, more importantly, what we choose not to design and, even more importantly, who we exclude from the design process — these are all political acts. Knowing this and ignoring it is also a political act, albeit a cowardly one.” - [Mike Monteiro](https://www.ruinedby.design/)
 
 Nothing is apolitical, so we’re gonna get a little political here. So, I don’t know if you’ve noticed, but…
 
@@ -221,7 +221,8 @@ Consider this: What if design isn’t for humans?
 
 Customers are only transient users of our products. We ultimately design for the environment. Our products and their effects will outlive our users and inhabit the environment for much longer than mankind.
 
-> “I wish this email loaded slower.” — Absolutely no one at all ever
+> “I wish this email loaded slower.”
+> <footer>Absolutely no one at all ever</footer>
 
 A lot of what I talked about focuses on faster loading emails, which is just about the only safe bet we can make in tech. Websites come and go, who knows what gonna happen with things like blockchain or AI. But no one’s gonna wake up in 10 or 20 years and say “Gee, I wish this thing took longer to load.”
 
@@ -229,7 +230,8 @@ Faster loading things usually translate to higher conversions. Turns out sustain
 
 Here’s a long quote from a biased guy. I can sum it up by saying “If we’re not careful, we can screw this up big time.”
 
-> “The Internet is the single biggest thing we’re going to build as a species. This is something that if we build it the right way, with the right sources of energy, could really help power our transition to renewables. If we build it the wrong way, it could actually exacerbate the problem.” — Gary Cook, Greenpeace
+> “The Internet is the single biggest thing we’re going to build as a species. This is something that if we build it the right way, with the right sources of energy, could really help power our transition to renewables. If we build it the wrong way, it could actually exacerbate the problem.”
+> <footer>Gary Cook, Greenpeace</footer>
 
 So I hope this motivates you to think about this stuff more, research it on your own, introduce a new process on your team, make a small change to your own process. I hope it changes the way you see our place in this world as people working on email.
 

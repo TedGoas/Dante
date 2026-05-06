@@ -8,7 +8,7 @@ description:  Design is not just about pixels. It’s also about sharing, coachi
 
 This year, I had the opportunity to be one of Stack Overflow’s first design mentors for [Phoebe Leung](https://phoebeleung.design/), one of our new hires this year. I love the people part of my job and dove headfirst into this opportunity.
 
-> A good mentor is someone whom the mentee would describe as “X helped me in my career.” - Julie Zhuo
+> A good mentor is someone whom the mentee would describe as “X helped me in my career.” - [Julie Zhuo](https://www.amazon.com/Making-Manager-What-Everyone-Looks/dp/0735219567)
 
 I’d never been a mentor in a formal sense, so I researched what a good mentor-mentee relationship looks like ahead of time. I learned a ton through folks like Julie Zhou ([her book](https://www.amazon.com/Making-Manager-What-Everyone-Looks/dp/0735219567/ref=tmm_hrd_swatch_0?_encoding=UTF8&qid=1543085946&sr=8-2)), Lara Hogan ([her book](https://larahogan.me/blog/coming-soon-resilient-management)), Michael Lopp ([his book](https://www.amazon.com/Managing-Humans-Humorous-Software-Engineering/dp/1430243147)), and [Cap Watkins](https://capwatkins.com/).
 
@@ -74,7 +74,7 @@ We fell behind schedule a few times when project work took priority over self-de
 
 On the topic of stretch goals, another thing mentors can do is think about the different opportunities you have to offer up a mentee’s name in situations that can lead to even more growth and opportunities.
 
-> Sponsorship is all about feeling on the hook for getting someone to the next level. As someone’s sponsor, you’ll put their name in the ring for opportunities that will get them the experience and visibility necessary to grow in their role and at the organization. - [Lara Hogan](https://blog.gitprime.com/framework-for-building-resilient-teams/)
+> Sponsorship is all about feeling on the hook for getting someone to the next level. As someone’s sponsor, you’ll put their name in the ring for opportunities that will get them the experience and visibility necessary to grow in their role and at the organization. - [Lara Hogan](https://blog.gitprime.com/framework-for-building-resilient-teams/)
 
 That means…
 
@@ -91,7 +91,7 @@ It’s important to strike a good balance between mentoring and sponsoring. Lara
 
 ## Wrapping Up
 
-> As mentors, we want our mentees to reach beyond us, because our mentees’ success is ultimately our success. - Lara Hogan
+> As mentors, we want our mentees to reach beyond us, because our mentees’ success is ultimately our success. - [Lara Hogan](https://larahogan.me/)
 
 I truly believe this. I’m incredibly excited to see Phoebe tackle a new problem and come up with a creative solution on her own.
 

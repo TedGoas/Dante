@@ -62,7 +62,7 @@ First, we needed to fix our legacy system in order to avoid becoming the bad act
 
 How many times have you joined a new service and gotten opted into EVERY SINGLE EMAIL THEY SEND? Yeah, we didn’t want to be that guy… but at the same time, we were underselling ourselves by playing it too conservative with email. Users frequently made comments like "Oh I didn’t know you had x/y/z feature." Rather than just not send any email at all, we had to convince ourselves that we could do it in a responsible way.
 
-> One of my biggest apprehensions is annoying our community. Worrying about that keeps me up at night. — [Nick Craver](https://stackoverflow.blog/2016/11/how-we-make-money-at-stack-overflow-2016-edition/)
+> One of my biggest apprehensions is annoying our community. Worrying about that keeps me up at night. - [Nick Craver](https://stackoverflow.blog/2016/11/how-we-make-money-at-stack-overflow-2016-edition/)
 
 We reorganized our email categories and reconsidered how folks are opted into each one. We made email subscriptions trigger-based wherever possible. For example, we don’t send you any Jobs emails until you engage with the Jobs product (apply for a job, set status to ‘looking’, etc.). We don’t send you any community emails until you’ve participated. We don’t opt you into any newsletters. And no, we don’t employ any pop-ups imploring you (or shaming you) to sign up. We don’t even have an email signup form on most pages.
 
@@ -123,7 +123,7 @@ When updating your email preferences, how many times have you been forced to…
     <figcaption class="caption">This is where I mark emails as spam.</figcaption>
 </figure>
 
-> There is nothing worse than making the user do more than completely necessary when it comes to trying to remove themselves from communications.- [Becs Rivett-Kemm](https://medium.com/@Conversio/sorting-out-our-email-marketing-opt-ins-223ca92483e7#.awwrvphxz)
+> There is nothing worse than making the user do more than completely necessary when it comes to trying to remove themselves from communications. - [Becs Rivett-Kemm](https://medium.com/@Conversio/sorting-out-our-email-marketing-opt-ins-223ca92483e7#.awwrvphxz)
 
 We think of this as any other conversion. If we optimize the landing pages from our emails, why not our subscription preferences? Unsubscribing might not be a flow we want them to complete, but if that’s what someone wants to do we shouldn’t make it any harder than it has to be.
 

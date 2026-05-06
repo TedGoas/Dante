@@ -51,7 +51,8 @@ Ok… then is it kinda like a pattern library…? Not quite. Pattern libraries i
 
 A design system combines these two.
 
-> A design system is a collection of reusable components, guided by clear standards, that can be assembled together to build any number of applications. — Marco Suarez, Design consultant, Previously at InVision, Etsy, and Mailchimp
+> A design system is a collection of reusable components, guided by clear standards, that can be assembled together to build any number of applications.
+> <footer>Marco Suarez, Design consultant, Previously at InVision, Etsy, and Mailchimp</footer>
 
 The definition of a design system varies, but I’m going with this one. Think of it as a lightweight scaffolding and guidelines to design with, rather than creating stuff from scratch or plain sight. Design systems are often compared to LEGO Sets: a collection of standardized components that can be mixed and matched to build designs. Having a design systems means we don’t have to design our own legos.
 
@@ -98,7 +99,8 @@ Ok so you’ve thought about making your own email design system, started pitchi
 
 How about using whatever spare time there is between projects? Sounds logical. It’s how we started. However, our initial efforts were scattered and progress was inconsistent. Whenever we started gaining momentum, we’d get pulled away onto project work. We didn’t have regular check-ins or a roadmap. And no one was being held accountable because we were treating this as a side project.
 
-> “If a design system is treated as a side project, it’ll probably fail.” — Nathan Curtis
+> “If a design system is treated as a side project, it’ll probably fail.”
+> <footer>Nathan Curtis</footer>
 
 After a while, we learned that our design system would need to be an official project or the company would just keep pushing to ship product work faster instead of building a better future.
 
@@ -173,7 +175,8 @@ For example, when we launched our design system, someone asked if they could use
 
 ## Lesson 5: Documentation
 
-> Another flaw in human character is that everybody wants to build and nobody wants to do maintenance. – Kurt Vonnegut
+> Another flaw in human character is that everybody wants to build and nobody wants to do maintenance.
+> <footer>Kurt Vonnegut</footer>
 
 **Documentation is the most important part of a design system.** There, I said it. A design system lives and dies by its documentation. The best design systems not only cover the what, but also how, when, and why of design, remember?
 
@@ -198,7 +201,7 @@ This has since been fixed, but we learned that incomplete or outdated documentat
 
 If something’s not documented at all, it may as well not exist and you run the risk of people writing new but duplicate code.
 
-> When building design systems, get into habit of documenting early. You’re building a system and that cannot work if the system is you. – [Karri Saarinen](https://twitter.com/karrisaarinen/status/962018670011559936)
+> When building design systems, get into habit of documenting early. You’re building a system and that cannot work if the system is you. - [Karri Saarinen](https://twitter.com/karrisaarinen/status/962018670011559936)
 
 Good documentation helps promote new components, reduces the need to write new code, and helps with implementation. It’s worth investing time in developing practices that help you keep updated documentation. Here are a few we try to stick to:
 
@@ -223,7 +226,8 @@ Writing documentation also made me challenge a lot of assumptions I’d been car
 
 Since launching our design system, I’ve seen folks with little email experience building some pretty nice emails on their own. We still have a lot to do, but we’re already seeing our email design system fulfilling its purpose.
 
-> “One of the biggest impacts is people being able to get further without design help. […] It doesn’t mean you don’t need a designer — it’s just that other team members can get further than they could before.” — Diana Mounter
+> “One of the biggest impacts is people being able to get further without design help. […] It doesn’t mean you don’t need a designer — it’s just that other team members can get further than they could before.”
+> <footer>Diana Mounter</footer>
 
 Design should be collaborative, an email design system’s goal isn’t to eliminate the need for a designer. It’s also not to make all emails look the same.
 

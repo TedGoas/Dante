@@ -19,7 +19,7 @@ So really I have one foot in freelance / agency world and the other foot in the 
 So I’m going to talk mostly about what it’s like working on web projects in my little company in the suburbs. Interface design, working directly with clients, internal politics, working with the owner, pushing pixels, performance reviews, supporting IE6, drop shadows, and all that fun stuff.
 
 ## On Frequency
-> After the first few days after the post is published, the traffic will drop down to a mere fraction of what it was, since your readership has simply “been there, done that”. Congratulations; you’re now in a business where your &#8216;product’ becomes worthless practically overnight. &ndash; <a href="http://www.seomoz.org/blog/the-definitive-guide-to-awesome-web-content">SEO Moz</a>
+> After the first few days after the post is published, the traffic will drop down to a mere fraction of what it was, since your readership has simply “been there, done that”. Congratulations; you’re now in a business where your &#8216;product’ becomes worthless practically overnight. - [SEO Moz](https://moz.com/blog/the-definitive-guide-to-awesome-web-content)
 
 True too often.
 

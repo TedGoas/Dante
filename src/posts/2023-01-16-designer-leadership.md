@@ -111,7 +111,8 @@ I’d recommend coaching and mentoring only after folks have gained eight or so 
 
 ## Wrapping up
 
-> Time spent understanding people is never wasted. - Cate Huston
+> Time spent understanding people is never wasted.
+> <footer>Cate Huston</footer>
 
 Succeeding as a design lead is less about tactical skills and more about people skills.
 
