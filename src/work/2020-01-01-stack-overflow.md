@@ -14,50 +14,23 @@ I helped grow the enterprise product from a single customer to over 30, adapting
 
 <section class="work-gallery" aria-label="Stack Overflow work samples">
   <figure class="work-gallery__item">
-    <figcaption class="work-gallery__caption">Stack Overflow dashboard.</figcaption>
-    <p class="work-gallery__description">Description goes here.</p>
+    <figcaption class="work-gallery__caption">Measuring community health, not vanity</figcaption>
+    <p class="work-gallery__description">Likes and page views don't tell you if a community is actually working. Stack Overflow had spent years learning what makes a community healthy. I helped bring those insights to Enterprise clients through a custom analytics experience focused on signals that matter, not numbers that just look good.</p>
     <img src="/assets/work/stackoverflow-dashboard.svg" alt="Stack Overflow dashboard design." loading="lazy">
   </figure>
   <figure class="work-gallery__item">
-    <figcaption class="work-gallery__caption">Stack Overflow dashboard PNG.</figcaption>
-    <p class="work-gallery__description">Description goes here.</p>
-    <img src="/assets/work/stackoverflow-dashboard.png" alt="Stack Overflow dashboard raster design." loading="lazy">
-  </figure>
-  <figure class="work-gallery__item">
-    <figcaption class="work-gallery__caption">Stack Overflow email 10th anniversary.</figcaption>
-    <p class="work-gallery__description">Description goes here.</p>
-    <img src="/assets/work/stackoverflow-email-10th.png" alt="Stack Overflow 10th anniversary email layout." loading="lazy">
-  </figure>
-  <div class="work-gallery__row">
-    <figure class="work-gallery__item">
-      <figcaption class="work-gallery__caption">Stack Overflow 10th anniversary email.</figcaption>
-      <p class="work-gallery__description">Description goes here.</p>
-      <img src="/assets/work/stackoverflow-10th-email.png" alt="Stack Overflow 10th anniversary email design." loading="lazy">
-    </figure>
-    <figure class="work-gallery__item">
-      <figcaption class="work-gallery__caption">Stack Overflow Teams email.</figcaption>
-      <p class="work-gallery__description">Description goes here.</p>
-      <img src="/assets/work/stackoverflow-email-teams.svg" alt="Stack Overflow Teams email design." loading="lazy">
-    </figure>
-  </div>
-  <figure class="work-gallery__item">
-    <figcaption class="work-gallery__caption">Stack Overflow email design system.</figcaption>
-    <p class="work-gallery__description">Description goes here.</p>
+    <figcaption class="work-gallery__caption">Building the system behind the emails</figcaption>
+    <p class="work-gallery__description">HTML email is notoriously painful to build, every email was a bespoke act of suffering. I built one of the first email design systems that abstracted all of that complexity so the team could focus on the message, not the markup.</p>
     <img src="/assets/work/stackoverflow-email-design-system.svg" alt="Stack Overflow email design system." loading="lazy">
   </figure>
   <figure class="work-gallery__item">
-    <figcaption class="work-gallery__caption">Stack Overflow enterprise digest.</figcaption>
-    <p class="work-gallery__description">Description goes here.</p>
-    <img src="/assets/work/stackoverflow-enterprise-digest.svg" alt="Stack Overflow enterprise digest design." loading="lazy">
-  </figure>
-  <figure class="work-gallery__item">
-    <figcaption class="work-gallery__caption">Stack Overflow Grammarly exploration.</figcaption>
-    <p class="work-gallery__description">Description goes here.</p>
-    <img src="/assets/work/stackoverflow-grammarly.svg" alt="Stack Overflow Grammarly exploration." loading="lazy">
-  </figure>
-  <figure class="work-gallery__item">
-    <figcaption class="work-gallery__caption">Stack Overflow integrations.</figcaption>
-    <p class="work-gallery__description">Description goes here.</p>
+    <figcaption class="work-gallery__caption">Playing well with others</figcaption>
+    <p class="work-gallery__description">Stack Overflow is most useful when it fits into how your team already works. I designed a set of integrations that connected our platform to tools like Jira and GitHub, turning separate systems into one seamless workflow.</p>
     <img src="/assets/work/stackoverflow-integrations.png" alt="Stack Overflow integrations design." loading="lazy">
+  </figure>
+  <figure class="work-gallery__item">
+    <figcaption class="work-gallery__caption">Side projects, serious ideas</figcaption>
+    <p class="work-gallery__description">I've always believed in making space to explore. Alongside my regular work, I sketched out ideas for improving the Stack Overflow experience, including ways to make the platform friendlier for people just getting started. Some made it into the product. Some didn't. All of them were worth doing.</p>
+    <img src="/assets/work/stackoverflow-grammarly.svg" alt="Stack Overflow Grammarly exploration." loading="lazy">
   </figure>
 </section>
