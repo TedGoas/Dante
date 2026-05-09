@@ -35,6 +35,9 @@
   /* --- Case study gallery cards (slightly above page canvas) --- */
   --color-work-gallery-card-bg: #1c1b1a;
   --color-work-gallery-hero-secondary-bg: #1d0155;
+  --color-work-gallery-padded-media-bg: #10233f;
+  --color-work-gallery-padded-media-teal-bg: #0f332f;
+  --color-work-gallery-padded-media-plum-bg: #32183b;
   --color-work-gallery-card-border: rgba(235, 233, 228, 0.08);
   --color-work-gallery-card-title: var(--color-site-fg);
   --color-work-gallery-card-description: var(--color-site-fg-muted);
