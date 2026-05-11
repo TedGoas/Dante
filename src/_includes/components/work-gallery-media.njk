@@ -1,5 +1,0 @@
-{% macro workGalleryMedia(src, alt, variant = "") %}
-<div class="work-gallery__media work-gallery__media--padded{% if variant %} work-gallery__media--padded-{{ variant }}{% endif %}">
-  <img src="{{ src }}" alt="{{ alt }}" loading="lazy">
-</div>
-{% endmacro %}
