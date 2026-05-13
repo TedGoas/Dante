@@ -29,8 +29,8 @@ html {
   --work-gallery-top-margin: clamp(2.5rem, 7vw, 5rem);
   --work-gallery-gap: clamp(3rem, 8vw, 6rem);
   --work-gallery-item-gap: 0.85rem;
-  --work-gallery-caption-size: clamp(1.15rem, 1rem + 0.85vw, 1.75rem);
-  --work-gallery-caption-leading: 1.35;
+  --work-gallery-caption-size: var(--figure-caption-title-size);
+  --work-gallery-caption-leading: var(--figure-caption-title-leading);
   --work-gallery-max-width: 72rem;
   --work-gallery-viewport-gutter: 2rem;
   --work-gallery-email-media-gap: clamp(0.75rem, 1.5vw, 1.25rem);
@@ -1036,10 +1036,10 @@ hr {
   justify-self: stretch;
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  background-color: var(--color-work-gallery-card-bg);
-  border: var(--border-width-hairline) solid var(--color-work-gallery-card-border);
-  border-radius: var(--radius-work-gallery-card);
+  overflow: visible;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
   gap: 0;
 }
 
@@ -1062,7 +1062,7 @@ hr {
   display: block;
   width: auto;
   max-width: 100%;
-  background-color: var(--color-surface-tile-muted);
+  background-color: transparent;
   box-shadow: inset 0 0 0 var(--border-width-hairline) var(--color-border-subtle);
 }
 
@@ -1340,13 +1340,19 @@ hr {
   box-shadow: inset 0 0 0 var(--border-width-hairline) var(--color-border-subtle);
 }
 
-/* Case study gallery: no radius on image (square top where it meets text) */
+.post-body > figure :where(img, video, iframe),
+.writing > figure :where(img, video, iframe),
+.writing .work-gallery__item :where(img, video, iframe) {
+  border-radius: 0;
+}
+
+/* Case study gallery: media should not inherit the old card surface. */
 .writing .work-gallery__item img {
   width: 100%;
   height: auto;
-  background-color: var(--color-surface-tile-muted);
+  background-color: transparent;
   box-shadow: none;
-  border-radius: var(--radius-work-gallery-image);
+  border-radius: 0;
 }
 
 .writing .img-placeholder {
@@ -1358,34 +1364,134 @@ hr {
   margin: 1.5rem 0;
 }
 
+.post-body > figure:has(> figcaption:not(.visually-hidden)),
+.writing > figure:has(> figcaption:not(.visually-hidden)),
+.writing .work-gallery__item:has(> .work-gallery__caption) {
+  display: grid;
+  gap: 0;
+  position: relative;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.post-body > figure:has(> figcaption:not(.visually-hidden))::before,
+.writing > figure:has(> figcaption:not(.visually-hidden))::before,
+.writing .work-gallery__item:has(> .work-gallery__caption)::before {
+  content: var(--figure-caption-label);
+  order: -4;
+  display: block;
+  margin-top: var(--figure-caption-label-offset-y);
+  padding: 0 0 var(--figure-caption-label-gap) var(--figure-caption-padding-inline);
+  color: var(--color-figure-kicker);
+  font-family: var(--font-mono);
+  font-size: var(--figure-caption-label-size);
+  line-height: var(--figure-caption-label-leading);
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      var(--color-figure-rule) 0 var(--figure-rule-dash-length),
+      transparent var(--figure-rule-dash-length) calc(var(--figure-rule-dash-length) + var(--figure-rule-dash-gap))
+    ),
+    repeating-linear-gradient(
+      90deg,
+      var(--color-figure-rule) 0 var(--figure-rule-dash-length),
+      transparent var(--figure-rule-dash-length) calc(var(--figure-rule-dash-length) + var(--figure-rule-dash-gap))
+    ),
+    repeating-linear-gradient(
+      180deg,
+      var(--color-figure-rule) 0 var(--figure-rule-dash-length),
+      transparent var(--figure-rule-dash-length) calc(var(--figure-rule-dash-length) + var(--figure-rule-dash-gap))
+    );
+  background-repeat: no-repeat, no-repeat, repeat-y;
+  background-size:
+    var(--figure-caption-corner-segment-width) var(--border-width-hairline),
+    var(--figure-caption-label-rule-width) var(--border-width-hairline),
+    var(--border-width-hairline) calc(var(--figure-rule-dash-length) + var(--figure-rule-dash-gap));
+  background-position:
+    0 var(--figure-caption-label-rule-position-y),
+    calc(var(--figure-caption-padding-inline) + var(--figure-caption-label-width) + var(--figure-caption-label-gap)) var(--figure-caption-label-rule-position-y),
+    0 var(--figure-caption-label-rule-position-y);
+}
+
+.post-body > figure:has(> figcaption:not(.visually-hidden))::after,
+.writing > figure:has(> figcaption:not(.visually-hidden))::after,
+.writing .work-gallery__item:has(> .work-gallery__caption)::after {
+  content: "";
+  order: -1;
+  display: block;
+  width: 100%;
+  height: var(--border-width-hairline);
+  margin-top: calc(var(--figure-caption-divider-space) - var(--figure-caption-divider-offset-y));
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--color-figure-rule) 0 var(--figure-rule-dash-length),
+    transparent var(--figure-rule-dash-length) calc(var(--figure-rule-dash-length) + var(--figure-rule-dash-gap))
+  );
+  background-repeat: repeat-x;
+  background-size: calc(var(--figure-rule-dash-length) + var(--figure-rule-dash-gap)) var(--border-width-hairline);
+}
+
 .post-body figcaption,
 .writing figcaption {
+  order: -2;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--color-text-muted);
-  margin-top: 0.35rem;
+  font-size: var(--figure-caption-meta-size);
+  line-height: var(--figure-caption-meta-leading);
+  color: var(--color-figure-caption-body);
+  margin: 0;
+}
+
+.post-body > figure:has(> figcaption:not(.visually-hidden)) > figcaption:not(.visually-hidden),
+.writing > figure:has(> figcaption:not(.visually-hidden)) > figcaption:not(.visually-hidden) {
+  width: min(100%, var(--figure-caption-max-width));
+  padding-left: var(--figure-caption-padding-inline);
+  background-image: repeating-linear-gradient(
+    180deg,
+    var(--color-figure-rule) 0 var(--figure-rule-dash-length),
+    transparent var(--figure-rule-dash-length) calc(var(--figure-rule-dash-length) + var(--figure-rule-dash-gap))
+  );
+  background-repeat: repeat-y;
+  background-size: var(--border-width-hairline) calc(var(--figure-rule-dash-length) + var(--figure-rule-dash-gap));
 }
 
 /* Case study gallery: card title + description (overrides .writing figcaption) */
 .writing .work-gallery__item .work-gallery__caption {
+  order: -3;
   margin: 0;
-  max-width: none;
-  padding: var(--space-work-gallery-card-padding) var(--space-work-gallery-card-padding) 0;
+  max-width: var(--figure-caption-max-width);
+  padding: 0 0 0 var(--figure-caption-padding-inline);
   font-family: var(--font-h1);
   font-size: var(--work-gallery-caption-size);
   font-weight: 400;
   line-height: var(--work-gallery-caption-leading);
-  color: var(--color-work-gallery-card-title);
+  color: var(--color-figure-caption-title);
+  background-image: repeating-linear-gradient(
+    180deg,
+    var(--color-figure-rule) 0 var(--figure-rule-dash-length),
+    transparent var(--figure-rule-dash-length) calc(var(--figure-rule-dash-length) + var(--figure-rule-dash-gap))
+  );
+  background-repeat: repeat-y;
+  background-size: var(--border-width-hairline) calc(var(--figure-rule-dash-length) + var(--figure-rule-dash-gap));
 }
 
 .writing .work-gallery__item .work-gallery__description {
-  margin: 0 0 clamp(0.65rem, 2vw, 1rem);
-  max-width: none;
-  padding: clamp(0.175rem, 0.75vw, 0.325rem) var(--space-work-gallery-card-padding) 0;
+  order: -2;
+  margin: 0;
+  max-width: var(--figure-caption-max-width);
+  padding: var(--figure-caption-body-gap) 0 0 var(--figure-caption-padding-inline);
   font-family: var(--font-sans);
-  font-size: clamp(0.9375rem, 0.88rem + 0.2vw, 1.0625rem);
-  line-height: 1.5;
-  color: var(--color-work-gallery-card-description);
+  font-size: var(--figure-caption-body-size);
+  line-height: var(--figure-caption-body-leading);
+  color: var(--color-figure-caption-body);
+  background-image: repeating-linear-gradient(
+    180deg,
+    var(--color-figure-rule) 0 var(--figure-rule-dash-length),
+    transparent var(--figure-rule-dash-length) calc(var(--figure-rule-dash-length) + var(--figure-rule-dash-gap))
+  );
+  background-repeat: repeat-y;
+  background-size: var(--border-width-hairline) calc(var(--figure-rule-dash-length) + var(--figure-rule-dash-gap));
 }
 
 /* --- Utilities --- */

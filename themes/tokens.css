@@ -42,6 +42,33 @@
   --radius-work-gallery-image: 0;
   --space-work-gallery-card-padding: clamp(1.25rem, 4vw, 2.5rem);
 
+  /* --- Figures / captions --- */
+  --color-figure-caption-title: #f8fafc;
+  --color-figure-caption-body: #b8b4ab;
+  --color-figure-rule: var(--color-border-strong);
+  --color-figure-kicker: rgba(235, 233, 228, 0.28);
+  --figure-caption-label: "010101010101";
+  --figure-caption-label-size: 0.75rem;
+  --figure-caption-label-leading: 1.4;
+  --figure-caption-label-width: 12ch;
+  --figure-caption-corner-segment-width: calc(var(--figure-caption-padding-inline) - var(--figure-caption-label-gap));
+  --figure-caption-label-rule-width: clamp(8rem, 34vw, 19rem);
+  --figure-caption-label-rule-position-y: 0.525rem;
+  --figure-caption-label-offset-y: -0.5rem;
+  --figure-caption-padding-inline: clamp(1rem, 3vw, 1.5rem);
+  --figure-caption-label-gap: 0.5rem;
+  --figure-rule-dash-length: 6px;
+  --figure-rule-dash-gap: 6px;
+  --figure-caption-body-gap: clamp(0.25rem, 0.8vw, 0.45rem);
+  --figure-caption-divider-space: clamp(0.85rem, 2vw, 1.15rem);
+  --figure-caption-max-width: 50rem;
+  --figure-caption-title-size: clamp(1.35rem, 1.05rem + 1.35vw, 2rem);
+  --figure-caption-title-leading: 1.4;
+  --figure-caption-body-size: clamp(0.95rem, 0.86rem + 0.35vw, 1.25rem);
+  --figure-caption-body-leading: 1.4;
+  --figure-caption-meta-size: 0.75rem;
+  --figure-caption-meta-leading: 1.4;
+
   /* --- Blog post editorial header --- */
   --post-header-stack-gap: clamp(0.5rem, 1.5vw, 0.875rem);
   --post-header-eyebrow-size: 0.75rem;
