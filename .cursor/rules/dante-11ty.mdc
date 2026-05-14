@@ -45,4 +45,5 @@ alwaysApply: true
 
 - Never hardcode color values in component CSS — always reference a custom property
 - Theme files live in `themes/` and define all custom properties on `:root`
-- When a theme switcher exists, keep it hidden at launch until explicitly enabled in the UI; do not remove it without approval
+- Before changing visual design, themes, or typography, read **[docs/visual-design-language.md](docs/visual-design-language.md)** and follow its guardrails (frozen homepage regions, three-font roles, content freeze, accent usage, etc.)
+- **Theme picker**: During style exploration it may stay **visible** in the nav as described in that doc. At **production launch**, ship a single default theme and keep the picker **hidden** until explicitly enabled in the UI; do not remove it without approval

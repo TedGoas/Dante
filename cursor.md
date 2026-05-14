@@ -27,6 +27,7 @@ This section complements **Site Build Rules & Guidelines** above. For sitemap, v
 - The site launches with a single dark theme
 - Architecture must support multiple themes and a theme switcher UI; the switcher is not shown at launch
 - Theme custom properties live in a dedicated `themes/` directory, one file per theme
+- Multi-theme work, frozen layout regions, and theme-picker behavior during exploration are defined in **[docs/visual-design-language.md](docs/visual-design-language.md)**
 
 ## CSS architecture
 

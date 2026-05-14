@@ -25,12 +25,13 @@
 
 ## 3. Visual Design Guidelines
 
+Canonical constraints for typography roles, color directions, frozen homepage regions, theme experiments, and reference aesthetics live in **[docs/visual-design-language.md](docs/visual-design-language.md)**. Follow that document for any visual or theme work so experiments stay within agreed guardrails.
+
 ### Logo
 - Reuse the current logo from the existing site
 
 ### Typography
-- **Mono Font**: Atkinson Hyperlegible Mono for navigation, captions, and footer
-- **Sans-Serif**: For all other content
+- **Three roles** (structure locked; specific display/body faces may change per theme): editorial **serif** for display/headings, **sans-serif** for body, **Atkinson Hyperlegible Mono** for captions, metadata, labels, navigation, and footer — see the linked doc for full rules.
 - **Inspiration**: Typography from https://linear.app/change
 
 ### Components
@@ -38,7 +39,7 @@
 - **General**: Clean, minimal approach
 
 ### Colors
-- **Theme**: Dark mode by default
+- **Default launch**: Dark-forward canvas (see tokens); additional full-light or mixed schemes are allowed during theme exploration — see the linked visual design language doc.
 - **Inspiration**: Visual design of https://www.adaline.ai/
 
 ## 4. Technology Stack
