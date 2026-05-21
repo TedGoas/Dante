@@ -31,7 +31,7 @@ Canonical constraints for typography roles, color directions, frozen homepage re
 - Reuse the current logo from the existing site
 
 ### Typography
-- **Three roles** (structure locked; specific display/body faces may change per theme): editorial **serif** for display/headings, **sans-serif** for body, **Atkinson Hyperlegible Mono** for captions, metadata, labels, navigation, and footer — see the linked doc for full rules.
+- **Three roles** (structure locked): **Redaction** for display/headings, **Atkinson Hyperlegible Next** for body, **Atkinson Hyperlegible Mono** for captions, metadata, labels, navigation, and footer — see the linked doc for full rules.
 - **Inspiration**: Typography from https://linear.app/change
 
 ### Components
@@ -39,7 +39,7 @@ Canonical constraints for typography roles, color directions, frozen homepage re
 - **General**: Clean, minimal approach
 
 ### Colors
-- **Default launch**: Dark-forward canvas (see tokens); additional full-light or mixed schemes are allowed during theme exploration — see the linked visual design language doc.
+- **Default launch**: Dark forest / green-black canvas with teal accent (see [`themes/theme.css`](themes/theme.css)).
 - **Inspiration**: Visual design of https://www.adaline.ai/
 
 ## 4. Technology Stack

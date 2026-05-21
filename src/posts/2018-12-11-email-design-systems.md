@@ -6,7 +6,7 @@ image_caption: Title slide of my slides that basically repeats the article title
 description:  How we started, what we built, and what we learned building our first email design system at Stack Overflow.
 ---
 
-<p class="fs-subheading fs-italic">How we started, what we built, and what we learned building our first email design system at Stack Overflow.</p>
+<p class="fs-subheading">How we started, what we built, and what we learned building our first email design system at Stack Overflow.</p>
 
 Email design systems are a way to improve the consistency of email designs and help teams scale their email production. At Stack Overflow, we’ve been building an email design system to support the company’s email production. Before I get into that, I’d like to give a little background about myself.
 

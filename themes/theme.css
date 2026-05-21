@@ -1,0 +1,48 @@
+/*
+ * Site palette: dark forest / green-black canvas, teal accent.
+ * Typography stacks live in tokens-base.css.
+ */
+:root {
+  --color-site-bg: #131c18;
+  --color-site-fg: #e8ece9;
+  --color-site-fg-muted: #96a39c;
+
+  --color-accent: #5eb8a8;
+  --color-accent-hover: #74c9bb;
+  --color-highlight: #4aa897;
+
+  --color-site-chrome-bg: var(--color-site-bg);
+
+  --color-border-subtle: rgba(230, 235, 232, 0.1);
+  --color-border-strong: rgba(230, 235, 232, 0.18);
+
+  --color-surface-raised: #1a2420;
+  --color-surface-tile: #1f2b26;
+  --color-surface-tile-muted: #171f1c;
+  --color-surface-tile-border: var(--color-border-subtle);
+
+  --color-work-gallery-card-bg: #1f2b26;
+  --color-work-gallery-hero-secondary-bg: #1f3530;
+  --color-work-gallery-card-border: rgba(230, 235, 232, 0.08);
+  --color-work-gallery-card-title: var(--color-site-fg);
+  --color-work-gallery-card-description: var(--color-site-fg-muted);
+
+  --color-figure-caption-title: #f0f4f2;
+  --color-figure-caption-body: #aeb8b2;
+  --color-figure-rule: var(--color-border-strong);
+  --color-figure-kicker: rgba(230, 235, 232, 0.28);
+
+  --color-blockquote-bg: var(--color-work-gallery-card-bg);
+
+  --color-page-bg: var(--color-site-bg);
+  --color-text: var(--color-site-fg);
+  --color-text-muted: var(--color-site-fg-muted);
+  --color-text-strong: var(--color-site-fg);
+  --color-border: var(--color-border-strong);
+  --home-hero-cta-border: var(--color-accent);
+
+  --color-footer-tagline: var(--color-text);
+  --color-footer-link: var(--color-text);
+  --color-footer-sep: var(--color-text-muted);
+  --color-footer-tooltip-shadow: rgba(0, 0, 0, 0.45);
+}

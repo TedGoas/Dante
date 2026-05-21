@@ -7,10 +7,8 @@
   <meta name="description" content="{{ description or site.description }}">
 
   <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
-  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.bunny.net/css?family=atkinson-hyperlegible-mono:400,700&display=swap">
-  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=gambetta@400,600,700&display=swap">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="/assets/css/site-fonts.css">
   <link rel="stylesheet" href="/assets/css/styles.css">
 
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
@@ -32,14 +30,16 @@
         <a href="/" class="site-brand-link">
           <img src="/assets/img/tg-sig-logo.svg" alt="Ted Goas home" width="40" height="40" class="site-logo">
         </a>
-        <ul class="site-nav-list">
-          <li><a href="/work">Work</a></li>
-          <li><a href="/bio">Bio</a></li>
-          <li><a href="/values">Values</a></li>
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="/labs">Labs</a></li>
-          <li><a href="/newsletter">Newsletter</a></li>
-        </ul>
+        <div class="site-nav__end">
+          <ul class="site-nav-list">
+            <li><a href="/work">Work</a></li>
+            <li><a href="/bio">Bio</a></li>
+            <li><a href="/values">Values</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/labs">Labs</a></li>
+            <li><a href="/newsletter">Newsletter</a></li>
+          </ul>
+        </div>
       </nav>
     </div>
   </header>

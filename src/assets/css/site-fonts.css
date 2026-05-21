@@ -1,0 +1,46 @@
+/*
+ * Site typography (all themes): Redaction serif, Atkinson Hyperlegible Next (body),
+ * Atkinson Hyperlegible Mono (labels/meta). Redaction: OFL, https://www.redaction.us/
+ */
+@import url("https://fonts.bunny.net/css?family=atkinson-hyperlegible-mono:400,700&display=swap");
+@import url("https://fonts.bunny.net/css?family=atkinson-hyperlegible-next:ital,wght@0,400;0,600;0,700;1,400&display=swap");
+
+/* redaction-latin-400-normal */
+@font-face {
+  font-family: "Redaction";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url("https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-400-normal.woff2")
+      format("woff2");
+}
+
+/* redaction-latin-400-italic */
+@font-face {
+  font-family: "Redaction";
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400;
+  src: url("https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-400-italic.woff2")
+      format("woff2");
+}
+
+/* redaction-latin-700-normal */
+@font-face {
+  font-family: "Redaction";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url("https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-700-normal.woff2")
+      format("woff2");
+}
+
+/* redaction-latin-700-italic */
+@font-face {
+  font-family: "Redaction";
+  font-style: italic;
+  font-display: swap;
+  font-weight: 700;
+  src: url("https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-700-italic.woff2")
+      format("woff2");
+}

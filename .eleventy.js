@@ -12,6 +12,7 @@ module.exports = (config) => {
   config.addPassthroughCopy('src/assets/img/');
   config.addPassthroughCopy('src/assets/work/');
   config.addPassthroughCopy('src/assets/css/');
+  config.addPassthroughCopy('src/assets/js/');
   config.addPassthroughCopy('themes/');
   config.addPassthroughCopy({ 'src/posts/img/': 'assets/img/' });
   config.addPassthroughCopy({ 'src/work/img/': 'assets/img/' });
@@ -25,6 +26,7 @@ module.exports = (config) => {
   config.addLayoutAlias('work', 'layouts/work.njk');
 
   config.addFilter('readableDate', require('./lib/filters/readableDate'));
+  config.addFilter('workLead', require('./lib/filters/workLead'));
   config.addFilter('minifyJs', require('./lib/filters/minifyJs'));
 
   config.addTransform('minifyHtml', require('./lib/transforms/minifyHtml'));

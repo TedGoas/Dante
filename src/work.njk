@@ -4,15 +4,45 @@ title: Work
 description: Case studies and design work
 ---
 
-<h1>Work</h1>
-<p>A brief visual history. Individual project pages are in progress.</p>
+<h1 id="work-heading">Work</h1>
+<p class="lede">
+  A brief visual history. Individual project pages are in progress.
+</p>
 
-<nav class="work-list" aria-label="Project pages">
-  <ul>
-    <li><a href="/work/dialpad/">Dialpad IC work</a></li>
-    <li><a href="/work/dialpad-team/">Dialpad Team work</a></li>
-    <li><a href="/work/stack-overflow/">Stack Overflow</a></li>
-    <li><a href="/work/canfield/">Canfield Scientific</a></li>
-    <li><a href="/work/cerberus/">Cerberus</a></li>
-  </ul>
-</nav>
+<ol class="work-index__list" aria-labelledby="work-heading">
+  {% for item in collections.work %}
+  {% set lead = item.templateContent | workLead %}
+  <li class="work-index__row">
+    <div class="work-index__text">
+      {% if item.data.year %}
+      <p class="work-index__label">
+        {{ item.data.year }}
+      </p>
+      {% endif %}
+      <h2 class="work-index__title">
+        <a href="{{ item.url }}">{{ item.data.title }}</a>
+      </h2>
+      {% if item.data.excerpt %}
+      <p class="work-index__excerpt">{{ item.data.excerpt }}</p>
+      {% endif %}
+      {% if lead %}
+      <p class="work-index__lead">{{ lead }}</p>
+      {% endif %}
+    </div>
+    {% if item.data.workIndexThumb %}
+    <div class="work-index__media">
+      <a href="{{ item.url }}" class="work-index__media-link" tabindex="-1" aria-hidden="true">
+        <img
+          class="work-index__thumb"
+          src="{{ item.data.workIndexThumb }}"
+          alt=""
+          width="600"
+          height="400"
+          loading="lazy"
+        >
+      </a>
+    </div>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ol>
