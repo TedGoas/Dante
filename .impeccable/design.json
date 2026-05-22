@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-21T00:00:00.000Z",
+  "title": "Design System: Ted Goas — tedgoas.com",
+  "extensions": {
+    "colorMeta": {
+      "site-bg": {
+        "role": "neutral",
+        "displayName": "Forest Canvas",
+        "canonical": "oklch(22% 0.02 155)",
+        "tonalRamp": [
+          "oklch(12% 0.015 155)",
+          "oklch(15% 0.018 155)",
+          "oklch(18% 0.02 155)",
+          "oklch(22% 0.02 155)",
+          "oklch(28% 0.022 155)",
+          "oklch(35% 0.024 155)",
+          "oklch(45% 0.026 155)",
+          "oklch(58% 0.028 155)"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Muted Teal Accent",
+        "canonical": "oklch(72% 0.09 175)",
+        "tonalRamp": [
+          "oklch(35% 0.06 175)",
+          "oklch(45% 0.07 175)",
+          "oklch(55% 0.08 175)",
+          "oklch(65% 0.085 175)",
+          "oklch(72% 0.09 175)",
+          "oklch(78% 0.095 175)",
+          "oklch(84% 0.1 175)",
+          "oklch(90% 0.08 175)"
+        ]
+      },
+      "site-fg": {
+        "role": "neutral",
+        "displayName": "Mist Foreground",
+        "canonical": "oklch(93% 0.01 155)",
+        "tonalRamp": [
+          "oklch(25% 0.01 155)",
+          "oklch(40% 0.01 155)",
+          "oklch(55% 0.01 155)",
+          "oklch(70% 0.01 155)",
+          "oklch(80% 0.01 155)",
+          "oklch(88% 0.01 155)",
+          "oklch(93% 0.01 155)",
+          "oklch(97% 0.008 155)"
+        ]
+      },
+      "surface-tile": {
+        "role": "neutral",
+        "displayName": "Tile Moss",
+        "canonical": "oklch(26% 0.02 155)",
+        "tonalRamp": [
+          "oklch(14% 0.015 155)",
+          "oklch(18% 0.018 155)",
+          "oklch(22% 0.02 155)",
+          "oklch(26% 0.02 155)",
+          "oklch(32% 0.022 155)",
+          "oklch(40% 0.024 155)",
+          "oklch(50% 0.026 155)",
+          "oklch(62% 0.028 155)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headlines and major titles; Redaction serif."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Long-form prose; Atkinson Hyperlegible Next; 66ch measure."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Nav, footer, eyebrows, metadata; Atkinson Mono with tracking."
+      }
+    },
+    "shadows": [
+      {
+        "name": "footer-tooltip",
+        "value": "0 0.25rem 1.25rem rgba(0, 0, 0, 0.35)",
+        "purpose": "Footer image tooltip overlay only."
+      },
+      {
+        "name": "media-inset",
+        "value": "inset 0 0 0 1px rgba(230, 235, 232, 0.1)",
+        "purpose": "Work grid media cells and prose images at rest."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-ui",
+        "value": "ease",
+        "purpose": "Short UI transitions (tooltips, 0.15s)."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Default quiet button for errors and secondary actions.",
+      "html": "<button type=\"button\" class=\"ds-btn-primary\">Back home</button>",
+      "css": ".ds-btn-primary { font-family: \"Atkinson Hyperlegible Mono\", ui-monospace, monospace; font-size: 0.875rem; padding: 0.4rem 0.75rem; border: 1px solid rgba(230, 235, 232, 0.1); background: #1a2420; color: #96a39c; cursor: pointer; text-decoration: none; } .ds-btn-primary:hover { color: #74c9bb; border-color: rgba(230, 235, 232, 0.18); background-color: #1f2b26; } .ds-btn-primary:focus-visible { outline: 2px solid #5eb8a8; outline-offset: 2px; }"
+    },
+    {
+      "name": "Site Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Header navigation link in mono.",
+      "html": "<nav class=\"ds-nav\"><a href=\"/work/\" class=\"ds-nav__link\">Work</a></nav>",
+      "css": ".ds-nav { font-family: \"Atkinson Hyperlegible Mono\", ui-monospace, monospace; font-size: 0.875rem; } .ds-nav__link { color: #e8ece9; text-decoration: none; } .ds-nav__link:hover { color: #74c9bb; text-decoration: underline; text-decoration-color: #74c9bb; } .ds-nav__link:focus-visible { outline: 2px solid #5eb8a8; outline-offset: 2px; }"
+    },
+    {
+      "name": "Home Hero CTA",
+      "kind": "custom",
+      "refersTo": "home-hero-cta",
+      "description": "Underline CTA on homepage hero, not a filled button.",
+      "html": "<a href=\"/work/\" class=\"ds-hero-cta\">See selected work</a>",
+      "css": ".ds-hero-cta { display: inline-block; border-bottom: 4px solid #5eb8a8; padding-bottom: 0.25rem; font-family: \"Redaction\", Georgia, serif; font-size: 1.5rem; line-height: 1.2; color: #e8ece9; text-decoration: none; } .ds-hero-cta:hover { color: #74c9bb; border-bottom-color: #74c9bb; } .ds-hero-cta:focus-visible { outline: 2px solid #5eb8a8; outline-offset: 4px; }"
+    },
+    {
+      "name": "Work Grid Tile",
+      "kind": "card",
+      "refersTo": "surface-tile",
+      "description": "Homepage showcase cell with tonal hover.",
+      "html": "<a href=\"/work/example/\" class=\"ds-work-tile\"><span class=\"ds-work-tile__label\">Case study</span></a>",
+      "css": ".ds-work-tile { display: block; padding: 1rem; background-color: #1f2b26; border: 1px solid rgba(230, 235, 232, 0.1); text-decoration: none; color: #e8ece9; transition: background-color 0.15s ease, border-color 0.15s ease; } .ds-work-tile:hover { background-color: #171f1c; border-color: rgba(230, 235, 232, 0.18); } .ds-work-tile__label { font-family: \"Atkinson Hyperlegible Mono\", monospace; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: #96a39c; } .ds-work-tile:focus-visible { outline: 2px solid #5eb8a8; outline-offset: 2px; }"
+    },
+    {
+      "name": "Editorial Blockquote",
+      "kind": "custom",
+      "refersTo": "highlight",
+      "description": "Serif pull quote with teal left rule.",
+      "html": "<blockquote class=\"ds-blockquote\"><p>Quote text in italic serif.</p></blockquote>",
+      "css": ".ds-blockquote { margin: 0; padding: clamp(1rem, 3vw, 1.35rem); border-left: 2px solid #4aa897; border-radius: 0.25rem; background-color: #1f2b26; color: #e8ece9; font-family: \"Redaction\", Georgia, serif; font-style: italic; font-size: clamp(1.25rem, 2vw, 1.55rem); line-height: 1.4; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Editorial Lab",
+    "overview": "A hiring-facing portfolio where long-form craft is the interface. Serif display and mono metadata frame Atkinson body type on a dark forest canvas; teal accent appears sparingly but decisively. Surfaces stay mostly flat; depth comes from tonal steps and hairline rules.",
+    "keyCharacteristics": [
+      "Three locked type roles: Redaction, Atkinson Next, Atkinson Mono",
+      "Dark forest canvas with teal accent as punctuation",
+      "Tonal layering over shadow stacks",
+      "Hairline borders define chrome and tiles",
+      "Prose measure near 66ch",
+      "Token-driven CSS only, no frameworks"
+    ],
+    "rules": [
+      {
+        "name": "The Teal Punctuation Rule",
+        "body": "Accent color appears on roughly 10% of any screen. If teal fills large backgrounds, the palette has gone loud.",
+        "section": "colors"
+      },
+      {
+        "name": "The Three-Role Lock Rule",
+        "body": "Redaction for display, Atkinson Next for body, Atkinson Mono for metadata and chrome.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tonal Layer Rule",
+        "body": "Prefer raising a surface one token step or strengthening a border before adding box-shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use CSS custom properties from themes/theme.css for every color.",
+      "Do keep prose measure near 66ch.",
+      "Do apply teal accent to section numbers, pull-quote marks, and hover links.",
+      "Do use Atkinson Hyperlegible for body and metadata.",
+      "Do honor prefers-reduced-motion on transitions.",
+      "Do use semantic HTML and focus-visible outlines."
+    ],
+    "donts": [
+      "Don't use SaaS landing patterns: hero metrics, identical feature card grids, gradient text, modal-first flows.",
+      "Don't ship generic AI portfolio tropes: Inter/Roboto, purple gradients, decorative glass, side-stripe accent borders.",
+      "Don't treat the site like a Dribbble shot without case-study depth.",
+      "Don't borrow corporate marketing visuals: stock heroes, buzzword headlines, logo walls.",
+      "Don't hardcode hex in component CSS or use pure #000 / #fff neutrals.",
+      "Don't change frozen homepage headline or showcase grid layout during visual experiments.",
+      "Don't introduce Tailwind, Bootstrap, or other CSS frameworks."
+    ]
+  }
+}

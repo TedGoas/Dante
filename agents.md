@@ -95,6 +95,16 @@ Canonical constraints for typography roles, color directions, frozen homepage re
 - Discuss implementation approaches before coding
 - Get approval for any new dependencies or major changes
 
+## Design Context
+
+For visual or UX work, read these before changing UI (Impeccable / agent design flows):
+
+- **[PRODUCT.md](PRODUCT.md)** — Register (`brand`), users (hiring managers), personality, anti-references, strategic principles
+- **[DESIGN.md](DESIGN.md)** — Tokens, typography, components, named rules (north star: *The Editorial Lab*)
+- **[.impeccable/design.json](.impeccable/design.json)** — Machine-readable sidecar (ramps, component snippets) for live design tooling
+
+`docs/visual-design-language.md` remains the guardrail doc for frozen homepage regions and theme experiments. Re-run `/impeccable document` after major palette or component changes.
+
 ---
 
 *This document should be reviewed and updated as needed throughout the project.* 
