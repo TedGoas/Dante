@@ -380,17 +380,12 @@ hr {
   max-width: none;
 }
 
-.site-header {
-  border-bottom: var(--border-width-hairline) solid var(--color-border-subtle);
-}
-
 .site-header .layout {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
 
 .site-footer {
-  border-top: var(--border-width-hairline) solid var(--color-border-subtle);
   margin-top: auto;
 }
 
@@ -591,7 +586,7 @@ hr {
   vertical-align: middle;
   width: var(--home-hero-avatar-size);
   height: var(--home-hero-avatar-size);
-  margin: -0.12em 0.12em 0;
+  margin: -0.3em -0.1em 0 0.1em;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -601,7 +596,7 @@ hr {
   vertical-align: middle;
   width: var(--home-hero-company-icon-size);
   height: var(--home-hero-company-icon-size);
-  margin-right: 0.24em;
+  margin: -0.2em 0.2em 0 0.2em;
 }
 
 .home-hero .home-hero__lede {
