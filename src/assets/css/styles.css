@@ -294,10 +294,10 @@ hr {
   display: block;
   margin-top: var(--space-blockquote-attribution-gap);
   font-family: var(--font-mono);
-  font-size: var(--post-header-meta-size);
+  font-size: var(--post-header-date-size);
   font-weight: 400;
   font-style: normal;
-  letter-spacing: var(--post-header-meta-tracking);
+  letter-spacing: var(--post-header-date-tracking);
   line-height: 1.5;
   text-transform: uppercase;
   color: var(--color-highlight);
@@ -871,7 +871,7 @@ hr {
 .article-list__date {
   margin: 0;
   font-family: var(--font-mono);
-  font-size: var(--post-header-meta-size);
+  font-size: var(--post-header-date-size);
   line-height: 1.4;
   color: var(--color-text-muted);
   white-space: nowrap;
@@ -1006,7 +1006,7 @@ hr {
   margin: 0 0 0.35rem;
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  letter-spacing: var(--post-header-meta-tracking);
+  letter-spacing: var(--post-header-date-tracking);
   font-variant: all-small-caps;
   text-transform: uppercase;
   color: var(--color-highlight);
@@ -1110,7 +1110,7 @@ hr {
 
 /* --- Post layout (blog article rhythm; reference: jtroll.com/writing) --- */
 .post {
-  --post-measure: min(47.5rem, 100%);
+  --post-measure: min(53.75rem, 100%);
   --post-body-size: calc(1.1875rem * 1.1);
   --post-body-leading: 1.62;
   --post-paragraph-gap: calc(var(--post-body-size) * 1);
@@ -1122,22 +1122,37 @@ hr {
 .post-header {
   display: flex;
   flex-direction: column;
-  gap: var(--post-header-stack-gap);
+  gap: var(--post-header-rule-gap);
   max-width: var(--post-measure);
+  padding-top: 1.5rem;
   padding-bottom: 0;
-  margin-bottom: 0;
+  margin-bottom: 3rem;
   margin-left: auto;
   margin-right: auto;
   text-align: left;
   border-bottom: none;
 }
 
-.post-header h1 {
-  margin: 0 0 0.25rem;
-  font-size: clamp(2.5rem, 5.5vw, 4rem);
-  font-weight: 400;
-  line-height: 1.05;
+.post-header__intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--post-header-intro-gap);
+}
+
+.post-header__title-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--post-header-date-title-gap);
+}
+
+.post-header__title {
+  margin: 0;
+  font-family: var(--font-h1);
+  font-size: var(--post-header-title-size);
+  font-weight: 700;
+  line-height: var(--post-header-title-leading);
   letter-spacing: -0.02em;
+  color: var(--color-site-fg);
 }
 
 .post-header__eyebrow {
@@ -1147,8 +1162,6 @@ hr {
   font-weight: 400;
   letter-spacing: var(--post-header-eyebrow-tracking);
   line-height: 1.35;
-  font-variant: all-small-caps;
-  text-transform: uppercase;
   color: var(--color-highlight);
 }
 
@@ -1158,30 +1171,32 @@ hr {
   font-family: var(--font-h1);
   font-size: var(--post-header-dek-size);
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   line-height: var(--post-header-dek-leading);
   color: var(--color-site-fg);
-}
-
-.post-header__meta {
-  margin: 0 0 3rem;
-  padding: 1.125rem 0;
-  font-family: var(--font-mono);
-  font-size: var(--post-header-meta-size);
-  font-weight: 400;
-  letter-spacing: var(--post-header-meta-tracking);
-  line-height: 1.5;
-  text-transform: uppercase;
-  color: var(--color-site-fg-muted);
-  border-top: var(--border-width-hairline) solid var(--color-border-subtle);
-  border-bottom: var(--border-width-hairline) solid var(--color-border-subtle);
+  opacity: 0.9;
 }
 
 .post-header__date {
-  font-family: inherit;
-  font-size: inherit;
-  letter-spacing: inherit;
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--post-header-date-size);
+  font-weight: 400;
+  letter-spacing: var(--post-header-date-tracking);
+  line-height: 1.5;
   color: var(--color-highlight);
+}
+
+.post-header__rule {
+  width: 100%;
+  height: 0;
+  margin: 0;
+  border: none;
+  border-top: var(--border-width-hairline) solid var(--color-border-subtle);
+}
+
+.post-header .post-header__rule {
+  margin: 0;
 }
 
 .post-body {

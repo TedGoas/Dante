@@ -29,14 +29,17 @@
   --figure-caption-meta-leading: 1.4;
 
   /* --- Blog post editorial header --- */
-  --post-header-stack-gap: clamp(0.5rem, 1.5vw, 0.875rem);
-  --post-header-eyebrow-size: 0.75rem;
-  --post-header-eyebrow-tracking: 0.14em;
-  --post-header-dek-size: clamp(1.40625rem, calc(1.3125rem + 0.525vw), 1.6875rem);
-  --post-header-dek-leading: 1.22;
-  --post-header-meta-size: 0.75rem;
-  --post-header-meta-tracking: 0.12em;
-  --post-header-divider-space: clamp(0.75rem, 2vw, 1.25rem);
+  --post-header-eyebrow-size: 0.875rem;
+  --post-header-eyebrow-tracking: normal;
+  --post-header-date-size: 0.875rem;
+  --post-header-date-tracking: normal;
+  --post-header-date-title-gap: 0.75rem;
+  --post-header-intro-gap: 1.5rem;
+  --post-header-rule-gap: 3rem;
+  --post-header-title-size: clamp(2.5rem, 5.5vw, 4rem);
+  --post-header-title-leading: 1.1;
+  --post-header-dek-size: clamp(1.5rem, 2vw, 1.75rem);
+  --post-header-dek-leading: 1.3;
 
   /* --- Pullquote / blockquote panels --- */
   --space-blockquote-padding: clamp(1rem, 3vw, 1.35rem);
