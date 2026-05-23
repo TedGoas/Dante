@@ -26,6 +26,7 @@ module.exports = (config) => {
   config.addLayoutAlias('work', 'layouts/work.njk');
 
   config.addFilter('readableDate', require('./lib/filters/readableDate'));
+  config.addFilter('titleNeedsPeriod', require('./lib/filters/titleNeedsPeriod'));
   config.addFilter('workLead', require('./lib/filters/workLead'));
   config.addFilter('minifyJs', require('./lib/filters/minifyJs'));
 

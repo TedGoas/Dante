@@ -38,8 +38,11 @@
   --post-header-rule-gap: 3rem;
   --post-header-title-size: clamp(2.5rem, 5.5vw, 4rem);
   --post-header-title-leading: 1.1;
-  --post-header-dek-size: clamp(1.5rem, 2vw, 1.75rem);
-  --post-header-dek-leading: 1.3;
+  --post-header-title-end-size: 0.18em;
+  --post-header-title-end-offset-y: 1.5px;
+  --post-header-title-end-gap: 6px;
+  --type-dek-size: clamp(1.5rem, 2vw, 1.75rem);
+  --type-dek-leading: 1.3;
 
   /* --- Pullquote / blockquote panels --- */
   --space-blockquote-padding: clamp(1rem, 3vw, 1.35rem);
