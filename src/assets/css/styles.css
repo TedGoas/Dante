@@ -1108,22 +1108,36 @@ hr {
   margin: 0 0 1rem;
 }
 
-/* --- Post layout --- */
+/* --- Post layout (blog article rhythm; reference: jtroll.com/writing) --- */
+.post {
+  --post-measure: min(47.5rem, 100%);
+  --post-body-size: calc(1.1875rem * 1.1);
+  --post-body-leading: 1.62;
+  --post-paragraph-gap: calc(var(--post-body-size) * 1);
+  --post-section-gap-top: 3.5rem;
+  --post-section-gap-bottom: 1.25rem;
+  --post-h3-size: 1.25rem;
+}
+
 .post-header {
   display: flex;
   flex-direction: column;
   gap: var(--post-header-stack-gap);
-  max-width: var(--measure-prose);
-  padding-bottom: var(--post-header-divider-space);
-  margin-bottom: var(--post-header-divider-space);
+  max-width: var(--post-measure);
+  padding-bottom: 0;
+  margin-bottom: 0;
   margin-left: auto;
   margin-right: auto;
   text-align: left;
-  border-bottom: var(--border-width-hairline) solid var(--color-border-subtle);
+  border-bottom: none;
 }
 
 .post-header h1 {
-  margin: 0;
+  margin: 0 0 0.25rem;
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
 }
 
 .post-header__eyebrow {
@@ -1140,17 +1154,18 @@ hr {
 
 .post-header__dek {
   margin: 0;
-  max-width: var(--measure-prose);
+  max-width: none;
   font-family: var(--font-h1);
   font-size: var(--post-header-dek-size);
   font-style: normal;
-  font-weight: 400;
+  font-weight: normal;
   line-height: var(--post-header-dek-leading);
-  color: var(--color-site-fg-muted);
+  color: var(--color-site-fg);
 }
 
 .post-header__meta {
-  margin: 0;
+  margin: 0 0 3rem;
+  padding: 1.125rem 0;
   font-family: var(--font-mono);
   font-size: var(--post-header-meta-size);
   font-weight: 400;
@@ -1158,6 +1173,8 @@ hr {
   line-height: 1.5;
   text-transform: uppercase;
   color: var(--color-site-fg-muted);
+  border-top: var(--border-width-hairline) solid var(--color-border-subtle);
+  border-bottom: var(--border-width-hairline) solid var(--color-border-subtle);
 }
 
 .post-header__date {
@@ -1168,47 +1185,116 @@ hr {
 }
 
 .post-body {
-  max-width: var(--measure-prose);
+  max-width: var(--post-measure);
   margin: 0 auto;
-  line-height: var(--type-prose-leading);
+  font-size: var(--post-body-size);
+  line-height: var(--post-body-leading);
+  color: var(--color-prose-body);
 }
 
-.post-body > :first-child {
-  margin-top: 0.5rem;
+.post .post-body :where(p, ul, ol, blockquote, pre, figure) {
+  max-width: none;
+  margin-bottom: var(--post-paragraph-gap);
+  color: var(--color-prose-body);
 }
 
-.post-body :where(h2, h3) {
-  font-weight: 500;
+.post .post-body :where(p, ul, ol, blockquote, pre, figure):last-child {
+  margin-bottom: 0;
 }
 
-.post-body :where(h2) {
-  line-height: 1.35;
+.post .post-body :where(p) strong,
+.post .post-body :where(li) strong {
+  color: var(--color-site-fg);
+  font-weight: 600;
 }
 
-.post-body :where(h3) {
+.post .post-body :where(ul, ol):not(.post-nav-list) {
+  padding-left: 1.5rem;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.post .post-body :where(ul, ol):not(.post-nav-list) > li {
+  margin-bottom: calc(var(--post-body-size) * 0.4);
+}
+
+.post .post-body :where(ul, ol):not(.post-nav-list) > li:last-child {
+  margin-bottom: 0;
+}
+
+.post .post-body a {
+  color: var(--color-site-fg);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-highlight);
+  text-underline-offset: unset;
+}
+
+.post .post-body a:hover {
+  color: var(--color-accent-hover);
+  border-bottom-color: var(--color-accent-hover);
+  text-decoration: none;
+  text-decoration-thickness: unset;
+}
+
+.post .post-body :where(h2, h3, h4, h5, h6) {
+  max-width: none;
+  color: var(--color-site-fg);
+}
+
+.post .post-body :where(h2) {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3.4vw, 2.25rem);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: var(--post-section-gap-top) 0 var(--post-section-gap-bottom);
+}
+
+.post .post-body :where(h3) {
+  font-family: var(--font-sans);
+  font-size: var(--post-h3-size);
+  font-style: normal;
+  font-weight: 600;
   line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin: 2.5rem 0 0.875rem;
 }
 
-.post-body h2 {
-  margin-top: var(--space-prose-section);
+.post .post-body :where(h2):first-child,
+.post .post-body :where(h3):first-child {
+  margin-top: 0;
 }
 
-.post-body h3 {
-  margin-top: calc(var(--space-prose-section) * 0.65);
+.post .post-body :where(p, ul, ol, blockquote, pre, figure) + :where(h2) {
+  margin-top: var(--post-section-gap-top);
 }
 
-.post-body :where(em, i) {
+.post .post-body :where(p, ul, ol, blockquote, pre, figure) + :where(h3) {
+  margin-top: 2.5rem;
+}
+
+.post .post-body :where(em, i) {
   font-style: italic;
 }
 
-.post-body :where(hr) {
-  margin: var(--space-prose-section) 0;
+.post .post-body :where(hr) {
+  width: 5rem;
+  margin: var(--post-section-gap-top) auto;
   border: none;
   border-top: var(--border-width-hairline) solid var(--color-border-subtle);
 }
 
+.post .post-body :where(blockquote):not(.twitter-tweet) {
+  color: var(--color-site-fg);
+}
+
+.post .post-body :where(blockquote):not(.twitter-tweet) p {
+  color: inherit;
+}
+
 .post-footer {
-  max-width: var(--measure-prose);
+  max-width: var(--post-measure);
   margin-top: 2.5rem;
   margin-left: auto;
   margin-right: auto;

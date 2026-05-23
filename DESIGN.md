@@ -4,7 +4,8 @@ description: Editorial portfolio on a dark forest canvas with teal accent and th
 colors:
   site-bg: "#131c18"
   site-fg: "#e8ece9"
-  site-fg-muted: "#96a39c"
+  site-fg-muted: "#a3aea8"
+  prose-body: "color-mix(78% site-fg, site-fg-muted)"
   accent: "#5eb8a8"
   accent-hover: "#74c9bb"
   highlight: "#4aa897"
@@ -38,6 +39,10 @@ rounded:
 spacing:
   prose-flow: "1.15rem"
   prose-section: "clamp(2.25rem, 5vw, 3.5rem)"
+  post-measure: "min(47.5rem, 100%)"
+  post-body-size: "calc(1.1875rem * 1.1)"
+  post-body-leading: "1.62"
+  post-paragraph-gap: "1em (scales with body size)"
   blockquote-padding: "clamp(1rem, 3vw, 1.35rem)"
 components:
   button-primary:
@@ -121,7 +126,7 @@ Warm dark green-black ground with cool teal accent: forest at night, not pure bl
 - **Display** (400, `clamp(2.4rem, 5vw, 4rem)`, 1.12): Homepage hero headline, major page titles. Structure frozen on homepage per visual design language.
 - **Headline** (400, `clamp(2.125rem, 5vw, 3.625rem)`, 1.12): Article and case study titles (`--type-h1-size`).
 - **Title** (400, `clamp(1.55rem, 3vw, 2.15rem)`, ~1.3): Section headings, post dek.
-- **Body** (400, `clamp(1.0625rem, 0.95rem + 0.35vw, 1.1875rem)`, 1.68): Long-form prose; max measure `--measure-prose` (66ch).
+- **Body** (400, `clamp(1.0625rem, 0.95rem + 0.35vw, 1.1875rem)`, 1.68): Long-form prose; default measure `--measure-prose` (66ch). **Blog posts** use `--post-measure` (47.5rem), ~21px body (110% base), leading 1.62, 1em paragraph gap, `--color-prose-body` with full foreground on `strong`.
 - **Label** (400, 0.75rem, 1.4, tracking 0.12–0.14em, uppercase/small caps): Eyebrows, reading time, nav, footer links, figure kickers.
 
 ### Named Rules
