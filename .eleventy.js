@@ -27,6 +27,7 @@ module.exports = (config) => {
 
   config.addFilter('readableDate', require('./lib/filters/readableDate'));
   config.addFilter('titleNeedsPeriod', require('./lib/filters/titleNeedsPeriod'));
+  config.addFilter('splitTitleLastWord', require('./lib/filters/splitTitleLastWord'));
   config.addFilter('workLead', require('./lib/filters/workLead'));
   config.addFilter('minifyJs', require('./lib/filters/minifyJs'));
 

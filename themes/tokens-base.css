@@ -40,12 +40,13 @@
   --post-header-title-leading: 1.1;
   --post-header-title-end-size: 0.18em;
   --post-header-title-end-offset-y: 1.5px;
-  --post-header-title-end-gap: 6px;
+  --post-header-title-end-gap: 4px;
   --type-dek-size: clamp(1.5rem, 2vw, 1.75rem);
   --type-dek-leading: 1.3;
 
   /* --- Pullquote / blockquote panels --- */
   --space-blockquote-padding: clamp(1rem, 3vw, 1.35rem);
+  --space-blockquote-outset: var(--space-blockquote-padding);
   --space-blockquote-attribution-gap: clamp(0.5rem, 1.25vw, 0.675rem);
   --radius-blockquote: 0.25rem;
 

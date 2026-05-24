@@ -275,8 +275,11 @@ hr {
 }
 
 .content-flow :where(blockquote):not(.twitter-tweet) {
-  margin: 1.75rem 0;
-  padding: var(--space-blockquote-padding);
+  max-width: none;
+  margin-block: 1.75rem;
+  margin-inline: calc(-1 * var(--space-blockquote-outset));
+  padding-block: var(--space-blockquote-padding);
+  padding-inline: var(--space-blockquote-padding);
   border-left: 2px solid var(--color-highlight);
   border-radius: var(--radius-blockquote);
   background-color: var(--color-blockquote-bg);
@@ -1162,7 +1165,13 @@ hr {
   color: var(--color-site-fg);
 }
 
-.post-header__title-end {
+/* Last word + dot stay on one line; dot is in-flow (matches former inline-block span). */
+.post-header__title-tail {
+  white-space: nowrap;
+}
+
+.post-header__title-tail::after {
+  content: "";
   display: inline-block;
   width: var(--post-header-title-end-size);
   height: var(--post-header-title-end-size);

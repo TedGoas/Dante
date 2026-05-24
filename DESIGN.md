@@ -1,19 +1,19 @@
 ---
 name: Ted Goas — tedgoas.com
-description: Editorial portfolio on a dark forest canvas with teal accent and three-role typography.
+description: Editorial portfolio on a warm brown-black canvas with amber accent and three-role typography.
 colors:
-  site-bg: "#131c18"
-  site-fg: "#e8ece9"
-  site-fg-muted: "#a3aea8"
+  site-bg: "#1c1610"
+  site-fg: "#fffbeb"
+  site-fg-muted: "color-mix(68% site-fg, site-bg)"
   prose-body: "color-mix(88% site-fg, site-fg-muted)"
-  accent: "#5eb8a8"
-  accent-hover: "#74c9bb"
-  highlight: "#4aa897"
-  surface-raised: "#1a2420"
-  surface-tile: "#1f2b26"
-  surface-tile-muted: "#171f1c"
-  border-subtle: "rgba(230, 235, 232, 0.1)"
-  border-strong: "rgba(230, 235, 232, 0.18)"
+  accent: "#ffb900"
+  accent-hover: "#ffc933"
+  highlight: "#ffb900"
+  surface-raised: "#241c14"
+  surface-tile: "#2a2118"
+  surface-tile-muted: "#16110d"
+  border-subtle: "rgba(255, 255, 255, 0.1)"
+  border-strong: "rgba(255, 255, 255, 0.15)"
 typography:
   display:
     fontFamily: "\"Redaction\", Georgia, \"Times New Roman\", Times, serif"
@@ -73,14 +73,14 @@ components:
 
 **Creative North Star: "The Editorial Lab"**
 
-A hiring-facing portfolio where long-form craft is the interface. Serif display and mono metadata frame Instrument Sans body type on a dark forest canvas; teal accent appears sparingly but decisively. Surfaces stay mostly flat; depth comes from tonal steps and hairline rules, not decorative shadow stacks. Interactive elements feel tactile through border and fill shifts on hover, never through loud solid buttons.
+A hiring-facing portfolio where long-form craft is the interface. Serif display and mono metadata frame Instrument Sans body type on a warm brown-black canvas; amber accent appears sparingly but decisively. Surfaces stay mostly flat; depth comes from tonal steps and hairline rules, not decorative shadow stacks. Interactive elements feel tactile through border and fill shifts on hover, never through loud solid buttons.
 
 The system rejects SaaS landing clichés, generic AI portfolio tropes, Dribbble ornament, and corporate marketing gloss. When a choice reads as "startup landing page," choose editorial restraint instead.
 
 **Key Characteristics:**
 
 - Three locked type roles: Redaction (display), Instrument Sans (body), Atkinson Hyperlegible Mono (labels/nav/footer)
-- Dark forest / green-black canvas (`#131c18`) with teal accent used as punctuation, not wallpaper
+- Warm brown-black canvas (`#1c1610`) with amber accent used as punctuation, not wallpaper
 - Tonal layering over shadow stacks; shadows reserved for tooltips and rare overlays
 - Hairline borders (`1px`, low-opacity rgba) define chrome and tiles
 - Prose measure capped near 66ch; generous section spacing via fluid clamps
@@ -88,30 +88,30 @@ The system rejects SaaS landing clichés, generic AI portfolio tropes, Dribbble 
 
 ## Colors
 
-Warm dark green-black ground with cool teal accent: forest at night, not pure black.
+Warm dark brown-black ground with amber accent: editorial night, not pure black.
 
 ### Primary
 
-- **Muted Teal Accent** (`#5eb8a8`): Links on hover, focus rings, section numbers, pull-quote marks, CTA underlines, key typographic punctuation. Default state stays quiet; accent earns attention on interaction or emphasis.
-- **Teal Hover Lift** (`#74c9bb`): Hover and active link states; slightly brighter without going neon.
-- **Deep Teal Highlight** (`#4aa897`): Blockquote left rule, inline code emphasis, attribution links in prose.
+- **Amber Accent** (`#ffb900`, `amber/400`): Links on hover, focus rings, section numbers, pull-quote marks, CTA underlines, key typographic punctuation. Default state stays quiet; accent earns attention on interaction or emphasis.
+- **Amber Hover Lift** (`#ffc933`): Hover and active link states; slightly brighter without going neon.
+- **Amber Highlight** (`#ffb900`): Blockquote left rule, list markers, attribution links in prose (same ramp as accent).
 
 ### Neutral
 
-- **Forest Canvas** (`#131c18`): Page background, site chrome.
-- **Mist Foreground** (`#e8ece9`): Primary text, headings in strong contexts.
-- **Fern Muted** (`#96a39c`): Secondary copy, button default text, de-emphasized UI.
-- **Raised Canopy** (`#1a2420`): Raised surfaces (code blocks, default buttons).
-- **Tile Moss** (`#1f2b26`): Cards, work tiles, footer tooltips, hover button fill.
-- **Tile Moss Deep** (`#171f1c`): Muted tile variant (bio timeline cards).
-- **Veil Border Subtle** (`rgba(230, 235, 232, 0.1)`): Hairline dividers, default borders.
-- **Veil Border Strong** (`rgba(230, 235, 232, 0.18)`): Emphasized rules, link underlines in chrome.
+- **Warm Canvas** (`#1c1610`): Page background, site chrome.
+- **Cream Foreground** (`#fffbeb`, `amber/50`): Primary text, headings in strong contexts.
+- **Warm Muted** (`color-mix` of cream + canvas): Secondary copy, button default text, de-emphasized UI.
+- **Raised Surface** (`#241c14`): Raised surfaces (code blocks, default buttons).
+- **Tile Warm** (`#2a2118`): Cards, work tiles, footer tooltips, hover button fill.
+- **Tile Deep** (`#16110d`): Muted tile variant (bio timeline cards).
+- **Veil Border Subtle** (`rgba(255, 255, 255, 0.1)`): Hairline dividers, default borders.
+- **Veil Border Strong** (`rgba(255, 255, 255, 0.15)`): Emphasized rules, link underlines in chrome.
 
 ### Named Rules
 
-**The Teal Punctuation Rule.** Accent color appears on roughly 10% of any screen: section numerals, pull-quote details, hover states, and one structural emphasis per viewport. If teal fills large backgrounds, the palette has gone loud.
+**The Amber Punctuation Rule.** Accent color appears on roughly 10% of any screen: section numerals, pull-quote details, hover states, and one structural emphasis per viewport. If amber fills large backgrounds, the palette has gone loud.
 
-**The No Pure Black Rule.** Backgrounds stay tinted forest green-black; never `#000000` or untinted neutral gray fields.
+**The No Pure Black Rule.** Backgrounds stay tinted warm brown-black; never `#000000` or untinted neutral gray fields.
 
 ## Typography
 
@@ -159,7 +159,7 @@ Tactile but quiet: interactions clarify affordance without marketing-button ener
 ### Cards / Containers
 
 - **Corner Style:** 0.5rem on work gallery cards (`--radius-work-gallery-card`); blockquotes 0.25rem
-- **Background:** Tile moss (`#1f2b26`) or raised canopy for panels
+- **Background:** Tile warm (`#2a2118`) or raised surface for panels
 - **Shadow Strategy:** Inset hairline on media; no floating card shadow at rest
 - **Border:** `--color-border-subtle` hairline; stronger border on hover for grid cells
 - **Internal Padding:** Fluid clamps (`clamp(1.25rem, 4vw, 2.5rem)` for gallery cards; blockquote padding via `--space-blockquote-padding`)
@@ -189,7 +189,7 @@ Tactile but quiet: interactions clarify affordance without marketing-button ener
 
 - **Do** use CSS custom properties from `themes/theme.css` for every color and `tokens-base.css` for type stacks, radii, and spacing.
 - **Do** keep prose measure near 66ch and section spacing on `--space-prose-section` clamps.
-- **Do** apply teal accent to section numbers, pull-quote marks, hover links, and one CTA underline per hero.
+- **Do** apply amber accent to section numbers, pull-quote marks, hover links, and one CTA underline per hero.
 - **Do** use Instrument Sans for body and Atkinson Hyperlegible Mono for metadata to support WCAG AA readability goals.
 - **Do** honor `prefers-reduced-motion: reduce` on transitions (footer tooltips, tile animations).
 - **Do** use semantic HTML (`nav`, `article`, `footer`) and focus-visible outlines on all interactive elements.

@@ -48,7 +48,7 @@ Whatever scheme is chosen, a single **accent color** should carry through all te
 
 ## Theme System
 
-The site uses CSS custom properties on `:root` for a single production theme: dark forest / green-black canvas with teal accent.
+The site uses CSS custom properties on `:root` for a single production theme: warm brown-black canvas (`#1c1610`) with amber accent (`amber/400` `#ffb900`, foreground `amber/50` `#fffbeb`).
 
 - Build all color, typography scale, and spacing values as CSS custom properties
 - Palette lives in [`themes/theme.css`](../themes/theme.css); structural tokens in [`themes/tokens-base.css`](../themes/tokens-base.css)
@@ -106,5 +106,5 @@ Factual mapping only — not design direction.
 
 - **Frozen homepage headline**: In [`src/index.njk`](../src/index.njk), `#home-heading` with class `home-hero__headline` (large serif h1, inline avatar `<img>`, company links with inline logo `<img>` elements).
 - **Frozen showcase**: Same file — `<section class="homepage-showcase" …>` containing `.home-work-grid` and its grid items/cells. Do not change grid structure, sizing, or positioning when exploring themes.
-- **Design tokens today**: [`themes/tokens.css`](../themes/tokens.css) imports [`themes/tokens-base.css`](../themes/tokens-base.css) (typography stacks) and [`themes/theme.css`](../themes/theme.css) (forest / teal palette on `:root`). Fonts load from [`src/assets/css/site-fonts.css`](../src/assets/css/site-fonts.css): **Redaction** (serif), **Instrument Sans** (body), **Atkinson Hyperlegible Mono** (meta/nav). Stylesheet: [`src/assets/css/styles.css`](../src/assets/css/styles.css) — work index and case study layouts use editorial rows and full-bleed gallery rules there (no per-theme layout overrides).
+- **Design tokens today**: [`themes/tokens.css`](../themes/tokens.css) imports [`themes/tokens-base.css`](../themes/tokens-base.css) (typography stacks) and [`themes/theme.css`](../themes/theme.css) (warm canvas / amber palette on `:root`). Fonts load from [`src/assets/css/site-fonts.css`](../src/assets/css/site-fonts.css): **Redaction** (serif), **Instrument Sans** (body), **Atkinson Hyperlegible Mono** (meta/nav). Stylesheet: [`src/assets/css/styles.css`](../src/assets/css/styles.css) — work index and case study layouts use editorial rows and full-bleed gallery rules there (no per-theme layout overrides).
 - **Work index**: [`src/work.njk`](../src/work.njk) is currently a minimal link list. The editorial “text left / image right” layout above is the target spec for a future redesign, not the current markup.

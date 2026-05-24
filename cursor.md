@@ -24,7 +24,7 @@ This section complements **Site Build Rules & Guidelines** above. For sitemap, v
 ## Theming
 
 - Design tokens (color, spacing, typography, radius, etc.) are CSS custom properties on `:root`
-- The site launches with a single dark forest / teal theme ([`themes/theme.css`](themes/theme.css))
+- The site launches with a single warm canvas / amber theme ([`themes/theme.css`](themes/theme.css))
 - Frozen layout regions and typography guardrails are in **[docs/visual-design-language.md](docs/visual-design-language.md)**
 
 ## CSS architecture

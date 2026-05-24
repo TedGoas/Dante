@@ -39,7 +39,7 @@ Canonical constraints for typography roles, color directions, frozen homepage re
 - **General**: Clean, minimal approach
 
 ### Colors
-- **Default launch**: Dark forest / green-black canvas with teal accent (see [`themes/theme.css`](themes/theme.css)).
+- **Default launch**: Warm brown-black canvas with amber accent (see [`themes/theme.css`](themes/theme.css)).
 - **Inspiration**: Visual design of https://www.adaline.ai/
 
 ## 4. Technology Stack

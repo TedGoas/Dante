@@ -1,67 +1,67 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-05-21T00:00:00.000Z",
+  "generatedAt": "2026-05-24T00:00:00.000Z",
   "title": "Design System: Ted Goas — tedgoas.com",
   "extensions": {
     "colorMeta": {
       "site-bg": {
         "role": "neutral",
-        "displayName": "Forest Canvas",
-        "canonical": "oklch(22% 0.02 155)",
+        "displayName": "Warm Canvas",
+        "canonical": "oklch(22% 0.03 65)",
         "tonalRamp": [
-          "oklch(12% 0.015 155)",
-          "oklch(15% 0.018 155)",
-          "oklch(18% 0.02 155)",
-          "oklch(22% 0.02 155)",
-          "oklch(28% 0.022 155)",
-          "oklch(35% 0.024 155)",
-          "oklch(45% 0.026 155)",
-          "oklch(58% 0.028 155)"
+          "oklch(12% 0.025 65)",
+          "oklch(15% 0.028 65)",
+          "oklch(18% 0.03 65)",
+          "oklch(22% 0.03 65)",
+          "oklch(28% 0.032 65)",
+          "oklch(35% 0.034 65)",
+          "oklch(45% 0.036 65)",
+          "oklch(58% 0.038 65)"
         ]
       },
       "accent": {
         "role": "primary",
-        "displayName": "Muted Teal Accent",
-        "canonical": "oklch(72% 0.09 175)",
+        "displayName": "Amber Accent",
+        "canonical": "oklch(82% 0.17 85)",
         "tonalRamp": [
-          "oklch(35% 0.06 175)",
-          "oklch(45% 0.07 175)",
-          "oklch(55% 0.08 175)",
-          "oklch(65% 0.085 175)",
-          "oklch(72% 0.09 175)",
-          "oklch(78% 0.095 175)",
-          "oklch(84% 0.1 175)",
-          "oklch(90% 0.08 175)"
+          "oklch(45% 0.12 85)",
+          "oklch(55% 0.14 85)",
+          "oklch(65% 0.15 85)",
+          "oklch(75% 0.16 85)",
+          "oklch(82% 0.17 85)",
+          "oklch(88% 0.15 85)",
+          "oklch(93% 0.12 85)",
+          "oklch(97% 0.08 85)"
         ]
       },
       "site-fg": {
         "role": "neutral",
-        "displayName": "Mist Foreground",
-        "canonical": "oklch(93% 0.01 155)",
+        "displayName": "Cream Foreground",
+        "canonical": "oklch(98% 0.02 95)",
         "tonalRamp": [
-          "oklch(25% 0.01 155)",
-          "oklch(40% 0.01 155)",
-          "oklch(55% 0.01 155)",
-          "oklch(70% 0.01 155)",
-          "oklch(80% 0.01 155)",
-          "oklch(88% 0.01 155)",
-          "oklch(93% 0.01 155)",
-          "oklch(97% 0.008 155)"
+          "oklch(25% 0.02 95)",
+          "oklch(40% 0.02 95)",
+          "oklch(55% 0.02 95)",
+          "oklch(70% 0.02 95)",
+          "oklch(80% 0.02 95)",
+          "oklch(88% 0.02 95)",
+          "oklch(95% 0.02 95)",
+          "oklch(98% 0.02 95)"
         ]
       },
       "surface-tile": {
         "role": "neutral",
-        "displayName": "Tile Moss",
-        "canonical": "oklch(26% 0.02 155)",
+        "displayName": "Tile Warm",
+        "canonical": "oklch(26% 0.03 65)",
         "tonalRamp": [
-          "oklch(14% 0.015 155)",
-          "oklch(18% 0.018 155)",
-          "oklch(22% 0.02 155)",
-          "oklch(26% 0.02 155)",
-          "oklch(32% 0.022 155)",
-          "oklch(40% 0.024 155)",
-          "oklch(50% 0.026 155)",
-          "oklch(62% 0.028 155)"
+          "oklch(14% 0.025 65)",
+          "oklch(18% 0.028 65)",
+          "oklch(22% 0.03 65)",
+          "oklch(26% 0.03 65)",
+          "oklch(32% 0.032 65)",
+          "oklch(40% 0.034 65)",
+          "oklch(50% 0.036 65)",
+          "oklch(62% 0.038 65)"
         ]
       }
     },
@@ -87,7 +87,7 @@
       },
       {
         "name": "media-inset",
-        "value": "inset 0 0 0 1px rgba(230, 235, 232, 0.1)",
+        "value": "inset 0 0 0 1px rgba(255, 255, 255, 0.1)",
         "purpose": "Work grid media cells and prose images at rest."
       }
     ],
@@ -109,7 +109,7 @@
       "refersTo": "button-primary",
       "description": "Default quiet button for errors and secondary actions.",
       "html": "<button type=\"button\" class=\"ds-btn-primary\">Back home</button>",
-      "css": ".ds-btn-primary { font-family: \"Atkinson Hyperlegible Mono\", ui-monospace, monospace; font-size: 0.875rem; padding: 0.4rem 0.75rem; border: 1px solid rgba(230, 235, 232, 0.1); background: #1a2420; color: #96a39c; cursor: pointer; text-decoration: none; } .ds-btn-primary:hover { color: #74c9bb; border-color: rgba(230, 235, 232, 0.18); background-color: #1f2b26; } .ds-btn-primary:focus-visible { outline: 2px solid #5eb8a8; outline-offset: 2px; }"
+      "css": ".ds-btn-primary { font-family: \"Atkinson Hyperlegible Mono\", ui-monospace, monospace; font-size: 0.875rem; padding: 0.4rem 0.75rem; border: 1px solid rgba(255, 255, 255, 0.1); background: #241c14; color: #c9b89a; cursor: pointer; text-decoration: none; } .ds-btn-primary:hover { color: #ffc933; border-color: rgba(255, 255, 255, 0.15); background-color: #2a2118; } .ds-btn-primary:focus-visible { outline: 2px solid #ffb900; outline-offset: 2px; }"
     },
     {
       "name": "Site Nav Link",
@@ -117,7 +117,7 @@
       "refersTo": "nav-link",
       "description": "Header navigation link in mono.",
       "html": "<nav class=\"ds-nav\"><a href=\"/work/\" class=\"ds-nav__link\">Work</a></nav>",
-      "css": ".ds-nav { font-family: \"Atkinson Hyperlegible Mono\", ui-monospace, monospace; font-size: 0.875rem; } .ds-nav__link { color: #e8ece9; text-decoration: none; } .ds-nav__link:hover { color: #74c9bb; text-decoration: underline; text-decoration-color: #74c9bb; } .ds-nav__link:focus-visible { outline: 2px solid #5eb8a8; outline-offset: 2px; }"
+      "css": ".ds-nav { font-family: \"Atkinson Hyperlegible Mono\", ui-monospace, monospace; font-size: 0.875rem; } .ds-nav__link { color: #fffbeb; text-decoration: none; } .ds-nav__link:hover { color: #ffc933; text-decoration: underline; text-decoration-color: #ffc933; } .ds-nav__link:focus-visible { outline: 2px solid #ffb900; outline-offset: 2px; }"
     },
     {
       "name": "Home Hero CTA",
@@ -125,7 +125,7 @@
       "refersTo": "home-hero-cta",
       "description": "Underline CTA on homepage hero, not a filled button.",
       "html": "<a href=\"/work/\" class=\"ds-hero-cta\">See selected work</a>",
-      "css": ".ds-hero-cta { display: inline-block; border-bottom: 4px solid #5eb8a8; padding-bottom: 0.25rem; font-family: \"Redaction\", Georgia, serif; font-size: 1.5rem; line-height: 1.2; color: #e8ece9; text-decoration: none; } .ds-hero-cta:hover { color: #74c9bb; border-bottom-color: #74c9bb; } .ds-hero-cta:focus-visible { outline: 2px solid #5eb8a8; outline-offset: 4px; }"
+      "css": ".ds-hero-cta { display: inline-block; border-bottom: 4px solid #ffb900; padding-bottom: 0.25rem; font-family: \"Redaction\", Georgia, serif; font-size: 1.5rem; line-height: 1.2; color: #fffbeb; text-decoration: none; } .ds-hero-cta:hover { color: #ffc933; border-bottom-color: #ffc933; } .ds-hero-cta:focus-visible { outline: 2px solid #ffb900; outline-offset: 4px; }"
     },
     {
       "name": "Work Grid Tile",
@@ -133,23 +133,23 @@
       "refersTo": "surface-tile",
       "description": "Homepage showcase cell with tonal hover.",
       "html": "<a href=\"/work/example/\" class=\"ds-work-tile\"><span class=\"ds-work-tile__label\">Case study</span></a>",
-      "css": ".ds-work-tile { display: block; padding: 1rem; background-color: #1f2b26; border: 1px solid rgba(230, 235, 232, 0.1); text-decoration: none; color: #e8ece9; transition: background-color 0.15s ease, border-color 0.15s ease; } .ds-work-tile:hover { background-color: #171f1c; border-color: rgba(230, 235, 232, 0.18); } .ds-work-tile__label { font-family: \"Atkinson Hyperlegible Mono\", monospace; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: #96a39c; } .ds-work-tile:focus-visible { outline: 2px solid #5eb8a8; outline-offset: 2px; }"
+      "css": ".ds-work-tile { display: block; padding: 1rem; background-color: #2a2118; border: 1px solid rgba(255, 255, 255, 0.1); text-decoration: none; color: #fffbeb; transition: background-color 0.15s ease, border-color 0.15s ease; } .ds-work-tile:hover { background-color: #16110d; border-color: rgba(255, 255, 255, 0.15); } .ds-work-tile__label { font-family: \"Atkinson Hyperlegible Mono\", monospace; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: #c9b89a; } .ds-work-tile:focus-visible { outline: 2px solid #ffb900; outline-offset: 2px; }"
     },
     {
       "name": "Editorial Blockquote",
       "kind": "custom",
       "refersTo": "highlight",
-      "description": "Serif pull quote with teal left rule.",
+      "description": "Serif pull quote with amber left rule.",
       "html": "<blockquote class=\"ds-blockquote\"><p>Quote text in italic serif.</p></blockquote>",
-      "css": ".ds-blockquote { margin: 0; padding: clamp(1rem, 3vw, 1.35rem); border-left: 2px solid #4aa897; border-radius: 0.25rem; background-color: #1f2b26; color: #e8ece9; font-family: \"Redaction\", Georgia, serif; font-style: italic; font-size: clamp(1.25rem, 2vw, 1.55rem); line-height: 1.4; }"
+      "css": ".ds-blockquote { margin: 0; padding: clamp(1rem, 3vw, 1.35rem); border-left: 2px solid #ffb900; border-radius: 0.25rem; background-color: #2a2118; color: #fffbeb; font-family: \"Redaction\", Georgia, serif; font-style: italic; font-size: clamp(1.25rem, 2vw, 1.55rem); line-height: 1.4; }"
     }
   ],
   "narrative": {
     "northStar": "The Editorial Lab",
-    "overview": "A hiring-facing portfolio where long-form craft is the interface. Serif display and mono metadata frame Instrument Sans body type on a dark forest canvas; teal accent appears sparingly but decisively. Surfaces stay mostly flat; depth comes from tonal steps and hairline rules.",
+    "overview": "A hiring-facing portfolio where long-form craft is the interface. Serif display and mono metadata frame Instrument Sans body type on a warm brown-black canvas; amber accent appears sparingly but decisively. Surfaces stay mostly flat; depth comes from tonal steps and hairline rules.",
     "keyCharacteristics": [
       "Three locked type roles: Redaction, Instrument Sans, Atkinson Mono",
-      "Dark forest canvas with teal accent as punctuation",
+      "Warm canvas with amber accent as punctuation",
       "Tonal layering over shadow stacks",
       "Hairline borders define chrome and tiles",
       "Prose measure near 66ch",
@@ -157,8 +157,8 @@
     ],
     "rules": [
       {
-        "name": "The Teal Punctuation Rule",
-        "body": "Accent color appears on roughly 10% of any screen. If teal fills large backgrounds, the palette has gone loud.",
+        "name": "The Amber Punctuation Rule",
+        "body": "Accent color appears on roughly 10% of any screen. If amber fills large backgrounds, the palette has gone loud.",
         "section": "colors"
       },
       {
@@ -175,7 +175,7 @@
     "dos": [
       "Do use CSS custom properties from themes/theme.css for every color.",
       "Do keep prose measure near 66ch.",
-      "Do apply teal accent to section numbers, pull-quote marks, and hover links.",
+      "Do apply amber accent to section numbers, pull-quote marks, and hover links.",
       "Do use Instrument Sans for body and Atkinson Hyperlegible Mono for metadata.",
       "Do honor prefers-reduced-motion on transitions.",
       "Do use semantic HTML and focus-visible outlines."

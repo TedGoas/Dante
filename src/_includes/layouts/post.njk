@@ -13,7 +13,12 @@ layout: default
         <time class="post-header__date" datetime="{{ page.date.toISOString() }}">{{ page.date | readableDate }}</time>
         {% endif %}
         <h1 class="post-header__title">
-          {{ title }}{% if title | titleNeedsPeriod %}<span class="post-header__title-end" aria-hidden="true"></span>{% endif %}
+          {% if title | titleNeedsPeriod %}
+            {% set titleTail = title | splitTitleLastWord %}
+            {{ titleTail.before }}<span class="post-header__title-tail">{{ titleTail.last }}</span>
+          {% else %}
+            {{ title }}
+          {% endif %}
         </h1>
       </div>
       {% if description %}
