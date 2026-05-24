@@ -6,7 +6,7 @@
   --color-site-bg: #131c18;
   --color-site-fg: #e8ece9;
   --color-site-fg-muted: #a3aea8;
-  --color-prose-body: color-mix(in srgb, var(--color-site-fg) 78%, var(--color-site-fg-muted));
+  --color-prose-body: color-mix(in srgb, var(--color-site-fg) 88%, var(--color-site-fg-muted));
 
   --color-accent: #5eb8a8;
   --color-accent-hover: #74c9bb;

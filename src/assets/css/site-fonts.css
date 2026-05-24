@@ -1,9 +1,9 @@
 /*
- * Site typography (all themes): Redaction serif, Atkinson Hyperlegible Next (body),
+ * Site typography (all themes): Redaction serif, Instrument Sans (body),
  * Atkinson Hyperlegible Mono (labels/meta). Redaction: OFL, https://www.redaction.us/
  */
 @import url("https://fonts.bunny.net/css?family=atkinson-hyperlegible-mono:400,700&display=swap");
-@import url("https://fonts.bunny.net/css?family=atkinson-hyperlegible-next:ital,wght@0,400;0,600;0,700;1,400&display=swap");
+@import url("https://fonts.bunny.net/css?family=instrument-sans:ital,wght@0,400;0,600;0,700;1,400&display=swap");
 
 /* redaction-latin-400-normal */
 @font-face {

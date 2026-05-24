@@ -72,7 +72,7 @@
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Long-form prose; Atkinson Hyperlegible Next; 66ch measure."
+        "purpose": "Long-form prose; Instrument Sans; 66ch measure."
       },
       "label": {
         "displayName": "Label",
@@ -146,9 +146,9 @@
   ],
   "narrative": {
     "northStar": "The Editorial Lab",
-    "overview": "A hiring-facing portfolio where long-form craft is the interface. Serif display and mono metadata frame Atkinson body type on a dark forest canvas; teal accent appears sparingly but decisively. Surfaces stay mostly flat; depth comes from tonal steps and hairline rules.",
+    "overview": "A hiring-facing portfolio where long-form craft is the interface. Serif display and mono metadata frame Instrument Sans body type on a dark forest canvas; teal accent appears sparingly but decisively. Surfaces stay mostly flat; depth comes from tonal steps and hairline rules.",
     "keyCharacteristics": [
-      "Three locked type roles: Redaction, Atkinson Next, Atkinson Mono",
+      "Three locked type roles: Redaction, Instrument Sans, Atkinson Mono",
       "Dark forest canvas with teal accent as punctuation",
       "Tonal layering over shadow stacks",
       "Hairline borders define chrome and tiles",
@@ -163,7 +163,7 @@
       },
       {
         "name": "The Three-Role Lock Rule",
-        "body": "Redaction for display, Atkinson Next for body, Atkinson Mono for metadata and chrome.",
+        "body": "Redaction for display, Instrument Sans for body, Atkinson Mono for metadata and chrome.",
         "section": "typography"
       },
       {
@@ -176,7 +176,7 @@
       "Do use CSS custom properties from themes/theme.css for every color.",
       "Do keep prose measure near 66ch.",
       "Do apply teal accent to section numbers, pull-quote marks, and hover links.",
-      "Do use Atkinson Hyperlegible for body and metadata.",
+      "Do use Instrument Sans for body and Atkinson Hyperlegible Mono for metadata.",
       "Do honor prefers-reduced-motion on transitions.",
       "Do use semantic HTML and focus-visible outlines."
     ],

@@ -31,7 +31,7 @@ Canonical constraints for typography roles, color directions, frozen homepage re
 - Reuse the current logo from the existing site
 
 ### Typography
-- **Three roles** (structure locked): **Redaction** for display/headings, **Atkinson Hyperlegible Next** for body, **Atkinson Hyperlegible Mono** for captions, metadata, labels, navigation, and footer — see the linked doc for full rules.
+- **Three roles** (structure locked): **Redaction** for display/headings, **Instrument Sans** for body, **Atkinson Hyperlegible Mono** for captions, metadata, labels, navigation, and footer — see the linked doc for full rules.
 - **Inspiration**: Typography from https://linear.app/change
 
 ### Components

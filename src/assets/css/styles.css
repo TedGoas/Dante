@@ -21,7 +21,7 @@ html {
   --measure-prose-wide: 72ch;
   --type-body-size: clamp(1.0625rem, 0.95rem + 0.35vw, 1.1875rem);
   --type-body-leading: 1.6;
-  --type-prose-leading: 1.68;
+  --type-prose-leading: 1.7;
   --type-h1-size: clamp(2.125rem, 5vw, 3.625rem);
   --type-h1-leading: 1.12;
   --type-h2-size: clamp(1.55rem, 3vw, 2.15rem);
@@ -1117,9 +1117,9 @@ hr {
 
 /* --- Post layout (blog article rhythm; reference: jtroll.com/writing) --- */
 .post {
-  --post-measure: min(53.75rem, 100%);
+  --post-measure: min(43rem, 100%);
   --post-body-size: calc(1.1875rem * 1.1);
-  --post-body-leading: 1.62;
+  --post-body-leading: 1.65;
   --post-paragraph-gap: calc(var(--post-body-size) * 1);
   --post-section-gap-top: 3.5rem;
   --post-section-gap-bottom: 1.25rem;
@@ -1210,6 +1210,7 @@ hr {
   margin: 0 auto;
   font-size: var(--post-body-size);
   line-height: var(--post-body-leading);
+  letter-spacing: 0.005em;
   color: var(--color-prose-body);
 }
 

@@ -5,7 +5,7 @@ colors:
   site-bg: "#131c18"
   site-fg: "#e8ece9"
   site-fg-muted: "#a3aea8"
-  prose-body: "color-mix(78% site-fg, site-fg-muted)"
+  prose-body: "color-mix(88% site-fg, site-fg-muted)"
   accent: "#5eb8a8"
   accent-hover: "#74c9bb"
   highlight: "#4aa897"
@@ -22,7 +22,7 @@ typography:
     lineHeight: 1.12
     letterSpacing: "normal"
   body:
-    fontFamily: "\"Atkinson Hyperlegible Next\", ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "\"Instrument Sans\", ui-sans-serif, system-ui, sans-serif"
     fontSize: "clamp(1.0625rem, 0.95rem + 0.35vw, 1.1875rem)"
     fontWeight: 400
     lineHeight: 1.68
@@ -39,9 +39,9 @@ rounded:
 spacing:
   prose-flow: "1.15rem"
   prose-section: "clamp(2.25rem, 5vw, 3.5rem)"
-  post-measure: "min(47.5rem, 100%)"
+  post-measure: "min(43rem, 100%)"
   post-body-size: "calc(1.1875rem * 1.1)"
-  post-body-leading: "1.62"
+  post-body-leading: "1.65"
   post-paragraph-gap: "1em (scales with body size)"
   blockquote-padding: "clamp(1rem, 3vw, 1.35rem)"
 components:
@@ -73,13 +73,13 @@ components:
 
 **Creative North Star: "The Editorial Lab"**
 
-A hiring-facing portfolio where long-form craft is the interface. Serif display and mono metadata frame Atkinson body type on a dark forest canvas; teal accent appears sparingly but decisively. Surfaces stay mostly flat; depth comes from tonal steps and hairline rules, not decorative shadow stacks. Interactive elements feel tactile through border and fill shifts on hover, never through loud solid buttons.
+A hiring-facing portfolio where long-form craft is the interface. Serif display and mono metadata frame Instrument Sans body type on a dark forest canvas; teal accent appears sparingly but decisively. Surfaces stay mostly flat; depth comes from tonal steps and hairline rules, not decorative shadow stacks. Interactive elements feel tactile through border and fill shifts on hover, never through loud solid buttons.
 
 The system rejects SaaS landing clichés, generic AI portfolio tropes, Dribbble ornament, and corporate marketing gloss. When a choice reads as "startup landing page," choose editorial restraint instead.
 
 **Key Characteristics:**
 
-- Three locked type roles: Redaction (display), Atkinson Hyperlegible Next (body), Atkinson Hyperlegible Mono (labels/nav/footer)
+- Three locked type roles: Redaction (display), Instrument Sans (body), Atkinson Hyperlegible Mono (labels/nav/footer)
 - Dark forest / green-black canvas (`#131c18`) with teal accent used as punctuation, not wallpaper
 - Tonal layering over shadow stacks; shadows reserved for tooltips and rare overlays
 - Hairline borders (`1px`, low-opacity rgba) define chrome and tiles
@@ -116,22 +116,22 @@ Warm dark green-black ground with cool teal accent: forest at night, not pure bl
 ## Typography
 
 **Display Font:** Redaction (Georgia, Times New Roman fallback)
-**Body Font:** Atkinson Hyperlegible Next (system-ui fallback)
+**Body Font:** Instrument Sans (system-ui fallback)
 **Label/Mono Font:** Atkinson Hyperlegible Mono (locked for captions, metadata, nav, footer)
 
-**Character:** Editorial serif authority paired with hyperlegible sans for reading and mono for wayfinding. Hierarchy is scale and weight, not color floods.
+**Character:** Editorial serif authority paired with a light geometric sans for reading and mono for wayfinding. Hierarchy is scale and weight, not color floods.
 
 ### Hierarchy
 
 - **Display** (400, `clamp(2.4rem, 5vw, 4rem)`, 1.12): Homepage hero headline, major page titles. Structure frozen on homepage per visual design language.
 - **Headline** (400, `clamp(2.125rem, 5vw, 3.625rem)`, 1.12): Article and case study titles (`--type-h1-size`).
 - **Title** (400, `clamp(1.55rem, 3vw, 2.15rem)`, ~1.3): Section headings, post dek.
-- **Body** (400, `clamp(1.0625rem, 0.95rem + 0.35vw, 1.1875rem)`, 1.68): Long-form prose; default measure `--measure-prose` (66ch). **Blog posts** use `--post-measure` (47.5rem), ~21px body (110% base), leading 1.62, 1em paragraph gap, `--color-prose-body` with full foreground on `strong`.
+- **Body** (400, `clamp(1.0625rem, 0.95rem + 0.35vw, 1.1875rem)`, 1.68): Long-form prose; default measure `--measure-prose` (66ch). **Blog posts** use `--post-measure` (43rem, ~72 characters at post body size), ~21px body (110% base), leading 1.65, 1em paragraph gap, `--color-prose-body` with full foreground on `strong`.
 - **Label** (400, 0.75rem, 1.4, tracking 0.12–0.14em, uppercase/small caps): Eyebrows, reading time, nav, footer links, figure kickers.
 
 ### Named Rules
 
-**The Three-Role Lock Rule.** Redaction for display, Atkinson Next for body, Atkinson Mono for metadata and chrome. Do not swap mono to sans or introduce a fourth display face without explicit approval.
+**The Three-Role Lock Rule.** Redaction for display, Instrument Sans for body, Atkinson Mono for metadata and chrome. Do not swap mono to sans or introduce a fourth display face without explicit approval.
 
 **The Small Caps Metadata Rule.** Category labels, field reports, and secondary labels use mono at small size with increased letter-spacing, not bold colored pills.
 
@@ -190,7 +190,7 @@ Tactile but quiet: interactions clarify affordance without marketing-button ener
 - **Do** use CSS custom properties from `themes/theme.css` for every color and `tokens-base.css` for type stacks, radii, and spacing.
 - **Do** keep prose measure near 66ch and section spacing on `--space-prose-section` clamps.
 - **Do** apply teal accent to section numbers, pull-quote marks, hover links, and one CTA underline per hero.
-- **Do** use Atkinson Hyperlegible for body and metadata to support WCAG AA readability goals.
+- **Do** use Instrument Sans for body and Atkinson Hyperlegible Mono for metadata to support WCAG AA readability goals.
 - **Do** honor `prefers-reduced-motion: reduce` on transitions (footer tooltips, tile animations).
 - **Do** use semantic HTML (`nav`, `article`, `footer`) and focus-visible outlines on all interactive elements.
 

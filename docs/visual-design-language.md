@@ -19,7 +19,7 @@ These are locked. Do not change structure, layout, size, or position of any of t
 Use a three-font system throughout the site. Role structure is locked; the faces below are the current site stack (same across all color themes).
 
 - **Display / Headings** — [Redaction](https://www.redaction.us/) (editorial serif).
-- **Body** — Atkinson Hyperlegible Next (sans-serif).
+- **Body** — [Instrument Sans](https://fonts.google.com/specimen/Instrument+Sans) (sans-serif).
 - **Captions / Metadata / Labels** — Atkinson Hyperlegible Mono. Locked. Do not change.
 
 ### Typography Details
@@ -106,5 +106,5 @@ Factual mapping only — not design direction.
 
 - **Frozen homepage headline**: In [`src/index.njk`](../src/index.njk), `#home-heading` with class `home-hero__headline` (large serif h1, inline avatar `<img>`, company links with inline logo `<img>` elements).
 - **Frozen showcase**: Same file — `<section class="homepage-showcase" …>` containing `.home-work-grid` and its grid items/cells. Do not change grid structure, sizing, or positioning when exploring themes.
-- **Design tokens today**: [`themes/tokens.css`](../themes/tokens.css) imports [`themes/tokens-base.css`](../themes/tokens-base.css) (typography stacks) and [`themes/theme.css`](../themes/theme.css) (forest / teal palette on `:root`). Fonts load from [`src/assets/css/site-fonts.css`](../src/assets/css/site-fonts.css): **Redaction** (serif), **Atkinson Hyperlegible Next** (body), **Atkinson Hyperlegible Mono** (meta/nav). Stylesheet: [`src/assets/css/styles.css`](../src/assets/css/styles.css) — work index and case study layouts use editorial rows and full-bleed gallery rules there (no per-theme layout overrides).
+- **Design tokens today**: [`themes/tokens.css`](../themes/tokens.css) imports [`themes/tokens-base.css`](../themes/tokens-base.css) (typography stacks) and [`themes/theme.css`](../themes/theme.css) (forest / teal palette on `:root`). Fonts load from [`src/assets/css/site-fonts.css`](../src/assets/css/site-fonts.css): **Redaction** (serif), **Instrument Sans** (body), **Atkinson Hyperlegible Mono** (meta/nav). Stylesheet: [`src/assets/css/styles.css`](../src/assets/css/styles.css) — work index and case study layouts use editorial rows and full-bleed gallery rules there (no per-theme layout overrides).
 - **Work index**: [`src/work.njk`](../src/work.njk) is currently a minimal link list. The editorial “text left / image right” layout above is the target spec for a future redesign, not the current markup.

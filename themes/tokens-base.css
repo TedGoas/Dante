@@ -63,7 +63,7 @@
    * Typography stacks are shared across all themes (VDL: mono locked; serif + sans unified).
    */
   --font-serif: "Redaction", Georgia, "Times New Roman", Times, serif;
-  --font-sans: "Atkinson Hyperlegible Next", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
   --font-h1: "Redaction", Georgia, "Times New Roman", Times, serif;
   --font-mono:
     "Atkinson Hyperlegible Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
