@@ -16,6 +16,7 @@
 
   --color-border-subtle: rgba(255, 255, 255, 0.1);
   --color-border-strong: rgba(255, 255, 255, 0.15);
+  --color-divider: rgba(255, 255, 255, 0.2);
 
   --color-surface-raised: #241c14;
   --color-surface-tile: #2a2118;

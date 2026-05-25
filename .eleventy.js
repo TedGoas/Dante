@@ -31,6 +31,7 @@ module.exports = (config) => {
   config.addFilter('workLead', require('./lib/filters/workLead'));
   config.addFilter('minifyJs', require('./lib/filters/minifyJs'));
 
+  config.addTransform('workGalleryDivider', require('./lib/transforms/workGalleryDivider'));
   config.addTransform('minifyHtml', require('./lib/transforms/minifyHtml'));
 
   config.addCollection('posts', require('./lib/collections/posts'));

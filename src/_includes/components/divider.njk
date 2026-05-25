@@ -1,0 +1,8 @@
+{% macro divider(modifier = "") %}
+  <div class="divider{{ " divider--" + modifier if modifier }}" role="separator" aria-hidden="true">
+    <span class="divider__dot" aria-hidden="true"></span>
+    <span class="divider__dot" aria-hidden="true"></span>
+    <span class="divider__dot" aria-hidden="true"></span>
+    <span class="divider__line" aria-hidden="true"></span>
+  </div>
+{% endmacro %}

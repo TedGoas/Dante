@@ -107,6 +107,10 @@ Warm dark brown-black ground with amber accent: editorial night, not pure black.
 - **Veil Border Subtle** (`rgba(255, 255, 255, 0.1)`): Hairline dividers, default borders.
 - **Veil Border Strong** (`rgba(255, 255, 255, 0.15)`): Emphasized rules, link underlines in chrome.
 
+### Editorial divider
+
+Structural separator (not accent): three hollow dots (`--divider-dot-size`, `--divider-gap`) plus a flex-growing hairline (`--divider-color` → `--color-divider`, white at 20% opacity). Markup via `{% from "components/divider.njk" import divider %}` and `{{ divider() }}` (blog headers); work gallery figures get the same markup via build transform. Modifier `divider--strong` uses `--color-border-strong`. Blog figures with captions still use dashed `--figure-rule-dash-*`. Work gallery: divider + caption + description wrapped in `.work-gallery__intro` at `--work-gallery-content-measure`, left-aligned with `.work-body` prose (not centered inside the breakout); screenshots at `--work-gallery-media-max-width` (gallery breakout).
+
 ### Named Rules
 
 **The Amber Punctuation Rule.** Accent color appears on roughly 10% of any screen: section numerals, pull-quote details, hover states, and one structural emphasis per viewport. If amber fills large backgrounds, the palette has gone loud.

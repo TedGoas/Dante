@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+{% from "components/divider.njk" import divider %}
 
 <article class="post">
   <header class="post-header">
@@ -25,7 +26,7 @@ layout: default
       <p class="type-dek">{{ description }}</p>
       {% endif %}
     </div>
-    <hr class="post-header__rule" aria-hidden="true">
+    {{ divider() }}
   </header>
 
   <section class="post-body">

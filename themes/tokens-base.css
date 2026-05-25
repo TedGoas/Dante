@@ -5,6 +5,11 @@
 :root {
   --border-width-hairline: 1px;
 
+  /* --- Editorial divider (dots + line) --- */
+  --divider-dot-size: 9px;
+  --divider-gap: 12px;
+  --divider-color: var(--color-divider);
+
   /* --- Figures / captions (sizes) --- */
   --figure-caption-label: "010101010101";
   --figure-caption-label-size: 0.75rem;
@@ -52,8 +57,15 @@
 
   /* --- Radius / spacing shared --- */
   --radius-work-gallery-card: 0.5rem;
-  --radius-work-gallery-image: 0;
+  --radius-work-gallery-image: var(--radius-work-gallery-card);
   --space-work-gallery-card-padding: clamp(1.25rem, 4vw, 2.5rem);
+  --work-gallery-figure-gap: 2rem;
+  --work-gallery-caption-gap: 0.625rem;
+  --work-gallery-caption-size: clamp(1.5rem, 1rem + 2vw, 2rem);
+  --work-gallery-caption-leading: 1.4;
+  --work-gallery-figure-padding-block: 2rem;
+  --work-gallery-content-measure: var(--measure-prose);
+  --work-gallery-media-max-width: min(calc(100vw - var(--work-gallery-viewport-gutter)), var(--work-gallery-max-width));
 
   /*
    * Long-form prose (blog .post-body, case studies .work-body): use --type-prose-leading
