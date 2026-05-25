@@ -5,6 +5,9 @@
 :root {
   --border-width-hairline: 1px;
 
+  /* --- Long-form reading column (~72 characters at reading body size) --- */
+  --measure-reading: min(43rem, 100%);
+
   /* --- Editorial divider (dots + line) --- */
   --divider-dot-size: 9px;
   --divider-gap: 12px;
@@ -25,7 +28,7 @@
   --figure-rule-dash-gap: 6px;
   --figure-caption-body-gap: clamp(0.25rem, 0.8vw, 0.45rem);
   --figure-caption-divider-space: clamp(0.85rem, 2vw, 1.15rem);
-  --figure-caption-max-width: 50rem;
+  --figure-caption-max-width: var(--measure-reading);
   --figure-caption-title-size: clamp(1.35rem, 1.05rem + 1.35vw, 2rem);
   --figure-caption-title-leading: 1.4;
   --figure-caption-body-size: clamp(0.95rem, 0.86rem + 0.35vw, 1.25rem);
@@ -64,7 +67,7 @@
   --work-gallery-caption-size: clamp(1.5rem, 1rem + 2vw, 2rem);
   --work-gallery-caption-leading: 1.4;
   --work-gallery-figure-padding-block: 2rem;
-  --work-gallery-content-measure: var(--measure-prose);
+  --work-gallery-content-measure: var(--measure-reading);
   --work-gallery-media-max-width: min(calc(100vw - var(--work-gallery-viewport-gutter)), var(--work-gallery-max-width));
 
   /*

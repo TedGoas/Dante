@@ -170,7 +170,7 @@ a {
   color: var(--color-site-fg);
 }
 
-.content-flow :where(.post-body, .work-body) a {
+.content-flow :where(.post-body, .work-body, .reading) a {
   text-decoration-color: var(--color-highlight);
 }
 
@@ -1116,15 +1116,21 @@ hr {
   margin: 0 0 1rem;
 }
 
-/* --- Post layout (blog article rhythm; reference: jtroll.com/writing) --- */
-.post {
-  --post-measure: min(43rem, 100%);
+/* --- Reading prose (blog post-body, case study intro, values) --- */
+.post,
+.work-body.writing,
+.content-flow > .reading {
   --post-body-size: calc(1.1875rem * 1.1);
   --post-body-leading: 1.65;
   --post-paragraph-gap: calc(var(--post-body-size) * 1);
   --post-section-gap-top: 3.5rem;
   --post-section-gap-bottom: 1.25rem;
   --post-h3-size: 1.25rem;
+}
+
+/* --- Post layout (blog article rhythm; reference: jtroll.com/writing) --- */
+.post {
+  --post-measure: var(--measure-reading);
 }
 
 .post-header {
@@ -1200,8 +1206,10 @@ hr {
   color: var(--color-highlight);
 }
 
-.post-body {
-  max-width: var(--post-measure);
+.post-body,
+.work-body.writing,
+.content-flow > .reading {
+  max-width: var(--measure-reading);
   margin: 0 auto;
   font-size: var(--post-body-size);
   line-height: var(--post-body-leading);
@@ -1209,56 +1217,78 @@ hr {
   color: var(--color-prose-body);
 }
 
-.post .post-body :where(p, ul, ol, blockquote, pre, figure) {
+.post .post-body :where(p, ul, ol, blockquote, pre, figure),
+.work-body.writing :where(p, ul, ol, blockquote, pre, figure),
+.content-flow > .reading :where(p, ul, ol, blockquote, pre, figure) {
   max-width: none;
   margin-bottom: var(--post-paragraph-gap);
   color: var(--color-prose-body);
 }
 
-.post .post-body :where(p, ul, ol, blockquote, pre, figure):last-child {
+.post .post-body :where(p, ul, ol, blockquote, pre, figure):last-child,
+.work-body.writing :where(p, ul, ol, blockquote, pre, figure):last-child,
+.content-flow > .reading :where(p, ul, ol, blockquote, pre, figure):last-child {
   margin-bottom: 0;
 }
 
 .post .post-body :where(p) strong,
-.post .post-body :where(li) strong {
+.post .post-body :where(li) strong,
+.work-body.writing :where(p) strong,
+.work-body.writing :where(li) strong,
+.content-flow > .reading :where(p) strong,
+.content-flow > .reading :where(li) strong {
   color: var(--color-site-fg);
   font-weight: 600;
 }
 
-.post .post-body :where(ul, ol):not(.post-nav-list) {
+.post .post-body :where(ul, ol):not(.post-nav-list),
+.work-body.writing :where(ul, ol),
+.content-flow > .reading :where(ul, ol) {
   padding-left: 1.5rem;
   font-size: inherit;
   line-height: inherit;
 }
 
-.post .post-body :where(ul, ol):not(.post-nav-list) > li {
+.post .post-body :where(ul, ol):not(.post-nav-list) > li,
+.work-body.writing :where(ul, ol) > li,
+.content-flow > .reading :where(ul, ol) > li {
   margin-bottom: calc(var(--post-body-size) * 0.4);
 }
 
-.post .post-body :where(ul, ol):not(.post-nav-list) > li:last-child {
+.post .post-body :where(ul, ol):not(.post-nav-list) > li:last-child,
+.work-body.writing :where(ul, ol) > li:last-child,
+.content-flow > .reading :where(ul, ol) > li:last-child {
   margin-bottom: 0;
 }
 
-.post .post-body a {
+.post .post-body a,
+.work-body.writing a,
+.content-flow > .reading a {
   color: var(--color-site-fg);
   text-decoration: none;
   border-bottom: 1px solid var(--color-highlight);
   text-underline-offset: unset;
 }
 
-.post .post-body a:hover {
+.post .post-body a:hover,
+.work-body.writing a:hover,
+.content-flow > .reading a:hover {
   color: var(--color-accent-hover);
   border-bottom-color: var(--color-accent-hover);
   text-decoration: none;
   text-decoration-thickness: unset;
 }
 
-.post .post-body :where(h2, h3, h4, h5, h6) {
+.post .post-body :where(h1, h2, h3, h4, h5, h6),
+.work-body.writing :where(h1, h2, h3, h4, h5, h6),
+.content-flow > .reading :where(h1, h2, h3, h4, h5, h6) {
   max-width: none;
   color: var(--color-site-fg);
 }
 
-.post .post-body :where(h2) {
+.post .post-body :where(h2),
+.work-body.writing :where(h2),
+.content-flow > .reading :where(h2) {
   font-family: var(--font-serif);
   font-size: clamp(1.75rem, 3.4vw, 2.25rem);
   font-style: normal;
@@ -1268,7 +1298,9 @@ hr {
   margin: var(--post-section-gap-top) 0 var(--post-section-gap-bottom);
 }
 
-.post .post-body :where(h3) {
+.post .post-body :where(h3),
+.work-body.writing :where(h3),
+.content-flow > .reading :where(h3) {
   font-family: var(--font-sans);
   font-size: var(--post-h3-size);
   font-style: normal;
@@ -1279,34 +1311,50 @@ hr {
 }
 
 .post .post-body :where(h2):first-child,
-.post .post-body :where(h3):first-child {
+.post .post-body :where(h3):first-child,
+.work-body.writing :where(h2):first-child,
+.work-body.writing :where(h3):first-child,
+.content-flow > .reading :where(h2):first-child,
+.content-flow > .reading :where(h3):first-child {
   margin-top: 0;
 }
 
-.post .post-body :where(p, ul, ol, blockquote, pre, figure) + :where(h2) {
+.post .post-body :where(p, ul, ol, blockquote, pre, figure) + :where(h2),
+.work-body.writing :where(p, ul, ol, blockquote, pre, figure) + :where(h2),
+.content-flow > .reading :where(p, ul, ol, blockquote, pre, figure) + :where(h2) {
   margin-top: var(--post-section-gap-top);
 }
 
-.post .post-body :where(p, ul, ol, blockquote, pre, figure) + :where(h3) {
+.post .post-body :where(p, ul, ol, blockquote, pre, figure) + :where(h3),
+.work-body.writing :where(p, ul, ol, blockquote, pre, figure) + :where(h3),
+.content-flow > .reading :where(p, ul, ol, blockquote, pre, figure) + :where(h3) {
   margin-top: 2.5rem;
 }
 
-.post .post-body :where(em, i) {
+.post .post-body :where(em, i),
+.work-body.writing :where(em, i),
+.content-flow > .reading :where(em, i) {
   font-style: italic;
 }
 
-.post .post-body :where(hr) {
+.post .post-body :where(hr),
+.work-body.writing :where(hr),
+.content-flow > .reading :where(hr) {
   width: 5rem;
   margin: var(--post-section-gap-top) auto;
   border: none;
   border-top: var(--border-width-hairline) solid var(--color-border-subtle);
 }
 
-.post .post-body :where(blockquote):not(.twitter-tweet) {
+.post .post-body :where(blockquote):not(.twitter-tweet),
+.work-body.writing :where(blockquote):not(.twitter-tweet),
+.content-flow > .reading :where(blockquote):not(.twitter-tweet) {
   color: var(--color-site-fg);
 }
 
-.post .post-body :where(blockquote):not(.twitter-tweet) p {
+.post .post-body :where(blockquote):not(.twitter-tweet) p,
+.work-body.writing :where(blockquote):not(.twitter-tweet) p,
+.content-flow > .reading :where(blockquote):not(.twitter-tweet) p {
   color: inherit;
 }
 
@@ -1344,41 +1392,12 @@ hr {
 }
 
 .work-header {
-  max-width: var(--measure-prose);
+  max-width: var(--measure-reading);
   margin: 0 auto 1rem;
 }
 
 .work-body {
-  max-width: var(--measure-prose);
-  margin: 0 auto;
-  line-height: var(--type-prose-leading);
   overflow: visible;
-}
-
-.work-body :where(h2, h3) {
-  font-weight: 500;
-}
-
-.work-body :where(h2) {
-  line-height: 1.35;
-}
-
-.work-body :where(h3) {
-  line-height: 1.3;
-}
-
-.work-body :where(em, i) {
-  font-style: italic;
-}
-
-.work-body :where(hr) {
-  margin: var(--space-prose-section) 0;
-  border: none;
-  border-top: var(--border-width-hairline) solid var(--color-border-subtle);
-}
-
-.work-body h2 {
-  margin-top: var(--space-prose-section);
 }
 
 .work-gallery {

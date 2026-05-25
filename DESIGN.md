@@ -39,7 +39,8 @@ rounded:
 spacing:
   prose-flow: "1.15rem"
   prose-section: "clamp(2.25rem, 5vw, 3.5rem)"
-  post-measure: "min(43rem, 100%)"
+  measure-reading: "min(43rem, 100%)"
+  post-measure: "var(--measure-reading)"
   post-body-size: "calc(1.1875rem * 1.1)"
   post-body-leading: "1.65"
   post-paragraph-gap: "1em (scales with body size)"
@@ -109,7 +110,7 @@ Warm dark brown-black ground with amber accent: editorial night, not pure black.
 
 ### Editorial divider
 
-Structural separator (not accent): three hollow dots (`--divider-dot-size`, `--divider-gap`) plus a flex-growing hairline (`--divider-color` → `--color-divider`, white at 20% opacity). Markup via `{% from "components/divider.njk" import divider %}` and `{{ divider() }}` (blog headers); work gallery figures get the same markup via build transform. Modifier `divider--strong` uses `--color-border-strong`. Blog figures with captions still use dashed `--figure-rule-dash-*`. Work gallery: divider + caption + description wrapped in `.work-gallery__intro` at `--work-gallery-content-measure`, left-aligned with `.work-body` prose (not centered inside the breakout); screenshots at `--work-gallery-media-max-width` (gallery breakout).
+Structural separator (not accent): three hollow dots (`--divider-dot-size`, `--divider-gap`) plus a flex-growing hairline (`--divider-color` → `--color-divider`, white at 20% opacity). Markup via `{% from "components/divider.njk" import divider %}` and `{{ divider() }}` (blog headers); work gallery figures get the same markup via build transform. Modifier `divider--strong` uses `--color-border-strong`. Blog figures with captions still use dashed `--figure-rule-dash-*`. Work gallery: divider + caption + description wrapped in `.work-gallery__intro` at `--work-gallery-content-measure` (same as `--measure-reading`), left-aligned with case study intro prose (not centered inside the breakout); screenshots at `--work-gallery-media-max-width` (gallery breakout). Pull quotes in `.content-flow` still break out via negative margin on blockquotes.
 
 ### Named Rules
 
@@ -130,7 +131,7 @@ Structural separator (not accent): three hollow dots (`--divider-dot-size`, `--d
 - **Display** (400, `clamp(2.4rem, 5vw, 4rem)`, 1.12): Homepage hero headline, major page titles. Structure frozen on homepage per visual design language.
 - **Headline** (400, `clamp(2.125rem, 5vw, 3.625rem)`, 1.12): Article and case study titles (`--type-h1-size`).
 - **Title** (400, `clamp(1.55rem, 3vw, 2.15rem)`, ~1.3): Section headings, post dek.
-- **Body** (400, `clamp(1.0625rem, 0.95rem + 0.35vw, 1.1875rem)`, 1.68): Long-form prose; default measure `--measure-prose` (66ch). **Blog posts** use `--post-measure` (43rem, ~72 characters at post body size), ~21px body (110% base), leading 1.65, 1em paragraph gap, `--color-prose-body` with full foreground on `strong`.
+- **Body** (400, `clamp(1.0625rem, 0.95rem + 0.35vw, 1.1875rem)`, 1.68): Long-form prose; default measure `--measure-prose` (66ch) for general `.content-flow` pages. **Reading prose** (blog `.post-body`, case study `.work-body.writing`, Values `.reading`) shares `--measure-reading` (`min(43rem, 100%)`, ~72 characters at reading body size), ~21px body (110% base), leading 1.65, 1em paragraph gap, `--color-prose-body` with full foreground on `strong`. Blog keeps `--post-measure` as an alias of `--measure-reading` for header/footer width.
 - **Label** (400, 0.75rem, 1.4, tracking 0.12–0.14em, uppercase/small caps): Eyebrows, reading time, nav, footer links, figure kickers.
 
 ### Named Rules
