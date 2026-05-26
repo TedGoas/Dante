@@ -20,7 +20,7 @@ The results show up in both the team and the product. Our feedback system cut de
   <figure class="work-gallery__item">
     <figcaption class="work-gallery__caption">Built for you, not everyone</figcaption>
     <p class="work-gallery__description">Most dashboards show everything and let you sort it out. However a supervisor and an agent need completely different information. This feature adapts to your role, giving supervisors a view of their team and agents a clear picture of how they're tracking.</p>
-    <img src="/assets/work/dialpad-team-launchpad.webp" alt="Dialpad Launchpad design." loading="lazy">
+    {% clickToPlayVideo "/assets/work/dialpad-team-launchpad.svg", "/assets/work/dialpad-team-launchpad.mp4", "Dialpad Launchpad design.", 1440, 900 %}
   </figure>
   <figure class="work-gallery__item">
     <figcaption class="work-gallery__caption">From basic to genuinely helpful</figcaption>

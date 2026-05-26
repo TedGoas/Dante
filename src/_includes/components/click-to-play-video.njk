@@ -1,4 +1,4 @@
-<div class="work-gallery__media click-to-play" data-click-to-play style="--click-to-play-aspect-ratio: {{ width }} / {{ height }}; --click-to-play-width: {{ width }}px; --click-to-play-height: {{ height }}px;">
+<div class="work-gallery__media click-to-play" data-click-to-play style="--click-to-play-aspect-ratio: {{ width }} / {{ height }}; --click-to-play-width: {{ width }}px; --click-to-play-height: {{ height }}px;{% if posterObjectViewBox %} --click-to-play-poster-object-view-box: {{ posterObjectViewBox }};{% endif %}">
   <div class="click-to-play__frame">
     <img
       class="click-to-play__poster"

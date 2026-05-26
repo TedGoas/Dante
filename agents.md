@@ -81,6 +81,8 @@ Use this pattern when a work case study figure should show a **static poster** f
 {% clickToPlayVideo "/path/to/poster.svg", "/path/to/video.mp4", "Descriptive alt text.", WIDTH, HEIGHT %}
 ```
 
+Optional sixth argument: CSS `object-view-box` for the poster when the SVG export includes extra canvas (e.g. Launchpad: `"xywh(92px 8px 1440px 900px)"`).
+
 Poster and video should match the same artboard dimensions (`WIDTH` × `HEIGHT` in pixels) for layout and aspect ratio.
 
 **Implementation map:**

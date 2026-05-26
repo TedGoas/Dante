@@ -1932,16 +1932,20 @@ hr {
   margin-inline: calc(
     (var(--work-gallery-content-measure) - min(100%, var(--click-to-play-used-width))) / 2
   );
+  padding: 0;
   border-radius: var(--radius-click-to-play);
 }
 
 .writing .work-gallery__item > .work-gallery__media.click-to-play .click-to-play__poster,
 .writing .work-gallery__item > .work-gallery__media.click-to-play .click-to-play__video {
-  border-radius: var(--radius-click-to-play);
+  border-radius: 0;
 }
 
 .click-to-play {
   display: block;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
 }
 
 .click-to-play__frame {
@@ -1950,7 +1954,7 @@ hr {
   width: 100%;
   overflow: hidden;
   border-radius: var(--radius-click-to-play);
-  background-color: var(--color-surface-tile);
+  line-height: 0;
 }
 
 .click-to-play__poster,
@@ -1958,11 +1962,15 @@ hr {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: top center;
 }
 
 .click-to-play__poster {
+  position: absolute;
+  inset: 0;
   pointer-events: none;
+  object-view-box: var(--click-to-play-poster-object-view-box, none);
 }
 
 .click-to-play__video {
