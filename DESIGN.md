@@ -164,6 +164,7 @@ Tactile but quiet: interactions clarify affordance without marketing-button ener
 ### Cards / Containers
 
 - **Corner Style:** 0.5rem on work gallery cards (`--radius-work-gallery-card`); blockquotes 0.25rem
+- **Work gallery video (click-to-play):** Poster-first figure with lazy MP4; after first play, **native browser video controls** (muted). Rounded container uses **`--radius-click-to-play`** (1rem / 16px) on the media block so poster and video share one clip. See **AGENTS.md → Work gallery: video figures** for authoring and file map.
 - **Background:** Tile warm (`#2a2118`) or raised surface for panels
 - **Shadow Strategy:** Inset hairline on media; no floating card shadow at rest
 - **Border:** `--color-border-subtle` hairline; stronger border on hover for grid cells

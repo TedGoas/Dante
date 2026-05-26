@@ -15,7 +15,7 @@ The results show up in both the team and the product. Our feedback system cut de
   <figure class="work-gallery__item">
     <figcaption class="work-gallery__caption">Analytics in plain English</figcaption>
     <p class="work-gallery__description">Most people don't want to learn a BI tool. They just want answers. My team designed an LLM-powered chat experience that sits on top of Dialpad's analytics and responded with interactive charts you can share.</p>
-    <img src="/assets/work/dialpad-team-analyticsgpt1.svg" alt="Dialpad AnalyticsGPT design." loading="lazy">
+    {% clickToPlayVideo "/assets/work/dialpad-team-analyticsgpt.svg", "/assets/work/dialpad-team-analyticsgpt.mp4", "Dialpad AnalyticsGPT design.", 1440, 900 %}
   </figure>
   <figure class="work-gallery__item">
     <figcaption class="work-gallery__caption">Built for you, not everyone</figcaption>

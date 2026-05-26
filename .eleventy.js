@@ -1,10 +1,14 @@
 const markdownIt = require('markdown-it');
 const markdownItblockquoteAttribution = require('./lib/markdown/markdown-it-blockquote-attribution');
+const expandClickToPlayVideo = require('./lib/preprocessors/expandClickToPlayVideo');
 
 module.exports = (config) => {
   const mdLib = markdownIt({
     html: true
   }).use(markdownItblockquoteAttribution);
+  const renderMarkdown = mdLib.render.bind(mdLib);
+
+  mdLib.render = (content) => renderMarkdown(expandClickToPlayVideo(null, content));
   config.setLibrary('md', mdLib);
 
   config.setDataDeepMerge(true);
@@ -30,6 +34,8 @@ module.exports = (config) => {
   config.addFilter('splitTitleLastWord', require('./lib/filters/splitTitleLastWord'));
   config.addFilter('workLead', require('./lib/filters/workLead'));
   config.addFilter('minifyJs', require('./lib/filters/minifyJs'));
+
+  config.addShortcode('clickToPlayVideo', require('./lib/shortcodes/clickToPlayVideo'));
 
   config.addTransform('workGalleryDivider', require('./lib/transforms/workGalleryDivider'));
   config.addTransform('minifyHtml', require('./lib/transforms/minifyHtml'));

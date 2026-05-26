@@ -22,3 +22,5 @@ description: >-
 - Scoped to the component's root BEM class
 - References only CSS custom properties for all values
 - Linked in the base layout or included via a CSS entry point
+
+**Exception — click-to-play video (work gallery):** The partial lives in `_includes/components/click-to-play-video.njk`, but styles are in the main stylesheet ([`src/assets/css/styles.css`](../../../src/assets/css/styles.css)) next to other `.work-gallery` rules, and behavior JS is bundled only on the work layout. See **[AGENTS.md](../../../AGENTS.md)** (*Work gallery: video figures*) for the full file map and authoring shortcode.

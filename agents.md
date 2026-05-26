@@ -71,6 +71,33 @@ Canonical constraints for typography roles, color directions, frozen homepage re
 ### RSS
 - **Requirement**: Include RSS feed for all blog posts
 
+### Work gallery: video figures (click-to-play)
+
+Use this pattern when a work case study figure should show a **static poster** first and **lazy-load** an MP4 on demand. Native browser `<video>` controls appear after the first play; audio stays **muted**.
+
+**Authoring (Markdown work pages):**
+
+```njk
+{% clickToPlayVideo "/path/to/poster.svg", "/path/to/video.mp4", "Descriptive alt text.", WIDTH, HEIGHT %}
+```
+
+Poster and video should match the same artboard dimensions (`WIDTH` × `HEIGHT` in pixels) for layout and aspect ratio.
+
+**Implementation map:**
+
+| Piece | Location |
+|-------|----------|
+| Shortcode | [`lib/shortcodes/clickToPlayVideo.js`](lib/shortcodes/clickToPlayVideo.js) |
+| Markup partial | [`src/_includes/components/click-to-play-video.njk`](src/_includes/components/click-to-play-video.njk) |
+| Shortcode expansion before Markdown | [`lib/preprocessors/expandClickToPlayVideo.js`](lib/preprocessors/expandClickToPlayVideo.js) (wired in [`.eleventy.js`](.eleventy.js) on the markdown library) |
+| DOM for gallery figures | [`lib/transforms/workGalleryDivider.js`](lib/transforms/workGalleryDivider.js) — keeps media outside `.work-gallery__intro` |
+| Script (vanilla, deferred) | [`src/assets/js/click-to-play-video.js`](src/assets/js/click-to-play-video.js) via [`src/misc/click-to-play.js.njk`](src/misc/click-to-play.js.njk) |
+| Script load scope | [`src/_includes/layouts/work.njk`](src/_includes/layouts/work.njk) `footerScripts` only (not site-wide) |
+| Gallery breakout + component styles | [`src/assets/css/styles.css`](src/assets/css/styles.css) (`.click-to-play` / `.writing .work-gallery__item > .work-gallery__media.click-to-play`) |
+| Corner radius token (16px) | [`themes/tokens-base.css`](themes/tokens-base.css) `--radius-click-to-play` |
+
+**UX notes:** Hover or keyboard focus on the wallpaper reveals a centered play affordance; `prefers-reduced-motion: reduce` shows the poster only (no video or start control). Do not widen `.work-body` or load this script on the default layout for a single figure.
+
 ## 5. What NOT to Do
 
 ### Dependencies
