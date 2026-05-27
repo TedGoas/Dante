@@ -35,6 +35,8 @@ html {
   --work-gallery-max-width: 72rem;
   --work-gallery-viewport-gutter: 2rem;
   --work-gallery-email-media-gap: clamp(0.75rem, 1.5vw, 1.25rem);
+  --work-gallery-sidebar-quad-gap: 1rem;
+  --work-gallery-sidebar-quad-padding-y: clamp(6.25rem, 10vw, 12.5rem);
   --work-gallery-email-main-column: minmax(0, 1.9fr);
   --work-gallery-email-secondary-column: minmax(0, 1fr);
   --home-work-grid-gap: 0.75rem;
@@ -1476,6 +1478,53 @@ hr {
   align-self: end;
 }
 
+/* Four-panel sidebar (Dialpad IC): two columns, two cards each — Figma dialpad-ic-sidebar */
+.writing .work-gallery__media--sidebar-quad {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: var(--work-gallery-sidebar-quad-padding-y);
+  background-color: var(--color-work-gallery-hero-secondary-bg);
+  border-radius: var(--radius-click-to-play);
+  overflow: hidden;
+}
+
+.writing .work-gallery__sidebar-quad {
+  display: flex;
+  gap: var(--work-gallery-sidebar-quad-gap);
+  align-items: flex-start;
+  justify-content: center;
+  width: max-content;
+  max-width: 100%;
+}
+
+.writing .work-gallery__sidebar-quad__col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--work-gallery-sidebar-quad-gap);
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.writing .work-gallery__media--sidebar-quad img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 720px) {
+  .writing .work-gallery__sidebar-quad {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .writing .work-gallery__sidebar-quad__col {
+    width: 100%;
+    max-width: 20rem;
+  }
+}
+
 /* --- Bio timeline --- */
 .bio-timeline {
   position: relative;
@@ -1728,7 +1777,7 @@ hr {
 
 .post-body > figure :where(img, video, iframe),
 .writing > figure :where(img, video, iframe),
-.writing .work-gallery__item :where(img, video, iframe) {
+.writing .work-gallery__item:not(.work-gallery__item--media-radius-lg) :where(img, video, iframe) {
   border-radius: 0;
 }
 
@@ -1911,7 +1960,21 @@ hr {
   margin-inline: calc(
     (var(--work-gallery-content-measure) - min(100%, var(--work-gallery-media-max-width))) / 2
   );
+  overflow: hidden;
+}
+
+/* Top corners only (default); click-to-play, sidebar quad, and large-radius figures override below */
+.writing .work-gallery__item:not(.work-gallery__item--media-radius-lg) > :is(img, .work-gallery__media):not(.click-to-play):not(.work-gallery__media--sidebar-quad) {
   border-radius: var(--radius-work-gallery-image) var(--radius-work-gallery-image) 0 0;
+}
+
+/* Match click-to-play corner radius (16px) on selected figures */
+.writing .work-gallery__item.work-gallery__item--media-radius-lg {
+  border-radius: var(--radius-click-to-play);
+}
+
+.writing .work-gallery__item.work-gallery__item--media-radius-lg > :is(img, .work-gallery__media) {
+  border-radius: var(--radius-click-to-play);
   overflow: hidden;
 }
 
