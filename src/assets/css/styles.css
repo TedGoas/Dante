@@ -1489,15 +1489,21 @@ hr {
   align-items: end;
   padding: var(--space-work-gallery-card-padding) var(--space-work-gallery-card-padding) 0;
   background-color: var(--color-work-gallery-hero-secondary-bg);
+  width: max-content;
+  max-width: 100%;
 }
 
 .writing .work-gallery__item--hero-secondary .work-gallery__media--hero-secondary .work-gallery__media-main {
   grid-column: 1;
+  width: min(620px, 100%);
+  height: auto;
 }
 
 .writing .work-gallery__item--hero-secondary .work-gallery__media--hero-secondary .work-gallery__media-secondary {
   grid-column: 2;
   align-self: end;
+  width: min(320px, 100%);
+  height: auto;
 }
 
 /* Four-panel sidebar (Dialpad IC): two columns, two cards each — Figma dialpad-ic-sidebar */
@@ -1516,21 +1522,22 @@ hr {
   gap: var(--work-gallery-sidebar-quad-gap);
   align-items: flex-start;
   justify-content: center;
-  width: 100%;
-  max-width: none;
+  width: max-content;
+  max-width: 100%;
 }
 
 .writing .work-gallery__sidebar-quad__col {
   display: flex;
   flex-direction: column;
   gap: var(--work-gallery-sidebar-quad-gap);
-  flex: 1 1 0;
+  flex: 0 1 auto;
   min-width: 0;
 }
 
 .writing .work-gallery__media--sidebar-quad img {
   display: block;
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   height: auto;
 }
 
@@ -2015,6 +2022,14 @@ hr {
   margin-inline: auto;
   padding: 0;
   border-radius: var(--radius-click-to-play);
+}
+
+/* Hero-secondary digest figure: keep native image sizes centered (no upscale). */
+.writing .work-gallery__item--hero-secondary > .work-gallery__media--hero-secondary {
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+  grid-template-columns: minmax(0, 620px) minmax(0, 320px);
 }
 
 .writing .work-gallery__item > .work-gallery__media.click-to-play .click-to-play__poster,
