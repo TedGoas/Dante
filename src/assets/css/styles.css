@@ -32,7 +32,7 @@ html {
   --work-gallery-top-margin: clamp(2.5rem, 7vw, 5rem);
   --work-gallery-gap: clamp(3rem, 8vw, 6rem);
   --work-gallery-item-gap: 0.85rem;
-  --work-gallery-max-width: 72rem;
+  --work-gallery-media-max-inline-size: 90rem;
   --work-gallery-viewport-gutter: 2rem;
   --work-gallery-email-media-gap: clamp(0.75rem, 1.5vw, 1.25rem);
   --work-gallery-sidebar-quad-gap: 1rem;
@@ -244,6 +244,10 @@ hr {
   padding: 0 1rem;
 }
 
+.layout--work {
+  max-width: calc(var(--work-gallery-media-max-inline-size) + 2rem);
+}
+
 .site-main {
   flex: 1;
   padding: 2rem 0 3rem;
@@ -390,6 +394,7 @@ hr {
 
 .site-footer {
   margin-top: auto;
+  overflow-x: clip;
 }
 
 .site-footer .layout {
@@ -431,7 +436,7 @@ hr {
   bottom: 100%;
   z-index: var(--footer-tooltip-z);
   margin-bottom: var(--footer-tooltip-offset);
-  width: min(var(--footer-tooltip-max-width), calc(100vw - 2rem));
+  width: min(var(--footer-tooltip-max-width), calc(100dvw - 2rem));
   padding: 0;
   border-radius: var(--footer-tooltip-radius);
   background-color: var(--color-surface-tile);
@@ -1211,12 +1216,29 @@ hr {
 .post-body,
 .work-body.writing,
 .content-flow > .reading {
-  max-width: var(--measure-reading);
-  margin: 0 auto;
   font-size: var(--post-body-size);
   line-height: var(--post-body-leading);
   letter-spacing: 0.005em;
   color: var(--color-prose-body);
+}
+
+.post-body,
+.content-flow > .reading {
+  max-width: var(--measure-reading);
+  margin: 0 auto;
+}
+
+.work-body.writing {
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+}
+
+.work-body.writing > :not(.work-gallery) {
+  width: 100%;
+  max-width: var(--measure-reading);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .post .post-body :where(p, ul, ol, blockquote, pre, figure),
@@ -1405,7 +1427,7 @@ hr {
 .work-gallery {
   display: grid;
   gap: var(--work-gallery-gap);
-  width: min(calc(100vw - var(--work-gallery-viewport-gutter)), var(--work-gallery-max-width));
+  width: 100%;
   margin: var(--work-gallery-top-margin) auto 0;
   transform: none;
 }
@@ -1423,7 +1445,7 @@ hr {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
   gap: var(--work-gallery-figure-gap);
   width: 100%;
   max-width: none;
@@ -1494,15 +1516,15 @@ hr {
   gap: var(--work-gallery-sidebar-quad-gap);
   align-items: flex-start;
   justify-content: center;
-  width: max-content;
-  max-width: 100%;
+  width: 100%;
+  max-width: none;
 }
 
 .writing .work-gallery__sidebar-quad__col {
   display: flex;
   flex-direction: column;
   gap: var(--work-gallery-sidebar-quad-gap);
-  flex: 0 1 auto;
+  flex: 1 1 0;
   min-width: 0;
 }
 
@@ -1955,11 +1977,8 @@ hr {
 
 .writing .work-gallery__item > :is(img, .work-gallery__media) {
   width: var(--work-gallery-media-max-width);
-  max-width: min(100%, calc(100vw - var(--work-gallery-viewport-gutter)));
-  /* Center breakout media on the page while intro stays prose-left-aligned */
-  margin-inline: calc(
-    (var(--work-gallery-content-measure) - min(100%, var(--work-gallery-media-max-width))) / 2
-  );
+  max-width: 100%;
+  margin-inline: auto;
   overflow: hidden;
 }
 
@@ -1980,6 +1999,7 @@ hr {
 
 .writing .work-gallery__item > img {
   display: block;
+  width: 100%;
 }
 
 .writing .work-gallery__item > .work-gallery__media img {
@@ -1988,13 +2008,11 @@ hr {
 }
 
 /* --- Click-to-play video (work gallery only) --- */
-/* Same breakout margin as other gallery media; only width uses artboard size */
+/* Click-to-play media follows the same width + centering as static gallery media. */
 .writing .work-gallery__item > .work-gallery__media.click-to-play {
-  --click-to-play-used-width: min(var(--click-to-play-width), calc(100vw - var(--work-gallery-viewport-gutter)));
-  width: var(--click-to-play-used-width);
-  margin-inline: calc(
-    (var(--work-gallery-content-measure) - min(100%, var(--click-to-play-used-width))) / 2
-  );
+  width: var(--work-gallery-media-max-width);
+  max-width: 100%;
+  margin-inline: auto;
   padding: 0;
   border-radius: var(--radius-click-to-play);
 }

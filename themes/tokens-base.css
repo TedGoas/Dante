@@ -69,7 +69,7 @@
   --work-gallery-caption-leading: 1.4;
   --work-gallery-figure-padding-block: 2rem;
   --work-gallery-content-measure: var(--measure-reading);
-  --work-gallery-media-max-width: min(calc(100vw - var(--work-gallery-viewport-gutter)), var(--work-gallery-max-width));
+  --work-gallery-media-max-width: min(100%, var(--work-gallery-media-max-inline-size));
 
   /*
    * Long-form prose (blog .post-body, case studies .work-body): use --type-prose-leading
