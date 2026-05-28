@@ -2024,6 +2024,12 @@ hr {
   border-radius: var(--radius-click-to-play);
 }
 
+.writing .work-gallery__item--media-native > .work-gallery__media.click-to-play {
+  width: min(var(--click-to-play-width), 100%);
+  max-width: 100%;
+  margin-inline: auto;
+}
+
 /* Hero-secondary digest figure: keep native image sizes centered (no upscale). */
 .writing .work-gallery__item--hero-secondary > .work-gallery__media--hero-secondary {
   width: fit-content;
