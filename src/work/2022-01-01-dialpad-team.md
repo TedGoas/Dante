@@ -25,7 +25,7 @@ The results show up in both the team and the product. Our feedback system cut de
   <figure class="work-gallery__item work-gallery__item--media-native">
     <figcaption class="work-gallery__caption">From basic to genuinely helpful</figcaption>
     <p class="work-gallery__description">Our old chatbot looked dated and needed a human behind every answer. We overhauled it, pairing a visual refresh with generative AI that handles the easy stuff and hands off the hard stuff to a human.</p>
-    {% clickToPlayVideo "/assets/work/dialpad-team-chatbot.svg", "/assets/work/dialpad-team-chatbot.mp4", "Dialpad chatbot design.", 384, 600 %}
+    {% clickToPlayVideo "/assets/work/dialpad-team-chatbot.svg", "/assets/work/dialpad-team-chatbot.mp4", "Dialpad chatbot design.", 384, 600, "/assets/work/dialpad-team-chatbot-bg.jpg" %}
   </figure>
   <figure class="work-gallery__item">
     <figcaption class="work-gallery__caption">Phone trees, made visual</figcaption>

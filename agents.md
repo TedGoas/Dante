@@ -81,9 +81,11 @@ Use this pattern when a work case study figure should show a **static poster** f
 {% clickToPlayVideo "/path/to/poster.svg", "/path/to/video.mp4", "Descriptive alt text.", WIDTH, HEIGHT %}
 ```
 
-Optional sixth argument: CSS `object-view-box` for the poster when the SVG export includes extra canvas (e.g. Launchpad: `"xywh(92px 8px 1440px 900px)"`).
+Optional sixth argument: either a CSS `object-view-box` for the poster when the SVG export includes extra canvas (e.g. Launchpad: `"xywh(92px 8px 1440px 900px)"`), or a background image path (e.g. `.jpg`). Do not pass an empty string before a background path — Eleventy drops empty shortcode args.
 
-Poster and video should match the same artboard dimensions (`WIDTH` × `HEIGHT` in pixels) for layout and aspect ratio.
+When the sixth argument is a background image, the frame is **1440px max width** and **tall enough for 32px padding + `HEIGHT` + 32px padding** (derived from the overlay dimensions, not the wallpaper file size). The JPG fills the frame (`object-fit: cover`). The poster SVG still shows centered on top as the pre-play preview, with a visible play affordance over it; the video stays at native `WIDTH` × `HEIGHT` with `--radius-click-to-play` corners until play.
+
+Poster and video should match the same artboard dimensions (`WIDTH` × `HEIGHT` in pixels) for the overlay.
 
 **Implementation map:**
 
