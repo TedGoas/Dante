@@ -23,10 +23,15 @@ I helped grow the enterprise product from a single customer to over 30, adapting
     <p class="work-gallery__description">HTML email is notoriously painful to build, every email was a bespoke act of suffering. I built one of the first email design systems that abstracted all of that complexity so the team could focus on the message, not the markup.</p>
     <img src="/assets/work/stackoverflow-email-design-system.svg" alt="Stack Overflow email design system." loading="lazy">
   </figure>
-  <figure class="work-gallery__item">
+  <figure class="work-gallery__item work-gallery__item--integrations-stack">
     <figcaption class="work-gallery__caption">Playing well with others</figcaption>
     <p class="work-gallery__description">Stack Overflow is most useful when it fits into how your team already works. I designed a set of integrations that connected our platform to tools like Jira and GitHub, turning separate systems into one seamless workflow.</p>
-    <img src="/assets/work/stackoverflow-integrations.png" alt="Stack Overflow integrations design." loading="lazy">
+    <div class="work-gallery__media work-gallery__media--integrations-stack" aria-label="Stack Overflow and GitHub integration previews.">
+      <div class="work-gallery__integrations-stack__stage">
+        <img class="work-gallery__integrations-stack__back" src="/assets/work/stackoverflow-integration-so.svg" alt="Stack Overflow question preview linked from GitHub." width="678" height="425" loading="lazy">
+        <img class="work-gallery__integrations-stack__front" src="/assets/work/stackoverflow-integration-github.svg" alt="GitHub code file preview linked to Stack Overflow." width="678" height="412" loading="lazy">
+      </div>
+    </div>
   </figure>
   <figure class="work-gallery__item">
     <figcaption class="work-gallery__caption">Side projects, serious ideas</figcaption>
