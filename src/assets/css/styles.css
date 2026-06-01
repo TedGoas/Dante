@@ -2025,16 +2025,16 @@ hr {
   max-width: var(--work-gallery-content-measure);
 }
 
-.writing .work-gallery__item > :is(img, .work-gallery__media) {
+.writing .work-gallery__item > .work-gallery__media {
   width: var(--work-gallery-media-max-width);
   max-width: 100%;
   margin-inline: auto;
   overflow: hidden;
 }
 
-/* Top corners only (default); click-to-play, sidebar quad, and large-radius figures override below */
+/* All corners (default); click-to-play, sidebar quad, and integrations-stack use their own rules below */
 .writing .work-gallery__item:not(.work-gallery__item--media-radius-lg) > :is(img, .work-gallery__media):not(.click-to-play):not(.work-gallery__media--sidebar-quad):not(.work-gallery__media--integrations-stack) {
-  border-radius: var(--radius-work-gallery-image) var(--radius-work-gallery-image) 0 0;
+  border-radius: var(--radius-work-gallery-image);
 }
 
 /* Match click-to-play corner radius (16px) on selected figures */
@@ -2047,9 +2047,14 @@ hr {
   overflow: hidden;
 }
 
-.writing .work-gallery__item > img {
+/* Native sizing for default single-image figures (no upscale). */
+.writing .work-gallery__item:not(
+  :is(.work-gallery__item--hero-secondary, .work-gallery__item--sidebar-quad, .work-gallery__item--integrations-stack)
+) > img {
   display: block;
-  width: 100%;
+  width: auto;
+  max-width: var(--work-gallery-media-max-width);
+  margin-inline: auto;
 }
 
 .writing .work-gallery__item > .work-gallery__media img {
