@@ -23,6 +23,14 @@ I helped grow the enterprise product from a single customer to over 30, adapting
     <p class="work-gallery__description">HTML email is notoriously painful to build, every email was a bespoke act of suffering. I built one of the first email design systems that abstracted all of that complexity so the team could focus on the message, not the markup.</p>
     <img src="/assets/work/stackoverflow-email-design-system.svg" alt="Stack Overflow email design system." loading="lazy">
   </figure>
+  <figure class="work-gallery__item work-gallery__item--hero-secondary work-gallery__item--email-duo">
+    <figcaption class="work-gallery__caption">From product to promotion</figcaption>
+    <p class="work-gallery__description">The system shipped templates for product emails like Stack Overflow for Teams and marketing campaigns like our 10th anniversary. Same components, different contexts.</p>
+    <div class="work-gallery__media work-gallery__media--hero-secondary" aria-label="Stack Overflow Teams and 10th anniversary email designs.">
+      <img class="work-gallery__media-main" src="/assets/work/stackoverflow-email-teams.svg" alt="Stack Overflow for Teams email design." width="680" height="808" loading="lazy">
+      <img class="work-gallery__media-secondary" src="/assets/work/stackoverflow-10th-email.svg" alt="Stack Overflow 10th anniversary email design." width="400" height="1062" loading="lazy">
+    </div>
+  </figure>
   <figure class="work-gallery__item work-gallery__item--integrations-stack">
     <figcaption class="work-gallery__caption">Playing well with others</figcaption>
     <p class="work-gallery__description">Stack Overflow is most useful when it fits into how your team already works. I designed a set of integrations that connected our platform to tools like Jira and GitHub, turning separate systems into one seamless workflow.</p>
