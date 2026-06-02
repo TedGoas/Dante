@@ -1515,6 +1515,15 @@ hr {
   width: min(400px, 100%);
 }
 
+/* Email + mobile side by side (Canfield case study): Vectra email + Nexa app */
+.writing .work-gallery__item--canfield-duo .work-gallery__media--hero-secondary .work-gallery__media-main {
+  width: min(640px, 100%);
+}
+
+.writing .work-gallery__item--canfield-duo .work-gallery__media--hero-secondary .work-gallery__media-secondary {
+  width: min(768px, 100%);
+}
+
 /* Stacked integration cards (Stack Overflow case study): SO back top-left, GitHub front bottom-right */
 .writing .work-gallery__item--integrations-stack > .work-gallery__media--integrations-stack {
   display: flex;
@@ -1793,11 +1802,11 @@ hr {
     grid-template-columns: 1fr;
   }
 
-  .writing .work-gallery__item--hero-secondary:not(.work-gallery__item--email-duo) .work-gallery__media--hero-secondary {
+  .writing .work-gallery__item--hero-secondary:not(.work-gallery__item--email-duo, .work-gallery__item--canfield-duo) .work-gallery__media--hero-secondary {
     display: block;
   }
 
-  .writing .work-gallery__item--hero-secondary:not(.work-gallery__item--email-duo) .work-gallery__media--hero-secondary .work-gallery__media-secondary {
+  .writing .work-gallery__item--hero-secondary:not(.work-gallery__item--email-duo, .work-gallery__item--canfield-duo) .work-gallery__media--hero-secondary .work-gallery__media-secondary {
     display: none;
   }
 
@@ -1815,6 +1824,22 @@ hr {
 
   .writing .work-gallery__item--email-duo > .work-gallery__media--hero-secondary .work-gallery__media-secondary {
     width: min(100%, 400px);
+  }
+
+  .writing .work-gallery__item--canfield-duo > .work-gallery__media--hero-secondary {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+  }
+
+  .writing .work-gallery__item--canfield-duo > .work-gallery__media--hero-secondary .work-gallery__media-main,
+  .writing .work-gallery__item--canfield-duo > .work-gallery__media--hero-secondary .work-gallery__media-secondary {
+    grid-column: 1;
+    width: min(100%, 640px);
+  }
+
+  .writing .work-gallery__item--canfield-duo > .work-gallery__media--hero-secondary .work-gallery__media-secondary {
+    width: min(100%, 768px);
   }
 }
 
@@ -2042,6 +2067,10 @@ hr {
   margin-block: 0;
 }
 
+.writing .work-gallery__intro > .work-gallery__caption:not(:first-child) {
+  margin-top: var(--work-gallery-caption-gap);
+}
+
 .writing .work-gallery__item > .work-gallery__description {
   margin-top: calc(var(--work-gallery-caption-gap) - var(--work-gallery-figure-gap));
 }
@@ -2118,7 +2147,7 @@ hr {
 }
 
 /* Hero-secondary digest figure: keep native image sizes centered (no upscale). */
-.writing .work-gallery__item--hero-secondary:not(.work-gallery__item--email-duo) > .work-gallery__media--hero-secondary {
+.writing .work-gallery__item--hero-secondary:not(.work-gallery__item--email-duo, .work-gallery__item--canfield-duo) > .work-gallery__media--hero-secondary {
   width: fit-content;
   max-width: 100%;
   margin-inline: auto;
@@ -2131,9 +2160,19 @@ hr {
   margin-inline: auto;
 }
 
+.writing .work-gallery__item--canfield-duo > .work-gallery__media--hero-secondary {
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
 @media (min-width: 641px) {
   .writing .work-gallery__item--email-duo > .work-gallery__media--hero-secondary {
     grid-template-columns: minmax(0, 680px) minmax(0, 400px);
+  }
+
+  .writing .work-gallery__item--canfield-duo > .work-gallery__media--hero-secondary {
+    grid-template-columns: minmax(0, 640px) minmax(0, 768px);
   }
 }
 
