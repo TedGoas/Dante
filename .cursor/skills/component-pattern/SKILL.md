@@ -24,3 +24,5 @@ description: >-
 - Linked in the base layout or included via a CSS entry point
 
 **Exception — click-to-play video (work gallery):** The partial lives in `_includes/components/click-to-play-video.njk`, but styles are in the main stylesheet ([`src/assets/css/styles.css`](../../../src/assets/css/styles.css)) next to other `.work-gallery` rules, and behavior JS is bundled only on the work layout. See **[AGENTS.md](../../../AGENTS.md)** (*Work gallery: video figures*) for the full file map and authoring shortcode.
+
+**Exception — multi-image gallery figures:** Layout and atmosphere backdrops are BEM classes in the same stylesheet, authored as HTML in case studies. See **[`.cursor/skills/work-gallery-figures/SKILL.md`](../work-gallery-figures/SKILL.md)** and AGENTS.md (*Work gallery: multi-image layouts*).

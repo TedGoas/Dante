@@ -102,6 +102,57 @@ Poster and video should match the same artboard dimensions (`WIDTH` × `HEIGHT` 
 
 **UX notes:** Hover or keyboard focus on the wallpaper reveals a centered play affordance; `prefers-reduced-motion: reduce` shows the poster only (no video or start control). Do not widen `.work-body` or load this script on the default layout for a single figure.
 
+### Work gallery: multi-image layouts
+
+Reusable BEM layouts for case study figures with more than one asset. Styles live in [`src/assets/css/styles.css`](src/assets/css/styles.css) (search `Reusable figure pattern`). Copy-paste HTML: [`.cursor/skills/work-gallery-figures/reference.md`](.cursor/skills/work-gallery-figures/reference.md). Agent skill: [`.cursor/skills/work-gallery-figures/SKILL.md`](.cursor/skills/work-gallery-figures/SKILL.md).
+
+| Figure modifier | Media modifier | Purpose |
+|-----------------|----------------|---------|
+| `work-gallery__item--hero-secondary` | `work-gallery__media--hero-secondary` | Grid: large main + smaller secondary, bottom-aligned |
+| `work-gallery__item--email-duo` | *(with hero-secondary)* | Wider email columns (680px / 400px) |
+| `work-gallery__item--canfield-duo` | *(with hero-secondary)* | Email + tall mobile (640px / 768px) |
+| `work-gallery__item--sidebar-quad` | `work-gallery__media--sidebar-quad` | Four images in two columns |
+| `work-gallery__item--integrations-stack` | `work-gallery__media--integrations-stack` | Overlapping back/front cards on a fixed stage |
+| `work-gallery__item--media-native` | click-to-play or large native asset | Centered native width |
+| `work-gallery__item--media-radius-lg` | single `img` | Larger corner radius |
+
+Image classes inside hero-secondary: `work-gallery__media-main`, `work-gallery__media-secondary`. Integrations stack: `work-gallery__integrations-stack__stage`, `__back`, `__front`. Sidebar quad: `work-gallery__sidebar-quad`, `__col`.
+
+**Padding:** Hero-secondary frames are **flush at the bottom** (no bottom padding; top and sides use `--work-gallery-atmosphere-frame-padding` with backdrop, or `--space-work-gallery-card-padding` without).
+
+### Work gallery: multi-image figure backdrops
+
+CSS atmosphere backdrops on multi-image gallery frames (`hero-secondary`, `sidebar-quad`, `integrations-stack`). Foreground UI stays sharp; layered radial gradients mimic soft photographic light — no image assets.
+
+**Automatic assignment:** The `workGalleryAtmosphere` transform ([`lib/transforms/workGalleryAtmosphere.js`](lib/transforms/workGalleryAtmosphere.js)) runs on work pages after `workGalleryDivider`. It injects backdrop markup and picks one of three palettes per figure using a stable hash of page slug + figure index (same result every build).
+
+**Production palettes:**
+
+| Modifier | Feel |
+|----------|------|
+| `work-gallery__media--atmosphere-warm-light` | Bright window glow |
+| `work-gallery__media--atmosphere-amber-dusk` | Accent amber light pools |
+| `work-gallery__media--atmosphere-cool-dark` | Deep night blue-grey |
+
+**Manual override:** Add `work-gallery__media--has-backdrop`, your chosen `--atmosphere-*` class, and `<div class="work-gallery__backdrop" aria-hidden="true"></div>` in the case study HTML; the transform skips injecting markup but **still advances the figure index** so auto-assigned siblings keep stable palettes.
+
+```html
+<div class="work-gallery__media work-gallery__media--sidebar-quad work-gallery__media--has-backdrop work-gallery__media--backdrop-atmosphere work-gallery__media--atmosphere-warm-light">
+  <div class="work-gallery__backdrop" aria-hidden="true"></div>
+  <div class="work-gallery__sidebar-quad">…panels…</div>
+</div>
+```
+
+Each palette sets `--work-gallery-atmosphere-*` custom properties (base, glow-a, glow-b, vignette, wash). Add new palettes by defining those variables on a new `--atmosphere-*` modifier in [`src/assets/css/styles.css`](src/assets/css/styles.css).
+
+**Implementation map:**
+
+| Piece | Location |
+|-------|----------|
+| Atmosphere styles | [`src/assets/css/styles.css`](src/assets/css/styles.css) (`.work-gallery__media--has-backdrop`, `--backdrop-atmosphere`, `--atmosphere-*`) |
+| Cool palette tokens | [`themes/theme.css`](themes/theme.css) |
+| Build transform | [`lib/transforms/workGalleryAtmosphere.js`](lib/transforms/workGalleryAtmosphere.js) (wired in [`.eleventy.js`](.eleventy.js) after `workGalleryDivider`) |
+
 ## 5. What NOT to Do
 
 ### Dependencies

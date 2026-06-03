@@ -26,7 +26,8 @@ I helped grow the enterprise product from a single customer to over 30, adapting
   <figure class="work-gallery__item work-gallery__item--hero-secondary work-gallery__item--email-duo">
     <figcaption class="work-gallery__caption">From product to promotion</figcaption>
     <p class="work-gallery__description">The system shipped templates for product emails like Stack Overflow for Teams and marketing campaigns like our 10th anniversary. Same components, different contexts.</p>
-    <div class="work-gallery__media work-gallery__media--hero-secondary" aria-label="Stack Overflow Teams and 10th anniversary email designs.">
+    <div class="work-gallery__media work-gallery__media--hero-secondary work-gallery__media--has-backdrop work-gallery__media--backdrop-atmosphere work-gallery__media--atmosphere-amber-dusk" aria-label="Stack Overflow Teams and 10th anniversary email designs.">
+      <div class="work-gallery__backdrop" aria-hidden="true"></div>
       <img class="work-gallery__media-main" src="/assets/work/stackoverflow-email-teams.svg" alt="Stack Overflow for Teams email design." width="680" height="808" loading="lazy">
       <img class="work-gallery__media-secondary" src="/assets/work/stackoverflow-10th-email.svg" alt="Stack Overflow 10th anniversary email design." width="400" height="1062" loading="lazy">
     </div>
@@ -34,7 +35,8 @@ I helped grow the enterprise product from a single customer to over 30, adapting
   <figure class="work-gallery__item work-gallery__item--integrations-stack">
     <figcaption class="work-gallery__caption">Playing well with others</figcaption>
     <p class="work-gallery__description">Stack Overflow is most useful when it fits into how your team already works. I designed a set of integrations that connected our platform to tools like Jira and GitHub, turning separate systems into one seamless workflow.</p>
-    <div class="work-gallery__media work-gallery__media--integrations-stack" aria-label="Stack Overflow and GitHub integration previews.">
+    <div class="work-gallery__media work-gallery__media--integrations-stack work-gallery__media--has-backdrop work-gallery__media--backdrop-atmosphere work-gallery__media--atmosphere-cool-dark" aria-label="Stack Overflow and GitHub integration previews.">
+      <div class="work-gallery__backdrop" aria-hidden="true"></div>
       <div class="work-gallery__integrations-stack__stage">
         <img class="work-gallery__integrations-stack__back" src="/assets/work/stackoverflow-integration-so.svg" alt="Stack Overflow question preview linked from GitHub." width="678" height="425" loading="lazy">
         <img class="work-gallery__integrations-stack__front" src="/assets/work/stackoverflow-integration-github.svg" alt="GitHub code file preview linked to Stack Overflow." width="678" height="412" loading="lazy">

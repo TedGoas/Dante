@@ -38,6 +38,7 @@ module.exports = (config) => {
   config.addShortcode('clickToPlayVideo', require('./lib/shortcodes/clickToPlayVideo'));
 
   config.addTransform('workGalleryDivider', require('./lib/transforms/workGalleryDivider'));
+  config.addTransform('workGalleryAtmosphere', require('./lib/transforms/workGalleryAtmosphere'));
   config.addTransform('minifyHtml', require('./lib/transforms/minifyHtml'));
 
   config.addCollection('posts', require('./lib/collections/posts'));

@@ -41,6 +41,7 @@ alwaysApply: true
 - Case studies are HTML files with front matter — do not convert them to Markdown
 - Do not hardcode navigation links — derive them from collections or data files
 - **Work gallery video figures:** Use the `clickToPlayVideo` shortcode in Markdown work pages for poster + lazy MP4 + native controls after play. Full stack and UX rules live in **[AGENTS.md](AGENTS.md)** under *Work gallery: video figures (click-to-play)*.
+- **Work gallery multi-image figures:** Layout modifiers, atmosphere backdrops, and HTML templates — **[`.cursor/skills/work-gallery-figures/SKILL.md`](.cursor/skills/work-gallery-figures/SKILL.md)** and [AGENTS.md](AGENTS.md) (*Work gallery: multi-image layouts*).
 
 ## Theming
 

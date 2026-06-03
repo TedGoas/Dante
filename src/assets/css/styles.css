@@ -36,7 +36,8 @@ html {
   --work-gallery-viewport-gutter: 2rem;
   --work-gallery-email-media-gap: clamp(0.75rem, 1.5vw, 1.25rem);
   --work-gallery-sidebar-quad-gap: 1rem;
-  --work-gallery-sidebar-quad-padding-y: clamp(6.25rem, 10vw, 12.5rem);
+  --work-gallery-atmosphere-frame-padding: clamp(2.5rem, 5vw, 4rem);
+  --work-gallery-backdrop-wash-opacity: 0.82;
   --work-gallery-email-main-column: minmax(0, 1.9fr);
   --work-gallery-email-secondary-column: minmax(0, 1fr);
   --home-work-grid-gap: 0.75rem;
@@ -1481,16 +1482,29 @@ hr {
   box-shadow: inset 0 0 0 var(--border-width-hairline) var(--color-border-subtle);
 }
 
+/* --- Work gallery: reusable multi-image layouts (see .cursor/skills/work-gallery-figures/) ---
+ * Figure: --hero-secondary | --email-duo | --canfield-duo | --sidebar-quad | --integrations-stack
+ * Media:  --hero-secondary | --sidebar-quad | --integrations-stack
+ * Backdrop: --has-backdrop --backdrop-atmosphere --atmosphere-{warm-light|amber-dusk|cool-dark}
+ * -------------------------------------------------------------------------------------------- */
+
 /* Reusable figure pattern: hero image + smaller secondary image */
 .writing .work-gallery__item--hero-secondary .work-gallery__media--hero-secondary {
   display: grid;
   grid-template-columns: var(--work-gallery-email-main-column) var(--work-gallery-email-secondary-column);
   gap: var(--work-gallery-email-media-gap);
   align-items: end;
-  padding: var(--space-work-gallery-card-padding) var(--space-work-gallery-card-padding) 0;
-  background-color: var(--color-work-gallery-hero-secondary-bg);
   width: max-content;
   max-width: 100%;
+}
+
+.writing .work-gallery__item--hero-secondary .work-gallery__media--hero-secondary:not(.work-gallery__media--has-backdrop) {
+  padding: var(--space-work-gallery-card-padding) var(--space-work-gallery-card-padding) 0;
+  background-color: var(--color-work-gallery-hero-secondary-bg);
+}
+
+.writing .work-gallery__item--hero-secondary .work-gallery__media--hero-secondary.work-gallery__media--has-backdrop {
+  padding: var(--work-gallery-atmosphere-frame-padding) var(--work-gallery-atmosphere-frame-padding) 0;
 }
 
 .writing .work-gallery__item--hero-secondary .work-gallery__media--hero-secondary .work-gallery__media-main {
@@ -1525,7 +1539,7 @@ hr {
 }
 
 /* Stacked integration cards (Stack Overflow case study): SO back top-left, GitHub front bottom-right */
-.writing .work-gallery__item--integrations-stack > .work-gallery__media--integrations-stack {
+.writing .work-gallery__item--integrations-stack > .work-gallery__media--integrations-stack:not(.work-gallery__media--has-backdrop) {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -1572,10 +1586,13 @@ hr {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-block: var(--work-gallery-sidebar-quad-padding-y);
-  background-color: var(--color-work-gallery-hero-secondary-bg);
+  padding: var(--work-gallery-atmosphere-frame-padding);
   border-radius: var(--radius-click-to-play);
   overflow: hidden;
+}
+
+.writing .work-gallery__media--sidebar-quad:not(.work-gallery__media--has-backdrop) {
+  background-color: var(--color-work-gallery-hero-secondary-bg);
 }
 
 .writing .work-gallery__sidebar-quad {
@@ -1595,11 +1612,101 @@ hr {
   min-width: 0;
 }
 
-.writing .work-gallery__media--sidebar-quad img {
+.writing .work-gallery__sidebar-quad img {
   display: block;
   width: auto;
   max-width: 100%;
   height: auto;
+}
+
+/* Atmosphere backdrop layer for multi-image gallery frames */
+.writing .work-gallery__media--has-backdrop {
+  position: relative;
+  isolation: isolate;
+  border-radius: var(--radius-click-to-play);
+  overflow: hidden;
+  background-color: var(--color-work-gallery-hero-secondary-bg);
+  padding: var(--work-gallery-atmosphere-frame-padding);
+}
+
+.writing .work-gallery__media--has-backdrop > :not(.work-gallery__backdrop) {
+  position: relative;
+  z-index: 1;
+}
+
+.writing .work-gallery__media--integrations-stack.work-gallery__media--has-backdrop {
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+  overflow: hidden;
+}
+
+.writing .work-gallery__backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.writing .work-gallery__backdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: var(--color-work-gallery-backdrop-wash);
+  opacity: var(--work-gallery-backdrop-wash-opacity);
+}
+
+/* CSS atmosphere backdrops — layered radials mimicking soft photographic light */
+.writing .work-gallery__media--backdrop-atmosphere {
+  --work-gallery-backdrop-wash-opacity: var(--work-gallery-atmosphere-wash-opacity);
+}
+
+.writing .work-gallery__media--backdrop-atmosphere .work-gallery__backdrop::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 72% 58% at 22% 32%, var(--work-gallery-atmosphere-glow-a), transparent 62%),
+    radial-gradient(ellipse 50% 42% at 84% 20%, var(--work-gallery-atmosphere-glow-b), transparent 56%),
+    radial-gradient(ellipse 88% 68% at 52% 108%, var(--work-gallery-atmosphere-vignette), transparent 68%),
+    radial-gradient(ellipse 38% 32% at 6% 92%, var(--work-gallery-atmosphere-vignette), transparent 54%),
+    linear-gradient(152deg, var(--work-gallery-atmosphere-base) 0%, var(--work-gallery-atmosphere-base-end) 100%);
+}
+
+/* Warm light — window glow */
+.writing .work-gallery__media--atmosphere-warm-light {
+  --work-gallery-atmosphere-base: color-mix(in srgb, var(--color-site-fg) 24%, var(--color-work-gallery-hero-secondary-bg));
+  --work-gallery-atmosphere-base-end: color-mix(in srgb, var(--color-site-fg) 12%, var(--color-work-gallery-hero-secondary-bg));
+  --work-gallery-atmosphere-glow-a: color-mix(in srgb, var(--color-site-fg) 58%, transparent);
+  --work-gallery-atmosphere-glow-b: color-mix(in srgb, var(--color-accent) 16%, var(--color-site-fg) 28%);
+  --work-gallery-atmosphere-vignette: color-mix(in srgb, var(--color-site-bg) 42%, transparent);
+  --work-gallery-atmosphere-wash-opacity: 0.22;
+}
+
+/* Amber dusk — accent light pools */
+.writing .work-gallery__media--atmosphere-amber-dusk {
+  --work-gallery-atmosphere-base: color-mix(in srgb, var(--color-accent) 8%, var(--color-site-bg));
+  --work-gallery-atmosphere-base-end: color-mix(in srgb, var(--color-accent) 4%, var(--color-work-gallery-hero-secondary-bg));
+  --work-gallery-atmosphere-glow-a: color-mix(in srgb, var(--color-accent) 48%, transparent);
+  --work-gallery-atmosphere-glow-b: color-mix(in srgb, var(--color-accent-hover) 28%, transparent);
+  --work-gallery-atmosphere-vignette: color-mix(in srgb, var(--color-site-bg) 72%, transparent);
+  --work-gallery-atmosphere-wash-opacity: 0.18;
+}
+
+/* Cool dark — deep night blue */
+.writing .work-gallery__media--atmosphere-cool-dark {
+  --work-gallery-atmosphere-base: color-mix(in srgb, var(--color-work-gallery-atmosphere-cool-deep) 38%, var(--color-site-bg));
+  --work-gallery-atmosphere-base-end: color-mix(in srgb, var(--color-site-bg) 82%, var(--color-work-gallery-atmosphere-cool-deep));
+  --work-gallery-atmosphere-glow-a: color-mix(in srgb, var(--color-work-gallery-atmosphere-cool) 32%, transparent);
+  --work-gallery-atmosphere-glow-b: color-mix(in srgb, var(--color-site-fg) 8%, transparent);
+  --work-gallery-atmosphere-vignette: color-mix(in srgb, var(--color-site-bg) 78%, transparent);
+  --work-gallery-atmosphere-wash-opacity: 0.3;
 }
 
 @media (max-width: 720px) {
@@ -2116,7 +2223,7 @@ hr {
   border-radius: 0;
 }
 
-.writing .work-gallery__item--integrations-stack > .work-gallery__media--integrations-stack {
+.writing .work-gallery__item--integrations-stack > .work-gallery__media--integrations-stack:not(.work-gallery__media--has-backdrop) {
   overflow: visible;
 }
 
@@ -2152,6 +2259,18 @@ hr {
   max-width: 100%;
   margin-inline: auto;
   grid-template-columns: minmax(0, 620px) minmax(0, 320px);
+}
+
+.writing .work-gallery__item--sidebar-quad > .work-gallery__media--sidebar-quad {
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.writing .work-gallery__item--integrations-stack > .work-gallery__media--integrations-stack.work-gallery__media--has-backdrop {
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
 }
 
 .writing .work-gallery__item--email-duo > .work-gallery__media--hero-secondary {

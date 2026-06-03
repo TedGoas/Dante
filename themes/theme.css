@@ -25,6 +25,9 @@
 
   --color-work-gallery-card-bg: #2a2118;
   --color-work-gallery-hero-secondary-bg: #352a1f;
+  --color-work-gallery-backdrop-wash: color-mix(in srgb, var(--color-work-gallery-hero-secondary-bg) 78%, transparent);
+  --color-work-gallery-atmosphere-cool: #8ba4c4;
+  --color-work-gallery-atmosphere-cool-deep: #4a5f7a;
   --color-work-gallery-card-border: rgba(255, 255, 255, 0.08);
   --color-work-gallery-card-title: var(--color-site-fg);
   --color-work-gallery-card-description: var(--color-site-fg-muted);
