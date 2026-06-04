@@ -12,6 +12,11 @@
   --color-accent-hover: #ffc933;
   --color-highlight: #ffb900;
 
+  --color-text-marker-red: #ff637e;
+  --color-text-marker-yellow: #f5c842;
+  --color-text-marker-green: #5fd68a;
+  --opacity-text-marker: 0.25;
+
   --color-site-chrome-bg: var(--color-site-bg);
 
   --color-border-subtle: rgba(255, 255, 255, 0.1);

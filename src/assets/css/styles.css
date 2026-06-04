@@ -759,6 +759,58 @@ hr {
   padding: var(--home-work-grid-gap) calc(var(--home-work-grid-gap) * 2);
 }
 
+.home-work-grid__cell--text .text-marker {
+  position: relative;
+  display: inline-block;
+  vertical-align: baseline;
+  max-width: 100%;
+  isolation: isolate;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.home-work-grid__cell--text .text-marker--red {
+  --text-marker-fill: var(--color-text-marker-red);
+}
+
+.home-work-grid__cell--text .text-marker--yellow {
+  --text-marker-fill: var(--color-text-marker-yellow);
+}
+
+.home-work-grid__cell--text .text-marker--green {
+  --text-marker-fill: var(--color-text-marker-green);
+}
+
+.home-work-grid__cell--text .text-marker__layer {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  left: -0.06em;
+  width: calc(100% + 0.12em);
+  height: 0.52em;
+  bottom: 0.12em;
+  border-radius: 0.05em;
+  background: color-mix(
+    in srgb,
+    var(--text-marker-fill) calc(var(--opacity-text-marker) * 100%),
+    transparent
+  );
+  transform: rotate(1deg);
+  transform-origin: center center;
+}
+
+.home-work-grid__cell--text .text-marker__layer--2 {
+  top: calc(0.12em - 0.04em);
+  bottom: auto;
+  transform: rotate(-2deg);
+}
+
+.home-work-grid__cell--text .text-marker__layer--3 {
+  left: -0.08em;
+  width: calc(100% + 0.16em);
+  transform: rotate(0.5deg);
+}
+
 .home-work-grid__media {
   position: absolute;
   top: calc(-1 * var(--home-work-grid-media-offset));
