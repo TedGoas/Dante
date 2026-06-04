@@ -743,6 +743,16 @@ hr {
   box-shadow: inset 0 0 0 var(--border-width-hairline) var(--color-border-subtle);
 }
 
+.home-work-grid__link {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.home-work-grid__cell--media:has(.home-work-grid__link:hover) {
+  box-shadow: inset 0 0 0 var(--border-width-hairline) var(--color-border-strong);
+}
+
 .home-work-grid__cell--text {
   display: grid;
   align-items: center;
