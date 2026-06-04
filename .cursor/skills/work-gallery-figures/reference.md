@@ -97,6 +97,36 @@ Stage aspect ratio 1151×450; back top-left, front bottom-right.
 </figure>
 ```
 
+## Experiment grid — tone hero + 3-column sidebar (Stack Overflow “Side projects, serious ideas”)
+
+Tone centered above a 3-column grid (2 / 3 / 2 cards). Columns vertically centered. Card order matches Figma `8125:80684`.
+
+```html
+<figure class="work-gallery__item work-gallery__item--experiment-grid">
+  <figcaption class="work-gallery__caption">Caption</figcaption>
+  <p class="work-gallery__description">Description.</p>
+  <div class="work-gallery__media work-gallery__media--experiment-grid work-gallery__media--has-backdrop work-gallery__media--backdrop-atmosphere work-gallery__media--atmosphere-warm-light" aria-label="Tone assistant and sidebar notification concepts.">
+    <div class="work-gallery__backdrop" aria-hidden="true"></div>
+    <img class="work-gallery__experiment-grid__tone" src="/assets/work/tone.svg" alt="Tone assistant exploration." width="791" height="710" loading="lazy">
+    <div class="work-gallery__experiment-grid__sidebar">
+      <div class="work-gallery__experiment-grid__col">
+        <img src="/assets/work/sidebar-a.svg" alt="Sidebar card A." width="300" height="99" loading="lazy">
+        <img src="/assets/work/sidebar-b.svg" alt="Sidebar card B." width="300" height="113" loading="lazy">
+      </div>
+      <div class="work-gallery__experiment-grid__col">
+        <img src="/assets/work/sidebar-c.svg" alt="Sidebar card C." width="300" height="89" loading="lazy">
+        <img src="/assets/work/sidebar-d.svg" alt="Sidebar card D." width="300" height="120" loading="lazy">
+        <img src="/assets/work/sidebar-e.svg" alt="Sidebar card E." width="300" height="115" loading="lazy">
+      </div>
+      <div class="work-gallery__experiment-grid__col">
+        <img src="/assets/work/sidebar-f.svg" alt="Sidebar card F." width="300" height="101" loading="lazy">
+        <img src="/assets/work/sidebar-g.svg" alt="Sidebar card G." width="300" height="99" loading="lazy">
+      </div>
+    </div>
+  </div>
+</figure>
+```
+
 ## Atmosphere palettes
 
 | Class | Use when |
@@ -115,4 +145,8 @@ New palette: duplicate an existing `--atmosphere-*` block in `styles.css` and se
 | `--space-work-gallery-card-padding` | Non-backdrop hero-secondary inset |
 | `--work-gallery-email-media-gap` | Grid gap between main/secondary |
 | `--work-gallery-sidebar-quad-gap` | Gap in quad layout |
+| `--work-gallery-experiment-grid-gap` | Gap between sidebar columns and cards |
+| `--work-gallery-experiment-tone-gap` | Gap between tone hero and sidebar grid (3× grid gap) |
+| `--work-gallery-experiment-tone-max-width` | Tone hero max width (791px) |
+| `--work-gallery-experiment-sidebar-column-width` | Sidebar card column width (300px) |
 | `--work-gallery-media-max-inline-size` | Gallery breakout max (90rem) |

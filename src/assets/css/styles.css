@@ -36,6 +36,10 @@ html {
   --work-gallery-viewport-gutter: 2rem;
   --work-gallery-email-media-gap: clamp(0.75rem, 1.5vw, 1.25rem);
   --work-gallery-sidebar-quad-gap: 1rem;
+  --work-gallery-experiment-grid-gap: 1rem;
+  --work-gallery-experiment-tone-gap: calc(var(--work-gallery-experiment-grid-gap) * 3);
+  --work-gallery-experiment-tone-max-width: 791px;
+  --work-gallery-experiment-sidebar-column-width: 300px;
   --work-gallery-atmosphere-frame-padding: clamp(2.5rem, 5vw, 4rem);
   --work-gallery-backdrop-wash-opacity: 0.82;
   --work-gallery-email-main-column: minmax(0, 1.9fr);
@@ -1483,8 +1487,8 @@ hr {
 }
 
 /* --- Work gallery: reusable multi-image layouts (see .cursor/skills/work-gallery-figures/) ---
- * Figure: --hero-secondary | --email-duo | --canfield-duo | --sidebar-quad | --integrations-stack
- * Media:  --hero-secondary | --sidebar-quad | --integrations-stack
+ * Figure: --hero-secondary | --email-duo | --canfield-duo | --sidebar-quad | --integrations-stack | --experiment-grid
+ * Media:  --hero-secondary | --sidebar-quad | --integrations-stack | --experiment-grid
  * Backdrop: --has-backdrop --backdrop-atmosphere --atmosphere-{warm-light|amber-dusk|cool-dark}
  * -------------------------------------------------------------------------------------------- */
 
@@ -1619,6 +1623,55 @@ hr {
   height: auto;
 }
 
+/* Tone hero + 3-column sidebar grid (Stack Overflow experiments) */
+.writing .work-gallery__media--experiment-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.writing .work-gallery__media--experiment-grid:not(.work-gallery__media--has-backdrop) {
+  padding: var(--work-gallery-atmosphere-frame-padding);
+  background-color: var(--color-work-gallery-hero-secondary-bg);
+  border-radius: var(--radius-click-to-play);
+  overflow: hidden;
+}
+
+.writing .work-gallery__experiment-grid__sidebar {
+  display: flex;
+  gap: var(--work-gallery-experiment-grid-gap);
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  max-width: 100%;
+  margin-block-start: var(--work-gallery-experiment-tone-gap);
+}
+
+.writing .work-gallery__experiment-grid__col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--work-gallery-experiment-grid-gap);
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.writing .work-gallery__item > .work-gallery__media--experiment-grid .work-gallery__experiment-grid__tone {
+  display: block;
+  width: min(var(--work-gallery-experiment-tone-max-width), 100%);
+  height: auto;
+  border-radius: var(--radius-work-gallery-image);
+}
+
+.writing .work-gallery__item > .work-gallery__media--experiment-grid .work-gallery__experiment-grid__sidebar img {
+  display: block;
+  width: min(var(--work-gallery-experiment-sidebar-column-width), 100%);
+  height: auto;
+  border-radius: 0;
+}
+
 /* Atmosphere backdrop layer for multi-image gallery frames */
 .writing .work-gallery__media--has-backdrop {
   position: relative;
@@ -1717,6 +1770,17 @@ hr {
   }
 
   .writing .work-gallery__sidebar-quad__col {
+    width: 100%;
+    max-width: 20rem;
+  }
+
+  .writing .work-gallery__experiment-grid__sidebar {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .writing .work-gallery__experiment-grid__col {
     width: 100%;
     max-width: 20rem;
   }
@@ -2193,8 +2257,8 @@ hr {
   overflow: hidden;
 }
 
-/* All corners (default); click-to-play, sidebar quad, and integrations-stack use their own rules below */
-.writing .work-gallery__item:not(.work-gallery__item--media-radius-lg) > :is(img, .work-gallery__media):not(.click-to-play):not(.work-gallery__media--sidebar-quad):not(.work-gallery__media--integrations-stack) {
+/* All corners (default); click-to-play, sidebar quad, integrations-stack, and experiment-grid use their own rules below */
+.writing .work-gallery__item:not(.work-gallery__item--media-radius-lg) > :is(img, .work-gallery__media):not(.click-to-play):not(.work-gallery__media--sidebar-quad):not(.work-gallery__media--integrations-stack):not(.work-gallery__media--experiment-grid) {
   border-radius: var(--radius-work-gallery-image);
 }
 
@@ -2210,7 +2274,7 @@ hr {
 
 /* Native sizing for default single-image figures (no upscale). */
 .writing .work-gallery__item:not(
-  :is(.work-gallery__item--hero-secondary, .work-gallery__item--sidebar-quad, .work-gallery__item--integrations-stack)
+  :is(.work-gallery__item--hero-secondary, .work-gallery__item--sidebar-quad, .work-gallery__item--integrations-stack, .work-gallery__item--experiment-grid)
 ) > img {
   display: block;
   width: auto;
@@ -2262,6 +2326,12 @@ hr {
 }
 
 .writing .work-gallery__item--sidebar-quad > .work-gallery__media--sidebar-quad {
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.writing .work-gallery__item--experiment-grid > .work-gallery__media--experiment-grid {
   width: fit-content;
   max-width: 100%;
   margin-inline: auto;

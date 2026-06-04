@@ -43,9 +43,27 @@ I helped grow the enterprise product from a single customer to over 30, adapting
       </div>
     </div>
   </figure>
-  <figure class="work-gallery__item">
+  <figure class="work-gallery__item work-gallery__item--experiment-grid">
     <figcaption class="work-gallery__caption">Side projects, serious ideas</figcaption>
     <p class="work-gallery__description">I've always believed in making space to explore. Alongside my regular work, I sketched out ideas for improving the Stack Overflow experience, including ways to make the platform friendlier for people just getting started. Some made it into the product. Some didn't. All of them were worth doing.</p>
-    <img src="/assets/work/stackoverflow-grammarly.svg" alt="Stack Overflow Grammarly exploration." loading="lazy">
+    <div class="work-gallery__media work-gallery__media--experiment-grid work-gallery__media--has-backdrop work-gallery__media--backdrop-atmosphere work-gallery__media--atmosphere-warm-light" aria-label="Stack Overflow tone assistant exploration and sidebar notification concepts.">
+      <div class="work-gallery__backdrop" aria-hidden="true"></div>
+      <img class="work-gallery__experiment-grid__tone" src="/assets/work/stackoverflow-experiment-tone.svg" alt="Stack Overflow tone assistant: AI review for spelling, clarity, friendliness, and formatting in the answer editor." width="791" height="710" loading="lazy">
+      <div class="work-gallery__experiment-grid__sidebar">
+        <div class="work-gallery__experiment-grid__col">
+          <img src="/assets/work/stackoverflow-experiment-sidebar6.svg" alt="Sidebar: Take a 60 second tour." width="300" height="99" loading="lazy">
+          <img src="/assets/work/stackoverflow-experiment-sidebar1.svg" alt="Sidebar: Teams is now free for up to 50 users." width="300" height="113" loading="lazy">
+        </div>
+        <div class="work-gallery__experiment-grid__col">
+          <img src="/assets/work/stackoverflow-experiment-sidebar2.svg" alt="Sidebar: @mention, custom lists, and improved emails." width="300" height="89" loading="lazy">
+          <img src="/assets/work/stackoverflow-experiment-sidebar4.svg" alt="Sidebar: Privacy checkup." width="300" height="120" loading="lazy">
+          <img src="/assets/work/stackoverflow-experiment-sidebar5.svg" alt="Sidebar: Dark mode is here." width="300" height="115" loading="lazy">
+        </div>
+        <div class="work-gallery__experiment-grid__col">
+          <img src="/assets/work/stackoverflow-experiment-sidebar3.svg" alt="Sidebar: Review your notifications." width="300" height="101" loading="lazy">
+          <img src="/assets/work/stackoverflow-experiment-sidebar7.svg" alt="Sidebar: Sign up for research." width="300" height="99" loading="lazy">
+        </div>
+      </div>
+    </div>
   </figure>
 </section>
