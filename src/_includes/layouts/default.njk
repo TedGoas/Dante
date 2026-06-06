@@ -50,37 +50,7 @@
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="layout footer-inner">
-      <p class="site-footer__tagline">
-        Trying to create work cool enough to show
-        <span class="site-footer__tooltip-host">
-          <a href="#">my friends</a>
-          <span class="site-footer__tooltip">
-            <img src="/assets/img/home/friends.jpg" alt="" width="640" height="480" loading="lazy">
-          </span>
-        </span>
-        and honest enough to show
-        <span class="site-footer__tooltip-host">
-          <a href="#">my parents</a>
-          <span class="site-footer__tooltip">
-            <img src="/assets/img/home/parents.jpg" alt="" width="640" height="480" loading="lazy">
-          </span>
-        </span>.
-      </p>
-      <nav class="site-footer__nav" aria-label="Footer">
-        <ul class="site-footer__links">
-          <li><a href="#" class="site-footer__link">This site</a></li>
-          <li class="site-footer__sep" aria-hidden="true"></li>
-          <li><a href="#" class="site-footer__link">RSS Feed</a></li>
-          <li class="site-footer__sep" aria-hidden="true"></li>
-          <li><a href="#" class="site-footer__link">Humans.txt</a></li>
-          <li class="site-footer__sep" aria-hidden="true"></li>
-          <li><a href="#" class="site-footer__link">LinkedIn</a></li>
-        </ul>
-      </nav>
-    </div>
-  </footer>
+  {% include "components/site-footer.njk" %}
   {% block footerScripts %}{% endblock %}
 </body>
 </html>

@@ -51,8 +51,13 @@
   --color-border: var(--color-border-strong);
   --home-hero-cta-border: var(--color-accent);
 
-  --color-footer-tagline: color-mix(in srgb, var(--color-site-fg) 50%, var(--color-site-bg));
-  --color-footer-link: var(--color-text);
-  --color-footer-sep: var(--color-text-muted);
+  --color-footer-heading: var(--color-site-fg);
+  --color-footer-link: var(--color-site-fg);
+  --color-footer-link-muted: var(--color-site-fg-muted);
+  --color-footer-statement: color-mix(in srgb, var(--color-site-fg) 10%, var(--color-site-bg));
+  --color-footer-statement-link: var(--color-footer-statement);
+  --color-footer-divider: var(--color-border-subtle);
+  --color-footer-panel-border: var(--color-border-subtle);
+  --color-footer-mark: var(--color-site-fg);
   --color-footer-tooltip-shadow: rgba(0, 0, 0, 0.45);
 }

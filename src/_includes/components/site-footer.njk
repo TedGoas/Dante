@@ -1,0 +1,61 @@
+<footer class="site-footer">
+  <div class="layout site-footer__upper">
+    <section class="site-footer__panel site-footer__panel--links" aria-labelledby="site-footer-links-heading">
+      <h2 id="site-footer-links-heading" class="site-footer__heading">Links</h2>
+      <div class="site-footer__link-columns">
+        {% for column in footer.linkColumns %}
+        <ul class="site-footer__link-list">
+          {% for link in column %}
+          <li>
+            <a
+              href="{{ link.href }}"
+              class="site-footer__link"
+              {% if link.external %}target="_blank" rel="noopener noreferrer"{% endif %}
+            >{{ link.label }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+        {% endfor %}
+      </div>
+    </section>
+
+    <div class="site-footer__divider" aria-hidden="true"></div>
+
+    <section class="site-footer__panel site-footer__panel--newsletter" aria-labelledby="site-footer-newsletter-heading">
+      <h2 id="site-footer-newsletter-heading" class="site-footer__heading">Newsletter</h2>
+      <p class="site-footer__newsletter-intro">{{ footer.newsletterIntro }}</p>
+      {% set modifier = "site-footer__newsletter-form" %}
+      {% include "components/newsletter-signup.njk" %}
+    </section>
+  </div>
+
+  <div class="layout site-footer__lower">
+    <p class="site-footer__statement">
+      Creating work cool enough to show
+      <span class="site-footer__tooltip-host">
+        <a href="#">my friends</a>
+        <span class="site-footer__tooltip" role="tooltip">
+          <img src="/assets/img/home/friends.jpg" alt="" width="640" height="480" loading="lazy">
+        </span>
+      </span>
+      and honest enough to show
+      <span class="site-footer__tooltip-host">
+        <a href="#">my parents</a>
+        <span class="site-footer__tooltip" role="tooltip">
+          <img src="/assets/img/home/parents.jpg" alt="" width="640" height="480" loading="lazy">
+        </span>
+      </span>.
+    </p>
+    <img
+      src="/assets/img/tg-footer-logo.svg"
+      alt=""
+      width="83"
+      height="84"
+      class="site-footer__mark"
+      loading="lazy"
+      decoding="async"
+    >
+  </div>
+
+  <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+</footer>
