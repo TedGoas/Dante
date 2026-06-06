@@ -1,0 +1,63 @@
+/*
+ * Dark theme: warm brown-black canvas + amber accent (#1c1610 / #fffbeb / #ffb900).
+ * Typography stacks live in tokens-base.css.
+ */
+[data-theme="dark"] {
+  --color-site-bg: #1c1610;
+  --color-site-fg: #fffbeb;
+  --color-site-fg-muted: color-mix(in srgb, var(--color-site-fg) 68%, var(--color-site-bg));
+  --color-prose-body: color-mix(in srgb, var(--color-site-fg) 88%, var(--color-site-fg-muted));
+
+  --color-accent: #ffb900;
+  --color-accent-hover: #ffc933;
+  --color-highlight: #ffb900;
+
+  --color-text-marker-red: #ff637e;
+  --color-text-marker-yellow: #f5c842;
+  --color-text-marker-green: #5fd68a;
+  --opacity-text-marker: 0.25;
+
+  --color-site-chrome-bg: var(--color-site-bg);
+
+  --color-border-subtle: rgba(255, 255, 255, 0.1);
+  --color-border-strong: rgba(255, 255, 255, 0.15);
+  --color-divider: rgba(255, 255, 255, 0.2);
+
+  --color-surface-raised: #241c14;
+  --color-surface-tile: #2a2118;
+  --color-surface-tile-muted: #16110d;
+  --color-surface-tile-border: var(--color-border-subtle);
+
+  --color-work-gallery-card-bg: #2a2118;
+  --color-work-gallery-hero-secondary-bg: #352a1f;
+  --color-work-gallery-backdrop-wash: color-mix(in srgb, var(--color-work-gallery-hero-secondary-bg) 78%, transparent);
+  --color-work-gallery-atmosphere-cool: #8ba4c4;
+  --color-work-gallery-atmosphere-cool-deep: #4a5f7a;
+  --color-work-gallery-card-border: rgba(255, 255, 255, 0.08);
+  --color-work-gallery-card-title: var(--color-site-fg);
+  --color-work-gallery-card-description: var(--color-site-fg-muted);
+
+  --color-figure-caption-title: var(--color-site-fg);
+  --color-figure-caption-body: color-mix(in srgb, var(--color-site-fg) 72%, var(--color-site-bg));
+  --color-figure-rule: var(--color-border-strong);
+  --color-figure-kicker: rgba(255, 251, 235, 0.28);
+
+  --color-blockquote-bg: var(--color-work-gallery-card-bg);
+
+  --color-page-bg: var(--color-site-bg);
+  --color-text: var(--color-site-fg);
+  --color-text-muted: var(--color-site-fg-muted);
+  --color-text-strong: var(--color-site-fg);
+  --color-border: var(--color-border-strong);
+  --home-hero-cta-border: var(--color-accent);
+
+  --color-footer-heading: var(--color-site-fg);
+  --color-footer-link: var(--color-site-fg);
+  --color-footer-link-muted: var(--color-site-fg-muted);
+  --color-footer-statement: color-mix(in srgb, var(--color-site-fg) 10%, var(--color-site-bg));
+  --color-footer-statement-link: var(--color-footer-statement);
+  --color-footer-divider: var(--color-border-subtle);
+  --color-footer-panel-border: var(--color-border-subtle);
+  --color-footer-mark: var(--color-site-fg);
+  --color-footer-tooltip-shadow: rgba(0, 0, 0, 0.45);
+}
