@@ -131,7 +131,7 @@ Structural separator (not accent): three hollow dots (`--divider-dot-size`, `--d
 - **Display** (400, `clamp(2.4rem, 5vw, 4rem)`, 1.12): Homepage hero headline, major page titles. Structure frozen on homepage per visual design language.
 - **Headline** (400, `clamp(2.125rem, 5vw, 3.625rem)`, 1.12): Article and case study titles (`--type-h1-size`).
 - **Title** (400, `clamp(1.55rem, 3vw, 2.15rem)`, ~1.3): Section headings, post dek.
-- **Body** (400, `clamp(1.0625rem, 0.95rem + 0.35vw, 1.1875rem)`, 1.68): Long-form prose; default measure `--measure-prose` (66ch) for general `.content-flow` pages. **Reading prose** (blog `.post-body`, case study `.work-body.writing`, Values `.reading`) shares `--measure-reading` (`min(43rem, 100%)`, ~72 characters at reading body size), ~21px body (110% base), leading 1.65, 1em paragraph gap, `--color-prose-body` with full foreground on `strong`. Blog keeps `--post-measure` as an alias of `--measure-reading` for header/footer width.
+- **Body** (400, `clamp(1.0625rem, 0.95rem + 0.35vw, 1.1875rem)`, 1.68): Long-form prose; default measure `--measure-prose` (66ch) for general `.content-flow` pages. **Reading prose** (blog `.post-body`, case study `.work-body.writing`, How I Think `.reading`) shares `--measure-reading` (`min(43rem, 100%)`, ~72 characters at reading body size), ~21px body (110% base), leading 1.65, 1em paragraph gap, `--color-prose-body` with full foreground on `strong`. Blog keeps `--post-measure` as an alias of `--measure-reading` for header/footer width.
 - **Label** (400, 0.75rem, 1.4, tracking 0.12–0.14em, uppercase/small caps): Eyebrows, reading time, nav, footer links, figure kickers.
 
 ### Named Rules

@@ -10,7 +10,7 @@ These are locked. Do not change structure, layout, size, or position of any of t
 
 - **Homepage h1** — The large serif headline with the inline avatar photo and company marks (small inline images inside links). Font family may change, but the layout, sizing, and structure stay exactly as-is.
 - **`.homepage-showcase` grid** — The case study thumbnail grid on the homepage. Layout, size, and position are frozen. Text styling inside the tiles is fair game.
-- **All written content** — Headlines, body copy, navigation labels, blog posts, case studies, bio, values page. Do not alter any text content anywhere on the site. This is a visual design exercise only.
+- **All written content** — Headlines, body copy, navigation labels, blog posts, case studies, bio, How I Think page. Do not alter any text content anywhere on the site. This is a visual design exercise only.
 
 ---
 
@@ -24,7 +24,7 @@ Use a three-font system throughout the site. Role structure is locked; the faces
 
 ### Typography Details
 
-These stylistic patterns should appear consistently across all text-heavy pages (blog posts, case studies, bio, values):
+These stylistic patterns should appear consistently across all text-heavy pages (blog posts, case studies, bio, How I Think):
 
 - **Small caps** for metadata, category labels, and secondary labels (e.g. "FIELD REPORT", "READING TIME", section tags)
 - **Italic serif** for pull quotes and blockquotes
@@ -71,7 +71,7 @@ The site uses CSS custom properties on `:root` for a single production theme: wa
 - Each entry should include: category label (small caps), title, short description, one or two key outcomes or stats, and a CTA link
 - More editorial than a thumbnail grid
 
-### Blog Posts, Case Studies, Bio, Values
+### Blog Posts, Case Studies, Bio, How I Think
 
 - Apply the full typographic treatment described above
 - Accent color should appear naturally throughout — in pull quotes, section numbers, callout borders, and key details

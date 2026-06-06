@@ -5,3 +5,13 @@
 # Prerender extension (Netlify UI) requires Node 20+; default image may use 18.
 [build.environment]
     NODE_VERSION = "20"
+
+[[redirects]]
+  from = "/values"
+  to = "/how-i-think/"
+  status = 301
+
+[[redirects]]
+  from = "/values/"
+  to = "/how-i-think/"
+  status = 301

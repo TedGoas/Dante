@@ -19,9 +19,8 @@
 3. **Bio** - Background and about information
 4. **Blog** - Articles and posts
 5. **Newsletter** - Newsletter hub/subscription
-6. **Values** - Personal values and principles
-7. **Labs** - Experimental projects and experiments
-8. **RSS** - Feed for blog posts
+6. **How I Think** - How I approach product design and work across teams
+7. **RSS** - Feed for blog posts
 
 ## 3. Visual Design Guidelines
 

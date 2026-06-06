@@ -12,7 +12,7 @@ Secondary visitors (peers, newsletter readers) benefit from the same clarity, bu
 
 ## Product Purpose
 
-A personal portfolio and publishing surface for tedgoas.com. It showcases case studies, writing, background, and values so a hiring decision can be informed without a live conversation. Success looks like: a recruiter understands scope and impact from work pages, senses editorial care from typography and layout, and leaves with enough confidence to reach out or advance a candidacy.
+A personal portfolio and publishing surface for tedgoas.com. It showcases case studies, writing, background, and how he thinks so a hiring decision can be informed without a live conversation. Success looks like: a recruiter understands scope and impact from work pages, senses editorial care from typography and layout, and leaves with enough confidence to reach out or advance a candidacy.
 
 The site is not an app. Design is the product: every page is a proof of taste, structure, and restraint.
 

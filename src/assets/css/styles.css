@@ -653,7 +653,7 @@ hr {
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 1rem 1.25rem;
+  gap: 1.5rem 1.875rem;
 }
 
 .site-nav__end {
@@ -1229,7 +1229,7 @@ hr {
   margin-bottom: 0;
 }
 
-/* --- Section headings (numbered, values / long-form) --- */
+/* --- Section headings (numbered, how-i-think / long-form) --- */
 .section-heading {
   display: flex;
   align-items: baseline;
@@ -1298,7 +1298,7 @@ hr {
   margin: 0 0 1rem;
 }
 
-/* --- Reading prose (blog post-body, case study intro, values) --- */
+/* --- Reading prose (blog post-body, case study intro, how-i-think) --- */
 .post,
 .work-body.writing,
 .content-flow > .reading {
@@ -2184,8 +2184,8 @@ hr {
   }
 }
 
-/* --- Values --- */
-.values-section {
+/* --- How I Think --- */
+.how-i-think-section {
   margin-bottom: 2rem;
 }
 
