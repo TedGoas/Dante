@@ -5,44 +5,44 @@ description: Case studies and design work
 ---
 
 <h1 id="work-heading">Work</h1>
-<p class="lede">
-  A brief visual history. Individual project pages are in progress.
-</p>
 
 <ol class="work-index__list" aria-labelledby="work-heading">
+  {% set atmospheres = ['warm-light', 'amber-dusk', 'cool-dark'] %}
   {% for item in collections.work %}
-  {% set lead = item.templateContent | workLead %}
-  <li class="work-index__row">
-    <div class="work-index__text">
-      {% if item.data.year %}
-      <p class="work-index__label">
-        {{ item.data.year }}
-      </p>
-      {% endif %}
-      <h2 class="work-index__title">
-        <a href="{{ item.url }}">{{ item.data.title }}</a>
-      </h2>
-      {% if item.data.excerpt %}
-      <p class="work-index__excerpt">{{ item.data.excerpt }}</p>
-      {% endif %}
-      {% if lead %}
-      <p class="work-index__lead">{{ lead }}</p>
-      {% endif %}
-    </div>
-    {% if item.data.workIndexThumb %}
-    <div class="work-index__media">
-      <a href="{{ item.url }}" class="work-index__media-link" tabindex="-1" aria-hidden="true">
+  <li class="work-index__item">
+    <a href="{{ item.url }}" class="work-index__card work-index__card--{{ item.data.index_card_layout }}{% if item.data.index_frame_anchor %} work-index__card--frame-anchor-{{ item.data.index_frame_anchor }}{% endif %}">
+      <div class="work-index__stage{% if item.data.index_card_layout != 'full-bleed' %} work-index__stage--atmosphere-{{ atmospheres[loop.index0 % atmospheres.length] }}{% endif %}">
+        {% if item.data.index_image %}
+        {% if item.data.index_card_layout == 'framed-inset' %}
+        <div class="work-index__frame">
+          <img
+            class="work-index__image"
+            src="{{ item.data.index_image }}"
+            alt="{{ item.data.index_image_alt or '' }}"
+            width="560"
+            height="336"
+            loading="lazy"
+          >
+        </div>
+        {% else %}
         <img
-          class="work-index__thumb"
-          src="{{ item.data.workIndexThumb }}"
-          alt=""
-          width="600"
-          height="400"
+          class="work-index__image"
+          src="{{ item.data.index_image }}"
+          alt="{{ item.data.index_image_alt or '' }}"
+          width="560"
+          height="336"
           loading="lazy"
         >
-      </a>
-    </div>
-    {% endif %}
+        {% endif %}
+        {% endif %}
+      </div>
+      <div class="work-index__body">
+        <h2 class="work-index__title">{{ item.data.index_title or item.data.title }}</h2>
+        {% if item.data.index_summary %}
+        <p class="work-index__summary">{{ item.data.index_summary }}</p>
+        {% endif %}
+      </div>
+    </a>
   </li>
   {% endfor %}
 </ol>

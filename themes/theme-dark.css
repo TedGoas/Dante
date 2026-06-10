@@ -37,6 +37,15 @@
   --color-work-gallery-card-title: var(--color-site-fg);
   --color-work-gallery-card-description: var(--color-site-fg-muted);
 
+  --work-index-card-bg-framed: #0c0a09;
+  --work-index-card-bg-bleed: #f5f5f4;
+  --work-index-card-text-framed: #ffffff;
+  --work-index-card-text-bleed: #0c0a09;
+  --work-index-card-text-bleed-muted: color-mix(in srgb, var(--work-index-card-text-bleed) 55%, var(--work-index-card-bg-bleed));
+  --work-index-card-border: var(--color-divider);
+  --work-index-card-border-bleed: color-mix(in srgb, var(--work-index-card-text-bleed) 12%, transparent);
+  --work-index-frame-bg: #ffffff;
+
   --color-figure-caption-title: var(--color-site-fg);
   --color-figure-caption-body: color-mix(in srgb, var(--color-site-fg) 72%, var(--color-site-bg));
   --color-figure-rule: var(--color-border-strong);

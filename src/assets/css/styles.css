@@ -279,7 +279,7 @@ hr {
   max-width: var(--measure-prose);
 }
 
-.content-flow :where(ul, ol):not(.article-list):not(.bio-timeline):not(.home-work-grid):not(.site-nav-list):not(.site-footer__link-list):not(.post-nav-list) {
+.content-flow :where(ul, ol):not(.article-list):not(.bio-timeline):not(.home-work-grid):not(.site-nav-list):not(.site-footer__link-list):not(.post-nav-list):not(.work-index__list) {
   max-width: var(--measure-prose);
 }
 
@@ -1163,102 +1163,188 @@ hr {
   margin-bottom: 2rem;
 }
 
-/* --- Work index (editorial rows) --- */
-.content-flow :where(.work-index__list) {
-  max-width: none;
-}
-
+/* --- Work index (Figma card variants) --- */
 .work-index__list {
   list-style: none;
-  margin: clamp(1.5rem, 4vw, 2.75rem) 0 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--work-index-grid-gap);
+  width: 100%;
+  margin: clamp(1.5rem, 4vw, 2.25rem) 0 0;
   padding: 0;
+}
+
+.work-index__item {
+  margin: 0;
+  min-width: 0;
+  width: 100%;
+}
+
+.work-index__card {
   display: flex;
   flex-direction: column;
-  gap: clamp(2.5rem, 5vw, 4rem);
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+  border: var(--border-width-hairline) solid var(--work-index-card-border);
+  border-radius: var(--radius-work-gallery-card);
+  overflow: hidden;
 }
 
-.work-index__row {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(14rem, min(38vw, 22rem));
-  gap: clamp(1.25rem, 3vw, 2.75rem);
-  align-items: start;
+.work-index__card--full-bleed {
+  background-color: var(--work-index-card-bg-bleed);
+  border-color: var(--color-site-bg);
+  box-shadow: inset 0 0 0 var(--border-width-hairline) var(--work-index-card-border-bleed);
 }
 
-.work-index__row:not(:has(.work-index__media)) {
-  grid-template-columns: 1fr;
+.work-index__card--framed-center,
+.work-index__card--framed-inset {
+  background-color: var(--work-index-card-bg-framed);
 }
 
-@media (max-width: 720px) {
-  .work-index__row {
-    grid-template-columns: 1fr;
-  }
+.work-index__card:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
 }
 
-.work-index__text {
-  min-width: 0;
+.work-index__stage {
+  width: 100%;
+  aspect-ratio: var(--work-index-stage-ratio);
+  overflow: hidden;
 }
 
-.content-flow .work-index__text :where(h2, h3, p) {
-  max-width: none;
+.work-index__card--full-bleed .work-index__stage {
+  padding: 0;
 }
 
-.work-index__media {
-  margin: 0;
+.work-index__card--framed-center .work-index__stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--work-index-stage-padding-center);
 }
 
-.work-index__media-link {
-  display: block;
-  border: var(--border-width-hairline) solid var(--color-border-subtle);
-  background-color: var(--color-surface-tile);
+.work-index__card--framed-inset .work-index__stage {
+  position: relative;
 }
 
-.work-index__media-link:hover {
-  border-color: var(--color-border-strong);
+.work-index__stage--atmosphere-warm-light,
+.work-index__stage--atmosphere-amber-dusk,
+.work-index__stage--atmosphere-cool-dark {
+  background:
+    radial-gradient(ellipse 72% 58% at 22% 32%, var(--work-gallery-atmosphere-glow-a), transparent 62%),
+    radial-gradient(ellipse 50% 42% at 84% 20%, var(--work-gallery-atmosphere-glow-b), transparent 56%),
+    radial-gradient(ellipse 88% 68% at 52% 108%, var(--work-gallery-atmosphere-vignette), transparent 68%),
+    radial-gradient(ellipse 38% 32% at 6% 92%, var(--work-gallery-atmosphere-vignette), transparent 54%),
+    linear-gradient(152deg, var(--work-gallery-atmosphere-base) 0%, var(--work-gallery-atmosphere-base-end) 100%);
 }
 
-.work-index__thumb {
+.work-index__card--framed-inset .work-index__frame {
+  position: absolute;
+  top: var(--work-index-frame-offset-top);
+  left: var(--work-index-frame-offset-left);
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-work-gallery-card);
+  background-color: var(--work-index-frame-bg);
+  overflow: hidden;
+}
+
+.work-index__card--framed-inset.work-index__card--frame-anchor-bleed-left .work-index__frame {
+  top: var(--work-index-frame-offset-top);
+  left: var(--work-index-frame-offset-left-bleed);
+  width: 100%;
+}
+
+.work-index__card--framed-inset.work-index__card--frame-anchor-bleed-left .work-index__image {
+  object-fit: contain;
+  object-position: bottom left;
+}
+
+.work-index__card--full-bleed .work-index__image {
   display: block;
   width: 100%;
-  height: auto;
-  aspect-ratio: 3 / 2;
+  height: 100%;
   object-fit: cover;
 }
 
-.work-index__label {
-  margin: 0 0 0.35rem;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: var(--post-header-date-tracking);
-  font-variant: all-small-caps;
-  text-transform: uppercase;
-  color: var(--color-highlight);
+.work-index__card--framed-center .work-index__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.work-index__card--framed-inset .work-index__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+}
+
+.work-index__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--work-index-body-gap);
+  padding-block: var(--work-index-body-padding-block);
+  padding-inline: var(--work-index-body-padding-inline);
+  min-width: 0;
+}
+
+.content-flow .work-index__body :where(h2, h3, p) {
+  max-width: none;
 }
 
 .work-index__title {
-  margin: 0 0 0.65rem;
-  font-size: var(--type-h2-size);
+  margin: 0;
+  font-family: var(--font-h1);
+  font-size: clamp(1.5rem, 1.25rem + 1vw, 2rem);
+  font-weight: 500;
+  line-height: 1.4;
 }
 
-.work-index__title a {
-  color: inherit;
-  text-decoration-color: var(--color-border-strong);
+.work-index__card--full-bleed .work-index__title {
+  color: var(--work-index-card-text-bleed);
 }
 
-.work-index__title a:hover {
+.work-index__card--framed-center .work-index__title,
+.work-index__card--framed-inset .work-index__title {
+  color: var(--work-index-card-text-framed);
+}
+
+.work-index__card:hover .work-index__title {
   color: var(--color-accent-hover);
-  text-decoration-color: var(--color-accent-hover);
+  transition: color 160ms ease;
 }
 
-.work-index__excerpt,
-.work-index__lead {
-  margin: 0 0 0.5rem;
-  color: var(--color-site-fg-muted);
-  line-height: var(--type-prose-leading);
+.work-index__summary {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--work-index-summary-size);
+  line-height: 1.4;
 }
 
-.work-index__lead:last-child,
-.work-index__excerpt:last-child {
-  margin-bottom: 0;
+.work-index__card--full-bleed .work-index__summary {
+  color: var(--work-index-card-text-bleed-muted);
+}
+
+.work-index__card--framed-center .work-index__summary,
+.work-index__card--framed-inset .work-index__summary {
+  color: var(--work-index-card-text-framed);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-index__card:hover .work-index__title {
+    transition: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .work-index__list {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* --- Section headings (numbered, how-i-think / long-form) --- */
@@ -1935,7 +2021,8 @@ hr {
 }
 
 /* Warm light — window glow */
-.writing .work-gallery__media--atmosphere-warm-light {
+.writing .work-gallery__media--atmosphere-warm-light,
+.work-index__stage--atmosphere-warm-light {
   --work-gallery-atmosphere-base: color-mix(in srgb, var(--color-site-fg) 24%, var(--color-work-gallery-hero-secondary-bg));
   --work-gallery-atmosphere-base-end: color-mix(in srgb, var(--color-site-fg) 12%, var(--color-work-gallery-hero-secondary-bg));
   --work-gallery-atmosphere-glow-a: color-mix(in srgb, var(--color-site-fg) 58%, transparent);
@@ -1945,7 +2032,8 @@ hr {
 }
 
 /* Amber dusk — accent light pools */
-.writing .work-gallery__media--atmosphere-amber-dusk {
+.writing .work-gallery__media--atmosphere-amber-dusk,
+.work-index__stage--atmosphere-amber-dusk {
   --work-gallery-atmosphere-base: color-mix(in srgb, var(--color-accent) 8%, var(--color-site-bg));
   --work-gallery-atmosphere-base-end: color-mix(in srgb, var(--color-accent) 4%, var(--color-work-gallery-hero-secondary-bg));
   --work-gallery-atmosphere-glow-a: color-mix(in srgb, var(--color-accent) 48%, transparent);
@@ -1955,7 +2043,8 @@ hr {
 }
 
 /* Cool dark — deep night blue */
-.writing .work-gallery__media--atmosphere-cool-dark {
+.writing .work-gallery__media--atmosphere-cool-dark,
+.work-index__stage--atmosphere-cool-dark {
   --work-gallery-atmosphere-base: color-mix(in srgb, var(--color-work-gallery-atmosphere-cool-deep) 38%, var(--color-site-bg));
   --work-gallery-atmosphere-base-end: color-mix(in srgb, var(--color-site-bg) 82%, var(--color-work-gallery-atmosphere-cool-deep));
   --work-gallery-atmosphere-glow-a: color-mix(in srgb, var(--color-work-gallery-atmosphere-cool) 32%, transparent);

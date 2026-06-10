@@ -1,9 +1,15 @@
 ---
 title: Stack Overflow
+index_title: Stack Overflow
 body_class: work
 excerpt: I worked on Stack Overflow’s private Q&A products, our design system, and lots of other stuff.
 highlightjs: true
 year: 2016 - 2020
+role: First designer, Enterprise
+index_summary: First designer on the Enterprise and Teams products, created several enterprise features atop of Stack's core product, built Stack Overflow's email design system.
+index_image: /assets/work/th-work-stackoverflow.svg
+index_image_alt: Stack Overflow enterprise analytics dashboard design.
+index_card_layout: full-bleed
 ---
 
 I joined Stack Overflow because I was excited about the power of knowledge-sharing at scale. Their consumer product had already become the go-to resource for developers, and I wanted to help bring that same value to companies building their own internal communities.

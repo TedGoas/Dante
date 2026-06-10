@@ -1,8 +1,15 @@
 ---
 title: Dialpad Team work
+index_title: Dialpad Team
 body_class: work
 excerpt: Dialpad team work samples.
-year: 2020 - present
+year: 2022 - present
+role: Design manager, Support & Sales
+index_summary: Lead design team for our Support and Analytics products, DRI'd three major launches, grew team from 2 to 8 designers.
+index_image: /assets/work/th-work-dialpad-team.svg
+index_image_alt: Dialpad Handled Calls analytics design.
+index_frame_anchor: bleed-left
+index_card_layout: framed-inset
 ---
 
 I moved into design management at Dialpad after several years as an individual contributor. I was invested in the company’s mission and saw a chance to help our design team scale. I wanted to create the kind of environment where designers could do their best work, felt safe, and a little bit of fun.

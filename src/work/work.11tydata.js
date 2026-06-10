@@ -13,17 +13,6 @@ module.exports = {
         return false;
       }
     },
-    workIndexThumb: (data) => {
-      const slug = data.page && data.page.fileSlug ? data.page.fileSlug : '';
-      const map = {
-        dialpad: '/assets/work/th-dialpad-scorecards.svg',
-        'dialpad-team': '/assets/work/th-dialpad-analyticsgpt.svg',
-        'stack-overflow': '/assets/work/th-stackoverflow-email.svg',
-        canfield: '/assets/work/th-canfield-graph.svg',
-        cerberus: '/assets/work/th-cerberus.svg'
-      };
-      return map[slug] || null;
-    },
     yearParts: (data) => {
       const y = data.year;
       if (!y || typeof y !== 'string') return null;
