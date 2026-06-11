@@ -1753,13 +1753,8 @@ hr {
   box-shadow: inset 0 0 0 var(--border-width-hairline) var(--color-border-subtle);
 }
 
-/* --- Work gallery: reusable multi-image layouts (see .cursor/skills/work-gallery-figures/) ---
- * Figure: --hero-secondary | --email-duo | --canfield-duo | --sidebar-quad | --integrations-stack | --experiment-grid
- * Media:  --hero-secondary | --sidebar-quad | --integrations-stack | --experiment-grid
- * Backdrop: --has-backdrop --backdrop-atmosphere --atmosphere-{warm-light|amber-dusk|cool-dark}
- * -------------------------------------------------------------------------------------------- */
+/* --- Work gallery: multi-image layouts --- */
 
-/* Reusable figure pattern: hero image + smaller secondary image */
 .writing .work-gallery__item--hero-secondary .work-gallery__media--hero-secondary {
   display: grid;
   grid-template-columns: var(--work-gallery-email-main-column) var(--work-gallery-email-secondary-column);
@@ -1791,7 +1786,6 @@ hr {
   height: auto;
 }
 
-/* Two distinct emails side by side (Stack Overflow case study): Teams + 10th anniversary */
 .writing .work-gallery__item--email-duo .work-gallery__media--hero-secondary .work-gallery__media-main {
   width: min(680px, 100%);
 }
@@ -1800,7 +1794,6 @@ hr {
   width: min(400px, 100%);
 }
 
-/* Email + mobile side by side (Canfield case study): Vectra email + Nexa app */
 .writing .work-gallery__item--canfield-duo .work-gallery__media--hero-secondary .work-gallery__media-main {
   width: min(640px, 100%);
 }
@@ -1809,7 +1802,6 @@ hr {
   width: min(768px, 100%);
 }
 
-/* Stacked integration cards (Stack Overflow case study): SO back top-left, GitHub front bottom-right */
 .writing .work-gallery__item--integrations-stack > .work-gallery__media--integrations-stack:not(.work-gallery__media--has-backdrop) {
   display: flex;
   justify-content: center;
@@ -1852,7 +1844,6 @@ hr {
   z-index: 1;
 }
 
-/* Four-panel sidebar (Dialpad IC): two columns, two cards each — Figma dialpad-ic-sidebar */
 .writing .work-gallery__media--sidebar-quad {
   display: flex;
   align-items: center;
@@ -1890,7 +1881,6 @@ hr {
   height: auto;
 }
 
-/* Tone hero + 3-column sidebar grid (Stack Overflow experiments) */
 .writing .work-gallery__media--experiment-grid {
   display: flex;
   flex-direction: column;
@@ -1939,7 +1929,6 @@ hr {
   border-radius: 0;
 }
 
-/* Atmosphere backdrop layer for multi-image gallery frames */
 .writing .work-gallery__media--has-backdrop {
   position: relative;
   isolation: isolate;
@@ -1981,7 +1970,6 @@ hr {
   opacity: var(--work-gallery-backdrop-wash-opacity);
 }
 
-/* CSS atmosphere backdrops — layered radials mimicking soft photographic light */
 .writing .work-gallery__media--backdrop-atmosphere {
   --work-gallery-backdrop-wash-opacity: var(--work-gallery-atmosphere-wash-opacity);
 }
@@ -1999,7 +1987,6 @@ hr {
     linear-gradient(152deg, var(--work-gallery-atmosphere-base) 0%, var(--work-gallery-atmosphere-base-end) 100%);
 }
 
-/* Warm light — window glow */
 .writing .work-gallery__media--atmosphere-warm-light,
 .work-index__stage--atmosphere-warm-light {
   --work-gallery-atmosphere-base: color-mix(in srgb, var(--color-site-fg) 24%, var(--color-work-gallery-hero-secondary-bg));
@@ -2010,7 +1997,6 @@ hr {
   --work-gallery-atmosphere-wash-opacity: 0.22;
 }
 
-/* Amber dusk — accent light pools */
 .writing .work-gallery__media--atmosphere-amber-dusk,
 .work-index__stage--atmosphere-amber-dusk {
   --work-gallery-atmosphere-base: color-mix(in srgb, var(--color-accent) 8%, var(--color-site-bg));
@@ -2021,7 +2007,6 @@ hr {
   --work-gallery-atmosphere-wash-opacity: 0.18;
 }
 
-/* Cool dark — deep night blue */
 .writing .work-gallery__media--atmosphere-cool-dark,
 .work-index__stage--atmosphere-cool-dark {
   --work-gallery-atmosphere-base: color-mix(in srgb, var(--color-work-gallery-atmosphere-cool-deep) 38%, var(--color-site-bg));
@@ -2344,7 +2329,6 @@ hr {
   border-radius: 0;
 }
 
-/* Case study gallery: media should not inherit the old card surface. */
 .writing .work-gallery__item img {
   height: auto;
   background-color: transparent;
@@ -2449,7 +2433,6 @@ hr {
   background-size: var(--border-width-hairline) calc(var(--figure-rule-dash-length) + var(--figure-rule-dash-gap));
 }
 
-/* Case study gallery: prose-width meta + full-bleed media (Figma figure pattern) */
 .writing .work-gallery__intro {
   box-sizing: border-box;
   display: flex;
@@ -2527,12 +2510,10 @@ hr {
   overflow: hidden;
 }
 
-/* All corners (default); click-to-play, sidebar quad, integrations-stack, and experiment-grid use their own rules below */
 .writing .work-gallery__item:not(.work-gallery__item--media-radius-lg) > :is(img, .work-gallery__media):not(.click-to-play):not(.work-gallery__media--sidebar-quad):not(.work-gallery__media--integrations-stack):not(.work-gallery__media--experiment-grid) {
   border-radius: var(--radius-work-gallery-image);
 }
 
-/* Match click-to-play corner radius (16px) on selected figures */
 .writing .work-gallery__item.work-gallery__item--media-radius-lg {
   border-radius: var(--radius-click-to-play);
 }
@@ -2542,7 +2523,6 @@ hr {
   overflow: hidden;
 }
 
-/* Native sizing for default single-image figures (no upscale). */
 .writing .work-gallery__item:not(
   :is(.work-gallery__item--hero-secondary, .work-gallery__item--sidebar-quad, .work-gallery__item--integrations-stack, .work-gallery__item--experiment-grid)
 ) > img {
@@ -2568,7 +2548,6 @@ hr {
 }
 
 /* --- Click-to-play video (work gallery only) --- */
-/* Click-to-play media follows the same width + centering as static gallery media. */
 .writing .work-gallery__item > .work-gallery__media.click-to-play {
   width: var(--work-gallery-media-max-width);
   max-width: 100%;
@@ -2587,7 +2566,6 @@ hr {
   width: var(--work-gallery-media-max-width);
 }
 
-/* Hero-secondary digest figure: keep native image sizes centered (no upscale). */
 .writing .work-gallery__item--hero-secondary:not(.work-gallery__item--email-duo, .work-gallery__item--canfield-duo) > .work-gallery__media--hero-secondary {
   width: fit-content;
   max-width: 100%;

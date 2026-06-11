@@ -30,16 +30,12 @@ function initClickToPlay(root) {
     video.setAttribute('aria-label', mediaLabel);
     root.classList.add('is-active');
 
-    const playPromise = video.play();
-
-    if (playPromise && typeof playPromise.catch === 'function') {
-      playPromise.catch(() => {
-        root.classList.remove('is-active');
-        video.controls = false;
-        video.setAttribute('aria-hidden', 'true');
-        video.removeAttribute('aria-label');
-      });
-    }
+    video.play().catch(() => {
+      root.classList.remove('is-active');
+      video.controls = false;
+      video.setAttribute('aria-hidden', 'true');
+      video.removeAttribute('aria-label');
+    });
   };
 
   startButton.addEventListener('click', () => {
