@@ -1,6 +1,5 @@
 /*
- * Barrel: structural tokens + site palettes (light default, dark via data-theme).
+ * Barrel: structural tokens + site palette.
  */
 @import "./tokens-base.css";
-@import "./theme-light.css";
-@import "./theme-dark.css";
+@import "./theme.css";

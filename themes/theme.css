@@ -1,8 +1,8 @@
 /*
- * Dark theme: warm brown-black canvas + amber accent (#1c1610 / #fffbeb / #ffb900).
+ * Site palette: warm brown-black canvas, amber accent (amber/50 fg, amber/400 accent).
  * Typography stacks live in tokens-base.css.
  */
-[data-theme="dark"] {
+:root {
   --color-site-bg: #1c1610;
   --color-site-fg: #fffbeb;
   --color-site-fg-muted: color-mix(in srgb, var(--color-site-fg) 68%, var(--color-site-bg));

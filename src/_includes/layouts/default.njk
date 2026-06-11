@@ -6,16 +6,6 @@
   <title>{{ title or site.title }}</title>
   <meta name="description" content="{{ description or site.description }}">
 
-  <script>
-    (function () {
-      try {
-        if (localStorage.getItem('site-theme') === 'dark') {
-          document.documentElement.setAttribute('data-theme', 'dark');
-        }
-      } catch (e) {}
-    })();
-  </script>
-
   <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="/assets/css/site-fonts.css">
@@ -48,7 +38,6 @@
             <li><a href="/blog">Blog</a></li>
             <li><a href="/newsletter">Newsletter</a></li>
           </ul>
-          {% include "components/theme-picker.njk" %}
         </div>
       </nav>
     </div>
@@ -62,6 +51,5 @@
 
   {% include "components/site-footer.njk" %}
   {% block footerScripts %}{% endblock %}
-  <script src="/assets/js/theme-picker.js" defer></script>
 </body>
 </html>
