@@ -511,19 +511,17 @@ hr {
   color: var(--color-footer-link-muted);
 }
 
+.site-footer__newsletter-form,
+.newsletter-signup {
+  border-radius: var(--radius-newsletter-embed);
+  overflow: hidden;
+  border: var(--border-width-hairline) solid var(--color-border-subtle);
+}
+
 .site-footer__newsletter-form {
   display: block;
   margin: 0;
   width: 100%;
-}
-
-.site-footer__newsletter-form .beehiiv-embed {
-  display: block;
-  width: 100%;
-  min-height: var(--footer-newsletter-embed-height);
-  border: var(--border-width-hairline) solid var(--color-border-subtle);
-  border-radius: 0;
-  background-color: transparent;
 }
 
 .site-footer__lower.layout {
@@ -1099,10 +1097,10 @@ hr {
 }
 
 .beehiiv-embed {
+  display: block;
   width: 100%;
-  border: var(--border-width-hairline) solid var(--color-border-subtle);
   min-height: var(--footer-newsletter-embed-height);
-  border-radius: 0;
+  border: none;
   background-color: transparent;
 }
 

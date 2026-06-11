@@ -59,6 +59,7 @@
   --radius-blockquote: 0.25rem;
 
   /* --- Radius / spacing shared --- */
+  --radius-newsletter-embed: 0.25rem;
   --radius-work-gallery-card: 0.5rem;
   --radius-work-gallery-image: var(--radius-work-gallery-card);
   --radius-click-to-play: 1rem;
