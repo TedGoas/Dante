@@ -1347,27 +1347,6 @@ hr {
   }
 }
 
-/* --- Section headings (numbered, how-i-think / long-form) --- */
-.section-heading {
-  display: flex;
-  align-items: baseline;
-  gap: 0.55em;
-}
-
-.section-heading__number {
-  flex-shrink: 0;
-  font-family: var(--font-mono);
-  font-size: clamp(0.75rem, 0.65rem + 0.35vw, 0.9rem);
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  color: var(--color-highlight);
-}
-
-.section-heading__text {
-  flex: 1;
-  min-width: 0;
-}
-
 .work-item {
   margin-bottom: 3rem;
   padding-bottom: 2rem;
