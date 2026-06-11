@@ -115,9 +115,17 @@
       "name": "Site Nav Link",
       "kind": "nav",
       "refersTo": "nav-link",
-      "description": "Header navigation link in mono.",
+      "description": "Header navigation link in mono (chrome link pattern).",
       "html": "<nav class=\"ds-nav\"><a href=\"/work/\" class=\"ds-nav__link\">Work</a></nav>",
-      "css": ".ds-nav { font-family: \"Atkinson Hyperlegible Mono\", ui-monospace, monospace; font-size: 0.875rem; } .ds-nav__link { color: #fffbeb; text-decoration: none; } .ds-nav__link:hover { color: #ffc933; text-decoration: underline; text-decoration-color: #ffc933; } .ds-nav__link:focus-visible { outline: 2px solid #ffb900; outline-offset: 2px; }"
+      "css": ".ds-nav { font-family: \"Atkinson Hyperlegible Mono\", ui-monospace, monospace; font-size: 0.875rem; } .ds-nav__link { color: #fffbeb; text-decoration: none; } .ds-nav__link:hover { color: #ffc933; text-decoration: underline; text-decoration-color: #ffc933; text-underline-offset: 2px; } .ds-nav__link:focus-visible { outline: 2px solid #ffb900; outline-offset: 2px; }"
+    },
+    {
+      "name": "Prose Link",
+      "kind": "custom",
+      "refersTo": "link-prose",
+      "description": "Inline link in long-form reading: body color with amber border-bottom.",
+      "html": "<p class=\"ds-prose\">Read more in <a href=\"/blog/example/\">this article</a>.</p>",
+      "css": ".ds-prose { font-family: \"Instrument Sans\", system-ui, sans-serif; font-size: 1.0625rem; line-height: 1.68; color: #fffbeb; max-width: 43rem; } .ds-prose a { color: #fffbeb; text-decoration: none; border-bottom: 1px solid #ffb900; } .ds-prose a:hover { color: #ffc933; border-bottom-color: #ffc933; } .ds-prose a:focus-visible { outline: 2px solid #ffb900; outline-offset: 2px; }"
     },
     {
       "name": "Home Hero CTA",

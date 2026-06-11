@@ -176,11 +176,21 @@ Tactile but quiet: interactions clarify affordance without marketing-button ener
 - **Focus:** 2px accent outline, 2px offset (match buttons/links)
 - **Error / Disabled:** De-emphasize with `--color-site-fg-muted`; never red gradient banners
 
+### Links
+
+Two core text-link patterns plus one homepage exception. Tokens: `--link-prose-underline`, `--link-hover-color`, `--link-chrome-underline-offset`, `--link-emphasis-border-width`.
+
+- **Prose** (`.post-body`, `.work-body.writing`, `.content-flow > .reading`): Body text color at rest; `1px` amber `border-bottom` (`--link-prose-underline`). Hover/focus: `--link-hover-color` on text and rule. Used where links sit inside dense paragraphs.
+- **Chrome** (nav, footer, `.article-list__link`, hero company links, newsletter archive titles): No default underline; context signals affordance. Hover/focus: `--link-hover-color` text with underline (`--link-chrome-underline-offset`).
+- **Emphasis CTA** (`.home-hero__cta` only): Display type + `--link-emphasis-border-width` bottom rule in accent; hover lifts to `--link-hover-color`. Not a filled button.
+
+Card/tile links (work index, homepage grid) and `.btn` are separate components—not these patterns.
+
 ### Navigation
 
 - **Style:** Mono 0.875rem, flex row with generous gap, no background bar
-- **Default:** `--color-site-fg`, no underline
-- **Hover / Active:** `--color-accent-hover` with underline; focus-visible accent outline
+- **Default:** `--color-site-fg`, no underline (chrome link pattern)
+- **Hover / Active:** `--link-hover-color` with underline; focus-visible accent outline
 - **Mobile:** Wrap-friendly flex; maintain tap targets without hamburger-first modals
 
 ### Homepage Work Grid (signature)

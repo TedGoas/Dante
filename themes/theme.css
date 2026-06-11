@@ -12,6 +12,9 @@
   --color-accent-hover: #ffc933;
   --color-highlight: #ffb900;
 
+  --link-prose-underline: var(--color-highlight);
+  --link-hover-color: var(--color-accent-hover);
+
   --color-text-marker-red: #ff637e;
   --color-text-marker-yellow: #f5c842;
   --color-text-marker-green: #5fd68a;

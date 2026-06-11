@@ -178,30 +178,45 @@ i {
   font-style: normal;
 }
 
+/* --- Links --- */
 a {
-  color: var(--color-link-in-chrome, var(--color-site-fg));
-  text-decoration: underline;
-  text-decoration-color: var(--color-border-strong);
-  text-underline-offset: 2px;
-}
-
-.site-main a {
-  color: var(--color-site-fg);
-}
-
-.content-flow :where(.post-body, .work-body, .reading) a {
-  text-decoration-color: var(--color-highlight);
-}
-
-a:hover {
-  color: var(--color-accent-hover);
-  text-decoration-color: var(--color-accent-hover);
-  text-decoration-thickness: 2px;
+  color: inherit;
+  text-decoration: none;
 }
 
 a:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
+}
+
+/* Prose: inline links in long-form reading */
+.post .post-body a,
+.work-body.writing a,
+.content-flow > .reading a {
+  color: var(--color-site-fg);
+  border-bottom: 1px solid var(--link-prose-underline);
+}
+
+.post .post-body a:hover,
+.work-body.writing a:hover,
+.content-flow > .reading a:hover {
+  color: var(--link-hover-color);
+  border-bottom-color: var(--link-hover-color);
+}
+
+/* Chrome: shared hover interaction (nav, footer, list titles, hero inline links) */
+.site-nav a:hover,
+.site-footer__link:hover,
+.site-footer__statement a:hover,
+.site-brand-link:hover,
+.home-hero__company-link:hover,
+.article-list__link:hover,
+.newsletter-column-archive .article-list a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+  text-decoration-color: var(--link-hover-color);
+  text-underline-offset: var(--link-chrome-underline-offset);
+  text-decoration-thickness: 2px;
 }
 
 .skip-link {
@@ -339,18 +354,17 @@ hr {
   color: var(--color-highlight);
 }
 
-/* Prose `a` uses `--color-site-fg`; restore highlight for attribution (linked or not) */
+/* Prose links use body color; attribution stays highlight (linked or not) */
 .content-flow :where(blockquote):not(.twitter-tweet) footer a,
 .content-flow :where(blockquote):not(.twitter-tweet) cite a {
   color: var(--color-highlight);
-  text-decoration-color: var(--color-highlight);
+  border-bottom-color: var(--color-highlight);
 }
 
 .content-flow :where(blockquote):not(.twitter-tweet) footer a:hover,
 .content-flow :where(blockquote):not(.twitter-tweet) cite a:hover {
   color: var(--color-highlight);
-  text-decoration-color: var(--color-highlight);
-  text-decoration-thickness: 2px;
+  border-bottom-color: var(--color-highlight);
 }
 
 .content-flow :where(blockquote.twitter-tweet) {
@@ -477,12 +491,6 @@ hr {
   text-decoration: none;
 }
 
-.site-footer__link:hover {
-  color: var(--color-accent-hover);
-  text-decoration: underline;
-  text-decoration-color: var(--color-accent-hover);
-}
-
 .site-footer__link:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
@@ -543,10 +551,6 @@ hr {
 .site-footer__statement a {
   color: var(--color-footer-statement-link);
   text-decoration: none;
-}
-
-.site-footer__statement a:hover {
-  color: var(--color-accent-hover);
 }
 
 .site-footer__statement a:focus-visible {
@@ -637,16 +641,6 @@ hr {
   font-size: 0.875rem;
 }
 
-.site-nav a {
-  text-decoration: none;
-}
-
-.site-nav a:hover {
-  color: var(--color-accent-hover);
-  text-decoration: underline;
-  text-decoration-color: var(--color-accent-hover);
-}
-
 .site-nav-list {
   display: flex;
   flex-wrap: wrap;
@@ -667,11 +661,6 @@ hr {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  text-decoration: none;
-}
-
-.site-brand-link:hover {
-  text-decoration: underline;
 }
 
 .site-logo {
@@ -720,32 +709,28 @@ hr {
 }
 
 .home-hero__company-link {
-  text-decoration: none;
   white-space: nowrap;
 }
 
-.home-hero__company-link:hover {
-  text-decoration: underline;
-}
-
 .home-hero__cta-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2rem;
   margin: 1.9rem 0 0;
 }
 
 .home-hero__cta {
   display: inline-block;
-  border-bottom: 4px solid var(--home-hero-cta-border);
+  border-bottom: var(--link-emphasis-border-width) solid var(--home-hero-cta-border);
   padding-bottom: 0.25rem;
   font-size: 1.5rem;
   line-height: 1.2;
   color: var(--color-text-strong);
-  text-decoration: none;
 }
 
 .home-hero__cta:hover {
-  color: var(--color-accent-hover);
-  border-bottom-color: var(--color-accent-hover);
-  text-decoration: none;
+  color: var(--link-hover-color);
+  border-bottom-color: var(--link-hover-color);
 }
 
 .home-hero__cta:focus-visible {
@@ -1075,7 +1060,6 @@ hr {
   font-weight: 500;
   line-height: 1.4;
   color: var(--color-text-strong);
-  text-decoration-color: var(--color-border-strong);
 }
 
 .article-list__dek {
@@ -1085,11 +1069,6 @@ hr {
   color: var(--color-text-muted);
 }
 
-.article-list__link:hover {
-  color: var(--color-accent-hover);
-  text-decoration-color: var(--color-accent-hover);
-}
-
 /* Newsletter archive: simple list (not blog index layout) */
 .newsletter-column-archive .article-list li {
   margin-bottom: 1.5rem;
@@ -1097,6 +1076,7 @@ hr {
 
 .newsletter-column-archive .article-list a {
   margin-bottom: 0.25rem;
+  color: var(--color-text-strong);
 }
 
 .article-meta,
@@ -1523,24 +1503,6 @@ hr {
 .work-body.writing :where(ul, ol) > li:last-child,
 .content-flow > .reading :where(ul, ol) > li:last-child {
   margin-bottom: 0;
-}
-
-.post .post-body a,
-.work-body.writing a,
-.content-flow > .reading a {
-  color: var(--color-site-fg);
-  text-decoration: none;
-  border-bottom: 1px solid var(--color-highlight);
-  text-underline-offset: unset;
-}
-
-.post .post-body a:hover,
-.work-body.writing a:hover,
-.content-flow > .reading a:hover {
-  color: var(--color-accent-hover);
-  border-bottom-color: var(--color-accent-hover);
-  text-decoration: none;
-  text-decoration-thickness: unset;
 }
 
 .post .post-body :where(h1, h2, h3, h4, h5, h6),
