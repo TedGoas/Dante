@@ -419,8 +419,7 @@ hr {
 }
 
 .site-header .layout {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding-block: calc(1.5rem + 0.2625rem);
 }
 
 .site-footer {
@@ -636,7 +635,7 @@ hr {
   align-items: center;
   gap: 1rem;
   font-family: var(--font-mono);
-  font-size: 0.875rem;
+  font-size: calc(0.875rem * 1.12);
 }
 
 .site-nav-list {
@@ -663,7 +662,7 @@ hr {
 
 .site-logo {
   display: block;
-  height: 2.25rem;
+  height: calc(2.25rem * 1.18);
   width: auto;
   flex-shrink: 0;
 }
