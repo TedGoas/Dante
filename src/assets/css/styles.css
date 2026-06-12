@@ -427,36 +427,40 @@ hr {
   overflow-x: clip;
 }
 
-.site-footer__upper.layout {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  justify-content: center;
-  gap: var(--footer-upper-gap);
-  padding-block: 0;
-  padding-inline: var(--footer-upper-padding-x);
+.site-footer__upper {
+  width: 100%;
   border-top: var(--footer-border-width) solid var(--color-footer-panel-border);
   border-bottom: var(--footer-border-width) solid var(--color-footer-panel-border);
-  max-width: none;
+}
+
+.site-footer__upper-inner {
+  display: grid;
+  grid-template-columns: 1fr var(--footer-divider-width) 1fr;
+  gap: 0;
+  align-items: stretch;
+  padding-block: 0;
 }
 
 .site-footer__panel {
   display: flex;
-  flex: 1 1 16rem;
   flex-direction: column;
   gap: var(--footer-panel-inner-gap);
-  max-width: var(--footer-panel-max-width);
-  min-width: min(100%, 12rem);
+  min-width: 0;
+  max-width: none;
   padding-block: var(--footer-upper-padding-y);
-  padding-inline: 0;
+  padding-inline: var(--footer-upper-padding-y);
+}
+
+.site-footer__panel--links {
+  padding-inline-start: 0;
 }
 
 .site-footer__heading {
   margin: 0;
-  font-family: var(--font-serif);
-  font-size: var(--footer-heading-size);
+  font-family: var(--font-h1);
+  font-size: var(--type-dek-size);
   font-weight: 400;
-  line-height: var(--footer-heading-leading);
+  line-height: var(--type-dek-leading);
   color: var(--color-footer-heading);
 }
 
@@ -496,7 +500,6 @@ hr {
 }
 
 .site-footer__divider {
-  flex: 0 0 var(--footer-divider-width);
   align-self: stretch;
   width: var(--footer-divider-width);
   background-color: var(--color-footer-divider);
@@ -615,13 +618,15 @@ hr {
 }
 
 @media (max-width: 720px) {
-  .site-footer__upper.layout {
-    flex-direction: column;
-    align-items: stretch;
+  .site-footer__upper-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer__panel--newsletter {
+    padding-inline-start: 0;
   }
 
   .site-footer__divider {
-    flex: 0 0 auto;
     width: 100%;
     height: var(--footer-divider-width);
   }

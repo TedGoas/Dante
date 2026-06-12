@@ -32,11 +32,9 @@
         </a>
         <div class="site-nav__end">
           <ul class="site-nav-list">
-            <li><a href="/work">Work</a></li>
-            <li><a href="/how-i-think/">How I Think</a></li>
-            <li><a href="/bio">Bio</a></li>
-            <li><a href="/blog">Blog</a></li>
-            <li><a href="/newsletter">Newsletter</a></li>
+            {% for link in navigation.primary %}
+            <li><a href="{{ link.href }}">{{ link.label }}</a></li>
+            {% endfor %}
           </ul>
         </div>
       </nav>

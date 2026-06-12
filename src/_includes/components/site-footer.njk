@@ -1,32 +1,44 @@
 <footer class="site-footer">
-  <div class="layout site-footer__upper">
-    <section class="site-footer__panel site-footer__panel--links" aria-labelledby="site-footer-links-heading">
-      <h2 id="site-footer-links-heading" class="site-footer__heading">Links</h2>
-      <div class="site-footer__link-columns">
-        {% for column in footer.linkColumns %}
-        <ul class="site-footer__link-list">
-          {% for link in column %}
-          <li>
-            <a
-              href="{{ link.href }}"
-              class="site-footer__link"
-              {% if link.external %}target="_blank" rel="noopener noreferrer"{% endif %}
-            >{{ link.label }}</a>
-          </li>
-          {% endfor %}
-        </ul>
-        {% endfor %}
-      </div>
-    </section>
+  <div class="site-footer__upper">
+    <div class="layout site-footer__upper-inner">
+      <section class="site-footer__panel site-footer__panel--links" aria-labelledby="site-footer-links-heading">
+        <h2 id="site-footer-links-heading" class="site-footer__heading">Links</h2>
+        <div class="site-footer__link-columns">
+          <ul class="site-footer__link-list">
+            <li>
+              <a href="/" class="site-footer__link">Home</a>
+            </li>
+            {% for link in navigation.primary %}
+            <li>
+              <a href="{{ link.href }}" class="site-footer__link">{{ link.label }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+          <ul class="site-footer__link-list">
+            {% for column in footer.linkColumns %}
+            {% for link in column %}
+            <li>
+              <a
+                href="{{ link.href }}"
+                class="site-footer__link"
+                {% if link.external %}target="_blank" rel="noopener noreferrer"{% endif %}
+              >{{ link.label }}</a>
+            </li>
+            {% endfor %}
+            {% endfor %}
+          </ul>
+        </div>
+      </section>
 
-    <div class="site-footer__divider" aria-hidden="true"></div>
+      <div class="site-footer__divider" aria-hidden="true"></div>
 
-    <section class="site-footer__panel site-footer__panel--newsletter" aria-labelledby="site-footer-newsletter-heading">
-      <h2 id="site-footer-newsletter-heading" class="site-footer__heading">Newsletter</h2>
-      <p class="site-footer__newsletter-intro">{{ footer.newsletterIntro }}</p>
-      {% set modifier = "site-footer__newsletter-form" %}
-      {% include "components/newsletter-signup.njk" %}
-    </section>
+      <section class="site-footer__panel site-footer__panel--newsletter" aria-labelledby="site-footer-newsletter-heading">
+        <h2 id="site-footer-newsletter-heading" class="site-footer__heading">Newsletter</h2>
+        <p class="site-footer__newsletter-intro">{{ footer.newsletterIntro }}</p>
+        {% set modifier = "site-footer__newsletter-form" %}
+        {% include "components/newsletter-signup.njk" %}
+      </section>
+    </div>
   </div>
 
   <div class="layout site-footer__lower">
