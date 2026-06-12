@@ -19,7 +19,7 @@ html {
 :root {
   --measure-prose: 66ch;
   --measure-prose-wide: 72ch;
-  --type-body-size: clamp(1.0625rem, 0.95rem + 0.35vw, 1.1875rem);
+  --type-body-size: clamp(var(--type-min-size), 0.95rem + 0.35vw, 1.1875rem);
   --type-body-leading: 1.6;
   --type-prose-leading: 1.7;
   --type-h1-size: clamp(2.125rem, 5vw, 3.625rem);
@@ -72,10 +72,10 @@ html {
   --bio-timeline-card-border: var(--color-surface-tile-border);
   --bio-timeline-image-bg: var(--color-surface-tile);
   --bio-timeline-content-gap: 0.65rem;
-  --bio-timeline-year-size: 0.8rem;
+  --bio-timeline-year-size: var(--type-min-size);
   --bio-timeline-year-padding-y: 0.08rem;
   --bio-timeline-year-padding-x: 0.6rem;
-  --bio-timeline-copy-size: 0.95rem;
+  --bio-timeline-copy-size: var(--type-min-size);
   --bio-timeline-copy-leading: 1.45;
   --bio-timeline-dot-size: 0.7rem;
   --bio-timeline-accent: var(--color-surface-tile-border);
@@ -90,10 +90,10 @@ html {
   --footer-heading-size: var(--type-h2-size);
   --footer-heading-leading: 1.3;
   --footer-link-columns-gap: 0.625rem;
-  --footer-link-font-size: 0.875rem;
+  --footer-link-font-size: var(--type-min-size);
   --footer-link-leading: 1.5;
   --footer-divider-width: 4px;
-  --footer-newsletter-intro-size: 0.875rem;
+  --footer-newsletter-intro-size: var(--type-min-size);
   --footer-newsletter-embed-height: 2.8125rem;
   --footer-lower-padding-x: var(--footer-upper-padding-x);
   --footer-lower-padding-y: clamp(2rem, 5vw, 3rem);
@@ -248,7 +248,7 @@ a:focus-visible {
   color: var(--color-site-fg-muted);
   border: var(--border-width-hairline) solid var(--color-border-subtle);
   font-family: var(--font-sans);
-  font-size: 0.875rem;
+  font-size: var(--type-min-size);
   text-decoration: none;
 }
 
@@ -635,7 +635,7 @@ hr {
   align-items: center;
   gap: 1rem;
   font-family: var(--font-mono);
-  font-size: calc(0.875rem * 1.12);
+  font-size: var(--type-min-size);
 }
 
 .site-nav-list {
@@ -662,8 +662,6 @@ hr {
 
 .site-logo {
   display: block;
-  height: calc(2.25rem * 1.18);
-  width: auto;
   flex-shrink: 0;
 }
 
@@ -1053,7 +1051,7 @@ hr {
 .article-list__link {
   margin: 0;
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: var(--type-min-size);
   font-weight: 500;
   line-height: 1.4;
   color: var(--color-text-strong);
@@ -1061,7 +1059,7 @@ hr {
 
 .article-list__dek {
   display: block;
-  font-size: 0.95rem;
+  font-size: var(--type-min-size);
   line-height: 1.45;
   color: var(--color-text-muted);
 }
@@ -1082,7 +1080,7 @@ hr {
   display: block;
   margin-top: 0.25rem;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: var(--type-min-size);
   color: var(--color-highlight);
 }
 
@@ -1324,7 +1322,7 @@ hr {
 
 .work-grid figcaption {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: var(--type-min-size);
   color: var(--color-text-muted);
   margin-top: 0.35rem;
 }
@@ -1335,7 +1333,7 @@ hr {
 
 .work-period {
   font-family: var(--font-mono);
-  font-size: 0.875rem;
+  font-size: var(--type-min-size);
   color: var(--color-highlight);
   margin: 0 0 1rem;
 }
@@ -2221,7 +2219,7 @@ hr {
 /* --- Buttons --- */
 .btn {
   font-family: var(--font-mono);
-  font-size: 0.875rem;
+  font-size: var(--type-min-size);
   padding: 0.4rem 0.75rem;
   border: var(--border-width-hairline) solid var(--color-border-subtle);
   background: var(--color-surface-raised);

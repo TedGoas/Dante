@@ -5,6 +5,9 @@
 :root {
   --border-width-hairline: 1px;
 
+  /* --- Site-wide type floor (matches header nav) --- */
+  --type-min-size: 1.125rem;
+
   /* --- Long-form reading column (~72 characters at reading body size) --- */
   --measure-reading: min(43rem, 100%);
 
@@ -15,7 +18,7 @@
 
   /* --- Figures / captions (sizes) --- */
   --figure-caption-label: "010101010101";
-  --figure-caption-label-size: 0.75rem;
+  --figure-caption-label-size: var(--type-min-size);
   --figure-caption-label-leading: 1.4;
   --figure-caption-label-width: 12ch;
   --figure-caption-corner-segment-width: calc(var(--figure-caption-padding-inline) - var(--figure-caption-label-gap));
@@ -31,15 +34,15 @@
   --figure-caption-max-width: var(--measure-reading);
   --figure-caption-title-size: clamp(1.35rem, 1.05rem + 1.35vw, 2rem);
   --figure-caption-title-leading: 1.4;
-  --figure-caption-body-size: clamp(0.95rem, 0.86rem + 0.35vw, 1.25rem);
+  --figure-caption-body-size: clamp(var(--type-min-size), 0.86rem + 0.35vw, 1.25rem);
   --figure-caption-body-leading: 1.4;
-  --figure-caption-meta-size: 0.75rem;
+  --figure-caption-meta-size: var(--type-min-size);
   --figure-caption-meta-leading: 1.4;
 
   /* --- Blog post editorial header --- */
-  --post-header-eyebrow-size: 0.875rem;
+  --post-header-eyebrow-size: var(--type-min-size);
   --post-header-eyebrow-tracking: normal;
-  --post-header-date-size: 0.875rem;
+  --post-header-date-size: var(--type-min-size);
   --post-header-date-tracking: normal;
   --post-header-date-title-gap: 0.75rem;
   --post-header-intro-gap: 1.5rem;
@@ -79,7 +82,7 @@
   --work-index-body-padding-inline: var(--space-work-index-frame-inset);
   --work-index-body-padding-block: calc(var(--space-work-index-frame-inset) * 2 / 3);
   --work-index-body-gap: 0.25rem;
-  --work-index-summary-size: clamp(0.875rem, 0.8125rem + 0.35vw, 1rem);
+  --work-index-summary-size: clamp(var(--type-min-size), 0.8125rem + 0.35vw, 1.25rem);
   --work-gallery-figure-gap: 2rem;
   --work-gallery-caption-gap: 0.625rem;
   --work-gallery-caption-size: clamp(1.5rem, 1rem + 2vw, 2rem);
