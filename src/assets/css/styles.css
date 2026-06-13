@@ -158,16 +158,19 @@ h3 {
   font-size: var(--type-h3-size);
 }
 
-/* Serif subhead / dek (post descriptions, homepage grid beliefs, etc.) */
+/* Body lede / dek (hero intro, post descriptions, homepage grid beliefs, etc.) */
+.lede,
+.type-dek {
+  font-size: var(--home-hero-body-size);
+  line-height: 1.4;
+  color: var(--color-text-strong);
+}
+
 .type-dek {
   margin: 0;
-  font-family: var(--font-h1);
-  font-size: var(--type-dek-size);
+  font-family: inherit;
   font-style: normal;
   font-weight: 400;
-  line-height: var(--type-dek-leading);
-  color: var(--color-site-fg);
-  opacity: 0.9;
 }
 
 p {
@@ -1125,12 +1128,6 @@ hr {
 }
 
 /* --- Components: homepage / lists --- */
-.lede {
-  font-size: var(--home-hero-body-size);
-  line-height: 1.4;
-  color: var(--color-text-strong);
-}
-
 .article-list {
   --article-list-date-width: 9.5rem;
   --article-list-row-padding: 1.35rem;
