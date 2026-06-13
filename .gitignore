@@ -12,3 +12,11 @@ Thumbs.db
 dist/
 node_modules/
 package-lock.json
+
+# Impeccable Live (ephemeral session data)
+.impeccable/live/
+
+# Secrets / local env (future-proof)
+.env
+.env.*
+!.env.example
