@@ -68,6 +68,11 @@
   --color-footer-link-muted: var(--color-site-fg-muted);
   --color-footer-statement: color-mix(in srgb, var(--color-site-fg) 10%, var(--color-site-bg));
   --color-footer-statement-link: var(--color-footer-statement);
+  --color-footer-reveal-underline: color-mix(in srgb, var(--color-footer-statement) 65%, var(--color-accent) 35%);
+  --footer-reveal-sketch-height: clamp(3px, 0.09em, 4px);
+  --footer-reveal-text-halo: 2px;
+  --footer-reveal-underline-tilt-a: 1deg;
+  --footer-reveal-underline-tilt-b: -1deg;
   --color-footer-divider: var(--color-border-subtle);
   --color-footer-panel-border: var(--color-border-subtle);
   --color-footer-mark: var(--color-site-fg);
