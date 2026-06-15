@@ -222,7 +222,6 @@ a:focus-visible {
 .site-footer__link:hover,
 .site-brand-link:hover,
 .home-hero__company-link:hover,
-.article-list__link:hover,
 .newsletter-column-archive .article-list a:hover {
   color: var(--link-hover-color);
   text-decoration: underline;
@@ -1137,66 +1136,116 @@ hr {
   }
 }
 
-/* --- Components: homepage / lists --- */
+/* --- Blog index --- */
+.blog-index {
+  --blog-index-list-gap: clamp(1.5rem, 4vw, 2.5rem);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--blog-index-list-gap);
+}
+
+.blog-index > h1 {
+  margin-bottom: 0;
+}
+
+.post-list {
+  width: 100%;
+  max-width: none;
+}
+
+/* --- Components: article list (blog index + newsletter archive) --- */
 .article-list {
-  --article-list-date-width: 9.5rem;
-  --article-list-row-padding: 1.35rem;
+  --article-list-title-size: clamp(1.35rem, 1.05rem + 1vw, 1.65rem);
+  --article-list-dek-size: clamp(1rem, 0.9rem + 0.25vw, 1.125rem);
+  --article-list-row-padding: 1.15rem;
+  --article-list-title-dek-gap: 0.35rem;
 
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.article-list__item {
-  display: grid;
-  grid-template-columns: var(--article-list-date-width) minmax(0, 1fr);
-  align-items: start;
-  gap: 1.25rem 1.5rem;
-  padding: var(--article-list-row-padding) 0;
+.post-list .article-list__item {
   border-bottom: var(--border-width-hairline) solid var(--color-border-subtle);
 }
 
-@media (max-width: 640px) {
-  .article-list__item {
-    grid-template-columns: 1fr;
-    gap: 0.35rem;
-  }
-}
-
-.article-list__item:first-child {
+.post-list .article-list__item:first-child {
   border-top: var(--border-width-hairline) solid var(--color-border-subtle);
 }
 
-.article-list__date {
+.post-list .article-list__link {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "title date"
+    "dek dek";
+  column-gap: clamp(1.5rem, 4vw, 3rem);
+  row-gap: var(--article-list-title-dek-gap);
+  align-items: baseline;
+  padding: var(--article-list-row-padding) 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.post-list .article-list__link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.post-list .article-list__link:hover .article-list__title,
+.post-list .article-list__link:focus-visible .article-list__title {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+  text-decoration-color: var(--link-hover-color);
+  text-underline-offset: var(--link-chrome-underline-offset);
+  text-decoration-thickness: 2px;
+}
+
+.post-list .article-list__title {
+  grid-area: title;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--article-list-title-size);
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--color-text-strong);
+  min-width: 0;
+}
+
+.post-list .article-list__date {
+  grid-area: date;
+  justify-self: end;
   margin: 0;
   font-family: var(--font-mono);
   font-size: var(--post-header-date-size);
   line-height: 1.4;
   color: var(--color-text-muted);
   white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 
-.article-list__content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  min-width: 0;
-}
-
-.article-list__link {
+.post-list .article-list__dek {
+  grid-area: dek;
   margin: 0;
   font-family: var(--font-sans);
-  font-size: var(--type-min-size);
-  font-weight: 500;
-  line-height: 1.4;
-  color: var(--color-text-strong);
-}
-
-.article-list__dek {
-  display: block;
-  font-size: var(--type-min-size);
+  font-size: var(--article-list-dek-size);
   line-height: 1.45;
   color: var(--color-text-muted);
+}
+
+@media (max-width: 640px) {
+  .post-list .article-list__link {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "title"
+      "date"
+      "dek";
+  }
+
+  .post-list .article-list__date {
+    justify-self: start;
+  }
 }
 
 /* Newsletter archive: simple list (not blog index layout) */
@@ -1210,7 +1259,6 @@ hr {
 }
 
 .article-meta,
-.post-list time,
 .newsletter-column-archive .article-list time {
   display: block;
   margin-top: 0.25rem;

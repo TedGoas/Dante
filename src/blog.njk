@@ -4,20 +4,22 @@ title: Blog
 description: Thoughts on design, development, and building products
 ---
 
-<h1>Blog</h1>
+<div class="blog-index">
+  <h1>Blog</h1>
 
-<section class="post-list" aria-label="Blog posts">
-  <ul class="article-list">
-    {% for post in collections.posts %}
-    <li class="article-list__item">
-      <time class="article-list__date" datetime="{{ post.date.toISOString() }}">{{ post.date | readableDate }}</time>
-      <span class="article-list__content">
-        <a class="article-list__link" href="{{ post.url }}">{{ post.data.title }}</a>
-        {% if post.data.description %}
-        <span class="article-list__dek">{{ post.data.description }}</span>
-        {% endif %}
-      </span>
-    </li>
-    {% endfor %}
-  </ul>
-</section>
+  <section class="post-list" aria-label="Blog posts">
+    <ul class="article-list">
+      {% for post in collections.posts %}
+      <li class="article-list__item">
+        <a class="article-list__link" href="{{ post.url }}">
+          <span class="article-list__title">{{ post.data.title }}</span>
+          <time class="article-list__date" datetime="{{ post.date.toISOString() }}">{{ post.date | readableDate }}</time>
+          {% if post.data.description %}
+          <span class="article-list__dek">{{ post.data.description }}</span>
+          {% endif %}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+</div>
