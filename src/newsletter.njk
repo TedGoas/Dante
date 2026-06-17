@@ -4,25 +4,27 @@ title: Newsletter
 description: Subscribe to my newsletter
 ---
 
-<h1>Newsletter</h1>
+<div class="newsletter-page">
+  <h1>Newsletter</h1>
 
-<section class="newsletter-columns" aria-label="Newsletter signup and archive">
-  <section class="newsletter-column newsletter-column-signup" aria-labelledby="newsletter-subscribe-heading">
-    <h2 id="newsletter-subscribe-heading">Subscribe</h2>
-    <p><strong>The Last Few Weeks</strong> is a newsletter about product design and leadership, with a touch of email and climate tech, sent once or twice a month.</p>
-    {% set modifier = "newsletter-signup newsletter-signup--page" %}
+  <section class="newsletter-page__signup" aria-label="Newsletter signup">
+    <p class="site-footer__newsletter-intro">The Last Few Weeks is a newsletter about product design and leadership, with a touch of email and climate tech, sent once or twice a month.</p>
+    {% set modifier = "site-footer__newsletter-form" %}
     {% include "components/newsletter-signup.njk" %}
-    <p class="article-meta">If you subscribe, I promise I’ll never share or sell your info, or track you in a creepy way. You’ll always be able to unsubscribe anytime instantly and without shaming or begging.</p>
   </section>
 
-  <section class="newsletter-column newsletter-column-archive" aria-labelledby="past-issues-heading">
-    <h2 id="past-issues-heading" class="visually-hidden">Past issues</h2>
+  <section class="post-list" aria-label="Past issues">
     <ul class="article-list">
       {% if newsletter.issues and newsletter.issues.length > 0 %}
       {% for issue in newsletter.issues %}
-        <li>
-          <a href="{{ issue.url }}" target="_blank" rel="noopener">{{ issue.title }}</a>
-          <time>{{ issue.date }}</time>
+        <li class="article-list__item">
+          <a class="article-list__link" href="{{ issue.url }}" target="_blank" rel="noopener">
+            <span class="article-list__title">{{ issue.title }}</span>
+            <time class="article-list__date" datetime="{{ issue.dateISO }}">{{ issue.date }}</time>
+            {% if issue.description %}
+            <span class="article-list__dek">{{ issue.description }}</span>
+            {% endif %}
+          </a>
         </li>
       {% endfor %}
       {% else %}
@@ -75,4 +77,4 @@ description: Subscribe to my newsletter
       {% endif %}
     </ul>
   </section>
-</section>
+</div>

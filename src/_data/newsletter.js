@@ -13,17 +13,27 @@ module.exports = async function() {
       const titleMatch = item.match(/<title>(.*?)<\/title>/);
       const linkMatch = item.match(/<link>(.*?)<\/link>/);
       const dateMatch = item.match(/<pubDate>(.*?)<\/pubDate>/);
+      const descMatch = item.match(/<description>(.*?)<\/description>/);
 
       if (titleMatch && linkMatch && dateMatch) {
         const date = new Date(dateMatch[1]);
+        const decodeEntities = (text) =>
+          text
+            .replace(/&amp;/g, '&')
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&#39;/g, "'");
+
         issues.push({
-          title: titleMatch[1].replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>'),
+          title: decodeEntities(titleMatch[1]),
           url: linkMatch[1],
           date: date.toLocaleDateString('en-US', {
             year: 'numeric',
             month: 'short',
             day: 'numeric'
-          })
+          }),
+          dateISO: date.toISOString(),
+          description: descMatch ? decodeEntities(descMatch[1]) : null
         });
       }
     }
