@@ -16,7 +16,7 @@ layout: default
         <h1 class="post-header__title">
           {% if title | titleNeedsPeriod %}
             {% set titleTail = title | splitTitleLastWord %}
-            {{ titleTail.before }}<span class="post-header__title-tail">{{ titleTail.last }}</span>
+            {{ titleTail.before }}<span class="title-tail">{{ titleTail.last }}</span>
           {% else %}
             {{ title }}
           {% endif %}

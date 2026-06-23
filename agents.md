@@ -30,7 +30,7 @@ Canonical constraints for typography roles, color directions, frozen homepage re
 - Reuse the current logo from the existing site
 
 ### Typography
-- **Three roles** (structure locked): **Redaction** for display/headings, **Instrument Sans** for body, **Atkinson Hyperlegible Mono** for captions, metadata, labels, navigation, and footer — see the linked doc for full rules.
+- **Two roles** (structure locked): **Redaction** for display/headings (h1–h3); **Geist** for everything else — body, blog, case studies, captions, metadata, labels, navigation, and footer. No monospace (`--font-mono` is an alias of the Geist stack). See the linked doc for full rules.
 - **Inspiration**: Typography from https://linear.app/change
 
 ### Components
@@ -38,7 +38,7 @@ Canonical constraints for typography roles, color directions, frozen homepage re
 - **General**: Clean, minimal approach
 
 ### Colors
-- **Default launch**: Warm brown-black canvas with amber accent (see [`themes/theme.css`](themes/theme.css)).
+- **Default launch**: Deep blue canvas (`oklch(40.3% 0.115 257.4)` / `#1a4785`) with cream text and deep amber accent; amber is the only saturated color and links are underline-only (see [`themes/theme.css`](themes/theme.css)).
 - **Inspiration**: Visual design of https://www.adaline.ai/
 
 ## 4. Technology Stack
@@ -120,6 +120,8 @@ Image classes inside hero-secondary: `work-gallery__media-main`, `work-gallery__
 **Padding:** Hero-secondary frames are **flush at the bottom** (no bottom padding; top and sides use `--work-gallery-atmosphere-frame-padding` with backdrop, or `--space-work-gallery-card-padding` without).
 
 ### Work gallery: multi-image figure backdrops
+
+> **Status (light redesign):** Atmosphere backdrops are **visually removed**. The `workGalleryAtmosphere` transform may still inject `.work-gallery__backdrop` markup and `--atmosphere-*` classes, but the backdrop element is set to `display: none` and the radial-gradient palettes have been deleted from CSS. Foreground media now sits on a plain light card surface. The notes below describe the legacy system, kept for reference.
 
 CSS atmosphere backdrops on multi-image gallery frames (`hero-secondary`, `sidebar-quad`, `integrations-stack`). Foreground UI stays sharp; layered radial gradients mimic soft photographic light — no image assets.
 

@@ -17,6 +17,7 @@ module.exports = (config) => {
   config.addPassthroughCopy('src/assets/work/');
   config.addPassthroughCopy('src/assets/css/');
   config.addPassthroughCopy('src/assets/js/');
+  config.addPassthroughCopy('src/assets/fonts/');
   config.addPassthroughCopy('themes/');
   config.addPassthroughCopy({ 'src/posts/img/': 'assets/img/' });
   config.addPassthroughCopy({ 'src/work/img/': 'assets/img/' });

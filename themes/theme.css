@@ -1,74 +1,93 @@
 /*
- * Site palette: warm brown-black canvas, amber accent (amber/50 fg, amber/400 accent).
+ * Site palette: deep blue canvas, cream text, deep amber accent.
+ * Anchor colors are oklch; mixes use oklch for perceptual steps.
  * Typography stacks live in tokens-base.css.
  */
 :root {
-  --color-site-bg: #1c1610;
-  --color-site-fg: #fffbeb;
-  --color-site-fg-muted: color-mix(in srgb, var(--color-site-fg) 68%, var(--color-site-bg));
-  --color-prose-body: color-mix(in srgb, var(--color-site-fg) 88%, var(--color-site-fg-muted));
+  --color-site-bg: oklch(40.3% 0.115 257.4); /* #1A4785 */
+  --color-site-fg: oklch(95.1% 0.006 153.8); /* #ECF0ED */
+  --color-site-fg-muted: color-mix(in oklch, var(--color-site-fg) 62%, var(--color-site-bg));
+  --color-prose-body: color-mix(in oklch, var(--color-site-fg) 88%, var(--color-site-fg-muted));
 
-  --color-accent: #ffb900;
-  --color-accent-hover: #ffc933;
-  --color-highlight: #ffb900;
+  --color-accent: oklch(78.5% 0.159 83.5); /* #E9AE0F */
+  --color-accent-hover: oklch(83.5% 0.154 88.2); /* #F2C23A */
+  /*
+   * Quiet meta tone (eyebrows, dates, labels, list markers). Amber accent is
+   * reserved for editorial punctuation and interactive hovers, set explicitly.
+   */
+  --color-highlight: var(--color-site-fg-muted);
 
-  --link-prose-underline: var(--color-highlight);
-  --link-hover-color: var(--color-accent-hover);
+  /* Links: underline is a lighter value of the text color, never the accent. */
+  --link-prose-underline: color-mix(in oklch, var(--color-site-fg) 38%, var(--color-site-bg));
+  --link-hover-color: var(--color-accent);
 
-  --color-text-marker-red: #ff637e;
-  --color-text-marker-yellow: #f5c842;
-  --color-text-marker-green: #5fd68a;
-  --opacity-text-marker: 0.25;
+  /* Homepage belief highlights — single amber wash (modifier classes share fill). */
+  --color-text-marker: var(--color-accent);
+  --color-text-marker-red: var(--color-text-marker);
+  --color-text-marker-yellow: var(--color-text-marker);
+  --color-text-marker-green: var(--color-text-marker);
+  --opacity-text-marker: 0.32;
 
   --color-site-chrome-bg: var(--color-site-bg);
 
-  --color-border-subtle: rgba(255, 255, 255, 0.1);
-  --color-border-strong: rgba(255, 255, 255, 0.15);
-  --color-divider: rgba(255, 255, 255, 0.2);
+  --color-border-subtle: color-mix(in oklch, var(--color-site-fg) 14%, transparent);
+  --color-border-strong: color-mix(in oklch, var(--color-site-fg) 24%, transparent);
+  --color-divider: color-mix(in oklch, var(--color-site-fg) 18%, transparent);
 
-  --color-surface-raised: #241c14;
-  --color-surface-tile: #2a2118;
-  --color-surface-tile-muted: #16110d;
+  /* Card / surface: a step lighter than the page background (~6–10%). */
+  --color-surface-raised: color-mix(in oklch, var(--color-site-bg) 88%, var(--color-site-fg));
+  --color-surface-tile: color-mix(in oklch, var(--color-site-bg) 84%, var(--color-site-fg));
+  --color-surface-tile-muted: color-mix(in oklch, var(--color-site-bg) 78%, var(--color-site-fg));
   --color-surface-tile-border: var(--color-border-subtle);
 
-  --color-work-gallery-card-bg: #2a2118;
-  --color-work-gallery-hero-secondary-bg: #352a1f;
-  --color-work-gallery-backdrop-wash: color-mix(in srgb, var(--color-work-gallery-hero-secondary-bg) 78%, transparent);
-  --color-work-gallery-atmosphere-cool: #8ba4c4;
-  --color-work-gallery-atmosphere-cool-deep: #4a5f7a;
-  --color-work-gallery-card-border: rgba(255, 255, 255, 0.08);
+  /*
+   * Selection-handle corner marks on image cards. Stroke colors are baked into
+   * the inline SVG; an active amber variant is swapped in on hover.
+   */
+  --card-corner-mark-size: 9px;
+  --card-image-bleed: 10px;
+  --card-corner-mark-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='9'%3E%3Crect x='1' y='1' width='7' height='7' fill='none' stroke='%23ecf0ed' stroke-opacity='0.38' stroke-width='1.5'/%3E%3C/svg%3E");
+  --card-corner-mark-image-active: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='9'%3E%3Crect x='1' y='1' width='7' height='7' fill='none' stroke='%23e9ae0f' stroke-width='1.5'/%3E%3C/svg%3E");
+
+  --color-work-gallery-card-bg: var(--color-surface-tile);
+  --color-work-gallery-hero-secondary-bg: var(--color-surface-tile);
+  --color-work-gallery-backdrop-wash: transparent;
+  --color-work-gallery-atmosphere-cool: var(--color-site-fg-muted);
+  --color-work-gallery-atmosphere-cool-deep: var(--color-site-fg);
+  --color-work-gallery-card-border: var(--color-border-subtle);
   --color-work-gallery-card-title: var(--color-site-fg);
   --color-work-gallery-card-description: var(--color-site-fg-muted);
 
-  --work-index-card-bg-framed: #0c0a09;
-  --work-index-card-bg-bleed: #f5f5f4;
-  --work-index-card-text-framed: #ffffff;
-  --work-index-card-text-bleed: #0c0a09;
-  --work-index-card-text-bleed-muted: color-mix(in srgb, var(--work-index-card-text-bleed) 55%, var(--work-index-card-bg-bleed));
-  --work-index-card-border: var(--color-divider);
-  --work-index-card-border-bleed: color-mix(in srgb, var(--work-index-card-text-bleed) 12%, transparent);
-  --work-index-frame-bg: #ffffff;
+  --work-index-card-bg-framed: var(--color-surface-tile);
+  --work-index-card-bg-bleed: var(--color-surface-tile);
+  --work-index-card-text-framed: var(--color-site-fg);
+  --work-index-card-text-bleed: var(--color-site-fg);
+  --work-index-card-text-bleed-muted: var(--color-site-fg-muted);
+  --work-index-card-border: var(--color-border-subtle);
+  --work-index-card-border-bleed: var(--color-border-subtle);
+  --work-index-frame-bg: var(--color-surface-tile);
 
   --color-figure-caption-title: var(--color-site-fg);
-  --color-figure-caption-body: color-mix(in srgb, var(--color-site-fg) 72%, var(--color-site-bg));
+  --color-figure-caption-body: var(--color-site-fg-muted);
   --color-figure-rule: var(--color-border-strong);
-  --color-figure-kicker: rgba(255, 251, 235, 0.28);
+  --color-figure-kicker: color-mix(in oklch, var(--color-site-fg) 32%, transparent);
 
-  --color-blockquote-bg: var(--color-work-gallery-card-bg);
+  --color-blockquote-bg: var(--color-surface-tile);
 
   --color-page-bg: var(--color-site-bg);
   --color-text: var(--color-site-fg);
   --color-text-muted: var(--color-site-fg-muted);
   --color-text-strong: var(--color-site-fg);
   --color-border: var(--color-border-strong);
-  --home-hero-cta-border: var(--color-accent);
+  --home-hero-cta-border: color-mix(in oklch, var(--color-site-fg) 32%, var(--color-site-bg));
 
   --color-footer-heading: var(--color-site-fg);
   --color-footer-link: var(--color-site-fg);
-  --color-footer-link-muted: var(--color-site-fg-muted);
-  --color-footer-statement: color-mix(in srgb, var(--color-site-fg) 10%, var(--color-site-bg));
+  --color-footer-link-muted: var(--color-site-fg);
+  /* Faded on blue: translucent white composited over canvas (not neutral gray). */
+  --color-footer-statement: rgb(255 255 255 / 0.2);
   --color-footer-statement-link: var(--color-footer-statement);
-  --color-footer-reveal-underline: color-mix(in srgb, var(--color-footer-statement) 65%, var(--color-accent) 35%);
+  --color-footer-reveal-underline: rgb(255 255 255 / 0.2);
   --footer-reveal-sketch-height: clamp(3px, 0.09em, 4px);
   --footer-reveal-text-halo: 2px;
   --footer-reveal-underline-tilt-a: 1deg;
@@ -76,5 +95,5 @@
   --color-footer-divider: var(--color-border-subtle);
   --color-footer-panel-border: var(--color-border-subtle);
   --color-footer-mark: var(--color-site-fg);
-  --color-footer-tooltip-shadow: rgba(0, 0, 0, 0.45);
+  --color-footer-tooltip-shadow: color-mix(in oklch, var(--color-site-bg) 55%, transparent);
 }

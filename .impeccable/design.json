@@ -1,101 +1,96 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-05-24T00:00:00.000Z",
+  "generatedAt": "2026-06-16T00:00:00.000Z",
   "title": "Design System: Ted Goas — tedgoas.com",
   "extensions": {
     "colorMeta": {
       "site-bg": {
         "role": "neutral",
-        "displayName": "Warm Canvas",
-        "canonical": "oklch(22% 0.03 65)",
+        "displayName": "Blue Canvas",
+        "canonical": "oklch(40.3% 0.115 257.4)",
         "tonalRamp": [
-          "oklch(12% 0.025 65)",
-          "oklch(15% 0.028 65)",
-          "oklch(18% 0.03 65)",
-          "oklch(22% 0.03 65)",
-          "oklch(28% 0.032 65)",
-          "oklch(35% 0.034 65)",
-          "oklch(45% 0.036 65)",
-          "oklch(58% 0.038 65)"
+          "oklch(24% 0.09 257)",
+          "oklch(30% 0.1 257)",
+          "oklch(36% 0.11 257)",
+          "oklch(40% 0.115 257)",
+          "oklch(46% 0.11 257)",
+          "oklch(52% 0.1 257)",
+          "oklch(58% 0.095 257)",
+          "oklch(64% 0.09 257)"
         ]
       },
       "accent": {
         "role": "primary",
-        "displayName": "Amber Accent",
-        "canonical": "oklch(82% 0.17 85)",
+        "displayName": "Deep Amber Accent",
+        "canonical": "oklch(78.5% 0.159 83.5)",
         "tonalRamp": [
-          "oklch(45% 0.12 85)",
-          "oklch(55% 0.14 85)",
-          "oklch(65% 0.15 85)",
-          "oklch(75% 0.16 85)",
-          "oklch(82% 0.17 85)",
-          "oklch(88% 0.15 85)",
-          "oklch(93% 0.12 85)",
-          "oklch(97% 0.08 85)"
+          "oklch(52% 0.06 178)",
+          "oklch(62% 0.07 178)",
+          "oklch(72% 0.075 178)",
+          "oklch(80% 0.07 178)",
+          "oklch(86% 0.06 178)",
+          "oklch(90% 0.05 178)",
+          "oklch(94% 0.035 178)",
+          "oklch(97% 0.02 178)"
         ]
       },
       "site-fg": {
         "role": "neutral",
         "displayName": "Cream Foreground",
-        "canonical": "oklch(98% 0.02 95)",
+        "canonical": "oklch(95.1% 0.006 153.8)",
         "tonalRamp": [
-          "oklch(25% 0.02 95)",
-          "oklch(40% 0.02 95)",
-          "oklch(55% 0.02 95)",
-          "oklch(70% 0.02 95)",
-          "oklch(80% 0.02 95)",
-          "oklch(88% 0.02 95)",
-          "oklch(95% 0.02 95)",
-          "oklch(98% 0.02 95)"
+          "oklch(82% 0.012 158)",
+          "oklch(86% 0.011 158)",
+          "oklch(90% 0.01 158)",
+          "oklch(93% 0.012 158)",
+          "oklch(95% 0.01 158)",
+          "oklch(97% 0.008 158)",
+          "oklch(98% 0.006 158)",
+          "oklch(99% 0.004 158)"
         ]
       },
       "surface-tile": {
         "role": "neutral",
-        "displayName": "Tile Warm",
-        "canonical": "oklch(26% 0.03 65)",
+        "displayName": "Card Tile",
+        "canonical": "color-mix(84% #1a4785, #ecf0ed)",
         "tonalRamp": [
-          "oklch(14% 0.025 65)",
-          "oklch(18% 0.028 65)",
-          "oklch(22% 0.03 65)",
-          "oklch(26% 0.03 65)",
-          "oklch(32% 0.032 65)",
-          "oklch(40% 0.034 65)",
-          "oklch(50% 0.036 65)",
-          "oklch(62% 0.038 65)"
+          "oklch(38% 0.1 258)",
+          "oklch(44% 0.095 258)",
+          "oklch(50% 0.09 258)",
+          "oklch(56% 0.085 258)",
+          "oklch(62% 0.08 258)",
+          "oklch(68% 0.075 258)",
+          "oklch(74% 0.07 258)",
+          "oklch(80% 0.065 258)"
         ]
       }
     },
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Hero headlines and major titles; Redaction serif."
+        "purpose": "Hero headlines and major titles; Redaction serif (h1-h3 only)."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Long-form prose; Instrument Sans; 66ch measure."
+        "purpose": "Long-form prose; Geist; 66ch measure; line-height 1.6."
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Nav, footer, eyebrows, metadata; Atkinson Mono with tracking."
+        "purpose": "Nav, footer, eyebrows, metadata; Geist (uppercase where helpful). No monospace."
       }
     },
     "shadows": [
       {
         "name": "footer-tooltip",
-        "value": "0 0.25rem 1.25rem rgba(0, 0, 0, 0.35)",
+        "value": "0 0.25rem 1.25rem color-mix(in srgb, #1a4785 55%, transparent)",
         "purpose": "Footer image tooltip overlay only."
-      },
-      {
-        "name": "media-inset",
-        "value": "inset 0 0 0 1px rgba(255, 255, 255, 0.1)",
-        "purpose": "Work grid media cells and prose images at rest."
       }
     ],
     "motion": [
       {
         "name": "ease-ui",
         "value": "ease",
-        "purpose": "Short UI transitions (tooltips, 0.15s)."
+        "purpose": "Short UI transitions (tooltips, 0.15s; card title hover, 0.16s)."
       }
     ],
     "breakpoints": [
@@ -109,23 +104,23 @@
       "refersTo": "button-primary",
       "description": "Default quiet button for errors and secondary actions.",
       "html": "<button type=\"button\" class=\"ds-btn-primary\">Back home</button>",
-      "css": ".ds-btn-primary { font-family: \"Atkinson Hyperlegible Mono\", ui-monospace, monospace; font-size: 0.875rem; padding: 0.4rem 0.75rem; border: 1px solid rgba(255, 255, 255, 0.1); background: #241c14; color: #c9b89a; cursor: pointer; text-decoration: none; } .ds-btn-primary:hover { color: #ffc933; border-color: rgba(255, 255, 255, 0.15); background-color: #2a2118; } .ds-btn-primary:focus-visible { outline: 2px solid #ffb900; outline-offset: 2px; }"
+      "css": ".ds-btn-primary { font-family: \"Geist\", ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; padding: 0.4rem 0.75rem; border: 1px solid color-mix(in srgb, #ecf0ed 14%, transparent); background: color-mix(in srgb, #1a4785 88%, #ecf0ed); color: color-mix(in srgb, #ecf0ed 62%, #1a4785); cursor: pointer; text-decoration: none; } .ds-btn-primary:hover { color: #ecf0ed; border-color: color-mix(in srgb, #ecf0ed 24%, transparent); background-color: color-mix(in srgb, #1a4785 84%, #ecf0ed); } .ds-btn-primary:focus-visible { outline: 2px solid #e9ae0f; outline-offset: 2px; }"
     },
     {
       "name": "Site Nav Link",
       "kind": "nav",
       "refersTo": "nav-link",
-      "description": "Header navigation link in mono (chrome link pattern).",
+      "description": "Header navigation link in Geist (chrome link pattern).",
       "html": "<nav class=\"ds-nav\"><a href=\"/work/\" class=\"ds-nav__link\">Work</a></nav>",
-      "css": ".ds-nav { font-family: \"Atkinson Hyperlegible Mono\", ui-monospace, monospace; font-size: 0.875rem; } .ds-nav__link { color: #fffbeb; text-decoration: none; } .ds-nav__link:hover { color: #ffc933; text-decoration: underline; text-decoration-color: #ffc933; text-underline-offset: 2px; } .ds-nav__link:focus-visible { outline: 2px solid #ffb900; outline-offset: 2px; }"
+      "css": ".ds-nav { font-family: \"Geist\", ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; } .ds-nav__link { color: #ecf0ed; text-decoration: none; } .ds-nav__link:hover { color: #e9ae0f; text-decoration: underline; text-decoration-color: #e9ae0f; text-underline-offset: 2px; } .ds-nav__link:focus-visible { outline: 2px solid #e9ae0f; outline-offset: 2px; }"
     },
     {
       "name": "Prose Link",
       "kind": "custom",
       "refersTo": "link-prose",
-      "description": "Inline link in long-form reading: body color with amber border-bottom.",
+      "description": "Inline link in long-form reading: underline-only, lighter-ink underline, no color change.",
       "html": "<p class=\"ds-prose\">Read more in <a href=\"/blog/example/\">this article</a>.</p>",
-      "css": ".ds-prose { font-family: \"Instrument Sans\", system-ui, sans-serif; font-size: 1.0625rem; line-height: 1.68; color: #fffbeb; max-width: 43rem; } .ds-prose a { color: #fffbeb; text-decoration: none; border-bottom: 1px solid #ffb900; } .ds-prose a:hover { color: #ffc933; border-bottom-color: #ffc933; } .ds-prose a:focus-visible { outline: 2px solid #ffb900; outline-offset: 2px; }"
+      "css": ".ds-prose { font-family: \"Geist\", system-ui, sans-serif; font-size: 1.0625rem; line-height: 1.6; color: #ecf0ed; max-width: 43rem; } .ds-prose a { color: #ecf0ed; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, #ecf0ed 38%, #1a4785); } .ds-prose a:hover { color: #ecf0ed; border-bottom-color: #ecf0ed; } .ds-prose a:focus-visible { outline: 2px solid #e9ae0f; outline-offset: 2px; }"
     },
     {
       "name": "Home Hero CTA",
@@ -133,45 +128,45 @@
       "refersTo": "home-hero-cta",
       "description": "Underline CTA on homepage hero, not a filled button.",
       "html": "<a href=\"/work/\" class=\"ds-hero-cta\">See selected work</a>",
-      "css": ".ds-hero-cta { display: inline-block; border-bottom: 4px solid #ffb900; padding-bottom: 0.25rem; font-family: \"Redaction\", Georgia, serif; font-size: 1.5rem; line-height: 1.2; color: #fffbeb; text-decoration: none; } .ds-hero-cta:hover { color: #ffc933; border-bottom-color: #ffc933; } .ds-hero-cta:focus-visible { outline: 2px solid #ffb900; outline-offset: 4px; }"
+      "css": ".ds-hero-cta { display: inline-block; border-bottom: 4px solid color-mix(in srgb, #ecf0ed 32%, #1a4785); padding-bottom: 0.25rem; font-family: \"Redaction\", Georgia, serif; font-size: 1.5rem; line-height: 1.2; color: #ecf0ed; text-decoration: none; } .ds-hero-cta:hover { color: #e9ae0f; border-bottom-color: #e9ae0f; } .ds-hero-cta:focus-visible { outline: 2px solid #e9ae0f; outline-offset: 4px; }"
     },
     {
-      "name": "Work Grid Tile",
+      "name": "Image Card",
       "kind": "card",
       "refersTo": "surface-tile",
-      "description": "Homepage showcase cell with tonal hover.",
-      "html": "<a href=\"/work/example/\" class=\"ds-work-tile\"><span class=\"ds-work-tile__label\">Case study</span></a>",
-      "css": ".ds-work-tile { display: block; padding: 1rem; background-color: #2a2118; border: 1px solid rgba(255, 255, 255, 0.1); text-decoration: none; color: #fffbeb; transition: background-color 0.15s ease, border-color 0.15s ease; } .ds-work-tile:hover { background-color: #16110d; border-color: rgba(255, 255, 255, 0.15); } .ds-work-tile__label { font-family: \"Atkinson Hyperlegible Mono\", monospace; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: #c9b89a; } .ds-work-tile:focus-visible { outline: 2px solid #ffb900; outline-offset: 2px; }"
+      "description": "Thumbnail on a card surface with Figma-style corner marks and slight image bleed.",
+      "html": "<a href=\"/work/example/\" class=\"ds-card\"><span class=\"ds-card__stage\"><img src=\"/assets/work/example.svg\" alt=\"Case study thumbnail\"></span></a>",
+      "css": ".ds-card { display: block; text-decoration: none; } .ds-card__stage { position: relative; display: block; aspect-ratio: 5 / 3; background-color: color-mix(in srgb, #1a4785 84%, #ecf0ed); overflow: visible; } .ds-card__stage img { display: block; width: calc(100% + 20px); height: calc(100% + 10px); margin: -10px -10px 0; object-fit: cover; } .ds-card__stage::after { content: \"\"; position: absolute; inset: 0; pointer-events: none; background-image: var(--mark), var(--mark), var(--mark), var(--mark); --mark: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='9'%3E%3Crect x='1' y='1' width='7' height='7' fill='none' stroke='%23ecf0ed' stroke-opacity='0.38' stroke-width='1.5'/%3E%3C/svg%3E\"); background-position: top left, top right, bottom left, bottom right; background-repeat: no-repeat; background-size: 9px 9px; } .ds-card:focus-visible { outline: 2px solid #e9ae0f; outline-offset: 4px; }"
     },
     {
       "name": "Editorial Blockquote",
       "kind": "custom",
-      "refersTo": "highlight",
-      "description": "Serif pull quote with amber left rule.",
+      "refersTo": "accent",
+      "description": "Serif pull quote with deep amber left rule.",
       "html": "<blockquote class=\"ds-blockquote\"><p>Quote text in italic serif.</p></blockquote>",
-      "css": ".ds-blockquote { margin: 0; padding: clamp(1rem, 3vw, 1.35rem); border-left: 2px solid #ffb900; border-radius: 0.25rem; background-color: #2a2118; color: #fffbeb; font-family: \"Redaction\", Georgia, serif; font-style: italic; font-size: clamp(1.25rem, 2vw, 1.55rem); line-height: 1.4; }"
+      "css": ".ds-blockquote { margin: 0; padding: clamp(1rem, 3vw, 1.35rem); border-left: 2px solid #e9ae0f; border-radius: 0.25rem; background-color: color-mix(in srgb, #1a4785 84%, #ecf0ed); color: #ecf0ed; font-family: \"Redaction\", Georgia, serif; font-style: italic; font-size: clamp(1.25rem, 2vw, 1.55rem); line-height: 1.4; }"
     }
   ],
   "narrative": {
     "northStar": "The Editorial Lab",
-    "overview": "A hiring-facing portfolio where long-form craft is the interface. Serif display and mono metadata frame Instrument Sans body type on a warm brown-black canvas; amber accent appears sparingly but decisively. Surfaces stay mostly flat; depth comes from tonal steps and hairline rules.",
+    "overview": "A hiring-facing portfolio where long-form craft is the interface. Serif display frames Geist body type on a medium blue canvas; a deep amber accent appears sparingly and decisively. Surfaces step lighter on the blue field; depth comes from tonal steps and a quiet selection-handle detail on image cards.",
     "keyCharacteristics": [
-      "Three locked type roles: Redaction, Instrument Sans, Atkinson Mono",
-      "Warm canvas with amber accent as punctuation",
-      "Tonal layering over shadow stacks",
-      "Hairline borders define chrome and tiles",
+      "Two locked type roles: Redaction (display) and Geist (everything else); no monospace",
+      "Medium blue canvas with cream text and a deep amber accent as punctuation",
+      "Deep Amber is the only saturated color; links are underline-only",
+      "Tonal layering over shadow stacks; image cards use corner marks and slight bleed",
       "Prose measure near 66ch",
       "Token-driven CSS only, no frameworks"
     ],
     "rules": [
       {
-        "name": "The Amber Punctuation Rule",
-        "body": "Accent color appears on roughly 10% of any screen. If amber fills large backgrounds, the palette has gone loud.",
+        "name": "The Deep Amber Punctuation Rule",
+        "body": "Accent appears on roughly 10% of any screen: interactive/hover states, the pull-quote rule, section numbers. Never on links. If deep amber fills large backgrounds, the palette has gone loud.",
         "section": "colors"
       },
       {
-        "name": "The Three-Role Lock Rule",
-        "body": "Redaction for display, Instrument Sans for body, Atkinson Mono for metadata and chrome.",
+        "name": "The Two-Role Lock Rule",
+        "body": "Redaction for display, Geist for everything else (body, UI, labels, nav, footer). No monospace.",
         "section": "typography"
       },
       {
@@ -183,8 +178,8 @@
     "dos": [
       "Do use CSS custom properties from themes/theme.css for every color.",
       "Do keep prose measure near 66ch.",
-      "Do apply amber accent to section numbers, pull-quote marks, and hover links.",
-      "Do use Instrument Sans for body and Atkinson Hyperlegible Mono for metadata.",
+      "Do apply deep amber accent to interactive/hover states, the pull-quote rule, and section numbers — never links.",
+      "Do use Geist for body, UI, and metadata; keep links underline-only.",
       "Do honor prefers-reduced-motion on transitions.",
       "Do use semantic HTML and focus-visible outlines."
     ],
@@ -193,9 +188,9 @@
       "Don't ship generic AI portfolio tropes: Inter/Roboto, purple gradients, decorative glass, side-stripe accent borders.",
       "Don't treat the site like a Dribbble shot without case-study depth.",
       "Don't borrow corporate marketing visuals: stock heroes, buzzword headlines, logo walls.",
-      "Don't hardcode hex in component CSS or use pure #000 / #fff neutrals.",
-      "Don't change frozen homepage headline or showcase grid layout during visual experiments.",
-      "Don't introduce Tailwind, Bootstrap, or other CSS frameworks."
+      "Don't hardcode hex in component CSS or use pure #fff / #000 neutrals.",
+      "Don't change frozen homepage headline or showcase grid layout.",
+      "Don't introduce Tailwind, Bootstrap, or other CSS frameworks; don't reintroduce a monospace face or dark mode."
     ]
   }
 }

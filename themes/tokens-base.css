@@ -5,6 +5,21 @@
 :root {
   --border-width-hairline: 1px;
 
+  /* --- Type scale (custom properties) --- */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+  --text-4xl: 3rem;
+  --text-5xl: 4.5rem;
+
+  /* Line heights: comfortable body measure, tight headings. */
+  --leading-body: 1.6;
+  --leading-heading: 1.15;
+
   /* --- Site-wide type floor (matches header nav) --- */
   --type-min-size: 1.125rem;
 
@@ -97,11 +112,12 @@
    */
 
   /*
-   * Typography stacks are shared across all themes (VDL: mono locked; serif + sans unified).
+   * Two-font system: Redaction for display/headings, Geist for all body and UI text.
+   * --font-mono is retained as an alias of the Geist body stack so legacy call sites
+   * restyle without per-rule edits (the monospace face has been removed).
    */
   --font-serif: "Redaction", Georgia, "Times New Roman", Times, serif;
-  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-h1: "Redaction", Georgia, "Times New Roman", Times, serif;
-  --font-mono:
-    "Atkinson Hyperlegible Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-mono: var(--font-sans);
 }
