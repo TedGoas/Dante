@@ -1,20 +1,42 @@
+const { execSync } = require('child_process');
+const fs = require('fs');
+const path = require('path');
 const markdownIt = require('markdown-it');
 const markdownItblockquoteAttribution = require('./lib/markdown/markdown-it-blockquote-attribution');
 const expandClickToPlayVideo = require('./lib/preprocessors/expandClickToPlayVideo');
+const expandPrototypeEmbed = require('./lib/preprocessors/expandPrototypeEmbed');
+
+const PROTOTYPE_EMBED_INDEX = path.join(
+  __dirname,
+  'vendor/sizzle-reel/dist-embed/launchpad/index.html'
+);
+
+function expandWorkGalleryShortcodes(data, content) {
+  return expandPrototypeEmbed(data, expandClickToPlayVideo(data, content));
+}
 
 module.exports = (config) => {
+  config.on('eleventy.before', () => {
+    if (!fs.existsSync(PROTOTYPE_EMBED_INDEX)) {
+      execSync('npm run build:prototypes', { stdio: 'inherit', cwd: __dirname });
+    }
+  });
+
   const mdLib = markdownIt({
     html: true
   }).use(markdownItblockquoteAttribution);
   const renderMarkdown = mdLib.render.bind(mdLib);
 
-  mdLib.render = (content) => renderMarkdown(expandClickToPlayVideo(null, content));
+  mdLib.render = (content) => renderMarkdown(expandWorkGalleryShortcodes(null, content));
   config.setLibrary('md', mdLib);
 
   config.setDataDeepMerge(true);
 
   config.addPassthroughCopy('src/assets/img/');
   config.addPassthroughCopy('src/assets/work/');
+  config.addPassthroughCopy({
+    'vendor/sizzle-reel/dist-embed/': 'assets/work/prototypes/'
+  });
   config.addPassthroughCopy('src/assets/css/');
   config.addPassthroughCopy('src/assets/js/');
   config.addPassthroughCopy('src/assets/fonts/');
@@ -24,8 +46,9 @@ module.exports = (config) => {
   config.addPassthroughCopy('src/assets/files/');
   config.addPassthroughCopy('humans.txt');
 
-  config.addWatchTarget("src/assets/js/");
-  config.addWatchTarget("src/assets/css/");
+  config.addWatchTarget('src/assets/js/');
+  config.addWatchTarget('src/assets/css/');
+  config.addWatchTarget('vendor/sizzle-reel/dist-embed/');
 
   config.addLayoutAlias('default', 'layouts/default.njk');
   config.addLayoutAlias('post', 'layouts/post.njk');
@@ -38,6 +61,7 @@ module.exports = (config) => {
   config.addFilter('minifyJs', require('./lib/filters/minifyJs'));
 
   config.addShortcode('clickToPlayVideo', require('./lib/shortcodes/clickToPlayVideo'));
+  config.addShortcode('prototypeEmbed', require('./lib/shortcodes/prototypeEmbed'));
 
   config.addTransform('workGalleryDivider', require('./lib/transforms/workGalleryDivider'));
   config.addTransform('workGalleryAtmosphere', require('./lib/transforms/workGalleryAtmosphere'));

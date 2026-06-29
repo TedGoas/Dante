@@ -81,6 +81,9 @@
   --radius-work-gallery-card: 0.5rem;
   --radius-work-gallery-image: var(--radius-work-gallery-card);
   --radius-click-to-play: 1rem;
+  --prototype-embed-replay-size: 3.5rem;
+  --prototype-embed-replay-bg: color-mix(in srgb, #000 50%, transparent);
+  --prototype-embed-replay-bg-hover: color-mix(in srgb, #000 65%, transparent);
 
   /* --- Links (structural) --- */
   --link-chrome-underline-offset: 2px;

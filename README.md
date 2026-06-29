@@ -50,9 +50,7 @@ To change the title, description, author data, menu/nav items, etc., go to `src/
 - Preserve performance defaults (lazy loading for below-the-fold images and no new dependencies by default).
 
 ### Interactive Figure Visuals
-- Add an optional interactive figure mode where the visual can be a self-contained HTML/CSS/JS prototype instead of a static image.
-- Prefer an isolated embed approach (for example, sandboxed iframe) to avoid style and script collisions with the main page.
-- Keep interactive figures progressively enhanced and accessible with meaningful labels/fallback context.
+- Implemented via iframe embed of Vue prototypes from the sizzle-reel submodule. See [AGENTS.md](AGENTS.md) (*Work gallery: interactive prototypes*).
 
 ## Build Output
 The site builds to the `dist/` directory, which is configured for deployment on Netlify.

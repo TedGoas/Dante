@@ -12,6 +12,7 @@ Thumbs.db
 dist/
 node_modules/
 package-lock.json
+src/assets/work/prototypes/
 
 # Impeccable Live (ephemeral session data)
 .impeccable/live/

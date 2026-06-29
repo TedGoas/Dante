@@ -101,6 +101,46 @@ Poster and video should match the same artboard dimensions (`WIDTH` × `HEIGHT` 
 
 **UX notes:** Hover or keyboard focus on the wallpaper reveals a centered play affordance; `prefers-reduced-motion: reduce` shows the poster only (no video or start control). Do not widen `.work-body` or load this script on the default layout for a single figure.
 
+### Work gallery: interactive prototypes (iframe embed)
+
+Use this pattern when a work case study figure should show a **live interactive prototype** instead of a click-to-play video. Each prototype is a self-contained Vue app built from the [sizzle-reel](https://github.com/TedGoas/sizzle-reel) submodule, deployed under `/assets/work/prototypes/{slug}/` and embedded via `<iframe>` so prototype CSS/JS never collides with the main site.
+
+**Authoring (Markdown work pages):**
+
+```njk
+{% prototypeEmbed "analytics-gpt", "Dialpad AnalyticsGPT design.", 1440, 900 %}
+{% prototypeEmbed "ai-chatbot", "Dialpad chatbot design.", 384, 600, "/assets/work/dialpad-team-chatbot-bg.jpg" %}
+```
+
+Args: `slug`, `title` (iframe `title`), `width`, `height`, optional `background` image (same wallpaper pattern as click-to-play).
+
+**Valid slugs:** `analytics-gpt`, `launchpad`, `ai-chatbot`, `scorecards`.
+
+**Implementation map:**
+
+| Piece | Location |
+|-------|----------|
+| Submodule (Vue source) | [`vendor/sizzle-reel/`](vendor/sizzle-reel/) — [TedGoas/sizzle-reel](https://github.com/TedGoas/sizzle-reel) |
+| Per-prototype embed build | [`vendor/sizzle-reel/scripts/build-embed.js`](vendor/sizzle-reel/scripts/build-embed.js) (`npm run build:embed`) |
+| Dante build scripts | [`package.json`](package.json) — `build:prototypes`; Eleventy passthrough in [`.eleventy.js`](.eleventy.js) copies `dist-embed/` → `assets/work/prototypes/` |
+| Shortcode | [`lib/shortcodes/prototypeEmbed.js`](lib/shortcodes/prototypeEmbed.js) |
+| Markup partial | [`src/_includes/components/prototype-embed.njk`](src/_includes/components/prototype-embed.njk) |
+| Shortcode expansion before Markdown | [`lib/preprocessors/expandPrototypeEmbed.js`](lib/preprocessors/expandPrototypeEmbed.js) (wired in [`.eleventy.js`](.eleventy.js)) |
+| Scroll-gated activation script | [`src/assets/js/prototype-embed.js`](src/assets/js/prototype-embed.js) via [`src/misc/prototype-embed.js.njk`](src/misc/prototype-embed.js.njk) |
+| Embed messaging (iframe) | [`vendor/sizzle-reel/src/embed/embedMessaging.js`](vendor/sizzle-reel/src/embed/embedMessaging.js) |
+| Script load scope | [`src/_includes/layouts/work.njk`](src/_includes/layouts/work.njk) `footerScripts` only (with click-to-play) |
+| Gallery styles | [`src/assets/css/styles.css`](src/assets/css/styles.css) (`.prototype-embed`) |
+| Deploy output | `dist/assets/work/prototypes/{slug}/index.html` (gitignored under `src/assets/work/prototypes/`) |
+
+**Development workflow:**
+
+1. Edit prototype source: `cd vendor/sizzle-reel && npm run dev`
+2. Commit changes in sizzle-reel, then bump the submodule pointer in Dante
+3. Preview embeds on case studies: `npm run serve` (runs `build:prototypes` automatically on first build if embed output is missing; rebuild embeds with `npm run build:prototypes` after sizzle-reel changes)
+4. After clone: `git submodule update --init --recursive`
+
+**UX notes:** Each figure shows a static poster until it scrolls into view (~35% visible), then waits 1 second before loading the iframe (`data-src` → `src?autostart=1`). Scrolling away before the delay cancels the timer. The chatbot prototype reads `autostart=1` and auto-runs its splash demo. When a demo animation finishes, the iframe posts `dante-prototype-demo-complete` and a centered circular **Replay** icon button appears over the iframe; clicking it sends `dante-prototype-replay` to restart without reloading the iframe. Under `prefers-reduced-motion: reduce`, activation JS is skipped; a static poster and link to open the prototype in a new tab is shown instead.
+
 ### Work gallery: multi-image layouts
 
 Reusable BEM layouts for case study figures with more than one asset. Styles live in [`src/assets/css/styles.css`](src/assets/css/styles.css) (search `Reusable figure pattern`). Copy-paste HTML: [`.cursor/skills/work-gallery-figures/reference.md`](.cursor/skills/work-gallery-figures/reference.md). Agent skill: [`.cursor/skills/work-gallery-figures/SKILL.md`](.cursor/skills/work-gallery-figures/SKILL.md).
@@ -112,7 +152,7 @@ Reusable BEM layouts for case study figures with more than one asset. Styles liv
 | `work-gallery__item--canfield-duo` | *(with hero-secondary)* | Email + tall mobile (640px / 768px) |
 | `work-gallery__item--sidebar-quad` | `work-gallery__media--sidebar-quad` | Four images in two columns |
 | `work-gallery__item--integrations-stack` | `work-gallery__media--integrations-stack` | Overlapping back/front cards on a fixed stage |
-| `work-gallery__item--media-native` | click-to-play or large native asset | Centered native width |
+| `work-gallery__item--media-native` | click-to-play, prototype embed, or large native asset | Centered native width |
 | `work-gallery__item--media-radius-lg` | single `img` | Larger corner radius |
 
 Image classes inside hero-secondary: `work-gallery__media-main`, `work-gallery__media-secondary`. Integrations stack: `work-gallery__integrations-stack__stage`, `__back`, `__front`. Sidebar quad: `work-gallery__sidebar-quad`, `__col`.

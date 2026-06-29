@@ -22,17 +22,17 @@ The results show up in both the team and the product. Our feedback system cut de
   <figure class="work-gallery__item">
     <figcaption class="work-gallery__caption">Analytics in plain English</figcaption>
     <p class="work-gallery__description">Most people don't want to learn a BI tool. They just want answers. My team designed an LLM-powered chat experience that sits on top of Dialpad's analytics and responded with interactive charts you can share.</p>
-    {% clickToPlayVideo "/assets/work/dialpad-team-analyticsgpt.svg", "/assets/work/dialpad-team-analyticsgpt.mp4", "Dialpad AnalyticsGPT design.", 1440, 900 %}
+    {% prototypeEmbed "analytics-gpt", "Dialpad AnalyticsGPT design.", 1440, 900 %}
   </figure>
   <figure class="work-gallery__item">
     <figcaption class="work-gallery__caption">Built for you, not everyone</figcaption>
     <p class="work-gallery__description">Most dashboards show everything and let you sort it out. However a supervisor and an agent need completely different information. This feature adapts to your role, giving supervisors a view of their team and agents a clear picture of how they're tracking.</p>
-    {% clickToPlayVideo "/assets/work/dialpad-team-launchpad.svg", "/assets/work/dialpad-team-launchpad.mp4", "Dialpad Launchpad design.", 1440, 900 %}
+    {% prototypeEmbed "launchpad", "Dialpad Launchpad design.", 1440, 900 %}
   </figure>
   <figure class="work-gallery__item work-gallery__item--media-native">
     <figcaption class="work-gallery__caption">From basic to genuinely helpful</figcaption>
     <p class="work-gallery__description">Our old chatbot looked dated and needed a human behind every answer. We overhauled it, pairing a visual refresh with generative AI that handles the easy stuff and hands off the hard stuff to a human.</p>
-    {% clickToPlayVideo "/assets/work/dialpad-team-chatbot.svg", "/assets/work/dialpad-team-chatbot.mp4", "Dialpad chatbot design.", 384, 600, "/assets/work/dialpad-team-chatbot-bg.jpg" %}
+    {% prototypeEmbed "ai-chatbot", "Dialpad chatbot design.", 384, 600, "/assets/work/dialpad-team-chatbot-bg.jpg" %}
   </figure>
   <figure class="work-gallery__item">
     <figcaption class="work-gallery__caption">Phone trees, made visual</figcaption>
