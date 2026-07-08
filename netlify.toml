@@ -1,6 +1,6 @@
 [build]
     publish = "dist"
-    command = "git submodule update --init --recursive && npm run build"
+    command = "npm run build"
 
 # Prerender extension (Netlify UI) requires Node 20+; default image may use 18.
 [build.environment]

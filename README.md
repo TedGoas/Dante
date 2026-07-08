@@ -50,7 +50,7 @@ To change the title, description, author data, menu/nav items, etc., go to `src/
 - Preserve performance defaults (lazy loading for below-the-fold images and no new dependencies by default).
 
 ### Interactive Figure Visuals
-- Implemented via iframe embed of Vue prototypes from the sizzle-reel submodule. See [AGENTS.md](AGENTS.md) (*Work gallery: interactive prototypes*).
+- Implemented via iframe embed of pre-built prototype bundles committed in [`src/assets/work/prototypes/`](src/assets/work/prototypes/). See [AGENTS.md](AGENTS.md) (*Work gallery: interactive prototypes*).
 
 ## Build Output
 The site builds to the `dist/` directory, which is configured for deployment on Netlify.

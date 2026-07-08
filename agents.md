@@ -103,7 +103,7 @@ Poster and video should match the same artboard dimensions (`WIDTH` × `HEIGHT` 
 
 ### Work gallery: interactive prototypes (iframe embed)
 
-Use this pattern when a work case study figure should show a **live interactive prototype** instead of a click-to-play video. Each prototype is a self-contained Vue app built from the [sizzle-reel](https://github.com/TedGoas/sizzle-reel) submodule, deployed under `/assets/work/prototypes/{slug}/` and embedded via `<iframe>` so prototype CSS/JS never collides with the main site.
+Use this pattern when a work case study figure should show a **live interactive prototype** instead of a click-to-play video. Each prototype is a pre-built static bundle committed under [`src/assets/work/prototypes/{slug}/`](src/assets/work/prototypes/) and embedded via `<iframe>` so prototype CSS/JS never collides with the main site.
 
 **Authoring (Markdown work pages):**
 
@@ -120,24 +120,20 @@ Args: `slug`, `title` (iframe `title`), `width`, `height`, optional `background`
 
 | Piece | Location |
 |-------|----------|
-| Submodule (Vue source) | [`vendor/sizzle-reel/`](vendor/sizzle-reel/) — [TedGoas/sizzle-reel](https://github.com/TedGoas/sizzle-reel) |
-| Per-prototype embed build | [`vendor/sizzle-reel/scripts/build-embed.js`](vendor/sizzle-reel/scripts/build-embed.js) (`npm run build:embed`) |
-| Dante build scripts | [`package.json`](package.json) — `build:prototypes`; Eleventy passthrough in [`.eleventy.js`](.eleventy.js) copies `dist-embed/` → `assets/work/prototypes/` |
+| Prototype bundles (committed) | [`src/assets/work/prototypes/{slug}/`](src/assets/work/prototypes/) — `index.html` + hashed JS/CSS per slug |
 | Shortcode | [`lib/shortcodes/prototypeEmbed.js`](lib/shortcodes/prototypeEmbed.js) |
 | Markup partial | [`src/_includes/components/prototype-embed.njk`](src/_includes/components/prototype-embed.njk) |
 | Shortcode expansion before Markdown | [`lib/preprocessors/expandPrototypeEmbed.js`](lib/preprocessors/expandPrototypeEmbed.js) (wired in [`.eleventy.js`](.eleventy.js)) |
 | Scroll-gated activation script | [`src/assets/js/prototype-embed.js`](src/assets/js/prototype-embed.js) via [`src/misc/prototype-embed.js.njk`](src/misc/prototype-embed.js.njk) |
-| Embed messaging (iframe) | [`vendor/sizzle-reel/src/embed/embedMessaging.js`](vendor/sizzle-reel/src/embed/embedMessaging.js) |
 | Script load scope | [`src/_includes/layouts/work.njk`](src/_includes/layouts/work.njk) `footerScripts` only (with click-to-play) |
 | Gallery styles | [`src/assets/css/styles.css`](src/assets/css/styles.css) (`.prototype-embed`) |
-| Deploy output | `dist/assets/work/prototypes/{slug}/index.html` (gitignored under `src/assets/work/prototypes/`) |
+| Deploy output | `dist/assets/work/prototypes/{slug}/index.html` (Eleventy passthrough from `src/assets/work/`) |
 
-**Development workflow:**
+**Updating prototypes:**
 
-1. Edit prototype source: `cd vendor/sizzle-reel && npm run dev`
-2. Commit changes in sizzle-reel, then bump the submodule pointer in Dante
-3. Preview embeds on case studies: `npm run serve` (runs `build:prototypes` automatically on first build if embed output is missing; rebuild embeds with `npm run build:prototypes` after sizzle-reel changes)
-4. After clone: `git submodule update --init --recursive`
+1. Rebuild the embed bundle externally (or from a local sizzle-reel checkout)
+2. Copy the output into `src/assets/work/prototypes/{slug}/` for each changed slug
+3. Commit the updated static files in Dante
 
 **UX notes:** Each figure shows a static poster until it scrolls into view (~35% visible), then waits 1 second before loading the iframe (`data-src` → `src?autostart=1`). Scrolling away before the delay cancels the timer. The chatbot prototype reads `autostart=1` and auto-runs its splash demo. When a demo animation finishes, the iframe posts `dante-prototype-demo-complete` and a centered circular **Replay** icon button appears over the iframe; clicking it sends `dante-prototype-replay` to restart without reloading the iframe. Under `prefers-reduced-motion: reduce`, activation JS is skipped; a static poster and link to open the prototype in a new tab is shown instead.
 
