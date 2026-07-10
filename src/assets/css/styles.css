@@ -288,14 +288,16 @@ hr {
 
 /* --- Layout --- */
 .layout {
+  --layout-site-max: 1200px;
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--layout-site-max);
   margin: 0 auto;
   padding: 0 1rem;
 }
 
 .layout--work {
-  max-width: calc(var(--work-gallery-media-max-inline-size) + 2rem);
+  --layout-work-max: calc(var(--work-gallery-media-max-inline-size) + 2rem);
+  max-width: var(--layout-work-max);
 }
 
 .site-main {
@@ -1830,6 +1832,74 @@ hr {
   margin: 0 auto 1rem;
 }
 
+.work-header__title {
+  margin: 0;
+}
+
+.work-byline {
+  margin: 0.85rem 0 0;
+  font-family: var(--font-sans);
+  font-size: var(--step--1);
+  line-height: 1.4;
+}
+
+.work-intro-deck {
+  margin: 1rem 0 0;
+  max-width: 40ch;
+  font-family: var(--font-sans);
+  font-size: var(--step-1);
+  line-height: 1.5;
+}
+
+.work-article--dialpad {
+  --work-hero-logo-align: max(
+    0px,
+    calc(
+      (100vw - var(--layout-site-max)) / 2
+      - max(0px, (100vw - var(--layout-work-max)) / 2)
+    )
+  );
+}
+
+.work-article--dialpad .work-header--dialpad {
+  max-width: var(--measure-prose-wide);
+  margin-inline-start: var(--work-hero-logo-align);
+  margin-inline-end: 0;
+  margin-bottom: clamp(1.5rem, 3vw, 2.75rem);
+}
+
+.work-article--dialpad .work-header--dialpad .work-intro-deck {
+  max-width: 56ch;
+  font-size: var(--home-hero-body-size);
+  line-height: 1.62;
+}
+
+.work-article--dialpad .work-body.writing > :not(.work-gallery) {
+  width: 100%;
+  max-width: var(--work-gallery-content-measure);
+  margin-inline: auto;
+}
+
+.work-article--dialpad .work-body-section--dialpad {
+  width: 100%;
+  padding-block: clamp(0.75rem, 2.2vw, 1.5rem);
+}
+
+.work-article--dialpad .work-body-section--dialpad:first-of-type {
+  padding-top: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.work-article--dialpad .work-body-section--dialpad .work-gallery__intro {
+  width: 100%;
+  max-width: none;
+}
+
+.work-article--dialpad .work-header--dialpad .work-header__title {
+  font-size: clamp(4rem, 16vw, 13.75rem);
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+}
+
 .work-body {
   overflow: visible;
 }
@@ -2470,7 +2540,8 @@ hr {
   margin-bottom: calc(var(--work-gallery-figure-gap) - var(--work-gallery-caption-gap));
 }
 
-.writing .work-gallery__item .work-gallery__caption {
+.writing .work-gallery__item .work-gallery__caption,
+.work-article--dialpad .work-body-section--dialpad .work-gallery__caption {
   display: block;
   margin: 0;
   padding: 0;
@@ -2485,7 +2556,8 @@ hr {
   background-image: none;
 }
 
-.writing .work-gallery__item .work-gallery__description {
+.writing .work-gallery__item .work-gallery__description,
+.work-article--dialpad .work-body-section--dialpad .work-gallery__description {
   margin: 0;
   padding: 0;
   font-family: var(--font-sans);
@@ -2505,6 +2577,32 @@ hr {
 
 .writing .work-gallery__item > .work-gallery__description {
   margin-top: calc(var(--work-gallery-caption-gap) - var(--work-gallery-figure-gap));
+}
+
+.work-article--dialpad .writing .work-gallery__media-item {
+  display: block;
+  margin: 0;
+}
+
+.work-article--dialpad .writing .work-gallery__media-item .work-gallery__media-caption,
+.work-article--dialpad .writing .work-gallery__item > .work-gallery__media-caption {
+  margin: 0.75rem 0 0;
+  font-family: var(--font-sans);
+  font-size: var(--step--2);
+  line-height: 1.5;
+  text-align: left;
+}
+
+.work-article--dialpad .writing .work-gallery__media-item--main,
+.work-article--dialpad .writing .work-gallery__media-item--secondary {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 60rem) {
+  .work-article--dialpad .work-body-section--dialpad {
+    padding-block: 1rem;
+  }
 }
 
 .content-flow .work-gallery__item .work-gallery__description {

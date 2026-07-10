@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<article class="work-article">
+<article class="work-article{% if work_layout_variant %} work-article--{{ work_layout_variant }}{% endif %}">
   {% if featured_image %}
   <figure class="work-featured{% if featured_image_classes %} {{ featured_image_classes }}{% endif %}">
     <div class="img-placeholder" data-placeholder="Project preview" aria-label="Project preview image placeholder"></div>
@@ -10,9 +10,16 @@ layout: default
   </figure>
   {% endif %}
 
-  <header class="work-header">
-    <h1>{{ title }}</h1>
-    {% if yearParts %}
+  <header class="work-header{% if work_header_variant %} work-header--{{ work_header_variant }}{% endif %}">
+    <h1 class="work-header__title">{{ title }}</h1>
+    {% if work_byline %}
+    <p class="work-byline">{{ work_byline }}</p>
+    {% endif %}
+    {% set introDeck = work_intro_deck or excerpt %}
+    {% if introDeck %}
+    <p class="work-intro-deck">{{ introDeck }}</p>
+    {% endif %}
+    {% if not hide_work_period and yearParts %}
     <p class="work-period">
       <time datetime="{{ yearParts.start }}">{{ yearParts.start }}</time>
       –
@@ -22,7 +29,7 @@ layout: default
       <time datetime="{{ yearParts.end }}">{{ yearParts.end }}</time>
       {% endif %}
     </p>
-    {% elif year %}
+    {% elif not hide_work_period and year %}
     <p class="work-period">{{ year }}</p>
     {% endif %}
   </header>
