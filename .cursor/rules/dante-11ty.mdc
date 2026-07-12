@@ -47,6 +47,6 @@ alwaysApply: true
 
 - Never hardcode color values in component CSS — always reference a custom property
 - Theme files live in `themes/` and define all custom properties on `:root`
-- Before changing visual design, themes, or typography, read **[docs/visual-design-language.md](docs/visual-design-language.md)** and follow its guardrails (frozen homepage regions, two-font roles, blue canvas palette, deep amber accent usage, content freeze, etc.)
-- **Single theme**: Deep blue canvas (`oklch(40.3% 0.115 257.4)` / `#1a4785`) with cream text and deep amber accent in [`themes/theme.css`](themes/theme.css) on `:root`. No theme picker unless explicitly re-enabled
+- Before changing visual design, themes, or typography, read **[docs/visual-design-language.md](docs/visual-design-language.md)** and follow its guardrails (frozen homepage regions, two-font roles, Swiss light palette, Swiss red interactive / amber editorial accents, editorial layout, content freeze, etc.)
+- **Single theme**: Swiss light canvas (`#f3f3f3`) with near-black text, Swiss red interactive accent (`#c41230`), deep amber editorial accent, and dark bands/footer in [`themes/theme.css`](themes/theme.css) on `:root`. No theme picker unless explicitly re-enabled
 - **Two-font system**: Redaction (display/headings) and Geist (body, UI, labels, nav, footer). No monospace. `--font-mono` is an alias of the Geist stack for legacy call sites

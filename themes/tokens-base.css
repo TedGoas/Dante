@@ -26,6 +26,9 @@
   /* --- Long-form reading column (~72 characters at reading body size) --- */
   --measure-reading: min(43rem, 100%);
 
+  /* --- Editorial lead column (homepage hero copy width) --- */
+  --measure-lead: 56ch;
+
   /* --- Editorial divider (dots + line) --- */
   --divider-dot-size: 9px;
   --divider-gap: 12px;
@@ -54,16 +57,21 @@
   --figure-caption-meta-size: var(--type-min-size);
   --figure-caption-meta-leading: 1.4;
 
+  /* --- Display titles (homepage hero scale) --- */
+  --type-display-title-size: clamp(2.75rem, 8.2vw, 7.375rem);
+  --type-display-title-leading: 0.864;
+  --type-display-title-weight: 400;
+  --type-display-title-tracking: -0.015em;
+
   /* --- Blog post editorial header --- */
   --post-header-eyebrow-size: var(--type-min-size);
   --post-header-eyebrow-tracking: normal;
   --post-header-date-size: var(--type-min-size);
   --post-header-date-tracking: normal;
-  --post-header-date-title-gap: 0.75rem;
-  --post-header-intro-gap: 1.5rem;
-  --post-header-rule-gap: 3rem;
-  --post-header-title-size: clamp(2.5rem, 5.5vw, 4rem);
-  --post-header-title-leading: 1.1;
+  --post-header-inner-gap: calc(32 / 24 * var(--post-header-date-size));
+  --post-header-rule-gap: calc(48 / 24 * var(--post-header-date-size));
+  --post-header-title-size: var(--type-display-title-size);
+  --post-header-title-leading: var(--type-display-title-leading);
   --post-header-title-end-size: 0.18em;
   --post-header-title-end-offset-y: 1.5px;
   --post-header-title-end-gap: 4px;
@@ -106,7 +114,7 @@
   --work-gallery-caption-size: clamp(1.5rem, 1rem + 2vw, 2rem);
   --work-gallery-caption-leading: 1.4;
   --work-gallery-figure-padding-block: 2rem;
-  --work-gallery-content-measure: var(--measure-reading);
+  --work-gallery-content-measure: var(--measure-lead);
   --work-gallery-media-max-width: min(100%, var(--work-gallery-media-max-inline-size));
 
   /*

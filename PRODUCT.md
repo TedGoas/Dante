@@ -39,8 +39,8 @@ When in doubt, choose editorial long-form over startup landing page.
 2. **Practice what you preach** — The site itself demonstrates semantic HTML, token-driven CSS, performance-aware choices, and accessible type. The implementation is part of the portfolio.
 3. **Quiet hierarchy** — Confidence comes from scale, spacing, and typographic rhythm, not loud color blocks or animation for its own sake.
 4. **Respect the reader's time** — Hiring visitors scan first; structure supports skimming (labels, outcomes, clear CTAs) before deep reading.
-5. **Content freeze, visual freedom** — Written content is fixed during visual exploration; design changes must not rewrite copy or alter frozen homepage regions documented in the visual design language.
+5. **Content freeze, visual freedom** — Written content is fixed during visual exploration; design changes must not rewrite copy or alter frozen homepage regions documented in the visual design language. The shipped visual system is Swiss light (light canvas, dark bands, Swiss red interactive accent, deep amber editorial punctuation) — see `docs/visual-design-language.md` and `DESIGN.md`.
 
 ## Accessibility & Inclusion
 
-Target WCAG 2.2 AA. Lean into Geist for body and metadata readability at small sizes. Maintain sufficient contrast on the blue canvas with cream text; do not sacrifice legibility for atmosphere. Honor `prefers-reduced-motion` for any animation. Semantic HTML and keyboard-accessible navigation are non-negotiable.
+Target WCAG 2.2 AA. Lean into Geist for body and metadata readability at small sizes. Maintain sufficient contrast on the Swiss light canvas with near-black text, and on dark bands (footer, homepage showcase, case-study media) with light text; do not sacrifice legibility for atmosphere. Honor `prefers-reduced-motion` for any animation. Semantic HTML and keyboard-accessible navigation are non-negotiable.
