@@ -304,18 +304,6 @@ hr {
   padding: 0 1rem;
 }
 
-.layout--work {
-  --layout-work-max: calc(var(--work-gallery-media-max-inline-size) + 2rem);
-  max-width: var(--layout-work-max);
-  --editorial-align-inset: max(
-    0px,
-    calc(
-      (100vw - var(--layout-site-max)) / 2
-      - max(0px, (100vw - var(--layout-work-max)) / 2)
-    )
-  );
-}
-
 .content-flow :where(h2, h3, h4, h5, h6, p, blockquote, pre) {
   max-width: var(--measure-lead);
 }
@@ -469,6 +457,7 @@ hr {
   padding: var(--site-main-padding-top) 0 var(--site-main-padding-bottom);
   scroll-margin-top: 1rem;
   background-color: var(--color-swiss-bg-light);
+  overflow-x: clip;
 }
 
 .site-footer {
@@ -1352,7 +1341,8 @@ hr {
 
 .post-list {
   width: 100%;
-  max-width: none;
+  max-width: var(--measure-lead);
+  margin-inline: 0;
 }
 
 /* --- Components: article list (blog index + newsletter archive) --- */
@@ -1503,31 +1493,13 @@ hr {
 }
 
 .work-index__stage {
-  --corner-mark-current: var(--card-corner-mark-image);
-
   position: relative;
   width: 100%;
   aspect-ratio: var(--work-index-stage-ratio);
-  background-color: var(--color-surface-tile);
-  overflow: visible;
-}
-
-/* Figma-style selection-handle marks pinned to the card corners. */
-.work-index__stage::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  pointer-events: none;
-  background-image: var(--corner-mark-current), var(--corner-mark-current),
-    var(--corner-mark-current), var(--corner-mark-current);
-  background-position: top left, top right, bottom left, bottom right;
-  background-repeat: no-repeat;
-  background-size: var(--card-corner-mark-size) var(--card-corner-mark-size);
-}
-
-.work-index__card:hover .work-index__stage {
-  --corner-mark-current: var(--card-corner-mark-image-active);
+  background-color: transparent;
+  border: var(--border-width-hairline) solid var(--work-index-card-border);
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 /* framed-inset markup wraps the image in a frame; flatten it to a plain box. */
@@ -1538,24 +1510,20 @@ hr {
   height: 100%;
   background: none;
   border-radius: 0;
-  overflow: visible;
+  overflow: hidden;
 }
 
-/* Image bleeds slightly beyond the card on top and sides; flush at the bottom. */
 .work-index__image {
   display: block;
-  width: calc(100% + 2 * var(--card-image-bleed));
-  height: calc(100% + var(--card-image-bleed));
-  margin: calc(-1 * var(--card-image-bleed)) calc(-1 * var(--card-image-bleed)) 0;
-  object-fit: cover;
-  object-position: top center;
-}
-
-/* Logo/diagram thumbnails are contained (not bled) so they aren't cropped. */
-.work-index__card--framed-center .work-index__image {
   width: 100%;
   height: 100%;
   margin: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Logo/diagram thumbnails are contained so they aren't cropped. */
+.work-index__card--framed-center .work-index__image {
   object-fit: contain;
   object-position: center;
 }
@@ -1649,11 +1617,7 @@ hr {
 }
 
 .work-period {
-  max-width: var(--measure-lead);
-  font-family: var(--font-mono);
-  font-size: var(--type-min-size);
-  color: var(--color-highlight);
-  margin: 0 0 1rem;
+  margin: 0;
 }
 
 /* --- Reading prose (blog post-body, case study intro, how-i-think) --- */
@@ -1932,46 +1896,6 @@ hr {
   min-height: 240px;
 }
 
-.work-header {
-  max-width: none;
-  margin: 0 0 1rem;
-}
-
-.work-header__title {
-  margin: 0;
-}
-
-.work-byline {
-  margin: 0.85rem 0 0;
-  max-width: var(--measure-lead);
-  font-family: var(--font-sans);
-  font-size: var(--step--1);
-  line-height: 1.4;
-}
-
-.work-intro-deck {
-  margin: 1rem 0 0;
-  max-width: var(--measure-lead);
-  font-family: var(--font-sans);
-  font-size: var(--step-1);
-  line-height: 1.5;
-}
-
-.layout--work .work-header,
-.layout--work .work-body.writing > :not(.work-gallery),
-.layout--work .writing .work-gallery__intro {
-  margin-inline-start: var(--editorial-align-inset);
-}
-
-.work-article--dialpad .work-header--dialpad {
-  margin-bottom: clamp(1.5rem, 3vw, 2.75rem);
-}
-
-.work-article--dialpad .work-header--dialpad .work-intro-deck {
-  font-size: var(--home-hero-body-size);
-  line-height: 1.62;
-}
-
 .work-article--dialpad .work-body-section--dialpad {
   width: 100%;
   padding-block: clamp(0.75rem, 2.2vw, 1.5rem);
@@ -1989,6 +1913,7 @@ hr {
   display: grid;
   gap: var(--work-gallery-gap);
   width: 100%;
+  min-width: 0;
   margin: var(--work-gallery-top-margin) auto 0;
   transform: none;
 }
@@ -2009,23 +1934,30 @@ hr {
   align-items: center;
   gap: var(--work-gallery-figure-gap);
   width: 100%;
+  min-width: 0;
   max-width: none;
   justify-self: stretch;
   margin: 0;
-  padding-block: var(--work-gallery-figure-padding-block);
+  padding-block: 0;
   overflow: visible;
   background-color: transparent;
   border: 0;
   border-radius: var(--radius-work-gallery-card);
 }
 
-/* Full-bleed dark band behind figure media only (intro stays on light canvas). */
+/* Media breaks out past the layout shell; intro stays in the lead column. */
 .writing .work-gallery__item > :not(.work-gallery__intro) {
-  width: 100vw;
-  margin-inline: calc(50% - 50vw);
-  padding: var(--work-gallery-dark-band-padding-y) var(--work-gallery-viewport-gutter);
-  background-color: var(--work-gallery-dark-band-bg);
+  --work-gallery-media-breakout-width: min(
+    var(--work-gallery-media-max-inline-size),
+    calc(100vw - 2 * var(--work-gallery-viewport-gutter))
+  );
   box-sizing: border-box;
+  flex-shrink: 0;
+  width: var(--work-gallery-media-breakout-width);
+  max-width: var(--work-gallery-media-breakout-width);
+  margin-inline: calc(50% - (var(--work-gallery-media-breakout-width) / 2));
+  padding: 0;
+  background-color: transparent;
 }
 
 .writing .work-gallery__row .work-gallery__item {
@@ -2103,9 +2035,9 @@ hr {
 .writing .work-gallery__item--integrations-stack > .work-gallery__media--integrations-stack:not(.work-gallery__media--has-backdrop) {
   display: flex;
   justify-content: center;
-  width: 100%;
-  max-width: var(--work-gallery-media-max-width);
-  margin-inline: auto;
+  width: var(--work-gallery-media-breakout-width);
+  max-width: var(--work-gallery-media-breakout-width);
+  margin-inline: 0;
   overflow: visible;
   border-radius: 0;
   box-shadow: none;
@@ -2184,8 +2116,8 @@ hr {
   flex-direction: column;
   align-items: center;
   width: fit-content;
-  max-width: 100%;
-  margin-inline: auto;
+  max-width: var(--work-gallery-media-breakout-width);
+  margin-inline: 0;
 }
 
 .writing .work-gallery__media--experiment-grid:not(.work-gallery__media--has-backdrop) {
@@ -2606,9 +2538,10 @@ hr {
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  align-self: flex-start;
   gap: var(--work-gallery-caption-gap);
   width: 100%;
-  max-width: var(--work-gallery-content-measure);
+  max-width: var(--measure-lead);
   margin-inline: 0;
 }
 
@@ -2619,10 +2552,11 @@ hr {
 .writing .work-gallery__item :is(.divider, .work-gallery__caption, .work-gallery__description) {
   box-sizing: border-box;
   width: 100%;
-  max-width: var(--work-gallery-content-measure);
+  max-width: var(--measure-lead);
 }
 
 .writing .work-gallery__item > :is(.divider, .work-gallery__caption, .work-gallery__description) {
+  align-self: flex-start;
   margin-inline: 0;
 }
 
@@ -2696,13 +2630,10 @@ hr {
 }
 
 .content-flow .work-gallery__item .work-gallery__description {
-  max-width: var(--work-gallery-content-measure);
+  max-width: var(--measure-lead);
 }
 
 .writing .work-gallery__item > .work-gallery__media {
-  width: var(--work-gallery-media-max-width);
-  max-width: 100%;
-  margin-inline: auto;
   overflow: hidden;
 }
 
@@ -2724,8 +2655,7 @@ hr {
 ) > img {
   display: block;
   width: auto;
-  max-width: var(--work-gallery-media-max-width);
-  margin-inline: auto;
+  max-width: var(--work-gallery-media-breakout-width);
 }
 
 .writing .work-gallery__item > .work-gallery__media img {
@@ -2745,58 +2675,58 @@ hr {
 
 /* --- Click-to-play video (work gallery only) --- */
 .writing .work-gallery__item > .work-gallery__media.click-to-play {
-  width: var(--work-gallery-media-max-width);
-  max-width: 100%;
-  margin-inline: auto;
+  width: var(--work-gallery-media-breakout-width);
+  max-width: var(--work-gallery-media-breakout-width);
+  margin-inline: 0;
   padding: 0;
   border-radius: var(--radius-click-to-play);
 }
 
 .writing .work-gallery__item--media-native > .work-gallery__media.click-to-play {
-  width: min(var(--click-to-play-width), 100%);
-  max-width: 100%;
-  margin-inline: auto;
+  width: min(var(--click-to-play-width), var(--work-gallery-media-breakout-width));
+  max-width: var(--work-gallery-media-breakout-width);
+  margin-inline: 0;
 }
 
 .writing .work-gallery__item--media-native > .work-gallery__media.click-to-play.click-to-play--has-background {
-  width: var(--work-gallery-media-max-width);
+  width: var(--work-gallery-media-breakout-width);
 }
 
 .writing .work-gallery__item--hero-secondary:not(.work-gallery__item--email-duo, .work-gallery__item--canfield-duo) > .work-gallery__media--hero-secondary {
   width: fit-content;
-  max-width: 100%;
-  margin-inline: auto;
+  max-width: var(--work-gallery-media-breakout-width);
+  margin-inline: 0;
   grid-template-columns: minmax(0, 620px) minmax(0, 320px);
 }
 
 .writing .work-gallery__item--sidebar-quad > .work-gallery__media--sidebar-quad {
   width: fit-content;
-  max-width: 100%;
-  margin-inline: auto;
+  max-width: var(--work-gallery-media-breakout-width);
+  margin-inline: 0;
 }
 
 .writing .work-gallery__item--experiment-grid > .work-gallery__media--experiment-grid {
   width: fit-content;
-  max-width: 100%;
-  margin-inline: auto;
+  max-width: var(--work-gallery-media-breakout-width);
+  margin-inline: 0;
 }
 
 .writing .work-gallery__item--integrations-stack > .work-gallery__media--integrations-stack.work-gallery__media--has-backdrop {
   width: fit-content;
-  max-width: 100%;
-  margin-inline: auto;
+  max-width: var(--work-gallery-media-breakout-width);
+  margin-inline: 0;
 }
 
 .writing .work-gallery__item--email-duo > .work-gallery__media--hero-secondary {
   width: fit-content;
-  max-width: 100%;
-  margin-inline: auto;
+  max-width: var(--work-gallery-media-breakout-width);
+  margin-inline: 0;
 }
 
 .writing .work-gallery__item--canfield-duo > .work-gallery__media--hero-secondary {
   width: fit-content;
-  max-width: 100%;
-  margin-inline: auto;
+  max-width: var(--work-gallery-media-breakout-width);
+  margin-inline: 0;
 }
 
 @media (min-width: 641px) {
@@ -2994,21 +2924,21 @@ hr {
 
 /* --- Interactive prototype embed (work gallery only) --- */
 .writing .work-gallery__item > .work-gallery__media.prototype-embed {
-  width: var(--work-gallery-media-max-width);
-  max-width: 100%;
-  margin-inline: auto;
+  width: var(--work-gallery-media-breakout-width);
+  max-width: var(--work-gallery-media-breakout-width);
+  margin-inline: 0;
   padding: 0;
   border-radius: var(--radius-click-to-play);
 }
 
 .writing .work-gallery__item--media-native > .work-gallery__media.prototype-embed {
-  width: min(var(--prototype-embed-width), 100%);
-  max-width: 100%;
-  margin-inline: auto;
+  width: min(var(--prototype-embed-width), var(--work-gallery-media-breakout-width));
+  max-width: var(--work-gallery-media-breakout-width);
+  margin-inline: 0;
 }
 
 .writing .work-gallery__item--media-native > .work-gallery__media.prototype-embed.prototype-embed--has-background {
-  width: var(--work-gallery-media-max-width);
+  width: var(--work-gallery-media-breakout-width);
 }
 
 .prototype-embed {

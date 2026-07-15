@@ -49,17 +49,8 @@
   --color-surface-tile-border: var(--color-border-subtle);
 
   /*
-   * Selection-handle corner marks on image cards. Dark strokes on light pages;
-   * red variant on hover.
+   * Work index image cards: square stage over the dark band color.
    */
-  --card-corner-mark-size: 9px;
-  --card-image-bleed: 10px;
-  --card-corner-mark-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='9'%3E%3Crect x='1' y='1' width='7' height='7' fill='none' stroke='%23141414' stroke-opacity='0.38' stroke-width='1.5'/%3E%3C/svg%3E");
-  --card-corner-mark-image-active: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='9'%3E%3Crect x='1' y='1' width='7' height='7' fill='none' stroke='%23c41230' stroke-width='1.5'/%3E%3C/svg%3E");
-
-  /* Case study gallery dark media bands */
-  --work-gallery-dark-band-bg: var(--color-swiss-bg-dark);
-  --work-gallery-dark-band-padding-y: clamp(3rem, 8vw, 5.5rem);
 
   --color-work-gallery-card-bg: var(--color-surface-raised);
   --color-work-gallery-hero-secondary-bg: var(--color-surface-raised);

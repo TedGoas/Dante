@@ -38,7 +38,7 @@ Canonical constraints for typography roles, color directions, frozen homepage re
 - **General**: Clean, minimal approach
 
 ### Colors
-- **Default launch**: Swiss light canvas (`#f3f3f3`) with near-black text (`#141414`); dark bands (`#141414`) for footer, homepage showcase, and case-study media. Swiss red (`#c41230`) for interactive chrome; deep amber for editorial moments only (see [`themes/theme.css`](themes/theme.css) and [`docs/visual-design-language.md`](docs/visual-design-language.md)).
+- **Default launch**: Swiss light canvas (`#f3f3f3`) with near-black text (`#141414`); dark bands (`#141414`) for footer and homepage showcase. Swiss red (`#c41230`) for interactive chrome; deep amber for editorial moments only (see [`themes/theme.css`](themes/theme.css) and [`docs/visual-design-language.md`](docs/visual-design-language.md)).
 - **Inspiration**: Visual design of https://www.adaline.ai/ (restraint); palette is Swiss light, not blue.
 
 ## 4. Technology Stack

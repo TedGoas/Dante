@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+{% from "components/divider.njk" import divider %}
 
 <article class="work-article{% if work_layout_variant %} work-article--{{ work_layout_variant }}{% endif %}">
   {% if featured_image %}
@@ -10,28 +11,38 @@ layout: default
   </figure>
   {% endif %}
 
-  <header class="work-header{% if work_header_variant %} work-header--{{ work_header_variant }}{% endif %}">
-    <h1 class="work-header__title">{{ title }}</h1>
+  <header class="post-header work-header{% if work_header_variant %} work-header--{{ work_header_variant }}{% endif %}">
     {% if work_byline %}
-    <p class="work-byline">{{ work_byline }}</p>
+    <p class="post-header__eyebrow">{{ work_byline }}</p>
     {% endif %}
-    {% set introDeck = work_intro_deck or excerpt %}
-    {% if introDeck %}
-    <p class="work-intro-deck">{{ introDeck }}</p>
-    {% endif %}
-    {% if not hide_work_period and yearParts %}
-    <p class="work-period">
-      <time datetime="{{ yearParts.start }}">{{ yearParts.start }}</time>
-      –
-      {% if yearParts.isPresent %}
-      <span>present</span>
-      {% else %}
-      <time datetime="{{ yearParts.end }}">{{ yearParts.end }}</time>
+    <div class="post-header__stack">
+      {% if not hide_work_period and yearParts %}
+      <p class="post-header__date work-period">
+        <time datetime="{{ yearParts.start }}">{{ yearParts.start }}</time>
+        –
+        {% if yearParts.isPresent %}
+        <span>present</span>
+        {% else %}
+        <time datetime="{{ yearParts.end }}">{{ yearParts.end }}</time>
+        {% endif %}
+      </p>
+      {% elif not hide_work_period and year %}
+      <p class="post-header__date work-period">{{ year }}</p>
       {% endif %}
-    </p>
-    {% elif not hide_work_period and year %}
-    <p class="work-period">{{ year }}</p>
-    {% endif %}
+      <h1 class="post-header__title work-header__title">
+        {% if title | titleNeedsPeriod %}
+          {% set titleTail = title | splitTitleLastWord %}
+          {{ titleTail.before }}<span class="title-tail">{{ titleTail.last }}</span>
+        {% else %}
+          {{ title }}
+        {% endif %}
+      </h1>
+      {% set introDeck = work_intro_deck or excerpt %}
+      {% if introDeck %}
+      <p class="type-dek">{{ introDeck }}</p>
+      {% endif %}
+    </div>
+    {{ divider() }}
   </header>
 
   <section class="work-body writing">

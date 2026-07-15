@@ -86,7 +86,7 @@ components:
 
 **Creative North Star: "The Editorial Lab"**
 
-A hiring-facing portfolio where long-form craft is the interface. Serif display frames Geist body type on a Swiss light canvas; Swiss red handles interactive chrome; deep amber appears only as rare editorial punctuation. Surfaces step off the light field; dark bands (footer, homepage showcase, case-study media) create rhythm without a theme picker.
+A hiring-facing portfolio where long-form craft is the interface. Serif display frames Geist body type on a Swiss light canvas; Swiss red handles interactive chrome; deep amber appears only as rare editorial punctuation. Surfaces step off the light field; dark bands (footer, homepage showcase) create rhythm without a theme picker.
 
 The system rejects SaaS landing clichés, generic AI portfolio tropes, Dribbble ornament, and corporate marketing gloss. When a choice reads as "startup landing page," choose editorial restraint instead.
 
@@ -96,7 +96,7 @@ The system rejects SaaS landing clichés, generic AI portfolio tropes, Dribbble 
 - Swiss light canvas (`#f3f3f3`) with near-black text (`#141414`); dark bands at `#141414`
 - Swiss red (`#c41230`) for interactive chrome; deep amber for editorial moments only
 - Full-width display titles; left-aligned `--measure-lead` (56ch) body column
-- Tonal layering over shadow stacks; image cards carry dark corner marks (red on hover) and slight bleed
+- Tonal layering over shadow stacks; image cards use a slight bleed past the tile
 - Hairline borders (`1px`, low-opacity ink) define chrome where needed; whitespace does most of the work
 - CSS custom properties in `themes/theme.css` and `themes/tokens-base.css`; no utility frameworks
 
@@ -106,7 +106,7 @@ Swiss light ground with red interactive accent and amber editorial punctuation.
 
 ### Primary (interactive)
 
-- **Swiss Red** (`#c41230` / `--color-swiss-accent`): Nav/chrome hover, focus rings, work-index title hover, corner-mark active state, homepage CTA hover. Default `--link-hover-color`.
+- **Swiss Red** (`#c41230` / `--color-swiss-accent`): Nav/chrome hover, focus rings, work-index title hover, homepage CTA hover. Default `--link-hover-color`.
 - **Swiss Red Hover Lift** (`#e0183a`): Stronger hover where needed.
 - **Blog title end-dot exception**: `.post-header__title .title-tail::after` uses Swiss red (allowed break from “interactive only”).
 
@@ -124,11 +124,11 @@ Swiss light ground with red interactive accent and amber editorial punctuation.
 - **Tile Muted** (`#dedede`): Deeper tile variant (bio timeline cards).
 - **Hairline Subtle** (`rgb(20 20 20 / 0.14)`): Default borders.
 - **Hairline Strong** (`rgb(20 20 20 / 0.22)`): Emphasized rules.
-- **Dark Band / Footer** (`#141414` bg, `#f5f5f5` fg): Site footer (all pages); homepage showcase; case-study media bands.
+- **Dark Band / Footer** (`#141414` bg, `#f5f5f5` fg): Site footer (all pages); homepage showcase.
 
 ### Image cards
 
-Case study thumbnails sit on light card tiles with **Figma-style selection-handle corner marks** (dark strokes at rest, Swiss red on hover) and a **slight image bleed** (~8–12px). Tokens: `--card-corner-mark-image`, `--card-corner-mark-image-active`, `--card-corner-mark-size`, `--card-image-bleed`.
+Case study thumbnails sit on square stages (`--work-index-stage-ratio: 1 / 1`) with a hairline border (`--work-index-card-border` / `--color-border-subtle`).
 
 ### Editorial divider
 
@@ -136,7 +136,7 @@ Structural separator: hollow dots plus a flex-growing hairline (`--divider-color
 
 ### Named Rules
 
-**The Swiss Red Interactive Rule.** Interactive chrome — hover, focus-visible, active corner marks, chrome link color — uses Swiss red. Amber is not the default interactive color.
+**The Swiss Red Interactive Rule.** Interactive chrome — hover, focus-visible, chrome link color — uses Swiss red. Amber is not the default interactive color.
 
 **The Amber Editorial Punctuation Rule.** Deep amber appears sparingly: text markers on the dark homepage showcase, pull-quote left rules. If amber fills large backgrounds or becomes default link hover, the palette has gone loud.
 
@@ -188,7 +188,7 @@ Tactile but quiet: interactions clarify affordance without marketing-button ener
 
 - **Corner Style:** 0.5rem on work gallery cards; blockquotes 0.25rem
 - **Work gallery video (click-to-play):** See **AGENTS.md → Work gallery: video figures**
-- **Background:** Light card tile or raised white; dark band behind case-study media only
+- **Background:** Light card tile or raised white on the light canvas
 - **Shadow Strategy:** Inset hairline on media; no floating card shadow at rest
 - **Border:** `--color-border-subtle` hairline
 
@@ -213,7 +213,7 @@ Card/tile links and `.btn` are separate components—not these patterns.
 ### Case study gallery
 
 - Intro (divider, caption, description) on light lead column
-- Media siblings: full-bleed dark band via `--work-gallery-dark-band-bg` / padding tokens
+- Media siblings flush to layout width (no dark band or extra padding)
 
 ## Do's and Don'ts
 

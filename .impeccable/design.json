@@ -164,9 +164,9 @@
       "name": "Image Card",
       "kind": "card",
       "refersTo": "surface-tile",
-      "description": "Thumbnail on a light card surface with dark corner marks (red on hover) and slight image bleed.",
-      "html": "<a href=\"/work/example/\" class=\"ds-card\"><span class=\"ds-card__stage\"><img src=\"/assets/work/example.svg\" alt=\"Case study thumbnail\"></span></a>",
-      "css": ".ds-card { display: block; text-decoration: none; } .ds-card__stage { position: relative; display: block; aspect-ratio: 5 / 3; background-color: #e8e8e8; overflow: visible; } .ds-card__stage img { display: block; width: calc(100% + 20px); height: calc(100% + 10px); margin: -10px -10px 0; object-fit: cover; } .ds-card__stage::after { content: \"\"; position: absolute; inset: 0; pointer-events: none; background-image: var(--mark), var(--mark), var(--mark), var(--mark); --mark: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='9'%3E%3Crect x='1' y='1' width='7' height='7' fill='none' stroke='%23141414' stroke-opacity='0.38' stroke-width='1.5'/%3E%3C/svg%3E\"); background-position: top left, top right, bottom left, bottom right; background-repeat: no-repeat; background-size: 9px 9px; } .ds-card:hover .ds-card__stage::after { --mark: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='9'%3E%3Crect x='1' y='1' width='7' height='7' fill='none' stroke='%23c41230' stroke-width='1.5'/%3E%3C/svg%3E\"); } .ds-card:focus-visible { outline: 2px solid #c41230; outline-offset: 4px; }"
+      "description": "Square thumbnail with a subtle hairline border.",
+      "html": "<a href=\"/work/example/\" class=\"ds-card\"><span class=\"ds-card__stage\"><img src=\"/assets/work/example.svg\" alt=\"Case study thumbnail\" width=\"600\" height=\"600\"></span></a>",
+      "css": ".ds-card { display: block; text-decoration: none; } .ds-card__stage { position: relative; display: block; aspect-ratio: 1 / 1; background-color: transparent; border: 1px solid rgb(20 20 20 / 0.14); overflow: hidden; box-sizing: border-box; } .ds-card__stage img { display: block; width: 100%; height: 100%; object-fit: cover; } .ds-card:focus-visible { outline: 2px solid #c41230; outline-offset: 4px; }"
     },
     {
       "name": "Editorial Blockquote",
@@ -179,19 +179,19 @@
   ],
   "narrative": {
     "northStar": "The Editorial Lab",
-    "overview": "A hiring-facing portfolio where long-form craft is the interface. Serif display frames Geist body type on a Swiss light canvas; Swiss red handles interactive chrome; deep amber appears only as rare editorial punctuation. Dark bands (footer, homepage showcase, case-study media) create rhythm without a theme picker.",
+      "overview": "A hiring-facing portfolio where long-form craft is the interface. Serif display frames Geist body type on a Swiss light canvas; Swiss red handles interactive chrome; deep amber appears only as rare editorial punctuation. Dark bands (footer, homepage showcase) create rhythm without a theme picker.",
     "keyCharacteristics": [
       "Two locked type roles: Redaction (display) and Geist (everything else); no monospace",
       "Swiss light canvas (#f3f3f3) with near-black text; dark bands at #141414",
       "Swiss red for interactive chrome; deep amber for editorial moments only",
       "Full-width display titles; left-aligned 56ch lead column",
-      "Tonal layering over shadow stacks; image cards use dark corner marks (red on hover)",
+      "Tonal layering over shadow stacks; work-index thumbs are square with a hairline border",
       "Token-driven CSS only, no frameworks"
     ],
     "rules": [
       {
         "name": "The Swiss Red Interactive Rule",
-        "body": "Interactive chrome — hover, focus-visible, active corner marks, chrome link color — uses Swiss red. Amber is not the default interactive color.",
+        "body": "Interactive chrome — hover, focus-visible, chrome link color — uses Swiss red. Amber is not the default interactive color.",
         "section": "colors"
       },
       {

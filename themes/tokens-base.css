@@ -100,7 +100,7 @@
   --space-work-gallery-card-padding: clamp(1.25rem, 4vw, 2.5rem);
   --space-work-index-frame-inset: 2.5rem;
   --work-index-grid-gap: 3rem;
-  --work-index-stage-ratio: 5 / 3;
+  --work-index-stage-ratio: 1 / 1;
   --work-index-stage-padding-center: 1rem;
   --work-index-frame-offset-top: var(--space-work-index-frame-inset);
   --work-index-frame-offset-left: var(--space-work-index-frame-inset);
@@ -115,7 +115,10 @@
   --work-gallery-caption-leading: 1.4;
   --work-gallery-figure-padding-block: 2rem;
   --work-gallery-content-measure: var(--measure-lead);
-  --work-gallery-media-max-width: min(100%, var(--work-gallery-media-max-inline-size));
+  --work-gallery-media-max-width: min(
+    var(--work-gallery-media-max-inline-size),
+    calc(100vw - 2 * var(--work-gallery-viewport-gutter))
+  );
 
   /*
    * Long-form prose (blog .post-body, case studies .work-body): use --type-prose-leading

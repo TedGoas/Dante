@@ -43,4 +43,4 @@ When in doubt, choose editorial long-form over startup landing page.
 
 ## Accessibility & Inclusion
 
-Target WCAG 2.2 AA. Lean into Geist for body and metadata readability at small sizes. Maintain sufficient contrast on the Swiss light canvas with near-black text, and on dark bands (footer, homepage showcase, case-study media) with light text; do not sacrifice legibility for atmosphere. Honor `prefers-reduced-motion` for any animation. Semantic HTML and keyboard-accessible navigation are non-negotiable.
+Target WCAG 2.2 AA. Lean into Geist for body and metadata readability at small sizes. Maintain sufficient contrast on the Swiss light canvas with near-black text, and on dark bands (footer, homepage showcase) with light text; do not sacrifice legibility for atmosphere. Honor `prefers-reduced-motion` for any animation. Semantic HTML and keyboard-accessible navigation are non-negotiable.

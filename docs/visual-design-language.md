@@ -54,8 +54,8 @@ The site uses a single Swiss light theme with dark bands:
 
 - **Page canvas** — light gray (`#f3f3f3` / `--color-swiss-bg-light`).
 - **Text** — near-black (`#141414` / `--color-swiss-fg-light`). Softened for prose via `--color-prose-body`.
-- **Dark bands** — near-black (`#141414` / `--color-swiss-bg-dark`) for site footer (all pages), homepage showcase, and case-study gallery media bands.
-- **Interactive accent** — Swiss red (`#c41230` / `--color-swiss-accent`). Nav/chrome hover, focus rings, work-index title hover, corner-mark active state. Also the blog post title end-dot (documented exception to “interactive only”).
+- **Dark bands** — near-black (`#141414` / `--color-swiss-bg-dark`) for site footer (all pages) and homepage showcase.
+- **Interactive accent** — Swiss red (`#c41230` / `--color-swiss-accent`). Nav/chrome hover, focus rings, work-index title hover. Also the blog post title end-dot (documented exception to “interactive only”).
 - **Editorial accent** — deep amber (`#E9AE0F` / `--color-accent`). Homepage belief markers and pull-quote left rule only — not default link hover.
 - **Links** — prose: underline-only in near-black; chrome: lift to Swiss red on hover.
 
@@ -79,9 +79,9 @@ Homepage rhythm sets the pattern for the rest of the site:
 
 - **Display titles** — full layout width at the display scale above.
 - **Body / lede column** — left-aligned at `--measure-lead: 56ch` (not a centered reading column).
-- **Work case studies** — same left-aligned lead column; on wider `.layout--work`, use `--editorial-align-inset` so text lines up with the standard site left edge.
+- **Work case studies** — same site shell (`--layout-site-max: 1200px`) and left-aligned lead column as other pages.
 - **Blog post header** — `.post-header__stack` with equal `--post-header-inner-gap` between date, title, and dek; `--post-header-rule-gap` (~1.5× inner) before the divider.
-- **Figures / gallery media** — may break out wider; captions stay in the lead column.
+- **Figures / gallery media** — media flush within the layout shell (no dark band, no extra padding); captions stay in the lead column.
 
 ---
 
@@ -102,13 +102,13 @@ Homepage rhythm sets the pattern for the rest of the site:
 
 ### Case studies
 
-- Light through `work-header`, intro prose, and each figure’s `.work-gallery__intro`
-- Dark full-bleed band only behind figure media (`.work-gallery__item > :not(.work-gallery__intro)`)
-- Light card surfaces on media sit on the dark band; captions stay on light above the band
+- Light through `work-header`, intro prose, gallery captions, and media
+- Gallery media flush to layout width (no dark band wrapper or extra padding); captions stay in the lead column above media
+- Light card surfaces may still frame multi-image layouts on the light canvas
 
 ### Work / Case Study Index
 
-- Card grid on light gray tiles with dark corner-mark strokes (red on hover)
+- Card grid on light gray tiles; titles lift to Swiss red on hover
 - Title hover uses Swiss red
 
 ---
@@ -136,14 +136,10 @@ These sites informed earlier direction. Study them, don't copy them:
 
 ## Image Treatment
 
-Case study thumbnails (homepage grid, work index) sit on a light card surface with a quiet, design-tool detail:
+Case study thumbnails (homepage grid, work index) sit on square stages:
 
-- **Card surface** — light gray steps off the page canvas (`--color-surface-tile` / raised white).
-- **Selection-handle corner marks** — small hollow squares at the four corners. Dark strokes at rest; Swiss red on hover.
-- **Slight bleed** — the image may extend ~8–12px beyond the card edges (top and sides).
+- **Stage** — `1 / 1` aspect ratio with a subtle hairline border (`--work-index-card-border`).
 - No logos, labels, or text overlays on homepage grid image cards.
-
-Implemented with CSS custom properties (`--card-corner-mark-image`, `--card-corner-mark-image-active`, `--card-image-bleed`) and a `::after` pseudo-element — no extra markup or image assets.
 
 ---
 
@@ -154,5 +150,4 @@ Factual mapping only — not design direction.
 - **Frozen homepage headline**: In [`src/index.njk`](../src/index.njk), `#home-heading` with class `home-hero__headline` (large serif h1, inline avatar `<img>`, company links with inline logo `<img>` elements).
 - **Frozen showcase**: Same file — `<section class="homepage-showcase" …>` containing `.home-work-grid` and its grid items/cells. Do not change grid structure, sizing, or positioning.
 - **Design tokens today**: [`themes/tokens.css`](../themes/tokens.css) imports [`themes/tokens-base.css`](../themes/tokens-base.css) (type scale, spacing, radii, font stacks, `--measure-lead`, display titles) and [`themes/theme.css`](../themes/theme.css) (Swiss light / dark / red / amber on `:root`). Fonts load from [`src/assets/css/site-fonts.css`](../src/assets/css/site-fonts.css): **Redaction** (serif, CDN woff2) and **Geist** (body/UI, self-hosted woff2 in [`src/assets/fonts/`](../src/assets/fonts/)). `--font-mono` is retained as an alias of the Geist body stack so legacy call sites restyle without churn. Stylesheet: [`src/assets/css/styles.css`](../src/assets/css/styles.css).
-- **Work index**: [`src/work.njk`](../src/work.njk) renders a card grid; card variants collapse to light tiles with corner marks. Atmosphere backdrops on case-study gallery figures are visually removed (the `workGalleryAtmosphere` transform may still inject markup, but it renders nothing).
-- **Case study dark bands**: CSS on `.writing .work-gallery__item > :not(.work-gallery__intro)` using `--work-gallery-dark-band-*` tokens.
+- **Work index**: [`src/work.njk`](../src/work.njk) renders a card grid; card variants collapse to light tiles. Atmosphere backdrops on case-study gallery figures are visually removed (the `workGalleryAtmosphere` transform may still inject markup, but it renders nothing). Gallery media is flush to the layout shell (no dark-band wrapper).
