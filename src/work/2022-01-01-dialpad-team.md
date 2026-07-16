@@ -29,7 +29,7 @@ The results show up in both the team and the product. Our feedback system cut de
     <p class="work-gallery__description">Most dashboards show everything and let you sort it out. However a supervisor and an agent need completely different information. This feature adapts to your role, giving supervisors a view of their team and agents a clear picture of how they're tracking.</p>
     {% prototypeEmbed "launchpad", "Dialpad Launchpad design.", 1440, 900 %}
   </figure>
-  <figure class="work-gallery__item work-gallery__item--media-native">
+  <figure class="work-gallery__item work-gallery__item--media-native work-gallery__item--borderless">
     <figcaption class="work-gallery__caption">From basic to genuinely helpful</figcaption>
     <p class="work-gallery__description">Our old chatbot looked dated and needed a human behind every answer. We overhauled it, pairing a visual refresh with generative AI that handles the easy stuff and hands off the hard stuff to a human.</p>
     {% prototypeEmbed "ai-chatbot", "Dialpad chatbot design.", 384, 600, "/assets/work/dialpad-team-chatbot-bg.jpg" %}

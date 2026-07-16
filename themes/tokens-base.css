@@ -88,7 +88,8 @@
   --radius-newsletter-embed: 0.25rem;
   --radius-work-gallery-card: 0.5rem;
   --radius-work-gallery-image: var(--radius-work-gallery-card);
-  --radius-click-to-play: 1rem;
+  /* Gallery media (images, prototypes, click-to-play) share the 8px image radius */
+  --radius-click-to-play: var(--radius-work-gallery-image);
   --prototype-embed-replay-size: 3.5rem;
   --prototype-embed-replay-bg: color-mix(in srgb, #000 50%, transparent);
   --prototype-embed-replay-bg-hover: color-mix(in srgb, #000 65%, transparent);

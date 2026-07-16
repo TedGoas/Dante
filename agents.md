@@ -82,7 +82,7 @@ Use this pattern when a work case study figure should show a **static poster** f
 
 Optional sixth argument: either a CSS `object-view-box` for the poster when the SVG export includes extra canvas (e.g. Launchpad: `"xywh(92px 8px 1440px 900px)"`), or a background image path (e.g. `.jpg`). Do not pass an empty string before a background path — Eleventy drops empty shortcode args.
 
-When the sixth argument is a background image, the frame is **1440px max width** and **tall enough for 32px padding + `HEIGHT` + 32px padding** (derived from the overlay dimensions, not the wallpaper file size). The JPG fills the frame (`object-fit: cover`). The poster SVG still shows centered on top as the pre-play preview, with a visible play affordance over it; the video stays at native `WIDTH` × `HEIGHT` with `--radius-click-to-play` corners until play.
+When the sixth argument is a background image, the frame is **1440px max width** and **tall enough for 32px padding + `HEIGHT` + 32px padding** (derived from the overlay dimensions, not the wallpaper file size). The JPG fills the frame (`object-fit: cover`). The poster SVG still shows centered on top as the pre-play preview, with a visible play affordance over it; the video stays at native `WIDTH` × `HEIGHT` with `--radius-work-gallery-image` corners until play.
 
 Poster and video should match the same artboard dimensions (`WIDTH` × `HEIGHT` in pixels) for the overlay.
 
@@ -97,7 +97,7 @@ Poster and video should match the same artboard dimensions (`WIDTH` × `HEIGHT` 
 | Script (vanilla, deferred) | [`src/assets/js/click-to-play-video.js`](src/assets/js/click-to-play-video.js) via [`src/misc/click-to-play.js.njk`](src/misc/click-to-play.js.njk) |
 | Script load scope | [`src/_includes/layouts/work.njk`](src/_includes/layouts/work.njk) `footerScripts` only (not site-wide) |
 | Gallery breakout + component styles | [`src/assets/css/styles.css`](src/assets/css/styles.css) (`.click-to-play` / `.writing .work-gallery__item > .work-gallery__media.click-to-play`) |
-| Corner radius token (16px) | [`themes/tokens-base.css`](themes/tokens-base.css) `--radius-click-to-play` |
+| Corner radius token (8px) | [`themes/tokens-base.css`](themes/tokens-base.css) `--radius-work-gallery-image` (`--radius-click-to-play` aliases it) |
 
 **UX notes:** Hover or keyboard focus on the wallpaper reveals a centered play affordance; `prefers-reduced-motion: reduce` shows the poster only (no video or start control). Do not widen `.work-body` or load this script on the default layout for a single figure.
 
@@ -149,7 +149,8 @@ Reusable BEM layouts for case study figures with more than one asset. Styles liv
 | `work-gallery__item--sidebar-quad` | `work-gallery__media--sidebar-quad` | Four images in two columns |
 | `work-gallery__item--integrations-stack` | `work-gallery__media--integrations-stack` | Overlapping back/front cards on a fixed stage |
 | `work-gallery__item--media-native` | click-to-play, prototype embed, or large native asset | Centered native width |
-| `work-gallery__item--media-radius-lg` | single `img` | Larger corner radius |
+| `work-gallery__item--borderless` | any | Hairline border off; keep 8px radius |
+| `work-gallery__item--plain` | floating asset (e.g. logo) | No border, no radius |
 
 Image classes inside hero-secondary: `work-gallery__media-main`, `work-gallery__media-secondary`. Integrations stack: `work-gallery__integrations-stack__stage`, `__back`, `__front`. Sidebar quad: `work-gallery__sidebar-quad`, `__col`.
 

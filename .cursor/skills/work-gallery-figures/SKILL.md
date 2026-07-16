@@ -27,7 +27,8 @@ Case studies use a `<section class="work-gallery">` of `<figure class="work-gall
 | Two overlapping cards | `work-gallery__item--integrations-stack` | `work-gallery__media--integrations-stack` | `__integrations-stack__stage` + `__back` / `__front` |
 | Tone hero + 3-column sidebar cards | `work-gallery__item--experiment-grid` | `work-gallery__media--experiment-grid` | `__experiment-grid__tone` + `__sidebar` + `__col` |
 | Large native asset (e.g. MP4 frame) | `work-gallery__item--media-native` | per click-to-play or img | — |
-| Rounded corners on lone img | `work-gallery__item--media-radius-lg` | — | — |
+| No hairline border (keep 8px radius) | `work-gallery__item--borderless` | or `work-gallery__media--borderless` on one img | Dark / wallpaper exceptions |
+| No border, no radius | `work-gallery__item--plain` | — | Floating logos |
 
 ## Atmosphere backdrop (CSS only)
 

@@ -35,7 +35,7 @@ I helped grow the enterprise product from a single customer to over 30, adapting
     <div class="work-gallery__media work-gallery__media--hero-secondary work-gallery__media--has-backdrop work-gallery__media--backdrop-atmosphere work-gallery__media--atmosphere-amber-dusk" aria-label="Stack Overflow Teams and 10th anniversary email designs.">
       <div class="work-gallery__backdrop" aria-hidden="true"></div>
       <img class="work-gallery__media-main" src="/assets/work/stackoverflow-email-teams.svg" alt="Stack Overflow for Teams email design." width="680" height="808" loading="lazy">
-      <img class="work-gallery__media-secondary" src="/assets/work/stackoverflow-10th-email.svg" alt="Stack Overflow 10th anniversary email design." width="400" height="1062" loading="lazy">
+      <img class="work-gallery__media-secondary work-gallery__media--borderless" src="/assets/work/stackoverflow-10th-email.svg" alt="Stack Overflow 10th anniversary email design." width="400" height="1062" loading="lazy">
     </div>
   </figure>
   <figure class="work-gallery__item work-gallery__item--integrations-stack">

@@ -1980,7 +1980,6 @@ hr {
   width: auto;
   max-width: 100%;
   background-color: transparent;
-  box-shadow: inset 0 0 0 var(--border-width-hairline) var(--color-border-subtle);
 }
 
 /* --- Work gallery: multi-image layouts --- */
@@ -2058,7 +2057,7 @@ hr {
   width: calc(678 / 1151 * 100%);
   max-width: 678px;
   height: auto;
-  border-radius: var(--radius-click-to-play);
+  border-radius: var(--radius-work-gallery-image);
   box-shadow: var(--shadow-work-gallery-stack);
 }
 
@@ -2079,7 +2078,7 @@ hr {
   align-items: center;
   justify-content: center;
   padding: var(--work-gallery-atmosphere-frame-padding);
-  border-radius: var(--radius-click-to-play);
+  border-radius: var(--radius-work-gallery-image);
   overflow: hidden;
 }
 
@@ -2123,7 +2122,7 @@ hr {
 .writing .work-gallery__media--experiment-grid:not(.work-gallery__media--has-backdrop) {
   padding: var(--work-gallery-atmosphere-frame-padding);
   background-color: var(--color-work-gallery-hero-secondary-bg);
-  border-radius: var(--radius-click-to-play);
+  border-radius: var(--radius-work-gallery-image);
   overflow: hidden;
 }
 
@@ -2156,13 +2155,12 @@ hr {
   display: block;
   width: min(var(--work-gallery-experiment-sidebar-column-width), 100%);
   height: auto;
-  border-radius: 0;
 }
 
 .writing .work-gallery__media--has-backdrop {
   position: relative;
   isolation: isolate;
-  border-radius: var(--radius-click-to-play);
+  border-radius: var(--radius-work-gallery-image);
   overflow: hidden;
   background-color: var(--color-work-gallery-hero-secondary-bg);
   padding: var(--work-gallery-atmosphere-frame-padding);
@@ -2486,15 +2484,13 @@ hr {
 }
 
 .post-body > figure :where(img, video, iframe),
-.writing > figure :where(img, video, iframe),
-.writing .work-gallery__item:not(.work-gallery__item--media-radius-lg) :where(img, video, iframe) {
+.writing > figure:not(.work-gallery__item) :where(img, video, iframe) {
   border-radius: 0;
 }
 
 .writing .work-gallery__item img {
   height: auto;
   background-color: transparent;
-  box-shadow: none;
 }
 
 .writing .img-placeholder {
@@ -2637,17 +2633,46 @@ hr {
   overflow: hidden;
 }
 
-.writing .work-gallery__item:not(.work-gallery__item--media-radius-lg) > :is(img, .work-gallery__media):not(.click-to-play):not(.prototype-embed):not(.work-gallery__media--sidebar-quad):not(.work-gallery__media--integrations-stack):not(.work-gallery__media--experiment-grid) {
+/* Default framed media: work-index hairline + 8px radius on each image / embed */
+.writing .work-gallery__item > img,
+.writing .work-gallery__item .work-gallery__media:not(.prototype-embed):not(.click-to-play) img,
+.writing .work-gallery__item > .work-gallery__media.prototype-embed,
+.writing .work-gallery__item > .work-gallery__media.click-to-play {
+  border: var(--border-width-hairline) solid var(--work-index-card-border);
   border-radius: var(--radius-work-gallery-image);
+  box-sizing: border-box;
+  box-shadow: none;
 }
 
-.writing .work-gallery__item.work-gallery__item--media-radius-lg {
-  border-radius: var(--radius-click-to-play);
-}
-
-.writing .work-gallery__item.work-gallery__item--media-radius-lg > :is(img, .work-gallery__media) {
-  border-radius: var(--radius-click-to-play);
+.writing .work-gallery__item > img,
+.writing .work-gallery__item > .work-gallery__media.prototype-embed,
+.writing .work-gallery__item > .work-gallery__media.click-to-play {
   overflow: hidden;
+}
+
+/* Borderless: keep radius, drop hairline */
+.writing .work-gallery__item--borderless > img,
+.writing .work-gallery__item--borderless .work-gallery__media:not(.prototype-embed):not(.click-to-play) img,
+.writing .work-gallery__item--borderless > .work-gallery__media.prototype-embed,
+.writing .work-gallery__item--borderless > .work-gallery__media.click-to-play,
+.writing .work-gallery__item .work-gallery__media:not(.prototype-embed):not(.click-to-play) img.work-gallery__media--borderless {
+  border: none;
+}
+
+/* Plain: no border, no radius (floating assets e.g. Cerberus logo) */
+.writing .work-gallery__item--plain > img,
+.writing .work-gallery__item--plain .work-gallery__media:not(.prototype-embed):not(.click-to-play) img,
+.writing .work-gallery__item--plain > .work-gallery__media.prototype-embed,
+.writing .work-gallery__item--plain > .work-gallery__media.click-to-play {
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+}
+
+/* Experiment-grid sidebar cards: no frame (they already carry their own chrome) */
+.writing .work-gallery__item .work-gallery__media--experiment-grid:not(.prototype-embed):not(.click-to-play) .work-gallery__experiment-grid__sidebar img {
+  border: none;
+  border-radius: 0;
 }
 
 .writing .work-gallery__item:not(
@@ -2660,7 +2685,6 @@ hr {
 
 .writing .work-gallery__item > .work-gallery__media img {
   width: 100%;
-  border-radius: 0;
 }
 
 .writing .work-gallery__item--integrations-stack > .work-gallery__media--integrations-stack:not(.work-gallery__media--has-backdrop) {
@@ -2670,7 +2694,7 @@ hr {
 .writing .work-gallery__item--integrations-stack > .work-gallery__media--integrations-stack img {
   width: calc(678 / 1151 * 100%);
   max-width: 678px;
-  border-radius: var(--radius-click-to-play);
+  box-shadow: var(--shadow-work-gallery-stack);
 }
 
 /* --- Click-to-play video (work gallery only) --- */
@@ -2679,7 +2703,6 @@ hr {
   max-width: var(--work-gallery-media-breakout-width);
   margin-inline: 0;
   padding: 0;
-  border-radius: var(--radius-click-to-play);
 }
 
 .writing .work-gallery__item--media-native > .work-gallery__media.click-to-play {
@@ -2928,7 +2951,6 @@ hr {
   max-width: var(--work-gallery-media-breakout-width);
   margin-inline: 0;
   padding: 0;
-  border-radius: var(--radius-click-to-play);
 }
 
 .writing .work-gallery__item--media-native > .work-gallery__media.prototype-embed {
