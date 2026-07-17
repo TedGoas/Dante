@@ -84,6 +84,9 @@
   --space-blockquote-attribution-gap: clamp(0.5rem, 1.25vw, 0.675rem);
   --radius-blockquote: 0.25rem;
 
+  /* --- Page titles (blog, newsletter, how I think, etc.) --- */
+  --space-page-title-gap: clamp(1.5rem, 4vw, 2.5rem);
+
   /* --- Radius / spacing shared --- */
   --radius-newsletter-embed: 0.25rem;
   --radius-work-gallery-card: 0.5rem;

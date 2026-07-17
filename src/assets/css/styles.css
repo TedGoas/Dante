@@ -1285,11 +1285,9 @@ hr {
 
 /* --- Blog index --- */
 .blog-index {
-  --blog-index-list-gap: clamp(1.5rem, 4vw, 2.5rem);
-
   display: flex;
   flex-direction: column;
-  gap: var(--blog-index-list-gap);
+  gap: var(--space-page-title-gap);
 }
 
 .blog-index > h1 {
@@ -1298,43 +1296,69 @@ hr {
 
 /* --- Newsletter page --- */
 .newsletter-page {
-  display: flex;
-  flex-direction: column;
-  gap: var(--blog-index-list-gap);
+  display: grid;
+  grid-template-columns: minmax(0, var(--measure-lead)) minmax(12rem, 1fr);
+  column-gap: var(--footer-upper-gap);
+  row-gap: var(--space-page-title-gap);
+  align-items: start;
 }
 
 .newsletter-page > h1 {
+  grid-column: 1;
   margin-bottom: 0;
 }
 
 .newsletter-page__signup {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, min(25rem, 400px));
-  gap: var(--footer-upper-gap);
-  align-items: center;
+  grid-column: 2;
+  grid-row: 2;
+  position: sticky;
+  top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-prose-flow);
   width: 100%;
-  padding: var(--footer-upper-padding-y);
-  margin-bottom: var(--blog-index-list-gap);
-  border: var(--border-width-hairline) solid var(--color-border-subtle);
-  border-radius: var(--radius-newsletter-embed);
+  max-width: min(25rem, 100%);
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
 }
 
-.newsletter-page__signup .site-footer__newsletter-intro {
+.newsletter-page__intro {
   margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-leading);
+  color: var(--color-prose-body);
 }
 
 .newsletter-page__signup .site-footer__newsletter-form {
   width: 100%;
-  max-width: min(25rem, 400px);
+  max-width: none;
 }
 
-@media (max-width: 640px) {
-  .newsletter-page__signup {
+.newsletter-page > .post-list {
+  grid-column: 1;
+  grid-row: 2;
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+}
+
+@media (max-width: 720px) {
+  .newsletter-page {
     grid-template-columns: minmax(0, 1fr);
-    align-items: stretch;
   }
 
-  .newsletter-page__signup .site-footer__newsletter-form {
+  .newsletter-page > h1,
+  .newsletter-page__signup,
+  .newsletter-page > .post-list {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .newsletter-page__signup {
+    position: static;
     max-width: none;
   }
 }
@@ -2430,6 +2454,10 @@ hr {
 }
 
 /* --- How I Think --- */
+.content-flow > .reading > h1 {
+  margin-bottom: var(--space-page-title-gap);
+}
+
 .how-i-think-section {
   margin-bottom: 2rem;
 }
