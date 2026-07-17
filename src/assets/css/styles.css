@@ -1820,7 +1820,7 @@ hr {
 .work-body.writing :where(h2),
 .content-flow > .reading :where(h2) {
   font-family: var(--font-serif);
-  font-size: clamp(1.75rem, 3.4vw, 2.25rem);
+  font-size: clamp(2.1875rem, 4.25vw, 2.8125rem);
   font-style: normal;
   font-weight: 400;
   line-height: 1.15;
@@ -1840,12 +1840,12 @@ hr {
   margin: 2.5rem 0 0.875rem;
 }
 
-.post .post-body :where(h2):first-child,
-.post .post-body :where(h3):first-child,
-.work-body.writing :where(h2):first-child,
-.work-body.writing :where(h3):first-child,
-.content-flow > .reading :where(h2):first-child,
-.content-flow > .reading :where(h3):first-child {
+.post .post-body > :where(h2):first-child,
+.post .post-body > :where(h3):first-child,
+.work-body.writing > :where(h2):first-child,
+.work-body.writing > :where(h3):first-child,
+.content-flow > .reading > :where(h2):first-child,
+.content-flow > .reading > :where(h3):first-child {
   margin-top: 0;
 }
 
