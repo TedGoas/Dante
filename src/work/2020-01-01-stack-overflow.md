@@ -18,6 +18,8 @@ As the first designer on Stack Overflow’s enterprise product, I wore a lot of 
 
 I helped grow the enterprise product from a single customer to over 30, adapting a loved community product for enterprise use cases. I also built one of the first email design systems in the industry, which became a core part of how Stack Overflow communicated with users at scale.
 
+{% include "components/work-scope-note.njk" %}
+
 <section class="work-gallery" aria-label="Stack Overflow work samples">
   <figure class="work-gallery__item">
     <figcaption class="work-gallery__caption">Measuring community health, not vanity</figcaption>

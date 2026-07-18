@@ -1913,6 +1913,20 @@ hr {
   min-height: 240px;
 }
 
+.work-body.writing > .work-scope-note {
+  margin-block: var(--post-paragraph-gap) 0;
+  padding-block: var(--space-blockquote-padding);
+  padding-inline: var(--space-blockquote-padding);
+  border-radius: var(--radius-blockquote);
+  background-color: var(--color-surface-tile-muted);
+  color: var(--color-site-fg-muted);
+}
+
+.work-body.writing > .work-scope-note > p {
+  margin: 0;
+  color: inherit;
+}
+
 .work-article--dialpad .work-body-section--dialpad {
   width: 100%;
   padding-block: clamp(0.75rem, 2.2vw, 1.5rem);

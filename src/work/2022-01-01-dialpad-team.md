@@ -18,6 +18,8 @@ As the Design DRI for Dialpad’s support and sales products (about a third of t
 
 The results show up in both the team and the product. Our feedback system cut design review cycles nearly in half, our internal tools are now used company-wide, and several designers I’ve coached have stepped into leadership roles. On the product side, a recent major launch drove record engagement and revenue growth: 15.0M messages (+14.8%), a 10% lift in Scorecard usage, +37% new customers, +14% upsells to existing support customers, and +84% expansion among current ones, and over $230K in additional monthly recurring revenue.
 
+{% include "components/work-scope-note.njk" %}
+
 <section class="work-gallery" aria-label="Dialpad Team work samples">
   <figure class="work-gallery__item">
     <figcaption class="work-gallery__caption">Analytics in plain English</figcaption>
