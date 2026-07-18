@@ -72,7 +72,7 @@
   --post-header-rule-gap: calc(48 / 24 * var(--post-header-date-size));
   --post-header-title-size: var(--type-display-title-size);
   --post-header-title-leading: var(--type-display-title-leading);
-  --post-header-title-end-size: 0.18em;
+  --post-header-title-end-size: 0.14em;
   --post-header-title-end-offset-y: 1.5px;
   --post-header-title-end-gap: 4px;
   --type-dek-size: clamp(1.5rem, 2vw, 1.75rem);
