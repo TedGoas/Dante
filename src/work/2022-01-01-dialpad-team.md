@@ -24,21 +24,25 @@ The results show up in both the team and the product. Our feedback system cut de
   <figure class="work-gallery__item">
     <figcaption class="work-gallery__caption">Analytics in plain English</figcaption>
     <p class="work-gallery__description">Most people don't want to learn a BI tool. They just want answers. My team designed an LLM-powered chat experience that sits on top of Dialpad's analytics and responded with interactive charts you can share.</p>
+    <p class="work-gallery__designers">Designers: <a href="https://www.linkedin.com/in/martel-pablo">Pablo Martel</a>, <a href="https://www.linkedin.com/in/maiesandi">Maite Esandi</a></p>
     {% prototypeEmbed "analytics-gpt", "Dialpad AnalyticsGPT design.", 1440, 900 %}
   </figure>
   <figure class="work-gallery__item">
     <figcaption class="work-gallery__caption">Built for you, not everyone</figcaption>
     <p class="work-gallery__description">Most dashboards show everything and let you sort it out. However a supervisor and an agent need completely different information. This feature adapts to your role, giving supervisors a view of their team and agents a clear picture of how they're tracking.</p>
+    <p class="work-gallery__designers">Designers: <a href="https://www.linkedin.com/in/paolojduarte">Paolo Duarte</a></p>
     {% prototypeEmbed "launchpad", "Dialpad Launchpad design.", 1440, 900 %}
   </figure>
   <figure class="work-gallery__item work-gallery__item--media-native work-gallery__item--borderless">
     <figcaption class="work-gallery__caption">From basic to genuinely helpful</figcaption>
     <p class="work-gallery__description">Our old chatbot looked dated and needed a human behind every answer. We overhauled it, pairing a visual refresh with generative AI that handles the easy stuff and hands off the hard stuff to a human.</p>
+    <p class="work-gallery__designers">Designers: <a href="https://www.linkedin.com/in/martel-pablo">Pablo Martel</a>, <a href="https://www.linkedin.com/in/aykut-durmayaz">Aykut Durmayaz</a></p>
     {% prototypeEmbed "ai-chatbot", "Dialpad chatbot design.", 384, 600, "/assets/work/dialpad-team-chatbot-bg.jpg" %}
   </figure>
   <figure class="work-gallery__item">
     <figcaption class="work-gallery__caption">Phone trees, made visual</figcaption>
     <p class="work-gallery__description">IVR systems (phone trees) are hard to design and even harder to maintain when they live in forms and text fields. We designed a drag-and-drop visual editor that lets anyone see exactly how their phone system is wired and edit it without being an expert.</p>
+    <p class="work-gallery__designers">Designers: <a href="https://www.linkedin.com/in/paolojduarte">Paolo Duarte</a></p>
     <img src="/assets/work/dialpad-team-ivr.svg" alt="Dialpad IVR design." loading="lazy">
   </figure>
 </section>
