@@ -87,10 +87,11 @@
   /* Site footer: near-black Swiss band (all pages). */
   --color-footer-bg: var(--color-swiss-bg-dark);
   --color-footer-heading: var(--color-swiss-fg-dark);
+  --color-footer-label: var(--color-swiss-fg-dark-muted);
   --color-footer-link: var(--color-swiss-fg-dark);
   --color-footer-link-muted: var(--color-swiss-fg-dark-muted);
-  --color-footer-statement: var(--color-swiss-fg-dark-muted);
-  --color-footer-statement-link: var(--color-swiss-fg-dark-muted);
+  --color-footer-statement: rgb(245 245 245 / 0.42);
+  --color-footer-statement-link: rgb(245 245 245 / 0.42);
   --color-footer-reveal-underline: rgb(245 245 245 / 0.28);
   --footer-reveal-sketch-height: clamp(3px, 0.09em, 4px);
   --footer-reveal-text-halo: 2px;
