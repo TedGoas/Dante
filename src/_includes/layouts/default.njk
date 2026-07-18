@@ -33,7 +33,16 @@
         <div class="site-nav__end">
           <ul class="site-nav-list">
             {% for link in navigation.primary %}
-            <li><a href="{{ link.href }}">{{ link.label }}</a></li>
+            <li>
+              {% set isCurrent = page.url | isCurrentNav(link.href) %}
+              <a
+                href="{{ link.href }}"
+                {% if isCurrent %}aria-current="page"{% endif %}
+              ><span class="site-nav__label">
+                <span class="site-nav__label-underline" aria-hidden="true"></span>
+                {{ link.label }}
+              </span></a>
+            </li>
             {% endfor %}
           </ul>
         </div>

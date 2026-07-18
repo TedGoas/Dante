@@ -41,6 +41,7 @@ module.exports = (config) => {
   config.addFilter('splitTitleLastWord', require('./lib/filters/splitTitleLastWord'));
   config.addFilter('workLead', require('./lib/filters/workLead'));
   config.addFilter('minifyJs', require('./lib/filters/minifyJs'));
+  config.addFilter('isCurrentNav', require('./lib/filters/isCurrentNav'));
 
   config.addShortcode('clickToPlayVideo', require('./lib/shortcodes/clickToPlayVideo'));
   config.addShortcode('prototypeEmbed', require('./lib/shortcodes/prototypeEmbed'));
