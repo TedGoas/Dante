@@ -16,6 +16,9 @@ package-lock.json
 # Impeccable Live (ephemeral session data)
 .impeccable/live/
 
+# Local sizzle-reel checkout for prototype rebuilds (not a submodule)
+.sizzle-reel/
+
 # Secrets / local env (future-proof)
 .env
 .env.*
