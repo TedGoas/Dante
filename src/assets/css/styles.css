@@ -1764,6 +1764,11 @@ hr {
   max-width: var(--measure-lead);
 }
 
+/* Match body / gallery intro column; rem measure ignores dek’s larger font */
+.work-header .type-dek {
+  max-width: var(--work-gallery-content-measure);
+}
+
 .post-header .type-dek {
   margin-bottom: 0;
 }
@@ -2648,7 +2653,7 @@ hr {
   align-self: flex-start;
   gap: var(--work-gallery-caption-gap);
   width: 100%;
-  max-width: var(--measure-lead);
+  max-width: var(--work-gallery-content-measure);
   margin-inline: 0;
 }
 
@@ -2659,7 +2664,7 @@ hr {
 .writing .work-gallery__item :is(.divider, .work-gallery__caption, .work-gallery__description, .work-gallery__designers) {
   box-sizing: border-box;
   width: 100%;
-  max-width: var(--measure-lead);
+  max-width: var(--work-gallery-content-measure);
 }
 
 .writing .work-gallery__item > :is(.divider, .work-gallery__caption, .work-gallery__description, .work-gallery__designers) {

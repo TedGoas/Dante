@@ -118,7 +118,8 @@
   --work-gallery-caption-size: clamp(1.5rem, 1rem + 2vw, 2rem);
   --work-gallery-caption-leading: 1.4;
   --work-gallery-figure-padding-block: 2rem;
-  --work-gallery-content-measure: var(--measure-lead);
+  /* Rem (not ch) so dek + gallery intros share one column despite different font sizes */
+  --work-gallery-content-measure: min(48.5rem, 100%);
   --work-gallery-media-max-width: min(
     var(--work-gallery-media-max-inline-size),
     calc(100vw - 2 * var(--work-gallery-viewport-gutter))
