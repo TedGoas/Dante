@@ -15,3 +15,9 @@
   from = "/values/"
   to = "/how-i-think/"
   status = 301
+
+[[redirects]]
+  from = "/assets/files/humans.txt"
+  to = "/humans.txt"
+  status = 301
+
