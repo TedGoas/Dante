@@ -8,33 +8,48 @@
     return;
   }
 
+  /* Keep in sync with styles.css mobile nav breakpoint. */
+  const overlayQuery = window.matchMedia("(max-width: 56rem)");
+
+  const setListInert = (inert) => {
+    if (inert) {
+      list.setAttribute("inert", "");
+      list.setAttribute("aria-hidden", "true");
+    } else {
+      list.removeAttribute("inert");
+      list.removeAttribute("aria-hidden");
+    }
+  };
+
   const setOpen = (open) => {
     nav.classList.toggle("is-open", open);
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
     label.textContent = open ? "Close" : "Menu";
 
-    if (open) {
-      list.removeAttribute("inert");
-      list.removeAttribute("aria-hidden");
-    } else {
-      list.setAttribute("inert", "");
-      list.setAttribute("aria-hidden", "true");
-    }
+    /* inert only when the overlay pattern is hiding the list (mobile, closed). */
+    setListInert(overlayQuery.matches && !open);
   };
 
   const close = () => setOpen(false);
 
-  const isPageNavigation = (anchor) => {
+  /** True when following the link leaves this page view (path, external, mailto). */
+  const isNavigatingAway = (anchor) => {
     const href = anchor.getAttribute("href");
-    if (!href || href === "#" || href.startsWith("#") || href.startsWith("javascript:")) {
+    if (!href || href.startsWith("javascript:")) {
       return false;
     }
-    try {
-      const url = new URL(href, window.location.href);
-      return url.origin === window.location.origin;
-    } catch (error) {
-      return false;
+    return !href.startsWith("#");
+  };
+
+  const syncForViewport = () => {
+    if (!overlayQuery.matches) {
+      nav.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      label.textContent = "Menu";
+      setListInert(false);
+      return;
     }
+    setOpen(nav.classList.contains("is-open"));
   };
 
   nav.classList.add("site-nav--enhanced");
@@ -53,9 +68,15 @@
 
   list.addEventListener("click", (event) => {
     const anchor = event.target.closest("a");
-    if (!anchor || isPageNavigation(anchor)) {
+    if (!anchor || isNavigatingAway(anchor)) {
       return;
     }
     close();
   });
+
+  if (typeof overlayQuery.addEventListener === "function") {
+    overlayQuery.addEventListener("change", syncForViewport);
+  } else if (typeof overlayQuery.addListener === "function") {
+    overlayQuery.addListener(syncForViewport);
+  }
 })();

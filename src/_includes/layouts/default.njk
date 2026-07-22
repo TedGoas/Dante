@@ -58,6 +58,17 @@
               </span></a>
             </li>
             {% endfor %}
+            {% for link in navigation.contact %}
+            <li class="site-nav-list__item site-nav-list__item--contact">
+              <a
+                href="{{ link.href }}"
+                {% if link.external %}target="_blank" rel="noopener noreferrer"{% endif %}
+              ><span class="site-nav__label">
+                <span class="site-nav__label-underline" aria-hidden="true"></span>
+                {{ link.label }}
+              </span></a>
+            </li>
+            {% endfor %}
           </ul>
         </div>
       </nav>

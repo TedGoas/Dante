@@ -870,29 +870,41 @@ hr {
   --site-nav-duration-in: 200ms;
   --site-nav-duration-out: 160ms;
   --site-nav-duration-toggle: 180ms;
+  --site-nav-logo-gap: 2rem;
+  --site-nav-link-gap-row: 1rem;
+  --site-nav-link-gap-column: 1.25rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  gap: 1rem;
+  gap: 1rem var(--site-nav-logo-gap);
   font-family: var(--font-mono);
   font-size: var(--type-min-size);
 }
 
 .site-nav-list {
   display: flex;
+  flex: 1;
   flex-wrap: wrap;
+  align-items: center;
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 1.5rem 1.875rem;
+  gap: var(--site-nav-link-gap-row) var(--site-nav-link-gap-column);
+  min-width: 0;
+}
+
+.site-nav-list li:not(.site-nav-list__item--contact) + .site-nav-list__item--contact {
+  margin-left: auto;
 }
 
 .site-nav__end {
   display: flex;
+  flex: 1;
   flex-wrap: wrap;
   align-items: center;
   gap: 1rem 1.5rem;
+  min-width: 0;
 }
 
 /* Menu toggle: CSS-drawn bars; morph to X when open. Hidden until JS enhances. */
@@ -973,8 +985,12 @@ hr {
   transform: rotate(-45deg);
 }
 
-/* No-JS fallback: logo row + wrapping full labels (≤40rem). */
-@media (max-width: 40rem) {
+/* No-JS fallback + mobile overlay (≤56rem — earlier than before; contact links need room). */
+@media (max-width: 56rem) {
+  .site-nav-list li:not(.site-nav-list__item--contact) + .site-nav-list__item--contact {
+    margin-left: 0;
+  }
+
   html:not(.js) .site-nav {
     align-items: flex-start;
   }
@@ -999,14 +1015,15 @@ hr {
     white-space: nowrap;
   }
 
-  /* JS: logo + toggle on one row; panel overlays main content (paints before defer). */
+  /* Sit above page stacking contexts (e.g. bio timeline cards/markers at z-index 2–3). */
   html.js .site-header {
     position: relative;
-    z-index: 2;
+    z-index: 50;
   }
 
   html.js .site-nav {
     position: relative;
+    justify-content: space-between;
     align-items: center;
   }
 
@@ -1027,6 +1044,7 @@ hr {
     top: 100%;
     z-index: 1;
     display: flex;
+    flex: none;
     flex-direction: column;
     align-items: flex-start;
     width: auto;
