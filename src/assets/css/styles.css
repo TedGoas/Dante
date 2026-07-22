@@ -1021,8 +1021,11 @@ hr {
   background-color: var(--color-swiss-bg-dark);
   color: var(--color-swiss-fg-dark);
   padding: var(--home-showcase-padding-y) var(--home-showcase-padding-x);
+  /* Extra bottom room so hanging captions aren't clipped. */
+  padding-bottom: calc(var(--home-showcase-padding-y) + 2rem);
   margin: 0;
   max-width: none;
+  overflow: visible;
 }
 
 .homepage-showcase {
@@ -1058,99 +1061,67 @@ hr {
   outline-offset: 3px;
 }
 
-/* Expanding CTA chip: arrow-only at rest; title + arrow on hover/focus.
-   Height stays fixed; only width (inline padding, gap, label) expands. */
-.home-work-grid__cta {
-  position: absolute;
-  left: var(--home-work-grid-gap);
-  bottom: var(--home-work-grid-gap);
+/* Hanging caption under tile + sibling fade (mystery collage at rest). */
+.home-work-grid__item {
+  position: relative;
+  margin-bottom: 0;
+  min-height: 0;
+  transition: opacity 0.2s ease-out;
+}
+
+/* Dim everything while a media link is active… */
+.home-work-grid:has(.home-work-grid__link:hover) .home-work-grid__item,
+.home-work-grid:has(.home-work-grid__link:focus-visible) .home-work-grid__item {
+  opacity: 0.4;
+}
+
+/* …except the hovered/focused tile (must outrank the dim rule). */
+.home-work-grid:has(.home-work-grid__link:hover) .home-work-grid__item:has(.home-work-grid__link:hover),
+.home-work-grid:has(.home-work-grid__link:focus-visible) .home-work-grid__item:has(.home-work-grid__link:focus-visible) {
   z-index: 1;
-  box-sizing: border-box;
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0;
-  width: max-content;
-  max-width: calc(100% - (2 * var(--home-work-grid-gap)));
-  margin: 0;
-  padding-block: 1.125rem;
-  padding-inline: 1.125rem;
-  overflow: hidden;
-  border-width: var(--home-hero-cta-border-width);
-  border-style: solid;
-  border-radius: 0;
-  background-color: var(--color-swiss-fg-light);
-  border-color: var(--color-swiss-fg-light);
-  box-shadow: none;
-  color: var(--color-swiss-bg-light);
-  font-family: var(--font-sans);
-  font-size: var(--home-hero-cta-font-size);
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: var(--home-hero-cta-letter-spacing);
-  text-transform: uppercase;
-  white-space: nowrap;
-  pointer-events: none;
-  transition:
-    padding-inline 0.2s ease-out,
-    gap 0.2s ease-out,
-    background-color 0.15s ease,
-    border-color 0.15s ease,
-    color 0.15s ease;
-}
-
-.home-work-grid__link:hover .home-work-grid__cta,
-.home-work-grid__link:focus-visible .home-work-grid__cta,
-.home-work-grid__link:active .home-work-grid__cta {
-  background-color: var(--color-swiss-accent);
-  border-color: var(--color-swiss-accent);
-  color: var(--color-swiss-bg-light);
-}
-
-.home-work-grid__cta-label {
-  display: inline-block;
-  max-width: 0;
-  margin: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition:
-    max-width 0.2s ease-out,
-    opacity 0.15s ease-out;
-}
-
-.home-work-grid__cta-arrow {
-  flex-shrink: 0;
-  font-size: 1.25rem;
-  line-height: 1;
-}
-
-.home-work-grid__link:hover .home-work-grid__cta,
-.home-work-grid__link:focus-visible .home-work-grid__cta {
-  gap: 1rem;
-  padding-inline: 1.375rem;
-}
-
-.home-work-grid__link:hover .home-work-grid__cta-label,
-.home-work-grid__link:focus-visible .home-work-grid__cta-label {
-  max-width: 14rem;
   opacity: 1;
 }
 
-@media (hover: none) {
-  .home-work-grid__cta {
-    gap: 1rem;
-    padding-inline: 1.375rem;
-  }
+.home-work-grid__caption {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  box-sizing: border-box;
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  padding-top: calc(0.525rem + var(--radius-work-gallery-image));
+  padding-right: 1rem;
+  padding-bottom: 0.525rem;
+  padding-left: 1rem;
+  border-radius: 0 0 var(--radius-work-gallery-image) var(--radius-work-gallery-image);
+  font-family: var(--font-sans);
+  font-size: var(--type-min-size);
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--color-swiss-fg-light);
+  background-color: var(--color-surface-raised);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease-out, visibility 0.2s ease-out;
+}
 
-  .home-work-grid__cta-label {
-    max-width: 14rem;
-    opacity: 1;
-  }
+.home-work-grid__link:hover .home-work-grid__caption,
+.home-work-grid__link:focus-visible .home-work-grid__caption {
+  opacity: 1;
+  visibility: visible;
+}
+
+.home-work-grid__caption-desc {
+  color: var(--color-site-fg-muted);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .home-work-grid__cta,
-  .home-work-grid__cta-label {
+  .home-work-grid__item,
+  .home-work-grid__caption {
     transition: none;
   }
 }
@@ -1164,11 +1135,7 @@ hr {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-.home-work-grid__item {
-  margin-bottom: 0;
-  min-height: 0;
+  overflow: visible;
 }
 
 .home-work-grid__cell {
@@ -1181,7 +1148,7 @@ hr {
 
 .home-work-grid__cell--media {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   background-color: var(--color-surface-tile);
 }
 
@@ -1189,6 +1156,25 @@ hr {
   position: absolute;
   inset: 0;
   display: block;
+}
+
+.home-work-grid__media-frame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: var(--radius-work-gallery-image);
+  transition: border-radius 0.2s ease-out;
+}
+
+.home-work-grid__link:hover .home-work-grid__media-frame,
+.home-work-grid__link:focus-visible .home-work-grid__media-frame {
+  border-radius: var(--radius-work-gallery-image) var(--radius-work-gallery-image) 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-work-grid__media-frame {
+    transition: none;
+  }
 }
 
 .home-work-grid__cell--text {
