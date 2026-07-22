@@ -82,7 +82,6 @@
   --color-text-muted: var(--color-site-fg-muted);
   --color-text-strong: var(--color-site-fg);
   --color-border: var(--color-border-strong);
-  --home-hero-cta-border: rgb(20 20 20 / 0.32);
 
   /* Site footer: near-black Swiss band (all pages). */
   --color-footer-bg: var(--color-swiss-bg-dark);
