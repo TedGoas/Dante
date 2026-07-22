@@ -866,6 +866,10 @@ hr {
 
 /* --- Navigation --- */
 .site-nav {
+  --site-nav-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --site-nav-duration-in: 200ms;
+  --site-nav-duration-out: 160ms;
+  --site-nav-duration-toggle: 180ms;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -889,6 +893,190 @@ hr {
   flex-wrap: wrap;
   align-items: center;
   gap: 1rem 1.5rem;
+}
+
+/* Menu toggle: CSS-drawn bars; morph to X when open. Hidden until JS enhances. */
+.site-nav__toggle {
+  display: none;
+  position: relative;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-swiss-fg-light);
+  cursor: pointer;
+  transition: transform var(--site-nav-duration-toggle) var(--site-nav-ease-out);
+}
+
+.site-nav__toggle:active {
+  transform: scale(0.97);
+}
+
+.site-nav__toggle:focus-visible {
+  outline: 2px solid var(--color-swiss-accent);
+  outline-offset: 2px;
+}
+
+.site-nav__toggle-bars {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 1.25rem;
+  height: 0.875rem;
+  margin: auto;
+}
+
+.site-nav__toggle-bar {
+  position: absolute;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 0.125rem;
+  background-color: currentColor;
+  border-radius: 1px;
+  transform-origin: 50% 50%;
+  transition:
+    transform var(--site-nav-duration-toggle) var(--site-nav-ease-out),
+    opacity var(--site-nav-duration-toggle) var(--site-nav-ease-out);
+}
+
+.site-nav__toggle-bar:nth-child(1) {
+  top: 0;
+}
+
+.site-nav__toggle-bar:nth-child(2) {
+  top: 50%;
+  margin-top: -0.0625rem;
+}
+
+.site-nav__toggle-bar:nth-child(3) {
+  bottom: 0;
+}
+
+.site-nav.is-open .site-nav__toggle-bar:nth-child(1) {
+  top: 50%;
+  margin-top: -0.0625rem;
+  transform: rotate(45deg);
+}
+
+.site-nav.is-open .site-nav__toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.site-nav.is-open .site-nav__toggle-bar:nth-child(3) {
+  bottom: auto;
+  top: 50%;
+  margin-top: -0.0625rem;
+  transform: rotate(-45deg);
+}
+
+/* No-JS fallback: logo row + wrapping full labels (≤40rem). */
+@media (max-width: 40rem) {
+  html:not(.js) .site-nav {
+    align-items: flex-start;
+  }
+
+  html:not(.js) .site-nav__end {
+    flex-basis: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  html:not(.js) .site-nav-list {
+    max-width: 100%;
+    row-gap: 0.75rem;
+    column-gap: 1rem;
+  }
+
+  html:not(.js) .site-nav-list li {
+    flex-shrink: 0;
+  }
+
+  html:not(.js) .site-nav-list a {
+    white-space: nowrap;
+  }
+
+  /* JS: logo + toggle on one row; panel overlays main content (paints before defer). */
+  html.js .site-header {
+    position: relative;
+    z-index: 2;
+  }
+
+  html.js .site-nav {
+    position: relative;
+    align-items: center;
+  }
+
+  html.js .site-nav__toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  html.js .site-nav__end {
+    display: contents;
+  }
+
+  html.js .site-nav-list {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: auto;
+    max-width: none;
+    min-width: 0;
+    gap: 0.875rem;
+    margin: 0;
+    padding: 0.75rem 0 1.25rem;
+    background-color: var(--color-swiss-bg-light);
+    border-bottom: var(--border-width-hairline) solid var(--color-border-subtle);
+    transform-origin: top right;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-0.25rem) scale(0.96);
+    transition:
+      opacity var(--site-nav-duration-out) var(--site-nav-ease-out),
+      transform var(--site-nav-duration-out) var(--site-nav-ease-out),
+      visibility 0s linear var(--site-nav-duration-out);
+  }
+
+  html.js .site-nav.is-open .site-nav-list {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+    transition-duration:
+      var(--site-nav-duration-in),
+      var(--site-nav-duration-in),
+      0s;
+    transition-delay: 0s;
+  }
+
+  html.js .site-nav-list a {
+    white-space: nowrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-nav {
+    --site-nav-duration-in: 0.01ms;
+    --site-nav-duration-out: 0.01ms;
+    --site-nav-duration-toggle: 0.01ms;
+  }
+
+  .site-nav__toggle,
+  .site-nav__toggle-bar,
+  html.js .site-nav-list {
+    transition: none;
+  }
 }
 
 .site-nav a:focus-visible,

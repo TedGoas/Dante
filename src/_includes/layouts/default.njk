@@ -10,6 +10,7 @@
   <link rel="preload" href="/assets/fonts/geist-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/site-fonts.css">
   <link rel="stylesheet" href="/assets/css/styles.css">
+  <script>document.documentElement.classList.add("js");</script>
 
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
 
@@ -31,7 +32,20 @@
           <img src="/assets/img/tg-sig-logo.svg" alt="Ted Goas home" width="145" height="63" class="site-logo">
         </a>
         <div class="site-nav__end">
-          <ul class="site-nav-list">
+          <button
+            type="button"
+            class="site-nav__toggle"
+            aria-expanded="false"
+            aria-controls="site-nav-list"
+          >
+            <span class="visually-hidden" data-site-nav-label>Menu</span>
+            <span class="site-nav__toggle-bars" aria-hidden="true">
+              <span class="site-nav__toggle-bar"></span>
+              <span class="site-nav__toggle-bar"></span>
+              <span class="site-nav__toggle-bar"></span>
+            </span>
+          </button>
+          <ul class="site-nav-list" id="site-nav-list">
             {% for link in navigation.primary %}
             <li>
               {% set isCurrent = page.url | isCurrentNav(link.href) %}
@@ -57,6 +71,7 @@
   </main>
 
   {% include "components/site-footer.njk" %}
+  <script src="/assets/js/site-nav.js" defer></script>
   {% block footerScripts %}{% endblock %}
 </body>
 </html>

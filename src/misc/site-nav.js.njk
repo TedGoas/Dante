@@ -1,0 +1,7 @@
+---
+permalink: "/assets/js/site-nav.js"
+---
+{% set js %}
+{% include "../assets/js/site-nav.js" %}
+{% endset %}
+{{ js | minifyJs | safe }}
