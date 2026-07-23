@@ -225,6 +225,34 @@ For visual or UX work, read these before changing UI (Impeccable / agent design 
 
 `docs/visual-design-language.md` remains the guardrail doc for frozen homepage regions and theme experiments. Re-run `/impeccable document` after major palette or component changes.
 
+## Cursor Cloud specific instructions
+
+This repo is a single static site (Ted Goas's personal site) built with **Eleventy (11ty) v3**.
+There is **no backend, database, API, or automated test suite** — "running the app" means building
+the static site and/or serving it locally. Cloud agents build/run reliably here via the environment
+`update` script (`npm install`); this file is guidance only and does not provision the environment.
+
+### Runtime
+- Use the VM's default **Node 22**. There is no `.nvmrc` on this branch; Eleventy 3 requires
+  Node 18+, so do not downgrade to older Node.
+- `package-lock.json` is gitignored, so `npm install` resolves against the `^` ranges in
+  `package.json`.
+
+### Commands (defined in `package.json`)
+- Dev server (live reload): `npm start` — Eleventy's built-in dev server on
+  `http://localhost:8080`.
+- Production build: `npm run build` — outputs to `dist/`.
+- No lint step and no tests exist in this repo.
+
+### Non-obvious notes
+- **CSS is not compiled.** This branch uses custom CSS (no Tailwind, no PostCSS build step);
+  `src/assets/css/` and `themes/` are passthrough-copied by Eleventy (see `.eleventy.js`), so
+  `npm start` / `npm run build` alone produce the styled site. Edits to those CSS files are picked
+  up by the watcher.
+- `dist/` is fully regenerated on every run (`clean` runs first), so never edit files in `dist/`.
+- Content lives in `src/`: blog posts in `src/posts/`, work case studies in `src/work/`, site
+  config/data in `src/_data/`. Adding a Markdown file there is picked up automatically by live reload.
+
 ---
 
 *This document should be reviewed and updated as needed throughout the project.* 
