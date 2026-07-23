@@ -2225,15 +2225,6 @@ hr {
   color: inherit;
 }
 
-.work-article--dialpad .work-body-section--dialpad {
-  width: 100%;
-  padding-block: clamp(0.75rem, 2.2vw, 1.5rem);
-}
-
-.work-article--dialpad .work-body-section--dialpad:first-of-type {
-  padding-top: clamp(1.5rem, 4vw, 2.5rem);
-}
-
 .work-body {
   overflow: visible;
 }
@@ -2885,8 +2876,7 @@ hr {
   margin-bottom: calc(var(--work-gallery-figure-gap) - var(--work-gallery-caption-gap));
 }
 
-.writing .work-gallery__item .work-gallery__caption,
-.work-article--dialpad .work-body-section--dialpad .work-gallery__caption {
+.writing .work-gallery__item .work-gallery__caption {
   display: block;
   margin: 0;
   padding: 0;
@@ -2913,8 +2903,7 @@ hr {
   background-image: none;
 }
 
-.writing .work-gallery__item .work-gallery__description,
-.work-article--dialpad .work-body-section--dialpad .work-gallery__description {
+.writing .work-gallery__item .work-gallery__description {
   margin: 0;
   padding: 0;
   font-family: var(--font-sans);
@@ -2954,12 +2943,6 @@ hr {
 .work-article--dialpad .writing .work-gallery__media-item--secondary {
   display: flex;
   flex-direction: column;
-}
-
-@media (max-width: 60rem) {
-  .work-article--dialpad .work-body-section--dialpad {
-    padding-block: 1rem;
-  }
 }
 
 .content-flow .work-gallery__item .work-gallery__description {
