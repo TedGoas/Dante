@@ -1978,6 +1978,10 @@ hr {
   max-width: var(--work-gallery-content-measure);
 }
 
+.work-header > .divider {
+  max-width: var(--work-gallery-content-measure);
+}
+
 .post-header .type-dek {
   margin-bottom: 0;
 }

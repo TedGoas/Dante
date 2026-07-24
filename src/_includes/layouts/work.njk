@@ -37,7 +37,7 @@ layout: default
           {{ title }}
         {% endif %}
       </h1>
-      {% set introDeck = work_intro_deck or excerpt %}
+      {% set introDeck = work_intro_deck or index_summary or excerpt %}
       {% if introDeck %}
       <p class="type-dek">{{ introDeck }}</p>
       {% endif %}
