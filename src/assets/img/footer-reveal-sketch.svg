@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 4" preserveAspectRatio="none" aria-hidden="true">
+  <path
+    d="M2 2.0 C40 1.72 78 2.28 116 1.82 C154 1.68 192 2.24 230 1.88 L238 2.04"
+    fill="none"
+    stroke="#000"
+    stroke-width="4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M0 2.0 C44 2.28 86 1.76 124 2.18 C162 2.32 198 1.82 234 2.22 L240 2.0"
+    fill="none"
+    stroke="#000"
+    stroke-width="3.8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

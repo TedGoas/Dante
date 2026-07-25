@@ -1,16 +1,56 @@
 ---
 layout: default
 ---
+{% from "components/divider.njk" import divider %}
 
-<article class="flex flex-col items-center">
-    {% if featured_image %}
-    <img src="{{ featured_image | url }}" alt=""{% if featured_image_classes %} class="{{ featured_image_classes }}"{% endif %}>
+<article class="work-article{% if work_layout_variant %} work-article--{{ work_layout_variant }}{% endif %}">
+  {% if featured_image %}
+  <figure class="work-featured{% if featured_image_classes %} {{ featured_image_classes }}{% endif %}">
+    <div class="img-placeholder" data-placeholder="Project preview" aria-label="Project preview image placeholder"></div>
+    <figcaption class="visually-hidden">Featured project preview</figcaption>
+  </figure>
+  {% endif %}
+
+  <header class="post-header work-header{% if work_header_variant %} work-header--{{ work_header_variant }}{% endif %}">
+    {% if work_byline %}
+    <p class="post-header__eyebrow">{{ work_byline }}</p>
     {% endif %}
-    <div class="writing">
-        <header class="py-12">
-            <h1 class="mb-2">{{ title }}</h1>
-            <time>{{ year }}</time>
-        </header>
-        {{ content | safe }}
+    <div class="post-header__stack">
+      {% if not hide_work_period and yearParts %}
+      <p class="post-header__date work-period">
+        <time datetime="{{ yearParts.start }}">{{ yearParts.start }}</time>
+        –
+        {% if yearParts.isPresent %}
+        <span>present</span>
+        {% else %}
+        <time datetime="{{ yearParts.end }}">{{ yearParts.end }}</time>
+        {% endif %}
+      </p>
+      {% elif not hide_work_period and year %}
+      <p class="post-header__date work-period">{{ year }}</p>
+      {% endif %}
+      <h1 class="post-header__title work-header__title">
+        {% if title | titleNeedsPeriod %}
+          {% set titleTail = title | splitTitleLastWord %}
+          {{ titleTail.before }}<span class="title-tail">{{ titleTail.last }}</span>
+        {% else %}
+          {{ title }}
+        {% endif %}
+      </h1>
+      {% set introDeck = work_intro_deck or index_summary or excerpt %}
+      {% if introDeck %}
+      <p class="type-dek">{{ introDeck }}</p>
+      {% endif %}
     </div>
+    {{ divider() }}
+  </header>
+
+  <section class="work-body writing">
+    {{ content | safe }}
+  </section>
 </article>
+
+{% block footerScripts %}
+  <script src="/assets/js/click-to-play.js" defer></script>
+  <script src="/assets/js/prototype-embed.js" defer></script>
+{% endblock %}

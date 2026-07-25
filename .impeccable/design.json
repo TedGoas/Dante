@@ -1,0 +1,237 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-12T00:00:00.000Z",
+  "title": "Design System: Ted Goas — tedgoas.com",
+  "extensions": {
+    "colorMeta": {
+      "site-bg": {
+        "role": "neutral",
+        "displayName": "Swiss Light Canvas",
+        "canonical": "#f3f3f3",
+        "tonalRamp": [
+          "#dedede",
+          "#e8e8e8",
+          "#eeeeee",
+          "#f3f3f3",
+          "#f7f7f7",
+          "#fafafa",
+          "#fcfcfc",
+          "#ffffff"
+        ]
+      },
+      "swiss-accent": {
+        "role": "primary",
+        "displayName": "Swiss Red Interactive",
+        "canonical": "#c41230",
+        "tonalRamp": [
+          "#8a0c21",
+          "#a10e28",
+          "#b8102c",
+          "#c41230",
+          "#d41436",
+          "#e0183a",
+          "#e84a5f",
+          "#f08a98"
+        ]
+      },
+      "accent": {
+        "role": "secondary",
+        "displayName": "Deep Amber Editorial",
+        "canonical": "oklch(78.5% 0.159 83.5)",
+        "tonalRamp": [
+          "oklch(55% 0.14 83)",
+          "oklch(62% 0.15 83)",
+          "oklch(70% 0.155 83)",
+          "oklch(78.5% 0.159 83.5)",
+          "oklch(83.5% 0.154 88.2)",
+          "oklch(88% 0.12 88)",
+          "oklch(92% 0.08 88)",
+          "oklch(96% 0.04 88)"
+        ]
+      },
+      "site-fg": {
+        "role": "neutral",
+        "displayName": "Near-Black Foreground",
+        "canonical": "#141414",
+        "tonalRamp": [
+          "#000000",
+          "#0a0a0a",
+          "#141414",
+          "#2a2a2a",
+          "#404040",
+          "#5a5a5a",
+          "#737373",
+          "#8a8a8a"
+        ]
+      },
+      "surface-tile": {
+        "role": "neutral",
+        "displayName": "Card Tile",
+        "canonical": "#e8e8e8",
+        "tonalRamp": [
+          "#d0d0d0",
+          "#d8d8d8",
+          "#dedede",
+          "#e8e8e8",
+          "#eeeeee",
+          "#f3f3f3",
+          "#fafafa",
+          "#ffffff"
+        ]
+      },
+      "footer-bg": {
+        "role": "neutral",
+        "displayName": "Swiss Dark Band",
+        "canonical": "#141414",
+        "tonalRamp": [
+          "#0a0a0a",
+          "#141414",
+          "#1f1f1f",
+          "#2a2a2a",
+          "#3a3a3a",
+          "#4a4a4a",
+          "#5a5a5a",
+          "#6a6a6a"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Full-width page titles; Redaction; clamp(2.75rem, 8.2vw, 7.375rem); leading 0.864."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Long-form prose; Geist; left-aligned --measure-lead 56ch; line-height ~1.65 for reading."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Nav, footer, eyebrows, metadata; Geist (uppercase where helpful). No monospace."
+      }
+    },
+    "shadows": [
+      {
+        "name": "footer-tooltip",
+        "value": "0 0.25rem 1.25rem rgb(0 0 0 / 0.45)",
+        "purpose": "Footer image tooltip overlay only."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-ui",
+        "value": "ease",
+        "purpose": "Short UI transitions (tooltips, 0.15s; card title hover, 0.16s)."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Default quiet button for errors and secondary actions.",
+      "html": "<button type=\"button\" class=\"ds-btn-primary\">Back home</button>",
+      "css": ".ds-btn-primary { font-family: \"Geist\", ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; padding: 0.4rem 0.75rem; border: 1px solid rgb(20 20 20 / 0.14); background: #ffffff; color: color-mix(in srgb, #141414 55%, #f3f3f3); cursor: pointer; text-decoration: none; } .ds-btn-primary:hover { color: #141414; border-color: rgb(20 20 20 / 0.22); background-color: #e8e8e8; } .ds-btn-primary:focus-visible { outline: 2px solid #c41230; outline-offset: 2px; }"
+    },
+    {
+      "name": "Site Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Header navigation link in Geist (chrome link pattern).",
+      "html": "<nav class=\"ds-nav\"><a href=\"/work/\" class=\"ds-nav__link\">Work</a></nav>",
+      "css": ".ds-nav { font-family: \"Geist\", ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; } .ds-nav__link { color: #141414; text-decoration: none; } .ds-nav__link:hover { color: #c41230; text-decoration: underline; text-decoration-color: #c41230; text-underline-offset: 2px; } .ds-nav__link:focus-visible { outline: 2px solid #c41230; outline-offset: 2px; }"
+    },
+    {
+      "name": "Prose Link",
+      "kind": "custom",
+      "refersTo": "link-prose",
+      "description": "Inline link in long-form reading: underline-only, lighter-ink underline, no color change.",
+      "html": "<p class=\"ds-prose\">Read more in <a href=\"/blog/example/\">this article</a>.</p>",
+      "css": ".ds-prose { font-family: \"Geist\", system-ui, sans-serif; font-size: 1.0625rem; line-height: 1.65; color: color-mix(in srgb, #141414 82%, #f3f3f3); max-width: 56ch; } .ds-prose a { color: inherit; text-decoration: none; border-bottom: 1px solid rgb(20 20 20 / 0.28); } .ds-prose a:hover { color: #141414; border-bottom-color: #141414; } .ds-prose a:focus-visible { outline: 2px solid #c41230; outline-offset: 2px; }"
+    },
+    {
+      "name": "Home Hero CTA",
+      "kind": "custom",
+      "refersTo": "home-hero-cta",
+      "description": "Squared filled primary CTA on homepage hero.",
+      "html": "<a href=\"/work/\" class=\"ds-hero-cta\">My Work →</a>",
+      "css": ".ds-hero-cta { display: inline-flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.125rem 1.375rem; border: 1px solid transparent; border-radius: 0; background: #141414; color: #f3f3f3; font-family: \"Geist\", system-ui, sans-serif; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; } .ds-hero-cta:hover { background: #c41230; color: #f3f3f3; } .ds-hero-cta:focus-visible { outline: 2px solid #c41230; outline-offset: 2px; }"
+    },
+    {
+      "name": "Image Card",
+      "kind": "card",
+      "refersTo": "surface-tile",
+      "description": "Square thumbnail with a subtle hairline border.",
+      "html": "<a href=\"/work/example/\" class=\"ds-card\"><span class=\"ds-card__stage\"><img src=\"/assets/work/example.svg\" alt=\"Case study thumbnail\" width=\"600\" height=\"600\"></span></a>",
+      "css": ".ds-card { display: block; text-decoration: none; } .ds-card__stage { position: relative; display: block; aspect-ratio: 1 / 1; background-color: transparent; border: 1px solid rgb(20 20 20 / 0.14); overflow: hidden; box-sizing: border-box; } .ds-card__stage img { display: block; width: 100%; height: 100%; object-fit: cover; } .ds-card:focus-visible { outline: 2px solid #c41230; outline-offset: 4px; }"
+    },
+    {
+      "name": "Editorial Blockquote",
+      "kind": "custom",
+      "refersTo": "accent",
+      "description": "Serif pull quote with deep amber left rule on light surface.",
+      "html": "<blockquote class=\"ds-blockquote\"><p>Quote text in italic serif.</p></blockquote>",
+      "css": ".ds-blockquote { margin: 0; padding: clamp(1rem, 3vw, 1.35rem); border-left: 2px solid #e9ae0f; border-radius: 0.25rem; background-color: #dedede; color: #141414; font-family: \"Redaction\", Georgia, serif; font-style: italic; font-size: clamp(1.25rem, 2vw, 1.55rem); line-height: 1.4; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Editorial Lab",
+      "overview": "A hiring-facing portfolio where long-form craft is the interface. Serif display frames Geist body type on a Swiss light canvas; Swiss red handles interactive chrome; deep amber appears only as rare editorial punctuation. Dark bands (footer, homepage showcase) create rhythm without a theme picker.",
+    "keyCharacteristics": [
+      "Two locked type roles: Redaction (display) and Geist (everything else); no monospace",
+      "Swiss light canvas (#f3f3f3) with near-black text; dark bands at #141414",
+      "Swiss red for interactive chrome; deep amber for editorial moments only",
+      "Full-width display titles; left-aligned 56ch lead column",
+      "Tonal layering over shadow stacks; work-index thumbs are square with a hairline border",
+      "Token-driven CSS only, no frameworks"
+    ],
+    "rules": [
+      {
+        "name": "The Swiss Red Interactive Rule",
+        "body": "Interactive chrome — hover, focus-visible, chrome link color — uses Swiss red. Amber is not the default interactive color.",
+        "section": "colors"
+      },
+      {
+        "name": "The Amber Editorial Punctuation Rule",
+        "body": "Deep amber appears sparingly: text markers on the dark homepage showcase, pull-quote left rules. Never as default link hover.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two-Role Lock Rule",
+        "body": "Redaction for display, Geist for everything else (body, UI, labels, nav, footer). No monospace.",
+        "section": "typography"
+      },
+      {
+        "name": "The Full-Width Title / Left Lead Rule",
+        "body": "Display titles span the layout; body, dek, bylines, and gallery intros sit in a left-aligned 56ch column.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tonal Layer Rule",
+        "body": "Prefer raising a surface one token step or strengthening a border before adding box-shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use CSS custom properties from themes/theme.css for every color.",
+      "Do keep editorial body at --measure-lead (56ch), left-aligned; display titles full width.",
+      "Do apply Swiss red to interactive/hover/focus; reserve deep amber for editorial markers and pull-quote rules.",
+      "Do use Geist for body, UI, and metadata; keep prose links underline-only.",
+      "Do honor prefers-reduced-motion on transitions.",
+      "Do use semantic HTML and focus-visible outlines."
+    ],
+    "donts": [
+      "Don't use SaaS landing patterns: hero metrics, identical feature card grids, gradient text, modal-first flows.",
+      "Don't ship generic AI portfolio tropes: Inter/Roboto, purple gradients, decorative glass, side-stripe accent borders.",
+      "Don't treat the site like a Dribbble shot without case-study depth.",
+      "Don't borrow corporate marketing visuals: stock heroes, buzzword headlines, logo walls.",
+      "Don't hardcode hex in component CSS or revive the blue canvas / cream text palette.",
+      "Don't use deep amber as default link hover or focus ring color.",
+      "Don't change frozen homepage headline or showcase grid layout.",
+      "Don't introduce Tailwind, Bootstrap, or other CSS frameworks; don't reintroduce a monospace face or a theme picker."
+    ]
+  }
+}

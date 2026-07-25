@@ -96,7 +96,7 @@ We should find opportunities to talk directly with customers to find out what th
 
 We should know the problem domain well enough to contribute to our product roadmaps, by both pitching ideas and helping prioritize projects. We should overlap a bit with our PMs here.
 
-> “At its core, all business is about making bets on human behavior.” — [The Power of ‘Thick’ Data](https://www.wsj.com/articles/the-power-of-thick-data-1395443491), WSJ
+> “At its core, all business is about making bets on human behavior.” - [The Power of ‘Thick’ Data · WSJ](https://www.wsj.com/articles/the-power-of-thick-data-1395443491)
 
 Fully understanding our product area and its business metrics is one of the best ways designers can position themselves as experts. When we’re in tune with the industry and our own customers, we can anticipate user and market needs and build something that people will want to pay for.
 

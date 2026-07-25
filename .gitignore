@@ -12,3 +12,18 @@ Thumbs.db
 dist/
 node_modules/
 package-lock.json
+
+# Impeccable (ephemeral session + critique output; keep design.json tracked)
+.impeccable/live/
+.impeccable/critique/
+
+# Superpowers brainstorm (local preview server state)
+.superpowers/
+
+# Local sizzle-reel checkout for prototype rebuilds (not a submodule)
+.sizzle-reel/
+
+# Secrets / local env (future-proof)
+.env
+.env.*
+!.env.example

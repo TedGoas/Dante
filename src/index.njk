@@ -1,25 +1,152 @@
 ---
 layout: default
-meta_title: Home
-meta_description: I’m a reliable product designer and front-end developer working on websites, applications, and HTML emails.
-body_class: home
-title: I’m a reliable product designer and front-end developer working on websites, applications, and HTML emails.
-roughjs: true
+title: Ted Goas
+description: Product designer, researcher, and front-end developer
 ---
 
-<div role="main" class="flex flex-col">
-    <section class="text-center max-w-4xl mx-auto mb-40" aria-labelledby="heading">
-        <h1 class="font-display text-4xl leading-none sm:text-3xl">I’m a <span class="highlight-yellow px-4 -mx-2 inline-block relative">reliable</span> product designer and <span class="whitespace-nowrap">front-end</span> developer.</h1>
-        <p class="text-lg mt-8 mx-auto max-w-3xl sm:text-lg">I believe design is about taking the complex and chaotic and making it <strong class="box-blue mx-1">accessible</strong> to people, <strong class="box-green mx-1">responsive</strong>, and as <strong class="box-red mx-1">fast</strong> as possible.</p>
-        <p class="text-lg mt-8 mx-auto max-w-3xl sm:text-lg"">My goal is to create work that’s cool enough to show <span class="underline-gray tooltip relative">my friends <img src="/assets/img/home/friends.jpg" alt="My friends." class="absolute bottom-7 left-2/4 max-w-xs hidden -translate-x-2/4"></span> and honest enough to show <span class="underline-gray2 tooltip relative">my parents <img src="/assets/img/home/parents.jpg" alt="My parents." class="absolute bottom-7 left-2/4 max-w-xs hidden -translate-x-2/4"></span>.</p>
-    </section>
-    {% include "partials/work-list.njk" %}
-    <section class="work-section work-section--misc max-w-4xl p-16 mt-24 flex items-start self-center relative sm:p-8 sm:mt-12  sm:flex-col-reverse">
-        <div>
-            <p>I enjoy <a href="/blog" class="link-misc">writing</a> about things I learn, <a href="https://noti.st/tedgoas" class="link-misc">speaking occasionally</a>, and maintaining <a href="https://github.com/TedGoas/Cerberus" class="link-misc">Cerberus</a> (open source).</p>
-            <p class="mt-6">When not in front of a screen I like to exercise, snowboard, both watch and play hockey and soccer, work on my house, and explore New Jersey with my wife and kids.</p>
-        </div>
-        <div class="img relative flex-shrink-0 ml-12 sm:ml-0 sm:mb-8"><img src="/assets/img/home/tedgoas.jpg" alt="Ted Goas portrait" height="275" width="275" class="z-10 relative transform -rotate-2"></div>
-        <span class="curl3 absolute block bg-no-repeat sm:hidden" aria-hidden="true"></span>
-    </section>
-</div>
+<section class="home-hero" aria-labelledby="home-heading">
+  <h1 id="home-heading" class="home-hero__headline">
+    I'm
+    <img src="/assets/img/th-ted.jpg" alt="Ted" class="hero-avatar" width="112" height="112">
+    Ted, a reliable designer, manager, researcher, and sometimes <span class="title-tail">developer</span>
+  </h1>
+  <div class="home-hero__intro">
+    <div class="home-hero__copy">
+      <p class="lede home-hero__lede">
+        I’m currently a design manager at
+        <a href="https://www.dialpad.com/" class="home-hero__company-link"><img src="/assets/img/logo-dialpad.svg" alt="" class="home-hero-logo" width="32" height="32"><span class="home-hero__company-name">Dialpad</span></a>,
+        helping customer support folks do their job. Previously I led
+        <a href="https://stackoverflow.com" class="home-hero__company-link"><img src="/assets/img/logo-stackoverflow.svg" alt="" class="home-hero-logo" width="32" height="32"><span class="home-hero__company-name">Stack Overflow’s</span></a>
+        enterprise design team and was
+        <a href="https://canfield.com" class="home-hero__company-link"><img src="/assets/img/logo-canfield.svg" alt="" class="home-hero-logo" width="32" height="32"><span class="home-hero__company-name">Canfield Scientific’s</span></a>
+        first design hire.
+      </p>
+      <p class="lede home-hero__lede">
+        I also created and sold
+        <a href="https://www.cerberusemail.com/" class="home-hero__company-link"><img src="/assets/img/logo-cerberus.svg" alt="" class="home-hero-logo" width="32" height="32"><span class="home-hero__company-name">Cerberus</span></a>,
+        an open source framework for email development, and built one of the first
+        <a href="https://stackoverflow.design/email/" class="home-hero__company-link"><img src="/assets/img/logo-emaildesignsystem.svg" alt="" class="home-hero-logo" width="32" height="32"><span class="home-hero__company-name">email design systems</span></a>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="homepage-showcase" aria-label="Selected work">
+  <ul class="home-work-grid">
+    <li class="home-work-grid__item home-work-grid__item--tl-large">
+      <div class="home-work-grid__cell home-work-grid__cell--media">
+        <a href="/work/dialpad/" class="home-work-grid__link">
+          <span class="home-work-grid__media-frame">
+            <img
+              class="home-work-grid__media"
+              src="/assets/work/th-dialpad-scorecards.svg"
+              alt="Dialpad customer support inbox with conversation list and message thread."
+              width="1424"
+              height="864"
+              loading="lazy"
+            >
+          </span>
+          <span class="home-work-grid__caption" aria-hidden="true"><strong>Dialpad</strong> - <span class="home-work-grid__caption-desc">Quality control at scale</span></span>
+        </a>
+      </div>
+    </li>
+    <li class="home-work-grid__item home-work-grid__item--tr-1">
+      <div class="home-work-grid__cell home-work-grid__cell--media">
+        <a href="/work/cerberus/" class="home-work-grid__link">
+          <span class="home-work-grid__media-frame">
+            <img
+              class="home-work-grid__media"
+              src="/assets/work/th-cerberus.svg"
+              alt="Cerberus logo mark."
+              width="300"
+              height="300"
+              loading="lazy"
+            >
+          </span>
+          <span class="home-work-grid__caption" aria-hidden="true"><strong>Cerberus</strong> - <span class="home-work-grid__caption-desc">Open source</span></span>
+        </a>
+      </div>
+    </li>
+    <li class="home-work-grid__item home-work-grid__item--tr-2">
+      <div class="home-work-grid__cell home-work-grid__cell--media">
+        <a href="/work/dialpad-team/" class="home-work-grid__link">
+          <span class="home-work-grid__media-frame">
+            <img
+              class="home-work-grid__media"
+              src="/assets/work/th-dialpad-analyticsgpt.svg"
+              alt="Dialpad AnalyticsGPT thumbnail."
+              width="300"
+              height="300"
+              loading="lazy"
+            >
+          </span>
+          <span class="home-work-grid__caption" aria-hidden="true"><strong>Dialpad</strong> - <span class="home-work-grid__caption-desc">AnalyticsGPT</span></span>
+        </a>
+      </div>
+    </li>
+    <li class="home-work-grid__item home-work-grid__item--tr-muted">
+      <div class="home-work-grid__cell home-work-grid__cell--text">
+        <p class="type-dek">I believe design is about taking the complex and chaotic and making it
+        <span class="text-marker text-marker--red">
+          <span class="text-marker__layer" aria-hidden="true"></span>
+          <span class="text-marker__layer text-marker__layer--2" aria-hidden="true"></span>
+          <span class="text-marker__layer text-marker__layer--3" aria-hidden="true"></span>
+          accessible
+        </span>
+        to people,
+        <span class="text-marker text-marker--yellow">
+          <span class="text-marker__layer" aria-hidden="true"></span>
+          <span class="text-marker__layer text-marker__layer--2" aria-hidden="true"></span>
+          <span class="text-marker__layer text-marker__layer--3" aria-hidden="true"></span>
+          responsive
+        </span>, and as
+        <span class="text-marker text-marker--green">
+          <span class="text-marker__layer" aria-hidden="true"></span>
+          <span class="text-marker__layer text-marker__layer--2" aria-hidden="true"></span>
+          <span class="text-marker__layer text-marker__layer--3" aria-hidden="true"></span>
+          fast
+        </span>
+        as possible.</p>
+      </div>
+    </li>
+    <li class="home-work-grid__item home-work-grid__item--ml-top">
+      <div class="home-work-grid__cell home-work-grid__cell--media">
+        <a href="/work/canfield/" class="home-work-grid__link">
+          <span class="home-work-grid__media-frame">
+            <img
+              class="home-work-grid__media"
+              src="/assets/work/th-canfield-graph.svg"
+              alt="Canfield Scientific graph thumbnail."
+              width="600"
+              height="300"
+              loading="lazy"
+            >
+          </span>
+          <span class="home-work-grid__caption" aria-hidden="true"><strong>Canfield</strong> - <span class="home-work-grid__caption-desc">Designing for clinical trials</span></span>
+        </a>
+      </div>
+    </li>
+    <li class="home-work-grid__item home-work-grid__item--ml-muted">
+      <div class="home-work-grid__cell home-work-grid__cell--text type-dek">
+        I'm a design manager who leads teams and likes to be in the work: creating flows, designing UIs, and shipping code.
+      </div>
+    </li>
+    <li class="home-work-grid__item home-work-grid__item--mr-large">
+      <div class="home-work-grid__cell home-work-grid__cell--media">
+        <a href="/work/stack-overflow/" class="home-work-grid__link">
+          <span class="home-work-grid__media-frame">
+            <img
+              class="home-work-grid__media"
+              src="/assets/work/th-stackoverflow-dashboard.svg"
+              alt="Stack Overflow dashboard thumbnail."
+              width="600"
+              height="600"
+              loading="lazy"
+            >
+          </span>
+          <span class="home-work-grid__caption" aria-hidden="true"><strong>Stack Overflow</strong> - <span class="home-work-grid__caption-desc">Translating Q&amp;A for enterprise</span></span>
+        </a>
+      </div>
+    </li>
+  </ul>
+</section>

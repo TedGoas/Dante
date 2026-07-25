@@ -1,0 +1,52 @@
+---
+description: Dante 11ty site — HTML/CSS, performance, theming, and Eleventy conventions
+alwaysApply: true
+---
+
+# Cursor Rules
+
+## General
+
+- This is a native HTML and CSS project using 11ty. Do not introduce Tailwind, Bootstrap, or any CSS framework
+- Do not add npm packages without asking first and explaining why they're needed
+- Do not generate content — no placeholder text, fake names, or dummy data
+- Always consider page load performance in every suggestion
+
+## CSS
+
+- All colors, spacing, font sizes, and other design values must use CSS custom properties defined in the theme file
+- Use BEM-inspired naming conventions for all classes
+- Do not write inline styles
+- Do not use `!important` without a comment explaining why
+- Prefer CSS solutions over JavaScript for any visual behavior (transitions, toggles, visibility, etc.)
+- Avoid CSS that triggers layout reflow unnecessarily — prefer `transform` and `opacity` for animations
+
+## JavaScript
+
+- Write vanilla JS only — no frameworks, no libraries unless explicitly approved
+- Use progressive enhancement — the page should be functional without JS where possible
+- Defer or async all script tags
+
+## HTML
+
+- Write semantic HTML — use the correct element for the job
+- All images must have descriptive `alt` attributes
+- Use `loading="lazy"` on all images below the fold
+- Use `<picture>` and `srcset` for responsive images where appropriate
+
+## 11ty
+
+- Use 11ty layouts and includes for all repeated structure
+- Blog posts use Markdown with front matter
+- Case studies are HTML files with front matter — do not convert them to Markdown
+- Do not hardcode navigation links — derive them from collections or data files
+- **Work gallery video figures:** Use the `clickToPlayVideo` shortcode in Markdown work pages for poster + lazy MP4 + native controls after play. Full stack and UX rules live in **[AGENTS.md](AGENTS.md)** under *Work gallery: video figures (click-to-play)*.
+- **Work gallery multi-image figures:** Layout modifiers, atmosphere backdrops, and HTML templates — **[`.cursor/skills/work-gallery-figures/SKILL.md`](.cursor/skills/work-gallery-figures/SKILL.md)** and [AGENTS.md](AGENTS.md) (*Work gallery: multi-image layouts*).
+
+## Theming
+
+- Never hardcode color values in component CSS — always reference a custom property
+- Theme files live in `themes/` and define all custom properties on `:root`
+- Before changing visual design, themes, or typography, read **[docs/visual-design-language.md](docs/visual-design-language.md)** and follow its guardrails (frozen homepage regions, two-font roles, Swiss light palette, Swiss red interactive / amber editorial accents, editorial layout, content freeze, etc.)
+- **Single theme**: Swiss light canvas (`#f3f3f3`) with near-black text, Swiss red interactive accent (`#c41230`), deep amber editorial accent, and dark bands/footer in [`themes/theme.css`](themes/theme.css) on `:root`. No theme picker unless explicitly re-enabled
+- **Two-font system**: Redaction (display/headings) and Geist (body, UI, labels, nav, footer). No monospace. `--font-mono` is an alias of the Geist stack for legacy call sites

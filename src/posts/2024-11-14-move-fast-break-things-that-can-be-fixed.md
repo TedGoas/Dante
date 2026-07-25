@@ -22,8 +22,7 @@ But we still need to move fast and break things. We just need to be careful that
 
 I recently listened to [Joel Lewenstein tell a story](https://www.youtube.com/watch?v=GgP9LEAY1PA) about how we brought down the Quora website a few weeks after joining the company:
 
-> I pushed a change to production that took down the website and I didn’t know how to fix it. […] I was like ‘Well, I’m gonna get fired. It’s been a fun two weeks, it’s been fun.’ Literally that hour [my boss] asks me for coffee. She lets me vent and feel bad, and then she says ‘If you are not breaking the site, you are not pushing enough. This is a good sign. This is a sign that you are trying stuff and moving quickly.’
-- Joel Lewenstein
+> I pushed a change to production that took down the website and I didn’t know how to fix it. […] I was like ‘Well, I’m gonna get fired. It’s been a fun two weeks, it’s been fun.’ Literally that hour [my boss] asks me for coffee. She lets me vent and feel bad, and then she says ‘If you are not breaking the site, you are not pushing enough. This is a good sign. This is a sign that you are trying stuff and moving quickly.’ - [Joel Lewenstein](https://www.youtube.com/watch?v=GgP9LEAY1PA)
 
 I love this. This is the vibe I try to bring to my own team. I often say “Relax, it’s only computers.”
 

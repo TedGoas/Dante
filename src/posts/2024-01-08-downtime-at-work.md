@@ -3,7 +3,7 @@ title: Why it’s important to have downtime at work
 body_class: blog
 ---
 
-> An empty calendar is a competitive advantage. The person who fills their calendar with average opportunities has no time for exceptional ones. - Farnam Street 
+> An empty calendar is a competitive advantage. The person who fills their calendar with average opportunities has no time for exceptional ones. - [Farnam Street](https://fs.blog/)
 
 It’s January and my head is clear. But not because I took off 2 weeks in December to “rest and recharge.” I have young kids, if anything I’m more tired now.
 

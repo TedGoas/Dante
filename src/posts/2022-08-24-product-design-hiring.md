@@ -51,8 +51,7 @@ I love to hear about how someone plays an active role in what gets worked on and
 
 This question tells me what someone values when working with others. Most folks answer the second part of that question by saying the team communicated well and supported each other. In those cases, I ask for examples. *How* did the team communicate? How did the team use meetings, chat, email, project management software, etc.? *How* was the team supportive? How did it overcome adversity? How did it foster an inclusive environment?
 
-> I learn if people care about working with other high performers vs. mentoring/being mentored, if they prefer having clear direction vs. full autonomy, having a lot of process vs. no process, supportive feedback vs. constructive feedback, if they care more about the process or the final product, etc. - Sophie Shepard
-> 
+> I learn if people care about working with other high performers vs. mentoring/being mentored, if they prefer having clear direction vs. full autonomy, having a lot of process vs. no process, supportive feedback vs. constructive feedback, if they care more about the process or the final product, etc. - [Sophie Shepard](http://sophieshepherd.com/interview-questions/)
 
 I’m hoping to learn about the candidate’s working style, what environment the candidate thrives in, and what they’ve struggled with in the past.
 

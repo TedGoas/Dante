@@ -1,0 +1,104 @@
+/*
+ * Site palette: Swiss light canvas, near-black text, red interactive accent.
+ * Deep amber reserved for editorial moments (markers, pull-quote rules).
+ * Typography stacks live in tokens-base.css.
+ */
+:root {
+  /* Swiss anchors */
+  --color-swiss-bg-light: #f3f3f3;
+  --color-swiss-fg-light: #141414;
+  --color-swiss-bg-dark: #141414;
+  --color-swiss-fg-dark: #f5f5f5;
+  --color-swiss-fg-dark-muted: rgb(245 245 245 / 0.55);
+  --color-swiss-accent: #c41230;
+  --color-swiss-accent-hover: #e0183a;
+  --color-swiss-hairline-light: rgb(20 20 20 / 0.14);
+  --color-swiss-hairline-dark: rgb(245 245 245 / 0.14);
+
+  /* Semantic page canvas (Swiss light) */
+  --color-site-bg: var(--color-swiss-bg-light);
+  --color-site-fg: var(--color-swiss-fg-light);
+  --color-site-fg-muted: color-mix(in srgb, var(--color-swiss-fg-light) 55%, var(--color-swiss-bg-light));
+  --color-prose-body: color-mix(in srgb, var(--color-swiss-fg-light) 82%, var(--color-swiss-bg-light));
+
+  /* Editorial accent — not default link hover */
+  --color-accent: oklch(78.5% 0.159 83.5); /* #E9AE0F */
+  --color-accent-hover: oklch(83.5% 0.154 88.2); /* #F2C23A */
+  --color-highlight: var(--color-site-fg-muted);
+
+  --link-prose-underline: rgb(20 20 20 / 0.28);
+  --link-hover-color: var(--color-swiss-accent);
+
+  /* Homepage belief highlights — amber wash on dark showcase band */
+  --color-text-marker: var(--color-accent);
+  --color-text-marker-red: var(--color-text-marker);
+  --color-text-marker-yellow: var(--color-text-marker);
+  --color-text-marker-green: var(--color-text-marker);
+  --opacity-text-marker: 0.42;
+
+  --color-site-chrome-bg: var(--color-swiss-bg-light);
+
+  --color-border-subtle: var(--color-swiss-hairline-light);
+  --color-border-strong: rgb(20 20 20 / 0.22);
+  --color-divider: rgb(20 20 20 / 0.18);
+
+  /* Card / surface: steps off light canvas */
+  --color-surface-raised: #ffffff;
+  --color-surface-tile: #e8e8e8;
+  --color-surface-tile-muted: #dedede;
+  --color-surface-tile-border: var(--color-border-subtle);
+
+  /*
+   * Work index image cards: square stage over the dark band color.
+   */
+
+  --color-work-gallery-card-bg: var(--color-surface-raised);
+  --color-work-gallery-hero-secondary-bg: var(--color-surface-raised);
+  --color-work-gallery-backdrop-wash: transparent;
+  --color-work-gallery-atmosphere-cool: var(--color-site-fg-muted);
+  --color-work-gallery-atmosphere-cool-deep: var(--color-site-fg);
+  --color-work-gallery-card-border: var(--color-border-subtle);
+  --color-work-gallery-card-title: var(--color-site-fg);
+  --color-work-gallery-card-description: var(--color-site-fg-muted);
+
+  --work-index-card-bg-framed: var(--color-surface-raised);
+  --work-index-card-bg-bleed: var(--color-surface-tile);
+  --work-index-card-text-framed: var(--color-site-fg);
+  --work-index-card-text-bleed: var(--color-site-fg);
+  --work-index-card-text-bleed-muted: var(--color-site-fg-muted);
+  --work-index-card-border: var(--color-border-subtle);
+  --work-index-card-border-bleed: var(--color-border-subtle);
+  --work-index-frame-bg: var(--color-surface-raised);
+
+  --color-figure-caption-title: var(--color-site-fg);
+  --color-figure-caption-body: var(--color-site-fg-muted);
+  --color-figure-rule: var(--color-border-strong);
+  --color-figure-kicker: rgb(20 20 20 / 0.32);
+
+  --color-blockquote-bg: var(--color-surface-tile-muted);
+
+  --color-page-bg: var(--color-site-bg);
+  --color-text: var(--color-site-fg);
+  --color-text-muted: var(--color-site-fg-muted);
+  --color-text-strong: var(--color-site-fg);
+  --color-border: var(--color-border-strong);
+
+  /* Site footer: near-black Swiss band (all pages). */
+  --color-footer-bg: var(--color-swiss-bg-dark);
+  --color-footer-heading: var(--color-swiss-fg-dark);
+  --color-footer-label: var(--color-swiss-fg-dark-muted);
+  --color-footer-link: var(--color-swiss-fg-dark);
+  --color-footer-link-muted: var(--color-swiss-fg-dark-muted);
+  --color-footer-statement: rgb(245 245 245 / 0.42);
+  --color-footer-statement-link: rgb(245 245 245 / 0.42);
+  --color-footer-reveal-underline: rgb(245 245 245 / 0.28);
+  --footer-reveal-sketch-height: clamp(3px, 0.09em, 4px);
+  --footer-reveal-text-halo: 2px;
+  --footer-reveal-underline-tilt-a: 1deg;
+  --footer-reveal-underline-tilt-b: -1deg;
+  --color-footer-divider: var(--color-swiss-hairline-dark);
+  --color-footer-panel-border: var(--color-swiss-hairline-dark);
+  --color-footer-mark: var(--color-swiss-fg-dark);
+  --color-footer-tooltip-shadow: rgb(0 0 0 / 0.45);
+  --footer-link-hover: var(--color-swiss-accent);
+}

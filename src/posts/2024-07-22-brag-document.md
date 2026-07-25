@@ -11,7 +11,6 @@ A few jobs ago I was up for a raise. As part of the performance review process, 
 Essentially my manager was asking:
 
 > What have I done lately and why did it matter?
-> 
 
 I *felt* like I had a great year.
 

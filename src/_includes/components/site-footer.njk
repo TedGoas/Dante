@@ -1,0 +1,79 @@
+<footer class="site-footer">
+  <div class="layout site-footer__body">
+    <section class="site-footer__panel site-footer__panel--explore" aria-labelledby="site-footer-explore-heading">
+      <h2 id="site-footer-explore-heading" class="site-footer__label">Explore</h2>
+      <ul class="site-footer__nav site-footer__nav--primary">
+        <li>
+          <a href="/" class="site-footer__link site-footer__link--primary">Home</a>
+        </li>
+        {% for link in navigation.primary %}
+        <li>
+          <a href="{{ link.href }}" class="site-footer__link site-footer__link--primary">{{ link.label }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="site-footer__panel site-footer__panel--newsletter" aria-labelledby="site-footer-newsletter-heading">
+      <h2 id="site-footer-newsletter-heading" class="site-footer__label">Newsletter</h2>
+      <p class="site-footer__newsletter-intro">{{ footer.newsletterIntro }}</p>
+      {% set modifier = "site-footer__newsletter-form" %}
+      {% include "components/newsletter-signup.njk" %}
+    </section>
+
+    <nav class="site-footer__panel site-footer__panel--elsewhere" aria-labelledby="site-footer-elsewhere-heading">
+      <h2 id="site-footer-elsewhere-heading" class="site-footer__label">Elsewhere</h2>
+      <ul class="site-footer__nav site-footer__nav--secondary">
+        {% for link in footer.secondaryLinks %}
+        <li>
+          <a
+            href="{{ link.href }}"
+            class="site-footer__link site-footer__link--secondary"
+            {% if link.external %}target="_blank" rel="noopener noreferrer"{% endif %}
+          >{{ link.label }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+
+  <div class="layout site-footer__lower">
+    <p class="site-footer__statement">
+      Creating work cool enough to show
+      <span class="site-footer__tooltip-host">
+        <button type="button" class="site-footer__reveal">
+          <span class="site-footer__reveal__text">
+            <span class="site-footer__reveal__underline" aria-hidden="true"></span>
+            my friends
+          </span>
+        </button>
+        <span class="site-footer__tooltip" role="tooltip">
+          <img src="/assets/img/home/friends.jpg" alt="" width="640" height="480" loading="lazy">
+        </span>
+      </span>
+      and honest enough to show
+      <span class="site-footer__tooltip-host">
+        <button type="button" class="site-footer__reveal">
+          <span class="site-footer__reveal__text">
+            <span class="site-footer__reveal__underline" aria-hidden="true"></span>
+            my parents
+          </span>
+        </button>
+        <span class="site-footer__tooltip" role="tooltip">
+          <img src="/assets/img/home/parents.jpg" alt="" width="640" height="480" loading="lazy">
+        </span>
+      </span>.
+    </p>
+    <img
+      src="/assets/img/tg-footer-logo.svg"
+      alt=""
+      width="83"
+      height="84"
+      class="site-footer__mark"
+      loading="lazy"
+      decoding="async"
+    >
+  </div>
+
+  <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+</footer>

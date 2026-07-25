@@ -1,0 +1,7 @@
+---
+permalink: "/assets/js/click-to-play.js"
+---
+{% set js %}
+{% include "../assets/js/click-to-play-video.js" %}
+{% endset %}
+{{ js | minifyJs | safe }}
