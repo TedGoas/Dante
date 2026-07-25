@@ -10,15 +10,17 @@ eleventyExcludeFromCollections: true
     <link>{{ site.url }}</link>
     <atom:link href="{{ site.url }}/rss.xml" rel="self" type="application/rss+xml"/>
     <language>en</language>
-    <lastBuildDate>{{ collections.posts | last | readableDate }}</lastBuildDate>
+    {% if collections.posts.length %}
+    <lastBuildDate>{{ collections.posts[0].date | rfc822Date }}</lastBuildDate>
+    {% endif %}
     {% for post in collections.posts %}
     <item>
       <title>{{ post.data.title }}</title>
       <description>{{ post.data.description or post.templateContent | striptags | truncate(200) }}</description>
       <link>{{ site.url }}{{ post.url }}</link>
       <guid>{{ site.url }}{{ post.url }}</guid>
-      <pubDate>{{ post.date | readableDate }}</pubDate>
+      <pubDate>{{ post.date | rfc822Date }}</pubDate>
     </item>
     {% endfor %}
   </channel>
-</rss> 
+</rss>

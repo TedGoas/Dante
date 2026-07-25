@@ -20,7 +20,7 @@ I’m a home-body and like being around my wife and kids, so I opted for a home 
     <figcaption>My office is in a high traffic area.</figcaption>
 </figure>
 
-My office is located right off the front door and near the kitchen. I was initially worried about having my office in a high traffic area, especially since the doors are glass, but it turned out to be a non-issue. The house is big enough that I’m not on top of anyone else and I can close the door when I need privacy. My family usually honors the open/closed door policy, though [there are exceptions](http://www.tedgoas.com/content/blog/31-distributed-design/aa58.jpg) 👧.
+My office is located right off the front door and near the kitchen. I was initially worried about having my office in a high traffic area, especially since the doors are glass, but it turned out to be a non-issue. The house is big enough that I’m not on top of anyone else and I can close the door when I need privacy. My family usually honors the open/closed door policy, though [there are exceptions](/assets/img/distributed-design/aa58.jpg) 👧.
 
 ## Furniture and equipment
 
@@ -66,7 +66,7 @@ My office doesn’t double as a lounge area, kids playroom, or spare bedroom. I 
 
 Rambunctious kids, house guests, cabin fever… sometimes I just need to get out of the house. I work outside my house once or twice a month. My go-to places are the local coffee shop and the library. The former offers great coffee and chatter and the latter offers lots of space and quiet. Both offer reliable WiFi. I’m deliberate with the _kind_ of work I do since I don’t bring my large screens with me (can you imagine if I _did_ 😂).
 
-<hr role="presentation" aria-role="hidden">
+<hr role="presentation">
 
 So that’s where I work from as a remote worker at Stack Overflow. I spend ~50 hours a week in my home office, so I put a lot of thought into its design. The room is big enough, I have a window, and I have everything I need without too many distractions.
 

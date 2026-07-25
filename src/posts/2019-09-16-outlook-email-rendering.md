@@ -117,6 +117,6 @@ Emails in Outlook can be tricky, so even after following the tips mentioned abov
 * [Responsive HTML Email Templates for Outlook](https://htmlemail.io/)
 * [Can I Use in HTML Emails](https://caniuse.email/)
 
-<hr role="presentation" aria-role="hidden" class="hr-sm">
+<hr role="presentation" class="hr-sm">
 
 Also published at <a href="https://medium.com/email-design/outlook-rendering-issues-5-tips-to-ensure-your-emails-display-properly-9520b2456166">https://medium.com/email-design/outlook-rendering-issues-5-tips-to-ensure-your-emails-display-properly-9520b2456166</a>

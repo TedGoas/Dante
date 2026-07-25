@@ -96,7 +96,7 @@ I've really enjoyed my time at Stack Overflow so far, I can't say enough good th
 
 Thanks to [Jon Chan](https://twitter.com/jonhmchan), whose [blog post](http://www.jonhmchan.com/blog/2014/1/16/my-first-six-weeks-working-at-stack-overflow) motivated me to write this.
 
-<hr role="presentation" aria-role="hidden" class="hr-sm">
+<hr role="presentation" class="hr-sm">
 
 If you’re interested in how I applied for a job at Stack Overflow, I briefly [wrote about it on dribbble](https://dribbble.com/shots/2873870-HTML-Email-Cover-Letter).
 

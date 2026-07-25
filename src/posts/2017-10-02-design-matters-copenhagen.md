@@ -154,6 +154,6 @@ It was eye-opening to hear so many stories of project failures. I think Stack Ov
 
 Thanks to the organizers, speakers, and attendees for making Design Matters such an amazing experience! 🇩🇰
 
-<hr role="presentation" aria-role="hidden" class="hr-sm">
+<hr role="presentation" class="hr-sm">
 
 Also published <a href="https://medium.com/@tedgoas/design-matters-17-e78cdd184eb7">on Medium</a>

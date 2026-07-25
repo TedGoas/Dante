@@ -98,7 +98,7 @@ I usually jump into Figma after my team has narrowed on one or two directions an
 
 I’ve been working this way for the past few years and love it. Folks on my team have mentioned they appreciate being involved in the design process early on. It improves collaboration between departments and truly makes design a team sport. Our designs are much better because of the diverse feedback that’s captured by this process.
 
-Do you have a similar process? Does your doc look a little different? I’d love to trade notes! <a href="https://twitter.com/TedGoas">Ping me on twitter</a> or <a href="/contact/">send me an email</a>.
+Do you have a similar process? Does your doc look a little different? I’d love to trade notes! <a href="https://twitter.com/TedGoas">Ping me on twitter</a> or <a href="mailto:ted@tedgoas.com">send me an email</a>.
 
 ---
 
