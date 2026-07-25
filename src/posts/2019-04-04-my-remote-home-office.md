@@ -20,7 +20,7 @@ I’m a home-body and like being around my wife and kids, so I opted for a home 
     <figcaption>My office is in a high traffic area.</figcaption>
 </figure>
 
-My office is located right off the front door and near the kitchen. I was initially worried about having my office in a high traffic area, especially since the doors are glass, but it turned out to be a non-issue. The house is big enough that I’m not on top of anyone else and I can close the door when I need privacy. My family usually honors the open/closed door policy, though [there are exceptions](http://www.tedgoas.com/content/blog/31-distributed-design/aa58.jpg) 👧.
+My office is located right off the front door and near the kitchen. I was initially worried about having my office in a high traffic area, especially since the doors are glass, but it turned out to be a non-issue. The house is big enough that I’m not on top of anyone else and I can close the door when I need privacy. My family usually honors the open/closed door policy, though [there are exceptions](/assets/img/distributed-design/aa58.jpg) 👧.
 
 ## Furniture and equipment
 
