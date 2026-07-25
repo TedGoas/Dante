@@ -37,6 +37,7 @@ module.exports = (config) => {
   config.addLayoutAlias('work', 'layouts/work.njk');
 
   config.addFilter('readableDate', require('./lib/filters/readableDate'));
+  config.addFilter('rfc822Date', require('./lib/filters/rfc822Date'));
   config.addFilter('titleNeedsPeriod', require('./lib/filters/titleNeedsPeriod'));
   config.addFilter('splitTitleLastWord', require('./lib/filters/splitTitleLastWord'));
   config.addFilter('workLead', require('./lib/filters/workLead'));

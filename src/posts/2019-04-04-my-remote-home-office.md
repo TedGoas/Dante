@@ -66,7 +66,7 @@ My office doesn’t double as a lounge area, kids playroom, or spare bedroom. I 
 
 Rambunctious kids, house guests, cabin fever… sometimes I just need to get out of the house. I work outside my house once or twice a month. My go-to places are the local coffee shop and the library. The former offers great coffee and chatter and the latter offers lots of space and quiet. Both offer reliable WiFi. I’m deliberate with the _kind_ of work I do since I don’t bring my large screens with me (can you imagine if I _did_ 😂).
 
-<hr role="presentation" aria-role="hidden">
+<hr role="presentation">
 
 So that’s where I work from as a remote worker at Stack Overflow. I spend ~50 hours a week in my home office, so I put a lot of thought into its design. The room is big enough, I have a window, and I have everything I need without too many distractions.
 

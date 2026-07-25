@@ -8,7 +8,7 @@ description:  I released a third version of Cerberus, including a hybrid templat
 
 **TL;DR:** I quietly released a third version of [Cerberus responsive email templates](https://github.com/TedGoas/Cerberus). The big difference is that now there is a hybrid template that works on mobile without media queries.
 
-<hr role="presentation" aria-role="hidden" class="hr-sm">
+<hr role="presentation" class="hr-sm">
 
 I’ve been writing HTML emails for a while. I’d become comfortable making responsive websites using media queries, so it seemed like a natural fit for emails. I constructed a simple set of responsive email patterns based on responsive breakpoints and called it Cerberus. I could quickly construct emails desktop and responsive emails very quickly. The majority of my email lists primarily use iOS Mail, which supports media queries. I thought I had struck a good balance. Things were going great.
 

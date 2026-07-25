@@ -104,6 +104,6 @@ In order:
 
 We do have a few outages a year, but they’re mostly short-lived. They usually happen when most of us are working, so folks are always around to work on it immediately. We had an outage earlier this week: our team was able to bring the site back up in read-only mode after a few minutes, and back fully in half an hour.
 
-<hr role="presentation" aria-role="hidden" class="hr-sm">
+<hr role="presentation" class="hr-sm">
 
 Also published at <a href="https://blog.prototypr.io/what-its-like-working-remotely-on-stack-overflow-s-product-design-team-c3a4034c265e">https://blog.prototypr.io/what-its-like-working-remotely-on-stack-overflow-s-product-design-team-c3a4034c265e</a>
