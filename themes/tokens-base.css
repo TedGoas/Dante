@@ -136,7 +136,10 @@
    * restyle without per-rule edits (the monospace face has been removed).
    */
   --font-serif: "Redaction", "Redaction Fallback", Georgia, "Times New Roman", Times, serif;
-  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  /* System sans stack: https://systemfontstack.com/ */
+  --font-sans: "Geist", -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
+    "Segoe UI", "Helvetica Neue", "Adwaita Sans", Cantarell, Ubuntu, Roboto, Noto,
+    Helvetica, Arial, sans-serif;
   --font-h1: "Redaction", "Redaction Fallback", Georgia, "Times New Roman", Times, serif;
   --font-mono: var(--font-sans);
 }

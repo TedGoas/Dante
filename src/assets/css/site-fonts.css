@@ -4,8 +4,8 @@
  * Geist: OFL, https://vercel.com/font.
  * Both faces are self-hosted WOFF2 under /assets/fonts/.
  *
- * Metric-adjusted fallbacks (via Capsize createFontStack) keep Georgia/Arial
- * close to Redaction/Geist during font-display: swap so FOUT causes less CLS.
+ * Redaction uses a metric-adjusted Georgia fallback (Capsize) during
+ * font-display: swap. Geist falls back to the system sans stack in tokens.
  */
 
 /* redaction-latin-400-normal */
@@ -87,14 +87,4 @@
   font-display: swap;
   font-weight: 700;
   src: url("/assets/fonts/geist-latin-700-normal.woff2") format("woff2");
-}
-
-/* Metric-adjusted Arial fallback for Geist (Capsize) */
-@font-face {
-  font-family: "Geist Fallback";
-  src: local("Arial"), local("ArialMT");
-  ascent-override: 95.9379%;
-  descent-override: 28.1609%;
-  line-gap-override: 0%;
-  size-adjust: 104.7553%;
 }
