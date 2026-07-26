@@ -20,7 +20,7 @@ Swiss chrome and token restyles already shipped (light header, dark footer, red 
 
 Use a two-font system throughout the site. Role structure is locked.
 
-- **Display / Headings** — [Redaction](https://www.redaction.us/) (editorial serif). h1–h3 and large display text only.
+- **Display / Headings** — [Redaction](https://www.redaction.us/) (editorial serif), self-hosted woff2. h1–h3 and large display text only.
 - **Body / UI** — [Geist](https://vercel.com/font) (sans-serif), self-hosted woff2. Everything that is not a heading: body copy, blog posts, case studies, captions, navigation, footer, labels, metadata. Legible at 12–14px and comfortable at 16–18px.
 - **No monospace.** The monospace face has been removed. Any text that was previously mono (captions, small labels, nav, footer) is now Geist.
 
@@ -149,5 +149,5 @@ Factual mapping only — not design direction.
 
 - **Frozen homepage headline**: In [`src/index.njk`](../src/index.njk), `#home-heading` with class `home-hero__headline` (large serif h1, inline avatar `<img>`, company links with inline logo `<img>` elements).
 - **Frozen showcase**: Same file — `<section class="homepage-showcase" …>` containing `.home-work-grid` and its grid items/cells. Do not change grid structure, sizing, or positioning.
-- **Design tokens today**: [`themes/tokens.css`](../themes/tokens.css) imports [`themes/tokens-base.css`](../themes/tokens-base.css) (type scale, spacing, radii, font stacks, `--measure-lead`, display titles) and [`themes/theme.css`](../themes/theme.css) (Swiss light / dark / red / amber on `:root`). Fonts load from [`src/assets/css/site-fonts.css`](../src/assets/css/site-fonts.css): **Redaction** (serif, CDN woff2) and **Geist** (body/UI, self-hosted woff2 in [`src/assets/fonts/`](../src/assets/fonts/)). `--font-mono` is retained as an alias of the Geist body stack so legacy call sites restyle without churn. Stylesheet: [`src/assets/css/styles.css`](../src/assets/css/styles.css).
+- **Design tokens today**: [`themes/tokens.css`](../themes/tokens.css) imports [`themes/tokens-base.css`](../themes/tokens-base.css) (type scale, spacing, radii, font stacks, `--measure-lead`, display titles) and [`themes/theme.css`](../themes/theme.css) (Swiss light / dark / red / amber on `:root`). Fonts load from [`src/assets/css/site-fonts.css`](../src/assets/css/site-fonts.css): **Redaction** and **Geist** are both self-hosted WOFF2 under [`src/assets/fonts/`](../src/assets/fonts/) (critical 400 faces preloaded in the default layout). `--font-mono` is retained as an alias of the Geist body stack so legacy call sites restyle without churn. Stylesheet: [`src/assets/css/styles.css`](../src/assets/css/styles.css).
 - **Work index**: [`src/work.njk`](../src/work.njk) renders a card grid; card variants collapse to light tiles. Atmosphere backdrops on case-study gallery figures are visually removed (the `workGalleryAtmosphere` transform may still inject markup, but it renders nothing). Gallery media is flush to the layout shell (no dark-band wrapper).
