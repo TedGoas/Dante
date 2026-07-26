@@ -135,8 +135,8 @@
    * --font-mono is retained as an alias of the Geist body stack so legacy call sites
    * restyle without per-rule edits (the monospace face has been removed).
    */
-  --font-serif: "Redaction", Georgia, "Times New Roman", Times, serif;
-  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
-  --font-h1: "Redaction", Georgia, "Times New Roman", Times, serif;
+  --font-serif: "Redaction", "Redaction Fallback", Georgia, "Times New Roman", Times, serif;
+  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-h1: "Redaction", "Redaction Fallback", Georgia, "Times New Roman", Times, serif;
   --font-mono: var(--font-sans);
 }

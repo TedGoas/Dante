@@ -1,7 +1,11 @@
 /*
  * Site typography (two-font system): Redaction serif for display/headings,
  * Geist for all body/UI text. Redaction: OFL, https://www.redaction.us/
- * Geist: OFL, https://vercel.com/font (self-hosted woff2 in /assets/fonts/).
+ * Geist: OFL, https://vercel.com/font.
+ * Both faces are self-hosted WOFF2 under /assets/fonts/.
+ *
+ * Metric-adjusted fallbacks (via Capsize createFontStack) keep Georgia/Arial
+ * close to Redaction/Geist during font-display: swap so FOUT causes less CLS.
  */
 
 /* redaction-latin-400-normal */
@@ -10,8 +14,7 @@
   font-style: normal;
   font-display: swap;
   font-weight: 400;
-  src: url("https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-400-normal.woff2")
-      format("woff2");
+  src: url("/assets/fonts/redaction-latin-400-normal.woff2") format("woff2");
 }
 
 /* redaction-latin-400-italic */
@@ -20,8 +23,7 @@
   font-style: italic;
   font-display: swap;
   font-weight: 400;
-  src: url("https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-400-italic.woff2")
-      format("woff2");
+  src: url("/assets/fonts/redaction-latin-400-italic.woff2") format("woff2");
 }
 
 /* redaction-latin-700-normal */
@@ -30,8 +32,7 @@
   font-style: normal;
   font-display: swap;
   font-weight: 700;
-  src: url("https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-700-normal.woff2")
-      format("woff2");
+  src: url("/assets/fonts/redaction-latin-700-normal.woff2") format("woff2");
 }
 
 /* redaction-latin-700-italic */
@@ -40,8 +41,16 @@
   font-style: italic;
   font-display: swap;
   font-weight: 700;
-  src: url("https://cdn.jsdelivr.net/fontsource/fonts/redaction@latest/latin-700-italic.woff2")
-      format("woff2");
+  src: url("/assets/fonts/redaction-latin-700-italic.woff2") format("woff2");
+}
+
+/* Metric-adjusted Georgia fallback for Redaction (Capsize) */
+@font-face {
+  font-family: "Redaction Fallback";
+  src: local("Georgia");
+  ascent-override: 90.569%;
+  descent-override: 30.1897%;
+  size-adjust: 99.3717%;
 }
 
 /* geist-latin-400-normal */
@@ -78,4 +87,14 @@
   font-display: swap;
   font-weight: 700;
   src: url("/assets/fonts/geist-latin-700-normal.woff2") format("woff2");
+}
+
+/* Metric-adjusted Arial fallback for Geist (Capsize) */
+@font-face {
+  font-family: "Geist Fallback";
+  src: local("Arial"), local("ArialMT");
+  ascent-override: 95.9379%;
+  descent-override: 28.1609%;
+  line-gap-override: 0%;
+  size-adjust: 104.7553%;
 }
