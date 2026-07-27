@@ -2,8 +2,8 @@
 name: work-gallery-figures
 description: >-
   Work case study gallery figures — multi-image layouts (hero-secondary, email-duo,
-  sidebar-quad, integrations-stack, experiment-grid), CSS atmosphere backdrops, and palette modifiers.
-  Use when adding, editing, or styling work gallery figures in case study HTML.
+  sidebar-quad, integrations-stack, experiment-grid) and border/radius modifiers.
+  Use when adding, editing, or styling work gallery figures in case study Markdown.
 ---
 
 # Work gallery figures
@@ -13,7 +13,8 @@ Case studies use a `<section class="work-gallery">` of `<figure class="work-gall
 **Canonical reference:** [reference.md](reference.md) (copy-paste HTML templates).  
 **Repo rules:** [AGENTS.md](../../../AGENTS.md) (*Work gallery* sections).  
 **Styles:** [`src/assets/css/styles.css`](../../../src/assets/css/styles.css) (search `Reusable figure pattern`).  
-**Video figures:** use the `clickToPlayVideo` shortcode — see AGENTS.md, not this skill.
+**Video figures:** use the `clickToPlayVideo` shortcode — see AGENTS.md, not this skill.  
+**Interactive prototypes:** use **[`.cursor/skills/prototype-embed/SKILL.md`](../prototype-embed/SKILL.md)**.
 
 ## Quick picker
 
@@ -26,38 +27,31 @@ Case studies use a `<section class="work-gallery">` of `<figure class="work-gall
 | Four panels in two columns | `work-gallery__item--sidebar-quad` | `work-gallery__media--sidebar-quad` | `.work-gallery__sidebar-quad` + `__col` |
 | Two overlapping cards | `work-gallery__item--integrations-stack` | `work-gallery__media--integrations-stack` | `__integrations-stack__stage` + `__back` / `__front` |
 | Tone hero + 3-column sidebar cards | `work-gallery__item--experiment-grid` | `work-gallery__media--experiment-grid` | `__experiment-grid__tone` + `__sidebar` + `__col` |
-| Large native asset (e.g. MP4 frame) | `work-gallery__item--media-native` | per click-to-play or img | — |
+| Large native asset (e.g. MP4 frame) | `work-gallery__item--media-native` | per click-to-play, prototype embed, or img | — |
 | No hairline border (keep 8px radius) | `work-gallery__item--borderless` | or `work-gallery__media--borderless` on one img | Dark / wallpaper exceptions |
 | No border, no radius | `work-gallery__item--plain` | — | Floating logos |
 
-## Atmosphere backdrop (CSS only)
+## Atmosphere backdrops (legacy)
 
-Add on the **media** `div` when the frame should have a gradient “stage” (not on single `<img>` figures):
+Atmosphere radial-gradient “stages” are **visually removed** in the light redesign (backdrop `display: none`; gradient palettes deleted from CSS). Foreground media sits on a plain light card surface.
 
-1. `work-gallery__media--has-backdrop`
-2. `work-gallery__media--backdrop-atmosphere`
-3. One palette: `work-gallery__media--atmosphere-warm-light` | `…-amber-dusk` | `…-cool-dark`
-4. First child: `<div class="work-gallery__backdrop" aria-hidden="true"></div>`
+- The `workGalleryAtmosphere` transform may still inject `.work-gallery__backdrop` markup and `--atmosphere-*` classes for stable figure indexing — treat that as legacy plumbing.
+- **Do not** author new figures for the visual effect of atmosphere palettes. Prefer layout modifiers + border/radius exceptions above.
+- Full legacy reference (if you must touch the transform): [AGENTS.md](../../../AGENTS.md) (*Work gallery: multi-image figure backdrops*).
 
-**Auto-assign:** Omit the four classes above; [`workGalleryAtmosphere`](../../../lib/transforms/workGalleryAtmosphere.js) injects them on `hero-secondary`, `sidebar-quad`, `integrations-stack`, and `experiment-grid` media blocks (stable hash per page slug + figure order).
-
-**Manual palette:** Add all backdrop classes + backdrop `div` yourself; transform skips that block but still counts its index so sibling auto figures keep the same palette slot.
-
-**Padding:** Multi-image frames use `--work-gallery-atmosphere-frame-padding` on top/left/right. `hero-secondary` (with or without backdrop) uses **flush bottom** — images align to the frame’s bottom edge (`align-items: end` + zero bottom padding).
-
-**Width:** Backdrop frames use `width: fit-content; max-width: 100%; margin-inline: auto` so the stage hugs content (not full 90rem bleed).
+**Padding:** Multi-image frames use top/left/right padding tokens. `hero-secondary` uses **flush bottom** — images align to the frame’s bottom edge (`align-items: end` + zero bottom padding).
 
 ## Checklist for a new multi-image figure
 
 1. Pick layout row from the table; copy the matching template from [reference.md](reference.md).
 2. Set `width` / `height` on images; descriptive `alt`; `loading="lazy"`.
 3. Add `aria-label` on the media `div` when multiple images need one summary.
-4. Choose auto atmosphere or manual palette (see above).
-5. Build and check `/work/<slug>/` — spacing, bottom flush on hero-secondary, backdrop width.
+4. Do not add atmosphere classes for new visual design (see legacy note above).
+5. Build and check `/work/<slug>/` — spacing, bottom flush on hero-secondary, borders/radius.
 
 ## Do not
 
-- Convert case studies to Markdown for gallery HTML.
+- Convert case study pages from Markdown to standalone HTML files just to host gallery HTML (HTML blocks inside Markdown are fine).
 - Add npm packages or inline styles for gallery layout.
-- Hardcode colors — palettes use `--work-gallery-atmosphere-*` and theme tokens.
-- Partial manual backdrop on one figure without understanding index order (fixed in transform; manual siblings still need explicit palette if you override any figure on the page).
+- Hardcode colors — use theme tokens.
+- Rely on atmosphere backdrops for new visuals.
