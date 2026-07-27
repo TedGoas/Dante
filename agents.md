@@ -135,6 +135,8 @@ Args: `slug`, `title` (iframe `title`), `width`, `height`, optional `background`
 2. Copy the output into `src/assets/work/prototypes/{slug}/` for each changed slug
 3. Commit the updated static files in Dante
 
+Agent skill (workflow + demo/`postMessage` conventions): [`.cursor/skills/prototype-embed/SKILL.md`](.cursor/skills/prototype-embed/SKILL.md).
+
 **UX notes:** Each figure shows a static poster until it scrolls into view (~35% visible), then waits 1 second before loading the iframe (`data-src` → `src?autostart=1`). Scrolling away before the delay cancels the timer. The chatbot prototype reads `autostart=1` and auto-runs its splash demo. When a demo animation finishes, the iframe posts `dante-prototype-demo-complete` and a centered circular **Replay** icon button appears over the iframe; clicking it sends `dante-prototype-replay` to restart without reloading the iframe. Under `prefers-reduced-motion: reduce`, activation JS is skipped; a static poster and link to open the prototype in a new tab is shown instead.
 
 ### Work gallery: multi-image layouts
@@ -224,6 +226,10 @@ For visual or UX work, read these before changing UI (Impeccable / agent design 
 - **[.impeccable/design.json](.impeccable/design.json)** — Machine-readable sidecar (ramps, component snippets) for live design tooling
 
 `docs/visual-design-language.md` remains the guardrail doc for frozen homepage regions and theme experiments. Re-run `/impeccable document` after major palette or component changes.
+
+### Agent tooling (tracked vs local)
+
+Keep project agent contracts on GitHub so clones and Cloud Agents share the same rules: [`.cursor/rules/`](.cursor/rules/), [`.cursor/skills/`](.cursor/skills/), and [`.impeccable/design.json`](.impeccable/design.json) (with `PRODUCT.md` / `DESIGN.md`). Do **not** commit `.impeccable/live/` or `.impeccable/critique/` — those are ephemeral session/critique output and are gitignored.
 
 ## Cursor Cloud specific instructions
 

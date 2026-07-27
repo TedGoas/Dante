@@ -38,10 +38,11 @@ alwaysApply: true
 
 - Use 11ty layouts and includes for all repeated structure
 - Blog posts use Markdown with front matter
-- Case studies are HTML files with front matter — do not convert them to Markdown
+- Work case studies are Markdown in `src/work/` with front matter; gallery figures may include raw HTML blocks and Nunjucks shortcodes — keep them as Markdown (do not convert the page to a standalone HTML file)
 - Do not hardcode navigation links — derive them from collections or data files
 - **Work gallery video figures:** Use the `clickToPlayVideo` shortcode in Markdown work pages for poster + lazy MP4 + native controls after play. Full stack and UX rules live in **[AGENTS.md](AGENTS.md)** under *Work gallery: video figures (click-to-play)*.
-- **Work gallery multi-image figures:** Layout modifiers, atmosphere backdrops, and HTML templates — **[`.cursor/skills/work-gallery-figures/SKILL.md`](.cursor/skills/work-gallery-figures/SKILL.md)** and [AGENTS.md](AGENTS.md) (*Work gallery: multi-image layouts*).
+- **Work gallery interactive prototypes:** Use the `prototypeEmbed` shortcode and keep bundles under `src/assets/work/prototypes/{slug}/` — **[`.cursor/skills/prototype-embed/SKILL.md`](.cursor/skills/prototype-embed/SKILL.md)** and [AGENTS.md](AGENTS.md) (*Work gallery: interactive prototypes*).
+- **Work gallery multi-image figures:** Layout modifiers and HTML templates — **[`.cursor/skills/work-gallery-figures/SKILL.md`](.cursor/skills/work-gallery-figures/SKILL.md)** and [AGENTS.md](AGENTS.md) (*Work gallery: multi-image layouts*). Atmosphere backdrops are legacy (visually removed); do not rely on them for new visual design.
 
 ## Theming
 

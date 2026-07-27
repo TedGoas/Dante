@@ -33,19 +33,24 @@ description: >-
 - `src/posts/`, work entries → `content` or `feat`
 - `src/assets/css/`, themes → `style` or `perf`
 - `.eleventy.js`, `_data`, layouts, includes → `chore` or `fix`
+- `.cursor/`, `AGENTS.md`, agent skills → `chore`
 
 ## Workflow
 
-1. **Review** — `git status`; `git diff` (or scoped diff) so the message matches what will be committed.
-2. **Stage** — `git add <paths>` or `git add -p`; avoid unrelated files.
-3. **Commit** — `git commit -m "type(scope): description"`.
+1. **Review** — `git status`; `git diff` (staged and unstaged) so the message matches what will be committed.
+2. **Dirty tree** — List every modified/untracked path. Separate **this task** from leftovers (other agents, WIP, unrelated experiments).
+3. **Stage selectively** — `git add <paths>` or `git add -p` for **only** the task paths. Never `git add -A` / `git add .` when unrelated changes exist.
+4. **Refuse scooping** — If unrelated dirty files are present, leave them unstaged. If the user asked to “commit everything,” confirm first. If unsure which paths belong to the task, ask before staging.
+5. **Commit** — `git commit -m "type(scope): description"`.
 
 Do **not** run `git push` here. If the user wants to publish, use the **push** skill after committing.
 
 ## Safety
 
-- Commit only when the user asked to commit (see project `agents.md`).
-- Do not commit secrets or accidental unrelated changes.
+- Commit only when the user asked to commit (see project `AGENTS.md`).
+- Do not commit secrets, `.env`, or accidental unrelated changes.
+- Do not commit `.impeccable/live/` or `.impeccable/critique/` (gitignored ephemeral output).
+- After commit, run `git status` and confirm leftovers (if any) remain unstaged as expected.
 
 ## Examples
 
@@ -53,3 +58,4 @@ Do **not** run `git push` here. If the user wants to publish, use the **push** s
 - `content(blog): publish post on interviewing designers`
 - `style(css): tighten focus ring on skip link`
 - `chore(11ty): add passthrough copy for assets`
+- `chore(agents): add prototype-embed skill`
