@@ -9,6 +9,7 @@
   --color-swiss-fg-light: #141414;
   --color-swiss-bg-dark: #141414;
   --color-swiss-fg-dark: #f5f5f5;
+  /* ~5.75:1 on #141414 — AA for normal text */
   --color-swiss-fg-dark-muted: rgb(245 245 245 / 0.55);
   --color-swiss-accent: #c41230;
   --color-swiss-accent-hover: #e0183a;
@@ -18,7 +19,8 @@
   /* Semantic page canvas (Swiss light) */
   --color-site-bg: var(--color-swiss-bg-light);
   --color-site-fg: var(--color-swiss-fg-light);
-  --color-site-fg-muted: color-mix(in srgb, var(--color-swiss-fg-light) 55%, var(--color-swiss-bg-light));
+  /* ~4.97:1 on #f3f3f3 / ~5.51:1 on #fff — AA for normal text (was 55%, ~3.96:1) */
+  --color-site-fg-muted: color-mix(in srgb, var(--color-swiss-fg-light) 62%, var(--color-swiss-bg-light));
   --color-prose-body: color-mix(in srgb, var(--color-swiss-fg-light) 82%, var(--color-swiss-bg-light));
 
   /* Editorial accent — not default link hover */
@@ -73,7 +75,8 @@
   --color-figure-caption-title: var(--color-site-fg);
   --color-figure-caption-body: var(--color-site-fg-muted);
   --color-figure-rule: var(--color-border-strong);
-  --color-figure-kicker: rgb(20 20 20 / 0.32);
+  /* ~3.0:1 on light canvas — large/UI label floor */
+  --color-figure-kicker: rgb(20 20 20 / 0.46);
 
   --color-blockquote-bg: var(--color-surface-tile-muted);
 
@@ -89,9 +92,11 @@
   --color-footer-label: var(--color-swiss-fg-dark-muted);
   --color-footer-link: var(--color-swiss-fg-dark);
   --color-footer-link-muted: var(--color-swiss-fg-dark-muted);
-  --color-footer-statement: rgb(245 245 245 / 0.42);
-  --color-footer-statement-link: rgb(245 245 245 / 0.42);
-  --color-footer-reveal-underline: rgb(245 245 245 / 0.28);
+  /* Match dark muted (~5.75:1); statement is large type but reveal words are interactive */
+  --color-footer-statement: var(--color-swiss-fg-dark-muted);
+  --color-footer-statement-link: var(--color-swiss-fg-dark-muted);
+  /* ~3.6:1 on dark band — non-text UI (1.4.11) for reveal underline */
+  --color-footer-reveal-underline: rgb(245 245 245 / 0.4);
   --footer-reveal-sketch-height: clamp(3px, 0.09em, 4px);
   --footer-reveal-text-halo: 2px;
   --footer-reveal-underline-tilt-a: 1deg;
@@ -100,5 +105,10 @@
   --color-footer-panel-border: var(--color-swiss-hairline-dark);
   --color-footer-mark: var(--color-swiss-fg-dark);
   --color-footer-tooltip-shadow: rgb(0 0 0 / 0.45);
-  --footer-link-hover: var(--color-swiss-accent);
+  /*
+   * Dark-band link hover: keep light text (Swiss red on #141414 is ~3.05:1 — fails
+   * normal-text AA). Accent is reserved for underline / focus chrome (UI 3:1 OK).
+   */
+  --footer-link-hover: var(--color-swiss-fg-dark);
+  --footer-link-hover-underline: var(--color-swiss-accent);
 }

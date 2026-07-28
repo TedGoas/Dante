@@ -10,6 +10,22 @@
 
   /* Keep in sync with styles.css mobile nav breakpoint. */
   const overlayQuery = window.matchMedia("(max-width: 56rem)");
+  let lastFocus = null;
+
+  const getFocusable = () => {
+    const nodes = nav.querySelectorAll(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    );
+    return Array.prototype.filter.call(nodes, (el) => {
+      if (el.hasAttribute("inert") || el.getAttribute("aria-hidden") === "true") {
+        return false;
+      }
+      if (list.contains(el) && list.hasAttribute("inert")) {
+        return false;
+      }
+      return el.getClientRects().length > 0;
+    });
+  };
 
   const setListInert = (inert) => {
     if (inert) {
@@ -21,13 +37,52 @@
     }
   };
 
+  const trapFocus = (event) => {
+    if (!nav.classList.contains("is-open") || !overlayQuery.matches) {
+      return;
+    }
+    if (event.key !== "Tab") {
+      return;
+    }
+
+    const focusable = getFocusable();
+    if (focusable.length === 0) {
+      return;
+    }
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+      return;
+    }
+
+    if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  };
+
   const setOpen = (open) => {
+    const wasOpen = nav.classList.contains("is-open");
     nav.classList.toggle("is-open", open);
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
     label.textContent = open ? "Close" : "Menu";
 
     /* inert only when the overlay pattern is hiding the list (mobile, closed). */
     setListInert(overlayQuery.matches && !open);
+
+    if (open && overlayQuery.matches && !wasOpen) {
+      lastFocus = document.activeElement;
+      const focusable = getFocusable();
+      const firstInList = focusable.find((el) => list.contains(el));
+      (firstInList || toggle).focus();
+    } else if (!open && wasOpen && lastFocus && typeof lastFocus.focus === "function") {
+      lastFocus.focus();
+      lastFocus = null;
+    }
   };
 
   const close = () => setOpen(false);
@@ -47,6 +102,7 @@
       toggle.setAttribute("aria-expanded", "false");
       label.textContent = "Menu";
       setListInert(false);
+      lastFocus = null;
       return;
     }
     setOpen(nav.classList.contains("is-open"));
@@ -61,9 +117,12 @@
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && nav.classList.contains("is-open")) {
+      lastFocus = null;
       close();
       toggle.focus();
+      return;
     }
+    trapFocus(event);
   });
 
   list.addEventListener("click", (event) => {

@@ -57,7 +57,7 @@ The site uses a single Swiss light theme with dark bands:
 - **Dark bands** — near-black (`#141414` / `--color-swiss-bg-dark`) for site footer (all pages) and homepage showcase.
 - **Interactive accent** — Swiss red (`#c41230` / `--color-swiss-accent`). Nav/chrome hover, focus rings, work-index title hover. Also the blog post title end-dot (documented exception to “interactive only”).
 - **Editorial accent** — deep amber (`#E9AE0F` / `--color-accent`). Homepage belief markers and pull-quote left rule only — not default link hover.
-- **Links** — prose: underline-only in near-black; chrome: lift to Swiss red on hover.
+- **Links** — prose: underline-only in near-black; chrome on the light canvas: lift to Swiss red on hover. On dark bands (footer), keep light text and use Swiss red for the underline only so hover text stays WCAG AA.
 
 No theme picker. Build all color, type, and spacing values as CSS custom properties. `html { color-scheme: light }`.
 
