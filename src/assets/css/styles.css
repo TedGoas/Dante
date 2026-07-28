@@ -12,6 +12,21 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important; /* kill non-essential motion; see PRODUCT.md a11y */
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
+}
+
 html {
   color-scheme: light;
 }
@@ -277,7 +292,7 @@ a:focus-visible {
 .site-footer__link:hover {
   color: var(--footer-link-hover);
   text-decoration: underline;
-  text-decoration-color: var(--footer-link-hover);
+  text-decoration-color: var(--footer-link-hover-underline);
   text-underline-offset: var(--link-chrome-underline-offset);
   text-decoration-thickness: 2px;
 }
@@ -308,7 +323,7 @@ a:focus-visible {
   clip: auto;
   white-space: normal;
   background-color: var(--color-surface-raised);
-  color: var(--color-site-fg-muted);
+  color: var(--color-site-fg);
   border: var(--border-width-hairline) solid var(--color-border-subtle);
   font-family: var(--font-sans);
   font-size: var(--type-min-size);
