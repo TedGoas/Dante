@@ -1176,14 +1176,235 @@ hr {
   max-width: none;
 }
 
-.hero-avatar {
+.hero-avatar-wrap {
   display: inline-block;
   vertical-align: middle;
+  position: relative;
   width: var(--home-hero-avatar-size);
   height: var(--home-hero-avatar-size);
   margin: -0.3em -0.1em 0 0.1em;
   border-radius: var(--radius-work-gallery-image);
+  overflow: hidden;
+  outline: none;
+}
+
+.hero-avatar-wrap:focus-visible {
+  outline: 2px solid var(--color-swiss-accent);
+  outline-offset: 2px;
+}
+
+.hero-avatar {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
   object-fit: cover;
+}
+
+.hero-avatar-cycle {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hero-avatar--frame {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+.hero-avatar-wrap:hover .hero-avatar--base,
+.hero-avatar-wrap:focus-within .hero-avatar--base {
+  opacity: 0;
+}
+
+.hero-avatar-wrap:hover .hero-avatar-cycle,
+.hero-avatar-wrap:focus-within .hero-avatar-cycle {
+  opacity: 1;
+}
+
+/* 9 hard-cut photos, 450ms each — no crossfade */
+.hero-avatar-wrap:hover .hero-avatar--frame:nth-child(1),
+.hero-avatar-wrap:focus-within .hero-avatar--frame:nth-child(1) {
+  animation: hero-avatar-frame-1 4.05s step-end infinite;
+}
+
+.hero-avatar-wrap:hover .hero-avatar--frame:nth-child(2),
+.hero-avatar-wrap:focus-within .hero-avatar--frame:nth-child(2) {
+  animation: hero-avatar-frame-2 4.05s step-end infinite;
+}
+
+.hero-avatar-wrap:hover .hero-avatar--frame:nth-child(3),
+.hero-avatar-wrap:focus-within .hero-avatar--frame:nth-child(3) {
+  animation: hero-avatar-frame-3 4.05s step-end infinite;
+}
+
+.hero-avatar-wrap:hover .hero-avatar--frame:nth-child(4),
+.hero-avatar-wrap:focus-within .hero-avatar--frame:nth-child(4) {
+  animation: hero-avatar-frame-4 4.05s step-end infinite;
+}
+
+.hero-avatar-wrap:hover .hero-avatar--frame:nth-child(5),
+.hero-avatar-wrap:focus-within .hero-avatar--frame:nth-child(5) {
+  animation: hero-avatar-frame-5 4.05s step-end infinite;
+}
+
+.hero-avatar-wrap:hover .hero-avatar--frame:nth-child(6),
+.hero-avatar-wrap:focus-within .hero-avatar--frame:nth-child(6) {
+  animation: hero-avatar-frame-6 4.05s step-end infinite;
+}
+
+.hero-avatar-wrap:hover .hero-avatar--frame:nth-child(7),
+.hero-avatar-wrap:focus-within .hero-avatar--frame:nth-child(7) {
+  animation: hero-avatar-frame-7 4.05s step-end infinite;
+}
+
+.hero-avatar-wrap:hover .hero-avatar--frame:nth-child(8),
+.hero-avatar-wrap:focus-within .hero-avatar--frame:nth-child(8) {
+  animation: hero-avatar-frame-8 4.05s step-end infinite;
+}
+
+.hero-avatar-wrap:hover .hero-avatar--frame:nth-child(9),
+.hero-avatar-wrap:focus-within .hero-avatar--frame:nth-child(9) {
+  animation: hero-avatar-frame-9 4.05s step-end infinite;
+}
+
+@keyframes hero-avatar-frame-1 {
+  0% {
+    opacity: 1;
+  }
+  11.111%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes hero-avatar-frame-2 {
+  0% {
+    opacity: 0;
+  }
+  11.111% {
+    opacity: 1;
+  }
+  22.222%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes hero-avatar-frame-3 {
+  0%,
+  11.111% {
+    opacity: 0;
+  }
+  22.222% {
+    opacity: 1;
+  }
+  33.333%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes hero-avatar-frame-4 {
+  0%,
+  22.222% {
+    opacity: 0;
+  }
+  33.333% {
+    opacity: 1;
+  }
+  44.444%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes hero-avatar-frame-5 {
+  0%,
+  33.333% {
+    opacity: 0;
+  }
+  44.444% {
+    opacity: 1;
+  }
+  55.555%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes hero-avatar-frame-6 {
+  0%,
+  44.444% {
+    opacity: 0;
+  }
+  55.555% {
+    opacity: 1;
+  }
+  66.666%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes hero-avatar-frame-7 {
+  0%,
+  55.555% {
+    opacity: 0;
+  }
+  66.666% {
+    opacity: 1;
+  }
+  77.777%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes hero-avatar-frame-8 {
+  0%,
+  66.666% {
+    opacity: 0;
+  }
+  77.777% {
+    opacity: 1;
+  }
+  88.888%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes hero-avatar-frame-9 {
+  0%,
+  77.777% {
+    opacity: 0;
+  }
+  88.888% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-avatar-wrap:hover .hero-avatar--base,
+  .hero-avatar-wrap:focus-within .hero-avatar--base {
+    opacity: 1;
+  }
+
+  .hero-avatar-wrap:hover .hero-avatar-cycle,
+  .hero-avatar-wrap:focus-within .hero-avatar-cycle {
+    opacity: 0;
+  }
+
+  .hero-avatar-wrap:hover .hero-avatar--frame,
+  .hero-avatar-wrap:focus-within .hero-avatar--frame {
+    animation: none;
+  }
 }
 
 .home-hero-logo {
