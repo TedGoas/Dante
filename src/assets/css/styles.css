@@ -1177,6 +1177,10 @@ hr {
 }
 
 .hero-avatar-wrap {
+  --hero-avatar-frame-ms: 0.45s;
+  --hero-avatar-frames: 9;
+  --hero-avatar-cycle: calc(var(--hero-avatar-frame-ms) * var(--hero-avatar-frames));
+
   display: inline-block;
   vertical-align: middle;
   position: relative;
@@ -1214,195 +1218,51 @@ hr {
   opacity: 0;
 }
 
-.hero-avatar-wrap:hover .hero-avatar--base,
-.hero-avatar-wrap:focus-within .hero-avatar--base {
+.hero-avatar--frame:nth-child(1) { --hero-avatar-i: 0; }
+.hero-avatar--frame:nth-child(2) { --hero-avatar-i: 1; }
+.hero-avatar--frame:nth-child(3) { --hero-avatar-i: 2; }
+.hero-avatar--frame:nth-child(4) { --hero-avatar-i: 3; }
+.hero-avatar--frame:nth-child(5) { --hero-avatar-i: 4; }
+.hero-avatar--frame:nth-child(6) { --hero-avatar-i: 5; }
+.hero-avatar--frame:nth-child(7) { --hero-avatar-i: 6; }
+.hero-avatar--frame:nth-child(8) { --hero-avatar-i: 7; }
+.hero-avatar--frame:nth-child(9) { --hero-avatar-i: 8; }
+
+.hero-avatar-wrap:is(:hover, :focus-within) .hero-avatar--base {
   opacity: 0;
 }
 
-.hero-avatar-wrap:hover .hero-avatar-cycle,
-.hero-avatar-wrap:focus-within .hero-avatar-cycle {
+.hero-avatar-wrap:is(:hover, :focus-within) .hero-avatar-cycle {
   opacity: 1;
 }
 
-/* 9 hard-cut photos, 450ms each — no crossfade */
-.hero-avatar-wrap:hover .hero-avatar--frame:nth-child(1),
-.hero-avatar-wrap:focus-within .hero-avatar--frame:nth-child(1) {
-  animation: hero-avatar-frame-1 4.05s step-end infinite;
+/* One keyframe; each frame staggered by --hero-avatar-i (450ms hard cuts) */
+.hero-avatar-wrap:is(:hover, :focus-within) .hero-avatar--frame {
+  animation: hero-avatar-frame var(--hero-avatar-cycle) step-end infinite;
+  animation-delay: calc(var(--hero-avatar-i) * var(--hero-avatar-frame-ms));
 }
 
-.hero-avatar-wrap:hover .hero-avatar--frame:nth-child(2),
-.hero-avatar-wrap:focus-within .hero-avatar--frame:nth-child(2) {
-  animation: hero-avatar-frame-2 4.05s step-end infinite;
-}
-
-.hero-avatar-wrap:hover .hero-avatar--frame:nth-child(3),
-.hero-avatar-wrap:focus-within .hero-avatar--frame:nth-child(3) {
-  animation: hero-avatar-frame-3 4.05s step-end infinite;
-}
-
-.hero-avatar-wrap:hover .hero-avatar--frame:nth-child(4),
-.hero-avatar-wrap:focus-within .hero-avatar--frame:nth-child(4) {
-  animation: hero-avatar-frame-4 4.05s step-end infinite;
-}
-
-.hero-avatar-wrap:hover .hero-avatar--frame:nth-child(5),
-.hero-avatar-wrap:focus-within .hero-avatar--frame:nth-child(5) {
-  animation: hero-avatar-frame-5 4.05s step-end infinite;
-}
-
-.hero-avatar-wrap:hover .hero-avatar--frame:nth-child(6),
-.hero-avatar-wrap:focus-within .hero-avatar--frame:nth-child(6) {
-  animation: hero-avatar-frame-6 4.05s step-end infinite;
-}
-
-.hero-avatar-wrap:hover .hero-avatar--frame:nth-child(7),
-.hero-avatar-wrap:focus-within .hero-avatar--frame:nth-child(7) {
-  animation: hero-avatar-frame-7 4.05s step-end infinite;
-}
-
-.hero-avatar-wrap:hover .hero-avatar--frame:nth-child(8),
-.hero-avatar-wrap:focus-within .hero-avatar--frame:nth-child(8) {
-  animation: hero-avatar-frame-8 4.05s step-end infinite;
-}
-
-.hero-avatar-wrap:hover .hero-avatar--frame:nth-child(9),
-.hero-avatar-wrap:focus-within .hero-avatar--frame:nth-child(9) {
-  animation: hero-avatar-frame-9 4.05s step-end infinite;
-}
-
-@keyframes hero-avatar-frame-1 {
+@keyframes hero-avatar-frame {
   0% {
     opacity: 1;
   }
+  /* ~100% / 9 frames — hold one slot then snap off */
   11.111%,
   100% {
     opacity: 0;
   }
 }
 
-@keyframes hero-avatar-frame-2 {
-  0% {
-    opacity: 0;
-  }
-  11.111% {
-    opacity: 1;
-  }
-  22.222%,
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes hero-avatar-frame-3 {
-  0%,
-  11.111% {
-    opacity: 0;
-  }
-  22.222% {
-    opacity: 1;
-  }
-  33.333%,
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes hero-avatar-frame-4 {
-  0%,
-  22.222% {
-    opacity: 0;
-  }
-  33.333% {
-    opacity: 1;
-  }
-  44.444%,
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes hero-avatar-frame-5 {
-  0%,
-  33.333% {
-    opacity: 0;
-  }
-  44.444% {
-    opacity: 1;
-  }
-  55.555%,
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes hero-avatar-frame-6 {
-  0%,
-  44.444% {
-    opacity: 0;
-  }
-  55.555% {
-    opacity: 1;
-  }
-  66.666%,
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes hero-avatar-frame-7 {
-  0%,
-  55.555% {
-    opacity: 0;
-  }
-  66.666% {
-    opacity: 1;
-  }
-  77.777%,
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes hero-avatar-frame-8 {
-  0%,
-  66.666% {
-    opacity: 0;
-  }
-  77.777% {
-    opacity: 1;
-  }
-  88.888%,
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes hero-avatar-frame-9 {
-  0%,
-  77.777% {
-    opacity: 0;
-  }
-  88.888% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .hero-avatar-wrap:hover .hero-avatar--base,
-  .hero-avatar-wrap:focus-within .hero-avatar--base {
+  .hero-avatar-wrap:is(:hover, :focus-within) .hero-avatar--base {
     opacity: 1;
   }
 
-  .hero-avatar-wrap:hover .hero-avatar-cycle,
-  .hero-avatar-wrap:focus-within .hero-avatar-cycle {
+  .hero-avatar-wrap:is(:hover, :focus-within) .hero-avatar-cycle {
     opacity: 0;
   }
 
-  .hero-avatar-wrap:hover .hero-avatar--frame,
-  .hero-avatar-wrap:focus-within .hero-avatar--frame {
+  .hero-avatar-wrap:is(:hover, :focus-within) .hero-avatar--frame {
     animation: none;
   }
 }
