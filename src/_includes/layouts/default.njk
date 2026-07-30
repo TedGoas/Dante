@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ title or site.title }}</title>
   <meta name="description" content="{{ description or site.description }}">
+  <meta name="theme-color" content="#f3f3f3">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
 
   <link rel="preload" href="/assets/fonts/geist-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/redaction-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -12,12 +14,16 @@
   <link rel="stylesheet" href="/assets/css/styles.css">
   <script>document.documentElement.classList.add("js");</script>
 
-  <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 
   <meta property="og:title" content="{{ title or site.title }}">
   <meta property="og:description" content="{{ description or site.description }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:locale" content="en_US">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="{{ title or site.title }}">
