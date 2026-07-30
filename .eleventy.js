@@ -28,6 +28,7 @@ module.exports = (config) => {
   config.addPassthroughCopy({ 'src/work/img/': 'assets/img/' });
   config.addPassthroughCopy('src/assets/files/');
   config.addPassthroughCopy('humans.txt');
+  config.addPassthroughCopy({ 'src/favicon.ico': 'favicon.ico' });
 
   config.addWatchTarget('src/assets/js/');
   config.addWatchTarget('src/assets/css/');
