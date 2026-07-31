@@ -1,6 +1,6 @@
 # cursor.md
 
-@import ./agents.md
+@import ./AGENTS.md
 
 ---
 
