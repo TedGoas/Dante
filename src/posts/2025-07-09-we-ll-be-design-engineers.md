@@ -1,7 +1,7 @@
 ---
 title: "Designers: We’ll all be design engineers in a year"
 body_class: blog
-featured_image: "swiss-army-knife.png"
+featured_image: "swiss-army-knife.webp"
 image_caption: A swiss army knife with design terms like ‘ux design’, ‘code’, and ‘research’ written on the different blades.
 description: And that’s a good thing!
 ---

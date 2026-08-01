@@ -52,6 +52,12 @@ Canonical constraints for typography roles, color directions, frozen homepage re
 - **Inspiration**: Use Tailwind concepts but implement locally
 - **Scope**: All CSS variables and classes should be local
 
+### Responsive images
+- Prefer compressed final assets (SVG slimmed; large rasters resized / WebP where helpful) over hand-authored `<picture>` trees
+- Do **not** wrap SVG work thumbs or gallery SVGs in `<picture>` / WebP sources
+- After adding or changing assets, run the **optimize-images** skill ([`.cursor/skills/optimize-images/SKILL.md`](.cursor/skills/optimize-images/SKILL.md)) or `/optimize-images`
+- Build-time `srcset` / `<picture>` for rasters: proposed in [`docs/responsive-image-shortcode-proposal.md`](docs/responsive-image-shortcode-proposal.md) — requires approving `@11ty/eleventy-img` before install
+
 ### HTML Standards
 - **Semantic HTML**: Use `<nav>`, `<article>`, and other semantic elements
 - **Structure**: Minimize unnecessary nested `<div>` elements
