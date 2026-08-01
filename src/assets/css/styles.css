@@ -1202,7 +1202,7 @@ hr {
 
 .hero-avatar-wrap {
   --hero-avatar-frame-ms: 0.45s;
-  --hero-avatar-frames: 9;
+  --hero-avatar-frames: 10;
   --hero-avatar-cycle: calc(var(--hero-avatar-frame-ms) * var(--hero-avatar-frames));
 
   display: inline-block;
@@ -1251,6 +1251,7 @@ hr {
 .hero-avatar--frame:nth-child(7) { --hero-avatar-i: 6; }
 .hero-avatar--frame:nth-child(8) { --hero-avatar-i: 7; }
 .hero-avatar--frame:nth-child(9) { --hero-avatar-i: 8; }
+.hero-avatar--frame:nth-child(10) { --hero-avatar-i: 9; }
 
 .hero-avatar-wrap:is(:hover, :focus-within) .hero-avatar--base {
   opacity: 0;
@@ -1270,8 +1271,8 @@ hr {
   0% {
     opacity: 1;
   }
-  /* ~100% / 9 frames — hold one slot then snap off */
-  11.111%,
+  /* 100% / 10 frames — hold one slot then snap off */
+  10%,
   100% {
     opacity: 0;
   }
