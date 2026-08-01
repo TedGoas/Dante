@@ -88,7 +88,7 @@ As amazingly self-documenting as I think my project is… yea, it’s really not
 - Demos help visualize results.
 
 <figure class="outset">
-	<img src="/assets/img/open-source/cerberus-code.png" alt="Screenshot of Cerberus's code comments." height="810" width="1278">
+	<img src="/assets/img/open-source/cerberus-code.webp" alt="Screenshot of Cerberus's code comments." height="810" width="1278">
 	<figcaption>Screenshot of Cerberus’s code; the dark gray text is code comments.</figcaption>
 </figure>
 
