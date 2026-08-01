@@ -1,7 +1,7 @@
 ---
 title: Design as a Resource
 body_class: blog
-featured_image: creative-zone.png
+featured_image: creative-zone.webp
 image_caption: Computer with sticky notes on it
 description:  When design is not considered at the start of a project.
 ---

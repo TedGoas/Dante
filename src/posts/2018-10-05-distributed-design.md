@@ -229,7 +229,7 @@ Sometimes a few of us will jam on a design together using Figma, a UI design too
 Design sprints often have a step where everyone sketches out ideas, hangs them on a wall, and votes by placing a sticker on sketches they like. During remote design sprints, we take photos of our sketches and add them to a Google Slide deck or a Figma doc.
 
 <figure>
-    <img src="/assets/img/distributed-design/aa35.png" alt="Giant Trello board for design sprint ideas and voting." width="643" height="362">
+    <img src="/assets/img/distributed-design/aa35.webp" alt="Giant Trello board for design sprint ideas and voting." width="643" height="362">
     <figcaption>Voting on Trello cards</figcaption>
 </figure>
 
@@ -243,7 +243,7 @@ Trello can also be used here by creating a board, adding ideas as cards, and vot
 For code reviews, tools like GitHub or Gitlab already have tools built in to do this remotely. We assign and @ping folks in pull requests for async review. Using inline comments is handy for getting granular. If a code change is large or urgent, folks might hop on a Hangout and go through it over a screen share, leaving comments as they chat. Every file, every commit, and even every line within a file all have their own URL that can be copied/pasted into chat, Google Docs, or wherever.
 
 <figure>
-    <img src="/assets/img/distributed-design/aa37.png" alt="sketches and screenshots from several apps we use to design." width="643" height="362">
+    <img src="/assets/img/distributed-design/aa37.webp" alt="sketches and screenshots from several apps we use to design." width="643" height="362">
 </figure>
 
 We’ve found there’s almost nothing that can’t be replicated online by either sharing a link or hopping on a video call and sharing a screen.

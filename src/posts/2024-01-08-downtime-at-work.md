@@ -16,7 +16,7 @@ I’m a lead designer and design manager at Dialpad, and am directly responsible
 My typical week **could** look like this:
 
 <figure class="max-w-full">
-	<img src="/assets/img/downtime/calendar.png" alt="A bar graph highlighting that Tech’s carbon emissions are on par with that of the airline industry." height="" width="">
+	<img src="/assets/img/downtime/calendar.webp" alt="A bar graph highlighting that Tech’s carbon emissions are on par with that of the airline industry." height="" width="">
     <figcaption>From <a href="https://uxdesign.cc/how-can-you-find-time-to-design-cc9a4e3a2b5d">How can you find time to design?</a></figcaption>
 </figure>
 

@@ -1,7 +1,7 @@
 ---
 title: Why you should have a brag document
 body_class: blog
-featured_image: "brag-document.png"
+featured_image: "brag-document.webp"
 image_caption: A paper notepad with a bunch of handwritten notes on it.
 description: It’s your secret weapon for performance reviews and job interviews
 ---
