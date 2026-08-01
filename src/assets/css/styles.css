@@ -1200,14 +1200,96 @@ hr {
   max-width: none;
 }
 
-.hero-avatar {
+.hero-avatar-wrap {
+  --hero-avatar-frame-ms: 0.45s;
+  --hero-avatar-frames: 10;
+  --hero-avatar-cycle: calc(var(--hero-avatar-frame-ms) * var(--hero-avatar-frames));
+
   display: inline-block;
   vertical-align: middle;
+  position: relative;
   width: var(--home-hero-avatar-size);
   height: var(--home-hero-avatar-size);
   margin: -0.3em -0.1em 0 0.1em;
   border-radius: var(--radius-work-gallery-image);
+  overflow: hidden;
+  outline: none;
+}
+
+.hero-avatar-wrap:focus-visible {
+  outline: 2px solid var(--color-swiss-accent);
+  outline-offset: 2px;
+}
+
+.hero-avatar {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
   object-fit: cover;
+}
+
+.hero-avatar-cycle {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hero-avatar--frame {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+.hero-avatar--frame:nth-child(1) { --hero-avatar-i: 0; }
+.hero-avatar--frame:nth-child(2) { --hero-avatar-i: 1; }
+.hero-avatar--frame:nth-child(3) { --hero-avatar-i: 2; }
+.hero-avatar--frame:nth-child(4) { --hero-avatar-i: 3; }
+.hero-avatar--frame:nth-child(5) { --hero-avatar-i: 4; }
+.hero-avatar--frame:nth-child(6) { --hero-avatar-i: 5; }
+.hero-avatar--frame:nth-child(7) { --hero-avatar-i: 6; }
+.hero-avatar--frame:nth-child(8) { --hero-avatar-i: 7; }
+.hero-avatar--frame:nth-child(9) { --hero-avatar-i: 8; }
+.hero-avatar--frame:nth-child(10) { --hero-avatar-i: 9; }
+
+.hero-avatar-wrap:is(:hover, :focus-within) .hero-avatar--base {
+  opacity: 0;
+}
+
+.hero-avatar-wrap:is(:hover, :focus-within) .hero-avatar-cycle {
+  opacity: 1;
+}
+
+/* One keyframe; each frame staggered by --hero-avatar-i (450ms hard cuts) */
+.hero-avatar-wrap:is(:hover, :focus-within) .hero-avatar--frame {
+  animation: hero-avatar-frame var(--hero-avatar-cycle) step-end infinite;
+  animation-delay: calc(var(--hero-avatar-i) * var(--hero-avatar-frame-ms));
+}
+
+@keyframes hero-avatar-frame {
+  0% {
+    opacity: 1;
+  }
+  /* 100% / 10 frames — hold one slot then snap off */
+  10%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-avatar-wrap:is(:hover, :focus-within) .hero-avatar--base {
+    opacity: 1;
+  }
+
+  .hero-avatar-wrap:is(:hover, :focus-within) .hero-avatar-cycle {
+    opacity: 0;
+  }
+
+  .hero-avatar-wrap:is(:hover, :focus-within) .hero-avatar--frame {
+    animation: none;
+  }
 }
 
 .home-hero-logo {
