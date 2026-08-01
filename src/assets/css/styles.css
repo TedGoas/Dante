@@ -761,6 +761,7 @@ hr {
   visibility: hidden;
   pointer-events: none;
   transform: translateX(-50%) translateY(0.25rem);
+  will-change: transform;
   transition:
     opacity 0.15s ease,
     visibility 0.15s ease,
@@ -786,6 +787,7 @@ hr {
   .site-footer__tooltip {
     transition: none;
     transform: translateX(-50%);
+    will-change: auto;
   }
 
   .site-footer__tooltip-host:hover .site-footer__tooltip,
@@ -854,6 +856,7 @@ hr {
   @media (prefers-reduced-motion: reduce) {
     .site-footer__tooltip {
       transform: none;
+      will-change: auto;
     }
 
     .site-footer__tooltip-host:hover .site-footer__tooltip,
@@ -983,6 +986,7 @@ hr {
   background-color: currentColor;
   border-radius: 1px;
   transform-origin: 50% 50%;
+  will-change: transform;
   transition:
     transform var(--site-nav-duration-toggle) var(--site-nav-ease-out),
     opacity var(--site-nav-duration-toggle) var(--site-nav-ease-out);
@@ -1093,6 +1097,7 @@ hr {
     visibility: hidden;
     pointer-events: none;
     transform: translateY(-0.25rem) scale(0.96);
+    will-change: transform;
     transition:
       opacity var(--site-nav-duration-out) var(--site-nav-ease-out),
       transform var(--site-nav-duration-out) var(--site-nav-ease-out),
@@ -1127,6 +1132,7 @@ hr {
   .site-nav__toggle-bar,
   html.js .site-nav-list {
     transition: none;
+    will-change: auto;
   }
 }
 
@@ -1890,11 +1896,11 @@ hr {
   font-weight: 500;
   line-height: 1.4;
   color: var(--color-site-fg);
+  transition: color 160ms ease;
 }
 
 .work-index__card:hover .work-index__title {
   color: var(--color-swiss-accent);
-  transition: color 160ms ease;
 }
 
 .work-index__summary {
@@ -1906,7 +1912,7 @@ hr {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .work-index__card:hover .work-index__title {
+  .work-index__title {
     transition: none;
   }
 }
