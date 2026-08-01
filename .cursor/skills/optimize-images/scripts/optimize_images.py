@@ -263,7 +263,9 @@ def optimize_raster(path: Path, dry_run: bool) -> tuple[int, int, str]:
     before = path.stat().st_size
     im = Image.open(path)
     im.load()
+    orig_size = im.size
     im = resize_max_edge(im)
+    resized = im.size != orig_size
     ext = path.suffix.lower()
 
     if ext == ".png":
@@ -299,10 +301,14 @@ def optimize_raster(path: Path, dry_run: bool) -> tuple[int, int, str]:
     data = out.getvalue()
     if dry_run:
         return before, len(data), f"{kind}(dry)"
-    # Keep original if recompress somehow grew >2%
-    if len(data) <= before * 1.02:
+    # Always keep a max-edge resize. Only skip write when dimensions
+    # are unchanged and recompress grew more than ~2%.
+    if resized or len(data) <= before * 1.02:
         path.write_bytes(data)
-    return before, path.stat().st_size, kind
+        note = f"{kind}+resize" if resized else kind
+    else:
+        note = f"{kind}-skip-grew"
+    return before, path.stat().st_size, note
 
 
 def main() -> int:
