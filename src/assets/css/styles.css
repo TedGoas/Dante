@@ -2961,7 +2961,7 @@ hr {
 
 /* Captions sit quietly under the figure; ornamental kicker + dashed rules removed. */
 .post-body figcaption,
-.writing figcaption:not(.work-gallery__caption) {
+.writing figcaption:not(.work-gallery__caption):not(.work-gallery__thumb-caption) {
   margin: 0.85rem 0 0;
   font-family: var(--font-sans);
   font-size: var(--figure-caption-meta-size);
