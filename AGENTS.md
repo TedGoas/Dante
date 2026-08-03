@@ -145,6 +145,42 @@ Agent skill (workflow + demo/`postMessage` conventions): [`.cursor/skills/protot
 
 **UX notes:** Each figure shows a static poster until it scrolls into view (~35% visible), then waits 1 second before loading the iframe (`data-src` → `src?autostart=1`). Scrolling away before the delay cancels the timer. The chatbot prototype reads `autostart=1` and auto-runs its splash demo. When a demo animation finishes, the iframe posts `dante-prototype-demo-complete` and a centered circular **Replay** icon button appears over the iframe; clicking it sends `dante-prototype-replay` to restart without reloading the iframe. Under `prefers-reduced-motion: reduce`, activation JS is skipped; a static poster and link to open the prototype in a new tab is shown instead.
 
+### Work gallery: follow-up copy + thumbnails
+
+Optional expansion after the hero: process/outcome paragraphs, then a captioned thumbnail row that adds something the hero does not already show.
+
+**Authoring order inside each figure:**
+
+1. Caption + description (+ optional designers) — still wrapped into `.work-gallery__intro` by `workGalleryDivider`
+2. Hero media (`<img>`, prototype embed, click-to-play, or multi-image layout)
+3. One or more `p.work-gallery__followup` — lead-column width
+4. Optional `div.work-gallery__thumbs` with a layout modifier — media breakout width
+
+```html
+<figure class="work-gallery__item">
+  <figcaption class="work-gallery__caption">QA at scale</figcaption>
+  <p class="work-gallery__description">Short hook.</p>
+  {% prototypeEmbed "scorecards", "Title.", 1440, 900 %}
+  <p class="work-gallery__followup">Process or outcome.</p>
+  <div class="work-gallery__thumbs work-gallery__thumbs--thirds">
+    <figure class="work-gallery__thumb">
+      <img src="/assets/work/thumb.webp" alt="…" loading="lazy">
+      <figcaption class="work-gallery__thumb-caption">Caption.</figcaption>
+    </figure>
+  </div>
+</figure>
+```
+
+| Thumbs modifier | Columns |
+|-----------------|---------|
+| `work-gallery__thumbs--halves` | Two equal (~50%) |
+| `work-gallery__thumbs--thirds` | Three equal (~33%) |
+| `work-gallery__thumbs--wide-narrow` | Featured + secondary (~67% / ~33%) |
+
+Placeholder artwork: use `div.work-gallery__thumb-media.work-gallery__thumb-media--placeholder` instead of `<img>` until assets arrive.
+
+**Implementation map:** styles in [`src/assets/css/styles.css`](src/assets/css/styles.css) (search `captioned thumbnail`); templates in [`.cursor/skills/work-gallery-figures/reference.md`](.cursor/skills/work-gallery-figures/reference.md); skill [`.cursor/skills/work-gallery-figures/SKILL.md`](.cursor/skills/work-gallery-figures/SKILL.md).
+
 ### Work gallery: multi-image layouts
 
 Reusable BEM layouts for case study figures with more than one asset. Styles live in [`src/assets/css/styles.css`](src/assets/css/styles.css) (search `Reusable figure pattern`). Copy-paste HTML: [`.cursor/skills/work-gallery-figures/reference.md`](.cursor/skills/work-gallery-figures/reference.md). Agent skill: [`.cursor/skills/work-gallery-figures/SKILL.md`](.cursor/skills/work-gallery-figures/SKILL.md).

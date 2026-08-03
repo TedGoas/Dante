@@ -69,6 +69,8 @@ select {
   --work-gallery-viewport-gutter: 2rem;
   --work-gallery-email-media-gap: clamp(0.75rem, 1.5vw, 1.25rem);
   --work-gallery-sidebar-quad-gap: 1rem;
+  --work-gallery-thumbs-gap: 1rem;
+  --work-gallery-followup-gap: 3rem;
   --work-gallery-experiment-grid-gap: 1rem;
   --work-gallery-experiment-tone-gap: calc(var(--work-gallery-experiment-grid-gap) * 3);
   --work-gallery-experiment-tone-max-width: 791px;
@@ -2390,8 +2392,11 @@ hr {
   border-radius: var(--radius-work-gallery-card);
 }
 
-/* Media breaks out past the layout shell; intro stays in the lead column. */
-.writing .work-gallery__item > :not(.work-gallery__intro) {
+/*
+ * Media + thumbnail grids break out past the layout shell.
+ * Intro, follow-up copy, and other text stay in the lead column.
+ */
+.writing .work-gallery__item > :is(img, .work-gallery__media, .work-gallery__thumbs) {
   --work-gallery-media-breakout-width: min(
     var(--work-gallery-media-max-inline-size),
     calc(100vw - 2 * var(--work-gallery-viewport-gutter))
@@ -2954,11 +2959,10 @@ hr {
   overflow: visible;
 }
 
-/* Captions sit quietly above the figure; ornamental kicker + dashed rules removed. */
+/* Captions sit quietly under the figure; ornamental kicker + dashed rules removed. */
 .post-body figcaption,
 .writing figcaption:not(.work-gallery__caption) {
-  order: -2;
-  margin: 0 0 0.85rem;
+  margin: 0.85rem 0 0;
   font-family: var(--font-sans);
   font-size: var(--figure-caption-meta-size);
   line-height: var(--figure-caption-meta-leading);
@@ -3028,13 +3032,15 @@ hr {
   background-image: none;
 }
 
-.writing .work-gallery__item .work-gallery__description {
+.writing .work-gallery__item .work-gallery__description,
+.writing .work-gallery__item .work-gallery__followup {
   margin: 0;
   padding: 0;
   font-family: var(--font-sans);
-  font-size: var(--figure-caption-body-size);
-  line-height: var(--figure-caption-body-leading);
-  color: var(--color-figure-caption-body);
+  font-size: var(--post-body-size);
+  line-height: var(--post-body-leading);
+  letter-spacing: 0.005em;
+  color: var(--color-prose-body);
   background-image: none;
 }
 
@@ -3048,6 +3054,84 @@ hr {
 
 .writing .work-gallery__item > .work-gallery__description {
   margin-top: calc(var(--work-gallery-caption-gap) - var(--work-gallery-figure-gap));
+}
+
+.writing .work-gallery__item > .work-gallery__followup {
+  box-sizing: border-box;
+  align-self: flex-start;
+  width: 100%;
+  max-width: var(--work-gallery-content-measure);
+  /* Extra separation from hero above and thumbs below (on top of figure gap) */
+  margin-block: calc(var(--work-gallery-followup-gap) - var(--work-gallery-figure-gap));
+  margin-inline: 0;
+}
+
+/* Consecutive follow-ups: prose flow, not full follow-up gap */
+.writing .work-gallery__item > .work-gallery__followup + .work-gallery__followup {
+  margin-top: calc(var(--space-prose-flow) - var(--work-gallery-figure-gap));
+}
+
+/* --- Work gallery: captioned thumbnail grids --- */
+
+.writing .work-gallery__thumbs {
+  display: grid;
+  gap: var(--work-gallery-thumbs-gap);
+  align-items: start;
+}
+
+.writing .work-gallery__thumbs--halves {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.writing .work-gallery__thumbs--thirds {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.writing .work-gallery__thumbs--wide-narrow {
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+}
+
+.writing .work-gallery__thumb {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0;
+  min-width: 0;
+}
+
+.writing .work-gallery__thumb img,
+.writing .work-gallery__thumb-media {
+  display: block;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  border: var(--border-width-hairline) solid var(--work-index-card-border);
+  border-radius: var(--radius-work-gallery-image);
+}
+
+.writing .work-gallery__thumb-media--placeholder {
+  aspect-ratio: 16 / 9;
+  background-color: var(--color-surface-tile-muted);
+  border-color: var(--color-surface-tile-border);
+}
+
+.writing .work-gallery__thumb-caption {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: var(--figure-caption-meta-size);
+  line-height: var(--figure-caption-meta-leading);
+  color: var(--color-figure-caption-body);
+  text-align: left;
+  background-image: none;
+}
+
+@media (max-width: 640px) {
+  .writing .work-gallery__thumbs--halves,
+  .writing .work-gallery__thumbs--thirds,
+  .writing .work-gallery__thumbs--wide-narrow {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .work-article--dialpad .writing .work-gallery__media-item {

@@ -127,6 +127,60 @@ Tone centered above a 3-column grid (2 / 3 / 2 cards). Columns vertically center
 </figure>
 ```
 
+## Follow-up copy + thumbnail grid (after hero)
+
+Hook stays above the hero; process / outcome copy and supporting thumbs go below. Follow-up stays in the lead column; thumbs use the media breakout width.
+
+### With real images (thirds example)
+
+```html
+<figure class="work-gallery__item">
+  <figcaption class="work-gallery__caption">Caption</figcaption>
+  <p class="work-gallery__description">Short hook above the hero.</p>
+  <img src="/assets/work/hero.webp" alt="Hero." loading="lazy">
+  <p class="work-gallery__followup">Process or outcome paragraph under the hero.</p>
+  <div class="work-gallery__thumbs work-gallery__thumbs--thirds">
+    <figure class="work-gallery__thumb">
+      <img src="/assets/work/thumb-a.webp" alt="Thumb A." loading="lazy">
+      <figcaption class="work-gallery__thumb-caption">Caption A.</figcaption>
+    </figure>
+    <figure class="work-gallery__thumb">
+      <img src="/assets/work/thumb-b.webp" alt="Thumb B." loading="lazy">
+      <figcaption class="work-gallery__thumb-caption">Caption B.</figcaption>
+    </figure>
+    <figure class="work-gallery__thumb">
+      <img src="/assets/work/thumb-c.webp" alt="Thumb C." loading="lazy">
+      <figcaption class="work-gallery__thumb-caption">Caption C.</figcaption>
+    </figure>
+  </div>
+</figure>
+```
+
+### Placeholder artwork (until assets arrive)
+
+```html
+<div class="work-gallery__thumbs work-gallery__thumbs--halves">
+  <figure class="work-gallery__thumb">
+    <div class="work-gallery__thumb-media work-gallery__thumb-media--placeholder" aria-hidden="true"></div>
+    <figcaption class="work-gallery__thumb-caption">Placeholder caption</figcaption>
+  </figure>
+  <figure class="work-gallery__thumb">
+    <div class="work-gallery__thumb-media work-gallery__thumb-media--placeholder" aria-hidden="true"></div>
+    <figcaption class="work-gallery__thumb-caption">Placeholder caption</figcaption>
+  </figure>
+</div>
+```
+
+### Layout modifiers
+
+| Class | Columns |
+|-------|---------|
+| `work-gallery__thumbs--halves` | `1fr 1fr` (~50% / ~50%) |
+| `work-gallery__thumbs--thirds` | `1fr 1fr 1fr` (~33% each) |
+| `work-gallery__thumbs--wide-narrow` | `2fr 1fr` (~67% / ~33%) |
+
+Stacks to one column below 640px.
+
 ## Atmosphere palettes
 
 | Class | Use when |
@@ -145,6 +199,7 @@ New palette: duplicate an existing `--atmosphere-*` block in `styles.css` and se
 | `--space-work-gallery-card-padding` | Non-backdrop hero-secondary inset |
 | `--work-gallery-email-media-gap` | Grid gap between main/secondary |
 | `--work-gallery-sidebar-quad-gap` | Gap in quad layout |
+| `--work-gallery-thumbs-gap` | Gap in captioned thumbnail grids |
 | `--work-gallery-experiment-grid-gap` | Gap between sidebar columns and cards |
 | `--work-gallery-experiment-tone-gap` | Gap between tone hero and sidebar grid (3× grid gap) |
 | `--work-gallery-experiment-tone-max-width` | Tone hero max width (791px) |
