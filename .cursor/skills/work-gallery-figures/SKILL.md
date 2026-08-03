@@ -2,17 +2,18 @@
 name: work-gallery-figures
 description: >-
   Work case study gallery figures — multi-image layouts (hero-secondary, email-duo,
-  sidebar-quad, integrations-stack, experiment-grid) and border/radius modifiers.
+  sidebar-quad, integrations-stack, experiment-grid), post-hero follow-up copy,
+  captioned thumbnail grids, and border/radius modifiers.
   Use when adding, editing, or styling work gallery figures in case study Markdown.
 ---
 
 # Work gallery figures
 
-Case studies use a `<section class="work-gallery">` of `<figure class="work-gallery__item">` blocks. Caption + description stay in the figure; build transforms wrap them in `.work-gallery__intro` and keep media outside.
+Case studies use a `<section class="work-gallery">` of `<figure class="work-gallery__item">` blocks. Caption + description stay in the figure; build transforms wrap them in `.work-gallery__intro` and keep media outside. Optional follow-up paragraphs and captioned thumbnail grids sit **after** the hero.
 
 **Canonical reference:** [reference.md](reference.md) (copy-paste HTML templates).  
 **Repo rules:** [AGENTS.md](../../../AGENTS.md) (*Work gallery* sections).  
-**Styles:** [`src/assets/css/styles.css`](../../../src/assets/css/styles.css) (search `Reusable figure pattern`).  
+**Styles:** [`src/assets/css/styles.css`](../../../src/assets/css/styles.css) (search `Reusable figure pattern` / `captioned thumbnail`).  
 **Video figures:** use the `clickToPlayVideo` shortcode — see AGENTS.md, not this skill.  
 **Interactive prototypes:** use **[`.cursor/skills/prototype-embed/SKILL.md`](../prototype-embed/SKILL.md)**.
 
@@ -30,6 +31,19 @@ Case studies use a `<section class="work-gallery">` of `<figure class="work-gall
 | Large native asset (e.g. MP4 frame) | `work-gallery__item--media-native` | per click-to-play, prototype embed, or img | — |
 | No hairline border (keep 8px radius) | `work-gallery__item--borderless` | or `work-gallery__media--borderless` on one img | Dark / wallpaper exceptions |
 | No border, no radius | `work-gallery__item--plain` | — | Floating logos |
+| Process / outcome copy under hero | *(none)* | `p.work-gallery__followup` after media | Lead-column width (not breakout) |
+| Two equal thumbs (~50%) | *(none)* | `work-gallery__thumbs--halves` | 2× `.work-gallery__thumb` |
+| Three equal thumbs (~33%) | *(none)* | `work-gallery__thumbs--thirds` | 3× `.work-gallery__thumb` |
+| Featured + secondary (~67% / ~33%) | *(none)* | `work-gallery__thumbs--wide-narrow` | 2× `.work-gallery__thumb` |
+
+## Figure order (expanded)
+
+1. `figcaption.work-gallery__caption` + `p.work-gallery__description` (+ optional `p.work-gallery__designers`) → wrapped into `.work-gallery__intro`
+2. Hero: `<img>`, `prototypeEmbed`, click-to-play, or multi-image `.work-gallery__media`
+3. Optional `p.work-gallery__followup` (one or more) — process / decision / outcome
+4. Optional `div.work-gallery__thumbs` with a layout modifier — supporting screens that add something the hero does not already show
+
+Thumbnails: swap `.work-gallery__thumb-media--placeholder` for `<img loading="lazy" …>` when artwork is ready. Captions go in `figcaption.work-gallery__thumb-caption`.
 
 ## Atmosphere backdrops (legacy)
 
@@ -55,3 +69,4 @@ Atmosphere radial-gradient “stages” are **visually removed** in the light re
 - Add npm packages or inline styles for gallery layout.
 - Hardcode colors — use theme tokens.
 - Rely on atmosphere backdrops for new visuals.
+- Repeat the hero in the thumbnail row — thumbs should show something new (detail, other screens, process).
