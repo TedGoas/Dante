@@ -17,7 +17,6 @@ Offline asset optimization for this 11ty site. **No new npm packages.** Do not i
 
 - User says `/optimize-images` or “optimize images”
 - After adding or replacing assets under:
-  - `src/assets/work/`
   - `src/assets/img/`
   - `src/posts/img/`
   - `src/work/img/`
@@ -33,7 +32,7 @@ Prefer **explicit paths** the user just added. Full-tree scan is for audits.
 # Specific new/changed files (always processed)
 python3 .cursor/skills/optimize-images/scripts/optimize_images.py \
   src/posts/img/my-new-hero.jpg \
-  src/assets/work/new-figure.png
+  src/work/img/canfield/new-figure.png
 
 # Dry-run first if unsure
 python3 .cursor/skills/optimize-images/scripts/optimize_images.py --dry-run src/posts/img/foo.jpg

@@ -1,0 +1,3 @@
+# Prototype bundles (and other static assets) under work/img — passthrough only.
+# Without this, work.11tydata.js rewrites their permalinks to /work/{slug}/.
+work/img/**

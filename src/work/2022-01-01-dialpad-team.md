@@ -6,7 +6,7 @@ excerpt: Dialpad team work samples.
 year: 2022 - present
 role: Design manager, Support & Sales
 index_summary: Lead design team for our Support and Analytics products, DRI'd three major launches, grew team from 2 to 8 designers.
-index_image: /assets/work/th-work-dialpad-team.svg
+index_image: /assets/img/dialpad-team/th-work-dialpad-team.svg
 index_image_alt: Dialpad Handled Calls analytics design.
 index_frame_anchor: bleed-left
 index_card_layout: framed-inset
@@ -37,12 +37,12 @@ The results show up in both the team and the product. Our feedback system cut de
     <figcaption class="work-gallery__caption">From basic to genuinely helpful</figcaption>
     <p class="work-gallery__description">Our old chatbot looked dated and needed a human behind every answer. We overhauled it, pairing a visual refresh with generative AI that handles the easy stuff and hands off the hard stuff to a human.</p>
     <p class="work-gallery__designers">Designers: <a href="https://www.linkedin.com/in/martel-pablo">Pablo Martel</a>, <a href="https://www.linkedin.com/in/aykut-durmayaz">Aykut Durmayaz</a></p>
-    {% prototypeEmbed "ai-chatbot", "Dialpad chatbot design.", 384, 600, "/assets/work/dialpad-team-chatbot-bg.jpg" %}
+    {% prototypeEmbed "ai-chatbot", "Dialpad chatbot design.", 384, 600, "/assets/img/dialpad-team/dialpad-team-chatbot-bg.jpg" %}
   </figure>
   <figure class="work-gallery__item">
     <figcaption class="work-gallery__caption">Phone trees, made visual</figcaption>
     <p class="work-gallery__description">IVR systems (phone trees) are hard to design and even harder to maintain when they live in forms and text fields. We designed a drag-and-drop visual editor that lets anyone see exactly how their phone system is wired and edit it without being an expert.</p>
     <p class="work-gallery__designers">Designers: <a href="https://www.linkedin.com/in/paolojduarte">Paolo Duarte</a></p>
-    <img src="/assets/work/dialpad-team-ivr.svg" alt="Dialpad IVR design." loading="lazy">
+    <img src="/assets/img/dialpad-team/dialpad-team-ivr.svg" alt="Dialpad IVR design." loading="lazy">
   </figure>
 </section>

@@ -8,7 +8,7 @@ Paste into a case study `<section class="work-gallery">`. Replace caption, descr
 <figure class="work-gallery__item">
   <figcaption class="work-gallery__caption">Caption</figcaption>
   <p class="work-gallery__description">Description.</p>
-  <img src="/assets/work/example.svg" alt="Descriptive alt." loading="lazy">
+  <img src="/assets/img/example/example.svg" alt="Descriptive alt." loading="lazy">
 </figure>
 ```
 
@@ -22,8 +22,8 @@ Flush bottom. Manual warm-light backdrop shown; omit backdrop classes for auto-a
   <p class="work-gallery__description">Description.</p>
   <div class="work-gallery__media work-gallery__media--hero-secondary work-gallery__media--has-backdrop work-gallery__media--backdrop-atmosphere work-gallery__media--atmosphere-warm-light" aria-label="Summary of both images.">
     <div class="work-gallery__backdrop" aria-hidden="true"></div>
-    <img class="work-gallery__media-main" src="/assets/work/main.webp" alt="Main view." width="620" height="780" loading="lazy">
-    <img class="work-gallery__media-secondary" src="/assets/work/secondary.webp" alt="Secondary view." width="320" height="780" loading="lazy">
+    <img class="work-gallery__media-main" src="/assets/img/example/main.webp" alt="Main view." width="620" height="780" loading="lazy">
+    <img class="work-gallery__media-secondary" src="/assets/img/example/secondary.webp" alt="Secondary view." width="320" height="780" loading="lazy">
   </div>
 </figure>
 ```
@@ -38,8 +38,8 @@ Add `work-gallery__item--email-duo` for wider columns.
   <p class="work-gallery__description">Description.</p>
   <div class="work-gallery__media work-gallery__media--hero-secondary work-gallery__media--has-backdrop work-gallery__media--backdrop-atmosphere work-gallery__media--atmosphere-amber-dusk" aria-label="Summary of both emails.">
     <div class="work-gallery__backdrop" aria-hidden="true"></div>
-    <img class="work-gallery__media-main" src="/assets/work/email-a.svg" alt="First email." width="680" height="808" loading="lazy">
-    <img class="work-gallery__media-secondary" src="/assets/work/email-b.svg" alt="Second email." width="400" height="1062" loading="lazy">
+    <img class="work-gallery__media-main" src="/assets/img/example/email-a.svg" alt="First email." width="680" height="808" loading="lazy">
+    <img class="work-gallery__media-secondary" src="/assets/img/example/email-b.svg" alt="Second email." width="400" height="1062" loading="lazy">
   </div>
 </figure>
 ```
@@ -51,8 +51,8 @@ Add `work-gallery__item--email-duo` for wider columns.
   <figcaption class="work-gallery__caption">Caption</figcaption>
   <p class="work-gallery__description">Description.</p>
   <div class="work-gallery__media work-gallery__media--hero-secondary" aria-label="Email and mobile app.">
-    <img class="work-gallery__media-main" src="/assets/work/email.png" alt="Email design." width="1280" height="2000" loading="lazy">
-    <img class="work-gallery__media-secondary" src="/assets/work/app.jpg" alt="Mobile app." width="1536" height="2048" loading="lazy">
+    <img class="work-gallery__media-main" src="/assets/img/example/email.png" alt="Email design." width="1280" height="2000" loading="lazy">
+    <img class="work-gallery__media-secondary" src="/assets/img/example/app.jpg" alt="Mobile app." width="1536" height="2048" loading="lazy">
   </div>
 </figure>
 ```
@@ -67,12 +67,12 @@ Add `work-gallery__item--email-duo` for wider columns.
     <div class="work-gallery__backdrop" aria-hidden="true"></div>
     <div class="work-gallery__sidebar-quad">
       <div class="work-gallery__sidebar-quad__col">
-        <img src="/assets/work/panel-a.svg" alt="Panel A." loading="lazy">
-        <img src="/assets/work/panel-b.svg" alt="Panel B." loading="lazy">
+        <img src="/assets/img/example/panel-a.svg" alt="Panel A." loading="lazy">
+        <img src="/assets/img/example/panel-b.svg" alt="Panel B." loading="lazy">
       </div>
       <div class="work-gallery__sidebar-quad__col">
-        <img src="/assets/work/panel-c.svg" alt="Panel C." loading="lazy">
-        <img src="/assets/work/panel-d.svg" alt="Panel D." loading="lazy">
+        <img src="/assets/img/example/panel-c.svg" alt="Panel C." loading="lazy">
+        <img src="/assets/img/example/panel-d.svg" alt="Panel D." loading="lazy">
       </div>
     </div>
   </div>
@@ -90,8 +90,8 @@ Stage aspect ratio 1151×450; back top-left, front bottom-right.
   <div class="work-gallery__media work-gallery__media--integrations-stack work-gallery__media--has-backdrop work-gallery__media--backdrop-atmosphere work-gallery__media--atmosphere-cool-dark" aria-label="Integration previews.">
     <div class="work-gallery__backdrop" aria-hidden="true"></div>
     <div class="work-gallery__integrations-stack__stage">
-      <img class="work-gallery__integrations-stack__back" src="/assets/work/back.svg" alt="Back card." width="678" height="425" loading="lazy">
-      <img class="work-gallery__integrations-stack__front" src="/assets/work/front.svg" alt="Front card." width="678" height="412" loading="lazy">
+      <img class="work-gallery__integrations-stack__back" src="/assets/img/example/back.svg" alt="Back card." width="678" height="425" loading="lazy">
+      <img class="work-gallery__integrations-stack__front" src="/assets/img/example/front.svg" alt="Front card." width="678" height="412" loading="lazy">
     </div>
   </div>
 </figure>
@@ -107,20 +107,20 @@ Tone centered above a 3-column grid (2 / 3 / 2 cards). Columns vertically center
   <p class="work-gallery__description">Description.</p>
   <div class="work-gallery__media work-gallery__media--experiment-grid work-gallery__media--has-backdrop work-gallery__media--backdrop-atmosphere work-gallery__media--atmosphere-warm-light" aria-label="Tone assistant and sidebar notification concepts.">
     <div class="work-gallery__backdrop" aria-hidden="true"></div>
-    <img class="work-gallery__experiment-grid__tone" src="/assets/work/tone.svg" alt="Tone assistant exploration." width="791" height="710" loading="lazy">
+    <img class="work-gallery__experiment-grid__tone" src="/assets/img/example/tone.svg" alt="Tone assistant exploration." width="791" height="710" loading="lazy">
     <div class="work-gallery__experiment-grid__sidebar">
       <div class="work-gallery__experiment-grid__col">
-        <img src="/assets/work/sidebar-a.svg" alt="Sidebar card A." width="300" height="99" loading="lazy">
-        <img src="/assets/work/sidebar-b.svg" alt="Sidebar card B." width="300" height="113" loading="lazy">
+        <img src="/assets/img/example/sidebar-a.svg" alt="Sidebar card A." width="300" height="99" loading="lazy">
+        <img src="/assets/img/example/sidebar-b.svg" alt="Sidebar card B." width="300" height="113" loading="lazy">
       </div>
       <div class="work-gallery__experiment-grid__col">
-        <img src="/assets/work/sidebar-c.svg" alt="Sidebar card C." width="300" height="89" loading="lazy">
-        <img src="/assets/work/sidebar-d.svg" alt="Sidebar card D." width="300" height="120" loading="lazy">
-        <img src="/assets/work/sidebar-e.svg" alt="Sidebar card E." width="300" height="115" loading="lazy">
+        <img src="/assets/img/example/sidebar-c.svg" alt="Sidebar card C." width="300" height="89" loading="lazy">
+        <img src="/assets/img/example/sidebar-d.svg" alt="Sidebar card D." width="300" height="120" loading="lazy">
+        <img src="/assets/img/example/sidebar-e.svg" alt="Sidebar card E." width="300" height="115" loading="lazy">
       </div>
       <div class="work-gallery__experiment-grid__col">
-        <img src="/assets/work/sidebar-f.svg" alt="Sidebar card F." width="300" height="101" loading="lazy">
-        <img src="/assets/work/sidebar-g.svg" alt="Sidebar card G." width="300" height="99" loading="lazy">
+        <img src="/assets/img/example/sidebar-f.svg" alt="Sidebar card F." width="300" height="101" loading="lazy">
+        <img src="/assets/img/example/sidebar-g.svg" alt="Sidebar card G." width="300" height="99" loading="lazy">
       </div>
     </div>
   </div>
@@ -137,19 +137,19 @@ Hook stays above the hero; process / outcome copy and supporting thumbs go below
 <figure class="work-gallery__item">
   <figcaption class="work-gallery__caption">Caption</figcaption>
   <p class="work-gallery__description">Short hook above the hero.</p>
-  <img src="/assets/work/hero.webp" alt="Hero." loading="lazy">
+  <img src="/assets/img/example/hero.webp" alt="Hero." loading="lazy">
   <p class="work-gallery__followup">Process or outcome paragraph under the hero.</p>
   <div class="work-gallery__thumbs work-gallery__thumbs--thirds">
     <figure class="work-gallery__thumb">
-      <img src="/assets/work/thumb-a.webp" alt="Thumb A." loading="lazy">
+      <img src="/assets/img/example/thumb-a.webp" alt="Thumb A." loading="lazy">
       <figcaption class="work-gallery__thumb-caption">Caption A.</figcaption>
     </figure>
     <figure class="work-gallery__thumb">
-      <img src="/assets/work/thumb-b.webp" alt="Thumb B." loading="lazy">
+      <img src="/assets/img/example/thumb-b.webp" alt="Thumb B." loading="lazy">
       <figcaption class="work-gallery__thumb-caption">Caption B.</figcaption>
     </figure>
     <figure class="work-gallery__thumb">
-      <img src="/assets/work/thumb-c.webp" alt="Thumb C." loading="lazy">
+      <img src="/assets/img/example/thumb-c.webp" alt="Thumb C." loading="lazy">
       <figcaption class="work-gallery__thumb-caption">Caption C.</figcaption>
     </figure>
   </div>

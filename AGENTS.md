@@ -109,13 +109,13 @@ Poster and video should match the same artboard dimensions (`WIDTH` × `HEIGHT` 
 
 ### Work gallery: interactive prototypes (iframe embed)
 
-Use this pattern when a work case study figure should show a **live interactive prototype** instead of a click-to-play video. Each prototype is a pre-built static bundle committed under [`src/assets/work/prototypes/{slug}/`](src/assets/work/prototypes/) and embedded via `<iframe>` so prototype CSS/JS never collides with the main site.
+Use this pattern when a work case study figure should show a **live interactive prototype** instead of a click-to-play video. Each prototype is a pre-built static bundle committed under [`src/work/img/{case}/prototypes/{slug}/`](src/work/img/) (e.g. `dialpad-team/prototypes/analytics-gpt/`, `dialpad/prototypes/scorecards/`) and embedded via `<iframe>` so prototype CSS/JS never collides with the main site.
 
 **Authoring (Markdown work pages):**
 
 ```njk
 {% prototypeEmbed "analytics-gpt", "Dialpad AnalyticsGPT design.", 1440, 900 %}
-{% prototypeEmbed "ai-chatbot", "Dialpad chatbot design.", 384, 600, "/assets/work/dialpad-team-chatbot-bg.jpg" %}
+{% prototypeEmbed "ai-chatbot", "Dialpad chatbot design.", 384, 600, "/assets/img/dialpad-team/dialpad-team-chatbot-bg.jpg" %}
 ```
 
 Args: `slug`, `title` (iframe `title`), `width`, `height`, optional `background` image (same wallpaper pattern as click-to-play).
@@ -126,19 +126,20 @@ Args: `slug`, `title` (iframe `title`), `width`, `height`, optional `background`
 
 | Piece | Location |
 |-------|----------|
-| Prototype bundles (committed) | [`src/assets/work/prototypes/{slug}/`](src/assets/work/prototypes/) — `index.html` + hashed JS/CSS per slug |
+| Prototype bundles (committed) | [`src/work/img/{case}/prototypes/{slug}/`](src/work/img/) — `index.html` + hashed JS/CSS per slug |
 | Shortcode | [`lib/shortcodes/prototypeEmbed.js`](lib/shortcodes/prototypeEmbed.js) |
 | Markup partial | [`src/_includes/components/prototype-embed.njk`](src/_includes/components/prototype-embed.njk) |
 | Shortcode expansion before Markdown | [`lib/preprocessors/expandPrototypeEmbed.js`](lib/preprocessors/expandPrototypeEmbed.js) (wired in [`.eleventy.js`](.eleventy.js)) |
 | Scroll-gated activation script | [`src/assets/js/prototype-embed.js`](src/assets/js/prototype-embed.js) via [`src/misc/prototype-embed.js.njk`](src/misc/prototype-embed.js.njk) |
 | Script load scope | [`src/_includes/layouts/work.njk`](src/_includes/layouts/work.njk) `footerScripts` only (with click-to-play) |
 | Gallery styles | [`src/assets/css/styles.css`](src/assets/css/styles.css) (`.prototype-embed`) |
-| Deploy output | `dist/assets/work/prototypes/{slug}/index.html` (Eleventy passthrough from `src/assets/work/`) |
+| Deploy output | `dist/assets/img/{case}/prototypes/{slug}/index.html` (Eleventy passthrough from `src/work/img/`) |
+| Template ignore | [`src/.eleventyignore`](src/.eleventyignore) — `work/img/**` so prototype `index.html` files are passthrough-only (avoids `work.11tydata.js` rewriting permalinks) |
 
 **Updating prototypes:**
 
 1. Rebuild the embed bundle externally (or from a local sizzle-reel checkout)
-2. Copy the output into `src/assets/work/prototypes/{slug}/` for each changed slug
+2. Copy the output into `src/work/img/{case}/prototypes/{slug}/` for each changed slug (rewrite absolute asset URLs in `index.html` to `/assets/img/{case}/prototypes/{slug}/…`)
 3. Commit the updated static files in Dante
 
 Agent skill (workflow + demo/`postMessage` conventions): [`.cursor/skills/prototype-embed/SKILL.md`](.cursor/skills/prototype-embed/SKILL.md).
@@ -164,7 +165,7 @@ Optional expansion after the hero: process/outcome paragraphs, then a captioned 
   <p class="work-gallery__followup">Process or outcome.</p>
   <div class="work-gallery__thumbs work-gallery__thumbs--thirds">
     <figure class="work-gallery__thumb">
-      <img src="/assets/work/thumb.webp" alt="…" loading="lazy">
+      <img src="/assets/img/dialpad/thumb.webp" alt="…" loading="lazy">
       <figcaption class="work-gallery__thumb-caption">Caption.</figcaption>
     </figure>
   </div>

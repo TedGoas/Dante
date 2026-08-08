@@ -165,7 +165,7 @@
       "kind": "card",
       "refersTo": "surface-tile",
       "description": "Square thumbnail with a subtle hairline border.",
-      "html": "<a href=\"/work/example/\" class=\"ds-card\"><span class=\"ds-card__stage\"><img src=\"/assets/work/example.svg\" alt=\"Case study thumbnail\" width=\"600\" height=\"600\"></span></a>",
+      "html": "<a href=\"/work/example/\" class=\"ds-card\"><span class=\"ds-card__stage\"><img src=\"/assets/img/example/example.svg\" alt=\"Case study thumbnail\" width=\"600\" height=\"600\"></span></a>",
       "css": ".ds-card { display: block; text-decoration: none; } .ds-card__stage { position: relative; display: block; aspect-ratio: 1 / 1; background-color: transparent; border: 1px solid rgb(20 20 20 / 0.14); overflow: hidden; box-sizing: border-box; } .ds-card__stage img { display: block; width: 100%; height: 100%; object-fit: cover; } .ds-card:focus-visible { outline: 2px solid #c41230; outline-offset: 4px; }"
     },
     {
