@@ -171,6 +171,19 @@ Hook stays above the hero; process / outcome copy and supporting thumbs go below
 </div>
 ```
 
+### Inset asset (odd aspect, sibling-matched frame)
+
+Use when a thumb asset is narrower/taller than siblings and should sit in a shared frame at intrinsic size — centered horizontally, bottom-aligned with inset padding (e.g. chatbot response / feedback next to a full-bleed attachment thumb).
+
+```html
+<figure class="work-gallery__thumb">
+  <div class="work-gallery__thumb-media work-gallery__thumb-media--inset">
+    <img src="/assets/img/example/inset.svg" alt="Inset asset." loading="lazy">
+  </div>
+  <figcaption class="work-gallery__thumb-caption">Caption.</figcaption>
+</figure>
+```
+
 ### Layout modifiers
 
 | Class | Columns |
@@ -181,6 +194,10 @@ Hook stays above the hero; process / outcome copy and supporting thumbs go below
 
 Stacks to one column below 640px.
 
+| Media class | Role |
+|-------------|------|
+| `work-gallery__thumb-media--placeholder` | Gray empty frame |
+| `work-gallery__thumb-media--inset` | Sibling-ratio frame; image centered, bottom-padded |
 ## Atmosphere palettes
 
 | Class | Use when |
@@ -200,6 +217,8 @@ New palette: duplicate an existing `--atmosphere-*` block in `styles.css` and se
 | `--work-gallery-email-media-gap` | Grid gap between main/secondary |
 | `--work-gallery-sidebar-quad-gap` | Gap in quad layout |
 | `--work-gallery-thumbs-gap` | Gap in captioned thumbnail grids |
+| `--work-gallery-thumb-inset-aspect-ratio` | Sibling-matched frame for `--inset` thumbs (470 / 400) |
+| `--work-gallery-thumb-inset-padding` | Bottom padding inside `--inset` frames |
 | `--work-gallery-experiment-grid-gap` | Gap between sidebar columns and cards |
 | `--work-gallery-experiment-tone-gap` | Gap between tone hero and sidebar grid (3× grid gap) |
 | `--work-gallery-experiment-tone-max-width` | Tone hero max width (791px) |

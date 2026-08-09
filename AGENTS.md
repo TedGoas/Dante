@@ -180,6 +180,8 @@ Optional expansion after the hero: process/outcome paragraphs, then a captioned 
 
 Placeholder artwork: use `div.work-gallery__thumb-media.work-gallery__thumb-media--placeholder` instead of `<img>` until assets arrive.
 
+Odd-shaped assets that should share a sibling-sized frame: wrap the `<img>` in `div.work-gallery__thumb-media.work-gallery__thumb-media--inset` (intrinsic size, centered, bottom-padded).
+
 **Implementation map:** styles in [`src/assets/css/styles.css`](src/assets/css/styles.css) (search `captioned thumbnail`); templates in [`.cursor/skills/work-gallery-figures/reference.md`](.cursor/skills/work-gallery-figures/reference.md); skill [`.cursor/skills/work-gallery-figures/SKILL.md`](.cursor/skills/work-gallery-figures/SKILL.md).
 
 ### Work gallery: multi-image layouts

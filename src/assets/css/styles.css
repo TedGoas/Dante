@@ -70,6 +70,8 @@ select {
   --work-gallery-email-media-gap: clamp(0.75rem, 1.5vw, 1.25rem);
   --work-gallery-sidebar-quad-gap: 1rem;
   --work-gallery-thumbs-gap: 1rem;
+  --work-gallery-thumb-inset-padding: 1.25rem;
+  --work-gallery-thumb-inset-aspect-ratio: 470 / 400;
   --work-gallery-followup-gap: 3rem;
   --work-gallery-experiment-grid-gap: 1rem;
   --work-gallery-experiment-tone-gap: calc(var(--work-gallery-experiment-grid-gap) * 3);
@@ -1955,6 +1957,10 @@ hr {
 }
 
 /* Logo/diagram thumbnails are contained so they aren't cropped. */
+.work-index__card--framed-center .work-index__stage {
+  background-color: var(--color-work-media-matte);
+}
+
 .work-index__card--framed-center .work-index__image {
   object-fit: contain;
   object-position: center;
@@ -3107,12 +3113,37 @@ hr {
   box-sizing: border-box;
   border: var(--border-width-hairline) solid var(--work-index-card-border);
   border-radius: var(--radius-work-gallery-image);
+  background-color: var(--color-work-media-matte);
 }
 
 .writing .work-gallery__thumb-media--placeholder {
   aspect-ratio: 16 / 9;
   background-color: var(--color-surface-tile-muted);
   border-color: var(--color-surface-tile-border);
+}
+
+/* Odd-shaped asset: match sibling thumb frame; center + bottom-align with inset padding */
+.writing .work-gallery__thumb-media--inset {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  aspect-ratio: var(--work-gallery-thumb-inset-aspect-ratio);
+  padding-bottom: var(--work-gallery-thumb-inset-padding);
+  overflow: visible;
+  background-color: var(--color-work-media-matte);
+}
+
+.writing .work-gallery__thumb .work-gallery__thumb-media--inset > img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: none;
+  /* Match the SVG’s clipped silhouette (16px), not the gallery’s 8px radius */
+  filter: drop-shadow(var(--shadow-work-gallery-thumb-inset));
 }
 
 .writing .work-gallery__thumb-caption {
@@ -3196,6 +3227,7 @@ hr {
   border: none;
   border-radius: 0;
   overflow: visible;
+  background-color: transparent;
 }
 
 /* Experiment-grid sidebar cards: no frame (they already carry their own chrome) */

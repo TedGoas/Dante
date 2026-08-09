@@ -35,6 +35,7 @@ Case studies use a `<section class="work-gallery">` of `<figure class="work-gall
 | Two equal thumbs (~50%) | *(none)* | `work-gallery__thumbs--halves` | 2× `.work-gallery__thumb` |
 | Three equal thumbs (~33%) | *(none)* | `work-gallery__thumbs--thirds` | 3× `.work-gallery__thumb` |
 | Featured + secondary (~67% / ~33%) | *(none)* | `work-gallery__thumbs--wide-narrow` | 2× `.work-gallery__thumb` |
+| Odd-shaped thumb in sibling-sized frame | *(none)* | `work-gallery__thumb-media--inset` | Centered, bottom-aligned; intrinsic size |
 
 ## Figure order (expanded)
 

@@ -49,6 +49,8 @@
   --color-surface-tile: #e8e8e8;
   --color-surface-tile-muted: #dedede;
   --color-surface-tile-border: var(--color-border-subtle);
+  /* Subtle matte behind logos / letterboxed thumbs (near-black at low mix) */
+  --color-work-media-matte: color-mix(in srgb, var(--color-site-fg) 10%, var(--color-surface-raised));
 
   /*
    * Work index image cards: square stage over the dark band color.

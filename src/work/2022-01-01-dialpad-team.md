@@ -26,23 +26,83 @@ The results show up in both the team and the product. Our feedback system cut de
     <p class="work-gallery__description">Most people don't want to learn a BI tool. They just want answers. My team designed an LLM-powered chat experience that sits on top of Dialpad's analytics and responded with interactive charts you can share.</p>
     <p class="work-gallery__designers">Designers: <a href="https://www.linkedin.com/in/martel-pablo">Pablo Martel</a>, <a href="https://www.linkedin.com/in/maiesandi">Maite Esandi</a></p>
     {% prototypeEmbed "analytics-gpt", "Dialpad AnalyticsGPT design.", 1440, 900 %}
+    <div class="work-gallery__thumbs work-gallery__thumbs--thirds">
+      <figure class="work-gallery__thumb">
+        <img src="/assets/img/dialpad-team/dialpad-team-analyticsgpt-heatmap.svg" alt="AnalyticsGPT heatmap chart." loading="lazy">
+        <figcaption class="work-gallery__thumb-caption">Heatmap chart</figcaption>
+      </figure>
+      <figure class="work-gallery__thumb">
+        <img src="/assets/img/dialpad-team/dialpad-team-analyticsgpt-stacked.svg" alt="AnalyticsGPT stacked chart." loading="lazy">
+        <figcaption class="work-gallery__thumb-caption">Stacked chart</figcaption>
+      </figure>
+      <figure class="work-gallery__thumb">
+        <img src="/assets/img/dialpad-team/dialpad-team-analyticsgpt-table.svg" alt="AnalyticsGPT data table." loading="lazy">
+        <figcaption class="work-gallery__thumb-caption">Data table</figcaption>
+      </figure>
+    </div>
   </figure>
   <figure class="work-gallery__item">
     <figcaption class="work-gallery__caption">Built for you, not everyone</figcaption>
     <p class="work-gallery__description">Most dashboards show everything and let you sort it out. However a supervisor and an agent need completely different information. This feature adapts to your role, giving supervisors a view of their team and agents a clear picture of how they're tracking.</p>
     <p class="work-gallery__designers">Designers: <a href="https://www.linkedin.com/in/paolojduarte">Paolo Duarte</a></p>
     {% prototypeEmbed "launchpad", "Dialpad Launchpad design.", 1440, 900 %}
+    <div class="work-gallery__thumbs work-gallery__thumbs--thirds">
+      <figure class="work-gallery__thumb">
+        <img src="/assets/img/dialpad-team/dialpad-team-launchpad-loader.svg" alt="Launchpad loading state." loading="lazy">
+        <figcaption class="work-gallery__thumb-caption">Loading state</figcaption>
+      </figure>
+      <figure class="work-gallery__thumb">
+        <img src="/assets/img/dialpad-team/dialpad-team-launchpad-darkmode.svg" alt="Launchpad dark mode." loading="lazy">
+        <figcaption class="work-gallery__thumb-caption">Dark mode</figcaption>
+      </figure>
+      <figure class="work-gallery__thumb">
+        <img src="/assets/img/dialpad-team/dialpad-team-launchpad-line.svg" alt="Launchpad line chart view." loading="lazy">
+        <figcaption class="work-gallery__thumb-caption">Line chart view</figcaption>
+      </figure>
+    </div>
   </figure>
   <figure class="work-gallery__item work-gallery__item--media-native work-gallery__item--borderless">
     <figcaption class="work-gallery__caption">From basic to genuinely helpful</figcaption>
     <p class="work-gallery__description">Our old chatbot looked dated and needed a human behind every answer. We overhauled it, pairing a visual refresh with generative AI that handles the easy stuff and hands off the hard stuff to a human.</p>
     <p class="work-gallery__designers">Designers: <a href="https://www.linkedin.com/in/martel-pablo">Pablo Martel</a>, <a href="https://www.linkedin.com/in/aykut-durmayaz">Aykut Durmayaz</a></p>
     {% prototypeEmbed "ai-chatbot", "Dialpad chatbot design.", 384, 600, "/assets/img/dialpad-team/dialpad-team-chatbot-bg.jpg" %}
+    <div class="work-gallery__thumbs work-gallery__thumbs--thirds">
+      <figure class="work-gallery__thumb">
+        <div class="work-gallery__thumb-media work-gallery__thumb-media--inset">
+          <img src="/assets/img/dialpad-team/dialpad-team-chatbot-response.svg" alt="Chatbot AI response." loading="lazy">
+        </div>
+        <figcaption class="work-gallery__thumb-caption">AI response</figcaption>
+      </figure>
+      <figure class="work-gallery__thumb">
+        <div class="work-gallery__thumb-media work-gallery__thumb-media--inset">
+          <img src="/assets/img/dialpad-team/dialpad-team-chatbot-feedback.svg" alt="Chatbot feedback controls." loading="lazy">
+        </div>
+        <figcaption class="work-gallery__thumb-caption">Feedback controls</figcaption>
+      </figure>
+      <figure class="work-gallery__thumb">
+        <img src="/assets/img/dialpad-team/dialpad-team-chatbot-attachment.svg" alt="Chatbot attachment upload." loading="lazy">
+        <figcaption class="work-gallery__thumb-caption">Attachment upload</figcaption>
+      </figure>
+    </div>
   </figure>
   <figure class="work-gallery__item">
     <figcaption class="work-gallery__caption">Phone trees, made visual</figcaption>
     <p class="work-gallery__description">IVR systems (phone trees) are hard to design and even harder to maintain when they live in forms and text fields. We designed a drag-and-drop visual editor that lets anyone see exactly how their phone system is wired and edit it without being an expert.</p>
     <p class="work-gallery__designers">Designers: <a href="https://www.linkedin.com/in/paolojduarte">Paolo Duarte</a></p>
     <img src="/assets/img/dialpad-team/dialpad-team-ivr.svg" alt="Dialpad IVR design." loading="lazy">
+    <div class="work-gallery__thumbs work-gallery__thumbs--thirds">
+      <figure class="work-gallery__thumb">
+        <img src="/assets/img/dialpad-team/dialpad-team-ivr-ai.svg" alt="IVR AI-assisted flow." loading="lazy">
+        <figcaption class="work-gallery__thumb-caption">AI-assisted flow</figcaption>
+      </figure>
+      <figure class="work-gallery__thumb">
+        <img src="/assets/img/dialpad-team/dialpad-team-ivr-error.svg" alt="IVR error state." loading="lazy">
+        <figcaption class="work-gallery__thumb-caption">Error state</figcaption>
+      </figure>
+      <figure class="work-gallery__thumb">
+        <img src="/assets/img/dialpad-team/dialpad-team-ivr-menu.svg" alt="IVR menu node." loading="lazy">
+        <figcaption class="work-gallery__thumb-caption">Menu node</figcaption>
+      </figure>
+    </div>
   </figure>
 </section>
