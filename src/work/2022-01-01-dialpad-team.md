@@ -26,18 +26,19 @@ The results show up in both the team and the product. Our feedback system cut de
     <p class="work-gallery__description">Most people don't want to learn a BI tool. They just want answers. My team designed an LLM-powered chat experience that sits on top of Dialpad's analytics and responded with interactive charts you can share.</p>
     <p class="work-gallery__designers">Designers: <a href="https://www.linkedin.com/in/martel-pablo">Pablo Martel</a>, <a href="https://www.linkedin.com/in/maiesandi">Maite Esandi</a></p>
     {% prototypeEmbed "analytics-gpt", "Dialpad AnalyticsGPT design.", 1440, 900 %}
+    <p class="work-gallery__followup">We had already finished quarterly planning when an exec dropped this on the roadmap. It was not a small add. Internally, people wanted it badly and disagreed about the UX and what belonged in V1. We juggled other work, protected the craft where we could, and still shipped something we were willing to put our names on.</p>
     <div class="work-gallery__thumbs work-gallery__thumbs--thirds">
       <figure class="work-gallery__thumb">
         <img src="/assets/img/dialpad-team/dialpad-team-analyticsgpt-heatmap.svg" alt="AnalyticsGPT heatmap chart." loading="lazy">
-        <figcaption class="work-gallery__thumb-caption">Heatmap chart</figcaption>
+        <figcaption class="work-gallery__thumb-caption">Heatmaps were new to our design system, and a clear way to show trends across a day.</figcaption>
       </figure>
       <figure class="work-gallery__thumb">
         <img src="/assets/img/dialpad-team/dialpad-team-analyticsgpt-stacked.svg" alt="AnalyticsGPT stacked chart." loading="lazy">
-        <figcaption class="work-gallery__thumb-caption">Stacked chart</figcaption>
+        <figcaption class="work-gallery__thumb-caption">Stacked bars we already had, bulletproofed so they could live outside dashboards too.</figcaption>
       </figure>
       <figure class="work-gallery__thumb">
         <img src="/assets/img/dialpad-team/dialpad-team-analyticsgpt-table.svg" alt="AnalyticsGPT data table." loading="lazy">
-        <figcaption class="work-gallery__thumb-caption">Data table</figcaption>
+        <figcaption class="work-gallery__thumb-caption">A familiar table, squeezed into a smaller frame with enough filters to slice the data.</figcaption>
       </figure>
     </div>
   </figure>
