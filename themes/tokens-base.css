@@ -115,7 +115,7 @@
   --work-index-body-padding-block: calc(var(--space-work-index-frame-inset) * 2 / 3);
   --work-index-body-gap: 0.25rem;
   --work-index-summary-size: clamp(var(--type-min-size), 0.8125rem + 0.35vw, 1.25rem);
-  --work-gallery-figure-gap: 2rem;
+  --work-gallery-figure-gap: 3.5rem;
   --work-gallery-caption-gap: 0.625rem;
   --work-gallery-caption-size: clamp(1.5rem, 1rem + 2vw, 2rem);
   --work-gallery-caption-leading: 1.4;
