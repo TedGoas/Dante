@@ -47,18 +47,19 @@ The results show up in both the team and the product. Our feedback system cut de
     <p class="work-gallery__description">Most dashboards show everything and let you sort it out. However a supervisor and an agent need completely different information. This feature adapts to your role, giving supervisors a view of their team and agents a clear picture of how they're tracking.</p>
     <p class="work-gallery__designers">Designers: <a href="https://www.linkedin.com/in/paolojduarte">Paolo Duarte</a></p>
     {% prototypeEmbed "launchpad", "Dialpad Launchpad design.", 1440, 900 %}
+    <p class="work-gallery__followup">Unlike our usual analytics, buried behind admin privileges, Launchpad sat in a high-traffic spot people opened every day. The same screen had to serve supervisors ("How's my team doing?"), support agents ("Am I inside my SLA?"), and sales folks ("Where am I on the leaderboard?"). High traffic meant high scrutiny, so the empty and loading moments mattered as much as the populated ones.</p>
     <div class="work-gallery__thumbs work-gallery__thumbs--thirds">
       <figure class="work-gallery__thumb">
         <img src="/assets/img/dialpad-team/dialpad-team-launchpad-loader.svg" alt="Launchpad loading state." loading="lazy">
-        <figcaption class="work-gallery__thumb-caption">Loading state</figcaption>
+        <figcaption class="work-gallery__thumb-caption">A loading state shaped like the real data, so a slow fetch still showed what was coming.</figcaption>
       </figure>
       <figure class="work-gallery__thumb">
         <img src="/assets/img/dialpad-team/dialpad-team-launchpad-darkmode.svg" alt="Launchpad dark mode." loading="lazy">
-        <figcaption class="work-gallery__thumb-caption">Dark mode</figcaption>
+        <figcaption class="work-gallery__thumb-caption">One of the first real tests for dark mode across the app and our data viz colors.</figcaption>
       </figure>
       <figure class="work-gallery__thumb">
         <img src="/assets/img/dialpad-team/dialpad-team-launchpad-line.svg" alt="Launchpad line chart view." loading="lazy">
-        <figcaption class="work-gallery__thumb-caption">Line chart view</figcaption>
+        <figcaption class="work-gallery__thumb-caption">Charts you can actually poke at: legends that toggle series, tooltips that stick when you need them.</figcaption>
       </figure>
     </div>
   </figure>
