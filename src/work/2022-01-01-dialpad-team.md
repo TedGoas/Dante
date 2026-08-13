@@ -92,18 +92,19 @@ The results show up in both the team and the product. Our feedback system cut de
     <p class="work-gallery__description">IVR systems (phone trees) are hard to design and even harder to maintain when they live in forms and text fields. We designed a drag-and-drop visual editor that lets anyone see exactly how their phone system is wired and edit it without being an expert.</p>
     <p class="work-gallery__designers">Designers: <a href="https://www.linkedin.com/in/paolojduarte">Paolo Duarte</a></p>
     <img src="/assets/img/dialpad-team/dialpad-team-ivr.svg" alt="Dialpad IVR design." loading="lazy">
+    <p class="work-gallery__followup">It started as a visual IVR builder: press 1 for sales, 2 for support, if-then branches you can actually see. That canvas became the pattern for broader automation and AI-built workflows, where a prompt could assemble the nodes instead of placing them one by one. It is also now the basis for how agents get built in our Agentic Studio, the latest thing we are working on at Dialpad. The AI path won Dialpad's 2023 hackathon Best Overall out of 200+ submissions. It is still in beta with a tight customer set: $2M+ in related ARR since the February 2025 beta, 50+ customer-generated workflows feeding the model, and 70+ customers waiting for access.</p>
     <div class="work-gallery__thumbs work-gallery__thumbs--thirds">
       <figure class="work-gallery__thumb">
         <img src="/assets/img/dialpad-team/dialpad-team-ivr-ai.svg" alt="IVR AI-assisted flow." loading="lazy">
-        <figcaption class="work-gallery__thumb-caption">AI-assisted flow</figcaption>
+        <figcaption class="work-gallery__thumb-caption">One prompt to a full, production-ready flow, with example prompts so you are not staring at a blank canvas.</figcaption>
       </figure>
       <figure class="work-gallery__thumb">
         <img src="/assets/img/dialpad-team/dialpad-team-ivr-error.svg" alt="IVR error state." loading="lazy">
-        <figcaption class="work-gallery__thumb-caption">Error state</figcaption>
+        <figcaption class="work-gallery__thumb-caption">The unglamorous cases: error states and validation that show where a tree breaks before it goes live to callers.</figcaption>
       </figure>
       <figure class="work-gallery__thumb">
         <img src="/assets/img/dialpad-team/dialpad-team-ivr-menu.svg" alt="IVR menu node." loading="lazy">
-        <figcaption class="work-gallery__thumb-caption">Menu node</figcaption>
+        <figcaption class="work-gallery__thumb-caption">Visual explorations from a short polish window that upgraded the first version into the chrome we still ship.</figcaption>
       </figure>
     </div>
   </figure>
