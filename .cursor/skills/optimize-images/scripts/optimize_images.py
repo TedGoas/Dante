@@ -23,7 +23,6 @@ from PIL import Image
 # .cursor/skills/optimize-images/scripts/this.py → repo root
 REPO_ROOT = Path(__file__).resolve().parents[4]
 ASSET_ROOTS = [
-    REPO_ROOT / "src/assets/work",
     REPO_ROOT / "src/assets/img",
     REPO_ROOT / "src/posts/img",
     REPO_ROOT / "src/work/img",
@@ -45,7 +44,6 @@ EMBED_RE = re.compile(
 def web_url_for(path: Path) -> str | None:
     path = path.resolve()
     mapping = [
-        (REPO_ROOT / "src/assets/work", "/assets/work"),
         (REPO_ROOT / "src/assets/img", "/assets/img"),
         (REPO_ROOT / "src/posts/img", "/assets/img"),
         (REPO_ROOT / "src/work/img", "/assets/img"),

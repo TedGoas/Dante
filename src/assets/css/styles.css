@@ -63,12 +63,16 @@ select {
   --space-prose-section: clamp(2.25rem, 5vw, 3.5rem);
   --work-list-gap: 0.65rem;
   --work-gallery-top-margin: clamp(2.5rem, 7vw, 5rem);
-  --work-gallery-gap: clamp(3rem, 8vw, 6rem);
+  --work-gallery-gap: clamp(5.25rem, 14vw, 10.5rem);
   --work-gallery-item-gap: 0.85rem;
   --work-gallery-media-max-inline-size: 90rem;
   --work-gallery-viewport-gutter: 2rem;
   --work-gallery-email-media-gap: clamp(0.75rem, 1.5vw, 1.25rem);
   --work-gallery-sidebar-quad-gap: 1rem;
+  --work-gallery-thumbs-gap: 1.75rem;
+  --work-gallery-thumb-inset-padding: 1.25rem;
+  --work-gallery-thumb-inset-aspect-ratio: 470 / 400;
+  --work-gallery-followup-gap: 5.25rem;
   --work-gallery-experiment-grid-gap: 1rem;
   --work-gallery-experiment-tone-gap: calc(var(--work-gallery-experiment-grid-gap) * 3);
   --work-gallery-experiment-tone-max-width: 791px;
@@ -1953,6 +1957,10 @@ hr {
 }
 
 /* Logo/diagram thumbnails are contained so they aren't cropped. */
+.work-index__card--framed-center .work-index__stage {
+  background-color: var(--color-work-media-matte);
+}
+
 .work-index__card--framed-center .work-index__image {
   object-fit: contain;
   object-position: center;
@@ -2390,8 +2398,11 @@ hr {
   border-radius: var(--radius-work-gallery-card);
 }
 
-/* Media breaks out past the layout shell; intro stays in the lead column. */
-.writing .work-gallery__item > :not(.work-gallery__intro) {
+/*
+ * Media + thumbnail grids break out past the layout shell.
+ * Intro, follow-up copy, and other text stay in the lead column.
+ */
+.writing .work-gallery__item > :is(img, .work-gallery__media, .work-gallery__thumbs) {
   --work-gallery-media-breakout-width: min(
     var(--work-gallery-media-max-inline-size),
     calc(100vw - 2 * var(--work-gallery-viewport-gutter))
@@ -2954,11 +2965,10 @@ hr {
   overflow: visible;
 }
 
-/* Captions sit quietly above the figure; ornamental kicker + dashed rules removed. */
+/* Captions sit quietly under the figure; ornamental kicker + dashed rules removed. */
 .post-body figcaption,
-.writing figcaption:not(.work-gallery__caption) {
-  order: -2;
-  margin: 0 0 0.85rem;
+.writing figcaption:not(.work-gallery__caption):not(.work-gallery__thumb-caption) {
+  margin: 0.85rem 0 0;
   font-family: var(--font-sans);
   font-size: var(--figure-caption-meta-size);
   line-height: var(--figure-caption-meta-leading);
@@ -3028,13 +3038,15 @@ hr {
   background-image: none;
 }
 
-.writing .work-gallery__item .work-gallery__description {
+.writing .work-gallery__item .work-gallery__description,
+.writing .work-gallery__item .work-gallery__followup {
   margin: 0;
   padding: 0;
   font-family: var(--font-sans);
-  font-size: var(--figure-caption-body-size);
-  line-height: var(--figure-caption-body-leading);
-  color: var(--color-figure-caption-body);
+  font-size: var(--post-body-size);
+  line-height: var(--post-body-leading);
+  letter-spacing: 0.005em;
+  color: var(--color-prose-body);
   background-image: none;
 }
 
@@ -3048,6 +3060,109 @@ hr {
 
 .writing .work-gallery__item > .work-gallery__description {
   margin-top: calc(var(--work-gallery-caption-gap) - var(--work-gallery-figure-gap));
+}
+
+.writing .work-gallery__item > .work-gallery__followup {
+  box-sizing: border-box;
+  align-self: flex-start;
+  width: 100%;
+  max-width: var(--work-gallery-content-measure);
+  /* Extra separation from hero above and thumbs below (on top of figure gap) */
+  margin-block: calc(var(--work-gallery-followup-gap) - var(--work-gallery-figure-gap));
+  margin-inline: 0;
+}
+
+/* Consecutive follow-ups: prose flow, not full follow-up gap */
+.writing .work-gallery__item > .work-gallery__followup + .work-gallery__followup {
+  margin-top: calc(var(--space-prose-flow) - var(--work-gallery-figure-gap));
+}
+
+/* --- Work gallery: captioned thumbnail grids --- */
+
+.writing .work-gallery__thumbs {
+  display: grid;
+  gap: var(--work-gallery-thumbs-gap);
+  align-items: start;
+}
+
+.writing .work-gallery__thumbs--halves {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.writing .work-gallery__thumbs--thirds {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.writing .work-gallery__thumbs--wide-narrow {
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+}
+
+.writing .work-gallery__thumb {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0;
+  min-width: 0;
+}
+
+.writing .work-gallery__thumb img,
+.writing .work-gallery__thumb-media {
+  display: block;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  border: var(--border-width-hairline) solid var(--work-index-card-border);
+  border-radius: var(--radius-work-gallery-image);
+  background-color: var(--color-work-media-matte);
+}
+
+.writing .work-gallery__thumb-media--placeholder {
+  aspect-ratio: 16 / 9;
+  background-color: var(--color-surface-tile-muted);
+  border-color: var(--color-surface-tile-border);
+}
+
+/* Odd-shaped asset: match sibling thumb frame; center + bottom-align with inset padding */
+.writing .work-gallery__thumb-media--inset {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  aspect-ratio: var(--work-gallery-thumb-inset-aspect-ratio);
+  padding-bottom: var(--work-gallery-thumb-inset-padding);
+  overflow: visible;
+  background-color: var(--color-work-media-matte);
+}
+
+.writing .work-gallery__thumb .work-gallery__thumb-media--inset > img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: none;
+  /* Match the SVG’s clipped silhouette (16px), not the gallery’s 8px radius */
+  filter: drop-shadow(var(--shadow-work-gallery-thumb-inset));
+}
+
+.writing .work-gallery__thumb-caption {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: var(--figure-caption-meta-size);
+  line-height: var(--figure-caption-meta-leading);
+  color: var(--color-figure-caption-body);
+  text-align: left;
+  background-image: none;
+}
+
+@media (max-width: 640px) {
+  .writing .work-gallery__thumbs--halves,
+  .writing .work-gallery__thumbs--thirds,
+  .writing .work-gallery__thumbs--wide-narrow {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .work-article--dialpad .writing .work-gallery__media-item {
@@ -3112,6 +3227,7 @@ hr {
   border: none;
   border-radius: 0;
   overflow: visible;
+  background-color: transparent;
 }
 
 /* Experiment-grid sidebar cards: no frame (they already carry their own chrome) */
