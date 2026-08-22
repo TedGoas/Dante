@@ -184,6 +184,19 @@ Use when a thumb asset is narrower/taller than siblings and should sit in a shar
 </figure>
 ```
 
+### Inset card (short asset, padded in matte)
+
+Use when a short/wide asset should fill the content width inside a sibling-matched matte (e.g. Scorecards unclear-term next to a taller weekly report). Add `--inset-card` on top of `--inset`: centered, padded, white surface, drop-shadow.
+
+```html
+<figure class="work-gallery__thumb">
+  <div class="work-gallery__thumb-media work-gallery__thumb-media--inset work-gallery__thumb-media--inset-card">
+    <img src="/assets/img/example/short-card.svg" alt="Short card." loading="lazy">
+  </div>
+  <figcaption class="work-gallery__thumb-caption">Caption.</figcaption>
+</figure>
+```
+
 ### Layout modifiers
 
 | Class | Columns |
@@ -198,6 +211,7 @@ Stacks to one column below 640px.
 |-------------|------|
 | `work-gallery__thumb-media--placeholder` | Gray empty frame |
 | `work-gallery__thumb-media--inset` | Sibling-ratio frame; image centered, bottom-padded |
+| `work-gallery__thumb-media--inset-card` | With `--inset`: full-width padded card in matte (705/400 default) |
 ## Atmosphere palettes
 
 | Class | Use when |
@@ -219,6 +233,8 @@ New palette: duplicate an existing `--atmosphere-*` block in `styles.css` and se
 | `--work-gallery-thumbs-gap` | Gap in captioned thumbnail grids |
 | `--work-gallery-thumb-inset-aspect-ratio` | Sibling-matched frame for `--inset` thumbs (470 / 400) |
 | `--work-gallery-thumb-inset-padding` | Bottom padding inside `--inset` frames |
+| `--work-gallery-thumb-inset-card-aspect-ratio` | Sibling-matched frame for `--inset-card` (705 / 400) |
+| `--work-gallery-thumb-inset-card-padding` | Uniform padding inside `--inset-card` frames |
 | `--work-gallery-experiment-grid-gap` | Gap between sidebar columns and cards |
 | `--work-gallery-experiment-tone-gap` | Gap between tone hero and sidebar grid (3× grid gap) |
 | `--work-gallery-experiment-tone-max-width` | Tone hero max width (791px) |
