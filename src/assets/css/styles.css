@@ -3107,7 +3107,7 @@ hr {
   min-width: 0;
 }
 
-.writing .work-gallery__thumb img,
+.writing .work-gallery__thumb > img,
 .writing .work-gallery__thumb-media {
   display: block;
   width: 100%;
@@ -3165,6 +3165,70 @@ hr {
   background-color: var(--color-surface-raised);
   box-shadow: none;
   filter: drop-shadow(var(--shadow-work-gallery-thumb-inset));
+}
+
+/* Hover/focus-gated thumbnail prototypes (distinct from hero prototypeEmbed) */
+.writing .work-gallery__thumb > .thumb-prototype {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border: var(--border-width-hairline) solid var(--work-index-card-border);
+  border-radius: var(--radius-work-gallery-image);
+  overflow: hidden;
+  background-color: var(--color-surface-raised);
+  cursor: pointer;
+}
+
+.writing .work-gallery__thumb > .thumb-prototype:focus-visible {
+  outline: 2px solid var(--color-swiss-accent);
+  outline-offset: 2px;
+}
+
+.thumb-prototype__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--thumb-prototype-aspect-ratio, 470 / 400);
+  overflow: hidden;
+  background-color: var(--color-surface-raised);
+}
+
+.thumb-prototype__iframe {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+  pointer-events: none;
+  background-color: var(--color-surface-raised);
+}
+
+.thumb-prototype__fallback {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thumb-prototype__fallback {
+    display: grid;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    place-content: end start;
+    padding: 0.75rem;
+    pointer-events: none;
+    background:
+      linear-gradient(to top, color-mix(in srgb, var(--color-site-fg) 45%, transparent), transparent 40%);
+  }
+
+  .thumb-prototype__fallback-link {
+    pointer-events: auto;
+    font-family: var(--font-sans);
+    font-size: var(--figure-caption-meta-size);
+    line-height: var(--figure-caption-meta-leading);
+    color: var(--color-surface-raised);
+    text-decoration: underline;
+  }
 }
 
 .writing .work-gallery__thumb-caption {

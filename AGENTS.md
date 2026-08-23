@@ -146,6 +146,29 @@ Agent skill (workflow + demo/`postMessage` conventions): [`.cursor/skills/protot
 
 **UX notes:** Each figure shows a static poster until it scrolls into view (~35% visible), then waits 1 second before loading the iframe (`data-src` → `src?autostart=1`). Scrolling away before the delay cancels the timer. The chatbot prototype reads `autostart=1` and auto-runs its splash demo. When a demo animation finishes, the iframe posts `dante-prototype-demo-complete` and a centered circular **Replay** icon button appears over the iframe; clicking it sends `dante-prototype-replay` to restart without reloading the iframe. Under `prefers-reduced-motion: reduce`, activation JS is skipped; a static poster and link to open the prototype in a new tab is shown instead.
 
+### Work gallery: thumbnail prototypes (hover/focus)
+
+Small live demos **inside** captioned thumbs (not hero embeds). Scripted interaction; play only on thumbnail **hover or focus**, not scroll-autostart.
+
+**Authoring:**
+
+```njk
+{% thumbPrototype "quick-reply", "Omnichannel quick reply demo.", 470, 400 %}
+```
+
+**Valid slugs:** `quick-reply` (case folder `dialpad`). Resting state is the live iframe’s first frame (no separate poster SVG).
+
+| Piece | Location |
+|-------|----------|
+| Bundle | [`src/work/img/dialpad/prototypes/quick-reply/`](src/work/img/dialpad/prototypes/quick-reply/) |
+| Shortcode | [`lib/shortcodes/thumbPrototype.js`](lib/shortcodes/thumbPrototype.js) |
+| Partial | [`src/_includes/components/thumb-prototype.njk`](src/_includes/components/thumb-prototype.njk) |
+| Preprocessor | [`lib/preprocessors/expandThumbPrototype.js`](lib/preprocessors/expandThumbPrototype.js) |
+| Host script | [`src/assets/js/thumb-prototype.js`](src/assets/js/thumb-prototype.js) via work layout `footerScripts` |
+| Styles | [`src/assets/css/styles.css`](src/assets/css/styles.css) (`.thumb-prototype`) |
+
+**postMessage:** host preloads the iframe on page load, then sends `dante-thumb-prototype-play` / `dante-thumb-prototype-reset` on hover/focus. Under `prefers-reduced-motion: reduce`, the first frame stays visible with an open-in-new-tab link; play/reset is skipped.
+
 ### Work gallery: follow-up copy + thumbnails
 
 Optional expansion after the hero: process/outcome paragraphs, then a captioned thumbnail row that adds something the hero does not already show.
