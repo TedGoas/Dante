@@ -3099,6 +3099,20 @@ hr {
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
 }
 
+/*
+ * Omnichannel pair: email SVG is 958×400 in the 2fr column. Size the
+ * thumb-prototype frame so the 1fr column lands at the same height
+ * (aspect 958/800), and share the same border/matte as sibling imgs.
+ */
+.writing .work-gallery__thumbs--wide-narrow .work-gallery__thumb > .thumb-prototype {
+  background-color: var(--color-work-media-matte);
+}
+
+.writing .work-gallery__thumbs--wide-narrow .work-gallery__thumb > .thumb-prototype .thumb-prototype__frame {
+  aspect-ratio: 958 / 800;
+  background-color: var(--color-work-media-matte);
+}
+
 .writing .work-gallery__thumb {
   display: flex;
   flex-direction: column;
@@ -3175,7 +3189,7 @@ hr {
   border: var(--border-width-hairline) solid var(--work-index-card-border);
   border-radius: var(--radius-work-gallery-image);
   overflow: hidden;
-  background-color: var(--color-surface-raised);
+  background-color: var(--color-work-media-matte);
   cursor: pointer;
 }
 
