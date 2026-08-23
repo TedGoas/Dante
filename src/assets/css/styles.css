@@ -3190,7 +3190,6 @@ hr {
   border-radius: var(--radius-work-gallery-image);
   overflow: hidden;
   background-color: var(--color-work-media-matte);
-  cursor: pointer;
 }
 
 .writing .work-gallery__thumb > .thumb-prototype:focus-visible {
