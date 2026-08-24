@@ -3085,6 +3085,7 @@ hr {
   display: grid;
   gap: var(--work-gallery-thumbs-gap);
   align-items: start;
+  overflow: visible;
 }
 
 .writing .work-gallery__thumbs--halves {
@@ -3182,13 +3183,18 @@ hr {
 }
 
 /* Hover/focus-gated thumbnail prototypes (distinct from hero prototypeEmbed) */
+.writing .work-gallery__thumb:has(> .thumb-prototype) {
+  overflow: visible;
+}
+
 .writing .work-gallery__thumb > .thumb-prototype {
+  position: relative;
   display: block;
   width: 100%;
   box-sizing: border-box;
   border: var(--border-width-hairline) solid var(--work-index-card-border);
   border-radius: var(--radius-work-gallery-image);
-  overflow: hidden;
+  overflow: visible;
   background-color: var(--color-work-media-matte);
 }
 
@@ -3202,7 +3208,46 @@ hr {
   width: 100%;
   aspect-ratio: var(--thumb-prototype-aspect-ratio, 470 / 400);
   overflow: hidden;
+  border-radius: inherit;
   background-color: var(--color-surface-raised);
+}
+
+.thumb-prototype__cue {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  color: color-mix(in srgb, var(--color-swiss-accent) 50%, transparent);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  pointer-events: none;
+  transform: translate(0, calc(-100% - 0.4rem)) rotate(-6deg);
+  transform-origin: left bottom;
+  transition: opacity 160ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.thumb-prototype__cue-icon {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  /* Optical align with “Hover me!” under the shared -6deg tilt */
+  transform: translateY(var(--thumb-prototype-cue-icon-nudge, 4px));
+}
+
+.writing .work-gallery__thumb > .thumb-prototype.is-active .thumb-prototype__cue,
+.writing .work-gallery__thumb > .thumb-prototype:hover .thumb-prototype__cue,
+.writing .work-gallery__thumb > .thumb-prototype:focus-within .thumb-prototype__cue {
+  opacity: 0;
 }
 
 .thumb-prototype__iframe {
@@ -3222,6 +3267,10 @@ hr {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .thumb-prototype__cue {
+    transition: none;
+  }
+
   .thumb-prototype__fallback {
     display: grid;
     position: absolute;
