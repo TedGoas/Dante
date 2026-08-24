@@ -146,9 +146,11 @@ Agent skill (workflow + demo/`postMessage` conventions): [`.cursor/skills/protot
 
 **UX notes:** Each figure shows a static poster until it scrolls into view (~35% visible), then waits 1 second before loading the iframe (`data-src` → `src?autostart=1`). Scrolling away before the delay cancels the timer. The chatbot prototype reads `autostart=1` and auto-runs its splash demo. When a demo animation finishes, the iframe posts `dante-prototype-demo-complete` and a centered circular **Replay** icon button appears over the iframe; clicking it sends `dante-prototype-replay` to restart without reloading the iframe. Under `prefers-reduced-motion: reduce`, activation JS is skipped; a static poster and link to open the prototype in a new tab is shown instead.
 
+
 ### Work gallery: thumbnail prototypes (hover/focus)
 
-Small live demos **inside** captioned thumbs (not hero embeds). Scripted interaction; play only on thumbnail **hover or focus**, not scroll-autostart.
+Small live demos **inside** captioned thumbs (not hero embeds). Scripted interaction; play only on thumbnail **hover or focus**, not scroll-autostart. Soft-red “Hover me!” cue is built into the shortcode partial (interactive thumbs only — never on static SVG/PNG).
+
 
 **Authoring:**
 
@@ -168,6 +170,8 @@ Small live demos **inside** captioned thumbs (not hero embeds). Scripted interac
 | Styles | [`src/assets/css/styles.css`](src/assets/css/styles.css) (`.thumb-prototype`) |
 
 **postMessage:** host preloads the iframe on page load, then sends `dante-thumb-prototype-play` / `dante-thumb-prototype-reset` on hover/focus. Under `prefers-reduced-motion: reduce`, the first frame stays visible with an open-in-new-tab link; play/reset is skipped.
+
+Agent skill (workflow + host cue + in-bundle demo conventions): [`.cursor/skills/thumb-prototype/SKILL.md`](.cursor/skills/thumb-prototype/SKILL.md) or `/thumb-prototype`.
 
 ### Work gallery: follow-up copy + thumbnails
 
