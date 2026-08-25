@@ -72,7 +72,7 @@ select {
   --work-gallery-thumbs-gap: 1.75rem;
   --work-gallery-thumb-inset-padding: 1.25rem;
   --work-gallery-thumb-inset-aspect-ratio: 470 / 400;
-  --work-gallery-thumb-inset-card-padding: 1.25rem;
+  --work-gallery-thumb-inset-card-padding: clamp(1.5rem, 2.5vw, 2rem); /* 24–32px */
   --work-gallery-thumb-inset-card-aspect-ratio: 705 / 400;
   --work-gallery-followup-gap: 5.25rem;
   --work-gallery-experiment-grid-gap: 1rem;
@@ -3163,23 +3163,27 @@ hr {
   filter: drop-shadow(var(--shadow-work-gallery-thumb-inset));
 }
 
-/* Short card in a sibling-matched matte: full-width, padded, white surface + shadow */
+/* Short card: matte frame; SVG floats centered on a white padded surface */
 .writing .work-gallery__thumb-media--inset.work-gallery__thumb-media--inset-card {
   justify-content: center;
   aspect-ratio: var(--work-gallery-thumb-inset-card-aspect-ratio);
   padding: var(--work-gallery-thumb-inset-card-padding);
   box-sizing: border-box;
+  overflow: hidden;
+  background-color: var(--color-work-media-matte);
 }
 
 .writing .work-gallery__thumb .work-gallery__thumb-media--inset-card > img {
-  width: 100%;
+  width: auto;
   max-width: 100%;
   height: auto;
+  box-sizing: border-box;
+  padding: var(--work-gallery-thumb-inset-card-padding);
   border: none;
   border-radius: var(--radius-work-gallery-image);
   background-color: var(--color-surface-raised);
-  box-shadow: none;
-  filter: drop-shadow(var(--shadow-work-gallery-thumb-inset));
+  box-shadow: var(--shadow-work-gallery-thumb-inset);
+  filter: none;
 }
 
 /* Hover/focus-gated thumbnail prototypes (distinct from hero prototypeEmbed) */
