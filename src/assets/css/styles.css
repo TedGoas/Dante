@@ -72,6 +72,8 @@ select {
   --work-gallery-thumbs-gap: 1.75rem;
   --work-gallery-thumb-inset-padding: 1.25rem;
   --work-gallery-thumb-inset-aspect-ratio: 470 / 400;
+  --work-gallery-thumb-inset-card-padding: clamp(1.5rem, 2.5vw, 2rem); /* 24–32px */
+  --work-gallery-thumb-inset-card-aspect-ratio: 705 / 400;
   --work-gallery-followup-gap: 5.25rem;
   --work-gallery-experiment-grid-gap: 1rem;
   --work-gallery-experiment-tone-gap: calc(var(--work-gallery-experiment-grid-gap) * 3);
@@ -3083,6 +3085,7 @@ hr {
   display: grid;
   gap: var(--work-gallery-thumbs-gap);
   align-items: start;
+  overflow: visible;
 }
 
 .writing .work-gallery__thumbs--halves {
@@ -3097,6 +3100,20 @@ hr {
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
 }
 
+/*
+ * Omnichannel pair: email SVG is 958×400 in the 2fr column. Size the
+ * thumb-prototype frame so the 1fr column lands at the same height
+ * (aspect 958/800), and share the same border/matte as sibling imgs.
+ */
+.writing .work-gallery__thumbs--wide-narrow .work-gallery__thumb > .thumb-prototype {
+  background-color: var(--color-work-media-matte);
+}
+
+.writing .work-gallery__thumbs--wide-narrow .work-gallery__thumb > .thumb-prototype .thumb-prototype__frame {
+  aspect-ratio: 958 / 800;
+  background-color: var(--color-work-media-matte);
+}
+
 .writing .work-gallery__thumb {
   display: flex;
   flex-direction: column;
@@ -3105,7 +3122,7 @@ hr {
   min-width: 0;
 }
 
-.writing .work-gallery__thumb img,
+.writing .work-gallery__thumb > img,
 .writing .work-gallery__thumb-media {
   display: block;
   width: 100%;
@@ -3144,6 +3161,140 @@ hr {
   box-shadow: none;
   /* Match the SVG’s clipped silhouette (16px), not the gallery’s 8px radius */
   filter: drop-shadow(var(--shadow-work-gallery-thumb-inset));
+}
+
+/* Short card: matte frame; SVG floats centered on a white padded surface */
+.writing .work-gallery__thumb-media--inset.work-gallery__thumb-media--inset-card {
+  justify-content: center;
+  aspect-ratio: var(--work-gallery-thumb-inset-card-aspect-ratio);
+  padding: var(--work-gallery-thumb-inset-card-padding);
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: var(--color-work-media-matte);
+}
+
+.writing .work-gallery__thumb .work-gallery__thumb-media--inset-card > img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  padding: var(--work-gallery-thumb-inset-card-padding);
+  border: none;
+  border-radius: var(--radius-work-gallery-image);
+  background-color: var(--color-surface-raised);
+  box-shadow: var(--shadow-work-gallery-thumb-inset);
+  filter: none;
+}
+
+/* Hover/focus-gated thumbnail prototypes (distinct from hero prototypeEmbed) */
+.writing .work-gallery__thumb:has(> .thumb-prototype) {
+  overflow: visible;
+}
+
+.writing .work-gallery__thumb > .thumb-prototype {
+  position: relative;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border: var(--border-width-hairline) solid var(--work-index-card-border);
+  border-radius: var(--radius-work-gallery-image);
+  overflow: visible;
+  background-color: var(--color-work-media-matte);
+}
+
+.writing .work-gallery__thumb > .thumb-prototype:focus-visible {
+  outline: 2px solid var(--color-swiss-accent);
+  outline-offset: 2px;
+}
+
+.thumb-prototype__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--thumb-prototype-aspect-ratio, 470 / 400);
+  overflow: hidden;
+  border-radius: inherit;
+  background-color: var(--color-surface-raised);
+}
+
+.thumb-prototype__cue {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  color: color-mix(in srgb, var(--color-swiss-accent) 50%, transparent);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  pointer-events: none;
+  transform: translate(0, calc(-100% - 0.4rem)) rotate(-6deg);
+  transform-origin: left bottom;
+  transition: opacity 160ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.thumb-prototype__cue-icon {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  /* Optical align with “Hover me!” under the shared -6deg tilt */
+  transform: translateY(var(--thumb-prototype-cue-icon-nudge, 4px));
+}
+
+.writing .work-gallery__thumb > .thumb-prototype.is-active .thumb-prototype__cue,
+.writing .work-gallery__thumb > .thumb-prototype:hover .thumb-prototype__cue,
+.writing .work-gallery__thumb > .thumb-prototype:focus-within .thumb-prototype__cue {
+  opacity: 0;
+}
+
+.thumb-prototype__iframe {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+  pointer-events: none;
+  background-color: var(--color-surface-raised);
+}
+
+.thumb-prototype__fallback {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thumb-prototype__cue {
+    transition: none;
+  }
+
+  .thumb-prototype__fallback {
+    display: grid;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    place-content: end start;
+    padding: 0.75rem;
+    pointer-events: none;
+    background:
+      linear-gradient(to top, color-mix(in srgb, var(--color-site-fg) 45%, transparent), transparent 40%);
+  }
+
+  .thumb-prototype__fallback-link {
+    pointer-events: auto;
+    font-family: var(--font-sans);
+    font-size: var(--figure-caption-meta-size);
+    line-height: var(--figure-caption-meta-leading);
+    color: var(--color-surface-raised);
+    text-decoration: underline;
+  }
 }
 
 .writing .work-gallery__thumb-caption {

@@ -151,6 +151,7 @@ Agent skill (workflow + demo/`postMessage` conventions): [`.cursor/skills/protot
 
 Small live demos **inside** captioned thumbs (not hero embeds). Scripted interaction; play only on thumbnail **hover or focus**, not scroll-autostart. Soft-red “Hover me!” cue is built into the shortcode partial (interactive thumbs only — never on static SVG/PNG).
 
+
 **Authoring:**
 
 ```njk
@@ -206,7 +207,7 @@ Optional expansion after the hero: process/outcome paragraphs, then a captioned 
 
 Placeholder artwork: use `div.work-gallery__thumb-media.work-gallery__thumb-media--placeholder` instead of `<img>` until assets arrive.
 
-Odd-shaped assets that should share a sibling-sized frame: wrap the `<img>` in `div.work-gallery__thumb-media.work-gallery__thumb-media--inset` (intrinsic size, centered, bottom-padded).
+Odd-shaped assets that should share a sibling-sized frame: wrap the `<img>` in `div.work-gallery__thumb-media.work-gallery__thumb-media--inset` (intrinsic size, centered, bottom-padded). Short cards that should fill the matte width with padding and a white surface: add `work-gallery__thumb-media--inset-card` as well.
 
 **Implementation map:** styles in [`src/assets/css/styles.css`](src/assets/css/styles.css) (search `captioned thumbnail`); templates in [`.cursor/skills/work-gallery-figures/reference.md`](.cursor/skills/work-gallery-figures/reference.md); skill [`.cursor/skills/work-gallery-figures/SKILL.md`](.cursor/skills/work-gallery-figures/SKILL.md).
 

@@ -2,9 +2,13 @@ const markdownIt = require('markdown-it');
 const markdownItblockquoteAttribution = require('./lib/markdown/markdown-it-blockquote-attribution');
 const expandClickToPlayVideo = require('./lib/preprocessors/expandClickToPlayVideo');
 const expandPrototypeEmbed = require('./lib/preprocessors/expandPrototypeEmbed');
+const expandThumbPrototype = require('./lib/preprocessors/expandThumbPrototype');
 
 function expandWorkGalleryShortcodes(data, content) {
-  return expandPrototypeEmbed(data, expandClickToPlayVideo(data, content));
+  return expandThumbPrototype(
+    data,
+    expandPrototypeEmbed(data, expandClickToPlayVideo(data, content))
+  );
 }
 
 module.exports = (config) => {
@@ -46,6 +50,7 @@ module.exports = (config) => {
 
   config.addShortcode('clickToPlayVideo', require('./lib/shortcodes/clickToPlayVideo'));
   config.addShortcode('prototypeEmbed', require('./lib/shortcodes/prototypeEmbed'));
+  config.addShortcode('thumbPrototype', require('./lib/shortcodes/thumbPrototype'));
 
   config.addTransform('workGalleryDivider', require('./lib/transforms/workGalleryDivider'));
   config.addTransform('workGalleryAtmosphere', require('./lib/transforms/workGalleryAtmosphere'));

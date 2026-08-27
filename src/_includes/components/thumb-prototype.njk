@@ -1,0 +1,15 @@
+<div class="thumb-prototype" data-thumb-prototype tabindex="0" style="--thumb-prototype-aspect-ratio: {{ width }} / {{ height }}; --thumb-prototype-width: {{ width }}px; --thumb-prototype-height: {{ height }}px;">
+  <div class="thumb-prototype__frame">
+    <iframe class="thumb-prototype__iframe" data-src="{{ src }}" title="{{ title }}" width="{{ width }}" height="{{ height }}" tabindex="-1"></iframe>
+    <div class="thumb-prototype__fallback">
+      <a class="thumb-prototype__fallback-link" href="{{ src }}" target="_blank" rel="noopener">Open interactive prototype: {{ title }}</a>
+    </div>
+  </div>
+  <span class="thumb-prototype__cue" aria-hidden="true">
+    <span class="thumb-prototype__cue-label">Hover me!</span>
+    <svg class="thumb-prototype__cue-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <polyline points="10 15 15 20 20 15"></polyline>
+      <path d="M4 4h7a4 4 0 0 1 4 4v12"></path>
+    </svg>
+  </span>
+</div>
