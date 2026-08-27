@@ -23,41 +23,43 @@ function preloadThumb(root) {
   iframe.src = source;
 }
 
-function activateThumb(root) {
+function initThumbPrototype(root) {
+  let active = false;
+  let pendingPlayHandler = null;
   const iframe = root.querySelector('.thumb-prototype__iframe');
 
-  if (!iframe) {
-    return;
-  }
+  const clearPendingPlay = () => {
+    if (pendingPlayHandler && iframe) {
+      iframe.removeEventListener('load', pendingPlayHandler);
+      pendingPlayHandler = null;
+    }
+  };
 
-  const play = () => {
+  const playIfActive = () => {
+    pendingPlayHandler = null;
+
+    if (!active) {
+      return;
+    }
+
     postToIframe(root, 'dante-thumb-prototype-play');
   };
 
-  if (!iframe.getAttribute('src')) {
-    iframe.addEventListener('load', play, { once: true });
-    preloadThumb(root);
-  } else if (iframe.contentDocument?.readyState === 'complete' || iframe.dataset.ready === '1') {
-    play();
-  } else {
-    iframe.addEventListener('load', play, { once: true });
-  }
+  const schedulePlay = () => {
+    clearPendingPlay();
 
-  root.classList.add('is-active');
-}
+    if (!iframe) {
+      return;
+    }
 
-function deactivateThumb(root) {
-  if (!root.classList.contains('is-active')) {
-    return;
-  }
+    if (iframe.dataset.ready === '1' || iframe.contentDocument?.readyState === 'complete') {
+      playIfActive();
+      return;
+    }
 
-  postToIframe(root, 'dante-thumb-prototype-reset');
-  root.classList.remove('is-active');
-}
-
-function initThumbPrototype(root) {
-  let active = false;
-  const iframe = root.querySelector('.thumb-prototype__iframe');
+    pendingPlayHandler = playIfActive;
+    iframe.addEventListener('load', pendingPlayHandler, { once: true });
+  };
 
   if (iframe) {
     iframe.addEventListener('load', () => {
@@ -73,7 +75,8 @@ function initThumbPrototype(root) {
     }
 
     active = true;
-    activateThumb(root);
+    root.classList.add('is-active');
+    schedulePlay();
   };
 
   const stop = () => {
@@ -82,7 +85,9 @@ function initThumbPrototype(root) {
     }
 
     active = false;
-    deactivateThumb(root);
+    clearPendingPlay();
+    postToIframe(root, 'dante-thumb-prototype-reset');
+    root.classList.remove('is-active');
   };
 
   root.addEventListener('pointerenter', start);
