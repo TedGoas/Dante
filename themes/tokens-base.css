@@ -93,6 +93,8 @@
   --radius-work-gallery-image: var(--radius-work-gallery-card);
   /* Gallery media (images, prototypes, click-to-play) share the 8px image radius */
   --radius-click-to-play: var(--radius-work-gallery-image);
+  /* Chatbot widget (and its wallpaper overlay) is a 16px card, not the 8px gallery clip */
+  --radius-prototype-embed-widget: 1rem;
   --prototype-embed-replay-size: 3.5rem;
   --prototype-embed-replay-bg: color-mix(in srgb, #000 50%, transparent);
   --prototype-embed-replay-bg-hover: color-mix(in srgb, #000 65%, transparent);
@@ -120,6 +122,8 @@
   --work-gallery-caption-size: clamp(1.5rem, 1rem + 2vw, 2rem);
   --work-gallery-caption-leading: 1.4;
   --work-gallery-figure-padding-block: 2rem;
+  /* Wallpaper prototype frames (chatbot): 2× the default figure padding, equal top/bottom */
+  --work-gallery-prototype-background-padding-block: 4rem;
   /* Rem (not ch) so dek + gallery intros share one column despite different font sizes */
   --work-gallery-content-measure: min(48.5rem, 100%);
   --work-gallery-media-max-width: min(

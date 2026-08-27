@@ -3811,14 +3811,23 @@ hr {
   aspect-ratio: auto;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   width: 100%;
   max-width: var(--work-gallery-media-max-inline-size);
   min-height: calc(
-    var(--prototype-embed-overlay-height) + (2 * var(--work-gallery-figure-padding-block))
+    var(--prototype-embed-overlay-height) + (2 * var(--work-gallery-prototype-background-padding-block))
   );
-  padding-block: var(--work-gallery-figure-padding-block);
+  padding-block: var(--work-gallery-prototype-background-padding-block);
   box-sizing: border-box;
+}
+
+/* Fill the padded frame; cover keeps aspect and may clip left/right. */
+.writing .work-gallery__item > .work-gallery__media.prototype-embed .prototype-embed__background {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .prototype-embed--has-background .prototype-embed__overlay {
@@ -3828,19 +3837,22 @@ hr {
   width: var(--prototype-embed-overlay-width);
   height: var(--prototype-embed-overlay-height);
   margin-inline: auto;
-  border-radius: var(--radius-click-to-play);
+  border-radius: var(--radius-prototype-embed-widget);
   overflow: hidden;
+  box-shadow: var(--shadow-work-gallery-stack);
 }
 
 .prototype-embed--has-background .prototype-embed__overlay .prototype-embed__poster {
   object-fit: fill;
   object-position: center;
-  border-radius: var(--radius-click-to-play);
+  border-radius: var(--radius-prototype-embed-widget);
 }
 
 .prototype-embed--has-background .prototype-embed__iframe {
   width: var(--prototype-embed-overlay-width);
   height: var(--prototype-embed-overlay-height);
+  background-color: transparent;
+  border-radius: var(--radius-prototype-embed-widget);
 }
 
 .prototype-embed__fallback {
