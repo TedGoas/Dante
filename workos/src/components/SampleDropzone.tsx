@@ -1,29 +1,30 @@
-import { FileJson, Upload, X } from 'lucide-react'
+import type { Dispatch, SetStateAction } from 'react'
 import { useState } from 'react'
+import { FileJson, Upload, X } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
+import type { SampleFile } from '@/data/sampleFiles'
 import { cn } from '@/lib/utils'
-
-type SampleFile = {
-  id: string
-  name: string
-}
 
 const SIMULATED_FILES: SampleFile[] = [
   { id: 'schwab', name: 'schwab-sample-orders.json' },
   { id: 'fidelity', name: 'fidelity-sample-orders.json' },
 ]
 
-export function SampleDropzone() {
+type SampleDropzoneProps = {
+  files: SampleFile[]
+  onFilesChange: Dispatch<SetStateAction<SampleFile[]>>
+}
+
+export function SampleDropzone({ files, onFilesChange }: SampleDropzoneProps) {
   const [dragging, setDragging] = useState(false)
-  const [files, setFiles] = useState<SampleFile[]>([])
 
   function simulateUpload() {
-    setFiles(SIMULATED_FILES)
+    onFilesChange(SIMULATED_FILES)
   }
 
   function removeFile(id: string) {
-    setFiles((current) => current.filter((file) => file.id !== id))
+    onFilesChange((current) => current.filter((file) => file.id !== id))
   }
 
   return (

@@ -1,3 +1,4 @@
+import { StatusCell } from '@/components/StatusIcon'
 import {
   Sheet,
   SheetContent,
@@ -5,7 +6,6 @@ import {
   SheetHeader,
   SheetTitle,
 } from '@/components/ui/sheet'
-import { Badge } from '@/components/ui/badge'
 import type { ValidationRow } from '@/data/validationRows'
 
 type ErrorDetailSheetProps = {
@@ -26,10 +26,8 @@ export function ErrorDetailSheet({
       <SheetContent side="right">
         <SheetHeader>
           <div className="mb-2">
-            {row ? (
-              <Badge variant={row.status}>
-                {row.status === 'warning' ? 'Warning' : 'Fail'}
-              </Badge>
+            {row && row.status !== 'pass' ? (
+              <StatusCell status={row.status} />
             ) : null}
           </div>
           <SheetTitle className="text-xl font-bold tracking-tight">
