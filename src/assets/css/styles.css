@@ -3268,10 +3268,13 @@ hr {
   pointer-events: none;
   background-color: var(--color-surface-raised);
   transform-origin: center center;
-  /* Cover the frame (Omnichannel uses a sibling-matched aspect that differs from the demo). */
+  /*
+   * Cover the frame. tan(atan2(a, b)) yields a unitless a/b so Firefox accepts
+   * the scale() (plain length/length division is invalid there).
+   */
   transform: translate(-50%, -50%) scale(max(
-    calc(100cqw / var(--thumb-prototype-width, 470px)),
-    calc(100cqh / var(--thumb-prototype-height, 400px))
+    tan(atan2(100cqw, var(--thumb-prototype-width, 470px))),
+    tan(atan2(100cqh, var(--thumb-prototype-height, 400px)))
   ));
 }
 
