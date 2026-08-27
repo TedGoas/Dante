@@ -77,7 +77,7 @@ export function CreatableCombobox({
             variant="outline"
             role="combobox"
             aria-expanded={open}
-            className="h-10 w-full justify-between font-normal"
+            className="h-10 w-full justify-between rounded-none font-normal normal-case tracking-normal"
           >
             <span className={cn(!value && 'text-muted-foreground')}>
               {value || placeholder}

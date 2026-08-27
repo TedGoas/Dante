@@ -2,38 +2,39 @@
 
 @theme {
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --color-ice-blue: #0066ff;
-  --color-ice-blue-dark: #0052cc;
-  --color-nyse-ink: #141414;
-  --color-nyse-muted: #5c5c5c;
-  --color-nyse-border: #e5e5e5;
-  --color-nyse-surface: #f7f7f7;
-  --color-nyse-pass: #0a7a3e;
-  --color-nyse-pass-bg: #e8f6ee;
-  --color-nyse-warn: #9a6700;
-  --color-nyse-warn-bg: #fff6e0;
-  --color-nyse-fail: #b42318;
-  --color-nyse-fail-bg: #fdecea;
+  /* ICE / NYSE accent — bright cyan-blue, used sparingly */
+  --color-ice-blue: #00a3ff;
+  --color-ice-blue-dark: #0088d6;
+  --color-nyse-ink: #000000;
+  --color-nyse-muted: #5a5a5a;
+  --color-nyse-border: #d9d9d9;
+  --color-nyse-surface: #f5f5f5;
+  --color-nyse-pass: #00875a;
+  --color-nyse-pass-bg: transparent;
+  --color-nyse-warn: #b78103;
+  --color-nyse-warn-bg: transparent;
+  --color-nyse-fail: #c9372c;
+  --color-nyse-fail-bg: transparent;
   --color-background: #ffffff;
-  --color-foreground: #141414;
-  --color-border: #e5e5e5;
-  --color-ring: #0066ff;
-  --color-muted: #f7f7f7;
-  --color-muted-foreground: #5c5c5c;
-  --color-accent: #f0f4ff;
-  --color-accent-foreground: #141414;
-  --color-primary: #0066ff;
+  --color-foreground: #000000;
+  --color-border: #d9d9d9;
+  --color-ring: #00a3ff;
+  --color-muted: #f5f5f5;
+  --color-muted-foreground: #5a5a5a;
+  --color-accent: #eef8ff;
+  --color-accent-foreground: #000000;
+  --color-primary: #000000;
   --color-primary-foreground: #ffffff;
-  --color-secondary: #f7f7f7;
-  --color-secondary-foreground: #141414;
-  --color-destructive: #b42318;
+  --color-secondary: #f5f5f5;
+  --color-secondary-foreground: #000000;
+  --color-destructive: #c9372c;
   --color-popover: #ffffff;
-  --color-popover-foreground: #141414;
+  --color-popover-foreground: #000000;
   --color-card: #ffffff;
-  --color-card-foreground: #141414;
-  --radius-sm: 0.25rem;
-  --radius-md: 0.375rem;
-  --radius-lg: 0.5rem;
+  --color-card-foreground: #000000;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
 }
 
 @layer base {

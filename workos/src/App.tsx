@@ -21,21 +21,18 @@ export default function App() {
 
   return (
     <AppShell>
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-6">
-        <header>
-          <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-            Internal tooling
-          </p>
-          <h1 className="mt-1 text-2xl font-semibold tracking-tight text-foreground">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-8">
+        <header className="max-w-2xl">
+          <h1 className="text-3xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-4xl">
             Broker Configuration
           </h1>
-          <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
             Capture how a brokerage names ticker, order, quantity, and price,
             then validate sample orders before going live.
           </p>
         </header>
 
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)]">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)]">
           <MappingPanel />
           <ValidationTable
             rows={VALIDATION_ROWS}

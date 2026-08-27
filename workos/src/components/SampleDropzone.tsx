@@ -31,7 +31,7 @@ export function SampleDropzone() {
       <button
         type="button"
         className={cn(
-          'flex w-full flex-col items-center justify-center gap-2 rounded-lg border border-dashed border-nyse-border bg-nyse-surface px-4 py-8 text-center transition-colors',
+          'flex w-full flex-col items-center justify-center gap-2 rounded-none border border-dashed border-nyse-border bg-background px-4 py-8 text-center transition-colors',
           dragging && 'border-ice-blue bg-accent'
         )}
         onClick={simulateUpload}
@@ -50,8 +50,14 @@ export function SampleDropzone() {
           simulateUpload()
         }}
       >
-        <Upload className="size-5 text-ice-blue" aria-hidden="true" />
-        <span className="text-sm font-medium text-foreground">
+        <Upload
+          className={cn(
+            'size-5 text-muted-foreground',
+            dragging && 'text-ice-blue'
+          )}
+          aria-hidden="true"
+        />
+        <span className="text-sm font-semibold text-foreground">
           Drop a sample or transcript
         </span>
         <span className="text-xs text-muted-foreground">
@@ -64,7 +70,7 @@ export function SampleDropzone() {
           {files.map((file) => (
             <li
               key={file.id}
-              className="flex items-center gap-2 rounded-md border border-border bg-background px-3 py-2"
+              className="flex items-center gap-2 rounded-none border border-border bg-background px-3 py-2"
             >
               <FileJson className="size-4 text-ice-blue" aria-hidden="true" />
               <a

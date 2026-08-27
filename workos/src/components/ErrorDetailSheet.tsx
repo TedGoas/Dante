@@ -32,7 +32,9 @@ export function ErrorDetailSheet({
               </Badge>
             ) : null}
           </div>
-          <SheetTitle>{detail?.title ?? 'Issue details'}</SheetTitle>
+          <SheetTitle className="text-xl font-bold tracking-tight">
+            {detail?.title ?? 'Issue details'}
+          </SheetTitle>
           <SheetDescription>
             {row ? `Sample ${row.name}` : 'Select a row to inspect.'}
           </SheetDescription>
@@ -41,7 +43,7 @@ export function ErrorDetailSheet({
         {detail ? (
           <div className="flex flex-col gap-5 text-sm">
             <div>
-              <h3 className="mb-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+              <h3 className="mb-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-foreground">
                 What happened
               </h3>
               <p className="leading-relaxed text-foreground">{detail.summary}</p>
@@ -49,7 +51,7 @@ export function ErrorDetailSheet({
 
             {detail.field ? (
               <div>
-                <h3 className="mb-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                <h3 className="mb-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-foreground">
                   Related field
                 </h3>
                 <p className="text-foreground">{detail.field}</p>
@@ -58,7 +60,7 @@ export function ErrorDetailSheet({
 
             {detail.suggestion ? (
               <div>
-                <h3 className="mb-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                <h3 className="mb-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-foreground">
                   Suggested next step
                 </h3>
                 <p className="leading-relaxed text-foreground">
