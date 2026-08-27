@@ -25,6 +25,7 @@ type MappingPanelProps = {
   showDropzone?: boolean
   title?: string
   description?: string
+  fieldErrors?: Partial<Record<MappingField, string>>
 }
 
 export function MappingPanel({
@@ -37,6 +38,7 @@ export function MappingPanel({
   showDropzone = true,
   title = 'Field mapping',
   description = 'Map the brokerage’s field names to ticker, order, quantity, and price. Add a new alias if you hear one that isn’t in the list yet.',
+  fieldErrors,
 }: MappingPanelProps) {
   function createAlias(field: MappingField, next: string) {
     onAliasesChange((current) => {
@@ -69,6 +71,7 @@ export function MappingPanel({
             label={FIELD_LABELS[field]}
             value={values[field]}
             options={aliases[field]}
+            error={fieldErrors?.[field]}
             onChange={(next) =>
               onValuesChange((current) => ({ ...current, [field]: next }))
             }

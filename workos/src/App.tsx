@@ -1,4 +1,4 @@
-import { useMemo, useState, type Dispatch, type SetStateAction } from 'react'
+import { useState, type Dispatch, type SetStateAction } from 'react'
 
 import { AppShell } from '@/components/AppShell'
 import { ErrorDetailSheet } from '@/components/ErrorDetailSheet'
@@ -16,6 +16,9 @@ import {
 
 type LayoutMode = 'a' | 'b' | 'c'
 type Phase = 'map' | 'validate'
+type FieldErrors = Partial<Record<MappingField, string>>
+
+const REQUIRED_MESSAGE = 'This field is required.'
 
 const EMPTY_VALUES: Record<MappingField, string> = {
   ticker: '',
@@ -39,26 +42,50 @@ function cloneAliases() {
   }
 }
 
+function requiredFieldErrors(
+  nextValues: Record<MappingField, string>
+): FieldErrors {
+  const errors: FieldErrors = {}
+  for (const field of MAPPING_FIELDS) {
+    if (!nextValues[field].trim()) {
+      errors[field] = REQUIRED_MESSAGE
+    }
+  }
+  return errors
+}
+
 export default function App() {
   const [layoutMode, setLayoutMode] = useState<LayoutMode>('b')
   const [phase, setPhase] = useState<Phase>('map')
   const [aliases, setAliases] = useState(cloneAliases)
   const [values, setValues] = useState(EMPTY_VALUES)
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({})
   const [files, setFiles] = useState<SampleFile[]>([])
   const [selected, setSelected] = useState<ValidationRow | null>(null)
   const [sheetOpen, setSheetOpen] = useState(false)
 
-  const mappingsComplete = useMemo(
-    () => MAPPING_FIELDS.every((field) => values[field].trim().length > 0),
-    [values]
-  )
   const hasSample = files.length > 0
   const showValidateWorkspace = phase === 'validate'
   const rows = showValidateWorkspace && hasSample ? VALIDATION_ROWS : []
   const tableEmpty = !showValidateWorkspace || !hasSample
-  const emptyReason = !showValidateWorkspace
-    ? 'awaiting-continue'
-    : 'awaiting-sample'
+  const emptyReason: 'awaiting-continue' | 'awaiting-sample' =
+    !showValidateWorkspace ? 'awaiting-continue' : 'awaiting-sample'
+
+  function handleValuesChange(update: SetStateAction<Record<MappingField, string>>) {
+    setValues((current) => {
+      const next = typeof update === 'function' ? update(current) : update
+      setFieldErrors((errors) => {
+        const cleared = { ...errors }
+        for (const field of MAPPING_FIELDS) {
+          if (next[field].trim()) {
+            delete cleared[field]
+          }
+        }
+        return cleared
+      })
+      return next
+    })
+  }
 
   function handleSelectRow(row: ValidationRow) {
     if (row.status === 'pass') return
@@ -70,6 +97,7 @@ export default function App() {
     setPhase('map')
     setAliases(cloneAliases())
     setValues(EMPTY_VALUES)
+    setFieldErrors({})
     setFiles([])
     setSelected(null)
     setSheetOpen(false)
@@ -78,13 +106,19 @@ export default function App() {
   function handleLayoutChange(next: LayoutMode) {
     setLayoutMode(next)
     setPhase('map')
+    setFieldErrors({})
     setFiles([])
     setSelected(null)
     setSheetOpen(false)
   }
 
   function handleContinue() {
-    if (!mappingsComplete) return
+    const errors = requiredFieldErrors(values)
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors)
+      return
+    }
+    setFieldErrors({})
     setPhase('validate')
   }
 
@@ -92,6 +126,24 @@ export default function App() {
     setPhase('map')
     setSelected(null)
     setSheetOpen(false)
+  }
+
+  const shared = {
+    phase,
+    aliases,
+    values,
+    files,
+    rows,
+    tableEmpty,
+    emptyReason,
+    selectedId: selected?.id,
+    fieldErrors,
+    onAliasesChange: setAliases,
+    onValuesChange: handleValuesChange,
+    onFilesChange: setFiles,
+    onSelectRow: handleSelectRow,
+    onContinue: handleContinue,
+    onBack: handleBack,
   }
 
   return (
@@ -107,64 +159,9 @@ export default function App() {
           </p>
         </header>
 
-        {layoutMode === 'a' ? (
-          <LayoutA
-            phase={phase}
-            aliases={aliases}
-            values={values}
-            files={files}
-            rows={rows}
-            tableEmpty={tableEmpty}
-            emptyReason={emptyReason}
-            selectedId={selected?.id}
-            mappingsComplete={mappingsComplete}
-            onAliasesChange={setAliases}
-            onValuesChange={setValues}
-            onFilesChange={setFiles}
-            onSelectRow={handleSelectRow}
-            onContinue={handleContinue}
-            onBack={handleBack}
-          />
-        ) : null}
-
-        {layoutMode === 'b' ? (
-          <LayoutB
-            phase={phase}
-            aliases={aliases}
-            values={values}
-            files={files}
-            rows={rows}
-            tableEmpty={tableEmpty}
-            emptyReason={emptyReason}
-            selectedId={selected?.id}
-            mappingsComplete={mappingsComplete}
-            onAliasesChange={setAliases}
-            onValuesChange={setValues}
-            onFilesChange={setFiles}
-            onSelectRow={handleSelectRow}
-            onContinue={handleContinue}
-          />
-        ) : null}
-
-        {layoutMode === 'c' ? (
-          <LayoutC
-            phase={phase}
-            aliases={aliases}
-            values={values}
-            files={files}
-            rows={rows}
-            tableEmpty={tableEmpty}
-            emptyReason={emptyReason}
-            selectedId={selected?.id}
-            mappingsComplete={mappingsComplete}
-            onAliasesChange={setAliases}
-            onValuesChange={setValues}
-            onFilesChange={setFiles}
-            onSelectRow={handleSelectRow}
-            onContinue={handleContinue}
-            onBack={handleBack}
-          />
-        ) : null}
+        {layoutMode === 'a' ? <LayoutA {...shared} /> : null}
+        {layoutMode === 'b' ? <LayoutB {...shared} /> : null}
+        {layoutMode === 'c' ? <LayoutC {...shared} /> : null}
 
         <div className="flex flex-wrap items-center justify-between gap-4 border-t border-border pt-6">
           <button
@@ -212,7 +209,7 @@ type LayoutSharedProps = {
   tableEmpty: boolean
   emptyReason: 'awaiting-continue' | 'awaiting-sample'
   selectedId?: string
-  mappingsComplete: boolean
+  fieldErrors: FieldErrors
   onAliasesChange: Dispatch<SetStateAction<Record<MappingField, string[]>>>
   onValuesChange: Dispatch<SetStateAction<Record<MappingField, string>>>
   onFilesChange: Dispatch<SetStateAction<SampleFile[]>>
@@ -230,7 +227,7 @@ function LayoutA({
   tableEmpty,
   emptyReason,
   selectedId,
-  mappingsComplete,
+  fieldErrors,
   onAliasesChange,
   onValuesChange,
   onFilesChange,
@@ -248,20 +245,16 @@ function LayoutA({
           aliases={aliases}
           values={values}
           files={files}
+          fieldErrors={fieldErrors}
           onAliasesChange={onAliasesChange}
           onValuesChange={onValuesChange}
           onFilesChange={onFilesChange}
           showDropzone={false}
         />
         <div>
-          <Button type="button" disabled={!mappingsComplete} onClick={onContinue}>
+          <Button type="button" onClick={onContinue}>
             Continue
           </Button>
-          {!mappingsComplete ? (
-            <p className="mt-2 text-xs text-muted-foreground">
-              Fill all four fields to continue.
-            </p>
-          ) : null}
         </div>
       </div>
     )
@@ -312,7 +305,7 @@ function LayoutB({
   tableEmpty,
   emptyReason,
   selectedId,
-  mappingsComplete,
+  fieldErrors,
   onAliasesChange,
   onValuesChange,
   onFilesChange,
@@ -326,6 +319,7 @@ function LayoutB({
           aliases={aliases}
           values={values}
           files={files}
+          fieldErrors={fieldErrors}
           onAliasesChange={onAliasesChange}
           onValuesChange={onValuesChange}
           onFilesChange={onFilesChange}
@@ -333,14 +327,9 @@ function LayoutB({
           description="Map the brokerage’s field names. When you’re ready, continue to attach a sample and validate on this same page."
         />
         <div>
-          <Button type="button" disabled={!mappingsComplete} onClick={onContinue}>
+          <Button type="button" onClick={onContinue}>
             Continue
           </Button>
-          {!mappingsComplete ? (
-            <p className="mt-2 text-xs text-muted-foreground">
-              Fill all four fields to continue.
-            </p>
-          ) : null}
         </div>
       </div>
     )
@@ -378,7 +367,7 @@ function LayoutC({
   tableEmpty,
   emptyReason,
   selectedId,
-  mappingsComplete,
+  fieldErrors,
   onAliasesChange,
   onValuesChange,
   onFilesChange,
@@ -396,20 +385,16 @@ function LayoutC({
           aliases={aliases}
           values={values}
           files={files}
+          fieldErrors={fieldErrors}
           onAliasesChange={onAliasesChange}
           onValuesChange={onValuesChange}
           onFilesChange={onFilesChange}
           showDropzone={false}
         />
         <div>
-          <Button type="button" disabled={!mappingsComplete} onClick={onContinue}>
+          <Button type="button" onClick={onContinue}>
             Continue
           </Button>
-          {!mappingsComplete ? (
-            <p className="mt-2 text-xs text-muted-foreground">
-              Fill all four fields to continue.
-            </p>
-          ) : null}
         </div>
       </div>
     )

@@ -25,6 +25,7 @@ type CreatableComboboxProps = {
   onChange: (value: string) => void
   onCreate: (value: string) => void
   placeholder?: string
+  error?: string
 }
 
 export function CreatableCombobox({
@@ -35,9 +36,11 @@ export function CreatableCombobox({
   onChange,
   onCreate,
   placeholder = 'Select or type an alias…',
+  error,
 }: CreatableComboboxProps) {
   const [open, setOpen] = useState(false)
   const [query, setQuery] = useState('')
+  const errorId = `${id}-error`
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -77,7 +80,12 @@ export function CreatableCombobox({
             variant="outline"
             role="combobox"
             aria-expanded={open}
-            className="h-10 w-full justify-between rounded-none font-normal normal-case tracking-normal"
+            aria-invalid={error ? true : undefined}
+            aria-describedby={error ? errorId : undefined}
+            className={cn(
+              'h-10 w-full justify-between rounded-none font-normal normal-case tracking-normal',
+              error && 'border-nyse-fail hover:bg-background'
+            )}
           >
             <span className={cn(!value && 'text-muted-foreground')}>
               {value || placeholder}
@@ -125,6 +133,11 @@ export function CreatableCombobox({
           </Command>
         </PopoverContent>
       </Popover>
+      {error ? (
+        <p id={errorId} className="text-xs text-nyse-fail">
+          {error}
+        </p>
+      ) : null}
     </div>
   )
 }
