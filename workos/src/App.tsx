@@ -23,6 +23,7 @@ type Phase = 'map' | 'validate'
 type FieldErrors = Partial<Record<FormField, string>>
 
 const REQUIRED_MESSAGE = 'This field is required.'
+const UNMAPPED_MESSAGE = 'Could not map this field.'
 
 const EMPTY_VALUES: Record<MappingField, string> = {
   ticker: '',
@@ -30,6 +31,16 @@ const EMPTY_VALUES: Record<MappingField, string> = {
   quantity: '',
   price: '',
 }
+
+const VALID_MAPPING_VALUES: Record<MappingField, string> = {
+  ticker: ALIAS_SEEDS.ticker[0],
+  order: ALIAS_SEEDS.order[0],
+  quantity: ALIAS_SEEDS.quantity[0],
+  price: ALIAS_SEEDS.price[0],
+}
+
+/** Field left blank when simulating incomplete sample parsing. */
+const UNMAPPED_FIELD: MappingField = 'price'
 
 const LAYOUT_OPTIONS: { value: LayoutMode; label: string }[] = [
   { value: 'b', label: "Ted's first choice" },
@@ -108,6 +119,43 @@ export default function App() {
     })
   }
 
+  function handleSimulateValid() {
+    setValues({ ...VALID_MAPPING_VALUES })
+    setFieldErrors((errors) => {
+      const cleared = { ...errors }
+      for (const field of MAPPING_FIELDS) {
+        delete cleared[field]
+      }
+      return cleared
+    })
+  }
+
+  function handleSimulateIncomplete() {
+    setValues({
+      ...VALID_MAPPING_VALUES,
+      [UNMAPPED_FIELD]: '',
+    })
+    setFieldErrors((errors) => {
+      const next = { ...errors }
+      for (const field of MAPPING_FIELDS) {
+        delete next[field]
+      }
+      next[UNMAPPED_FIELD] = UNMAPPED_MESSAGE
+      return next
+    })
+  }
+
+  function handleClearInputs() {
+    setValues(EMPTY_VALUES)
+    setFieldErrors((errors) => {
+      const cleared = { ...errors }
+      for (const field of MAPPING_FIELDS) {
+        delete cleared[field]
+      }
+      return cleared
+    })
+  }
+
   function handleSelectRow(row: ValidationRow) {
     if (row.status === 'pass') return
     setSelected(row)
@@ -165,6 +213,9 @@ export default function App() {
     onAliasesChange: setAliases,
     onValuesChange: handleValuesChange,
     onFilesChange: setFiles,
+    onSimulateValid: handleSimulateValid,
+    onSimulateIncomplete: handleSimulateIncomplete,
+    onClearInputs: handleClearInputs,
     onSelectRow: handleSelectRow,
     onContinue: handleContinue,
     onBack: handleBack,
@@ -240,6 +291,9 @@ type LayoutSharedProps = {
   onAliasesChange: Dispatch<SetStateAction<Record<MappingField, string[]>>>
   onValuesChange: Dispatch<SetStateAction<Record<MappingField, string>>>
   onFilesChange: Dispatch<SetStateAction<SampleFile[]>>
+  onSimulateValid: () => void
+  onSimulateIncomplete: () => void
+  onClearInputs: () => void
   onSelectRow: (row: ValidationRow) => void
   onContinue: () => void
   onBack?: () => void
@@ -260,13 +314,16 @@ function LayoutA({
   onAliasesChange,
   onValuesChange,
   onFilesChange,
+  onSimulateValid,
+  onSimulateIncomplete,
+  onClearInputs,
   onSelectRow,
   onContinue,
   onBack,
 }: LayoutSharedProps) {
   if (phase === 'map') {
     return (
-      <div className="flex max-w-xl flex-col gap-6">
+      <div className="flex max-w-5xl flex-col gap-6">
         <p className="text-xs font-semibold uppercase tracking-[0.08em] text-muted-foreground">
           Step 1 of 2 · Mapping
         </p>
@@ -280,7 +337,10 @@ function LayoutA({
           onAliasesChange={onAliasesChange}
           onValuesChange={onValuesChange}
           onFilesChange={onFilesChange}
-          showDropzone={false}
+          onSimulateValid={onSimulateValid}
+          onSimulateIncomplete={onSimulateIncomplete}
+          onClearInputs={onClearInputs}
+          dropzonePlacement="beside-fields"
         />
         <div>
           <Button type="button" onClick={onContinue}>
@@ -315,15 +375,17 @@ function LayoutA({
           onAliasesChange={onAliasesChange}
           onValuesChange={onValuesChange}
           onFilesChange={onFilesChange}
-          showDropzone
         />
-        <ValidationTable
-          rows={rows}
-          empty={tableEmpty}
-          emptyReason={emptyReason}
-          selectedId={selectedId}
-          onSelectRow={onSelectRow}
-        />
+        <div className="flex flex-col gap-4">
+          <SampleDropzone files={files} onFilesChange={onFilesChange} />
+          <ValidationTable
+            rows={rows}
+            empty={tableEmpty}
+            emptyReason={emptyReason}
+            selectedId={selectedId}
+            onSelectRow={onSelectRow}
+          />
+        </div>
       </div>
     </div>
   )
@@ -344,12 +406,15 @@ function LayoutB({
   onAliasesChange,
   onValuesChange,
   onFilesChange,
+  onSimulateValid,
+  onSimulateIncomplete,
+  onClearInputs,
   onSelectRow,
   onContinue,
 }: LayoutSharedProps) {
   if (phase === 'map') {
     return (
-      <div className="flex max-w-xl flex-col gap-6">
+      <div className="flex max-w-5xl flex-col gap-6">
         <MappingPanel
           name={name}
           aliases={aliases}
@@ -360,8 +425,11 @@ function LayoutB({
           onAliasesChange={onAliasesChange}
           onValuesChange={onValuesChange}
           onFilesChange={onFilesChange}
-          showDropzone={false}
-          description="Map the brokerage’s field names. When you’re ready, continue to attach a sample and validate on this same page."
+          onSimulateValid={onSimulateValid}
+          onSimulateIncomplete={onSimulateIncomplete}
+          onClearInputs={onClearInputs}
+          dropzonePlacement="beside-fields"
+          description="Map the brokerage’s field names. Optionally attach a sample now, then continue to validate on this same page."
         />
         <div>
           <Button type="button" onClick={onContinue}>
@@ -383,16 +451,18 @@ function LayoutB({
         onAliasesChange={onAliasesChange}
         onValuesChange={onValuesChange}
         onFilesChange={onFilesChange}
-        showDropzone
-        description="Adjust mappings if a sample fails. Drop a sample below to run validation."
+        description="Adjust mappings if a sample fails. Use the sample dropzone beside the table to run validation."
       />
-      <ValidationTable
-        rows={rows}
-        empty={tableEmpty}
-        emptyReason={emptyReason}
-        selectedId={selectedId}
-        onSelectRow={onSelectRow}
-      />
+      <div className="flex flex-col gap-4">
+        <SampleDropzone files={files} onFilesChange={onFilesChange} />
+        <ValidationTable
+          rows={rows}
+          empty={tableEmpty}
+          emptyReason={emptyReason}
+          selectedId={selectedId}
+          onSelectRow={onSelectRow}
+        />
+      </div>
     </div>
   )
 }
@@ -412,13 +482,16 @@ function LayoutC({
   onAliasesChange,
   onValuesChange,
   onFilesChange,
+  onSimulateValid,
+  onSimulateIncomplete,
+  onClearInputs,
   onSelectRow,
   onContinue,
   onBack,
 }: LayoutSharedProps) {
   if (phase === 'map') {
     return (
-      <div className="flex max-w-xl flex-col gap-6">
+      <div className="flex max-w-5xl flex-col gap-6">
         <p className="text-xs font-semibold uppercase tracking-[0.08em] text-muted-foreground">
           Step 1 of 2 · Mapping
         </p>
@@ -432,7 +505,10 @@ function LayoutC({
           onAliasesChange={onAliasesChange}
           onValuesChange={onValuesChange}
           onFilesChange={onFilesChange}
-          showDropzone={false}
+          onSimulateValid={onSimulateValid}
+          onSimulateIncomplete={onSimulateIncomplete}
+          onClearInputs={onClearInputs}
+          dropzonePlacement="beside-fields"
         />
         <div>
           <Button type="button" onClick={onContinue}>

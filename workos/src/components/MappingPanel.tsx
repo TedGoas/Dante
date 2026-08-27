@@ -27,7 +27,11 @@ type MappingPanelProps = {
   onAliasesChange: Dispatch<SetStateAction<Record<MappingField, string[]>>>
   onValuesChange: Dispatch<SetStateAction<Record<MappingField, string>>>
   onFilesChange: Dispatch<SetStateAction<SampleFile[]>>
-  showDropzone?: boolean
+  onSimulateValid?: () => void
+  onSimulateIncomplete?: () => void
+  onClearInputs?: () => void
+  /** Where to show the sample dropzone. Default: none. */
+  dropzonePlacement?: 'none' | 'above' | 'beside-fields'
   title?: string
   description?: string
   fieldErrors?: Partial<Record<FormField, string>>
@@ -42,7 +46,10 @@ export function MappingPanel({
   onAliasesChange,
   onValuesChange,
   onFilesChange,
-  showDropzone = true,
+  onSimulateValid,
+  onSimulateIncomplete,
+  onClearInputs,
+  dropzonePlacement = 'none',
   title = 'Field mapping',
   description = 'Map the brokerage’s field names to ticker, order, quantity, and price. Add a new alias if you hear one that isn’t in the list yet.',
   fieldErrors,
@@ -57,6 +64,33 @@ export function MappingPanel({
     })
   }
 
+  const fields = (
+    <div className="flex flex-col gap-4">
+      <TextField
+        id="mapping-name"
+        label="Name"
+        value={name}
+        error={fieldErrors?.name}
+        placeholder="Eg. Charles Schwab, Vanguard, etc."
+        onChange={onNameChange}
+      />
+      {MAPPING_FIELDS.map((field) => (
+        <CreatableCombobox
+          key={field}
+          id={`mapping-${field}`}
+          label={FIELD_LABELS[field]}
+          value={values[field]}
+          options={aliases[field]}
+          error={fieldErrors?.[field]}
+          onChange={(next) =>
+            onValuesChange((current) => ({ ...current, [field]: next }))
+          }
+          onCreate={(next) => createAlias(field, next)}
+        />
+      ))}
+    </div>
+  )
+
   return (
     <section className="flex flex-col gap-6">
       <div>
@@ -66,34 +100,24 @@ export function MappingPanel({
         <p className="mt-1 text-sm text-muted-foreground">{description}</p>
       </div>
 
-      {showDropzone ? (
+      {dropzonePlacement === 'above' ? (
         <SampleDropzone files={files} onFilesChange={onFilesChange} />
       ) : null}
 
-      <div className="flex flex-col gap-4">
-        <TextField
-          id="mapping-name"
-          label="Name"
-          value={name}
-          error={fieldErrors?.name}
-          placeholder="Eg. Charles Schwab, Vanguard, etc."
-          onChange={onNameChange}
-        />
-        {MAPPING_FIELDS.map((field) => (
-          <CreatableCombobox
-            key={field}
-            id={`mapping-${field}`}
-            label={FIELD_LABELS[field]}
-            value={values[field]}
-            options={aliases[field]}
-            error={fieldErrors?.[field]}
-            onChange={(next) =>
-              onValuesChange((current) => ({ ...current, [field]: next }))
-            }
-            onCreate={(next) => createAlias(field, next)}
+      {dropzonePlacement === 'beside-fields' ? (
+        <div className="grid items-stretch gap-8 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)]">
+          {fields}
+          <SampleDropzone
+            mode="simulate"
+            fill
+            onSimulateValid={onSimulateValid ?? (() => {})}
+            onSimulateIncomplete={onSimulateIncomplete ?? (() => {})}
+            onClearInputs={onClearInputs ?? (() => {})}
           />
-        ))}
-      </div>
+        </div>
+      ) : (
+        fields
+      )}
     </section>
   )
 }
