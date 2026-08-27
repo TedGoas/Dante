@@ -171,7 +171,35 @@ export default function App() {
   }
 
   return (
-    <AppShell>
+    <AppShell
+      footer={
+        <>
+          <button
+            type="button"
+            onClick={handleReset}
+            className="self-start text-sm text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
+          >
+            Reset prototype
+          </button>
+          <label className="flex flex-col gap-1.5 text-sm text-muted-foreground">
+            <span>Version</span>
+            <select
+              value={layoutMode}
+              onChange={(event) =>
+                handleLayoutChange(event.target.value as LayoutMode)
+              }
+              className="h-9 max-w-full border border-border bg-background px-2 text-sm text-foreground"
+            >
+              {LAYOUT_OPTIONS.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </label>
+        </>
+      }
+    >
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-8">
         <header className="max-w-2xl">
           <h1 className="text-3xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-4xl">
@@ -186,33 +214,6 @@ export default function App() {
         {layoutMode === 'a' ? <LayoutA {...shared} /> : null}
         {layoutMode === 'b' ? <LayoutB {...shared} /> : null}
         {layoutMode === 'c' ? <LayoutC {...shared} /> : null}
-
-        <div className="flex flex-wrap items-center justify-between gap-4 border-t border-border pt-6">
-          <button
-            type="button"
-            onClick={handleReset}
-            className="text-sm text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
-          >
-            Reset prototype
-          </button>
-
-          <label className="flex items-center gap-2 text-sm text-muted-foreground">
-            <span className="whitespace-nowrap">Layout</span>
-            <select
-              value={layoutMode}
-              onChange={(event) =>
-                handleLayoutChange(event.target.value as LayoutMode)
-              }
-              className="h-9 min-w-56 border border-border bg-background px-2 text-sm text-foreground"
-            >
-              {LAYOUT_OPTIONS.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </label>
-        </div>
       </div>
 
       <ErrorDetailSheet

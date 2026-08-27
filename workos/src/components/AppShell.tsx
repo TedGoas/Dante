@@ -10,7 +10,13 @@ const NAV_ITEMS = [
   { label: 'Settings', active: false },
 ] as const
 
-export function AppShell({ children }: { children: ReactNode }) {
+export function AppShell({
+  children,
+  footer,
+}: {
+  children: ReactNode
+  footer?: ReactNode
+}) {
   return (
     <div className="flex min-h-screen bg-background">
       <aside className="flex w-56 shrink-0 flex-col border-r border-border bg-nyse-nav py-8 pr-6">
@@ -42,6 +48,11 @@ export function AppShell({ children }: { children: ReactNode }) {
             ))}
           </ul>
         </nav>
+        {footer ? (
+          <div className="mt-auto flex flex-col gap-3 border-t border-border pl-6 pt-6">
+            {footer}
+          </div>
+        ) : null}
       </aside>
       <main className="min-w-0 flex-1 overflow-auto px-8 py-10 sm:px-10">
         {children}
