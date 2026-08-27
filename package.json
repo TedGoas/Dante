@@ -7,10 +7,13 @@
 		"eleventy:serve": "cross-env NODE_ENV=development eleventy --serve",
 		"eleventy:watch": "cross-env NODE_ENV=development eleventy --watch",
 		"eleventy:build": "cross-env NODE_ENV=production eleventy",
-		"start": "npm run clean && npm run eleventy:serve",
-		"serve": "npm run clean && npm run eleventy:serve",
+		"build:workos": "npm run build --prefix workos",
+		"watch:workos": "npm run build:watch --prefix workos",
+		"start:workos": "npm run dev --prefix workos",
+		"start": "npm run clean && concurrently -k -n site,workos -c blue,magenta \"npm run eleventy:serve\" \"npm run watch:workos\"",
+		"serve": "npm run start",
 		"watch": "npm run clean && npm run eleventy:watch",
-		"build": "npm run clean && npm run eleventy:build",
+		"build": "npm run clean && npm run eleventy:build && npm run build:workos",
 		"debug": "DEBUG=Eleventy* npm run build"
 	},
 	"repository": {
@@ -25,12 +28,11 @@
 	"homepage": "https://github.com/TedGoas/Dante#readme",
 	"devDependencies": {
 		"@11ty/eleventy": "^3.0.0",
+		"concurrently": "^10.0.5",
 		"cross-env": "^7.0.3",
 		"html-minifier": "^4.0.0",
 		"luxon": "^3.4.0",
 		"rimraf": "^5.0.0",
 		"terser": "^5.24.0"
-	},
-	"dependencies": {
 	}
 }
