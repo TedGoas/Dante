@@ -68,22 +68,23 @@ The results show up in both the team and the product. Our feedback system cut de
     <p class="work-gallery__description">Our old chatbot looked dated and needed a human behind every answer. We overhauled it, pairing a visual refresh with generative AI that handles the easy stuff and hands off the hard stuff to a human.</p>
     <p class="work-gallery__designers">Designers: <a href="https://www.linkedin.com/in/martel-pablo">Pablo Martel</a>, <a href="https://www.linkedin.com/in/aykut-durmayaz">Aykut Durmayaz</a></p>
     {% prototypeEmbed "ai-chatbot", "Dialpad chatbot design.", 384, 600, "/assets/img/dialpad-team/dialpad-team-chatbot-bg.jpg" %}
+    <p class="work-gallery__followup">The bar was Intercom's Fin and Ada, not "good enough for a voice company." We wanted a chatbot that could answer questions, book appointments, and still pass a conversation to a person without looking like a side project. Craft was the point: if the market only knew us for phone calls, this had to look like we belonged in the same room as the chat tools people already respected.</p>
     <div class="work-gallery__thumbs work-gallery__thumbs--thirds">
       <figure class="work-gallery__thumb">
         <div class="work-gallery__thumb-media work-gallery__thumb-media--inset">
           <img src="/assets/img/dialpad-team/dialpad-team-chatbot-response.svg" alt="Chatbot AI response." loading="lazy">
         </div>
-        <figcaption class="work-gallery__thumb-caption">AI response</figcaption>
+        <figcaption class="work-gallery__thumb-caption">Rich media in the thread, including attachments, so people can send a photo or a file instead of describing it.</figcaption>
       </figure>
       <figure class="work-gallery__thumb">
         <div class="work-gallery__thumb-media work-gallery__thumb-media--inset">
-          <img src="/assets/img/dialpad-team/dialpad-team-chatbot-feedback.svg" alt="Chatbot feedback controls." loading="lazy">
+          <img src="/assets/img/dialpad-team/dialpad-team-chatbot-feedback.webp" alt="Chatbot feedback controls." width="384" height="380" loading="lazy">
         </div>
-        <figcaption class="work-gallery__thumb-caption">Feedback controls</figcaption>
+        <figcaption class="work-gallery__thumb-caption">A short rating at the end of the chat to capture CSAT and NPS while the conversation is still in mind.</figcaption>
       </figure>
       <figure class="work-gallery__thumb">
         <img src="/assets/img/dialpad-team/dialpad-team-chatbot-attachment.svg" alt="Chatbot attachment upload." loading="lazy">
-        <figcaption class="work-gallery__thumb-caption">Attachment upload</figcaption>
+        <figcaption class="work-gallery__thumb-caption">Plain-language answers, so the bot can explain a policy the way a good agent would, not the way a help article is written.</figcaption>
       </figure>
     </div>
   </figure>

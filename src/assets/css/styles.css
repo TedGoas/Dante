@@ -70,8 +70,9 @@ select {
   --work-gallery-email-media-gap: clamp(0.75rem, 1.5vw, 1.25rem);
   --work-gallery-sidebar-quad-gap: 1rem;
   --work-gallery-thumbs-gap: 1.75rem;
-  --work-gallery-thumb-inset-padding: 1.25rem;
+  --work-gallery-thumb-inset-padding: 2.5rem;
   --work-gallery-thumb-inset-aspect-ratio: 470 / 400;
+  --work-gallery-thumb-inset-img-width: 384px;
   --work-gallery-thumb-inset-card-padding: clamp(1.5rem, 2.5vw, 2rem); /* 24–32px */
   --work-gallery-thumb-inset-card-aspect-ratio: 705 / 400;
   --work-gallery-followup-gap: 5.25rem;
@@ -3146,21 +3147,28 @@ hr {
   align-items: center;
   justify-content: flex-end;
   aspect-ratio: var(--work-gallery-thumb-inset-aspect-ratio);
-  padding-bottom: var(--work-gallery-thumb-inset-padding);
+  min-height: 0;
   overflow: visible;
   background-color: var(--color-work-media-matte);
 }
 
 .writing .work-gallery__thumb .work-gallery__thumb-media--inset > img {
-  width: auto;
   max-width: 100%;
+  max-height: calc(100% - var(--work-gallery-thumb-inset-padding));
+  width: auto;
   height: auto;
+  margin-bottom: var(--work-gallery-thumb-inset-padding);
   border: none;
   border-radius: 0;
   background-color: transparent;
   box-shadow: none;
   /* Match the SVG’s clipped silhouette (16px), not the gallery’s 8px radius */
   filter: drop-shadow(var(--shadow-work-gallery-thumb-inset));
+}
+
+/* HTML width/height only set aspect-ratio; pin 2× rasters to the 1× artboard */
+.writing .work-gallery__thumb .work-gallery__thumb-media--inset > img[width] {
+  max-width: min(100%, var(--work-gallery-thumb-inset-img-width));
 }
 
 /* Short card: matte frame; SVG floats centered on a white padded surface */
@@ -3177,6 +3185,7 @@ hr {
   width: auto;
   max-width: 100%;
   height: auto;
+  margin-bottom: 0;
   box-sizing: border-box;
   padding: var(--work-gallery-thumb-inset-card-padding);
   border: none;
