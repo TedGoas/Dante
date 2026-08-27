@@ -10,7 +10,7 @@
 		"build:workos": "npm run build --prefix workos",
 		"watch:workos": "npm run build:watch --prefix workos",
 		"start:workos": "npm run dev --prefix workos",
-		"start": "npm run clean && concurrently -k -n site,workos -c blue,magenta \"npm run eleventy:serve\" \"npm run watch:workos\"",
+		"start": "npm run clean && concurrently -k -n site,workos -c blue,magenta \"npm run eleventy:serve\" \"npm run start:workos\"",
 		"serve": "npm run start",
 		"watch": "npm run clean && npm run eleventy:watch",
 		"build": "npm run clean && npm run eleventy:build && npm run build:workos",

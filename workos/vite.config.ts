@@ -14,6 +14,10 @@ export default defineConfig({
       '@': path.resolve(rootDir, './src'),
     },
   },
+  server: {
+    port: 5173,
+    strictPort: true,
+  },
   build: {
     outDir: path.resolve(rootDir, '../dist/workos'),
     emptyOutDir: true,
