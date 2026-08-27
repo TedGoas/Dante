@@ -51,11 +51,115 @@
     min-height: 100%;
   }
 
+  html {
+    scrollbar-gutter: stable;
+  }
+
   body {
     margin: 0;
     font-family: var(--font-sans);
     color: var(--color-nyse-ink);
     background: var(--color-background);
     -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Layout B map → validate morph (Ted's first choice) */
+.layout-b {
+  display: grid;
+  width: 100%;
+  max-width: 64rem; /* same width map + validate — avoids post-morph horizontal jump */
+  gap: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  .layout-b {
+    grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+.layout-b__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 0;
+}
+
+.layout-b__continue {
+  transition: opacity 100ms ease-out;
+}
+
+.layout-b__continue--exit {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.layout-b__stage {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 16rem;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.layout-b--transitioning .layout-b__stage {
+  display: grid;
+}
+
+.layout-b--transitioning .layout-b__layer {
+  grid-area: 1 / 1;
+}
+
+.layout-b__layer {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.layout-b__layer--exit {
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.99);
+  transition:
+    opacity 240ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.layout-b__layer--enter {
+  z-index: 2;
+  /* No delay — crossfade with the exiting simulate panel to avoid an empty gap */
+  animation: layout-b-enter 240ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes layout-b-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .layout-b__continue,
+  .layout-b__layer--exit {
+    transition: none;
+  }
+
+  .layout-b__continue--exit,
+  .layout-b__layer--exit {
+    opacity: 0;
+    transform: none;
+  }
+
+  .layout-b__layer--enter {
+    animation: none;
   }
 }

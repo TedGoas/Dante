@@ -1,7 +1,7 @@
 # WorkOS Layout B: map → validate morph transition
 
 Date: 2026-08-27  
-Status: Draft — awaiting user review before implementation plan  
+Status: Implemented (Layout B morph)  
 Surface: Ted’s first choice only (`LayoutB` in `workos/`)
 
 ## Problem

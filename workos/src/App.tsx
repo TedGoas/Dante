@@ -1,4 +1,4 @@
-import { useState, type Dispatch, type SetStateAction } from 'react'
+import { useEffect, useRef, useState, type Dispatch, type SetStateAction } from 'react'
 
 import { AppShell } from '@/components/AppShell'
 import { ErrorDetailSheet } from '@/components/ErrorDetailSheet'
@@ -17,6 +17,7 @@ import {
   VALIDATION_ROWS,
   type ValidationRow,
 } from '@/data/validationRows'
+import { cn } from '@/lib/utils'
 
 type LayoutMode = 'a' | 'b' | 'c'
 type Phase = 'map' | 'validate'
@@ -182,14 +183,15 @@ export default function App() {
     setSheetOpen(false)
   }
 
-  function handleContinue() {
+  function handleContinue(): boolean {
     const errors = requiredFieldErrors(name, values)
     if (Object.keys(errors).length > 0) {
       setFieldErrors(errors)
-      return
+      return false
     }
     setFieldErrors({})
     setPhase('validate')
+    return true
   }
 
   function handleBack() {
@@ -295,7 +297,7 @@ type LayoutSharedProps = {
   onSimulateIncomplete: () => void
   onClearInputs: () => void
   onSelectRow: (row: ValidationRow) => void
-  onContinue: () => void
+  onContinue: () => boolean
   onBack?: () => void
 }
 
@@ -391,6 +393,13 @@ function LayoutA({
   )
 }
 
+const LAYOUT_B_MORPH_MS = 400
+
+function prefersReducedMotion() {
+  if (typeof window === 'undefined') return false
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches
+}
+
 function LayoutB({
   phase,
   name,
@@ -412,9 +421,49 @@ function LayoutB({
   onSelectRow,
   onContinue,
 }: LayoutSharedProps) {
-  if (phase === 'map') {
-    return (
-      <div className="flex max-w-5xl flex-col gap-6">
+  const [isTransitioning, setIsTransitioning] = useState(false)
+  const morphTimerRef = useRef<number | null>(null)
+
+  useEffect(() => {
+    return () => {
+      if (morphTimerRef.current != null) {
+        window.clearTimeout(morphTimerRef.current)
+      }
+    }
+  }, [])
+
+  useEffect(() => {
+    if (phase === 'map') {
+      setIsTransitioning(false)
+      if (morphTimerRef.current != null) {
+        window.clearTimeout(morphTimerRef.current)
+        morphTimerRef.current = null
+      }
+    }
+  }, [phase])
+
+  function handleContinueClick() {
+    if (phase !== 'map' || isTransitioning) return
+    const ok = onContinue()
+    if (!ok) return
+    if (prefersReducedMotion()) return
+    setIsTransitioning(true)
+    morphTimerRef.current = window.setTimeout(() => {
+      setIsTransitioning(false)
+      morphTimerRef.current = null
+    }, LAYOUT_B_MORPH_MS)
+  }
+
+  const isMap = phase === 'map'
+  const showSimulate = isMap || isTransitioning
+  const showValidate = phase === 'validate'
+  const showContinue = isMap || isTransitioning
+
+  return (
+    <div
+      className={cn('layout-b', isTransitioning && 'layout-b--transitioning')}
+    >
+      <div className="layout-b__form">
         <MappingPanel
           name={name}
           aliases={aliases}
@@ -425,43 +474,62 @@ function LayoutB({
           onAliasesChange={onAliasesChange}
           onValuesChange={onValuesChange}
           onFilesChange={onFilesChange}
-          onSimulateValid={onSimulateValid}
-          onSimulateIncomplete={onSimulateIncomplete}
-          onClearInputs={onClearInputs}
-          dropzonePlacement="beside-fields"
-          description="Map the brokerage’s field names. Optionally attach a sample now, then continue to validate on this same page."
+          description={
+            showValidate
+              ? 'Adjust mappings if a sample fails. Use the sample dropzone beside the table to run validation.'
+              : 'Map the brokerage’s field names. Optionally attach a sample now, then continue to validate on this same page.'
+          }
         />
-        <div>
-          <Button type="button" onClick={onContinue}>
-            Continue
-          </Button>
-        </div>
+        {showContinue ? (
+          <div
+            className={cn(
+              'layout-b__continue',
+              showValidate && 'layout-b__continue--exit'
+            )}
+          >
+            <Button type="button" onClick={handleContinueClick}>
+              Continue
+            </Button>
+          </div>
+        ) : null}
       </div>
-    )
-  }
 
-  return (
-    <div className="grid gap-10 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)]">
-      <MappingPanel
-        name={name}
-        aliases={aliases}
-        values={values}
-        files={files}
-        onNameChange={onNameChange}
-        onAliasesChange={onAliasesChange}
-        onValuesChange={onValuesChange}
-        onFilesChange={onFilesChange}
-        description="Adjust mappings if a sample fails. Use the sample dropzone beside the table to run validation."
-      />
-      <div className="flex flex-col gap-4">
-        <SampleDropzone files={files} onFilesChange={onFilesChange} />
-        <ValidationTable
-          rows={rows}
-          empty={tableEmpty}
-          emptyReason={emptyReason}
-          selectedId={selectedId}
-          onSelectRow={onSelectRow}
-        />
+      <div className="layout-b__stage">
+        {showSimulate ? (
+          <div
+            className={cn(
+              'layout-b__layer',
+              showValidate && 'layout-b__layer--exit'
+            )}
+            aria-hidden={showValidate || undefined}
+          >
+            <SampleDropzone
+              mode="simulate"
+              fill
+              onSimulateValid={onSimulateValid}
+              onSimulateIncomplete={onSimulateIncomplete}
+              onClearInputs={onClearInputs}
+            />
+          </div>
+        ) : null}
+
+        {showValidate ? (
+          <div
+            className={cn(
+              'layout-b__layer layout-b__layer--validate',
+              isTransitioning && 'layout-b__layer--enter'
+            )}
+          >
+            <SampleDropzone files={files} onFilesChange={onFilesChange} />
+            <ValidationTable
+              rows={rows}
+              empty={tableEmpty}
+              emptyReason={emptyReason}
+              selectedId={selectedId}
+              onSelectRow={onSelectRow}
+            />
+          </div>
+        ) : null}
       </div>
     </div>
   )
