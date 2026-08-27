@@ -35,7 +35,7 @@ export function CreatableCombobox({
   options,
   onChange,
   onCreate,
-  placeholder = 'Select or type an alias…',
+  placeholder = 'Select or type',
   error,
 }: CreatableComboboxProps) {
   const [open, setOpen] = useState(false)

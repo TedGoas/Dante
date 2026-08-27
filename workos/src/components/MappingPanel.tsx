@@ -2,6 +2,7 @@ import type { Dispatch, SetStateAction } from 'react'
 
 import { CreatableCombobox } from '@/components/CreatableCombobox'
 import { SampleDropzone } from '@/components/SampleDropzone'
+import { TextField } from '@/components/TextField'
 import {
   FIELD_LABELS,
   type MappingField,
@@ -15,23 +16,29 @@ export const MAPPING_FIELDS: MappingField[] = [
   'price',
 ]
 
+export type FormField = MappingField | 'name'
+
 type MappingPanelProps = {
+  name: string
   aliases: Record<MappingField, string[]>
   values: Record<MappingField, string>
   files: SampleFile[]
+  onNameChange: (value: string) => void
   onAliasesChange: Dispatch<SetStateAction<Record<MappingField, string[]>>>
   onValuesChange: Dispatch<SetStateAction<Record<MappingField, string>>>
   onFilesChange: Dispatch<SetStateAction<SampleFile[]>>
   showDropzone?: boolean
   title?: string
   description?: string
-  fieldErrors?: Partial<Record<MappingField, string>>
+  fieldErrors?: Partial<Record<FormField, string>>
 }
 
 export function MappingPanel({
+  name,
   aliases,
   values,
   files,
+  onNameChange,
   onAliasesChange,
   onValuesChange,
   onFilesChange,
@@ -64,6 +71,14 @@ export function MappingPanel({
       ) : null}
 
       <div className="flex flex-col gap-4">
+        <TextField
+          id="mapping-name"
+          label="Name"
+          value={name}
+          error={fieldErrors?.name}
+          placeholder="Eg. Charles Schwab, Vanguard, etc."
+          onChange={onNameChange}
+        />
         {MAPPING_FIELDS.map((field) => (
           <CreatableCombobox
             key={field}

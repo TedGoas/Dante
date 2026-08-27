@@ -3,7 +3,11 @@ import { useState, type Dispatch, type SetStateAction } from 'react'
 import { AppShell } from '@/components/AppShell'
 import { ErrorDetailSheet } from '@/components/ErrorDetailSheet'
 import { MappingChips } from '@/components/MappingChips'
-import { MappingPanel, MAPPING_FIELDS } from '@/components/MappingPanel'
+import {
+  MappingPanel,
+  MAPPING_FIELDS,
+  type FormField,
+} from '@/components/MappingPanel'
 import { SampleDropzone } from '@/components/SampleDropzone'
 import { ValidationTable } from '@/components/ValidationTable'
 import { Button } from '@/components/ui/button'
@@ -16,7 +20,7 @@ import {
 
 type LayoutMode = 'a' | 'b' | 'c'
 type Phase = 'map' | 'validate'
-type FieldErrors = Partial<Record<MappingField, string>>
+type FieldErrors = Partial<Record<FormField, string>>
 
 const REQUIRED_MESSAGE = 'This field is required.'
 
@@ -43,9 +47,13 @@ function cloneAliases() {
 }
 
 function requiredFieldErrors(
+  name: string,
   nextValues: Record<MappingField, string>
 ): FieldErrors {
   const errors: FieldErrors = {}
+  if (!name.trim()) {
+    errors.name = REQUIRED_MESSAGE
+  }
   for (const field of MAPPING_FIELDS) {
     if (!nextValues[field].trim()) {
       errors[field] = REQUIRED_MESSAGE
@@ -57,6 +65,7 @@ function requiredFieldErrors(
 export default function App() {
   const [layoutMode, setLayoutMode] = useState<LayoutMode>('b')
   const [phase, setPhase] = useState<Phase>('map')
+  const [name, setName] = useState('')
   const [aliases, setAliases] = useState(cloneAliases)
   const [values, setValues] = useState(EMPTY_VALUES)
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({})
@@ -70,6 +79,18 @@ export default function App() {
   const tableEmpty = !showValidateWorkspace || !hasSample
   const emptyReason: 'awaiting-continue' | 'awaiting-sample' =
     !showValidateWorkspace ? 'awaiting-continue' : 'awaiting-sample'
+
+  function handleNameChange(next: string) {
+    setName(next)
+    if (next.trim()) {
+      setFieldErrors((errors) => {
+        if (!errors.name) return errors
+        const cleared = { ...errors }
+        delete cleared.name
+        return cleared
+      })
+    }
+  }
 
   function handleValuesChange(update: SetStateAction<Record<MappingField, string>>) {
     setValues((current) => {
@@ -95,6 +116,7 @@ export default function App() {
 
   function handleReset() {
     setPhase('map')
+    setName('')
     setAliases(cloneAliases())
     setValues(EMPTY_VALUES)
     setFieldErrors({})
@@ -113,7 +135,7 @@ export default function App() {
   }
 
   function handleContinue() {
-    const errors = requiredFieldErrors(values)
+    const errors = requiredFieldErrors(name, values)
     if (Object.keys(errors).length > 0) {
       setFieldErrors(errors)
       return
@@ -130,6 +152,7 @@ export default function App() {
 
   const shared = {
     phase,
+    name,
     aliases,
     values,
     files,
@@ -138,6 +161,7 @@ export default function App() {
     emptyReason,
     selectedId: selected?.id,
     fieldErrors,
+    onNameChange: handleNameChange,
     onAliasesChange: setAliases,
     onValuesChange: handleValuesChange,
     onFilesChange: setFiles,
@@ -202,6 +226,7 @@ export default function App() {
 
 type LayoutSharedProps = {
   phase: Phase
+  name: string
   aliases: Record<MappingField, string[]>
   values: Record<MappingField, string>
   files: SampleFile[]
@@ -210,6 +235,7 @@ type LayoutSharedProps = {
   emptyReason: 'awaiting-continue' | 'awaiting-sample'
   selectedId?: string
   fieldErrors: FieldErrors
+  onNameChange: (value: string) => void
   onAliasesChange: Dispatch<SetStateAction<Record<MappingField, string[]>>>
   onValuesChange: Dispatch<SetStateAction<Record<MappingField, string>>>
   onFilesChange: Dispatch<SetStateAction<SampleFile[]>>
@@ -220,6 +246,7 @@ type LayoutSharedProps = {
 
 function LayoutA({
   phase,
+  name,
   aliases,
   values,
   files,
@@ -228,6 +255,7 @@ function LayoutA({
   emptyReason,
   selectedId,
   fieldErrors,
+  onNameChange,
   onAliasesChange,
   onValuesChange,
   onFilesChange,
@@ -242,10 +270,12 @@ function LayoutA({
           Step 1 of 2 · Mapping
         </p>
         <MappingPanel
+          name={name}
           aliases={aliases}
           values={values}
           files={files}
           fieldErrors={fieldErrors}
+          onNameChange={onNameChange}
           onAliasesChange={onAliasesChange}
           onValuesChange={onValuesChange}
           onFilesChange={onFilesChange}
@@ -276,9 +306,11 @@ function LayoutA({
       </div>
       <div className="grid gap-10 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)]">
         <MappingPanel
+          name={name}
           aliases={aliases}
           values={values}
           files={files}
+          onNameChange={onNameChange}
           onAliasesChange={onAliasesChange}
           onValuesChange={onValuesChange}
           onFilesChange={onFilesChange}
@@ -298,6 +330,7 @@ function LayoutA({
 
 function LayoutB({
   phase,
+  name,
   aliases,
   values,
   files,
@@ -306,6 +339,7 @@ function LayoutB({
   emptyReason,
   selectedId,
   fieldErrors,
+  onNameChange,
   onAliasesChange,
   onValuesChange,
   onFilesChange,
@@ -316,10 +350,12 @@ function LayoutB({
     return (
       <div className="flex max-w-xl flex-col gap-6">
         <MappingPanel
+          name={name}
           aliases={aliases}
           values={values}
           files={files}
           fieldErrors={fieldErrors}
+          onNameChange={onNameChange}
           onAliasesChange={onAliasesChange}
           onValuesChange={onValuesChange}
           onFilesChange={onFilesChange}
@@ -338,9 +374,11 @@ function LayoutB({
   return (
     <div className="grid gap-10 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)]">
       <MappingPanel
+        name={name}
         aliases={aliases}
         values={values}
         files={files}
+        onNameChange={onNameChange}
         onAliasesChange={onAliasesChange}
         onValuesChange={onValuesChange}
         onFilesChange={onFilesChange}
@@ -360,6 +398,7 @@ function LayoutB({
 
 function LayoutC({
   phase,
+  name,
   aliases,
   values,
   files,
@@ -368,6 +407,7 @@ function LayoutC({
   emptyReason,
   selectedId,
   fieldErrors,
+  onNameChange,
   onAliasesChange,
   onValuesChange,
   onFilesChange,
@@ -382,10 +422,12 @@ function LayoutC({
           Step 1 of 2 · Mapping
         </p>
         <MappingPanel
+          name={name}
           aliases={aliases}
           values={values}
           files={files}
           fieldErrors={fieldErrors}
+          onNameChange={onNameChange}
           onAliasesChange={onAliasesChange}
           onValuesChange={onValuesChange}
           onFilesChange={onFilesChange}
@@ -416,8 +458,10 @@ function LayoutC({
       </div>
 
       <MappingChips
+        name={name}
         aliases={aliases}
         values={values}
+        onNameChange={onNameChange}
         onAliasesChange={onAliasesChange}
         onValuesChange={onValuesChange}
       />
