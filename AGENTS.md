@@ -317,9 +317,12 @@ the static site and/or serving it locally. Cloud agents build/run reliably here 
   `package.json`.
 
 ### Commands (defined in `package.json`)
-- Dev server (live reload): `npm start` — Eleventy's built-in dev server on
-  `http://localhost:8080`.
-- Production build: `npm run build` — outputs to `dist/`.
+- Dev server (live reload): `npm start` — Eleventy on `http://localhost:8080`, plus the WorkOS
+  Vite app with HMR on `http://localhost:5173/workos/`.
+- WorkOS only (hot reload): `npm run start:workos` — open `http://localhost:5173/workos/` in
+  Chrome (or any browser). Do **not** use `http://localhost:8080/workos/` while iterating; that
+  path is the production build output and will not hot-reload.
+- Production build: `npm run build` — outputs to `dist/` (includes `dist/workos/`).
 - No lint step and no tests exist in this repo.
 
 ### Non-obvious notes
