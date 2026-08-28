@@ -296,9 +296,8 @@ export default function App() {
           <h1 className="page-title text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl">
             Broker Configuration
           </h1>
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Set how a brokerage names ticker, order, quantity, and price, then
-            test the mapping with a sample before going live.
+          <p className="mt-3 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Add a new brokerage and test the mapping before it goes live.
           </p>
         </header>
 
