@@ -101,7 +101,7 @@
   }
 
   .layout-b--results {
-    grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 16.5rem) minmax(0, 1fr);
     grid-template-areas:
       'intro .'
       'form stage';
