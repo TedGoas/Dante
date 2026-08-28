@@ -68,7 +68,7 @@ export function ValidationTable({
                     <FieldStatusCell cell={row.quantity} />
                   </TableCell>
                   <TableCell>
-                    <FieldStatusCell cell={row.price} />
+                    <FieldStatusCell cell={row.price} valuePrefix="$" />
                   </TableCell>
                 </TableRow>
               ))}

@@ -38,11 +38,17 @@ const EMPTY_VALUES: Record<MappingField, string> = {
   price: '',
 }
 
+const DEFAULT_NAME = 'Example Broker'
+
 const VALID_MAPPING_VALUES: Record<MappingField, string> = {
   ticker: ALIAS_SEEDS.ticker[0],
   order: ALIAS_SEEDS.order[0],
   quantity: ALIAS_SEEDS.quantity[0],
   price: ALIAS_SEEDS.price[0],
+}
+
+function defaultMappingValues(): Record<MappingField, string> {
+  return { ...VALID_MAPPING_VALUES }
 }
 
 /** Field left blank when simulating incomplete sample parsing. */
@@ -80,9 +86,9 @@ function requiredFieldErrors(
 
 function clearFormState() {
   return {
-    name: '',
+    name: DEFAULT_NAME,
     aliases: cloneAliases(),
-    values: EMPTY_VALUES,
+    values: defaultMappingValues(),
     fieldErrors: {} as FieldErrors,
     files: [] as SampleFile[],
   }
@@ -91,9 +97,9 @@ function clearFormState() {
 export default function App() {
   const [layoutMode, setLayoutMode] = useState<LayoutMode>('single-screen')
   const [phase, setPhase] = useState<Phase>('map')
-  const [name, setName] = useState('')
+  const [name, setName] = useState(DEFAULT_NAME)
   const [aliases, setAliases] = useState(cloneAliases)
-  const [values, setValues] = useState(EMPTY_VALUES)
+  const [values, setValues] = useState(defaultMappingValues)
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({})
   const [files, setFiles] = useState<SampleFile[]>([])
   const [sheetOpen, setSheetOpen] = useState(false)

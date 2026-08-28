@@ -9,7 +9,7 @@ function CellBadge({ status }: { status: CellStatus }) {
   return (
     <span
       className={cn(
-        'inline-flex size-6 shrink-0 items-center justify-center rounded-status',
+        'inline-flex size-5 shrink-0 items-center justify-center rounded-status',
         ok
           ? 'bg-status-ok-bg text-status-ok-fg'
           : 'bg-status-fail-bg text-status-fail-fg'
@@ -17,9 +17,9 @@ function CellBadge({ status }: { status: CellStatus }) {
       aria-hidden="true"
     >
       {ok ? (
-        <Check className="size-3.5" strokeWidth={2.5} />
+        <Check size={12} strokeWidth={2.5} />
       ) : (
-        <X className="size-3.5" strokeWidth={2.5} />
+        <X size={12} strokeWidth={2.5} />
       )}
     </span>
   )
@@ -28,9 +28,11 @@ function CellBadge({ status }: { status: CellStatus }) {
 export function FieldStatusCell({
   cell,
   className,
+  valuePrefix,
 }: {
   cell: FieldCell
   className?: string
+  valuePrefix?: string
 }) {
   return (
     <span
@@ -40,7 +42,10 @@ export function FieldStatusCell({
       )}
     >
       <CellBadge status={cell.status} />
-      <span>{cell.value}</span>
+      <span>
+        {valuePrefix}
+        {cell.value}
+      </span>
     </span>
   )
 }
