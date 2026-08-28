@@ -1,50 +1,4 @@
-/* NYSE — current WorkOS prototype look */
-[data-theme='nyse'] {
-  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
-    Helvetica, Arial, sans-serif;
-  --color-ice-blue: #00a3ff;
-  --color-ice-blue-dark: #0088d6;
-  --color-nyse-ink: #000000;
-  --color-nyse-muted: #5a5a5a;
-  --color-nyse-border: #d9d9d9;
-  --color-nyse-surface: #f5f5f5;
-  --color-nyse-nav: #f2f1ee;
-  --color-nyse-pass: #00875a;
-  --color-nyse-pass-bg: transparent;
-  --color-nyse-warn: #b78103;
-  --color-nyse-warn-bg: transparent;
-  --color-nyse-fail: #c9372c;
-  --color-nyse-fail-bg: transparent;
-  --color-background: #ffffff;
-  --color-foreground: #000000;
-  --color-border: #d9d9d9;
-  --color-ring: #00a3ff;
-  --color-muted: #f5f5f5;
-  --color-muted-foreground: #5a5a5a;
-  --color-accent: #eef8ff;
-  --color-accent-foreground: #000000;
-  --color-primary: #000000;
-  --color-primary-foreground: #ffffff;
-  --color-secondary: #f5f5f5;
-  --color-secondary-foreground: #000000;
-  --color-destructive: #c9372c;
-  --color-popover: #ffffff;
-  --color-popover-foreground: #000000;
-  --color-card: #ffffff;
-  --color-card-foreground: #000000;
-  --radius-sm: 0px;
-  --radius-md: 0px;
-  --radius-lg: 0px;
-  --radius-status: 0.375rem;
-  --color-status-ok-bg: #d8eedf;
-  --color-status-ok-fg: #1f7a45;
-  --color-status-fail-bg: #f6d9d6;
-  --color-status-fail-fg: #c9372c;
-  --color-dropzone-surface: #fafafa;
-}
-
-/* Ted's Visual Taste */
-[data-theme='ted'] {
+:root {
   --font-sans: 'Geist', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --color-ice-blue: #00a3ff;
   --color-ice-blue-dark: #0088d6;
@@ -88,24 +42,14 @@
   --color-dropzone-surface: #fafafa;
 }
 
-/* Validation table — shared */
 .validation-table__frame {
   width: 100%;
   overflow: hidden;
   border-radius: var(--radius-table);
-  border: 1px solid color-mix(in srgb, var(--color-nyse-ink) 20%, transparent);
+  border: 1px solid var(--color-table-border);
 }
 
 .validation-table__frame [data-slot='table-head'] {
-  background: color-mix(in srgb, var(--color-muted) 65%, var(--color-background));
-}
-
-/* Validation table — Ted's Taste */
-[data-theme='ted'] .validation-table__frame {
-  border-color: var(--color-table-border);
-}
-
-[data-theme='ted'] .validation-table__frame [data-slot='table-head'] {
   height: auto;
   padding: 0.875rem 1.25rem;
   font-size: 0.875rem;
@@ -113,17 +57,18 @@
   letter-spacing: normal;
   text-transform: none;
   color: var(--color-muted-foreground);
+  background: color-mix(in srgb, var(--color-muted) 65%, var(--color-background));
 }
 
-[data-theme='ted'] .validation-table__frame [data-slot='table-cell'] {
+.validation-table__frame [data-slot='table-cell'] {
   padding: 1rem 1.25rem;
 }
 
-[data-theme='ted'] .validation-table__frame [data-slot='table-header'] tr,
-[data-theme='ted'] .validation-table__frame [data-slot='table-row'] {
+.validation-table__frame [data-slot='table-header'] tr,
+.validation-table__frame [data-slot='table-row'] {
   border-color: var(--color-table-border);
 }
 
-[data-theme='ted'] .validation-table__frame [data-slot='table-header'] tr {
+.validation-table__frame [data-slot='table-header'] tr {
   border-bottom-width: 1px;
 }

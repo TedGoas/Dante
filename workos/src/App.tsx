@@ -7,7 +7,6 @@ import {
   MAPPING_FIELDS,
   type FormField,
 } from '@/components/MappingPanel'
-import { SampleDropzone } from '@/components/SampleDropzone'
 import { ValidationTable } from '@/components/ValidationTable'
 import { Button } from '@/components/ui/button'
 import { ALIAS_SEEDS, FIELD_LABELS, type MappingField } from '@/data/aliases'
@@ -21,26 +20,8 @@ import {
   type ValidationRow,
   type ValidationScenario,
 } from '@/data/validationRows'
-import {
-  applyTheme,
-  DEFAULT_THEME,
-  THEME_OPTIONS,
-  type ThemeId,
-} from '@/lib/theme'
 
-type LayoutMode = 'multi-screen' | 'single-screen'
-type Phase = 'map' | 'validate'
 type FieldErrors = Partial<Record<FormField, string>>
-
-const REQUIRED_MESSAGE = 'This field is required.'
-const UNMAPPED_MESSAGE = 'Could not map this field.'
-
-const EMPTY_VALUES: Record<MappingField, string> = {
-  ticker: '',
-  order: '',
-  quantity: '',
-  price: '',
-}
 
 const DEFAULT_NAME = 'Example Broker'
 
@@ -55,15 +36,7 @@ function defaultMappingValues(): Record<MappingField, string> {
   return { ...VALID_MAPPING_VALUES }
 }
 
-/** Field left blank when simulating incomplete sample parsing. */
-const UNMAPPED_FIELD: MappingField = 'price'
-
 const RETEST_DELAY_MS = 1500
-
-const LAYOUT_OPTIONS: { value: LayoutMode; label: string }[] = [
-  { value: 'multi-screen', label: 'MultiScreen' },
-  { value: 'single-screen', label: 'SingleScreen' },
-]
 
 function cloneAliases() {
   return {
@@ -72,22 +45,6 @@ function cloneAliases() {
     quantity: [...ALIAS_SEEDS.quantity],
     price: [...ALIAS_SEEDS.price],
   }
-}
-
-function requiredFieldErrors(
-  name: string,
-  nextValues: Record<MappingField, string>
-): FieldErrors {
-  const errors: FieldErrors = {}
-  if (!name.trim()) {
-    errors.name = REQUIRED_MESSAGE
-  }
-  for (const field of MAPPING_FIELDS) {
-    if (!nextValues[field].trim()) {
-      errors[field] = REQUIRED_MESSAGE
-    }
-  }
-  return errors
 }
 
 function clearFormState() {
@@ -101,8 +58,6 @@ function clearFormState() {
 }
 
 export default function App() {
-  const [layoutMode, setLayoutMode] = useState<LayoutMode>('single-screen')
-  const [phase, setPhase] = useState<Phase>('map')
   const [name, setName] = useState(DEFAULT_NAME)
   const [aliases, setAliases] = useState(cloneAliases)
   const [values, setValues] = useState(defaultMappingValues)
@@ -112,12 +67,7 @@ export default function App() {
   const [resultsScenario, setResultsScenario] =
     useState<ValidationScenario>('column-fail')
   const [isRetesting, setIsRetesting] = useState(false)
-  const [theme, setTheme] = useState<ThemeId>(DEFAULT_THEME)
   const retestTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
-
-  useEffect(() => {
-    applyTheme(theme)
-  }, [theme])
 
   useEffect(() => {
     return () => {
@@ -127,14 +77,7 @@ export default function App() {
     }
   }, [])
 
-  const showResults =
-    layoutMode === 'single-screen' || phase === 'validate'
-  const rows = showResults ? getValidationRows(resultsScenario) : []
-  const tableEmpty = layoutMode === 'single-screen' ? false : phase !== 'validate'
-  const emptyReason: 'awaiting-continue' | 'awaiting-sample' =
-    layoutMode === 'single-screen' || phase === 'validate'
-      ? 'awaiting-sample'
-      : 'awaiting-continue'
+  const rows = getValidationRows(resultsScenario)
 
   function handleNameChange(next: string) {
     setName(next)
@@ -164,43 +107,6 @@ export default function App() {
     })
   }
 
-  function handleSimulateValid() {
-    setValues({ ...VALID_MAPPING_VALUES })
-    setFieldErrors((errors) => {
-      const cleared = { ...errors }
-      for (const field of MAPPING_FIELDS) {
-        delete cleared[field]
-      }
-      return cleared
-    })
-  }
-
-  function handleSimulateIncomplete() {
-    setValues({
-      ...VALID_MAPPING_VALUES,
-      [UNMAPPED_FIELD]: '',
-    })
-    setFieldErrors((errors) => {
-      const next = { ...errors }
-      for (const field of MAPPING_FIELDS) {
-        delete next[field]
-      }
-      next[UNMAPPED_FIELD] = UNMAPPED_MESSAGE
-      return next
-    })
-  }
-
-  function handleClearInputs() {
-    setValues(EMPTY_VALUES)
-    setFieldErrors((errors) => {
-      const cleared = { ...errors }
-      for (const field of MAPPING_FIELDS) {
-        delete cleared[field]
-      }
-      return cleared
-    })
-  }
-
   function handleReset() {
     if (retestTimeoutRef.current) {
       clearTimeout(retestTimeoutRef.current)
@@ -215,36 +121,6 @@ export default function App() {
     setSheetOpen(false)
     setResultsScenario('column-fail')
     setIsRetesting(false)
-    if (layoutMode === 'multi-screen') {
-      setPhase('map')
-    }
-  }
-
-  function handleLayoutChange(next: LayoutMode) {
-    if (retestTimeoutRef.current) {
-      clearTimeout(retestTimeoutRef.current)
-      retestTimeoutRef.current = null
-    }
-    setLayoutMode(next)
-    setFieldErrors({})
-    setFiles([])
-    setSheetOpen(false)
-    setResultsScenario('column-fail')
-    setIsRetesting(false)
-    if (next === 'multi-screen') {
-      setPhase('map')
-    }
-  }
-
-  function handleContinue(): boolean {
-    const errors = requiredFieldErrors(name, values)
-    if (Object.keys(errors).length > 0) {
-      setFieldErrors(errors)
-      return false
-    }
-    setFieldErrors({})
-    setPhase('validate')
-    return true
   }
 
   function handleOpenQuantityMismatch() {
@@ -285,34 +161,6 @@ export default function App() {
     }, RETEST_DELAY_MS)
   }
 
-  const validateProps: ValidateWorkspaceProps = {
-    name,
-    aliases,
-    values,
-    files,
-    rows,
-    tableEmpty,
-    emptyReason,
-    fieldErrors,
-    onNameChange: handleNameChange,
-    onAliasesChange: setAliases,
-    onValuesChange: handleValuesChange,
-    onFilesChange: setFiles,
-    isRetesting,
-    onRetest: handleRetest,
-    onNullQuantityClick:
-      resultsScenario === 'column-fail' ? handleOpenQuantityMismatch : undefined,
-  }
-
-  const multiScreenProps: MultiScreenProps = {
-    ...validateProps,
-    phase,
-    onSimulateValid: handleSimulateValid,
-    onSimulateIncomplete: handleSimulateIncomplete,
-    onClearInputs: handleClearInputs,
-    onContinue: handleContinue,
-  }
-
   return (
     <AppShell
       drawerOpen={sheetOpen}
@@ -328,45 +176,13 @@ export default function App() {
         />
       }
       footer={
-        <>
-          <button
-            type="button"
-            onClick={handleReset}
-            className="self-start cursor-pointer text-sm text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
-          >
-            Reset prototype
-          </button>
-          <label className="flex flex-col gap-1.5 text-sm text-muted-foreground">
-            <span>Version</span>
-            <select
-              value={layoutMode}
-              onChange={(event) =>
-                handleLayoutChange(event.target.value as LayoutMode)
-              }
-              className="h-9 max-w-full border border-border bg-background px-2 text-sm text-foreground"
-            >
-              {LAYOUT_OPTIONS.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label className="flex flex-col gap-1.5 text-sm text-muted-foreground">
-            <span>Theme</span>
-            <select
-              value={theme}
-              onChange={(event) => setTheme(event.target.value as ThemeId)}
-              className="h-9 max-w-full border border-border bg-background px-2 text-sm text-foreground"
-            >
-              {THEME_OPTIONS.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </label>
-        </>
+        <button
+          type="button"
+          onClick={handleReset}
+          className="self-start cursor-pointer text-sm text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
+        >
+          Reset prototype
+        </button>
       }
     >
       <div className="flex w-full flex-col gap-workos">
@@ -379,11 +195,23 @@ export default function App() {
           </p>
         </header>
 
-        {layoutMode === 'multi-screen' ? (
-          <MultiScreen {...multiScreenProps} />
-        ) : (
-          <SingleScreen {...validateProps} />
-        )}
+        <ValidateWorkspace
+          name={name}
+          aliases={aliases}
+          values={values}
+          files={files}
+          rows={rows}
+          fieldErrors={fieldErrors}
+          onNameChange={handleNameChange}
+          onAliasesChange={setAliases}
+          onValuesChange={handleValuesChange}
+          onFilesChange={setFiles}
+          isRetesting={isRetesting}
+          onRetest={handleRetest}
+          onNullQuantityClick={
+            resultsScenario === 'column-fail' ? handleOpenQuantityMismatch : undefined
+          }
+        />
       </div>
     </AppShell>
   )
@@ -395,8 +223,6 @@ type ValidateWorkspaceProps = {
   values: Record<MappingField, string>
   files: SampleFile[]
   rows: ValidationRow[]
-  tableEmpty: boolean
-  emptyReason: 'awaiting-continue' | 'awaiting-sample'
   fieldErrors: FieldErrors
   onNameChange: (value: string) => void
   onAliasesChange: Dispatch<SetStateAction<Record<MappingField, string[]>>>
@@ -407,22 +233,12 @@ type ValidateWorkspaceProps = {
   onNullQuantityClick?: () => void
 }
 
-type MultiScreenProps = ValidateWorkspaceProps & {
-  phase: Phase
-  onSimulateValid: () => void
-  onSimulateIncomplete: () => void
-  onClearInputs: () => void
-  onContinue: () => boolean
-}
-
 function ValidateWorkspace({
   name,
   aliases,
   values,
   files,
   rows,
-  tableEmpty,
-  emptyReason,
   fieldErrors,
   onNameChange,
   onAliasesChange,
@@ -467,85 +283,10 @@ function ValidateWorkspace({
       <div className="layout-b__stage">
         <ValidationTable
           rows={rows}
-          empty={tableEmpty}
-          emptyReason={emptyReason}
           loading={isRetesting}
           onNullQuantityClick={onNullQuantityClick}
         />
       </div>
     </div>
   )
-}
-
-function MultiScreen({
-  phase,
-  onSimulateValid,
-  onSimulateIncomplete,
-  onClearInputs,
-  onContinue,
-  ...validateWorkspaceProps
-}: MultiScreenProps) {
-  if (phase === 'validate') {
-    return <ValidateWorkspace {...validateWorkspaceProps} />
-  }
-
-  const {
-    name,
-    aliases,
-    values,
-    files,
-    fieldErrors,
-    onNameChange,
-    onAliasesChange,
-    onValuesChange,
-    onFilesChange,
-  } = validateWorkspaceProps
-
-  return (
-    <div className="layout-b layout-b--configure">
-      <div className="layout-b__intro">
-        <h2 className="text-lg font-bold tracking-tight text-foreground">
-          Configuration
-        </h2>
-        <p className="mt-1 text-sm text-muted-foreground">
-          Enter a name and map ticker, order, quantity, and price. Type them
-          in, or use a sample on the right to fill the fields.
-        </p>
-      </div>
-      <div className="layout-b__form">
-        <MappingPanel
-          name={name}
-          aliases={aliases}
-          values={values}
-          files={files}
-          fieldErrors={fieldErrors}
-          onNameChange={onNameChange}
-          onAliasesChange={onAliasesChange}
-          onValuesChange={onValuesChange}
-          onFilesChange={onFilesChange}
-          showHeader={false}
-        />
-        <div>
-          <Button type="button" onClick={() => onContinue()}>
-            Continue
-          </Button>
-        </div>
-      </div>
-      <div className="layout-b__stage">
-        <SampleDropzone
-          mode="simulate"
-          fill
-          heading="Drop a sample or transcript"
-          description="Optional. Use a sample to fill the mapping fields on the left."
-          onSimulateValid={onSimulateValid}
-          onSimulateIncomplete={onSimulateIncomplete}
-          onClearInputs={onClearInputs}
-        />
-      </div>
-    </div>
-  )
-}
-
-function SingleScreen(props: ValidateWorkspaceProps) {
-  return <ValidateWorkspace {...props} />
 }

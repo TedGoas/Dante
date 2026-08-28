@@ -10,6 +10,10 @@ const NAV_ITEMS = [
   { label: 'Settings', active: false },
 ] as const
 
+/** Shared inset for logo, nav, and footer — aside stays flush; padding lives on items. */
+const sidebarInset =
+  'border-l-4 border-transparent pl-5 pr-5'
+
 export function AppShell({
   children,
   footer,
@@ -23,8 +27,8 @@ export function AppShell({
 }) {
   return (
     <div className="flex min-h-screen bg-background">
-      <aside className="flex w-56 shrink-0 flex-col border-r border-border bg-nyse-nav py-workos pr-workos">
-        <div className="mb-12 pl-workos">
+      <aside className="flex w-56 shrink-0 flex-col border-r border-border bg-nyse-nav py-workos">
+        <div className={cn('mb-12', sidebarInset)}>
           <NyseLogo className="h-8 w-auto" />
         </div>
         <nav aria-label="Broker settings">
@@ -35,14 +39,18 @@ export function AppShell({
                   <a
                     href="/workos/"
                     aria-current="page"
-                    className="block border-l-4 border-ice-blue pl-5 text-sm font-bold text-foreground"
+                    className={cn(
+                      sidebarInset,
+                      'block border-ice-blue text-sm font-bold text-foreground'
+                    )}
                   >
                     {item.label}
                   </a>
                 ) : (
                   <span
                     className={cn(
-                      'block border-l-4 border-transparent pl-5 text-sm font-normal text-muted-foreground'
+                      sidebarInset,
+                      'block text-sm font-normal text-muted-foreground'
                     )}
                   >
                     {item.label}
@@ -53,8 +61,8 @@ export function AppShell({
           </ul>
         </nav>
         {footer ? (
-          <div className="mt-auto flex flex-col gap-3 border-t border-border pl-workos pt-workos">
-            {footer}
+          <div className="mt-auto border-t border-border pt-workos">
+            <div className={sidebarInset}>{footer}</div>
           </div>
         ) : null}
       </aside>
