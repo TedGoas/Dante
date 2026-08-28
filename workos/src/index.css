@@ -43,6 +43,7 @@
   --color-status-fail-fg: #c9372c;
   --color-dropzone-surface: #fafafa;
   --spacing-workos: 2.5rem;
+  --radius-table: 8px;
 }
 
 @layer base {

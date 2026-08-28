@@ -88,17 +88,21 @@
   --color-dropzone-surface: #fafafa;
 }
 
-/* Validation table — NYSE default */
+/* Validation table — shared */
 .validation-table__frame {
   width: 100%;
-  border-top: 1px solid color-mix(in srgb, var(--color-nyse-ink) 20%, transparent);
+  overflow: hidden;
+  border-radius: var(--radius-table);
+  border: 1px solid color-mix(in srgb, var(--color-nyse-ink) 20%, transparent);
+}
+
+.validation-table__frame [data-slot='table-head'] {
+  background: color-mix(in srgb, var(--color-muted) 65%, var(--color-background));
 }
 
 /* Validation table — Ted's Taste */
 [data-theme='ted'] .validation-table__frame {
-  overflow: hidden;
-  border: 1px solid var(--color-table-border);
-  border-top: 1px solid var(--color-table-border);
+  border-color: var(--color-table-border);
 }
 
 [data-theme='ted'] .validation-table__frame [data-slot='table-head'] {
