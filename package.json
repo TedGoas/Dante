@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"description": "Ted Goas is a reliable product designer and front-end developer working on websites, applications, and HTML emails.",
 	"scripts": {
+		"postinstall": "npm install --prefix workos",
 		"clean": "rimraf dist",
 		"eleventy:serve": "cross-env NODE_ENV=development eleventy --serve",
 		"eleventy:watch": "cross-env NODE_ENV=development eleventy --watch",
