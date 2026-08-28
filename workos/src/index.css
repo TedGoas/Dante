@@ -137,16 +137,20 @@
   }
 
   .layout-b--results {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 16.5rem);
+    grid-template-columns: minmax(0, 16.5rem) minmax(0, 1fr);
     grid-template-areas:
-      'title .'
-      'stage form'
+      'config-title results-title'
+      'form stage'
       'simulation simulation';
     align-items: start;
   }
 
+  .layout-b__config-title {
+    grid-area: config-title;
+  }
+
   .layout-b__results-title {
-    grid-area: title;
+    grid-area: results-title;
   }
 
   .layout-b__intro {

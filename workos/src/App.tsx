@@ -356,20 +356,13 @@ function ValidateWorkspace({
 }: ValidateWorkspaceProps) {
   return (
     <div className="layout-b layout-b--results">
+      <h2 className="layout-b__config-title text-lg font-bold tracking-tight text-foreground">
+        Configuration
+      </h2>
       <h2 className="layout-b__results-title text-lg font-bold tracking-tight text-foreground">
         Results of exampleOrder.js
       </h2>
-      <div className="layout-b__stage">
-        <ValidationTable
-          rows={rows}
-          empty={tableEmpty}
-          emptyReason={emptyReason}
-        />
-      </div>
       <div className="layout-b__form">
-        <h3 className="text-sm font-semibold text-muted-foreground">
-          Configuration
-        </h3>
         <MappingPanel
           name={name}
           aliases={aliases}
@@ -381,6 +374,13 @@ function ValidateWorkspace({
           onValuesChange={onValuesChange}
           onFilesChange={onFilesChange}
           showHeader={false}
+        />
+      </div>
+      <div className="layout-b__stage">
+        <ValidationTable
+          rows={rows}
+          empty={tableEmpty}
+          emptyReason={emptyReason}
         />
       </div>
       <div className="layout-b__simulation">
