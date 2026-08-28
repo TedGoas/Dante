@@ -293,7 +293,7 @@ export default function App() {
     >
       <div className="flex w-full flex-col gap-workos">
         <header className="max-w-2xl">
-          <h1 className="text-3xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-4xl">
+          <h1 className="page-title text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl">
             Broker Configuration
           </h1>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">

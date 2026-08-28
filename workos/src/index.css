@@ -44,6 +44,8 @@
   --color-dropzone-surface: #fafafa;
   --spacing-workos: 2.5rem;
   --radius-table: 8px;
+  --page-title-accent-height: 4px;
+  --color-page-title-accent: color-mix(in srgb, var(--color-ice-blue) 45%, white);
 }
 
 @layer base {
@@ -70,6 +72,16 @@
     background: var(--color-background);
     -webkit-font-smoothing: antialiased;
   }
+}
+
+/* NYSE-style page title accent — spaced underline with skip-ink */
+.page-title {
+  display: inline-block;
+  text-decoration-line: underline;
+  text-decoration-color: var(--color-page-title-accent);
+  text-decoration-thickness: var(--page-title-accent-height);
+  text-underline-offset: 0.1em;
+  text-decoration-skip-ink: auto;
 }
 
 /* MultiScreen / SingleScreen two-column layout */
