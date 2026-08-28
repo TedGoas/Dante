@@ -1,4 +1,4 @@
-import { StatusCell, StatusLegend } from '@/components/StatusIcon'
+import { FieldStatusCell } from '@/components/StatusIcon'
 import {
   Table,
   TableBody,
@@ -7,8 +7,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import type { ValidationRow } from '@/data/validationRows'
-import { cn } from '@/lib/utils'
+import type { ValidationRow, ValidationScenario } from '@/data/validationRows'
 
 export type ValidationEmptyReason = 'awaiting-continue' | 'awaiting-sample'
 
@@ -16,43 +15,56 @@ type ValidationTableProps = {
   rows: ValidationRow[]
   empty?: boolean
   emptyReason?: ValidationEmptyReason
-  selectedId?: string | null
-  onSelectRow: (row: ValidationRow) => void
-  showLegend?: boolean
+  scenario?: ValidationScenario
+  onScenarioChange?: (scenario: ValidationScenario) => void
 }
 
 export function ValidationTable({
   rows,
   empty = false,
   emptyReason = 'awaiting-sample',
-  selectedId,
-  onSelectRow,
-  showLegend = true,
+  scenario,
+  onScenarioChange,
 }: ValidationTableProps) {
   const emptyCopy =
     emptyReason === 'awaiting-continue'
       ? {
           title: 'Validation unlocks next',
-          body: 'Fill in all four field mappings, then continue to attach a sample and review results.',
+          body: 'Fill in all four field mappings, then continue to review mapped results.',
         }
       : {
           title: 'No samples validated yet',
-          body: 'Drop a sample or transcript to run the batch and populate this table.',
+          body: 'Continue from mapping to see sample results in this table.',
         }
 
   return (
     <section className="flex min-h-0 flex-1 flex-col gap-4">
-      <div>
-        <h2 className="text-lg font-bold tracking-tight text-foreground">
-          Sample validation
-        </h2>
-        <p className="mt-1 text-sm text-muted-foreground">
-          {empty
-            ? emptyReason === 'awaiting-sample'
-              ? 'Attach a sample payload to see pass, warning, and fail results.'
-              : 'Results appear after you continue and attach a sample.'
-            : 'Results from the latest sample batch. Select a warning or failure to see what went wrong.'}
-        </p>
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <h2 className="text-lg font-bold tracking-tight text-foreground">
+            Results
+          </h2>
+          <p className="mt-1 text-sm text-muted-foreground">
+            {empty ? 'Results appear after you continue.' : 'e.g. orders.js'}
+          </p>
+        </div>
+        {onScenarioChange && scenario ? (
+          <label className="flex flex-col gap-1 text-sm text-muted-foreground">
+            <span className="text-xs font-semibold uppercase tracking-[0.08em]">
+              Simulation
+            </span>
+            <select
+              value={scenario}
+              onChange={(event) =>
+                onScenarioChange(event.target.value as ValidationScenario)
+              }
+              className="h-9 border border-border bg-background px-2 text-sm text-foreground"
+            >
+              <option value="all-pass">All columns pass</option>
+              <option value="column-fail">Quantity column fails</option>
+            </select>
+          </label>
+        ) : null}
       </div>
 
       <div className="border-t border-nyse-ink/20">
@@ -66,56 +78,34 @@ export function ValidationTable({
             </p>
           </div>
         ) : (
-          <>
-            <Table>
-              <TableHeader>
-                <TableRow className="hover:bg-transparent">
-                  <TableHead>Name</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead>Notes</TableHead>
+          <Table>
+            <TableHeader>
+              <TableRow className="hover:bg-transparent">
+                <TableHead>Ticker</TableHead>
+                <TableHead>Order</TableHead>
+                <TableHead>Quantity</TableHead>
+                <TableHead>Price</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {rows.map((row) => (
+                <TableRow key={row.id} className="hover:bg-transparent">
+                  <TableCell>
+                    <FieldStatusCell cell={row.ticker} />
+                  </TableCell>
+                  <TableCell>
+                    <FieldStatusCell cell={row.order} />
+                  </TableCell>
+                  <TableCell>
+                    <FieldStatusCell cell={row.quantity} />
+                  </TableCell>
+                  <TableCell>
+                    <FieldStatusCell cell={row.price} />
+                  </TableCell>
                 </TableRow>
-              </TableHeader>
-              <TableBody>
-                {rows.map((row) => {
-                  const interactive = row.status !== 'pass'
-                  const selected = selectedId === row.id
-                  return (
-                    <TableRow
-                      key={row.id}
-                      data-state={selected ? 'selected' : undefined}
-                      className={cn(
-                        interactive && 'cursor-pointer',
-                        selected &&
-                          'bg-accent shadow-[inset_2px_0_0_0_var(--color-ice-blue)]'
-                      )}
-                      tabIndex={interactive ? 0 : undefined}
-                      onClick={() => {
-                        if (interactive) onSelectRow(row)
-                      }}
-                      onKeyDown={(event) => {
-                        if (
-                          interactive &&
-                          (event.key === 'Enter' || event.key === ' ')
-                        ) {
-                          event.preventDefault()
-                          onSelectRow(row)
-                        }
-                      }}
-                    >
-                      <TableCell className="font-semibold">{row.name}</TableCell>
-                      <TableCell>
-                        <StatusCell status={row.status} />
-                      </TableCell>
-                      <TableCell className="text-muted-foreground">
-                        {row.notes ?? '—'}
-                      </TableCell>
-                    </TableRow>
-                  )
-                })}
-              </TableBody>
-            </Table>
-            {showLegend ? <StatusLegend /> : null}
-          </>
+              ))}
+            </TableBody>
+          </Table>
         )}
       </div>
     </section>

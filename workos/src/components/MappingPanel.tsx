@@ -34,6 +34,8 @@ type MappingPanelProps = {
   dropzonePlacement?: 'none' | 'above' | 'beside-fields'
   title?: string
   description?: string
+  /** When false, render fields only (no Configuration header). */
+  showHeader?: boolean
   fieldErrors?: Partial<Record<FormField, string>>
 }
 
@@ -50,8 +52,9 @@ export function MappingPanel({
   onSimulateIncomplete,
   onClearInputs,
   dropzonePlacement = 'none',
-  title = 'Field mapping',
-  description = 'Map the brokerage’s field names to ticker, order, quantity, and price. Add a new alias if you hear one that isn’t in the list yet.',
+  title = 'Configuration',
+  description = 'Enter a name and map ticker, order, quantity, and price. Type them in, or use a sample on the right to fill the fields.',
+  showHeader = true,
   fieldErrors,
 }: MappingPanelProps) {
   function createAlias(field: MappingField, next: string) {
@@ -93,12 +96,14 @@ export function MappingPanel({
 
   return (
     <section className="flex flex-col gap-6">
-      <div>
-        <h2 className="text-lg font-bold tracking-tight text-foreground">
-          {title}
-        </h2>
-        <p className="mt-1 text-sm text-muted-foreground">{description}</p>
-      </div>
+      {showHeader ? (
+        <div className="layout-b__intro">
+          <h2 className="text-lg font-bold tracking-tight text-foreground">
+            {title}
+          </h2>
+          <p className="mt-1 text-sm text-muted-foreground">{description}</p>
+        </div>
+      ) : null}
 
       {dropzonePlacement === 'above' ? (
         <SampleDropzone files={files} onFilesChange={onFilesChange} />

@@ -17,12 +17,16 @@ type SampleDropzoneUploadProps = {
   onFilesChange: Dispatch<SetStateAction<SampleFile[]>>
   fill?: boolean
   className?: string
+  heading?: string
+  description?: string
 }
 
 type SampleDropzoneSimulateProps = {
   mode: 'simulate'
   fill?: boolean
   className?: string
+  heading?: string
+  description?: string
   onSimulateValid: () => void
   onSimulateIncomplete: () => void
   onClearInputs: () => void
@@ -35,6 +39,11 @@ export function SampleDropzone(props: SampleDropzoneProps) {
   const className = props.className
 
   if (props.mode === 'simulate') {
+    const heading = props.heading ?? 'Drop a sample or transcript'
+    const description =
+      props.description ??
+      'Optional. Use a sample to fill the mapping fields on the left.'
+
     return (
       <div
         className={cn(
@@ -56,11 +65,9 @@ export function SampleDropzone(props: SampleDropzoneProps) {
             />
             <div className="flex flex-col gap-1">
               <span className="text-sm font-semibold text-foreground">
-                Drop a sample or transcript
+                {heading}
               </span>
-              <span className="text-xs text-muted-foreground">
-                Simulate parsing a brokerage sample to fill field mappings
-              </span>
+              <span className="text-xs text-muted-foreground">{description}</span>
             </div>
           </div>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
@@ -97,6 +104,8 @@ export function SampleDropzone(props: SampleDropzoneProps) {
       onFilesChange={props.onFilesChange}
       fill={fill}
       className={className}
+      heading={props.heading}
+      description={props.description}
     />
   )
 }
@@ -106,11 +115,15 @@ function UploadDropzone({
   onFilesChange,
   fill,
   className,
+  heading = 'Drop a sample to test',
+  description = 'Drag a file here, or click to simulate an upload',
 }: {
   files: SampleFile[]
   onFilesChange: Dispatch<SetStateAction<SampleFile[]>>
   fill: boolean
   className?: string
+  heading?: string
+  description?: string
 }) {
   const [dragging, setDragging] = useState(false)
 
@@ -133,7 +146,7 @@ function UploadDropzone({
       <button
         type="button"
         className={cn(
-          'flex w-full flex-col items-center justify-center gap-2 rounded-none border border-dashed border-nyse-border bg-background px-4 text-center transition-colors',
+          'flex w-full flex-col items-center justify-center gap-2 rounded-none border border-dashed border-nyse-border bg-[#fafafa] px-4 text-center transition-colors',
           fill ? 'min-h-64 flex-1 py-10' : 'py-8',
           dragging && 'border-ice-blue bg-accent'
         )}
@@ -160,12 +173,8 @@ function UploadDropzone({
           )}
           aria-hidden="true"
         />
-        <span className="text-sm font-semibold text-foreground">
-          Drop a sample or transcript
-        </span>
-        <span className="text-xs text-muted-foreground">
-          Drag a file here, or click to simulate an upload
-        </span>
+        <span className="text-sm font-semibold text-foreground">{heading}</span>
+        <span className="text-xs text-muted-foreground">{description}</span>
       </button>
 
       {files.length > 0 ? (

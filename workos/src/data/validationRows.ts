@@ -1,124 +1,66 @@
-export type ValidationStatus = 'pass' | 'warning' | 'fail'
+export type CellStatus = 'ok' | 'fail'
+
+export type FieldCell = {
+  value: string
+  status: CellStatus
+}
 
 export type ValidationRow = {
   id: string
-  name: string
-  status: ValidationStatus
-  notes?: string
-  detail?: {
-    title: string
-    summary: string
-    field?: string
-    suggestion?: string
-  }
+  ticker: FieldCell
+  order: FieldCell
+  quantity: FieldCell
+  price: FieldCell
 }
 
-export const VALIDATION_ROWS: ValidationRow[] = [
-  {
-    id: 'ord-1001',
-    name: 'ORD-1001',
-    status: 'pass',
-  },
-  {
-    id: 'ord-1002',
-    name: 'ORD-1002',
-    status: 'pass',
-    notes: 'Mapped via symbol alias',
-  },
-  {
-    id: 'ord-1003',
-    name: 'ORD-1003',
-    status: 'warning',
-    notes: 'Unexpected casing on order field',
-    detail: {
-      title: 'Unexpected casing on order field',
-      summary:
-        'The sample used “Type” for the order field. Your mapping expects “type”. The order still validated, but casing differences can break some payloads.',
-      field: 'Order',
-      suggestion:
-        'Confirm with the brokerage whether the field is always capitalized, or add “Type” as an additional alias.',
-    },
-  },
-  {
-    id: 'ord-1004',
-    name: 'ORD-1004',
-    status: 'pass',
-  },
-  {
-    id: 'ord-1005',
-    name: 'ORD-1005',
-    status: 'fail',
-    notes: 'Quantity could not be parsed',
-    detail: {
-      title: 'Quantity could not be parsed',
-      summary:
-        'Expected a numeric quantity under “count”, but received “N/A”. Without a parseable share count, this order cannot be accepted.',
-      field: 'Quantity',
-      suggestion:
-        'Ask the brokerage for a numeric sample, or update the mapping if they send quantity under a different key.',
-    },
-  },
-  {
-    id: 'ord-1006',
-    name: 'ORD-1006',
-    status: 'pass',
-  },
-  {
-    id: 'ord-1007',
-    name: 'ORD-1007',
-    status: 'fail',
-    notes: 'Missing mapped ticker field',
-    detail: {
-      title: 'Missing mapped ticker field',
-      summary:
-        'No value was found for “stock ticker” in this sample payload. All four mapped fields are required before an order can pass.',
-      field: 'Ticker',
-      suggestion:
-        'Verify the brokerage is sending the ticker under the mapped name, or create a new alias that matches their payload.',
-    },
-  },
-  {
-    id: 'ord-1008',
-    name: 'ORD-1008',
-    status: 'warning',
-    notes: 'Price precision beyond 4 decimals',
-    detail: {
-      title: 'Price precision beyond 4 decimals',
-      summary:
-        'The sample price used 6 decimal places. NYSE typically accepts up to 4 for this order type. Extra precision was truncated for the test run.',
-      field: 'Price',
-      suggestion:
-        'Confirm whether the brokerage will round prices before send, or whether you need to support higher precision.',
-    },
-  },
-  {
-    id: 'ord-1009',
-    name: 'ORD-1009',
-    status: 'pass',
-  },
-  {
-    id: 'ord-1010',
-    name: 'ORD-1010',
-    status: 'pass',
-    notes: 'Buy side normalized',
-  },
-  {
-    id: 'ord-1011',
-    name: 'ORD-1011',
-    status: 'fail',
-    notes: 'Unknown order side value',
-    detail: {
-      title: 'Unknown order side value',
-      summary:
-        'Received “X” for the mapped order field. Supported values for this test harness are buy, sell, Buy, and Sell.',
-      field: 'Order',
-      suggestion:
-        'Ask the brokerage what “X” means in their format, then map it to a supported side or reject it upstream.',
-    },
-  },
-  {
-    id: 'ord-1012',
-    name: 'ORD-1012',
-    status: 'pass',
-  },
+export type ValidationScenario = 'all-pass' | 'column-fail'
+
+export type MappingFieldKey = 'ticker' | 'order' | 'quantity' | 'price'
+
+type BaseRow = {
+  id: string
+  ticker: string
+  order: string
+  quantity: string
+  price: string
+}
+
+/** Column that fails in the column-fail scenario (entire column red). */
+export const FAILED_COLUMN: MappingFieldKey = 'quantity'
+
+function cell(value: string, status: CellStatus = 'ok'): FieldCell {
+  return { value, status }
+}
+
+const BASE_ROWS: BaseRow[] = [
+  { id: 'ord-01', ticker: 'SNAP', order: 'BUY', quantity: '100', price: '32.01' },
+  { id: 'ord-02', ticker: 'AAPL', order: 'SELL', quantity: '50', price: '178.45' },
+  { id: 'ord-03', ticker: 'MSFT', order: 'BUY', quantity: '25', price: '412.30' },
+  { id: 'ord-04', ticker: 'TSLA', order: 'BUY', quantity: '10', price: '245.18' },
+  { id: 'ord-05', ticker: 'AMZN', order: 'SELL', quantity: '75', price: '186.02' },
+  { id: 'ord-06', ticker: 'GOOGL', order: 'BUY', quantity: '40', price: '141.75' },
+  { id: 'ord-07', ticker: 'META', order: 'SELL', quantity: '15', price: '502.10' },
+  { id: 'ord-08', ticker: 'NVDA', order: 'BUY', quantity: '8', price: '875.55' },
+  { id: 'ord-09', ticker: 'NFLX', order: 'SELL', quantity: '20', price: '421.30' },
+  { id: 'ord-10', ticker: 'AMD', order: 'BUY', quantity: '75', price: '118.90' },
 ]
+
+function buildRows(failColumn: MappingFieldKey | null): ValidationRow[] {
+  return BASE_ROWS.map((row) => ({
+    id: row.id,
+    ticker: cell(row.ticker, failColumn === 'ticker' ? 'fail' : 'ok'),
+    order: cell(row.order, failColumn === 'order' ? 'fail' : 'ok'),
+    quantity: cell(row.quantity, failColumn === 'quantity' ? 'fail' : 'ok'),
+    price: cell(row.price, failColumn === 'price' ? 'fail' : 'ok'),
+  }))
+}
+
+export function getValidationRows(scenario: ValidationScenario): ValidationRow[] {
+  if (scenario === 'all-pass') {
+    return buildRows(null)
+  }
+  return buildRows(FAILED_COLUMN)
+}
+
+/** Default rows for layouts without a scenario toggle. */
+export const VALIDATION_ROWS = getValidationRows('all-pass')
