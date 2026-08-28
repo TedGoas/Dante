@@ -7,7 +7,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import type { ValidationRow, ValidationScenario } from '@/data/validationRows'
+import type { ValidationRow } from '@/data/validationRows'
 
 export type ValidationEmptyReason = 'awaiting-continue' | 'awaiting-sample'
 
@@ -15,16 +15,12 @@ type ValidationTableProps = {
   rows: ValidationRow[]
   empty?: boolean
   emptyReason?: ValidationEmptyReason
-  scenario?: ValidationScenario
-  onScenarioChange?: (scenario: ValidationScenario) => void
 }
 
 export function ValidationTable({
   rows,
   empty = false,
   emptyReason = 'awaiting-sample',
-  scenario,
-  onScenarioChange,
 }: ValidationTableProps) {
   const emptyCopy =
     emptyReason === 'awaiting-continue'
@@ -38,35 +34,7 @@ export function ValidationTable({
         }
 
   return (
-    <section className="flex min-h-0 flex-1 flex-col gap-4">
-      <div className="flex flex-wrap items-start justify-between gap-3">
-        <div>
-          <h2 className="text-lg font-bold tracking-tight text-foreground">
-            Results
-          </h2>
-          <p className="mt-1 text-sm text-muted-foreground">
-            {empty ? 'Results appear after you continue.' : 'e.g. orders.js'}
-          </p>
-        </div>
-        {onScenarioChange && scenario ? (
-          <label className="flex flex-col gap-1 text-sm text-muted-foreground">
-            <span className="text-xs font-semibold uppercase tracking-[0.08em]">
-              Simulation
-            </span>
-            <select
-              value={scenario}
-              onChange={(event) =>
-                onScenarioChange(event.target.value as ValidationScenario)
-              }
-              className="h-9 border border-border bg-background px-2 text-sm text-foreground"
-            >
-              <option value="all-pass">All columns pass</option>
-              <option value="column-fail">Quantity column fails</option>
-            </select>
-          </label>
-        ) : null}
-      </div>
-
+    <section className="min-h-0 flex-1">
       <div className="border-t border-nyse-ink/20">
         {empty ? (
           <div className="flex min-h-64 flex-col items-start justify-center gap-2 py-12">

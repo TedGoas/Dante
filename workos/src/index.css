@@ -64,12 +64,12 @@
   }
 }
 
-/* Layout B two-column configure / validate */
+/* MultiScreen / SingleScreen two-column layout */
 .layout-b {
   display: grid;
   width: 100%;
   max-width: 64rem;
-  gap: 1.5rem 2.5rem;
+  gap: 1.5rem 5rem;
 }
 
 .layout-b__intro {
@@ -79,8 +79,14 @@
 .layout-b__form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
   min-width: 0;
+}
+
+.layout-b__simulation {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.5rem;
 }
 
 .layout-b__stage {
@@ -101,11 +107,16 @@
   }
 
   .layout-b--results {
-    grid-template-columns: minmax(0, 16.5rem) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 16.5rem);
     grid-template-areas:
-      'intro .'
-      'form stage';
+      'title .'
+      'stage form'
+      'simulation simulation';
     align-items: start;
+  }
+
+  .layout-b__results-title {
+    grid-area: title;
   }
 
   .layout-b__intro {
@@ -118,5 +129,9 @@
 
   .layout-b__stage {
     grid-area: stage;
+  }
+
+  .layout-b__simulation {
+    grid-area: simulation;
   }
 }

@@ -2,7 +2,6 @@ import { useState, type Dispatch, type SetStateAction } from 'react'
 
 import { AppShell } from '@/components/AppShell'
 import { ErrorDetailSheet } from '@/components/ErrorDetailSheet'
-import { MappingChips } from '@/components/MappingChips'
 import {
   MappingPanel,
   MAPPING_FIELDS,
@@ -19,7 +18,7 @@ import {
   type ValidationScenario,
 } from '@/data/validationRows'
 
-type LayoutMode = 'a' | 'b' | 'c'
+type LayoutMode = 'multi-screen' | 'single-screen'
 type Phase = 'map' | 'validate'
 type FieldErrors = Partial<Record<FormField, string>>
 
@@ -44,9 +43,8 @@ const VALID_MAPPING_VALUES: Record<MappingField, string> = {
 const UNMAPPED_FIELD: MappingField = 'price'
 
 const LAYOUT_OPTIONS: { value: LayoutMode; label: string }[] = [
-  { value: 'b', label: "Ted's first choice" },
-  { value: 'a', label: 'Explore 2' },
-  { value: 'c', label: 'Explore 3' },
+  { value: 'multi-screen', label: 'MultiScreen' },
+  { value: 'single-screen', label: 'SingleScreen' },
 ]
 
 function cloneAliases() {
@@ -74,8 +72,18 @@ function requiredFieldErrors(
   return errors
 }
 
+function clearFormState() {
+  return {
+    name: '',
+    aliases: cloneAliases(),
+    values: EMPTY_VALUES,
+    fieldErrors: {} as FieldErrors,
+    files: [] as SampleFile[],
+  }
+}
+
 export default function App() {
-  const [layoutMode, setLayoutMode] = useState<LayoutMode>('b')
+  const [layoutMode, setLayoutMode] = useState<LayoutMode>('multi-screen')
   const [phase, setPhase] = useState<Phase>('map')
   const [name, setName] = useState('')
   const [aliases, setAliases] = useState(cloneAliases)
@@ -86,13 +94,14 @@ export default function App() {
   const [resultsScenario, setResultsScenario] =
     useState<ValidationScenario>('all-pass')
 
-  const showValidateWorkspace = phase === 'validate'
-  const rows = showValidateWorkspace
-    ? getValidationRows(resultsScenario)
-    : []
-  const tableEmpty = !showValidateWorkspace
+  const showResults =
+    layoutMode === 'single-screen' || phase === 'validate'
+  const rows = showResults ? getValidationRows(resultsScenario) : []
+  const tableEmpty = layoutMode === 'single-screen' ? false : phase !== 'validate'
   const emptyReason: 'awaiting-continue' | 'awaiting-sample' =
-    !showValidateWorkspace ? 'awaiting-continue' : 'awaiting-sample'
+    layoutMode === 'single-screen' || phase === 'validate'
+      ? 'awaiting-sample'
+      : 'awaiting-continue'
 
   function handleNameChange(next: string) {
     setName(next)
@@ -160,23 +169,28 @@ export default function App() {
   }
 
   function handleReset() {
-    setPhase('map')
-    setName('')
-    setAliases(cloneAliases())
-    setValues(EMPTY_VALUES)
-    setFieldErrors({})
-    setFiles([])
+    const cleared = clearFormState()
+    setName(cleared.name)
+    setAliases(cleared.aliases)
+    setValues(cleared.values)
+    setFieldErrors(cleared.fieldErrors)
+    setFiles(cleared.files)
     setSheetOpen(false)
     setResultsScenario('all-pass')
+    if (layoutMode === 'multi-screen') {
+      setPhase('map')
+    }
   }
 
   function handleLayoutChange(next: LayoutMode) {
     setLayoutMode(next)
-    setPhase('map')
     setFieldErrors({})
     setFiles([])
     setSheetOpen(false)
     setResultsScenario('all-pass')
+    if (next === 'multi-screen') {
+      setPhase('map')
+    }
   }
 
   function handleContinue(): boolean {
@@ -190,13 +204,7 @@ export default function App() {
     return true
   }
 
-  function handleBack() {
-    setPhase('map')
-    setSheetOpen(false)
-  }
-
-  const shared = {
-    phase,
+  const validateProps: ValidateWorkspaceProps = {
     name,
     aliases,
     values,
@@ -211,11 +219,15 @@ export default function App() {
     onAliasesChange: setAliases,
     onValuesChange: handleValuesChange,
     onFilesChange: setFiles,
+  }
+
+  const multiScreenProps: MultiScreenProps = {
+    ...validateProps,
+    phase,
     onSimulateValid: handleSimulateValid,
     onSimulateIncomplete: handleSimulateIncomplete,
     onClearInputs: handleClearInputs,
     onContinue: handleContinue,
-    onBack: handleBack,
   }
 
   return (
@@ -259,9 +271,11 @@ export default function App() {
           </p>
         </header>
 
-        {layoutMode === 'a' ? <LayoutA {...shared} /> : null}
-        {layoutMode === 'b' ? <LayoutB {...shared} /> : null}
-        {layoutMode === 'c' ? <LayoutC {...shared} /> : null}
+        {layoutMode === 'multi-screen' ? (
+          <MultiScreen {...multiScreenProps} />
+        ) : (
+          <SingleScreen {...validateProps} />
+        )}
       </div>
 
       <ErrorDetailSheet open={sheetOpen} onOpenChange={setSheetOpen} />
@@ -269,8 +283,7 @@ export default function App() {
   )
 }
 
-type LayoutSharedProps = {
-  phase: Phase
+type ValidateWorkspaceProps = {
   name: string
   aliases: Record<MappingField, string[]>
   values: Record<MappingField, string>
@@ -278,22 +291,24 @@ type LayoutSharedProps = {
   rows: ValidationRow[]
   tableEmpty: boolean
   emptyReason: 'awaiting-continue' | 'awaiting-sample'
-  resultsScenario?: ValidationScenario
-  onResultsScenarioChange?: (scenario: ValidationScenario) => void
+  resultsScenario: ValidationScenario
+  onResultsScenarioChange: (scenario: ValidationScenario) => void
   fieldErrors: FieldErrors
   onNameChange: (value: string) => void
   onAliasesChange: Dispatch<SetStateAction<Record<MappingField, string[]>>>
   onValuesChange: Dispatch<SetStateAction<Record<MappingField, string>>>
   onFilesChange: Dispatch<SetStateAction<SampleFile[]>>
+}
+
+type MultiScreenProps = ValidateWorkspaceProps & {
+  phase: Phase
   onSimulateValid: () => void
   onSimulateIncomplete: () => void
   onClearInputs: () => void
   onContinue: () => boolean
-  onBack?: () => void
 }
 
-function LayoutA({
-  phase,
+function ValidateWorkspace({
   name,
   aliases,
   values,
@@ -301,23 +316,30 @@ function LayoutA({
   rows,
   tableEmpty,
   emptyReason,
+  resultsScenario,
+  onResultsScenarioChange,
   fieldErrors,
   onNameChange,
   onAliasesChange,
   onValuesChange,
   onFilesChange,
-  onSimulateValid,
-  onSimulateIncomplete,
-  onClearInputs,
-  onContinue,
-  onBack,
-}: LayoutSharedProps) {
-  if (phase === 'map') {
-    return (
-      <div className="flex max-w-5xl flex-col gap-6">
-        <p className="text-xs font-semibold uppercase tracking-[0.08em] text-muted-foreground">
-          Step 1 of 2 · Mapping
-        </p>
+}: ValidateWorkspaceProps) {
+  return (
+    <div className="layout-b layout-b--results">
+      <h2 className="layout-b__results-title text-lg font-bold tracking-tight text-foreground">
+        Results of exampleOrder.js
+      </h2>
+      <div className="layout-b__stage">
+        <ValidationTable
+          rows={rows}
+          empty={tableEmpty}
+          emptyReason={emptyReason}
+        />
+      </div>
+      <div className="layout-b__form">
+        <h3 className="text-sm font-semibold text-muted-foreground">
+          Configuration
+        </h3>
         <MappingPanel
           name={name}
           aliases={aliases}
@@ -328,59 +350,33 @@ function LayoutA({
           onAliasesChange={onAliasesChange}
           onValuesChange={onValuesChange}
           onFilesChange={onFilesChange}
-          onSimulateValid={onSimulateValid}
-          onSimulateIncomplete={onSimulateIncomplete}
-          onClearInputs={onClearInputs}
-          dropzonePlacement="beside-fields"
+          showHeader={false}
         />
-        <div>
-          <Button type="button" onClick={onContinue}>
-            Continue
-          </Button>
-        </div>
       </div>
-    )
-  }
-
-  return (
-    <div className="flex flex-col gap-6">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <p className="text-xs font-semibold uppercase tracking-[0.08em] text-muted-foreground">
-          Step 2 of 2 · Validate
-        </p>
-        <button
-          type="button"
-          onClick={onBack}
-          className="text-sm text-ice-blue underline-offset-2 hover:underline"
-        >
-          ← Back to mapping
-        </button>
-      </div>
-      <div className="grid gap-10 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)]">
-        <MappingPanel
-          name={name}
-          aliases={aliases}
-          values={values}
-          files={files}
-          onNameChange={onNameChange}
-          onAliasesChange={onAliasesChange}
-          onValuesChange={onValuesChange}
-          onFilesChange={onFilesChange}
-        />
-        <div className="flex flex-col gap-4">
-          <SampleDropzone files={files} onFilesChange={onFilesChange} />
-          <ValidationTable
-            rows={rows}
-            empty={tableEmpty}
-            emptyReason={emptyReason}
-          />
-        </div>
+      <div className="layout-b__simulation">
+        <label className="flex flex-col items-center gap-1.5 text-sm text-muted-foreground">
+          <span className="text-xs font-semibold uppercase tracking-[0.08em]">
+            Simulation
+          </span>
+          <select
+            value={resultsScenario}
+            onChange={(event) =>
+              onResultsScenarioChange(
+                event.target.value as ValidationScenario
+              )
+            }
+            className="h-9 border border-border bg-background px-2 text-sm text-foreground"
+          >
+            <option value="all-pass">All columns pass</option>
+            <option value="column-fail">Quantity column fails</option>
+          </select>
+        </label>
       </div>
     </div>
   )
 }
 
-function LayoutB({
+function MultiScreen({
   phase,
   name,
   aliases,
@@ -400,61 +396,37 @@ function LayoutB({
   onContinue,
   resultsScenario,
   onResultsScenarioChange,
-}: LayoutSharedProps) {
-  if (phase === 'map') {
+}: MultiScreenProps) {
+  if (phase === 'validate') {
     return (
-      <div className="layout-b layout-b--configure">
-        <div className="layout-b__intro">
-          <h2 className="text-lg font-bold tracking-tight text-foreground">
-            Configuration
-          </h2>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Enter a name and map ticker, order, quantity, and price. Type them
-            in, or use a sample on the right to fill the fields.
-          </p>
-        </div>
-        <div className="layout-b__form">
-          <MappingPanel
-            name={name}
-            aliases={aliases}
-            values={values}
-            files={files}
-            fieldErrors={fieldErrors}
-            onNameChange={onNameChange}
-            onAliasesChange={onAliasesChange}
-            onValuesChange={onValuesChange}
-            onFilesChange={onFilesChange}
-            showHeader={false}
-          />
-          <div>
-            <Button type="button" onClick={() => onContinue()}>
-              Continue
-            </Button>
-          </div>
-        </div>
-        <div className="layout-b__stage">
-          <SampleDropzone
-            mode="simulate"
-            fill
-            heading="Drop a sample or transcript"
-            description="Optional. Use a sample to fill the mapping fields on the left."
-            onSimulateValid={onSimulateValid}
-            onSimulateIncomplete={onSimulateIncomplete}
-            onClearInputs={onClearInputs}
-          />
-        </div>
-      </div>
+      <ValidateWorkspace
+        name={name}
+        aliases={aliases}
+        values={values}
+        files={files}
+        rows={rows}
+        tableEmpty={tableEmpty}
+        emptyReason={emptyReason}
+        resultsScenario={resultsScenario}
+        onResultsScenarioChange={onResultsScenarioChange}
+        fieldErrors={fieldErrors}
+        onNameChange={onNameChange}
+        onAliasesChange={onAliasesChange}
+        onValuesChange={onValuesChange}
+        onFilesChange={onFilesChange}
+      />
     )
   }
 
   return (
-    <div className="layout-b layout-b--results">
+    <div className="layout-b layout-b--configure">
       <div className="layout-b__intro">
         <h2 className="text-lg font-bold tracking-tight text-foreground">
           Configuration
         </h2>
         <p className="mt-1 text-sm text-muted-foreground">
-          Adjust a mapping if a result looks wrong.
+          Enter a name and map ticker, order, quantity, and price. Type them
+          in, or use a sample on the right to fill the fields.
         </p>
       </div>
       <div className="layout-b__form">
@@ -470,105 +442,27 @@ function LayoutB({
           onFilesChange={onFilesChange}
           showHeader={false}
         />
+        <div>
+          <Button type="button" onClick={() => onContinue()}>
+            Continue
+          </Button>
+        </div>
       </div>
       <div className="layout-b__stage">
-        <ValidationTable
-          rows={rows}
-          empty={tableEmpty}
-          emptyReason={emptyReason}
-          scenario={resultsScenario}
-          onScenarioChange={onResultsScenarioChange}
+        <SampleDropzone
+          mode="simulate"
+          fill
+          heading="Drop a sample or transcript"
+          description="Optional. Use a sample to fill the mapping fields on the left."
+          onSimulateValid={onSimulateValid}
+          onSimulateIncomplete={onSimulateIncomplete}
+          onClearInputs={onClearInputs}
         />
       </div>
     </div>
   )
 }
 
-function LayoutC({
-  phase,
-  name,
-  aliases,
-  values,
-  files,
-  rows,
-  tableEmpty,
-  emptyReason,
-  fieldErrors,
-  onNameChange,
-  onAliasesChange,
-  onValuesChange,
-  onFilesChange,
-  onSimulateValid,
-  onSimulateIncomplete,
-  onClearInputs,
-  onContinue,
-  onBack,
-}: LayoutSharedProps) {
-  if (phase === 'map') {
-    return (
-      <div className="flex max-w-5xl flex-col gap-6">
-        <p className="text-xs font-semibold uppercase tracking-[0.08em] text-muted-foreground">
-          Step 1 of 2 · Mapping
-        </p>
-        <MappingPanel
-          name={name}
-          aliases={aliases}
-          values={values}
-          files={files}
-          fieldErrors={fieldErrors}
-          onNameChange={onNameChange}
-          onAliasesChange={onAliasesChange}
-          onValuesChange={onValuesChange}
-          onFilesChange={onFilesChange}
-          onSimulateValid={onSimulateValid}
-          onSimulateIncomplete={onSimulateIncomplete}
-          onClearInputs={onClearInputs}
-          dropzonePlacement="beside-fields"
-        />
-        <div>
-          <Button type="button" onClick={onContinue}>
-            Continue
-          </Button>
-        </div>
-      </div>
-    )
-  }
-
-  return (
-    <div className="flex flex-col gap-8">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <p className="text-xs font-semibold uppercase tracking-[0.08em] text-muted-foreground">
-          Step 2 of 2 · Validate
-        </p>
-        <button
-          type="button"
-          onClick={onBack}
-          className="text-sm text-ice-blue underline-offset-2 hover:underline"
-        >
-          ← Back to mapping
-        </button>
-      </div>
-
-      <MappingChips
-        name={name}
-        aliases={aliases}
-        values={values}
-        onNameChange={onNameChange}
-        onAliasesChange={onAliasesChange}
-        onValuesChange={onValuesChange}
-      />
-
-      <div className="grid gap-10 lg:grid-cols-[minmax(0,18rem)_minmax(0,1fr)]">
-        <div className="flex flex-col gap-3">
-          <h2 className="text-sm font-bold text-foreground">Sample payload</h2>
-          <SampleDropzone files={files} onFilesChange={onFilesChange} />
-        </div>
-        <ValidationTable
-          rows={rows}
-          empty={tableEmpty}
-          emptyReason={emptyReason}
-        />
-      </div>
-    </div>
-  )
+function SingleScreen(props: ValidateWorkspaceProps) {
+  return <ValidateWorkspace {...props} />
 }
