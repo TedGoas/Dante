@@ -34,8 +34,8 @@ export function ValidationTable({
         }
 
   return (
-    <section className="min-h-0 flex-1">
-      <div className="border-t border-nyse-ink/20">
+    <section className="flex min-h-0 w-full flex-1 flex-col">
+      <div className="validation-table__frame">
         {empty ? (
           <div className="flex min-h-64 flex-col items-start justify-center gap-2 py-12">
             <p className="text-sm font-semibold text-foreground">
