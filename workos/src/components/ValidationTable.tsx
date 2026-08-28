@@ -15,12 +15,14 @@ type ValidationTableProps = {
   rows: ValidationRow[]
   empty?: boolean
   emptyReason?: ValidationEmptyReason
+  onNullQuantityClick?: () => void
 }
 
 export function ValidationTable({
   rows,
   empty = false,
   emptyReason = 'awaiting-sample',
+  onNullQuantityClick,
 }: ValidationTableProps) {
   const emptyCopy =
     emptyReason === 'awaiting-continue'
@@ -65,7 +67,14 @@ export function ValidationTable({
                     <FieldStatusCell cell={row.order} />
                   </TableCell>
                   <TableCell>
-                    <FieldStatusCell cell={row.quantity} />
+                    <FieldStatusCell
+                      cell={row.quantity}
+                      onValueClick={
+                        row.quantity.value === 'null' && row.quantity.status === 'fail'
+                          ? onNullQuantityClick
+                          : undefined
+                      }
+                    />
                   </TableCell>
                   <TableCell>
                     <FieldStatusCell cell={row.price} valuePrefix="$" />

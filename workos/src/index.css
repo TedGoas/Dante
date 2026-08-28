@@ -46,6 +46,8 @@
   --radius-table: 8px;
   --page-title-accent-height: 4px;
   --color-page-title-accent: color-mix(in srgb, var(--color-ice-blue) 45%, white);
+  --drawer-width: 24rem;
+  --radius-assistant-bubble: 0.75rem;
 }
 
 @layer base {
@@ -168,4 +170,118 @@
   .layout-b__simulation {
     grid-area: simulation;
   }
+}
+
+/* Mapping assistant drawer — single-turn chat UI */
+.mapping-assistant {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  background: var(--color-background);
+}
+
+.mapping-assistant__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--color-border);
+  padding: 1.25rem var(--spacing-workos);
+}
+
+.mapping-assistant__eyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-muted-foreground);
+}
+
+.mapping-assistant__title {
+  margin: 0.125rem 0 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-foreground);
+}
+
+.mapping-assistant__close {
+  border: 0;
+  background: transparent;
+  padding: 0.125rem;
+  color: var(--color-muted-foreground);
+  cursor: pointer;
+  opacity: 0.75;
+  transition: opacity 150ms ease;
+}
+
+.mapping-assistant__close:hover {
+  opacity: 1;
+}
+
+.mapping-assistant__close:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-ring);
+}
+
+.mapping-assistant__thread {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.75rem;
+  overflow-y: auto;
+  padding: 1.25rem var(--spacing-workos);
+}
+
+.mapping-assistant__bubble {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-radius: var(--radius-assistant-bubble);
+  background: var(--color-muted);
+  padding: 0.875rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--color-foreground);
+}
+
+.mapping-assistant__bubble p {
+  margin: 0;
+}
+
+.mapping-assistant__actions {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.mapping-assistant__action-btn {
+  border-radius: 4px;
+}
+
+.mapping-assistant__composer {
+  flex-shrink: 0;
+  border-top: 1px solid var(--color-border);
+  padding: 0.875rem var(--spacing-workos) 1rem;
+}
+
+.mapping-assistant__composer-input {
+  width: 100%;
+  height: 2.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  background: var(--color-background);
+  padding: 0 0.75rem;
+  font: inherit;
+  font-size: 0.875rem;
+  color: var(--color-muted-foreground);
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+
+.mapping-assistant__composer-input::placeholder {
+  color: var(--color-muted-foreground);
+}
+
+.mapping-assistant__composer-input:disabled {
+  opacity: 0.85;
 }

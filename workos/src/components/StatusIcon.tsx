@@ -29,11 +29,20 @@ export function FieldStatusCell({
   cell,
   className,
   valuePrefix,
+  onValueClick,
 }: {
   cell: FieldCell
   className?: string
   valuePrefix?: string
+  onValueClick?: () => void
 }) {
+  const displayValue = (
+    <>
+      {valuePrefix}
+      {cell.value}
+    </>
+  )
+
   return (
     <span
       className={cn(
@@ -42,10 +51,17 @@ export function FieldStatusCell({
       )}
     >
       <CellBadge status={cell.status} />
-      <span>
-        {valuePrefix}
-        {cell.value}
-      </span>
+      {onValueClick ? (
+        <button
+          type="button"
+          onClick={onValueClick}
+          className="cursor-pointer border-b border-dotted border-foreground/45 text-left hover:border-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1"
+        >
+          {displayValue}
+        </button>
+      ) : (
+        <span>{displayValue}</span>
+      )}
     </span>
   )
 }

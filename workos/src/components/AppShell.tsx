@@ -13,9 +13,13 @@ const NAV_ITEMS = [
 export function AppShell({
   children,
   footer,
+  drawer,
+  drawerOpen = false,
 }: {
   children: ReactNode
   footer?: ReactNode
+  drawer?: ReactNode
+  drawerOpen?: boolean
 }) {
   return (
     <div className="flex min-h-screen bg-background">
@@ -54,9 +58,24 @@ export function AppShell({
           </div>
         ) : null}
       </aside>
-      <main className="min-w-0 flex-1 overflow-auto p-workos">
-        {children}
-      </main>
+      <div className="flex min-w-0 flex-1">
+        <main className="min-w-0 flex-1 overflow-auto p-workos transition-[width] duration-300 ease-out">
+          {children}
+        </main>
+        {drawer ? (
+          <div
+            className={cn(
+              'shrink-0 overflow-hidden border-border bg-background transition-[width,border-color] duration-300 ease-out',
+              drawerOpen
+                ? 'w-[var(--drawer-width)] border-l'
+                : 'w-0 border-l-0'
+            )}
+            aria-hidden={!drawerOpen}
+          >
+            <div className="h-full w-[var(--drawer-width)]">{drawer}</div>
+          </div>
+        ) : null}
+      </div>
     </div>
   )
 }

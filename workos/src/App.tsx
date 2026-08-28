@@ -10,7 +10,11 @@ import {
 import { SampleDropzone } from '@/components/SampleDropzone'
 import { ValidationTable } from '@/components/ValidationTable'
 import { Button } from '@/components/ui/button'
-import { ALIAS_SEEDS, type MappingField } from '@/data/aliases'
+import { ALIAS_SEEDS, FIELD_LABELS, type MappingField } from '@/data/aliases'
+import {
+  EXAMPLE_ORDER_FILE,
+  EXAMPLE_ORDER_PAYLOAD_FIELDS,
+} from '@/data/exampleOrder'
 import type { SampleFile } from '@/data/sampleFiles'
 import {
   getValidationRows,
@@ -221,6 +225,41 @@ export default function App() {
     return true
   }
 
+  function handleResultsScenarioChange(scenario: ValidationScenario) {
+    setResultsScenario(scenario)
+    if (scenario !== 'column-fail') {
+      setSheetOpen(false)
+    }
+  }
+
+  function handleOpenQuantityMismatch() {
+    setSheetOpen(true)
+  }
+
+  function handleConfirmQuantityMismatch() {
+    const payloadField = EXAMPLE_ORDER_PAYLOAD_FIELDS.quantity
+
+    setValues((current) => ({ ...current, quantity: payloadField }))
+    setAliases((current) => {
+      if (current.quantity.includes(payloadField)) return current
+      return {
+        ...current,
+        quantity: [...current.quantity, payloadField],
+      }
+    })
+    setFieldErrors((errors) => {
+      const next = { ...errors }
+      delete next.quantity
+      return next
+    })
+    setResultsScenario('all-pass')
+    setSheetOpen(false)
+  }
+
+  function handleDeclineQuantityMismatch() {
+    setSheetOpen(false)
+  }
+
   const validateProps: ValidateWorkspaceProps = {
     name,
     aliases,
@@ -230,12 +269,14 @@ export default function App() {
     tableEmpty,
     emptyReason,
     resultsScenario,
-    onResultsScenarioChange: setResultsScenario,
+    onResultsScenarioChange: handleResultsScenarioChange,
     fieldErrors,
     onNameChange: handleNameChange,
     onAliasesChange: setAliases,
     onValuesChange: handleValuesChange,
     onFilesChange: setFiles,
+    onNullQuantityClick:
+      resultsScenario === 'column-fail' ? handleOpenQuantityMismatch : undefined,
   }
 
   const multiScreenProps: MultiScreenProps = {
@@ -249,6 +290,18 @@ export default function App() {
 
   return (
     <AppShell
+      drawerOpen={sheetOpen}
+      drawer={
+        <ErrorDetailSheet
+          configuredField={values.quantity}
+          payloadField={EXAMPLE_ORDER_PAYLOAD_FIELDS.quantity}
+          sampleFileName={EXAMPLE_ORDER_FILE}
+          fieldLabel={FIELD_LABELS.quantity}
+          onClose={() => setSheetOpen(false)}
+          onConfirm={handleConfirmQuantityMismatch}
+          onDecline={handleDeclineQuantityMismatch}
+        />
+      }
       footer={
         <>
           <button
@@ -307,8 +360,6 @@ export default function App() {
           <SingleScreen {...validateProps} />
         )}
       </div>
-
-      <ErrorDetailSheet open={sheetOpen} onOpenChange={setSheetOpen} />
     </AppShell>
   )
 }
@@ -328,6 +379,7 @@ type ValidateWorkspaceProps = {
   onAliasesChange: Dispatch<SetStateAction<Record<MappingField, string[]>>>
   onValuesChange: Dispatch<SetStateAction<Record<MappingField, string>>>
   onFilesChange: Dispatch<SetStateAction<SampleFile[]>>
+  onNullQuantityClick?: () => void
 }
 
 type MultiScreenProps = ValidateWorkspaceProps & {
@@ -353,6 +405,7 @@ function ValidateWorkspace({
   onAliasesChange,
   onValuesChange,
   onFilesChange,
+  onNullQuantityClick,
 }: ValidateWorkspaceProps) {
   return (
     <div className="layout-b layout-b--results">
@@ -381,6 +434,7 @@ function ValidateWorkspace({
           rows={rows}
           empty={tableEmpty}
           emptyReason={emptyReason}
+          onNullQuantityClick={onNullQuantityClick}
         />
       </div>
       <div className="layout-b__simulation">
