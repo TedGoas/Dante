@@ -76,9 +76,10 @@ export function AppShell({
               'shrink-0 overflow-hidden border-border bg-background transition-[width,border-color] duration-300 ease-out',
               drawerOpen
                 ? 'w-[var(--drawer-width)] border-l'
-                : 'w-0 border-l-0'
+                : 'w-0 border-l-0 pointer-events-none'
             )}
             aria-hidden={!drawerOpen}
+            inert={!drawerOpen ? true : undefined}
           >
             <div className="h-full w-[var(--drawer-width)]">{drawer}</div>
           </div>
