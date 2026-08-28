@@ -1,4 +1,4 @@
-import { useEffect, useState, type Dispatch, type SetStateAction } from 'react'
+import { useEffect, useRef, useState, type Dispatch, type SetStateAction } from 'react'
 
 import { AppShell } from '@/components/AppShell'
 import { ErrorDetailSheet } from '@/components/ErrorDetailSheet'
@@ -58,6 +58,8 @@ function defaultMappingValues(): Record<MappingField, string> {
 /** Field left blank when simulating incomplete sample parsing. */
 const UNMAPPED_FIELD: MappingField = 'price'
 
+const RETEST_DELAY_MS = 1500
+
 const LAYOUT_OPTIONS: { value: LayoutMode; label: string }[] = [
   { value: 'multi-screen', label: 'MultiScreen' },
   { value: 'single-screen', label: 'SingleScreen' },
@@ -108,12 +110,22 @@ export default function App() {
   const [files, setFiles] = useState<SampleFile[]>([])
   const [sheetOpen, setSheetOpen] = useState(false)
   const [resultsScenario, setResultsScenario] =
-    useState<ValidationScenario>('all-pass')
+    useState<ValidationScenario>('column-fail')
+  const [isRetesting, setIsRetesting] = useState(false)
   const [theme, setTheme] = useState<ThemeId>(DEFAULT_THEME)
+  const retestTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     applyTheme(theme)
   }, [theme])
+
+  useEffect(() => {
+    return () => {
+      if (retestTimeoutRef.current) {
+        clearTimeout(retestTimeoutRef.current)
+      }
+    }
+  }, [])
 
   const showResults =
     layoutMode === 'single-screen' || phase === 'validate'
@@ -190,6 +202,10 @@ export default function App() {
   }
 
   function handleReset() {
+    if (retestTimeoutRef.current) {
+      clearTimeout(retestTimeoutRef.current)
+      retestTimeoutRef.current = null
+    }
     const cleared = clearFormState()
     setName(cleared.name)
     setAliases(cleared.aliases)
@@ -197,18 +213,24 @@ export default function App() {
     setFieldErrors(cleared.fieldErrors)
     setFiles(cleared.files)
     setSheetOpen(false)
-    setResultsScenario('all-pass')
+    setResultsScenario('column-fail')
+    setIsRetesting(false)
     if (layoutMode === 'multi-screen') {
       setPhase('map')
     }
   }
 
   function handleLayoutChange(next: LayoutMode) {
+    if (retestTimeoutRef.current) {
+      clearTimeout(retestTimeoutRef.current)
+      retestTimeoutRef.current = null
+    }
     setLayoutMode(next)
     setFieldErrors({})
     setFiles([])
     setSheetOpen(false)
-    setResultsScenario('all-pass')
+    setResultsScenario('column-fail')
+    setIsRetesting(false)
     if (next === 'multi-screen') {
       setPhase('map')
     }
@@ -223,13 +245,6 @@ export default function App() {
     setFieldErrors({})
     setPhase('validate')
     return true
-  }
-
-  function handleResultsScenarioChange(scenario: ValidationScenario) {
-    setResultsScenario(scenario)
-    if (scenario !== 'column-fail') {
-      setSheetOpen(false)
-    }
   }
 
   function handleOpenQuantityMismatch() {
@@ -252,12 +267,22 @@ export default function App() {
       delete next.quantity
       return next
     })
-    setResultsScenario('all-pass')
     setSheetOpen(false)
   }
 
   function handleDeclineQuantityMismatch() {
     setSheetOpen(false)
+  }
+
+  function handleRetest() {
+    if (isRetesting) return
+
+    setIsRetesting(true)
+    retestTimeoutRef.current = setTimeout(() => {
+      setResultsScenario('all-pass')
+      setIsRetesting(false)
+      retestTimeoutRef.current = null
+    }, RETEST_DELAY_MS)
   }
 
   const validateProps: ValidateWorkspaceProps = {
@@ -268,13 +293,13 @@ export default function App() {
     rows,
     tableEmpty,
     emptyReason,
-    resultsScenario,
-    onResultsScenarioChange: handleResultsScenarioChange,
     fieldErrors,
     onNameChange: handleNameChange,
     onAliasesChange: setAliases,
     onValuesChange: handleValuesChange,
     onFilesChange: setFiles,
+    isRetesting,
+    onRetest: handleRetest,
     onNullQuantityClick:
       resultsScenario === 'column-fail' ? handleOpenQuantityMismatch : undefined,
   }
@@ -307,7 +332,7 @@ export default function App() {
           <button
             type="button"
             onClick={handleReset}
-            className="self-start text-sm text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
+            className="self-start cursor-pointer text-sm text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
           >
             Reset prototype
           </button>
@@ -372,13 +397,13 @@ type ValidateWorkspaceProps = {
   rows: ValidationRow[]
   tableEmpty: boolean
   emptyReason: 'awaiting-continue' | 'awaiting-sample'
-  resultsScenario: ValidationScenario
-  onResultsScenarioChange: (scenario: ValidationScenario) => void
   fieldErrors: FieldErrors
   onNameChange: (value: string) => void
   onAliasesChange: Dispatch<SetStateAction<Record<MappingField, string[]>>>
   onValuesChange: Dispatch<SetStateAction<Record<MappingField, string>>>
   onFilesChange: Dispatch<SetStateAction<SampleFile[]>>
+  isRetesting: boolean
+  onRetest: () => void
   onNullQuantityClick?: () => void
 }
 
@@ -398,13 +423,13 @@ function ValidateWorkspace({
   rows,
   tableEmpty,
   emptyReason,
-  resultsScenario,
-  onResultsScenarioChange,
   fieldErrors,
   onNameChange,
   onAliasesChange,
   onValuesChange,
   onFilesChange,
+  isRetesting,
+  onRetest,
   onNullQuantityClick,
 }: ValidateWorkspaceProps) {
   return (
@@ -428,33 +453,25 @@ function ValidateWorkspace({
           onFilesChange={onFilesChange}
           showHeader={false}
         />
+        <div>
+          <Button
+            type="button"
+            disabled={isRetesting}
+            className="mapping-assistant__action-btn normal-case tracking-normal"
+            onClick={onRetest}
+          >
+            Rerun test
+          </Button>
+        </div>
       </div>
       <div className="layout-b__stage">
         <ValidationTable
           rows={rows}
           empty={tableEmpty}
           emptyReason={emptyReason}
+          loading={isRetesting}
           onNullQuantityClick={onNullQuantityClick}
         />
-      </div>
-      <div className="layout-b__simulation">
-        <label className="flex flex-col items-center gap-1.5 text-sm text-muted-foreground">
-          <span className="text-xs font-semibold uppercase tracking-[0.08em]">
-            Simulation
-          </span>
-          <select
-            value={resultsScenario}
-            onChange={(event) =>
-              onResultsScenarioChange(
-                event.target.value as ValidationScenario
-              )
-            }
-            className="h-9 border border-border bg-background px-2 text-sm text-foreground"
-          >
-            <option value="all-pass">All columns pass</option>
-            <option value="column-fail">Quantity column fails</option>
-          </select>
-        </label>
       </div>
     </div>
   )
@@ -462,45 +479,27 @@ function ValidateWorkspace({
 
 function MultiScreen({
   phase,
-  name,
-  aliases,
-  values,
-  files,
-  rows,
-  tableEmpty,
-  emptyReason,
-  fieldErrors,
-  onNameChange,
-  onAliasesChange,
-  onValuesChange,
-  onFilesChange,
   onSimulateValid,
   onSimulateIncomplete,
   onClearInputs,
   onContinue,
-  resultsScenario,
-  onResultsScenarioChange,
+  ...validateWorkspaceProps
 }: MultiScreenProps) {
   if (phase === 'validate') {
-    return (
-      <ValidateWorkspace
-        name={name}
-        aliases={aliases}
-        values={values}
-        files={files}
-        rows={rows}
-        tableEmpty={tableEmpty}
-        emptyReason={emptyReason}
-        resultsScenario={resultsScenario}
-        onResultsScenarioChange={onResultsScenarioChange}
-        fieldErrors={fieldErrors}
-        onNameChange={onNameChange}
-        onAliasesChange={onAliasesChange}
-        onValuesChange={onValuesChange}
-        onFilesChange={onFilesChange}
-      />
-    )
+    return <ValidateWorkspace {...validateWorkspaceProps} />
   }
+
+  const {
+    name,
+    aliases,
+    values,
+    files,
+    fieldErrors,
+    onNameChange,
+    onAliasesChange,
+    onValuesChange,
+    onFilesChange,
+  } = validateWorkspaceProps
 
   return (
     <div className="layout-b layout-b--configure">

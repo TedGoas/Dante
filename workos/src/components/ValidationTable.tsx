@@ -11,17 +11,40 @@ import type { ValidationRow } from '@/data/validationRows'
 
 export type ValidationEmptyReason = 'awaiting-continue' | 'awaiting-sample'
 
+const SKELETON_ROW_COUNT = 10
+
 type ValidationTableProps = {
   rows: ValidationRow[]
   empty?: boolean
   emptyReason?: ValidationEmptyReason
+  loading?: boolean
   onNullQuantityClick?: () => void
+}
+
+function ValidationTableSkeleton() {
+  return (
+    <>
+      {Array.from({ length: SKELETON_ROW_COUNT }, (_, index) => (
+        <TableRow key={`skeleton-${index}`} className="hover:bg-transparent">
+          {Array.from({ length: 4 }, (__, cellIndex) => (
+            <TableCell key={cellIndex}>
+              <span
+                className="validation-table__skeleton-bar"
+                aria-hidden="true"
+              />
+            </TableCell>
+          ))}
+        </TableRow>
+      ))}
+    </>
+  )
 }
 
 export function ValidationTable({
   rows,
   empty = false,
   emptyReason = 'awaiting-sample',
+  loading = false,
   onNullQuantityClick,
 }: ValidationTableProps) {
   const emptyCopy =
@@ -58,29 +81,34 @@ export function ValidationTable({
               </TableRow>
             </TableHeader>
             <TableBody>
-              {rows.map((row) => (
-                <TableRow key={row.id} className="hover:bg-transparent">
-                  <TableCell>
-                    <FieldStatusCell cell={row.ticker} />
-                  </TableCell>
-                  <TableCell>
-                    <FieldStatusCell cell={row.order} />
-                  </TableCell>
-                  <TableCell>
-                    <FieldStatusCell
-                      cell={row.quantity}
-                      onValueClick={
-                        row.quantity.value === 'null' && row.quantity.status === 'fail'
-                          ? onNullQuantityClick
-                          : undefined
-                      }
-                    />
-                  </TableCell>
-                  <TableCell>
-                    <FieldStatusCell cell={row.price} valuePrefix="$" />
-                  </TableCell>
-                </TableRow>
-              ))}
+              {loading ? (
+                <ValidationTableSkeleton />
+              ) : (
+                rows.map((row) => (
+                  <TableRow key={row.id} className="hover:bg-transparent">
+                    <TableCell>
+                      <FieldStatusCell cell={row.ticker} />
+                    </TableCell>
+                    <TableCell>
+                      <FieldStatusCell cell={row.order} />
+                    </TableCell>
+                    <TableCell>
+                      <FieldStatusCell
+                        cell={row.quantity}
+                        onValueClick={
+                          row.quantity.value === 'null' &&
+                          row.quantity.status === 'fail'
+                            ? onNullQuantityClick
+                            : undefined
+                        }
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <FieldStatusCell cell={row.price} valuePrefix="$" />
+                    </TableCell>
+                  </TableRow>
+                ))
+              )}
             </TableBody>
           </Table>
         )}
