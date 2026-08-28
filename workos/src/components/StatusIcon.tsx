@@ -9,8 +9,10 @@ function CellBadge({ status }: { status: CellStatus }) {
   return (
     <span
       className={cn(
-        'inline-flex size-6 shrink-0 items-center justify-center rounded-md',
-        ok ? 'bg-[#d8eedf] text-[#1f7a45]' : 'bg-[#f6d9d6] text-[#c9372c]'
+        'inline-flex size-6 shrink-0 items-center justify-center rounded-status',
+        ok
+          ? 'bg-status-ok-bg text-status-ok-fg'
+          : 'bg-status-fail-bg text-status-fail-fg'
       )}
       aria-hidden="true"
     >

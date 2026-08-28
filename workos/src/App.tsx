@@ -1,4 +1,4 @@
-import { useState, type Dispatch, type SetStateAction } from 'react'
+import { useEffect, useState, type Dispatch, type SetStateAction } from 'react'
 
 import { AppShell } from '@/components/AppShell'
 import { ErrorDetailSheet } from '@/components/ErrorDetailSheet'
@@ -17,6 +17,12 @@ import {
   type ValidationRow,
   type ValidationScenario,
 } from '@/data/validationRows'
+import {
+  applyTheme,
+  DEFAULT_THEME,
+  THEME_OPTIONS,
+  type ThemeId,
+} from '@/lib/theme'
 
 type LayoutMode = 'multi-screen' | 'single-screen'
 type Phase = 'map' | 'validate'
@@ -83,7 +89,7 @@ function clearFormState() {
 }
 
 export default function App() {
-  const [layoutMode, setLayoutMode] = useState<LayoutMode>('multi-screen')
+  const [layoutMode, setLayoutMode] = useState<LayoutMode>('single-screen')
   const [phase, setPhase] = useState<Phase>('map')
   const [name, setName] = useState('')
   const [aliases, setAliases] = useState(cloneAliases)
@@ -93,6 +99,11 @@ export default function App() {
   const [sheetOpen, setSheetOpen] = useState(false)
   const [resultsScenario, setResultsScenario] =
     useState<ValidationScenario>('all-pass')
+  const [theme, setTheme] = useState<ThemeId>(DEFAULT_THEME)
+
+  useEffect(() => {
+    applyTheme(theme)
+  }, [theme])
 
   const showResults =
     layoutMode === 'single-screen' || phase === 'validate'
@@ -251,6 +262,20 @@ export default function App() {
               className="h-9 max-w-full border border-border bg-background px-2 text-sm text-foreground"
             >
               {LAYOUT_OPTIONS.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label className="flex flex-col gap-1.5 text-sm text-muted-foreground">
+            <span>Theme</span>
+            <select
+              value={theme}
+              onChange={(event) => setTheme(event.target.value as ThemeId)}
+              className="h-9 max-w-full border border-border bg-background px-2 text-sm text-foreground"
+            >
+              {THEME_OPTIONS.map((option) => (
                 <option key={option.value} value={option.value}>
                   {option.label}
                 </option>

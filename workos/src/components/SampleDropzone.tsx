@@ -54,7 +54,7 @@ export function SampleDropzone(props: SampleDropzoneProps) {
       >
         <div
           className={cn(
-            'flex w-full flex-col rounded-none border border-dashed border-nyse-border bg-[#fafafa] px-4 text-center',
+            'flex w-full flex-col rounded-none border border-dashed border-nyse-border bg-dropzone-surface px-4 text-center',
             fill ? 'min-h-64 flex-1 py-6' : 'py-8'
           )}
         >
@@ -146,7 +146,7 @@ function UploadDropzone({
       <button
         type="button"
         className={cn(
-          'flex w-full flex-col items-center justify-center gap-2 rounded-none border border-dashed border-nyse-border bg-[#fafafa] px-4 text-center transition-colors',
+          'flex w-full flex-col items-center justify-center gap-2 rounded-none border border-dashed border-nyse-border bg-dropzone-surface px-4 text-center transition-colors',
           fill ? 'min-h-64 flex-1 py-10' : 'py-8',
           dragging && 'border-ice-blue bg-accent'
         )}

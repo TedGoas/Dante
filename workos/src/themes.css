@@ -1,0 +1,89 @@
+/* NYSE — current WorkOS prototype look */
+[data-theme='nyse'] {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+    Helvetica, Arial, sans-serif;
+  --color-ice-blue: #00a3ff;
+  --color-ice-blue-dark: #0088d6;
+  --color-nyse-ink: #000000;
+  --color-nyse-muted: #5a5a5a;
+  --color-nyse-border: #d9d9d9;
+  --color-nyse-surface: #f5f5f5;
+  --color-nyse-nav: #f2f1ee;
+  --color-nyse-pass: #00875a;
+  --color-nyse-pass-bg: transparent;
+  --color-nyse-warn: #b78103;
+  --color-nyse-warn-bg: transparent;
+  --color-nyse-fail: #c9372c;
+  --color-nyse-fail-bg: transparent;
+  --color-background: #ffffff;
+  --color-foreground: #000000;
+  --color-border: #d9d9d9;
+  --color-ring: #00a3ff;
+  --color-muted: #f5f5f5;
+  --color-muted-foreground: #5a5a5a;
+  --color-accent: #eef8ff;
+  --color-accent-foreground: #000000;
+  --color-primary: #000000;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #f5f5f5;
+  --color-secondary-foreground: #000000;
+  --color-destructive: #c9372c;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #000000;
+  --color-card: #ffffff;
+  --color-card-foreground: #000000;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-status: 0.375rem;
+  --color-status-ok-bg: #d8eedf;
+  --color-status-ok-fg: #1f7a45;
+  --color-status-fail-bg: #f6d9d6;
+  --color-status-fail-fg: #c9372c;
+  --color-dropzone-surface: #fafafa;
+}
+
+/* Ted's Visual Taste — copy of NYSE for now; customize independently later */
+[data-theme='ted'] {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+    Helvetica, Arial, sans-serif;
+  --color-ice-blue: #00a3ff;
+  --color-ice-blue-dark: #0088d6;
+  --color-nyse-ink: #000000;
+  --color-nyse-muted: #5a5a5a;
+  --color-nyse-border: #d9d9d9;
+  --color-nyse-surface: #f5f5f5;
+  --color-nyse-nav: #f2f1ee;
+  --color-nyse-pass: #00875a;
+  --color-nyse-pass-bg: transparent;
+  --color-nyse-warn: #b78103;
+  --color-nyse-warn-bg: transparent;
+  --color-nyse-fail: #c9372c;
+  --color-nyse-fail-bg: transparent;
+  --color-background: #ffffff;
+  --color-foreground: #000000;
+  --color-border: #d9d9d9;
+  --color-ring: #00a3ff;
+  --color-muted: #f5f5f5;
+  --color-muted-foreground: #5a5a5a;
+  --color-accent: #eef8ff;
+  --color-accent-foreground: #000000;
+  --color-primary: #000000;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #f5f5f5;
+  --color-secondary-foreground: #000000;
+  --color-destructive: #c9372c;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #000000;
+  --color-card: #ffffff;
+  --color-card-foreground: #000000;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-status: 0.375rem;
+  --color-status-ok-bg: #d8eedf;
+  --color-status-ok-fg: #1f7a45;
+  --color-status-fail-bg: #f6d9d6;
+  --color-status-fail-fg: #c9372c;
+  --color-dropzone-surface: #fafafa;
+}
