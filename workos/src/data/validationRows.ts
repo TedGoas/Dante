@@ -50,7 +50,10 @@ function buildRows(failColumn: MappingFieldKey | null): ValidationRow[] {
     id: row.id,
     ticker: cell(row.ticker, failColumn === 'ticker' ? 'fail' : 'ok'),
     order: cell(row.order, failColumn === 'order' ? 'fail' : 'ok'),
-    quantity: cell(row.quantity, failColumn === 'quantity' ? 'fail' : 'ok'),
+    quantity: cell(
+      failColumn === 'quantity' ? 'null' : row.quantity,
+      failColumn === 'quantity' ? 'fail' : 'ok'
+    ),
     price: cell(row.price, failColumn === 'price' ? 'fail' : 'ok'),
   }))
 }
