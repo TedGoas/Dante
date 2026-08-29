@@ -31,10 +31,10 @@
   --color-popover-foreground: #1a1a1a;
   --color-card: #ffffff;
   --color-card-foreground: #1a1a1a;
-  --radius-sm: 0px;
-  --radius-md: 0px;
-  --radius-lg: 0px;
-  --radius-status: 0.375rem;
+  --radius-sm: 4px;
+  --radius-md: 4px;
+  --radius-lg: 4px;
+  --radius-status: 4px;
   --color-status-ok-bg: #e8f5ec;
   --color-status-ok-fg: #1f7a45;
   --color-status-fail-bg: #fceeed;

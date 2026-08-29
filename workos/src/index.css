@@ -34,21 +34,21 @@
   --color-popover-foreground: #1a1a1a;
   --color-card: #ffffff;
   --color-card-foreground: #1a1a1a;
-  --radius-sm: 0px;
-  --radius-md: 0px;
-  --radius-lg: 0px;
-  --radius-status: 0.375rem;
+  --radius-sm: 4px;
+  --radius-md: 4px;
+  --radius-lg: 4px;
+  --radius-status: 4px;
   --color-status-ok-bg: #e8f5ec;
   --color-status-ok-fg: #1f7a45;
   --color-status-fail-bg: #fceeed;
   --color-status-fail-fg: #c9372c;
   --color-dropzone-surface: #fafafa;
   --spacing-workos: 2.5rem;
-  --radius-table: 8px;
+  --radius-table: 4px;
   --page-title-accent-height: 4px;
   --color-page-title-accent: color-mix(in srgb, var(--color-ice-blue) 45%, white);
   --drawer-width: 24rem;
-  --radius-assistant-bubble: 0.75rem;
+  --radius-assistant-bubble: 4px;
 }
 
 @layer base {
@@ -260,7 +260,7 @@
 }
 
 .mapping-assistant__action-btn {
-  border-radius: 4px;
+  border-radius: var(--radius-md);
   cursor: pointer;
 }
 
@@ -274,7 +274,7 @@
   width: 100%;
   height: 2.5rem;
   border: 1px solid var(--color-border);
-  border-radius: 4px;
+  border-radius: var(--radius-md);
   background: var(--color-background);
   padding: 0 0.75rem;
   font: inherit;

@@ -83,7 +83,7 @@ export function CreatableCombobox({
             aria-invalid={error ? true : undefined}
             aria-describedby={error ? errorId : undefined}
             className={cn(
-              'h-10 w-full justify-between rounded-none font-normal normal-case tracking-normal',
+              'h-10 w-full justify-between rounded-md font-normal normal-case tracking-normal',
               error && 'border-nyse-fail hover:bg-background'
             )}
           >
