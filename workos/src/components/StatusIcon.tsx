@@ -43,24 +43,27 @@ export function FieldStatusCell({
     </>
   )
 
+  const valueClassName = cn(
+    'border-b border-dotted leading-none',
+    onValueClick
+      ? 'cursor-pointer border-foreground/45 p-0 text-left hover:border-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1'
+      : 'border-transparent'
+  )
+
   return (
     <span
       className={cn(
-        'inline-flex items-center gap-2 text-sm font-normal text-foreground',
+        'flex h-5 items-center gap-2 text-sm font-normal leading-none text-foreground',
         className
       )}
     >
       <CellBadge status={cell.status} />
       {onValueClick ? (
-        <button
-          type="button"
-          onClick={onValueClick}
-          className="cursor-pointer border-b border-dotted border-foreground/45 text-left hover:border-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1"
-        >
+        <button type="button" onClick={onValueClick} className={valueClassName}>
           {displayValue}
         </button>
       ) : (
-        <span>{displayValue}</span>
+        <span className={valueClassName}>{displayValue}</span>
       )}
     </span>
   )

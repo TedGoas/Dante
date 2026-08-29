@@ -153,8 +153,9 @@
 /* Validation table skeleton loader */
 .validation-table__skeleton-bar {
   display: block;
+  width: 5rem;
   height: 0.875rem;
-  max-width: 5rem;
+  max-width: 100%;
   border-radius: 2px;
   background: color-mix(in srgb, var(--color-muted-foreground) 18%, var(--color-muted));
   animation: validation-table-skeleton-pulse 1.4s ease-in-out infinite;
