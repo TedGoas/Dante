@@ -74,6 +74,12 @@ export function ValidationTable({
           </div>
         ) : (
           <Table>
+            <colgroup>
+              <col className="w-1/4" />
+              <col className="w-1/4" />
+              <col className="w-1/4" />
+              <col className="w-1/4" />
+            </colgroup>
             <TableHeader>
               <TableRow className="hover:bg-transparent">
                 <TableHead>Ticker</TableHead>

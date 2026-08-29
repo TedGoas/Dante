@@ -49,6 +49,10 @@
   border: 1px solid var(--color-table-border);
 }
 
+.validation-table__frame [data-slot='table'] {
+  table-layout: fixed;
+}
+
 .validation-table__frame [data-slot='table-head'] {
   height: auto;
   padding: 0.875rem 1.25rem;
