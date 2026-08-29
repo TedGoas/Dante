@@ -29,9 +29,11 @@ function ValidationTableSkeleton() {
           {Array.from({ length: 4 }, (__, cellIndex) => (
             <TableCell key={cellIndex}>
               <span
-                className="validation-table__skeleton-bar"
+                className="flex h-5 items-center"
                 aria-hidden="true"
-              />
+              >
+                <span className="validation-table__skeleton-bar" />
+              </span>
             </TableCell>
           ))}
         </TableRow>
