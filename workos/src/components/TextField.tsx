@@ -36,7 +36,7 @@ export function TextField({
         aria-describedby={error ? errorId : undefined}
         onChange={(event) => onChange(event.target.value)}
         className={cn(
-          'h-10 w-full rounded-none border border-border bg-background px-3 text-sm text-foreground outline-none placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring',
+          'h-10 w-full rounded-md border border-border bg-background px-3 text-sm text-foreground outline-none placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring',
           error && 'border-nyse-fail'
         )}
       />
