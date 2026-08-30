@@ -21,10 +21,12 @@ I helped grow the enterprise product from a single customer to over 30, adapting
 {% include "components/work-scope-note.njk" %}
 
 <section class="work-gallery" aria-label="Stack Overflow work samples">
-  <figure class="work-gallery__item">
+  <figure class="work-gallery__item work-gallery__item--media-native">
     <figcaption class="work-gallery__caption">Measuring community health, not vanity</figcaption>
     <p class="work-gallery__description">Likes and page views don't tell you if a community is actually working. Stack Overflow had spent years learning what makes a community healthy. I helped bring those insights to Enterprise clients through a custom analytics experience focused on signals that matter, not numbers that just look good.</p>
-    <img src="/assets/img/stackoverflow/stackoverflow-dashboard.svg" alt="Stack Overflow dashboard design." loading="lazy">
+    <div class="work-gallery__media work-gallery__media--html-embed">
+      <iframe src="/assets/img/stackoverflow/prototypes/dashboard/" title="Stack Overflow dashboard design." width="1100" height="1510" loading="lazy"></iframe>
+    </div>
   </figure>
   <figure class="work-gallery__item">
     <figcaption class="work-gallery__caption">Building the system behind the emails</figcaption>
