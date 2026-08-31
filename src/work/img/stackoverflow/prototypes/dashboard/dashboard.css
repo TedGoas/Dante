@@ -579,6 +579,16 @@ img {
   width: 35px;
 }
 
+.so-dashboard__x-axis--ten {
+  padding-right: 20px;
+  font-size: 10px;
+}
+
+.so-dashboard__x-axis--ten span {
+  width: auto;
+  flex: 1 1 0;
+}
+
 .so-dashboard__plot {
   position: absolute;
   pointer-events: none;
@@ -596,6 +606,21 @@ img {
   top: 85px;
   width: 801px;
   height: 177px;
+  pointer-events: auto;
+}
+
+.so-dashboard__plot-hitarea {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+  cursor: crosshair;
+  outline: none;
+}
+
+.so-dashboard__plot-hitarea:focus-visible {
+  outline: 1px solid var(--so-border-button);
+  outline-offset: 2px;
 }
 
 .so-dashboard__plot--small {
@@ -644,6 +669,14 @@ img {
   left: 396px;
   width: 160px;
   height: 119px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.so-dashboard__hover.is-active {
+  opacity: 1;
+  visibility: visible;
 }
 
 .so-dashboard__hover-col {
@@ -676,6 +709,13 @@ img {
   border-radius: var(--so-radius-card);
 }
 
+.so-dashboard__tooltip-date {
+  margin: 0;
+  color: var(--so-text-muted);
+  font-size: 11px;
+  line-height: 13px;
+}
+
 .so-dashboard__tooltip-row {
   display: flex;
   align-items: center;
@@ -690,12 +730,9 @@ img {
   line-height: 16px;
 }
 
-.so-dashboard__cursor {
-  position: absolute;
-  top: 89px;
-  left: 4px;
-  width: 16px;
-  height: 17px;
+.so-dashboard__hover--flip .so-dashboard__tooltip {
+  left: auto;
+  right: 19px;
 }
 
 .so-dashboard__progress-block {
