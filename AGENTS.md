@@ -146,6 +146,59 @@ Agent skill (workflow + demo/`postMessage` conventions): [`.cursor/skills/protot
 
 **UX notes:** Each figure shows a static poster until it scrolls into view (~35% visible), then waits 1 second before loading the iframe (`data-src` → `src?autostart=1`). Scrolling away before the delay cancels the timer. The chatbot prototype reads `autostart=1` and auto-runs its splash demo. When a demo animation finishes, the iframe posts `dante-prototype-demo-complete` and a centered circular **Replay** icon button appears over the iframe; clicking it sends `dante-prototype-replay` to restart without reloading the iframe. Under `prefers-reduced-motion: reduce`, activation JS is skipped; a static poster and link to open the prototype in a new tab is shown instead.
 
+### Work gallery: HTML embed prototypes (large iframe mocks)
+
+Full-width **native-size iframe figures** for large product mocks rebuilt as HTML/CSS/JS bundles (not scroll-gated hero prototypes or captioned thumbs). First use: Stack Overflow analytics dashboard on [`src/work/2020-01-01-stack-overflow.md`](src/work/2020-01-01-stack-overflow.md).
+
+**When to use:** A case study hero should be a **live, clickable mock** at fixed artboard dimensions (e.g. 1100×1510) with interaction inside the iframe. Product palette stays in the bundle; host page only supplies gallery chrome and the “Click around” cue.
+
+**vs other iframe patterns:**
+
+| | HTML embed | `prototypeEmbed` (hero) | `thumbPrototype` (thumb) |
+|--|------------|-------------------------|--------------------------|
+| Size | Native artboard, scaled in gallery | Native width + optional wallpaper | Small thumb (~470×400) |
+| Activation | Loads immediately (`loading="lazy"`) | Scroll gate + 1s delay + autostart | Hover/focus play/reset |
+| Cue | “Click around” (host page) | None | “Hover me!” (host page) |
+| Bundle | `src/work/img/{case}/prototypes/{slug}/` | Same | Same |
+
+**Authoring (Markdown work pages):** wrap figure in `work-gallery__item--media-native`; use raw HTML on the media container:
+
+```html
+<div class="work-gallery__media work-gallery__media--html-embed" data-html-embed>
+  <span class="html-embed__cue" aria-hidden="true">
+    <span class="html-embed__cue-label">Click around</span>
+    <!-- corner-right-down SVG — copy from stack-overflow case study or thumb-prototype.njk -->
+  </span>
+  <div class="html-embed__frame">
+    <iframe src="/assets/img/{case}/prototypes/{slug}/" title="…" width="W" height="H" loading="lazy"></iframe>
+  </div>
+</div>
+```
+
+Iframe `width` / `height` must match the bundle artboard; CSS scales via `transform: scale(calc(100cqi / W))` on the iframe.
+
+**Implementation map:**
+
+| Piece | Location |
+|-------|----------|
+| Reference bundle | [`src/work/img/stackoverflow/prototypes/dashboard/`](src/work/img/stackoverflow/prototypes/dashboard/) |
+| Gallery embed styles | [`src/assets/css/styles.css`](src/assets/css/styles.css) (`.work-gallery__media--html-embed`, `.html-embed__cue`, `.html-embed__frame`) |
+| Host dismiss script | [`src/assets/js/work-html-embed.js`](src/assets/js/work-html-embed.js) via [`src/misc/work-html-embed.js.njk`](src/misc/work-html-embed.js.njk) |
+| Script load scope | [`src/_includes/layouts/work.njk`](src/_includes/layouts/work.njk) `footerScripts` only |
+| Passthrough | `src/work/img/**` → `/assets/img/` ([`src/.eleventyignore`](src/.eleventyignore) ignores template processing for prototype paths) |
+
+**postMessage (iframe → host):** On first meaningful interaction inside the bundle, post once:
+
+```js
+window.parent.postMessage({ type: 'dante-html-embed-interacted' }, '*');
+```
+
+Host adds `is-interacted` on `[data-html-embed]` and fades the cue. Pointer events inside the iframe do not bubble to the host — this message is required for dismissal after the user clicks inside the mock.
+
+**Cue UX:** Same visual language as thumb “Hover me!” — soft Swiss red, −6° tilt, Feather corner-right-down icon, hangs above top-left of the frame. Fades on host `:hover` / `:focus-within` or after `is-interacted`.
+
+Agent skill (workflow + reuse checklist): [`.cursor/skills/html-embed/SKILL.md`](.cursor/skills/html-embed/SKILL.md) or `/html-embed`.
+
 
 ### Work gallery: thumbnail prototypes (hover/focus)
 

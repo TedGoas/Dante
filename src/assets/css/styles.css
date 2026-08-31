@@ -3680,17 +3680,60 @@ hr {
 
 /* Isolated HTML dashboard mock (work gallery) */
 .writing .work-gallery__item > .work-gallery__media.work-gallery__media--html-embed {
+  position: relative;
   container-type: inline-size;
   width: min(1100px, var(--work-gallery-media-breakout-width));
   max-width: var(--work-gallery-media-breakout-width);
   margin-inline: calc(50% - (min(1100px, var(--work-gallery-media-breakout-width)) / 2));
   padding: 0;
+  overflow: visible;
+  line-height: 0;
+  background-color: transparent;
+}
+
+.writing .work-gallery__item > .work-gallery__media.work-gallery__media--html-embed .html-embed__frame {
   overflow: hidden;
   border: var(--border-width-hairline) solid var(--work-index-card-border);
   border-radius: var(--radius-work-gallery-image);
   aspect-ratio: 1100 / 1510;
-  line-height: 0;
   background-color: var(--color-work-gallery-card-bg);
+}
+
+.writing .work-gallery__item > .work-gallery__media.work-gallery__media--html-embed .html-embed__cue {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  color: color-mix(in srgb, var(--color-swiss-accent) 50%, transparent);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  pointer-events: none;
+  transform: translate(0, calc(-100% - 0.4rem)) rotate(-6deg);
+  transform-origin: left bottom;
+  transition: opacity 160ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.writing .work-gallery__item > .work-gallery__media.work-gallery__media--html-embed .html-embed__cue-icon {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  transform: translateY(4px);
+}
+
+.writing .work-gallery__item > .work-gallery__media.work-gallery__media--html-embed.is-interacted .html-embed__cue,
+.writing .work-gallery__item > .work-gallery__media.work-gallery__media--html-embed:hover .html-embed__cue,
+.writing .work-gallery__item > .work-gallery__media.work-gallery__media--html-embed:focus-within .html-embed__cue {
+  opacity: 0;
 }
 
 .writing .work-gallery__item > .work-gallery__media--html-embed iframe {

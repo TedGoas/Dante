@@ -24,8 +24,17 @@ I helped grow the enterprise product from a single customer to over 30, adapting
   <figure class="work-gallery__item work-gallery__item--media-native">
     <figcaption class="work-gallery__caption">Measuring community health, not vanity</figcaption>
     <p class="work-gallery__description">Likes and page views don't tell you if a community is actually working. Stack Overflow had spent years learning what makes a community healthy. I helped bring those insights to Enterprise clients through a custom analytics experience focused on signals that matter, not numbers that just look good.</p>
-    <div class="work-gallery__media work-gallery__media--html-embed">
-      <iframe src="/assets/img/stackoverflow/prototypes/dashboard/" title="Stack Overflow dashboard design." width="1100" height="1510" loading="lazy"></iframe>
+    <div class="work-gallery__media work-gallery__media--html-embed" data-html-embed>
+      <span class="html-embed__cue" aria-hidden="true">
+        <span class="html-embed__cue-label">Click around</span>
+        <svg class="html-embed__cue-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <polyline points="10 15 15 20 20 15"></polyline>
+          <path d="M4 4h7a4 4 0 0 1 4 4v12"></path>
+        </svg>
+      </span>
+      <div class="html-embed__frame">
+        <iframe src="/assets/img/stackoverflow/prototypes/dashboard/" title="Stack Overflow dashboard design." width="1100" height="1510" loading="lazy"></iframe>
+      </div>
     </div>
   </figure>
   <figure class="work-gallery__item">

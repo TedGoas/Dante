@@ -1,0 +1,7 @@
+---
+permalink: "/assets/js/work-html-embed.js"
+---
+{% set js %}
+{% include "../assets/js/work-html-embed.js" %}
+{% endset %}
+{{ js | minifyJs | safe }}

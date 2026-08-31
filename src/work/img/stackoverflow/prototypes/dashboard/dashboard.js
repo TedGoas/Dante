@@ -208,6 +208,16 @@
     var pointerInside = false;
     var lastPointerX = PLOT_WIDTH / 2;
     var keyboardIndex = null;
+    var hasNotifiedParent = false;
+
+    function notifyParent() {
+      if (hasNotifiedParent || window.parent === window) {
+        return;
+      }
+
+      hasNotifiedParent = true;
+      window.parent.postMessage({ type: "dante-html-embed-interacted" }, "*");
+    }
 
     function renderHover(state, show) {
       if (!show || !state) {
@@ -233,6 +243,9 @@
     }
 
     function resolveAndRender(pointerX, show, forcedKeyboardIndex) {
+      if (show) {
+        notifyParent();
+      }
       renderHover(resolveHover(pointerX, forcedKeyboardIndex), show);
     }
 
