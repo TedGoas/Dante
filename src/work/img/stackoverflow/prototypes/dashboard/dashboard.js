@@ -1,87 +1,8 @@
 (function () {
-  var PLOT_WIDTH = 801;
   var RULE_OFFSET = 2;
-  var FLIP_THRESHOLD = PLOT_WIDTH * 0.75;
   var DAILY_COUNT = 28;
   var RANGE_START = new Date(2024, 8, 2);
-
-  var anchorData = [
-    {
-      questions: 178,
-      questionsDelta: 8,
-      questionsTrend: "up",
-      answers: 192,
-      answersDelta: 4,
-      answersTrend: "up",
-    },
-    {
-      questions: 172,
-      questionsDelta: 5,
-      questionsTrend: "down",
-      answers: 165,
-      answersDelta: 12,
-      answersTrend: "down",
-    },
-    {
-      questions: 196,
-      questionsDelta: 10,
-      questionsTrend: "up",
-      answers: 175,
-      answersDelta: 5,
-      answersTrend: "up",
-    },
-    {
-      questions: 188,
-      questionsDelta: 4,
-      questionsTrend: "down",
-      answers: 195,
-      answersDelta: 8,
-      answersTrend: "up",
-    },
-    {
-      questions: 204,
-      questionsDelta: 32,
-      questionsTrend: "up",
-      answers: 201,
-      answersDelta: 6,
-      answersTrend: "up",
-    },
-    {
-      questions: 210,
-      questionsDelta: 15,
-      questionsTrend: "up",
-      answers: 198,
-      answersDelta: 2,
-      answersTrend: "down",
-    },
-    {
-      questions: 190,
-      questionsDelta: 8,
-      questionsTrend: "down",
-      answers: 205,
-      answersDelta: 4,
-      answersTrend: "up",
-    },
-    {
-      questions: 185,
-      questionsDelta: 3,
-      questionsTrend: "down",
-      answers: 215,
-      answersDelta: 8,
-      answersTrend: "up",
-    },
-    {
-      questions: 195,
-      questionsDelta: 3,
-      questionsTrend: "up",
-      answers: 198,
-      answersDelta: 2,
-      answersTrend: "down",
-    },
-  ];
-
-  var SNAP_X = [];
-  var dailyData = [];
+  var hasNotifiedParent = false;
 
   function clamp(value, min, max) {
     return Math.min(Math.max(value, min), max);
@@ -93,12 +14,12 @@
     return date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
   }
 
-  function getNearestIndex(x) {
+  function getNearestIndex(x, snapX) {
     var nearest = 0;
     var minDist = Infinity;
 
-    for (var i = 0; i < SNAP_X.length; i += 1) {
-      var dist = Math.abs(x - SNAP_X[i]);
+    for (var i = 0; i < snapX.length; i += 1) {
+      var dist = Math.abs(x - snapX[i]);
       if (dist < minDist) {
         minDist = dist;
         nearest = i;
@@ -120,62 +41,62 @@
     return Math.max(0, Math.round(Math.abs(delta)));
   }
 
-  function interpolatePoint(series, fraction, label) {
-    var index = clamp(fraction, 0, series.length - 1);
-    var lower = Math.floor(index);
-    var upper = Math.min(lower + 1, series.length - 1);
-    var amount = index - lower;
-    var start = series[lower];
-    var end = series[upper];
-    var questionsDelta = lerp(start.questionsDelta, end.questionsDelta, amount);
-    var answersDelta = lerp(start.answersDelta, end.answersDelta, amount);
-
-    return {
-      label: label,
-      questions: Math.round(lerp(start.questions, end.questions, amount)),
-      questionsDelta: normalizeDelta(questionsDelta),
-      questionsTrend: trendFromDelta(questionsDelta),
-      answers: Math.round(lerp(start.answers, end.answers, amount)),
-      answersDelta: normalizeDelta(answersDelta),
-      answersTrend: trendFromDelta(answersDelta),
-    };
+  function buildSnapX(plotWidth) {
+    var snapX = [];
+    for (var day = 0; day < DAILY_COUNT; day += 1) {
+      snapX.push((plotWidth / (DAILY_COUNT - 1)) * day);
+    }
+    return snapX;
   }
 
-  function buildDailySeries() {
-    SNAP_X = [];
-    dailyData = [];
+  function interpolateFields(anchors, fraction, fields) {
+    var index = clamp(fraction, 0, anchors.length - 1);
+    var lower = Math.floor(index);
+    var upper = Math.min(lower + 1, anchors.length - 1);
+    var amount = index - lower;
+    var start = anchors[lower];
+    var end = anchors[upper];
+    var point = {};
 
-    for (var day = 0; day < DAILY_COUNT; day += 1) {
-      SNAP_X.push((PLOT_WIDTH / (DAILY_COUNT - 1)) * day);
+    for (var i = 0; i < fields.length; i += 1) {
+      var field = fields[i];
+      var deltaField = field + "Delta";
+      var trendField = field + "Trend";
+      var delta = lerp(start[deltaField], end[deltaField], amount);
+      point[field] = Math.round(lerp(start[field], end[field], amount));
+      point[deltaField] = normalizeDelta(delta);
+      point[trendField] = trendFromDelta(delta);
     }
+
+    return point;
+  }
+
+  function buildDailyFromAnchors(anchors, fields, overrides) {
+    var series = [];
 
     for (var i = 0; i < DAILY_COUNT; i += 1) {
-      var fraction = (i / (DAILY_COUNT - 1)) * (anchorData.length - 1);
-      dailyData.push(interpolatePoint(anchorData, fraction, formatDayLabel(i)));
+      var fraction = (i / (DAILY_COUNT - 1)) * (anchors.length - 1);
+      var point = interpolateFields(anchors, fraction, fields);
+      point.label = formatDayLabel(i);
+      series.push(point);
     }
 
-    dailyData[14] = {
-      label: formatDayLabel(14),
-      questions: 204,
-      questionsDelta: 32,
-      questionsTrend: "up",
-      answers: 201,
-      answersDelta: 6,
-      answersTrend: "up",
-    };
+    if (overrides) {
+      Object.keys(overrides).forEach(function (key) {
+        var dayIndex = Number(key);
+        series[dayIndex] = Object.assign({}, series[dayIndex], overrides[key], {
+          label: formatDayLabel(dayIndex),
+        });
+      });
+    }
+
+    return series;
   }
 
-  function resolveHover(pointerX, keyboardIndex) {
-    var x = clamp(pointerX, 0, PLOT_WIDTH);
-    var dataIndex = keyboardIndex != null ? keyboardIndex : getNearestIndex(x);
-    var ruleX = keyboardIndex != null ? SNAP_X[dataIndex] : x;
-
-    return {
-      x: ruleX,
-      dataIndex: dataIndex,
-      data: dailyData[dataIndex],
-      flip: ruleX > FLIP_THRESHOLD,
-    };
+  function formatDuration(totalSeconds) {
+    var minutes = Math.floor(totalSeconds / 60);
+    var seconds = totalSeconds % 60;
+    return minutes + "min " + seconds + "sec";
   }
 
   function updateDelta(el, trend, delta) {
@@ -189,34 +110,235 @@
     value.textContent = delta + "%";
   }
 
-  function initActivityChart() {
-    buildDailySeries();
+  function notifyParent() {
+    if (hasNotifiedParent || window.parent === window) {
+      return;
+    }
 
-    var hitarea = document.querySelector(".so-dashboard__plot-hitarea");
+    hasNotifiedParent = true;
+    window.parent.postMessage({ type: "dante-html-embed-interacted" }, "*");
+  }
+
+  function formatCount(value) {
+    return value.toLocaleString("en-US");
+  }
+
+  function formatPercent(value, total) {
+    return Math.round((value / total) * 100) + "%";
+  }
+
+  /**
+   * Straight port of Launchpad DonutWidget.vue Chart.js behavior.
+   * Keep SO data/colors/tooltip content; match Launchpad geometry + hoverOffset.
+   */
+  function initDonutChart() {
+    var chartRoot = document.querySelector('[data-chart="answer-ratio"]');
+    if (!chartRoot || typeof Chart === "undefined") {
+      return;
+    }
+
+    var canvas = chartRoot.querySelector(".so-dashboard__donut-canvas");
+    var tooltip = chartRoot.querySelector(".so-dashboard__donut-tooltip");
+    var tooltipName = document.getElementById("so-donut-tooltip-name");
+    var tooltipCount = document.getElementById("so-donut-tooltip-count");
+    var tooltipPct = document.getElementById("so-donut-tooltip-pct");
+    var legendButtons = chartRoot.parentElement.querySelectorAll(".so-dashboard__legend-button");
+
+    var segments = [
+      { id: "accepted", label: "Accepted", value: 2811, color: "#00c950" },
+      { id: "answered", label: "Answered", value: 541, color: "#00a6f4" },
+      { id: "unanswered", label: "Unanswered", value: 1609, color: "#ffd230" },
+    ];
+
+    var total = segments.reduce(function (sum, segment) {
+      return sum + segment.value;
+    }, 0);
+
+    // Launchpad: single activeSegmentIndex (hover). We also keep pin for legend buttons.
+    var activeSegmentIndex = null;
+    var pinnedIndex = null;
+    var chart;
+
+    function getActiveIndex() {
+      if (activeSegmentIndex != null) {
+        return activeSegmentIndex;
+      }
+      return pinnedIndex;
+    }
+
+    // Mirror DonutWidget chartConfig computed
+    function buildDataset(activeIndex) {
+      return {
+        data: segments.map(function (segment) {
+          return segment.value;
+        }),
+        backgroundColor: segments.map(function (segment, index) {
+          if (activeIndex === null) {
+            return segment.color;
+          }
+          return index === activeIndex ? segment.color : segment.color + "40";
+        }),
+        borderWidth: 3,
+        borderColor: segments.map(function (segment, index) {
+          return activeIndex === index ? segment.color : "#FFFFFF";
+        }),
+        borderRadius: 0,
+        hoverOffset: 12,
+      };
+    }
+
+    // Mirror DonutWidget tooltipPosition computed
+    function positionTooltip(activeIndex) {
+      var meta = chart.getDatasetMeta(0);
+      var arc = meta.data[activeIndex];
+      if (!arc) {
+        return;
+      }
+
+      var props = arc.getProps(["x", "y", "startAngle", "endAngle", "innerRadius", "outerRadius"], true);
+      var midAngle = (props.startAngle + props.endAngle) / 2;
+      var offsetDistance = (props.innerRadius + props.outerRadius) / 2;
+      var tipX = props.x + Math.cos(midAngle) * offsetDistance;
+      var tipY = props.y + Math.sin(midAngle) * offsetDistance;
+      var tooltipW = 120;
+      var tooltipH = 44;
+      var pad = 4;
+
+      tipX = Math.max(pad, Math.min(tipX, chart.width - tooltipW - pad));
+      tipY = Math.max(pad, Math.min(tipY, chart.height - tooltipH - pad));
+
+      tooltip.style.left = tipX + "px";
+      tooltip.style.top = tipY + "px";
+    }
+
+    function applyDataset(activeIndex) {
+      var dataset = buildDataset(activeIndex);
+      var current = chart.data.datasets[0];
+
+      current.data = dataset.data;
+      current.backgroundColor = dataset.backgroundColor;
+      current.borderWidth = dataset.borderWidth;
+      current.borderColor = dataset.borderColor;
+      current.borderRadius = dataset.borderRadius;
+      current.hoverOffset = dataset.hoverOffset;
+    }
+
+    function renderState() {
+      var activeIndex = getActiveIndex();
+      var isIsolated = activeIndex != null;
+
+      applyDataset(activeIndex);
+
+      // Chart.js applies hoverOffset only to active elements (Launchpad relies on
+      // native hover; we set them explicitly so legend pin gets the same offset).
+      if (isIsolated) {
+        chart.setActiveElements([{ datasetIndex: 0, index: activeIndex }]);
+      } else {
+        chart.setActiveElements([]);
+      }
+
+      chart.update();
+
+      legendButtons.forEach(function (button, index) {
+        var isActive = activeIndex === index;
+        var isPinned = pinnedIndex === index;
+        button.classList.toggle("is-faded", isIsolated && !isActive);
+        button.setAttribute("aria-pressed", isPinned ? "true" : "false");
+      });
+
+      if (!isIsolated) {
+        tooltip.classList.remove("is-active");
+        tooltip.setAttribute("aria-hidden", "true");
+        return;
+      }
+
+      var segment = segments[activeIndex];
+      tooltipName.textContent = segment.label;
+      tooltipCount.textContent = formatCount(segment.value);
+      tooltipPct.textContent = formatPercent(segment.value, total);
+      positionTooltip(activeIndex);
+      tooltip.classList.add("is-active");
+      tooltip.setAttribute("aria-hidden", "false");
+    }
+
+    chart = new Chart(canvas, {
+      type: "doughnut",
+      data: {
+        labels: segments.map(function (segment) {
+          return segment.label;
+        }),
+        datasets: [buildDataset(null)],
+      },
+      // Mirror DonutWidget chartOptions
+      options: {
+        responsive: false,
+        maintainAspectRatio: true,
+        cutout: "62%",
+        layout: {
+          padding: 14,
+        },
+        animation: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: { enabled: false },
+        },
+        onHover: function (event, elements) {
+          var nextIndex = elements.length ? elements[0].index : null;
+          if (nextIndex === activeSegmentIndex) {
+            return;
+          }
+          if (nextIndex != null) {
+            notifyParent();
+          }
+          activeSegmentIndex = nextIndex;
+          renderState();
+        },
+      },
+    });
+
+    chartRoot.addEventListener("mouseleave", function () {
+      activeSegmentIndex = null;
+      renderState();
+    });
+
+    legendButtons.forEach(function (button, index) {
+      button.addEventListener("click", function () {
+        notifyParent();
+        pinnedIndex = pinnedIndex === index ? null : index;
+        renderState();
+      });
+    });
+
+    renderState();
+  }
+
+  function initChart(options) {
+    var hitarea = document.querySelector(options.hitareaSelector);
     if (!hitarea) {
       return;
     }
 
+    var plotWidth = options.plotWidth;
+    var snapX = buildSnapX(plotWidth);
+    var flipThreshold = plotWidth * options.flipRatio;
+    var series = options.series;
     var hover = hitarea.querySelector(".so-dashboard__hover");
-    var tooltipDate = document.getElementById("so-activity-tooltip-date");
-    var questionsLabel = document.getElementById("so-activity-questions-label");
-    var answersLabel = document.getElementById("so-activity-answers-label");
-    var questionsDelta = document.getElementById("so-activity-questions-delta");
-    var answersDelta = document.getElementById("so-activity-answers-delta");
-
     var activeIndex = -1;
     var pointerInside = false;
-    var lastPointerX = PLOT_WIDTH / 2;
+    var lastPointerX = plotWidth / 2;
     var keyboardIndex = null;
-    var hasNotifiedParent = false;
 
-    function notifyParent() {
-      if (hasNotifiedParent || window.parent === window) {
-        return;
-      }
+    function resolveHover(pointerX, forcedKeyboardIndex) {
+      var x = clamp(pointerX, 0, plotWidth);
+      var dataIndex = forcedKeyboardIndex != null ? forcedKeyboardIndex : getNearestIndex(x, snapX);
+      var ruleX = forcedKeyboardIndex != null ? snapX[dataIndex] : x;
 
-      hasNotifiedParent = true;
-      window.parent.postMessage({ type: "dante-html-embed-interacted" }, "*");
+      return {
+        x: ruleX,
+        dataIndex: dataIndex,
+        data: series[dataIndex],
+        flip: ruleX > flipThreshold,
+      };
     }
 
     function renderHover(state, show) {
@@ -229,17 +351,11 @@
       }
 
       activeIndex = state.dataIndex;
-
       hover.style.left = state.x - RULE_OFFSET + "px";
       hover.classList.toggle("so-dashboard__hover--flip", state.flip);
       hover.classList.add("is-active");
       hover.setAttribute("aria-hidden", "false");
-
-      tooltipDate.textContent = state.data.label;
-      questionsLabel.textContent = state.data.questions + " questions";
-      answersLabel.textContent = state.data.answers + " answers";
-      updateDelta(questionsDelta, state.data.questionsTrend, state.data.questionsDelta);
-      updateDelta(answersDelta, state.data.answersTrend, state.data.answersDelta);
+      options.render(state.data);
     }
 
     function resolveAndRender(pointerX, show, forcedKeyboardIndex) {
@@ -306,9 +422,115 @@
     });
   }
 
+  var activityAnchors = [
+    { questions: 178, questionsDelta: 8, answers: 192, answersDelta: 4 },
+    { questions: 172, questionsDelta: -5, answers: 165, answersDelta: -12 },
+    { questions: 196, questionsDelta: 10, answers: 175, answersDelta: 5 },
+    { questions: 188, questionsDelta: -4, answers: 195, answersDelta: 8 },
+    { questions: 204, questionsDelta: 32, answers: 201, answersDelta: 6 },
+    { questions: 210, questionsDelta: 15, answers: 198, answersDelta: -2 },
+    { questions: 190, questionsDelta: -8, answers: 205, answersDelta: 4 },
+    { questions: 185, questionsDelta: -3, answers: 215, answersDelta: 8 },
+    { questions: 195, questionsDelta: 3, answers: 198, answersDelta: -2 },
+  ];
+
+  // SVG path shapes roughly: high → mid → peak → mid → high (seconds for TTA)
+  var ttaAnchors = [
+    { value: 780, valueDelta: 4 },
+    { value: 720, valueDelta: -6 },
+    { value: 860, valueDelta: 8 },
+    { value: 790, valueDelta: -3 },
+    { value: 900, valueDelta: 6 },
+  ];
+
+  var votesAnchors = [
+    { value: 72, valueDelta: 5 },
+    { value: 58, valueDelta: -8 },
+    { value: 84, valueDelta: 12 },
+    { value: 66, valueDelta: -4 },
+    { value: 78, valueDelta: -11 },
+  ];
+
+  var commentsAnchors = [
+    { value: 70, valueDelta: 3 },
+    { value: 55, valueDelta: -9 },
+    { value: 82, valueDelta: 10 },
+    { value: 64, valueDelta: -5 },
+    { value: 75, valueDelta: -8 },
+  ];
+
+  function initAllCharts() {
+    var activitySeries = buildDailyFromAnchors(activityAnchors, ["questions", "answers"], {
+      14: {
+        questions: 204,
+        questionsDelta: 32,
+        questionsTrend: "up",
+        answers: 201,
+        answersDelta: 6,
+        answersTrend: "up",
+      },
+    });
+
+    var ttaSeries = buildDailyFromAnchors(ttaAnchors, ["value"]);
+    var votesSeries = buildDailyFromAnchors(votesAnchors, ["value"]);
+    var commentsSeries = buildDailyFromAnchors(commentsAnchors, ["value"]);
+
+    initChart({
+      hitareaSelector: '[data-chart="activity"]',
+      plotWidth: 801,
+      flipRatio: 0.75,
+      series: activitySeries,
+      render: function (data) {
+        document.getElementById("so-activity-tooltip-date").textContent = data.label;
+        document.getElementById("so-activity-questions-label").textContent = data.questions + " questions";
+        document.getElementById("so-activity-answers-label").textContent = data.answers + " answers";
+        updateDelta(document.getElementById("so-activity-questions-delta"), data.questionsTrend, data.questionsDelta);
+        updateDelta(document.getElementById("so-activity-answers-delta"), data.answersTrend, data.answersDelta);
+      },
+    });
+
+    initChart({
+      hitareaSelector: '[data-chart="tta"]',
+      plotWidth: 351,
+      flipRatio: 0.5,
+      series: ttaSeries,
+      render: function (data) {
+        document.getElementById("so-tta-tooltip-date").textContent = data.label;
+        document.getElementById("so-tta-value-label").textContent = formatDuration(data.value);
+        updateDelta(document.getElementById("so-tta-delta"), data.valueTrend, data.valueDelta);
+      },
+    });
+
+    initChart({
+      hitareaSelector: '[data-chart="votes"]',
+      plotWidth: 211,
+      flipRatio: 0.5,
+      series: votesSeries,
+      render: function (data) {
+        document.getElementById("so-votes-tooltip-date").textContent = data.label;
+        document.getElementById("so-votes-value-label").textContent = data.value + " votes";
+        updateDelta(document.getElementById("so-votes-delta"), data.valueTrend, data.valueDelta);
+      },
+    });
+
+    initChart({
+      hitareaSelector: '[data-chart="comments"]',
+      plotWidth: 211,
+      flipRatio: 0.5,
+      series: commentsSeries,
+      render: function (data) {
+        document.getElementById("so-comments-tooltip-date").textContent = data.label;
+        document.getElementById("so-comments-value-label").textContent = data.value + " comments";
+        updateDelta(document.getElementById("so-comments-delta"), data.valueTrend, data.valueDelta);
+      },
+    });
+
+    initDonutChart();
+  }
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initActivityChart);
+    document.addEventListener("DOMContentLoaded", initAllCharts);
   } else {
-    initActivityChart();
+    initAllCharts();
   }
 })();

@@ -84,29 +84,42 @@
                   <p class="so-dashboard__card-label">Answer Ratio</p>
                 </div>
                 <div class="so-dashboard__donut-body">
-                  <img class="so-dashboard__donut" src="img/donut.png" width="180" height="180" alt="5.3K total questions">
+                  <div class="so-dashboard__donut-chart" data-chart="answer-ratio">
+                    <canvas class="so-dashboard__donut-canvas" width="180" height="180" aria-hidden="true"></canvas>
+                    <div class="so-dashboard__donut-center" aria-hidden="true">
+                      <span class="so-dashboard__donut-center-value">5.3K</span>
+                      <span class="so-dashboard__donut-center-label">Total</span>
+                    </div>
+                    <div class="so-dashboard__donut-tooltip so-dashboard__tooltip so-dashboard__tooltip--compact" aria-hidden="true" aria-live="polite">
+                      <p class="so-dashboard__tooltip-date" id="so-donut-tooltip-name"></p>
+                      <div class="so-dashboard__tooltip-row">
+                        <p id="so-donut-tooltip-count"></p>
+                        <span class="so-dashboard__donut-tooltip-pct" id="so-donut-tooltip-pct"></span>
+                      </div>
+                    </div>
+                  </div>
                   <div class="so-dashboard__legend">
-                    <div class="so-dashboard__legend-item">
+                    <button type="button" class="so-dashboard__legend-button" data-slice="accepted" aria-pressed="false">
                       <span class="so-dashboard__swatch so-dashboard__swatch--green"></span>
-                      <div class="so-dashboard__legend-copy">
+                      <span class="so-dashboard__legend-copy">
                         <span class="so-dashboard__legend-name">Accepted</span>
-                        <span class="so-dashboard__legend-value">2,811</span>
-                      </div>
-                    </div>
-                    <div class="so-dashboard__legend-item">
+                        <span class="so-dashboard__legend-value" data-value="2811">2,811</span>
+                      </span>
+                    </button>
+                    <button type="button" class="so-dashboard__legend-button" data-slice="answered" aria-pressed="false">
                       <span class="so-dashboard__swatch so-dashboard__swatch--sky"></span>
-                      <div class="so-dashboard__legend-copy">
+                      <span class="so-dashboard__legend-copy">
                         <span class="so-dashboard__legend-name">Answered</span>
-                        <span class="so-dashboard__legend-value">541</span>
-                      </div>
-                    </div>
-                    <div class="so-dashboard__legend-item">
+                        <span class="so-dashboard__legend-value" data-value="541">541</span>
+                      </span>
+                    </button>
+                    <button type="button" class="so-dashboard__legend-button" data-slice="unanswered" aria-pressed="false">
                       <span class="so-dashboard__swatch so-dashboard__swatch--yellow"></span>
-                      <div class="so-dashboard__legend-copy">
+                      <span class="so-dashboard__legend-copy">
                         <span class="so-dashboard__legend-name">Unanswered</span>
-                        <span class="so-dashboard__legend-value">1,609</span>
-                      </div>
-                    </div>
+                        <span class="so-dashboard__legend-value" data-value="1609">1,609</span>
+                      </span>
+                    </button>
                   </div>
                 </div>
                 <div class="so-dashboard__note">
@@ -134,10 +147,25 @@
                     <div class="so-dashboard__y-tick"><span class="so-dashboard__gridline"></span><span>0</span></div>
                   </div>
                   <div class="so-dashboard__x-axis so-dashboard__x-axis--five">
-                    <span>Oct 1</span><span>Oct 8</span><span>Oct 15</span><span>Oct 22</span><span>Oct 29</span>
+                    <span>Sep 2</span><span>Sep 9</span><span>Sep 16</span><span>Sep 23</span><span>Sep 29</span>
                   </div>
                   <div class="so-dashboard__plot so-dashboard__plot--tta">
-                    <img src="img/chart-tta.svg" width="351" height="113" alt="">
+                    <div class="so-dashboard__plot-hitarea" data-chart="tta" tabindex="0" role="group" aria-label="Time to Answer chart. Arrow keys move between daily dates.">
+                      <img src="img/chart-tta.svg" width="351" height="113" alt="">
+                      <div class="so-dashboard__hover so-dashboard__hover--tta" aria-hidden="true">
+                        <span class="so-dashboard__hover-rule so-dashboard__hover-rule--tta" aria-hidden="true"></span>
+                        <div class="so-dashboard__tooltip so-dashboard__tooltip--compact" aria-live="polite">
+                          <p class="so-dashboard__tooltip-date" id="so-tta-tooltip-date"></p>
+                          <div class="so-dashboard__tooltip-row">
+                            <p id="so-tta-value-label">12min 4sec</p>
+                            <div class="so-dashboard__delta so-dashboard__delta--up" id="so-tta-delta">
+                              <span class="so-dashboard__delta-icon"><img src="img/icon-arrow-up.svg" width="12" height="12" alt=""></span>
+                              <span class="so-dashboard__delta-value">6%</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </article>
@@ -238,7 +266,7 @@
                 <span>Sep 2</span><span>Sep 5</span><span>Sep 8</span><span>Sep 11</span><span>Sep 14</span><span>Sep 17</span><span>Sep 20</span><span>Sep 23</span><span>Sep 26</span><span>Sep 29</span>
               </div>
               <div class="so-dashboard__plot so-dashboard__plot--activity">
-                <div class="so-dashboard__plot-hitarea" tabindex="0" role="group" aria-label="Activity chart. Arrow keys move between daily dates.">
+                <div class="so-dashboard__plot-hitarea" data-chart="activity" tabindex="0" role="group" aria-label="Activity chart. Arrow keys move between daily dates.">
                   <img class="so-dashboard__activity-answers-fill" src="img/chart-activity-answers-fill.svg" width="801" height="170" alt="">
                   <img class="so-dashboard__activity-answers-line" src="img/chart-activity-answers-line.svg" width="801" height="50" alt="">
                   <img class="so-dashboard__activity-questions-fill" src="img/chart-activity-questions-fill.svg" width="801" height="177" alt="">
@@ -289,10 +317,25 @@
                     <div class="so-dashboard__y-tick so-dashboard__y-tick--xs"><span class="so-dashboard__gridline"></span><span>0</span></div>
                   </div>
                   <div class="so-dashboard__x-axis so-dashboard__x-axis--three">
-                    <span>Oct 1</span><span>Oct 15</span><span>Oct 29</span>
+                    <span>Sep 2</span><span>Sep 16</span><span>Sep 29</span>
                   </div>
                   <div class="so-dashboard__plot so-dashboard__plot--small">
-                    <img src="img/chart-votes.svg" width="211" height="99" alt="">
+                    <div class="so-dashboard__plot-hitarea" data-chart="votes" tabindex="0" role="group" aria-label="Votes chart. Arrow keys move between daily dates.">
+                      <img src="img/chart-votes.svg" width="211" height="99" alt="">
+                      <div class="so-dashboard__hover so-dashboard__hover--small" aria-hidden="true">
+                        <span class="so-dashboard__hover-rule so-dashboard__hover-rule--small" aria-hidden="true"></span>
+                        <div class="so-dashboard__tooltip so-dashboard__tooltip--compact" aria-live="polite">
+                          <p class="so-dashboard__tooltip-date" id="so-votes-tooltip-date"></p>
+                          <div class="so-dashboard__tooltip-row">
+                            <p id="so-votes-value-label">68 votes</p>
+                            <div class="so-dashboard__delta so-dashboard__delta--down" id="so-votes-delta">
+                              <span class="so-dashboard__delta-icon"><img src="img/icon-arrow-down.svg" width="12" height="12" alt=""></span>
+                              <span class="so-dashboard__delta-value">11%</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </article>
@@ -325,10 +368,25 @@
                     <div class="so-dashboard__y-tick so-dashboard__y-tick--xs"><span class="so-dashboard__gridline"></span><span>0</span></div>
                   </div>
                   <div class="so-dashboard__x-axis so-dashboard__x-axis--three">
-                    <span>Oct 1</span><span>Oct 15</span><span>Oct 29</span>
+                    <span>Sep 2</span><span>Sep 16</span><span>Sep 29</span>
                   </div>
                   <div class="so-dashboard__plot so-dashboard__plot--small">
-                    <img src="img/chart-comments.svg" width="211" height="99" alt="">
+                    <div class="so-dashboard__plot-hitarea" data-chart="comments" tabindex="0" role="group" aria-label="Comments chart. Arrow keys move between daily dates.">
+                      <img src="img/chart-comments.svg" width="211" height="99" alt="">
+                      <div class="so-dashboard__hover so-dashboard__hover--small" aria-hidden="true">
+                        <span class="so-dashboard__hover-rule so-dashboard__hover-rule--small" aria-hidden="true"></span>
+                        <div class="so-dashboard__tooltip so-dashboard__tooltip--compact" aria-live="polite">
+                          <p class="so-dashboard__tooltip-date" id="so-comments-tooltip-date"></p>
+                          <div class="so-dashboard__tooltip-row">
+                            <p id="so-comments-value-label">71 comments</p>
+                            <div class="so-dashboard__delta so-dashboard__delta--down" id="so-comments-delta">
+                              <span class="so-dashboard__delta-icon"><img src="img/icon-arrow-down.svg" width="12" height="12" alt=""></span>
+                              <span class="so-dashboard__delta-value">8%</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </article>
@@ -337,6 +395,7 @@
         </main>
       </div>
     </div>
+    <script src="vendor/chart.umd.min.js" defer></script>
     <script src="dashboard.js" defer></script>
   </body>
 </html>

@@ -415,10 +415,68 @@ img {
   flex: 1 1 auto;
 }
 
-.so-dashboard__donut {
+.so-dashboard__donut-chart {
+  position: relative;
   width: 180px;
   height: 180px;
   flex-shrink: 0;
+}
+
+.so-dashboard__donut-canvas {
+  display: block;
+  width: 180px;
+  height: 180px;
+}
+
+.so-dashboard__donut-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.so-dashboard__donut-center-value {
+  color: var(--so-text-title);
+  font-size: 21px;
+  line-height: 24px;
+}
+
+.so-dashboard__donut-center-label {
+  color: var(--so-text-muted);
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.so-dashboard__donut-tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+}
+
+.so-dashboard__donut-tooltip.so-dashboard__tooltip--compact {
+  width: 120px;
+}
+
+.so-dashboard__donut-tooltip.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.so-dashboard__donut-tooltip-pct {
+  color: var(--so-text-muted);
+  font-size: 12px;
+  line-height: 14px;
 }
 
 .so-dashboard__legend {
@@ -428,13 +486,38 @@ img {
   flex: 1 1 auto;
 }
 
-.so-dashboard__legend-item {
+.so-dashboard__legend-button {
   display: flex;
   align-items: center;
   gap: 8px;
+  width: 100%;
   padding: 8px 12px;
-  border: 1px solid var(--so-border);
+  border: none;
   border-radius: var(--so-radius-card);
+  background-color: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.15s ease, opacity 0.2s ease;
+}
+
+.so-dashboard__legend-button:hover,
+.so-dashboard__legend-button:focus-visible {
+  background-color: var(--so-footer-bg);
+  outline: none;
+}
+
+.so-dashboard__legend-button:focus-visible {
+  box-shadow: 0 0 0 2px var(--so-canvas), 0 0 0 4px var(--so-green);
+}
+
+.so-dashboard__legend-button.is-faded {
+  opacity: 0.3;
+}
+
+.so-dashboard__legend-button[aria-pressed="true"] {
+  background-color: var(--so-footer-bg);
 }
 
 .so-dashboard__swatch {
@@ -599,6 +682,7 @@ img {
   top: 85px;
   width: 351px;
   height: 113px;
+  pointer-events: auto;
 }
 
 .so-dashboard__plot--activity {
@@ -628,6 +712,7 @@ img {
   top: 55px;
   width: 211px;
   height: 99px;
+  pointer-events: auto;
 }
 
 .so-dashboard__plot img {
@@ -665,6 +750,7 @@ img {
 
 .so-dashboard__hover {
   position: absolute;
+  /* Align rule with top y-axis gridline (−54.5px from plot) */
   top: -55px;
   left: 396px;
   width: 160px;
@@ -672,6 +758,22 @@ img {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+}
+
+.so-dashboard__hover--tta {
+  /* Same top gridline offset as Activity in medium cards */
+  top: -55px;
+  left: 0;
+  width: 140px;
+  height: 100%;
+}
+
+.so-dashboard__hover--small {
+  /* Top gridline sits ~32.5px above small plots */
+  top: -33px;
+  left: 0;
+  width: 120px;
+  height: 100%;
 }
 
 .so-dashboard__hover.is-active {
@@ -684,7 +786,8 @@ img {
   top: 0;
   left: 2px;
   width: 1px;
-  height: 232px;
+  /* Activity: top gridline (−55) → bottom gridline (~189) */
+  height: 244px;
   background-image: repeating-linear-gradient(
     to bottom,
     var(--so-text-muted) 0,
@@ -692,6 +795,16 @@ img {
     transparent 5px,
     transparent 10px
   );
+}
+
+.so-dashboard__hover-rule--tta {
+  /* TTA: top (−55) → bottom (~96) */
+  height: 151px;
+}
+
+.so-dashboard__hover-rule--small {
+  /* Votes/Comments: top (−33) → bottom (~83) */
+  height: 116px;
 }
 
 .so-dashboard__tooltip {
@@ -706,6 +819,19 @@ img {
   background-color: var(--so-canvas);
   border: 1px solid rgba(23, 23, 23, 0.15);
   border-radius: var(--so-radius-card);
+}
+
+.so-dashboard__tooltip--compact {
+  top: 8px;
+  left: 10px;
+  width: 120px;
+  gap: 4px;
+  padding: 5px 6px;
+}
+
+.so-dashboard__tooltip--compact .so-dashboard__tooltip-row p {
+  font-size: 12px;
+  line-height: 14px;
 }
 
 .so-dashboard__tooltip-date {
@@ -732,6 +858,10 @@ img {
 .so-dashboard__hover--flip .so-dashboard__tooltip {
   left: auto;
   right: 19px;
+}
+
+.so-dashboard__hover--flip .so-dashboard__tooltip--compact {
+  right: 10px;
 }
 
 .so-dashboard__progress-block {
@@ -863,4 +993,11 @@ img {
 
 .so-dashboard__card--activity + .so-dashboard__section {
   margin-top: 24px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .so-dashboard__donut-tooltip,
+  .so-dashboard__legend-button {
+    transition: none;
+  }
 }
