@@ -106,7 +106,7 @@
     el.classList.remove("so-dashboard__delta--up", "so-dashboard__delta--down");
     el.classList.add(trend === "up" ? "so-dashboard__delta--up" : "so-dashboard__delta--down");
     icon.src = trend === "up" ? "img/icon-arrow-up.svg" : "img/icon-arrow-down.svg";
-    icon.style.transform = trend === "down" ? "none" : "";
+    icon.style.transform = "";
     value.textContent = delta + "%";
   }
 
