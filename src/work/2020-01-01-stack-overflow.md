@@ -39,7 +39,7 @@ I helped grow the enterprise product from a single customer to over 30, adapting
   </figure>
   <figure class="work-gallery__item">
     <figcaption class="work-gallery__caption">Building the system behind the emails</figcaption>
-    <p class="work-gallery__description">HTML email is notoriously painful to build, every email was a bespoke act of suffering. I built one of the first email design systems that abstracted all of that complexity so the team could focus on the message, not the markup.</p>
+    <p class="work-gallery__description">HTML email is notoriously painful to build, every email was a bespoke act of suffering. I built one of the first <a href="https://v2.stackoverflow.design/email/guidelines/getting-started/">email design systems</a> that abstracted all of that complexity so the team could focus on the message, not the markup.</p>
     <img src="/assets/img/stackoverflow/stackoverflow-email-design-system.svg" alt="Stack Overflow email design system." loading="lazy">
   </figure>
   <figure class="work-gallery__item work-gallery__item--hero-secondary work-gallery__item--email-duo">
