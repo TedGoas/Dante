@@ -39,8 +39,19 @@ I helped grow the enterprise product from a single customer to over 30, adapting
   </figure>
   <figure class="work-gallery__item">
     <figcaption class="work-gallery__caption">Building the system behind the emails</figcaption>
-    <p class="work-gallery__description">HTML email is notoriously painful to build, every email was a bespoke act of suffering. I built one of the first <a href="https://v2.stackoverflow.design/email/guidelines/getting-started/">email design systems</a> that abstracted all of that complexity so the team could focus on the message, not the markup.</p>
+    <p class="work-gallery__description">HTML email is notoriously painful to build. At Stack I turned my open source framework into an <a href="https://v2.stackoverflow.design/email/guidelines/getting-started/">email design system</a> that scaled to millions of emails a year.</p>
     <img src="/assets/img/stackoverflow/stackoverflow-email-design-system.svg" alt="Stack Overflow email design system." loading="lazy">
+    <p class="work-gallery__followup">The code was only part of it. I documented typography and the other components, designed the email section of Stack Overflow’s design system, and shipped interactive docs so people could see components in use, plus dark mode and responsiveness. That visibility helped outside Stack too, through talks and podcasts. Inside, the impact I cared about most was for developers who did not know or like HTML email: they could get further without a designer sitting next to them, which freed design time for the problems that actually needed it.</p>
+    <div class="work-gallery__thumbs work-gallery__thumbs--halves">
+      <figure class="work-gallery__thumb">
+        <img src="/assets/img/stackoverflow/th-email-design-system-typography.svg" alt="Email design system typography." width="705" height="400" loading="lazy">
+        <figcaption class="work-gallery__thumb-caption">Typography guidelines from the email design system docs.</figcaption>
+      </figure>
+      <figure class="work-gallery__thumb">
+        <img src="/assets/img/stackoverflow/th-email-design-system-templates.webp" alt="Email design system templates." width="1410" height="800" loading="lazy">
+        <figcaption class="work-gallery__thumb-caption">Templates and components shown live in the documentation.</figcaption>
+      </figure>
+    </div>
   </figure>
   <figure class="work-gallery__item work-gallery__item--hero-secondary work-gallery__item--email-duo">
     <figcaption class="work-gallery__caption">From product to promotion</figcaption>
