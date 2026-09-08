@@ -79,7 +79,7 @@ Add `work-gallery__item--email-duo` for wider columns.
 </figure>
 ```
 
-## Integrations stack — overlapping cards (Stack Overflow “Playing well with others”)
+## Integrations stack — cascading cards (Stack Overflow “Playing well with others”)
 
 Stage aspect ratio 1151×450; back top-left, front bottom-right.
 
@@ -92,6 +92,7 @@ Stage aspect ratio 1151×450; back top-left, front bottom-right.
     <div class="work-gallery__integrations-stack__stage">
       <img class="work-gallery__integrations-stack__back" src="/assets/img/example/back.svg" alt="Back card." width="678" height="425" loading="lazy">
       <img class="work-gallery__integrations-stack__front" src="/assets/img/example/front.svg" alt="Front card." width="678" height="412" loading="lazy">
+      <img class="work-gallery__integrations-stack__bottom" src="/assets/img/example/bottom.svg" alt="Bottom card." width="678" height="401" loading="lazy">
     </div>
   </div>
 </figure>

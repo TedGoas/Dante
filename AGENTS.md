@@ -274,12 +274,12 @@ Reusable BEM layouts for case study figures with more than one asset. Styles liv
 | `work-gallery__item--email-duo` | *(with hero-secondary)* | Wider email columns (680px / 400px) |
 | `work-gallery__item--canfield-duo` | *(with hero-secondary)* | Email + tall mobile (640px / 768px) |
 | `work-gallery__item--sidebar-quad` | `work-gallery__media--sidebar-quad` | Four images in two columns |
-| `work-gallery__item--integrations-stack` | `work-gallery__media--integrations-stack` | Overlapping back/front cards on a fixed stage |
+| `work-gallery__item--integrations-stack` | `work-gallery__media--integrations-stack` | Cascading back/front/bottom cards on a fixed stage |
 | `work-gallery__item--media-native` | click-to-play, prototype embed, or large native asset | Centered native width |
 | `work-gallery__item--borderless` | any | Hairline border off; keep 8px radius |
 | `work-gallery__item--plain` | floating asset (e.g. logo) | No border, no radius |
 
-Image classes inside hero-secondary: `work-gallery__media-main`, `work-gallery__media-secondary`. Integrations stack: `work-gallery__integrations-stack__stage`, `__back`, `__front`. Sidebar quad: `work-gallery__sidebar-quad`, `__col`.
+Image classes inside hero-secondary: `work-gallery__media-main`, `work-gallery__media-secondary`. Integrations stack: `work-gallery__integrations-stack__stage`, `__back`, `__front`, `__bottom`. Sidebar quad: `work-gallery__sidebar-quad`, `__col`.
 
 **Padding:** Hero-secondary frames are **flush at the bottom** (no bottom padding; top and sides use `--work-gallery-atmosphere-frame-padding` with backdrop, or `--space-work-gallery-card-padding` without).
 

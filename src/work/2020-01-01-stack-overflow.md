@@ -65,11 +65,12 @@ I helped grow the enterprise product from a single customer to over 30, adapting
   <figure class="work-gallery__item work-gallery__item--integrations-stack">
     <figcaption class="work-gallery__caption">Playing well with others</figcaption>
     <p class="work-gallery__description">Stack Overflow is most useful when it fits into how your team already works. I designed a set of integrations that connected our platform to tools like Jira and GitHub, turning separate systems into one seamless workflow.</p>
-    <div class="work-gallery__media work-gallery__media--integrations-stack work-gallery__media--has-backdrop work-gallery__media--backdrop-atmosphere work-gallery__media--atmosphere-cool-dark" aria-label="Stack Overflow and GitHub integration previews.">
+    <div class="work-gallery__media work-gallery__media--integrations-stack work-gallery__media--has-backdrop work-gallery__media--backdrop-atmosphere work-gallery__media--atmosphere-cool-dark" aria-label="Stack Overflow, GitHub, and Jira integration previews.">
       <div class="work-gallery__backdrop" aria-hidden="true"></div>
       <div class="work-gallery__integrations-stack__stage">
         <img class="work-gallery__integrations-stack__back" src="/assets/img/stackoverflow/stackoverflow-integration-so.svg" alt="Stack Overflow question preview linked from GitHub." width="678" height="425" loading="lazy">
         <img class="work-gallery__integrations-stack__front" src="/assets/img/stackoverflow/stackoverflow-integration-github.svg" alt="GitHub code file preview linked to Stack Overflow." width="678" height="412" loading="lazy">
+        <img class="work-gallery__integrations-stack__bottom" src="/assets/img/stackoverflow/stackoverflow-integration-jira.svg" alt="Jira bug ticket preview linked from Stack Overflow." width="678" height="401" loading="lazy">
       </div>
     </div>
   </figure>
