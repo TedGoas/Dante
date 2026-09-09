@@ -10,7 +10,7 @@ description: >-
 
 # HTML embed (large iframe mock)
 
-Use when a work case study **hero figure** should be a **live HTML/CSS/JS mock** at fixed artboard size, scaled inside the gallery breakout. Bundles stay in-repo under [`src/work/img/{case}/prototypes/{slug}/`](../../../src/work/img/) so product styles never collide with the main site.
+Use when a work case study **hero figure** should be a **live HTML/CSS/JS mock**. Bundles stay in-repo under [`src/work/img/{case}/prototypes/{slug}/`](../../../src/work/img/) so product styles never collide with the main site. Prefer a **fluid responsive layout inside the iframe** (components shrink/reflow) over CSS-scaling a fixed artboard.
 
 **Canonical detail:** [AGENTS.md](../../../AGENTS.md) (*Work gallery: HTML embed prototypes*).  
 **Reference implementation:** Stack Overflow dashboard — [`src/work/img/stackoverflow/prototypes/dashboard/`](../../../src/work/img/stackoverflow/prototypes/dashboard/) on [`src/work/2020-01-01-stack-overflow.md`](../../../src/work/2020-01-01-stack-overflow.md).
@@ -47,13 +47,13 @@ Ask before adding a shortcode — only one production figure uses this pattern t
       </svg>
     </span>
     <div class="html-embed__frame">
-      <iframe src="/assets/img/{case}/prototypes/{slug}/" title="…" width="1100" height="1510" loading="lazy"></iframe>
+      <iframe src="/assets/img/{case}/prototypes/{slug}/" title="…" width="1266" height="1560" loading="lazy"></iframe>
     </div>
   </div>
 </figure>
 ```
 
-Replace `width` / `height` with the bundle artboard. Styles in [`styles.css`](../../../src/assets/css/styles.css) assume scaling from native width via container query (`100cqi / W`).
+Replace `width` / `height` with sensible fallbacks. Host CSS sizes the iframe to `width: 100%`; the bundle should post `dante-html-embed-resize` with content height so the host can grow/shrink the iframe (see Stack Overflow dashboard).
 
 ## Bundle workflow
 
@@ -90,16 +90,21 @@ function notifyParent() {
 
 Call `notifyParent()` on first meaningful interaction (e.g. chart pointer move or keyboard focus). Fire **once** per iframe load.
 
+Also report content height whenever layout changes so the host iframe does not clip:
+
+```js
+window.parent.postMessage({ type: 'dante-html-embed-resize', height: Math.ceil(root.getBoundingClientRect().height) }, '*');
+```
+
 Do **not** reuse Dialpad prototype message types (`dante-prototype-*`, `dante-thumb-prototype-*`) unless the host script explicitly handles them.
 
 ## Checklist (new html-embed figure)
 
-1. Bundle at `src/work/img/{case}/prototypes/{slug}/` with fixed artboard dimensions documented.
-2. Case study figure: `work-gallery__item--media-native` + markup above with matching iframe `width` / `height`.
-3. Interactive JS inside bundle + `notifyParent()` if the cue should dismiss on use.
-4. Build; open `/work/{slug}/`; confirm scaling, cue visible at rest, cue fades after interaction.
+1. Bundle at `src/work/img/{case}/prototypes/{slug}/` with a fluid responsive layout (prefer reflow over CSS zoom).
+2. Case study figure: `work-gallery__item--media-native` + markup above with fallback iframe `width` / `height`.
+3. Interactive JS inside bundle + `notifyParent()` if the cue should dismiss on use; post `dante-html-embed-resize` on load/resize.
+4. Build; open `/work/{slug}/`; confirm no clipping at narrow widths, cue visible at rest, cue fades after interaction.
 5. Stage only html-embed-related paths when committing (see **commit** skill).
-
 ## Do not
 
 - Load `work-html-embed.js` on the default (non-work) layout for a one-off.

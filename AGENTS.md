@@ -150,13 +150,13 @@ Agent skill (workflow + demo/`postMessage` conventions): [`.cursor/skills/protot
 
 Full-width **native-size iframe figures** for large product mocks rebuilt as HTML/CSS/JS bundles (not scroll-gated hero prototypes or captioned thumbs). First use: Stack Overflow analytics dashboard on [`src/work/2020-01-01-stack-overflow.md`](src/work/2020-01-01-stack-overflow.md).
 
-**When to use:** A case study hero should be a **live, clickable mock** at fixed artboard dimensions (e.g. 1100×1510) with interaction inside the iframe. Product palette stays in the bundle; host page only supplies gallery chrome and the “Click around” cue.
+**When to use:** A case study hero should be a **live, clickable mock** with interaction inside the iframe. Prefer a fluid responsive layout in the bundle (components shrink and reflow) over CSS-scaling a fixed artboard. Product palette stays in the bundle; host page only supplies gallery chrome and the “Click around” cue.
 
 **vs other iframe patterns:**
 
 | | HTML embed | `prototypeEmbed` (hero) | `thumbPrototype` (thumb) |
 |--|------------|-------------------------|--------------------------|
-| Size | Native artboard, scaled in gallery | Native width + optional wallpaper | Small thumb (~470×400) |
+| Size | Fluid width in gallery; height from iframe resize postMessage | Native width + optional wallpaper | Small thumb (~470×400) |
 | Activation | Loads immediately (`loading="lazy"`) | Scroll gate + 1s delay + autostart | Hover/focus play/reset |
 | Cue | “Click around” (host page) | None | “Hover me!” (host page) |
 | Bundle | `src/work/img/{case}/prototypes/{slug}/` | Same | Same |
@@ -175,7 +175,7 @@ Full-width **native-size iframe figures** for large product mocks rebuilt as HTM
 </div>
 ```
 
-Iframe `width` / `height` must match the bundle artboard; CSS scales via `transform: scale(calc(100cqi / W))` on the iframe.
+Iframe `width` / `height` attrs are fallbacks; host CSS sets `width: 100%`. The bundle should post height updates so the host can resize the iframe without clipping.
 
 **Implementation map:**
 
@@ -193,7 +193,13 @@ Iframe `width` / `height` must match the bundle artboard; CSS scales via `transf
 window.parent.postMessage({ type: 'dante-html-embed-interacted' }, '*');
 ```
 
-Host adds `is-interacted` on `[data-html-embed]` and fades the cue. Pointer events inside the iframe do not bubble to the host — this message is required for dismissal after the user clicks inside the mock.
+When layout height changes (load, resize, reflow), post:
+
+```js
+window.parent.postMessage({ type: 'dante-html-embed-resize', height: contentHeightPx }, '*');
+```
+
+Host adds `is-interacted` on `[data-html-embed]` and fades the cue. Host sets the iframe’s `style.height` from resize messages. Pointer events inside the iframe do not bubble to the host — the interact message is required for dismissal after the user clicks inside the mock.
 
 **Cue UX:** Same visual language as thumb “Hover me!” — soft Swiss red, −6° tilt, Feather corner-right-down icon, hangs above top-left of the frame. Fades on host `:hover` / `:focus-within` or after `is-interacted`.
 

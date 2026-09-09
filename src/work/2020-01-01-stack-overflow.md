@@ -33,7 +33,7 @@ I helped grow the enterprise product from a single customer to over 30, adapting
         </svg>
       </span>
       <div class="html-embed__frame">
-        <iframe src="/assets/img/stackoverflow/prototypes/dashboard/" title="Stack Overflow dashboard design." width="1100" height="1510" loading="lazy"></iframe>
+        <iframe src="/assets/img/stackoverflow/prototypes/dashboard/" title="Stack Overflow dashboard design." width="1266" height="1640" loading="lazy"></iframe>
       </div>
     </div>
   </figure>

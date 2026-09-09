@@ -271,7 +271,7 @@
       },
       // Mirror DonutWidget chartOptions
       options: {
-        responsive: false,
+        responsive: true,
         maintainAspectRatio: true,
         cutout: "62%",
         layout: {
@@ -318,15 +318,26 @@
       return;
     }
 
-    var plotWidth = options.plotWidth;
-    var snapX = buildSnapX(plotWidth);
-    var flipThreshold = plotWidth * options.flipRatio;
+    var plotWidth = 0;
+    var snapX = [];
+    var flipThreshold = 0;
     var series = options.series;
     var hover = hitarea.querySelector(".so-dashboard__hover");
     var activeIndex = -1;
     var pointerInside = false;
-    var lastPointerX = plotWidth / 2;
+    var lastPointerX = 0;
     var keyboardIndex = null;
+
+    function rebuildGeometry() {
+      plotWidth = hitarea.clientWidth || options.plotWidth || 0;
+      snapX = buildSnapX(plotWidth);
+      flipThreshold = plotWidth * options.flipRatio;
+      if (lastPointerX === 0) {
+        lastPointerX = plotWidth / 2;
+      }
+    }
+
+    rebuildGeometry();
 
     function resolveHover(pointerX, forcedKeyboardIndex) {
       var x = clamp(pointerX, 0, plotWidth);
@@ -420,6 +431,12 @@
         resolveAndRender(lastPointerX, true, keyboardIndex);
       }
     });
+
+    if (typeof ResizeObserver !== "undefined") {
+      new ResizeObserver(function () {
+        rebuildGeometry();
+      }).observe(hitarea);
+    }
   }
 
   var activityAnchors = [
@@ -528,9 +545,45 @@
     initDonutChart();
   }
 
+  function reportHeightToParent() {
+    var root = document.querySelector(".so-dashboard");
+    if (!root || !window.parent || window.parent === window) {
+      return;
+    }
+
+    var height = Math.ceil(root.getBoundingClientRect().height);
+    if (height < 1) {
+      return;
+    }
+
+    window.parent.postMessage(
+      {
+        type: "dante-html-embed-resize",
+        height: height,
+      },
+      "*"
+    );
+  }
+
+  function initHeightReporter() {
+    reportHeightToParent();
+
+    window.addEventListener("load", reportHeightToParent);
+    window.addEventListener("resize", reportHeightToParent);
+
+    var root = document.querySelector(".so-dashboard");
+    if (root && typeof ResizeObserver !== "undefined") {
+      new ResizeObserver(reportHeightToParent).observe(root);
+    }
+  }
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initAllCharts);
+    document.addEventListener("DOMContentLoaded", function () {
+      initAllCharts();
+      initHeightReporter();
+    });
   } else {
     initAllCharts();
+    initHeightReporter();
   }
 })();
