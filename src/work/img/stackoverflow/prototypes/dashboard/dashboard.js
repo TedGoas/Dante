@@ -1,15 +1,17 @@
 (function () {
   var RULE_OFFSET = 2;
-  var DAILY_COUNT = 28;
-  var RANGE_START = new Date(2024, 8, 2);
+  var RANGE_END = new Date(2024, 8, 29);
+  var dayCount = 28;
+  var rangeStart = new Date(2024, 8, 2);
   var hasNotifiedParent = false;
+  var currentRangeId = "4w";
 
   function clamp(value, min, max) {
     return Math.min(Math.max(value, min), max);
   }
 
   function formatDayLabel(dayIndex) {
-    var date = new Date(RANGE_START);
+    var date = new Date(rangeStart);
     date.setDate(date.getDate() + dayIndex);
     return date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
   }
@@ -43,8 +45,9 @@
 
   function buildSnapX(plotWidth) {
     var snapX = [];
-    for (var day = 0; day < DAILY_COUNT; day += 1) {
-      snapX.push((plotWidth / (DAILY_COUNT - 1)) * day);
+    var divisor = Math.max(dayCount - 1, 1);
+    for (var day = 0; day < dayCount; day += 1) {
+      snapX.push((plotWidth / divisor) * day);
     }
     return snapX;
   }
@@ -73,9 +76,10 @@
 
   function buildDailyFromAnchors(anchors, fields, overrides) {
     var series = [];
+    var divisor = Math.max(dayCount - 1, 1);
 
-    for (var i = 0; i < DAILY_COUNT; i += 1) {
-      var fraction = (i / (DAILY_COUNT - 1)) * (anchors.length - 1);
+    for (var i = 0; i < dayCount; i += 1) {
+      var fraction = (i / divisor) * (anchors.length - 1);
       var point = interpolateFields(anchors, fraction, fields);
       point.label = formatDayLabel(i);
       series.push(point);
@@ -84,6 +88,9 @@
     if (overrides) {
       Object.keys(overrides).forEach(function (key) {
         var dayIndex = Number(key);
+        if (dayIndex < 0 || dayIndex >= series.length) {
+          return;
+        }
         series[dayIndex] = Object.assign({}, series[dayIndex], overrides[key], {
           label: formatDayLabel(dayIndex),
         });
@@ -99,15 +106,40 @@
     return minutes + "min " + seconds + "sec";
   }
 
+  function formatCount(value) {
+    return value.toLocaleString("en-US");
+  }
+
+  function formatCompact(value) {
+    if (value >= 1000) {
+      var thousands = value / 1000;
+      var rounded = thousands >= 10 ? Math.round(thousands) : Math.round(thousands * 10) / 10;
+      return rounded + "K";
+    }
+    return formatCount(value);
+  }
+
+  function formatPercent(value, total) {
+    return Math.round((value / total) * 100) + "%";
+  }
+
   function updateDelta(el, trend, delta) {
+    if (!el) {
+      return;
+    }
+
     var icon = el.querySelector(".so-dashboard__delta-icon img");
     var value = el.querySelector(".so-dashboard__delta-value");
 
     el.classList.remove("so-dashboard__delta--up", "so-dashboard__delta--down");
     el.classList.add(trend === "up" ? "so-dashboard__delta--up" : "so-dashboard__delta--down");
-    icon.src = trend === "up" ? "img/icon-arrow-up.svg" : "img/icon-arrow-down.svg";
-    icon.style.transform = "";
-    value.textContent = delta + "%";
+    if (icon) {
+      icon.src = trend === "up" ? "img/icon-arrow-up.svg" : "img/icon-arrow-down.svg";
+      icon.style.transform = "";
+    }
+    if (value) {
+      value.textContent = delta + "%";
+    }
   }
 
   function notifyParent() {
@@ -119,12 +151,35 @@
     window.parent.postMessage({ type: "dante-html-embed-interacted" }, "*");
   }
 
-  function formatCount(value) {
-    return value.toLocaleString("en-US");
+  function buildAxisLabels(labelCount) {
+    var labels = [];
+    var divisor = Math.max(labelCount - 1, 1);
+    var dayDivisor = Math.max(dayCount - 1, 1);
+
+    for (var i = 0; i < labelCount; i += 1) {
+      var dayIndex = Math.round((i / divisor) * dayDivisor);
+      labels.push(formatDayLabel(dayIndex));
+    }
+
+    return labels;
   }
 
-  function formatPercent(value, total) {
-    return Math.round((value / total) * 100) + "%";
+  function setAxisLabels(el, labels) {
+    if (!el) {
+      return;
+    }
+    el.textContent = "";
+    labels.forEach(function (label) {
+      var span = document.createElement("span");
+      span.textContent = label;
+      el.appendChild(span);
+    });
+  }
+
+  function setRangeWindow(days) {
+    dayCount = days;
+    rangeStart = new Date(RANGE_END);
+    rangeStart.setDate(rangeStart.getDate() - (days - 1));
   }
 
   /**
@@ -134,7 +189,7 @@
   function initDonutChart() {
     var chartRoot = document.querySelector('[data-chart="answer-ratio"]');
     if (!chartRoot || typeof Chart === "undefined") {
-      return;
+      return null;
     }
 
     var canvas = chartRoot.querySelector(".so-dashboard__donut-canvas");
@@ -143,6 +198,7 @@
     var tooltipCount = document.getElementById("so-donut-tooltip-count");
     var tooltipPct = document.getElementById("so-donut-tooltip-pct");
     var legendButtons = chartRoot.parentElement.querySelectorAll(".so-dashboard__legend-button");
+    var totalEl = document.getElementById("so-donut-total");
 
     var segments = [
       { id: "accepted", label: "Accepted", value: 2811, color: "#00c950" },
@@ -154,7 +210,6 @@
       return sum + segment.value;
     }, 0);
 
-    // Launchpad: single activeSegmentIndex (hover). We also keep pin for legend buttons.
     var activeSegmentIndex = null;
     var pinnedIndex = null;
     var chart;
@@ -166,7 +221,6 @@
       return pinnedIndex;
     }
 
-    // Mirror DonutWidget chartConfig computed
     function buildDataset(activeIndex) {
       return {
         data: segments.map(function (segment) {
@@ -187,7 +241,6 @@
       };
     }
 
-    // Mirror DonutWidget tooltipPosition computed
     function positionTooltip(activeIndex) {
       var meta = chart.getDatasetMeta(0);
       var arc = meta.data[activeIndex];
@@ -223,14 +276,28 @@
       current.hoverOffset = dataset.hoverOffset;
     }
 
+    function syncLegend() {
+      legendButtons.forEach(function (button) {
+        var sliceId = button.getAttribute("data-slice");
+        var segment = segments.find(function (item) {
+          return item.id === sliceId;
+        });
+        var valueEl = button.querySelector("[data-slice-value]");
+        if (segment && valueEl) {
+          valueEl.textContent = formatCount(segment.value);
+        }
+      });
+      if (totalEl) {
+        totalEl.textContent = formatCompact(total);
+      }
+    }
+
     function renderState() {
       var activeIndex = getActiveIndex();
       var isIsolated = activeIndex != null;
 
       applyDataset(activeIndex);
 
-      // Chart.js applies hoverOffset only to active elements (Launchpad relies on
-      // native hover; we set them explicitly so legend pin gets the same offset).
       if (isIsolated) {
         chart.setActiveElements([{ datasetIndex: 0, index: activeIndex }]);
       } else {
@@ -269,7 +336,6 @@
         }),
         datasets: [buildDataset(null)],
       },
-      // Mirror DonutWidget chartOptions
       options: {
         responsive: true,
         maintainAspectRatio: true,
@@ -309,13 +375,29 @@
       });
     });
 
+    syncLegend();
     renderState();
+
+    return {
+      setSegments: function (nextSegments) {
+        segments = nextSegments.map(function (segment) {
+          return Object.assign({}, segment);
+        });
+        total = segments.reduce(function (sum, segment) {
+          return sum + segment.value;
+        }, 0);
+        activeSegmentIndex = null;
+        pinnedIndex = null;
+        syncLegend();
+        renderState();
+      },
+    };
   }
 
   function initChart(options) {
     var hitarea = document.querySelector(options.hitareaSelector);
     if (!hitarea) {
-      return;
+      return null;
     }
 
     var plotWidth = 0;
@@ -353,7 +435,7 @@
     }
 
     function renderHover(state, show) {
-      if (!show || !state) {
+      if (!show || !state || !state.data) {
         hover.classList.remove("is-active");
         hover.setAttribute("aria-hidden", "true");
         activeIndex = -1;
@@ -412,10 +494,11 @@
 
     hitarea.addEventListener("keydown", function (event) {
       var next = keyboardIndex != null ? keyboardIndex : activeIndex >= 0 ? activeIndex : 0;
+      var lastIndex = Math.max(dayCount - 1, 0);
 
       if (event.key === "ArrowRight") {
         event.preventDefault();
-        keyboardIndex = Math.min(next + 1, DAILY_COUNT - 1);
+        keyboardIndex = Math.min(next + 1, lastIndex);
         resolveAndRender(lastPointerX, true, keyboardIndex);
       } else if (event.key === "ArrowLeft") {
         event.preventDefault();
@@ -427,7 +510,7 @@
         resolveAndRender(lastPointerX, true, keyboardIndex);
       } else if (event.key === "End") {
         event.preventDefault();
-        keyboardIndex = DAILY_COUNT - 1;
+        keyboardIndex = lastIndex;
         resolveAndRender(lastPointerX, true, keyboardIndex);
       }
     });
@@ -437,6 +520,19 @@
         rebuildGeometry();
       }).observe(hitarea);
     }
+
+    return {
+      setSeries: function (nextSeries) {
+        series = nextSeries;
+        keyboardIndex = null;
+        rebuildGeometry();
+        if (pointerInside || document.activeElement === hitarea) {
+          resolveAndRender(lastPointerX, true, null);
+        } else {
+          renderHover(null, false);
+        }
+      },
+    };
   }
 
   var activityAnchors = [
@@ -451,7 +547,6 @@
     { questions: 195, questionsDelta: 3, answers: 198, answersDelta: -2 },
   ];
 
-  // SVG path shapes roughly: high → mid → peak → mid → high (seconds for TTA)
   var ttaAnchors = [
     { value: 780, valueDelta: 4 },
     { value: 720, valueDelta: -6 },
@@ -476,73 +571,429 @@
     { value: 75, valueDelta: -8 },
   ];
 
+  var RANGE_PRESETS = {
+    "7d": {
+      id: "7d",
+      label: "Last 7 days",
+      days: 7,
+      phrase: "last 7 days",
+      kickerUsers: 2180,
+      kickerRep: 98420,
+      donut: [
+        { id: "accepted", label: "Accepted", value: 780, color: "#00c950" },
+        { id: "answered", label: "Answered", value: 160, color: "#00a6f4" },
+        { id: "unanswered", label: "Unanswered", value: 450, color: "#ffd230" },
+      ],
+      ttaSeconds: 552,
+      ttaDelta: 4,
+      ttaTrend: "up",
+      interaction: "4.8",
+      interactionDelta: 8,
+      interactionTrend: "up",
+      pills: {
+        answers: { label: "2.1 Answers", delta: 9, trend: "up" },
+        comments: { label: "1.6 Comments", delta: 14, trend: "down" },
+        votes: { label: "1.1 Votes", delta: 42, trend: "up" },
+      },
+      activityQuestions: 2140,
+      activityQuestionsDelta: 7,
+      activityQuestionsTrend: "up",
+      activityAnswers: 2680,
+      activityAnswersDelta: 2,
+      activityAnswersTrend: "down",
+      votes: 486,
+      votesDelta: 6,
+      votesTrend: "down",
+      comments: 512,
+      commentsDelta: 4,
+      commentsTrend: "down",
+      activityAxisCount: 7,
+      activityScale: 0.85,
+      ttaScale: 0.92,
+      votesScale: 0.9,
+      commentsScale: 0.9,
+      activityOverrideIndex: 3,
+    },
+    "4w": {
+      id: "4w",
+      label: "Last 4 weeks",
+      days: 28,
+      phrase: "last 4 weeks",
+      kickerUsers: 7410,
+      kickerRep: 432190,
+      donut: [
+        { id: "accepted", label: "Accepted", value: 2811, color: "#00c950" },
+        { id: "answered", label: "Answered", value: 541, color: "#00a6f4" },
+        { id: "unanswered", label: "Unanswered", value: 1609, color: "#ffd230" },
+      ],
+      ttaSeconds: 648,
+      ttaDelta: 6,
+      ttaTrend: "up",
+      interaction: "5.3",
+      interactionDelta: 23,
+      interactionTrend: "up",
+      pills: {
+        answers: { label: "2.3 Answers", delta: 22, trend: "up" },
+        comments: { label: "1.9 Comments", delta: 31, trend: "down" },
+        votes: { label: "1.1 Votes", delta: 121, trend: "up" },
+      },
+      activityQuestions: 8911,
+      activityQuestionsDelta: 12,
+      activityQuestionsTrend: "up",
+      activityAnswers: 11109,
+      activityAnswersDelta: 3,
+      activityAnswersTrend: "down",
+      votes: 1909,
+      votesDelta: 11,
+      votesTrend: "down",
+      comments: 1909,
+      commentsDelta: 11,
+      commentsTrend: "down",
+      activityAxisCount: 10,
+      activityScale: 1,
+      ttaScale: 1,
+      votesScale: 1,
+      commentsScale: 1,
+      activityOverrideIndex: 14,
+    },
+    "3m": {
+      id: "3m",
+      label: "Last 3 months",
+      days: 90,
+      phrase: "last 3 months",
+      kickerUsers: 18920,
+      kickerRep: 1245600,
+      donut: [
+        { id: "accepted", label: "Accepted", value: 9800, color: "#00c950" },
+        { id: "answered", label: "Answered", value: 2100, color: "#00a6f4" },
+        { id: "unanswered", label: "Unanswered", value: 5600, color: "#ffd230" },
+      ],
+      ttaSeconds: 702,
+      ttaDelta: 3,
+      ttaTrend: "down",
+      interaction: "5.1",
+      interactionDelta: 11,
+      interactionTrend: "up",
+      pills: {
+        answers: { label: "2.2 Answers", delta: 14, trend: "up" },
+        comments: { label: "1.8 Comments", delta: 9, trend: "down" },
+        votes: { label: "1.1 Votes", delta: 58, trend: "up" },
+      },
+      activityQuestions: 28440,
+      activityQuestionsDelta: 9,
+      activityQuestionsTrend: "up",
+      activityAnswers: 35120,
+      activityAnswersDelta: 5,
+      activityAnswersTrend: "up",
+      votes: 6120,
+      votesDelta: 8,
+      votesTrend: "up",
+      comments: 5980,
+      commentsDelta: 2,
+      commentsTrend: "down",
+      activityAxisCount: 10,
+      activityScale: 1.05,
+      ttaScale: 1.04,
+      votesScale: 1.08,
+      commentsScale: 1.06,
+      activityOverrideIndex: 45,
+    },
+  };
+
+  function scaleAnchors(anchors, fields, scale) {
+    return anchors.map(function (anchor) {
+      var next = Object.assign({}, anchor);
+      fields.forEach(function (field) {
+        next[field] = Math.round(anchor[field] * scale);
+      });
+      return next;
+    });
+  }
+
+  function buildSeriesForRange(preset) {
+    var activity = buildDailyFromAnchors(
+      scaleAnchors(activityAnchors, ["questions", "answers"], preset.activityScale),
+      ["questions", "answers"],
+      (function () {
+        var overrides = {};
+        overrides[preset.activityOverrideIndex] = {
+          questions: Math.round(204 * preset.activityScale),
+          questionsDelta: 32,
+          questionsTrend: "up",
+          answers: Math.round(201 * preset.activityScale),
+          answersDelta: 6,
+          answersTrend: "up",
+        };
+        return overrides;
+      })()
+    );
+
+    return {
+      activity: activity,
+      tta: buildDailyFromAnchors(scaleAnchors(ttaAnchors, ["value"], preset.ttaScale), ["value"]),
+      votes: buildDailyFromAnchors(scaleAnchors(votesAnchors, ["value"], preset.votesScale), ["value"]),
+      comments: buildDailyFromAnchors(scaleAnchors(commentsAnchors, ["value"], preset.commentsScale), ["value"]),
+    };
+  }
+
+  function applyHeadlineMetrics(preset) {
+    var kicker = document.getElementById("so-participation-kicker");
+    if (kicker) {
+      kicker.textContent =
+        formatCount(preset.kickerUsers) +
+        " total users earned " +
+        formatCount(preset.kickerRep) +
+        " reputation in the " +
+        preset.phrase +
+        ".";
+    }
+
+    var ttaMetric = document.getElementById("so-tta-metric");
+    if (ttaMetric) {
+      ttaMetric.textContent = formatDuration(preset.ttaSeconds);
+    }
+    updateDelta(document.getElementById("so-tta-card-delta"), preset.ttaTrend, preset.ttaDelta);
+
+    var interactionMetric = document.getElementById("so-interaction-metric");
+    if (interactionMetric) {
+      interactionMetric.textContent = preset.interaction;
+    }
+    updateDelta(document.getElementById("so-interaction-delta"), preset.interactionTrend, preset.interactionDelta);
+
+    var pillAnswers = document.getElementById("so-pill-answers");
+    var pillComments = document.getElementById("so-pill-comments");
+    var pillVotes = document.getElementById("so-pill-votes");
+    if (pillAnswers) {
+      pillAnswers.textContent = preset.pills.answers.label;
+    }
+    if (pillComments) {
+      pillComments.textContent = preset.pills.comments.label;
+    }
+    if (pillVotes) {
+      pillVotes.textContent = preset.pills.votes.label;
+    }
+    updateDelta(document.getElementById("so-pill-answers-delta"), preset.pills.answers.trend, preset.pills.answers.delta);
+    updateDelta(document.getElementById("so-pill-comments-delta"), preset.pills.comments.trend, preset.pills.comments.delta);
+    updateDelta(document.getElementById("so-pill-votes-delta"), preset.pills.votes.trend, preset.pills.votes.delta);
+
+    var questionsMetric = document.getElementById("so-activity-questions-metric");
+    var answersMetric = document.getElementById("so-activity-answers-metric");
+    if (questionsMetric) {
+      questionsMetric.textContent = formatCount(preset.activityQuestions);
+    }
+    if (answersMetric) {
+      answersMetric.textContent = formatCount(preset.activityAnswers);
+    }
+    updateDelta(
+      document.getElementById("so-activity-questions-card-delta"),
+      preset.activityQuestionsTrend,
+      preset.activityQuestionsDelta
+    );
+    updateDelta(
+      document.getElementById("so-activity-answers-card-delta"),
+      preset.activityAnswersTrend,
+      preset.activityAnswersDelta
+    );
+
+    var votesMetric = document.getElementById("so-votes-metric");
+    var commentsMetric = document.getElementById("so-comments-metric");
+    if (votesMetric) {
+      votesMetric.textContent = formatCount(preset.votes);
+    }
+    if (commentsMetric) {
+      commentsMetric.textContent = formatCount(preset.comments);
+    }
+    updateDelta(document.getElementById("so-votes-card-delta"), preset.votesTrend, preset.votesDelta);
+    updateDelta(document.getElementById("so-comments-card-delta"), preset.commentsTrend, preset.commentsDelta);
+  }
+
+  function applyAxisLabels(preset) {
+    var activityAxis = document.getElementById("so-activity-xaxis");
+    if (activityAxis) {
+      activityAxis.classList.toggle("so-dashboard__x-axis--ten", preset.activityAxisCount >= 10);
+      setAxisLabels(activityAxis, buildAxisLabels(preset.activityAxisCount));
+    }
+    setAxisLabels(document.getElementById("so-tta-xaxis"), buildAxisLabels(5));
+    setAxisLabels(document.getElementById("so-votes-xaxis"), buildAxisLabels(3));
+    setAxisLabels(document.getElementById("so-comments-xaxis"), buildAxisLabels(3));
+  }
+
   function initAllCharts() {
-    var activitySeries = buildDailyFromAnchors(activityAnchors, ["questions", "answers"], {
-      14: {
-        questions: 204,
-        questionsDelta: 32,
-        questionsTrend: "up",
-        answers: 201,
-        answersDelta: 6,
-        answersTrend: "up",
-      },
-    });
+    var charts = {
+      activity: null,
+      tta: null,
+      votes: null,
+      comments: null,
+      donut: null,
+    };
 
-    var ttaSeries = buildDailyFromAnchors(ttaAnchors, ["value"]);
-    var votesSeries = buildDailyFromAnchors(votesAnchors, ["value"]);
-    var commentsSeries = buildDailyFromAnchors(commentsAnchors, ["value"]);
+    function mountCharts(series) {
+      charts.activity = initChart({
+        hitareaSelector: '[data-chart="activity"]',
+        plotWidth: 801,
+        flipRatio: 0.75,
+        series: series.activity,
+        render: function (data) {
+          document.getElementById("so-activity-tooltip-date").textContent = data.label;
+          document.getElementById("so-activity-questions-label").textContent = data.questions + " questions";
+          document.getElementById("so-activity-answers-label").textContent = data.answers + " answers";
+          updateDelta(document.getElementById("so-activity-questions-delta"), data.questionsTrend, data.questionsDelta);
+          updateDelta(document.getElementById("so-activity-answers-delta"), data.answersTrend, data.answersDelta);
+        },
+      });
 
-    initChart({
-      hitareaSelector: '[data-chart="activity"]',
-      plotWidth: 801,
-      flipRatio: 0.75,
-      series: activitySeries,
-      render: function (data) {
-        document.getElementById("so-activity-tooltip-date").textContent = data.label;
-        document.getElementById("so-activity-questions-label").textContent = data.questions + " questions";
-        document.getElementById("so-activity-answers-label").textContent = data.answers + " answers";
-        updateDelta(document.getElementById("so-activity-questions-delta"), data.questionsTrend, data.questionsDelta);
-        updateDelta(document.getElementById("so-activity-answers-delta"), data.answersTrend, data.answersDelta);
-      },
-    });
+      charts.tta = initChart({
+        hitareaSelector: '[data-chart="tta"]',
+        plotWidth: 351,
+        flipRatio: 0.5,
+        series: series.tta,
+        render: function (data) {
+          document.getElementById("so-tta-tooltip-date").textContent = data.label;
+          document.getElementById("so-tta-value-label").textContent = formatDuration(data.value);
+          updateDelta(document.getElementById("so-tta-delta"), data.valueTrend, data.valueDelta);
+        },
+      });
 
-    initChart({
-      hitareaSelector: '[data-chart="tta"]',
-      plotWidth: 351,
-      flipRatio: 0.5,
-      series: ttaSeries,
-      render: function (data) {
-        document.getElementById("so-tta-tooltip-date").textContent = data.label;
-        document.getElementById("so-tta-value-label").textContent = formatDuration(data.value);
-        updateDelta(document.getElementById("so-tta-delta"), data.valueTrend, data.valueDelta);
-      },
-    });
+      charts.votes = initChart({
+        hitareaSelector: '[data-chart="votes"]',
+        plotWidth: 211,
+        flipRatio: 0.5,
+        series: series.votes,
+        render: function (data) {
+          document.getElementById("so-votes-tooltip-date").textContent = data.label;
+          document.getElementById("so-votes-value-label").textContent = data.value + " votes";
+          updateDelta(document.getElementById("so-votes-delta"), data.valueTrend, data.valueDelta);
+        },
+      });
 
-    initChart({
-      hitareaSelector: '[data-chart="votes"]',
-      plotWidth: 211,
-      flipRatio: 0.5,
-      series: votesSeries,
-      render: function (data) {
-        document.getElementById("so-votes-tooltip-date").textContent = data.label;
-        document.getElementById("so-votes-value-label").textContent = data.value + " votes";
-        updateDelta(document.getElementById("so-votes-delta"), data.valueTrend, data.valueDelta);
-      },
-    });
+      charts.comments = initChart({
+        hitareaSelector: '[data-chart="comments"]',
+        plotWidth: 211,
+        flipRatio: 0.5,
+        series: series.comments,
+        render: function (data) {
+          document.getElementById("so-comments-tooltip-date").textContent = data.label;
+          document.getElementById("so-comments-value-label").textContent = data.value + " comments";
+          updateDelta(document.getElementById("so-comments-delta"), data.valueTrend, data.valueDelta);
+        },
+      });
 
-    initChart({
-      hitareaSelector: '[data-chart="comments"]',
-      plotWidth: 211,
-      flipRatio: 0.5,
-      series: commentsSeries,
-      render: function (data) {
-        document.getElementById("so-comments-tooltip-date").textContent = data.label;
-        document.getElementById("so-comments-value-label").textContent = data.value + " comments";
-        updateDelta(document.getElementById("so-comments-delta"), data.valueTrend, data.valueDelta);
-      },
-    });
+      charts.donut = initDonutChart();
+    }
 
-    initDonutChart();
+    function applyRange(rangeId, options) {
+      var preset = RANGE_PRESETS[rangeId];
+      if (!preset) {
+        return;
+      }
+
+      currentRangeId = rangeId;
+      setRangeWindow(preset.days);
+
+      var labelEl = document.getElementById("so-range-label");
+      if (labelEl) {
+        labelEl.textContent = preset.label;
+      }
+
+      applyHeadlineMetrics(preset);
+      applyAxisLabels(preset);
+
+      if (charts.donut && charts.donut.setSegments) {
+        charts.donut.setSegments(preset.donut);
+      }
+
+      var series = buildSeriesForRange(preset);
+      if (charts.activity) {
+        charts.activity.setSeries(series.activity);
+      }
+      if (charts.tta) {
+        charts.tta.setSeries(series.tta);
+      }
+      if (charts.votes) {
+        charts.votes.setSeries(series.votes);
+      }
+      if (charts.comments) {
+        charts.comments.setSeries(series.comments);
+      }
+
+      if (!options || !options.silent) {
+        notifyParent();
+      }
+
+      reportHeightToParent();
+    }
+
+    function initRangeControl() {
+      var root = document.querySelector("[data-range]");
+      var button = document.getElementById("so-range-button");
+      var menu = document.getElementById("so-range-menu");
+      if (!root || !button || !menu) {
+        return;
+      }
+
+      var options = menu.querySelectorAll('[role="option"]');
+
+      function setOpen(open) {
+        button.setAttribute("aria-expanded", open ? "true" : "false");
+        if (open) {
+          menu.removeAttribute("hidden");
+        } else {
+          menu.setAttribute("hidden", "");
+        }
+      }
+
+      function isOpen() {
+        return button.getAttribute("aria-expanded") === "true";
+      }
+
+      function syncSelected() {
+        options.forEach(function (option) {
+          var selected = option.getAttribute("data-range-id") === currentRangeId;
+          if (selected) {
+            option.setAttribute("aria-selected", "true");
+          } else {
+            option.removeAttribute("aria-selected");
+          }
+        });
+      }
+
+      button.addEventListener("click", function (event) {
+        event.stopPropagation();
+        setOpen(!isOpen());
+      });
+
+      options.forEach(function (option) {
+        option.addEventListener("click", function (event) {
+          event.stopPropagation();
+          var rangeId = option.getAttribute("data-range-id");
+          if (rangeId && rangeId !== currentRangeId) {
+            applyRange(rangeId);
+            syncSelected();
+          }
+          setOpen(false);
+          button.focus();
+        });
+      });
+
+      document.addEventListener("click", function (event) {
+        if (!root.contains(event.target)) {
+          setOpen(false);
+        }
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          setOpen(false);
+        }
+      });
+
+      syncSelected();
+    }
+
+    var initial = RANGE_PRESETS[currentRangeId];
+    setRangeWindow(initial.days);
+    mountCharts(buildSeriesForRange(initial));
+    initRangeControl();
   }
 
   function reportHeightToParent() {

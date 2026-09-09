@@ -40,9 +40,16 @@
               <span class="so-dashboard__beta">Beta</span>
             </div>
             <div class="so-dashboard__actions">
-              <div class="so-dashboard__button">
-                Last 4 weeks
-                <img src="img/icon-chevron.svg" width="16" height="16" alt="">
+              <div class="so-dashboard__range" data-range>
+                <button type="button" class="so-dashboard__button so-dashboard__button--range" id="so-range-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="so-range-menu">
+                  <span id="so-range-label">Last 4 weeks</span>
+                  <img src="img/icon-chevron.svg" width="16" height="16" alt="">
+                </button>
+                <ul class="so-dashboard__range-menu" id="so-range-menu" role="listbox" hidden>
+                  <li role="option" data-range-id="7d" tabindex="-1">Last 7 days</li>
+                  <li role="option" data-range-id="4w" aria-selected="true" tabindex="-1">Last 4 weeks</li>
+                  <li role="option" data-range-id="3m" tabindex="-1">Last 3 months</li>
+                </ul>
               </div>
               <div class="so-dashboard__button so-dashboard__button--download">
                 Download
@@ -53,7 +60,7 @@
 
           <section class="so-dashboard__section">
             <h2 class="so-dashboard__section-title">How is participation?</h2>
-            <p class="so-dashboard__section-kicker">7,410 total users earned 432,190 reputation in the last 4 weeks.</p>
+            <p class="so-dashboard__section-kicker" id="so-participation-kicker">7,410 total users earned 432,190 reputation in the last 4 weeks.</p>
 
             <div class="so-dashboard__row">
               <article class="so-dashboard__card so-dashboard__card--medium">
@@ -64,7 +71,7 @@
                   <div class="so-dashboard__donut-chart" data-chart="answer-ratio">
                     <canvas class="so-dashboard__donut-canvas" width="180" height="180" aria-hidden="true"></canvas>
                     <div class="so-dashboard__donut-center" aria-hidden="true">
-                      <span class="so-dashboard__donut-center-value">5.3K</span>
+                      <span class="so-dashboard__donut-center-value" id="so-donut-total">5.3K</span>
                       <span class="so-dashboard__donut-center-label">Total</span>
                     </div>
                     <div class="so-dashboard__donut-tooltip so-dashboard__tooltip so-dashboard__tooltip--compact" aria-hidden="true" aria-live="polite">
@@ -80,21 +87,21 @@
                       <span class="so-dashboard__swatch so-dashboard__swatch--green"></span>
                       <span class="so-dashboard__legend-copy">
                         <span class="so-dashboard__legend-name">Accepted</span>
-                        <span class="so-dashboard__legend-value" data-value="2811">2,811</span>
+                        <span class="so-dashboard__legend-value" data-slice-value="accepted">2,811</span>
                       </span>
                     </button>
                     <button type="button" class="so-dashboard__legend-button" data-slice="answered" aria-pressed="false">
                       <span class="so-dashboard__swatch so-dashboard__swatch--sky"></span>
                       <span class="so-dashboard__legend-copy">
                         <span class="so-dashboard__legend-name">Answered</span>
-                        <span class="so-dashboard__legend-value" data-value="541">541</span>
+                        <span class="so-dashboard__legend-value" data-slice-value="answered">541</span>
                       </span>
                     </button>
                     <button type="button" class="so-dashboard__legend-button" data-slice="unanswered" aria-pressed="false">
                       <span class="so-dashboard__swatch so-dashboard__swatch--yellow"></span>
                       <span class="so-dashboard__legend-copy">
                         <span class="so-dashboard__legend-name">Unanswered</span>
-                        <span class="so-dashboard__legend-value" data-value="1609">1,609</span>
+                        <span class="so-dashboard__legend-value" data-slice-value="unanswered">1,609</span>
                       </span>
                     </button>
                   </div>
@@ -109,10 +116,10 @@
                 <div class="so-dashboard__card-head">
                   <p class="so-dashboard__card-label">Time to Answer</p>
                   <div class="so-dashboard__metric-row">
-                    <p class="so-dashboard__metric">10min 48sec</p>
-                    <div class="so-dashboard__delta so-dashboard__delta--up">
+                    <p class="so-dashboard__metric" id="so-tta-metric">10min 48sec</p>
+                    <div class="so-dashboard__delta so-dashboard__delta--up" id="so-tta-card-delta">
                       <span class="so-dashboard__delta-icon"><img src="img/icon-arrow-up.svg" width="12" height="12" alt=""></span>
-                      6%
+                      <span class="so-dashboard__delta-value">6%</span>
                     </div>
                   </div>
                 </div>
@@ -123,7 +130,7 @@
                     <div class="so-dashboard__y-tick"><span class="so-dashboard__gridline"></span><span>5min</span></div>
                     <div class="so-dashboard__y-tick"><span class="so-dashboard__gridline"></span><span>0</span></div>
                   </div>
-                  <div class="so-dashboard__x-axis so-dashboard__x-axis--five">
+                  <div class="so-dashboard__x-axis so-dashboard__x-axis--five" id="so-tta-xaxis">
                     <span>Sep 2</span><span>Sep 9</span><span>Sep 16</span><span>Sep 23</span><span>Sep 29</span>
                   </div>
                   <div class="so-dashboard__plot so-dashboard__plot--tta">
@@ -155,10 +162,10 @@
                   <img class="so-dashboard__info" src="img/icon-info.svg" width="14" height="14" alt="">
                 </div>
                 <div class="so-dashboard__metric-row">
-                  <p class="so-dashboard__metric so-dashboard__metric--lg">5.3</p>
-                  <div class="so-dashboard__delta so-dashboard__delta--up">
+                  <p class="so-dashboard__metric so-dashboard__metric--lg" id="so-interaction-metric">5.3</p>
+                  <div class="so-dashboard__delta so-dashboard__delta--up" id="so-interaction-delta">
                     <span class="so-dashboard__delta-icon"><img src="img/icon-arrow-up.svg" width="12" height="12" alt=""></span>
-                    23%
+                    <span class="so-dashboard__delta-value">23%</span>
                   </div>
                 </div>
               </div>
@@ -171,24 +178,24 @@
                 </div>
                 <div class="so-dashboard__stat-pills">
                   <div class="so-dashboard__stat-pill">
-                    <p>2.3 Answers</p>
-                    <div class="so-dashboard__delta so-dashboard__delta--up">
+                    <p id="so-pill-answers">2.3 Answers</p>
+                    <div class="so-dashboard__delta so-dashboard__delta--up" id="so-pill-answers-delta">
                       <span class="so-dashboard__delta-icon"><img src="img/icon-arrow-up.svg" width="12" height="12" alt=""></span>
-                      22%
+                      <span class="so-dashboard__delta-value">22%</span>
                     </div>
                   </div>
                   <div class="so-dashboard__stat-pill">
-                    <p>1.9 Comments</p>
-                    <div class="so-dashboard__delta so-dashboard__delta--down">
+                    <p id="so-pill-comments">1.9 Comments</p>
+                    <div class="so-dashboard__delta so-dashboard__delta--down" id="so-pill-comments-delta">
                       <span class="so-dashboard__delta-icon"><img src="img/icon-arrow-down.svg" width="12" height="12" alt=""></span>
-                      31%
+                      <span class="so-dashboard__delta-value">31%</span>
                     </div>
                   </div>
                   <div class="so-dashboard__stat-pill">
-                    <p>1.1 Votes</p>
-                    <div class="so-dashboard__delta so-dashboard__delta--up">
+                    <p id="so-pill-votes">1.1 Votes</p>
+                    <div class="so-dashboard__delta so-dashboard__delta--up" id="so-pill-votes-delta">
                       <span class="so-dashboard__delta-icon"><img src="img/icon-arrow-up.svg" width="12" height="12" alt=""></span>
-                      121%
+                      <span class="so-dashboard__delta-value">121%</span>
                     </div>
                   </div>
                 </div>
@@ -209,10 +216,10 @@
                   <div class="so-dashboard__series-copy">
                     <p>Questions</p>
                     <div class="so-dashboard__metric-row">
-                      <p class="so-dashboard__metric">8,911</p>
-                      <div class="so-dashboard__delta so-dashboard__delta--up">
+                      <p class="so-dashboard__metric" id="so-activity-questions-metric">8,911</p>
+                      <div class="so-dashboard__delta so-dashboard__delta--up" id="so-activity-questions-card-delta">
                         <span class="so-dashboard__delta-icon"><img src="img/icon-arrow-up.svg" width="12" height="12" alt=""></span>
-                        12%
+                        <span class="so-dashboard__delta-value">12%</span>
                       </div>
                     </div>
                   </div>
@@ -222,10 +229,10 @@
                   <div class="so-dashboard__series-copy">
                     <p>Answers</p>
                     <div class="so-dashboard__metric-row">
-                      <p class="so-dashboard__metric">11,109</p>
-                      <div class="so-dashboard__delta so-dashboard__delta--down">
+                      <p class="so-dashboard__metric" id="so-activity-answers-metric">11,109</p>
+                      <div class="so-dashboard__delta so-dashboard__delta--down" id="so-activity-answers-card-delta">
                         <span class="so-dashboard__delta-icon"><img src="img/icon-arrow-down.svg" width="12" height="12" alt=""></span>
-                        3%
+                        <span class="so-dashboard__delta-value">3%</span>
                       </div>
                     </div>
                   </div>
@@ -239,7 +246,7 @@
                 <div class="so-dashboard__y-tick so-dashboard__y-tick--sm"><span class="so-dashboard__gridline"></span><span>100</span></div>
                 <div class="so-dashboard__y-tick so-dashboard__y-tick--sm"><span class="so-dashboard__gridline"></span><span>0</span></div>
               </div>
-              <div class="so-dashboard__x-axis so-dashboard__x-axis--spread so-dashboard__x-axis--ten">
+              <div class="so-dashboard__x-axis so-dashboard__x-axis--spread so-dashboard__x-axis--ten" id="so-activity-xaxis">
                 <span>Sep 2</span><span>Sep 5</span><span>Sep 8</span><span>Sep 11</span><span>Sep 14</span><span>Sep 17</span><span>Sep 20</span><span>Sep 23</span><span>Sep 26</span><span>Sep 29</span>
               </div>
               <div class="so-dashboard__plot so-dashboard__plot--activity">
@@ -280,10 +287,10 @@
                 <div class="so-dashboard__card-head">
                   <p class="so-dashboard__card-label">Votes</p>
                   <div class="so-dashboard__metric-row">
-                    <p class="so-dashboard__metric">1,909</p>
-                    <div class="so-dashboard__delta so-dashboard__delta--down">
+                    <p class="so-dashboard__metric" id="so-votes-metric">1,909</p>
+                    <div class="so-dashboard__delta so-dashboard__delta--down" id="so-votes-card-delta">
                       <span class="so-dashboard__delta-icon"><img src="img/icon-arrow-down.svg" width="12" height="12" alt=""></span>
-                      11%
+                      <span class="so-dashboard__delta-value">11%</span>
                     </div>
                   </div>
                 </div>
@@ -293,7 +300,7 @@
                     <div class="so-dashboard__y-tick so-dashboard__y-tick--xs"><span class="so-dashboard__gridline"></span><span>50</span></div>
                     <div class="so-dashboard__y-tick so-dashboard__y-tick--xs"><span class="so-dashboard__gridline"></span><span>0</span></div>
                   </div>
-                  <div class="so-dashboard__x-axis so-dashboard__x-axis--three">
+                  <div class="so-dashboard__x-axis so-dashboard__x-axis--three" id="so-votes-xaxis">
                     <span>Sep 2</span><span>Sep 16</span><span>Sep 29</span>
                   </div>
                   <div class="so-dashboard__plot so-dashboard__plot--small">
@@ -331,10 +338,10 @@
                 <div class="so-dashboard__card-head">
                   <p class="so-dashboard__card-label">Comments</p>
                   <div class="so-dashboard__metric-row">
-                    <p class="so-dashboard__metric">1,909</p>
-                    <div class="so-dashboard__delta so-dashboard__delta--down">
+                    <p class="so-dashboard__metric" id="so-comments-metric">1,909</p>
+                    <div class="so-dashboard__delta so-dashboard__delta--down" id="so-comments-card-delta">
                       <span class="so-dashboard__delta-icon"><img src="img/icon-arrow-down.svg" width="12" height="12" alt=""></span>
-                      11%
+                      <span class="so-dashboard__delta-value">11%</span>
                     </div>
                   </div>
                 </div>
@@ -344,7 +351,7 @@
                     <div class="so-dashboard__y-tick so-dashboard__y-tick--xs"><span class="so-dashboard__gridline"></span><span>50</span></div>
                     <div class="so-dashboard__y-tick so-dashboard__y-tick--xs"><span class="so-dashboard__gridline"></span><span>0</span></div>
                   </div>
-                  <div class="so-dashboard__x-axis so-dashboard__x-axis--three">
+                  <div class="so-dashboard__x-axis so-dashboard__x-axis--three" id="so-comments-xaxis">
                     <span>Sep 2</span><span>Sep 16</span><span>Sep 29</span>
                   </div>
                   <div class="so-dashboard__plot so-dashboard__plot--small">
