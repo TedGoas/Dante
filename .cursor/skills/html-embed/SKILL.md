@@ -60,7 +60,7 @@ Replace `width` / `height` with sensible fallbacks. Host CSS sizes the iframe to
 1. Build the mock as a self-contained folder: `index.html`, local CSS/JS, `img/` assets.
 2. Copy into `src/work/img/{case}/prototypes/{slug}/`.
 3. Keep product colors/fonts **inside the bundle** — do not map to Dante theme tokens in the iframe.
-4. Ensure [`src/.eleventyignore`](../../../src/.eleventyignore) still ignores `work/img/**` from template processing (passthrough only).
+4. Ensure [`.eleventy.js`](../../../.eleventy.js) still ignores `src/work/img/**` from template processing via `config.ignores` (passthrough only; keeps `--serve` live reload working).
 5. If the dev watcher does not copy passthrough edits to `dist/`, run `npm run build` or manually sync the bundle path under `dist/assets/img/`.
 
 ## Host-page behavior (already wired — do not duplicate)

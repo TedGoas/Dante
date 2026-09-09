@@ -100,6 +100,10 @@
     return series;
   }
 
+  function prefersReducedMotion() {
+    return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }
+
   function formatDuration(totalSeconds) {
     var minutes = Math.floor(totalSeconds / 60);
     var seconds = totalSeconds % 60;
@@ -292,9 +296,10 @@
       }
     }
 
-    function renderState() {
+    function renderState(opts) {
       var activeIndex = getActiveIndex();
       var isIsolated = activeIndex != null;
+      var shouldAnimate = opts && opts.animate && !prefersReducedMotion();
 
       applyDataset(activeIndex);
 
@@ -304,7 +309,10 @@
         chart.setActiveElements([]);
       }
 
-      chart.update();
+      chart.options.animation = shouldAnimate
+        ? { duration: 650, easing: "easeOutQuart" }
+        : false;
+      chart.update(shouldAnimate ? "default" : "none");
 
       legendButtons.forEach(function (button, index) {
         var isActive = activeIndex === index;
@@ -344,6 +352,12 @@
           padding: 14,
         },
         animation: false,
+        animations: {
+          numbers: {
+            type: "number",
+            properties: ["circumference", "endAngle", "startAngle"],
+          },
+        },
         plugins: {
           legend: { display: false },
           tooltip: { enabled: false },
@@ -389,10 +403,30 @@
         activeSegmentIndex = null;
         pinnedIndex = null;
         syncLegend();
-        renderState();
+        renderState({ animate: true });
       },
     };
   }
+
+  function makeAreaFill(stops) {
+    return function (context) {
+      var chart = context.chart;
+      var area = chart.chartArea;
+      if (!area) {
+        return stops[0];
+      }
+
+      var gradient = chart.ctx.createLinearGradient(0, area.top, 0, area.bottom);
+      var last = stops.length - 1;
+      for (var i = 0; i <= last; i += 1) {
+        gradient.addColorStop(i / last, stops[i]);
+      }
+      return gradient;
+    };
+  }
+
+  var SKY_FILL = makeAreaFill(["rgba(0, 166, 244, 0.3)", "rgba(0, 166, 244, 0.1)", "rgba(0, 166, 244, 0)"]);
+  var GRAY_FILL = makeAreaFill(["rgba(161, 161, 161, 0.28)", "rgba(161, 161, 161, 0.1)", "rgba(161, 161, 161, 0)"]);
 
   function initChart(options) {
     var hitarea = document.querySelector(options.hitareaSelector);
@@ -404,7 +438,10 @@
     var snapX = [];
     var flipThreshold = 0;
     var series = options.series;
+    var plot = options.plot;
     var hover = hitarea.querySelector(".so-dashboard__hover");
+    var canvas = hitarea.querySelector(".so-dashboard__plot-canvas");
+    var lineChart = null;
     var activeIndex = -1;
     var pointerInside = false;
     var lastPointerX = 0;
@@ -417,6 +454,69 @@
       if (lastPointerX === 0) {
         lastPointerX = plotWidth / 2;
       }
+    }
+
+    function syncLineChart(animate) {
+      if (!lineChart || !plot) {
+        return;
+      }
+
+      lineChart.data.labels = PLOT_LABELS;
+      options.lineDatasets.forEach(function (dataset, index) {
+        lineChart.data.datasets[index].data = plot[dataset.key];
+      });
+
+      var shouldAnimate = animate && !prefersReducedMotion();
+      lineChart.options.animation = shouldAnimate
+        ? { duration: 650, easing: "easeOutQuart" }
+        : false;
+      lineChart.update(shouldAnimate ? "default" : "none");
+    }
+
+    if (canvas && typeof Chart !== "undefined" && options.lineDatasets) {
+      lineChart = new Chart(canvas, {
+        type: "line",
+        data: {
+          labels: PLOT_LABELS,
+          datasets: options.lineDatasets.map(function (dataset) {
+            return {
+              data: plot[dataset.key],
+              borderColor: dataset.borderColor,
+              backgroundColor: dataset.fill,
+              fill: true,
+              tension: 0,
+              borderWidth: 2,
+              pointRadius: 0,
+              pointHoverRadius: 0,
+              order: dataset.order || 0,
+            };
+          }),
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          animation: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: { enabled: false },
+          },
+          scales: {
+            x: {
+              display: false,
+              grid: { display: false },
+            },
+            y: {
+              display: false,
+              min: 0,
+              max: options.yMax,
+              grid: { display: false },
+            },
+          },
+          layout: {
+            padding: 0,
+          },
+        },
+      });
     }
 
     rebuildGeometry();
@@ -522,10 +622,12 @@
     }
 
     return {
-      setSeries: function (nextSeries) {
+      setSeries: function (nextSeries, nextPlot, animate) {
         series = nextSeries;
+        plot = nextPlot;
         keyboardIndex = null;
         rebuildGeometry();
+        syncLineChart(!!animate);
         if (pointerInside || document.activeElement === hitarea) {
           resolveAndRender(lastPointerX, true, null);
         } else {
@@ -535,41 +637,111 @@
     };
   }
 
-  var activityAnchors = [
-    { questions: 178, questionsDelta: 8, answers: 192, answersDelta: 4 },
-    { questions: 172, questionsDelta: -5, answers: 165, answersDelta: -12 },
-    { questions: 196, questionsDelta: 10, answers: 175, answersDelta: 5 },
-    { questions: 188, questionsDelta: -4, answers: 195, answersDelta: 8 },
-    { questions: 204, questionsDelta: 32, answers: 201, answersDelta: 6 },
-    { questions: 210, questionsDelta: 15, answers: 198, answersDelta: -2 },
-    { questions: 190, questionsDelta: -8, answers: 205, answersDelta: 4 },
-    { questions: 185, questionsDelta: -3, answers: 215, answersDelta: 8 },
-    { questions: 195, questionsDelta: 3, answers: 198, answersDelta: -2 },
-  ];
+  var PLOT_LABELS = ["0", "1", "2", "3", "4"];
 
-  var ttaAnchors = [
-    { value: 780, valueDelta: 4 },
-    { value: 720, valueDelta: -6 },
-    { value: 860, valueDelta: 8 },
-    { value: 790, valueDelta: -3 },
-    { value: 900, valueDelta: 6 },
-  ];
+  // Always five stops; range changes only move Y values so Chart.js morphs vertically.
+  var CHART_SHAPES = {
+    "7d": {
+      activity: [
+        { questions: 220, questionsDelta: 14, answers: 140, answersDelta: -10 },
+        { questions: 130, questionsDelta: -24, answers: 230, answersDelta: 22 },
+        { questions: 250, questionsDelta: 30, answers: 170, answersDelta: -8 },
+        { questions: 150, questionsDelta: -18, answers: 255, answersDelta: 16 },
+        { questions: 205, questionsDelta: 10, answers: 155, answersDelta: -12 },
+      ],
+      tta: [
+        { value: 520, valueDelta: -8 },
+        { value: 780, valueDelta: 12 },
+        { value: 610, valueDelta: -6 },
+        { value: 840, valueDelta: 10 },
+        { value: 560, valueDelta: -4 },
+      ],
+      votes: [
+        { value: 88, valueDelta: 14 },
+        { value: 42, valueDelta: -18 },
+        { value: 76, valueDelta: 10 },
+        { value: 50, valueDelta: -12 },
+        { value: 82, valueDelta: 8 },
+      ],
+      comments: [
+        { value: 45, valueDelta: -10 },
+        { value: 90, valueDelta: 16 },
+        { value: 58, valueDelta: -8 },
+        { value: 84, valueDelta: 12 },
+        { value: 62, valueDelta: -4 },
+      ],
+    },
+    "4w": {
+      activity: [
+        { questions: 178, questionsDelta: 8, answers: 192, answersDelta: 4 },
+        { questions: 172, questionsDelta: -5, answers: 165, answersDelta: -12 },
+        { questions: 204, questionsDelta: 32, answers: 201, answersDelta: 6 },
+        { questions: 190, questionsDelta: -8, answers: 205, answersDelta: 4 },
+        { questions: 195, questionsDelta: 3, answers: 198, answersDelta: -2 },
+      ],
+      tta: [
+        { value: 780, valueDelta: 4 },
+        { value: 720, valueDelta: -6 },
+        { value: 860, valueDelta: 8 },
+        { value: 790, valueDelta: -3 },
+        { value: 900, valueDelta: 6 },
+      ],
+      votes: [
+        { value: 72, valueDelta: 5 },
+        { value: 58, valueDelta: -8 },
+        { value: 84, valueDelta: 12 },
+        { value: 66, valueDelta: -4 },
+        { value: 78, valueDelta: -11 },
+      ],
+      comments: [
+        { value: 70, valueDelta: 3 },
+        { value: 55, valueDelta: -9 },
+        { value: 82, valueDelta: 10 },
+        { value: 64, valueDelta: -5 },
+        { value: 75, valueDelta: -8 },
+      ],
+    },
+    "3m": {
+      activity: [
+        { questions: 160, questionsDelta: 3, answers: 200, answersDelta: 6 },
+        { questions: 210, questionsDelta: 12, answers: 150, answersDelta: -10 },
+        { questions: 145, questionsDelta: -9, answers: 225, answersDelta: 14 },
+        { questions: 235, questionsDelta: 16, answers: 170, answersDelta: -5 },
+        { questions: 185, questionsDelta: 4, answers: 195, answersDelta: 5 },
+      ],
+      tta: [
+        { value: 820, valueDelta: 5 },
+        { value: 640, valueDelta: -10 },
+        { value: 750, valueDelta: 4 },
+        { value: 880, valueDelta: 8 },
+        { value: 660, valueDelta: -8 },
+      ],
+      votes: [
+        { value: 55, valueDelta: -6 },
+        { value: 80, valueDelta: 10 },
+        { value: 48, valueDelta: -12 },
+        { value: 92, valueDelta: 16 },
+        { value: 85, valueDelta: 9 },
+      ],
+      comments: [
+        { value: 78, valueDelta: 6 },
+        { value: 50, valueDelta: -11 },
+        { value: 88, valueDelta: 14 },
+        { value: 40, valueDelta: -14 },
+        { value: 68, valueDelta: 2 },
+      ],
+    },
+  };
 
-  var votesAnchors = [
-    { value: 72, valueDelta: 5 },
-    { value: 58, valueDelta: -8 },
-    { value: 84, valueDelta: 12 },
-    { value: 66, valueDelta: -4 },
-    { value: 78, valueDelta: -11 },
-  ];
-
-  var commentsAnchors = [
-    { value: 70, valueDelta: 3 },
-    { value: 55, valueDelta: -9 },
-    { value: 82, valueDelta: 10 },
-    { value: 64, valueDelta: -5 },
-    { value: 75, valueDelta: -8 },
-  ];
+  function plotFromAnchors(anchors, keys) {
+    var plot = {};
+    keys.forEach(function (key) {
+      plot[key] = anchors.map(function (anchor) {
+        return anchor[key];
+      });
+    });
+    return plot;
+  }
 
   var RANGE_PRESETS = {
     "7d": {
@@ -580,9 +752,9 @@
       kickerUsers: 2180,
       kickerRep: 98420,
       donut: [
-        { id: "accepted", label: "Accepted", value: 780, color: "#00c950" },
-        { id: "answered", label: "Answered", value: 160, color: "#00a6f4" },
-        { id: "unanswered", label: "Unanswered", value: 450, color: "#ffd230" },
+        { id: "accepted", label: "Accepted", value: 520, color: "#00c950" },
+        { id: "answered", label: "Answered", value: 310, color: "#00a6f4" },
+        { id: "unanswered", label: "Unanswered", value: 560, color: "#ffd230" },
       ],
       ttaSeconds: 552,
       ttaDelta: 4,
@@ -608,11 +780,6 @@
       commentsDelta: 4,
       commentsTrend: "down",
       activityAxisCount: 7,
-      activityScale: 0.85,
-      ttaScale: 0.92,
-      votesScale: 0.9,
-      commentsScale: 0.9,
-      activityOverrideIndex: 3,
     },
     "4w": {
       id: "4w",
@@ -650,11 +817,6 @@
       commentsDelta: 11,
       commentsTrend: "down",
       activityAxisCount: 10,
-      activityScale: 1,
-      ttaScale: 1,
-      votesScale: 1,
-      commentsScale: 1,
-      activityOverrideIndex: 14,
     },
     "3m": {
       id: "3m",
@@ -664,9 +826,9 @@
       kickerUsers: 18920,
       kickerRep: 1245600,
       donut: [
-        { id: "accepted", label: "Accepted", value: 9800, color: "#00c950" },
-        { id: "answered", label: "Answered", value: 2100, color: "#00a6f4" },
-        { id: "unanswered", label: "Unanswered", value: 5600, color: "#ffd230" },
+        { id: "accepted", label: "Accepted", value: 11200, color: "#00c950" },
+        { id: "answered", label: "Answered", value: 3100, color: "#00a6f4" },
+        { id: "unanswered", label: "Unanswered", value: 3200, color: "#ffd230" },
       ],
       ttaSeconds: 702,
       ttaDelta: 3,
@@ -692,47 +854,21 @@
       commentsDelta: 2,
       commentsTrend: "down",
       activityAxisCount: 10,
-      activityScale: 1.05,
-      ttaScale: 1.04,
-      votesScale: 1.08,
-      commentsScale: 1.06,
-      activityOverrideIndex: 45,
     },
   };
 
-  function scaleAnchors(anchors, fields, scale) {
-    return anchors.map(function (anchor) {
-      var next = Object.assign({}, anchor);
-      fields.forEach(function (field) {
-        next[field] = Math.round(anchor[field] * scale);
-      });
-      return next;
-    });
-  }
-
   function buildSeriesForRange(preset) {
-    var activity = buildDailyFromAnchors(
-      scaleAnchors(activityAnchors, ["questions", "answers"], preset.activityScale),
-      ["questions", "answers"],
-      (function () {
-        var overrides = {};
-        overrides[preset.activityOverrideIndex] = {
-          questions: Math.round(204 * preset.activityScale),
-          questionsDelta: 32,
-          questionsTrend: "up",
-          answers: Math.round(201 * preset.activityScale),
-          answersDelta: 6,
-          answersTrend: "up",
-        };
-        return overrides;
-      })()
-    );
+    var shapes = CHART_SHAPES[preset.id] || CHART_SHAPES["4w"];
 
     return {
-      activity: activity,
-      tta: buildDailyFromAnchors(scaleAnchors(ttaAnchors, ["value"], preset.ttaScale), ["value"]),
-      votes: buildDailyFromAnchors(scaleAnchors(votesAnchors, ["value"], preset.votesScale), ["value"]),
-      comments: buildDailyFromAnchors(scaleAnchors(commentsAnchors, ["value"], preset.commentsScale), ["value"]),
+      activity: buildDailyFromAnchors(shapes.activity, ["questions", "answers"]),
+      activityPlot: plotFromAnchors(shapes.activity, ["questions", "answers"]),
+      tta: buildDailyFromAnchors(shapes.tta, ["value"]),
+      ttaPlot: plotFromAnchors(shapes.tta, ["value"]),
+      votes: buildDailyFromAnchors(shapes.votes, ["value"]),
+      votesPlot: plotFromAnchors(shapes.votes, ["value"]),
+      comments: buildDailyFromAnchors(shapes.comments, ["value"]),
+      commentsPlot: plotFromAnchors(shapes.comments, ["value"]),
     };
   }
 
@@ -833,6 +969,12 @@
         plotWidth: 801,
         flipRatio: 0.75,
         series: series.activity,
+        plot: series.activityPlot,
+        yMax: 300,
+        lineDatasets: [
+          { key: "answers", borderColor: "#00A6F4", fill: SKY_FILL, order: 2 },
+          { key: "questions", borderColor: "#A1A1A1", fill: GRAY_FILL, order: 1 },
+        ],
         render: function (data) {
           document.getElementById("so-activity-tooltip-date").textContent = data.label;
           document.getElementById("so-activity-questions-label").textContent = data.questions + " questions";
@@ -847,6 +989,9 @@
         plotWidth: 351,
         flipRatio: 0.5,
         series: series.tta,
+        plot: series.ttaPlot,
+        yMax: 900,
+        lineDatasets: [{ key: "value", borderColor: "#00A6F4", fill: SKY_FILL, order: 1 }],
         render: function (data) {
           document.getElementById("so-tta-tooltip-date").textContent = data.label;
           document.getElementById("so-tta-value-label").textContent = formatDuration(data.value);
@@ -859,6 +1004,9 @@
         plotWidth: 211,
         flipRatio: 0.5,
         series: series.votes,
+        plot: series.votesPlot,
+        yMax: 100,
+        lineDatasets: [{ key: "value", borderColor: "#00A6F4", fill: SKY_FILL, order: 1 }],
         render: function (data) {
           document.getElementById("so-votes-tooltip-date").textContent = data.label;
           document.getElementById("so-votes-value-label").textContent = data.value + " votes";
@@ -871,6 +1019,9 @@
         plotWidth: 211,
         flipRatio: 0.5,
         series: series.comments,
+        plot: series.commentsPlot,
+        yMax: 100,
+        lineDatasets: [{ key: "value", borderColor: "#00A6F4", fill: SKY_FILL, order: 1 }],
         render: function (data) {
           document.getElementById("so-comments-tooltip-date").textContent = data.label;
           document.getElementById("so-comments-value-label").textContent = data.value + " comments";
@@ -904,16 +1055,16 @@
 
       var series = buildSeriesForRange(preset);
       if (charts.activity) {
-        charts.activity.setSeries(series.activity);
+        charts.activity.setSeries(series.activity, series.activityPlot, true);
       }
       if (charts.tta) {
-        charts.tta.setSeries(series.tta);
+        charts.tta.setSeries(series.tta, series.ttaPlot, true);
       }
       if (charts.votes) {
-        charts.votes.setSeries(series.votes);
+        charts.votes.setSeries(series.votes, series.votesPlot, true);
       }
       if (charts.comments) {
-        charts.comments.setSeries(series.comments);
+        charts.comments.setSeries(series.comments, series.commentsPlot, true);
       }
 
       if (!options || !options.silent) {

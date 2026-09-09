@@ -22,6 +22,11 @@ module.exports = (config) => {
 
   config.setDataDeepMerge(true);
 
+  // Prototype / work image bundles are passthrough-only. Use config.ignores (not
+  // .eleventyignore) so --serve still watches and live-reloads these files.
+  // .eleventyignore would also disable the file watcher for the same paths.
+  config.ignores.add('src/work/img/**');
+
   config.addPassthroughCopy('src/assets/img/');
   config.addPassthroughCopy('src/assets/css/');
   config.addPassthroughCopy('src/assets/js/');
@@ -35,6 +40,9 @@ module.exports = (config) => {
 
   config.addWatchTarget('src/assets/js/');
   config.addWatchTarget('src/assets/css/');
+  config.addWatchTarget('themes/');
+  config.addWatchTarget('src/work/img/');
+  config.addWatchTarget('src/posts/img/');
 
   config.addLayoutAlias('default', 'layouts/default.njk');
   config.addLayoutAlias('post', 'layouts/post.njk');

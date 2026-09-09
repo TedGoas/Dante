@@ -135,7 +135,7 @@
                   </div>
                   <div class="so-dashboard__plot so-dashboard__plot--tta">
                     <div class="so-dashboard__plot-hitarea" data-chart="tta" tabindex="0" role="group" aria-label="Time to Answer chart. Arrow keys move between daily dates.">
-                      <img src="img/chart-tta.svg" width="351" height="113" alt="">
+                      <canvas class="so-dashboard__plot-canvas" aria-hidden="true"></canvas>
                       <div class="so-dashboard__hover so-dashboard__hover--tta" aria-hidden="true">
                         <span class="so-dashboard__hover-rule so-dashboard__hover-rule--tta" aria-hidden="true"></span>
                         <div class="so-dashboard__tooltip so-dashboard__tooltip--compact" aria-live="polite">
@@ -251,10 +251,7 @@
               </div>
               <div class="so-dashboard__plot so-dashboard__plot--activity">
                 <div class="so-dashboard__plot-hitarea" data-chart="activity" tabindex="0" role="group" aria-label="Activity chart. Arrow keys move between daily dates.">
-                  <img class="so-dashboard__activity-answers-fill" src="img/chart-activity-answers-fill.svg" width="801" height="170" alt="">
-                  <img class="so-dashboard__activity-answers-line" src="img/chart-activity-answers-line.svg" width="801" height="50" alt="">
-                  <img class="so-dashboard__activity-questions-fill" src="img/chart-activity-questions-fill.svg" width="801" height="177" alt="">
-                  <img class="so-dashboard__activity-questions-line" src="img/chart-activity-questions-line.svg" width="801" height="98" alt="">
+                  <canvas class="so-dashboard__plot-canvas" aria-hidden="true"></canvas>
                   <div class="so-dashboard__hover" aria-hidden="true">
                     <span class="so-dashboard__hover-rule" aria-hidden="true"></span>
                     <div class="so-dashboard__tooltip" aria-live="polite">
@@ -305,7 +302,7 @@
                   </div>
                   <div class="so-dashboard__plot so-dashboard__plot--small">
                     <div class="so-dashboard__plot-hitarea" data-chart="votes" tabindex="0" role="group" aria-label="Votes chart. Arrow keys move between daily dates.">
-                      <img src="img/chart-votes.svg" width="211" height="99" alt="">
+                      <canvas class="so-dashboard__plot-canvas" aria-hidden="true"></canvas>
                       <div class="so-dashboard__hover so-dashboard__hover--small" aria-hidden="true">
                         <span class="so-dashboard__hover-rule so-dashboard__hover-rule--small" aria-hidden="true"></span>
                         <div class="so-dashboard__tooltip so-dashboard__tooltip--compact" aria-live="polite">
@@ -356,7 +353,7 @@
                   </div>
                   <div class="so-dashboard__plot so-dashboard__plot--small">
                     <div class="so-dashboard__plot-hitarea" data-chart="comments" tabindex="0" role="group" aria-label="Comments chart. Arrow keys move between daily dates.">
-                      <img src="img/chart-comments.svg" width="211" height="99" alt="">
+                      <canvas class="so-dashboard__plot-canvas" aria-hidden="true"></canvas>
                       <div class="so-dashboard__hover so-dashboard__hover--small" aria-hidden="true">
                         <span class="so-dashboard__hover-rule so-dashboard__hover-rule--small" aria-hidden="true"></span>
                         <div class="so-dashboard__tooltip so-dashboard__tooltip--compact" aria-live="polite">

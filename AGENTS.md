@@ -134,7 +134,7 @@ Args: `slug`, `title` (iframe `title`), `width`, `height`, optional `background`
 | Script load scope | [`src/_includes/layouts/work.njk`](src/_includes/layouts/work.njk) `footerScripts` only (with click-to-play) |
 | Gallery styles | [`src/assets/css/styles.css`](src/assets/css/styles.css) (`.prototype-embed`) |
 | Deploy output | `dist/assets/img/{case}/prototypes/{slug}/index.html` (Eleventy passthrough from `src/work/img/`) |
-| Template ignore | [`src/.eleventyignore`](src/.eleventyignore) — `work/img/**` so prototype `index.html` files are passthrough-only (avoids `work.11tydata.js` rewriting permalinks) |
+| Template ignore | [`config.ignores`](.eleventy.js) — `src/work/img/**` so prototype `index.html` files are passthrough-only (avoids `work.11tydata.js` rewriting permalinks); not `.eleventyignore`, so `--serve` can still watch/live-reload |
 
 **Updating prototypes:**
 
@@ -185,7 +185,7 @@ Iframe `width` / `height` attrs are fallbacks; host CSS sets `width: 100%`. The 
 | Gallery embed styles | [`src/assets/css/styles.css`](src/assets/css/styles.css) (`.work-gallery__media--html-embed`, `.html-embed__cue`, `.html-embed__frame`) |
 | Host dismiss script | [`src/assets/js/work-html-embed.js`](src/assets/js/work-html-embed.js) via [`src/misc/work-html-embed.js.njk`](src/misc/work-html-embed.js.njk) |
 | Script load scope | [`src/_includes/layouts/work.njk`](src/_includes/layouts/work.njk) `footerScripts` only |
-| Passthrough | `src/work/img/**` → `/assets/img/` ([`src/.eleventyignore`](src/.eleventyignore) ignores template processing for prototype paths) |
+| Passthrough | `src/work/img/**` → `/assets/img/` ([`.eleventy.js`](.eleventy.js) `config.ignores` keeps prototype paths out of the template pipeline) |
 
 **postMessage (iframe → host):** On first meaningful interaction inside the bundle, post once:
 
