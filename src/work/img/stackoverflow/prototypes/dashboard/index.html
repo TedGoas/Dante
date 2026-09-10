@@ -155,11 +155,24 @@
               </article>
             </div>
 
-            <article class="so-dashboard__card so-dashboard__card--wide">
+            <article class="so-dashboard__card so-dashboard__card--wide so-dashboard__card--interaction">
               <div class="so-dashboard__card-head">
                 <div class="so-dashboard__card-label-row">
                   <p class="so-dashboard__card-label">Interaction Rate</p>
-                  <img class="so-dashboard__info" src="img/icon-info.svg" width="14" height="14" alt="">
+                  <div class="so-dashboard__info-wrap" data-info-tip>
+                    <button
+                      type="button"
+                      class="so-dashboard__info"
+                      id="so-interaction-info-button"
+                      aria-describedby="so-interaction-info-tip"
+                      aria-label="About Interaction Rate"
+                    >
+                      <img src="img/icon-info.svg" width="14" height="14" alt="">
+                    </button>
+                    <div class="so-dashboard__info-tip" id="so-interaction-info-tip" role="tooltip">
+                      Average answers + comments + votes per question.
+                    </div>
+                  </div>
                 </div>
                 <div class="so-dashboard__metric-row">
                   <p class="so-dashboard__metric so-dashboard__metric--lg" id="so-interaction-metric">5.3</p>

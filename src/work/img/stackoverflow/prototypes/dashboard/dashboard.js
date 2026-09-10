@@ -1179,13 +1179,37 @@
     }
   }
 
+  function initInfoTips() {
+    var wraps = document.querySelectorAll("[data-info-tip]");
+    if (!wraps.length) {
+      return;
+    }
+
+    wraps.forEach(function (wrap) {
+      var hasNotified = false;
+
+      function onReveal() {
+        if (hasNotified) {
+          return;
+        }
+        hasNotified = true;
+        notifyParent();
+      }
+
+      wrap.addEventListener("pointerenter", onReveal);
+      wrap.addEventListener("focusin", onReveal);
+    });
+  }
+
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", function () {
       initAllCharts();
+      initInfoTips();
       initHeightReporter();
     });
   } else {
     initAllCharts();
+    initInfoTips();
     initHeightReporter();
   }
 })();

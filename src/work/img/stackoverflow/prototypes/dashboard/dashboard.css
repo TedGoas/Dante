@@ -368,6 +368,11 @@ img {
   width: 100%;
 }
 
+.so-dashboard__card--interaction {
+  /* Let the info tip sit above the icon without clipping */
+  overflow: visible;
+}
+
 .so-dashboard__card--activity {
   height: 400px;
   margin-top: 32px;
@@ -403,9 +408,80 @@ img {
   gap: 4px;
 }
 
+.so-dashboard__info-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
 .so-dashboard__info {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--so-radius-card);
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.12s ease;
+}
+
+.so-dashboard__info img {
   width: 14px;
   height: 14px;
+}
+
+.so-dashboard__info:hover,
+.so-dashboard__info:focus-visible,
+.so-dashboard__info-wrap:hover .so-dashboard__info,
+.so-dashboard__info-wrap:focus-within .so-dashboard__info {
+  background-color: var(--so-footer-bg);
+  outline: none;
+}
+
+.so-dashboard__info-tip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  z-index: 12;
+  width: 220px;
+  padding: 8px 10px;
+  color: var(--so-canvas);
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  background-color: var(--so-text-ink);
+  border: 1px solid transparent;
+  border-radius: var(--so-radius-card);
+  box-shadow: none;
+  transform: translateX(-50%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.12s ease,
+    visibility 0.12s ease;
+}
+
+.so-dashboard__info-tip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-top-color: var(--so-text-ink);
+  transform: translateX(-50%);
+}
+
+.so-dashboard__info-wrap:hover .so-dashboard__info-tip,
+.so-dashboard__info-wrap:focus-within .so-dashboard__info-tip {
+  opacity: 1;
+  visibility: visible;
 }
 
 .so-dashboard__metric-row {
@@ -1143,7 +1219,8 @@ img {
 
 @media (prefers-reduced-motion: reduce) {
   .so-dashboard__donut-tooltip,
-  .so-dashboard__legend-button {
+  .so-dashboard__legend-button,
+  .so-dashboard__info-tip {
     transition: none;
   }
 }
