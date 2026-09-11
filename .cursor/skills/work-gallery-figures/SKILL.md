@@ -26,7 +26,7 @@ Case studies use a `<section class="work-gallery">` of `<figure class="work-gall
 | Two emails side by side | `…--hero-secondary` + `…--email-duo` | `…--hero-secondary` | Wider column mins (680px / 400px) |
 | Email + tall mobile app | `…--hero-secondary` + `…--canfield-duo` | `…--hero-secondary` | Wider columns (640px / 768px) |
 | Four panels in two columns | `work-gallery__item--sidebar-quad` | `work-gallery__media--sidebar-quad` | `.work-gallery__sidebar-quad` + `__col` |
-| Two overlapping cards | `work-gallery__item--integrations-stack` | `work-gallery__media--integrations-stack` | `__integrations-stack__stage` + `__back` / `__front` |
+| Three cascading cards | `work-gallery__item--integrations-stack` | `work-gallery__media--integrations-stack` | `__integrations-stack__stage` + `__back` / `__front` / `__bottom` |
 | Tone hero + 3-column sidebar cards | `work-gallery__item--experiment-grid` | `work-gallery__media--experiment-grid` | `__experiment-grid__tone` + `__sidebar` + `__col` |
 | Large native asset (e.g. MP4 frame) | `work-gallery__item--media-native` | per click-to-play, prototype embed, or img | — |
 | No hairline border (keep 8px radius) | `work-gallery__item--borderless` | or `work-gallery__media--borderless` on one img | Dark / wallpaper exceptions |

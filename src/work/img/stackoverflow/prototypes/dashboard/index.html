@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stack Overflow dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+  </head>
+  <body>
+    <div class="so-dashboard">
+      <div class="so-dashboard__topbar"></div>
+
+      <div class="so-dashboard__banner" id="so-download-toast" role="status" aria-live="polite" hidden>
+        <img class="so-dashboard__banner-icon" src="img/icon-check.svg" width="18" height="18" alt="">
+        <span>File successfully downloaded</span>
+      </div>
+
+      <header class="so-dashboard__header">
+        <div class="so-dashboard__header-left">
+          <img class="so-dashboard__logo" src="img/logo.svg" width="150" height="29" alt="Stack Overflow">
+          <div class="so-dashboard__search">Search questions, tags, users…</div>
+        </div>
+        <div class="so-dashboard__header-right">
+          <div class="so-dashboard__rep">
+            <img class="so-dashboard__avatar" src="img/avatar.png" width="24" height="24" alt="">
+            <span>235</span>
+          </div>
+          <div class="so-dashboard__badge so-dashboard__badge--silver">
+            <img src="img/badge-silver.svg" width="8" height="8" alt="">
+            <span>1</span>
+          </div>
+          <div class="so-dashboard__badge so-dashboard__badge--bronze">
+            <img src="img/badge-bronze.svg" width="8" height="8" alt="">
+            <span>4</span>
+          </div>
+          <img class="so-dashboard__header-icons" src="img/header-icons.svg" width="88" height="18" alt="">
+        </div>
+      </header>
+
+      <div class="so-dashboard__shell">
+        <main class="so-dashboard__main">
+          <div class="so-dashboard__title-row">
+            <div class="so-dashboard__title-group">
+              <h1 class="so-dashboard__title">Overview</h1>
+              <span class="so-dashboard__beta">Beta</span>
+            </div>
+            <div class="so-dashboard__actions">
+              <div class="so-dashboard__range" data-range>
+                <button type="button" class="so-dashboard__button so-dashboard__button--range" id="so-range-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="so-range-menu">
+                  <span id="so-range-label">Last 4 weeks</span>
+                  <img src="img/icon-chevron.svg" width="16" height="16" alt="">
+                </button>
+                <ul class="so-dashboard__range-menu" id="so-range-menu" role="listbox" aria-labelledby="so-range-button" hidden>
+                  <li role="option" data-range-id="7d" tabindex="-1">Last 7 days</li>
+                  <li role="option" data-range-id="4w" aria-selected="true" tabindex="-1">Last 4 weeks</li>
+                  <li role="option" data-range-id="3m" tabindex="-1">Last 3 months</li>
+                </ul>
+              </div>
+              <div class="so-dashboard__download">
+                <button type="button" class="so-dashboard__button so-dashboard__button--download" id="so-download-button">
+                  Download
+                  <img src="img/icon-download.svg" width="16" height="16" alt="">
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <section class="so-dashboard__section">
+            <h2 class="so-dashboard__section-title">How is participation?</h2>
+            <p class="so-dashboard__section-kicker" id="so-participation-kicker">7,410 total users earned 432,190 reputation in the last 4 weeks.</p>
+
+            <div class="so-dashboard__row">
+              <article class="so-dashboard__card so-dashboard__card--medium">
+                <div class="so-dashboard__card-head so-dashboard__card-head--compact">
+                  <p class="so-dashboard__card-label">Answer Ratio</p>
+                </div>
+                <div class="so-dashboard__donut-body">
+                  <div class="so-dashboard__donut-chart" data-chart="answer-ratio">
+                    <canvas class="so-dashboard__donut-canvas" width="180" height="180" aria-hidden="true"></canvas>
+                    <div class="so-dashboard__donut-center" aria-hidden="true">
+                      <span class="so-dashboard__donut-center-value" id="so-donut-total">5.3K</span>
+                      <span class="so-dashboard__donut-center-label">Total</span>
+                    </div>
+                    <div class="so-dashboard__donut-tooltip so-dashboard__tooltip so-dashboard__tooltip--compact" aria-hidden="true" aria-live="polite">
+                      <p class="so-dashboard__tooltip-date" id="so-donut-tooltip-name"></p>
+                      <div class="so-dashboard__tooltip-row">
+                        <p id="so-donut-tooltip-count"></p>
+                        <span class="so-dashboard__donut-tooltip-pct" id="so-donut-tooltip-pct"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="so-dashboard__legend">
+                    <button type="button" class="so-dashboard__legend-button" data-slice="accepted" aria-pressed="false">
+                      <span class="so-dashboard__swatch so-dashboard__swatch--green"></span>
+                      <span class="so-dashboard__legend-copy">
+                        <span class="so-dashboard__legend-name">Accepted</span>
+                        <span class="so-dashboard__legend-value" data-slice-value="accepted">2,811</span>
+                      </span>
+                    </button>
+                    <button type="button" class="so-dashboard__legend-button" data-slice="answered" aria-pressed="false">
+                      <span class="so-dashboard__swatch so-dashboard__swatch--sky"></span>
+                      <span class="so-dashboard__legend-copy">
+                        <span class="so-dashboard__legend-name">Answered</span>
+                        <span class="so-dashboard__legend-value" data-slice-value="answered">541</span>
+                      </span>
+                    </button>
+                    <button type="button" class="so-dashboard__legend-button" data-slice="unanswered" aria-pressed="false">
+                      <span class="so-dashboard__swatch so-dashboard__swatch--yellow"></span>
+                      <span class="so-dashboard__legend-copy">
+                        <span class="so-dashboard__legend-name">Unanswered</span>
+                        <span class="so-dashboard__legend-value" data-slice-value="unanswered">1,609</span>
+                      </span>
+                    </button>
+                  </div>
+                </div>
+                <div class="so-dashboard__note">
+                  <img src="img/icon-trophy.svg" width="14" height="12" alt="">
+                  <p>We like to see an acceptance rate above 45%. Nice work!</p>
+                </div>
+              </article>
+
+              <article class="so-dashboard__card so-dashboard__card--medium">
+                <div class="so-dashboard__card-head">
+                  <p class="so-dashboard__card-label">Time to Answer</p>
+                  <div class="so-dashboard__metric-row">
+                    <p class="so-dashboard__metric" id="so-tta-metric">10min 48sec</p>
+                    <div class="so-dashboard__delta so-dashboard__delta--up" id="so-tta-card-delta">
+                      <span class="so-dashboard__delta-icon"><img src="img/icon-arrow-up.svg" width="12" height="12" alt=""></span>
+                      <span class="so-dashboard__delta-value">6%</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="so-dashboard__chart">
+                  <div class="so-dashboard__y-axis">
+                    <div class="so-dashboard__y-tick"><span class="so-dashboard__gridline"></span><span>15min</span></div>
+                    <div class="so-dashboard__y-tick"><span class="so-dashboard__gridline"></span><span>10min</span></div>
+                    <div class="so-dashboard__y-tick"><span class="so-dashboard__gridline"></span><span>5min</span></div>
+                    <div class="so-dashboard__y-tick"><span class="so-dashboard__gridline"></span><span>0</span></div>
+                  </div>
+                  <div class="so-dashboard__x-axis so-dashboard__x-axis--five" id="so-tta-xaxis">
+                    <span>Sep 2</span><span>Sep 9</span><span>Sep 16</span><span>Sep 23</span><span>Sep 29</span>
+                  </div>
+                  <div class="so-dashboard__plot so-dashboard__plot--tta">
+                    <div class="so-dashboard__plot-hitarea" data-chart="tta" tabindex="0" role="group" aria-label="Time to Answer chart. Arrow keys move between daily dates.">
+                      <canvas class="so-dashboard__plot-canvas" aria-hidden="true"></canvas>
+                      <div class="so-dashboard__hover so-dashboard__hover--tta" aria-hidden="true">
+                        <span class="so-dashboard__hover-rule so-dashboard__hover-rule--tta" aria-hidden="true"></span>
+                        <div class="so-dashboard__tooltip so-dashboard__tooltip--compact" aria-live="polite">
+                          <p class="so-dashboard__tooltip-date" id="so-tta-tooltip-date"></p>
+                          <div class="so-dashboard__tooltip-row">
+                            <p id="so-tta-value-label">12min 4sec</p>
+                            <div class="so-dashboard__delta so-dashboard__delta--up" id="so-tta-delta">
+                              <span class="so-dashboard__delta-icon"><img src="img/icon-arrow-up.svg" width="12" height="12" alt=""></span>
+                              <span class="so-dashboard__delta-value">6%</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <article class="so-dashboard__card so-dashboard__card--wide so-dashboard__card--interaction">
+              <div class="so-dashboard__card-head">
+                <div class="so-dashboard__card-label-row">
+                  <p class="so-dashboard__card-label">Interaction Rate</p>
+                  <div class="so-dashboard__info-wrap" data-info-tip>
+                    <button
+                      type="button"
+                      class="so-dashboard__info"
+                      id="so-interaction-info-button"
+                      aria-describedby="so-interaction-info-tip"
+                      aria-label="About Interaction Rate"
+                    >
+                      <img src="img/icon-info.svg" width="14" height="14" alt="">
+                    </button>
+                    <div class="so-dashboard__info-tip" id="so-interaction-info-tip" role="tooltip">
+                      Average answers + comments + votes per question.
+                    </div>
+                  </div>
+                </div>
+                <div class="so-dashboard__metric-row">
+                  <p class="so-dashboard__metric so-dashboard__metric--lg" id="so-interaction-metric">5.3</p>
+                  <div class="so-dashboard__delta so-dashboard__delta--up" id="so-interaction-delta">
+                    <span class="so-dashboard__delta-icon"><img src="img/icon-arrow-up.svg" width="12" height="12" alt=""></span>
+                    <span class="so-dashboard__delta-value">23%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="so-dashboard__progress-block">
+                <div class="so-dashboard__progress">
+                  <div class="so-dashboard__progress-fill"></div>
+                  <div class="so-dashboard__progress-dots">
+                    <span></span><span></span><span></span><span></span><span></span><span></span>
+                  </div>
+                </div>
+                <div class="so-dashboard__stat-pills">
+                  <div class="so-dashboard__stat-pill">
+                    <p id="so-pill-answers">2.3 Answers</p>
+                    <div class="so-dashboard__delta so-dashboard__delta--up" id="so-pill-answers-delta">
+                      <span class="so-dashboard__delta-icon"><img src="img/icon-arrow-up.svg" width="12" height="12" alt=""></span>
+                      <span class="so-dashboard__delta-value">22%</span>
+                    </div>
+                  </div>
+                  <div class="so-dashboard__stat-pill">
+                    <p id="so-pill-comments">1.9 Comments</p>
+                    <div class="so-dashboard__delta so-dashboard__delta--down" id="so-pill-comments-delta">
+                      <span class="so-dashboard__delta-icon"><img src="img/icon-arrow-down.svg" width="12" height="12" alt=""></span>
+                      <span class="so-dashboard__delta-value">31%</span>
+                    </div>
+                  </div>
+                  <div class="so-dashboard__stat-pill">
+                    <p id="so-pill-votes">1.1 Votes</p>
+                    <div class="so-dashboard__delta so-dashboard__delta--up" id="so-pill-votes-delta">
+                      <span class="so-dashboard__delta-icon"><img src="img/icon-arrow-up.svg" width="12" height="12" alt=""></span>
+                      <span class="so-dashboard__delta-value">121%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="so-dashboard__note">
+                <img src="img/icon-trophy.svg" width="14" height="12" alt="">
+                <p>We like to see an interaction rate above 5. Nice work!</p>
+              </div>
+            </article>
+          </section>
+
+          <article class="so-dashboard__card so-dashboard__card--wide so-dashboard__card--activity">
+            <div class="so-dashboard__card-head">
+              <p class="so-dashboard__card-label">Activity</p>
+              <div class="so-dashboard__series">
+                <div class="so-dashboard__series-item">
+                  <span class="so-dashboard__series-mark so-dashboard__series-mark--questions"></span>
+                  <div class="so-dashboard__series-copy">
+                    <p>Questions</p>
+                    <div class="so-dashboard__metric-row">
+                      <p class="so-dashboard__metric" id="so-activity-questions-metric">8,911</p>
+                      <div class="so-dashboard__delta so-dashboard__delta--up" id="so-activity-questions-card-delta">
+                        <span class="so-dashboard__delta-icon"><img src="img/icon-arrow-up.svg" width="12" height="12" alt=""></span>
+                        <span class="so-dashboard__delta-value">12%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="so-dashboard__series-item">
+                  <span class="so-dashboard__series-mark so-dashboard__series-mark--answers"></span>
+                  <div class="so-dashboard__series-copy">
+                    <p>Answers</p>
+                    <div class="so-dashboard__metric-row">
+                      <p class="so-dashboard__metric" id="so-activity-answers-metric">11,109</p>
+                      <div class="so-dashboard__delta so-dashboard__delta--down" id="so-activity-answers-card-delta">
+                        <span class="so-dashboard__delta-icon"><img src="img/icon-arrow-down.svg" width="12" height="12" alt=""></span>
+                        <span class="so-dashboard__delta-value">3%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="so-dashboard__chart">
+              <div class="so-dashboard__y-axis">
+                <div class="so-dashboard__y-tick so-dashboard__y-tick--sm"><span class="so-dashboard__gridline"></span><span>300</span></div>
+                <div class="so-dashboard__y-tick so-dashboard__y-tick--sm"><span class="so-dashboard__gridline"></span><span>200</span></div>
+                <div class="so-dashboard__y-tick so-dashboard__y-tick--sm"><span class="so-dashboard__gridline"></span><span>100</span></div>
+                <div class="so-dashboard__y-tick so-dashboard__y-tick--sm"><span class="so-dashboard__gridline"></span><span>0</span></div>
+              </div>
+              <div class="so-dashboard__x-axis so-dashboard__x-axis--spread so-dashboard__x-axis--ten" id="so-activity-xaxis">
+                <span>Sep 2</span><span>Sep 5</span><span>Sep 8</span><span>Sep 11</span><span>Sep 14</span><span>Sep 17</span><span>Sep 20</span><span>Sep 23</span><span>Sep 26</span><span>Sep 29</span>
+              </div>
+              <div class="so-dashboard__plot so-dashboard__plot--activity">
+                <div class="so-dashboard__plot-hitarea" data-chart="activity" tabindex="0" role="group" aria-label="Activity chart. Arrow keys move between daily dates.">
+                  <canvas class="so-dashboard__plot-canvas" aria-hidden="true"></canvas>
+                  <div class="so-dashboard__hover" aria-hidden="true">
+                    <span class="so-dashboard__hover-rule" aria-hidden="true"></span>
+                    <div class="so-dashboard__tooltip" aria-live="polite">
+                      <p class="so-dashboard__tooltip-date" id="so-activity-tooltip-date"></p>
+                      <div class="so-dashboard__tooltip-row">
+                        <p id="so-activity-questions-label">204 questions</p>
+                        <div class="so-dashboard__delta so-dashboard__delta--up" id="so-activity-questions-delta">
+                          <span class="so-dashboard__delta-icon"><img src="img/icon-arrow-up.svg" width="12" height="12" alt=""></span>
+                          <span class="so-dashboard__delta-value">32%</span>
+                        </div>
+                      </div>
+                      <div class="so-dashboard__tooltip-row">
+                        <p id="so-activity-answers-label">201 answers</p>
+                        <div class="so-dashboard__delta so-dashboard__delta--up" id="so-activity-answers-delta">
+                          <span class="so-dashboard__delta-icon"><img src="img/icon-arrow-up.svg" width="12" height="12" alt=""></span>
+                          <span class="so-dashboard__delta-value">6%</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <section class="so-dashboard__section">
+            <h2 class="so-dashboard__section-title">How else are people engaging?</h2>
+            <div class="so-dashboard__row so-dashboard__row--small">
+              <article class="so-dashboard__card so-dashboard__card--small">
+                <div class="so-dashboard__card-head">
+                  <p class="so-dashboard__card-label">Votes</p>
+                  <div class="so-dashboard__metric-row">
+                    <p class="so-dashboard__metric" id="so-votes-metric">1,909</p>
+                    <div class="so-dashboard__delta so-dashboard__delta--down" id="so-votes-card-delta">
+                      <span class="so-dashboard__delta-icon"><img src="img/icon-arrow-down.svg" width="12" height="12" alt=""></span>
+                      <span class="so-dashboard__delta-value">11%</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="so-dashboard__chart so-dashboard__chart--tight">
+                  <div class="so-dashboard__y-axis">
+                    <div class="so-dashboard__y-tick so-dashboard__y-tick--xs"><span class="so-dashboard__gridline"></span><span>100</span></div>
+                    <div class="so-dashboard__y-tick so-dashboard__y-tick--xs"><span class="so-dashboard__gridline"></span><span>50</span></div>
+                    <div class="so-dashboard__y-tick so-dashboard__y-tick--xs"><span class="so-dashboard__gridline"></span><span>0</span></div>
+                  </div>
+                  <div class="so-dashboard__x-axis so-dashboard__x-axis--three" id="so-votes-xaxis">
+                    <span>Sep 2</span><span>Sep 16</span><span>Sep 29</span>
+                  </div>
+                  <div class="so-dashboard__plot so-dashboard__plot--small">
+                    <div class="so-dashboard__plot-hitarea" data-chart="votes" tabindex="0" role="group" aria-label="Votes chart. Arrow keys move between daily dates.">
+                      <canvas class="so-dashboard__plot-canvas" aria-hidden="true"></canvas>
+                      <div class="so-dashboard__hover so-dashboard__hover--small" aria-hidden="true">
+                        <span class="so-dashboard__hover-rule so-dashboard__hover-rule--small" aria-hidden="true"></span>
+                        <div class="so-dashboard__tooltip so-dashboard__tooltip--compact" aria-live="polite">
+                          <p class="so-dashboard__tooltip-date" id="so-votes-tooltip-date"></p>
+                          <div class="so-dashboard__tooltip-row">
+                            <p id="so-votes-value-label">68 votes</p>
+                            <div class="so-dashboard__delta so-dashboard__delta--down" id="so-votes-delta">
+                              <span class="so-dashboard__delta-icon"><img src="img/icon-arrow-down.svg" width="12" height="12" alt=""></span>
+                              <span class="so-dashboard__delta-value">11%</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="so-dashboard__card so-dashboard__card--small">
+                <div class="so-dashboard__card-head so-dashboard__card-head--compact">
+                  <p class="so-dashboard__card-label">Searches</p>
+                </div>
+                <div class="so-dashboard__empty">
+                  <img src="img/empty-searches.svg" width="112" height="102" alt="">
+                  <p>There’s no data for this yet. Please check back in a few days.</p>
+                </div>
+              </article>
+
+              <article class="so-dashboard__card so-dashboard__card--small">
+                <div class="so-dashboard__card-head">
+                  <p class="so-dashboard__card-label">Comments</p>
+                  <div class="so-dashboard__metric-row">
+                    <p class="so-dashboard__metric" id="so-comments-metric">1,909</p>
+                    <div class="so-dashboard__delta so-dashboard__delta--down" id="so-comments-card-delta">
+                      <span class="so-dashboard__delta-icon"><img src="img/icon-arrow-down.svg" width="12" height="12" alt=""></span>
+                      <span class="so-dashboard__delta-value">11%</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="so-dashboard__chart so-dashboard__chart--tight">
+                  <div class="so-dashboard__y-axis">
+                    <div class="so-dashboard__y-tick so-dashboard__y-tick--xs"><span class="so-dashboard__gridline"></span><span>100</span></div>
+                    <div class="so-dashboard__y-tick so-dashboard__y-tick--xs"><span class="so-dashboard__gridline"></span><span>50</span></div>
+                    <div class="so-dashboard__y-tick so-dashboard__y-tick--xs"><span class="so-dashboard__gridline"></span><span>0</span></div>
+                  </div>
+                  <div class="so-dashboard__x-axis so-dashboard__x-axis--three" id="so-comments-xaxis">
+                    <span>Sep 2</span><span>Sep 16</span><span>Sep 29</span>
+                  </div>
+                  <div class="so-dashboard__plot so-dashboard__plot--small">
+                    <div class="so-dashboard__plot-hitarea" data-chart="comments" tabindex="0" role="group" aria-label="Comments chart. Arrow keys move between daily dates.">
+                      <canvas class="so-dashboard__plot-canvas" aria-hidden="true"></canvas>
+                      <div class="so-dashboard__hover so-dashboard__hover--small" aria-hidden="true">
+                        <span class="so-dashboard__hover-rule so-dashboard__hover-rule--small" aria-hidden="true"></span>
+                        <div class="so-dashboard__tooltip so-dashboard__tooltip--compact" aria-live="polite">
+                          <p class="so-dashboard__tooltip-date" id="so-comments-tooltip-date"></p>
+                          <div class="so-dashboard__tooltip-row">
+                            <p id="so-comments-value-label">71 comments</p>
+                            <div class="so-dashboard__delta so-dashboard__delta--down" id="so-comments-delta">
+                              <span class="so-dashboard__delta-icon"><img src="img/icon-arrow-down.svg" width="12" height="12" alt=""></span>
+                              <span class="so-dashboard__delta-value">8%</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script src="vendor/chart.umd.min.js" defer></script>
+    <script src="dashboard.js" defer></script>
+  </body>
+</html>

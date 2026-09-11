@@ -134,7 +134,7 @@ Args: `slug`, `title` (iframe `title`), `width`, `height`, optional `background`
 | Script load scope | [`src/_includes/layouts/work.njk`](src/_includes/layouts/work.njk) `footerScripts` only (with click-to-play) |
 | Gallery styles | [`src/assets/css/styles.css`](src/assets/css/styles.css) (`.prototype-embed`) |
 | Deploy output | `dist/assets/img/{case}/prototypes/{slug}/index.html` (Eleventy passthrough from `src/work/img/`) |
-| Template ignore | [`src/.eleventyignore`](src/.eleventyignore) — `work/img/**` so prototype `index.html` files are passthrough-only (avoids `work.11tydata.js` rewriting permalinks) |
+| Template ignore | [`config.ignores`](.eleventy.js) — `src/work/img/**` so prototype `index.html` files are passthrough-only (avoids `work.11tydata.js` rewriting permalinks); not `.eleventyignore`, so `--serve` can still watch/live-reload |
 
 **Updating prototypes:**
 
@@ -145,6 +145,59 @@ Args: `slug`, `title` (iframe `title`), `width`, `height`, optional `background`
 Agent skill (workflow + demo/`postMessage` conventions): [`.cursor/skills/prototype-embed/SKILL.md`](.cursor/skills/prototype-embed/SKILL.md).
 
 **UX notes:** Each figure shows a static poster until it scrolls into view (~35% visible), then waits 1 second before loading the iframe (`data-src` → `src?autostart=1`). Scrolling away before the delay cancels the timer. The chatbot prototype reads `autostart=1` and auto-runs its splash demo. When a demo animation finishes, the iframe posts `dante-prototype-demo-complete` and a centered circular **Replay** icon button appears over the iframe; clicking it sends `dante-prototype-replay` to restart without reloading the iframe. Under `prefers-reduced-motion: reduce`, activation JS is skipped; a static poster and link to open the prototype in a new tab is shown instead.
+
+### Work gallery: HTML embed prototypes (large iframe mocks)
+
+Full-width **native-size iframe figures** for large product mocks rebuilt as HTML/CSS/JS bundles (not scroll-gated hero prototypes or captioned thumbs). First use: Stack Overflow analytics dashboard on [`src/work/2020-01-01-stack-overflow.md`](src/work/2020-01-01-stack-overflow.md).
+
+**When to use:** A case study hero should be a **live, clickable mock** with interaction inside the iframe. Prefer a fluid responsive layout in the bundle (components shrink and reflow) over CSS-scaling a fixed artboard. Product palette stays in the bundle; host page only supplies gallery chrome and the “Click around” cue.
+
+**vs other iframe patterns:**
+
+| | HTML embed | `prototypeEmbed` (hero) | `thumbPrototype` (thumb) |
+|--|------------|-------------------------|--------------------------|
+| Size | Fluid width in gallery; height from iframe resize postMessage | Native width + optional wallpaper | Small thumb (~470×400) |
+| Activation | Loads immediately (`loading="lazy"`) | Scroll gate + 1s delay + autostart | Hover/focus play/reset |
+| Cue | “Click around” (host page) | None | “Hover me!” (host page) |
+| Bundle | `src/work/img/{case}/prototypes/{slug}/` | Same | Same |
+
+**Authoring (Markdown work pages):** wrap figure in `work-gallery__item--media-native`; use raw HTML on the media container:
+
+```html
+<div class="work-gallery__media work-gallery__media--html-embed" data-html-embed>
+  <span class="html-embed__cue" aria-hidden="true">
+    <span class="html-embed__cue-label">Click around</span>
+    <!-- corner-right-down SVG — copy from stack-overflow case study or thumb-prototype.njk -->
+  </span>
+  <div class="html-embed__frame">
+    <iframe src="/assets/img/{case}/prototypes/{slug}/" title="…" width="W" height="H" loading="lazy"></iframe>
+  </div>
+</div>
+```
+
+Iframe `width` / `height` attrs are fallbacks; host CSS sets `width: 100%`. The bundle should post height updates so the host can resize the iframe without clipping.
+
+**Implementation map:**
+
+| Piece | Location |
+|-------|----------|
+| Reference bundle | [`src/work/img/stackoverflow/prototypes/dashboard/`](src/work/img/stackoverflow/prototypes/dashboard/) |
+| Gallery embed styles | [`src/assets/css/styles.css`](src/assets/css/styles.css) (`.work-gallery__media--html-embed`, `.html-embed__cue`, `.html-embed__frame`) |
+| Host resize script | [`src/assets/js/work-html-embed.js`](src/assets/js/work-html-embed.js) via [`src/misc/work-html-embed.js.njk`](src/misc/work-html-embed.js.njk) |
+| Script load scope | [`src/_includes/layouts/work.njk`](src/_includes/layouts/work.njk) `footerScripts` only |
+| Passthrough | `src/work/img/**` → `/assets/img/` ([`.eleventy.js`](.eleventy.js) `config.ignores` keeps prototype paths out of the template pipeline) |
+
+**postMessage (iframe → host):** When layout height changes (load, resize, reflow), post:
+
+```js
+window.parent.postMessage({ type: 'dante-html-embed-resize', height: contentHeightPx }, '*');
+```
+
+Host sets the iframe’s `style.height` from resize messages. Pointer events inside the iframe do not bubble to the host.
+
+**Cue UX:** Same visual language as thumb “Hover me!” — soft Swiss red, −6° tilt, Feather corner-right-down icon, hangs above top-left of the frame. Stays visible (does not fade on hover or after interaction).
+
+Agent skill (workflow + reuse checklist): [`.cursor/skills/html-embed/SKILL.md`](.cursor/skills/html-embed/SKILL.md) or `/html-embed`.
 
 
 ### Work gallery: thumbnail prototypes (hover/focus)
@@ -221,12 +274,12 @@ Reusable BEM layouts for case study figures with more than one asset. Styles liv
 | `work-gallery__item--email-duo` | *(with hero-secondary)* | Wider email columns (680px / 400px) |
 | `work-gallery__item--canfield-duo` | *(with hero-secondary)* | Email + tall mobile (640px / 768px) |
 | `work-gallery__item--sidebar-quad` | `work-gallery__media--sidebar-quad` | Four images in two columns |
-| `work-gallery__item--integrations-stack` | `work-gallery__media--integrations-stack` | Overlapping back/front cards on a fixed stage |
+| `work-gallery__item--integrations-stack` | `work-gallery__media--integrations-stack` | Cascading back/front/bottom cards on a fixed stage |
 | `work-gallery__item--media-native` | click-to-play, prototype embed, or large native asset | Centered native width |
 | `work-gallery__item--borderless` | any | Hairline border off; keep 8px radius |
 | `work-gallery__item--plain` | floating asset (e.g. logo) | No border, no radius |
 
-Image classes inside hero-secondary: `work-gallery__media-main`, `work-gallery__media-secondary`. Integrations stack: `work-gallery__integrations-stack__stage`, `__back`, `__front`. Sidebar quad: `work-gallery__sidebar-quad`, `__col`.
+Image classes inside hero-secondary: `work-gallery__media-main`, `work-gallery__media-secondary`. Integrations stack: `work-gallery__integrations-stack__stage`, `__back`, `__front`, `__bottom`. Sidebar quad: `work-gallery__sidebar-quad`, `__col`.
 
 **Padding:** Hero-secondary frames are **flush at the bottom** (no bottom padding; top and sides use `--work-gallery-atmosphere-frame-padding` with backdrop, or `--space-work-gallery-card-padding` without).
 

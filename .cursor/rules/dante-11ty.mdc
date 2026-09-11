@@ -42,6 +42,7 @@ alwaysApply: true
 - Do not hardcode navigation links — derive them from collections or data files
 - **Work gallery video figures:** Use the `clickToPlayVideo` shortcode in Markdown work pages for poster + lazy MP4 + native controls after play. Full stack and UX rules live in **[AGENTS.md](AGENTS.md)** under *Work gallery: video figures (click-to-play)*.
 - **Work gallery interactive prototypes:** Use the `prototypeEmbed` shortcode and keep bundles under `src/work/img/{case}/prototypes/{slug}/` — **[`.cursor/skills/prototype-embed/SKILL.md`](.cursor/skills/prototype-embed/SKILL.md)** and [AGENTS.md](AGENTS.md) (*Work gallery: interactive prototypes*).
+- **Work gallery HTML embed mocks (large iframe figures):** Native-size scaled iframes with “Click around” host cue — **[`.cursor/skills/html-embed/SKILL.md`](.cursor/skills/html-embed/SKILL.md)** and [AGENTS.md](AGENTS.md) (*Work gallery: HTML embed prototypes*).
 - **Work gallery thumbnail prototypes:** Use the `thumbPrototype` shortcode for hover/focus-gated demos inside thumbs — **[`.cursor/skills/thumb-prototype/SKILL.md`](.cursor/skills/thumb-prototype/SKILL.md)** and [AGENTS.md](AGENTS.md) (*Work gallery: thumbnail prototypes*).
 
 - **Work gallery multi-image figures:** Layout modifiers and HTML templates — **[`.cursor/skills/work-gallery-figures/SKILL.md`](.cursor/skills/work-gallery-figures/SKILL.md)** and [AGENTS.md](AGENTS.md) (*Work gallery: multi-image layouts*). Atmosphere backdrops are legacy (visually removed); do not rely on them for new visual design.
