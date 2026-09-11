@@ -50,13 +50,13 @@
                   <span id="so-range-label">Last 4 weeks</span>
                   <img src="img/icon-chevron.svg" width="16" height="16" alt="">
                 </button>
-                <ul class="so-dashboard__range-menu" id="so-range-menu" role="listbox" hidden>
+                <ul class="so-dashboard__range-menu" id="so-range-menu" role="listbox" aria-labelledby="so-range-button" hidden>
                   <li role="option" data-range-id="7d" tabindex="-1">Last 7 days</li>
                   <li role="option" data-range-id="4w" aria-selected="true" tabindex="-1">Last 4 weeks</li>
                   <li role="option" data-range-id="3m" tabindex="-1">Last 3 months</li>
                 </ul>
               </div>
-              <div class="so-dashboard__download" data-download>
+              <div class="so-dashboard__download">
                 <button type="button" class="so-dashboard__button so-dashboard__button--download" id="so-download-button">
                   Download
                   <img src="img/icon-download.svg" width="16" height="16" alt="">

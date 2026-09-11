@@ -3,7 +3,6 @@
   var RANGE_END = new Date(2024, 8, 29);
   var dayCount = 28;
   var rangeStart = new Date(2024, 8, 2);
-  var hasNotifiedParent = false;
   var currentRangeId = "4w";
 
   function clamp(value, min, max) {
@@ -74,7 +73,7 @@
     return point;
   }
 
-  function buildDailyFromAnchors(anchors, fields, overrides) {
+  function buildDailyFromAnchors(anchors, fields) {
     var series = [];
     var divisor = Math.max(dayCount - 1, 1);
 
@@ -83,18 +82,6 @@
       var point = interpolateFields(anchors, fraction, fields);
       point.label = formatDayLabel(i);
       series.push(point);
-    }
-
-    if (overrides) {
-      Object.keys(overrides).forEach(function (key) {
-        var dayIndex = Number(key);
-        if (dayIndex < 0 || dayIndex >= series.length) {
-          return;
-        }
-        series[dayIndex] = Object.assign({}, series[dayIndex], overrides[key], {
-          label: formatDayLabel(dayIndex),
-        });
-      });
     }
 
     return series;
@@ -144,15 +131,6 @@
     if (value) {
       value.textContent = delta + "%";
     }
-  }
-
-  function notifyParent() {
-    if (hasNotifiedParent || window.parent === window) {
-      return;
-    }
-
-    hasNotifiedParent = true;
-    window.parent.postMessage({ type: "dante-html-embed-interacted" }, "*");
   }
 
   function buildAxisLabels(labelCount) {
@@ -367,9 +345,6 @@
           if (nextIndex === activeSegmentIndex) {
             return;
           }
-          if (nextIndex != null) {
-            notifyParent();
-          }
           activeSegmentIndex = nextIndex;
           renderState();
         },
@@ -383,7 +358,6 @@
 
     legendButtons.forEach(function (button, index) {
       button.addEventListener("click", function () {
-        notifyParent();
         pinnedIndex = pinnedIndex === index ? null : index;
         renderState();
       });
@@ -552,9 +526,6 @@
     }
 
     function resolveAndRender(pointerX, show, forcedKeyboardIndex) {
-      if (show) {
-        notifyParent();
-      }
       renderHover(resolveHover(pointerX, forcedKeyboardIndex), show);
     }
 
@@ -1032,7 +1003,7 @@
       charts.donut = initDonutChart();
     }
 
-    function applyRange(rangeId, options) {
+    function applyRange(rangeId) {
       var preset = RANGE_PRESETS[rangeId];
       if (!preset) {
         return;
@@ -1067,10 +1038,6 @@
         charts.comments.setSeries(series.comments, series.commentsPlot, true);
       }
 
-      if (!options || !options.silent) {
-        notifyParent();
-      }
-
       reportHeightToParent();
     }
 
@@ -1082,12 +1049,17 @@
         return;
       }
 
-      var options = menu.querySelectorAll('[role="option"]');
+      var options = Array.prototype.slice.call(menu.querySelectorAll('[role="option"]'));
 
       function setOpen(open) {
         button.setAttribute("aria-expanded", open ? "true" : "false");
         if (open) {
           menu.removeAttribute("hidden");
+          var selected =
+            menu.querySelector('[role="option"][aria-selected="true"]') || options[0];
+          if (selected) {
+            selected.focus();
+          }
         } else {
           menu.setAttribute("hidden", "");
         }
@@ -1108,21 +1080,66 @@
         });
       }
 
+      function selectOption(option) {
+        var rangeId = option.getAttribute("data-range-id");
+        if (rangeId && rangeId !== currentRangeId) {
+          applyRange(rangeId);
+          syncSelected();
+        }
+        setOpen(false);
+        button.focus();
+      }
+
+      function focusOptionAt(index) {
+        var next = options[clamp(index, 0, options.length - 1)];
+        if (next) {
+          next.focus();
+        }
+      }
+
       button.addEventListener("click", function (event) {
         event.stopPropagation();
         setOpen(!isOpen());
       });
 
-      options.forEach(function (option) {
+      button.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowDown" || event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          if (!isOpen()) {
+            setOpen(true);
+          }
+        }
+      });
+
+      options.forEach(function (option, index) {
         option.addEventListener("click", function (event) {
           event.stopPropagation();
-          var rangeId = option.getAttribute("data-range-id");
-          if (rangeId && rangeId !== currentRangeId) {
-            applyRange(rangeId);
-            syncSelected();
+          selectOption(option);
+        });
+
+        option.addEventListener("keydown", function (event) {
+          if (event.key === "ArrowDown") {
+            event.preventDefault();
+            focusOptionAt(index + 1);
+          } else if (event.key === "ArrowUp") {
+            event.preventDefault();
+            focusOptionAt(index - 1);
+          } else if (event.key === "Home") {
+            event.preventDefault();
+            focusOptionAt(0);
+          } else if (event.key === "End") {
+            event.preventDefault();
+            focusOptionAt(options.length - 1);
+          } else if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            selectOption(option);
+          } else if (event.key === "Escape") {
+            event.preventDefault();
+            setOpen(false);
+            button.focus();
+          } else if (event.key === "Tab") {
+            setOpen(false);
           }
-          setOpen(false);
-          button.focus();
         });
       });
 
@@ -1133,8 +1150,9 @@
       });
 
       document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") {
+        if (event.key === "Escape" && isOpen()) {
           setOpen(false);
+          button.focus();
         }
       });
 
@@ -1179,28 +1197,6 @@
     }
   }
 
-  function initInfoTips() {
-    var wraps = document.querySelectorAll("[data-info-tip]");
-    if (!wraps.length) {
-      return;
-    }
-
-    wraps.forEach(function (wrap) {
-      var hasNotified = false;
-
-      function onReveal() {
-        if (hasNotified) {
-          return;
-        }
-        hasNotified = true;
-        notifyParent();
-      }
-
-      wrap.addEventListener("pointerenter", onReveal);
-      wrap.addEventListener("focusin", onReveal);
-    });
-  }
-
   function initDownloadToast() {
     var button = document.getElementById("so-download-button");
     var toast = document.getElementById("so-download-toast");
@@ -1228,7 +1224,6 @@
       toast.removeAttribute("hidden");
       void toast.offsetWidth;
       toast.classList.add("is-visible");
-      notifyParent();
 
       hideTimer = window.setTimeout(hideToast, TOAST_MS);
     }
@@ -1242,13 +1237,11 @@
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", function () {
       initAllCharts();
-      initInfoTips();
       initDownloadToast();
       initHeightReporter();
     });
   } else {
     initAllCharts();
-    initInfoTips();
     initDownloadToast();
     initHeightReporter();
   }

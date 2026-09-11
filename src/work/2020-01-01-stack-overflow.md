@@ -2,11 +2,11 @@
 title: Stack Overflow
 index_title: Stack Overflow
 body_class: work
-excerpt: I worked on Stack Overflow’s private Q&A products, our design system, and lots of other stuff.
+excerpt: I worked on Stack Overflow’s private Q&A products, our design system, and enterprise analytics.
 highlightjs: true
 year: 2016 - 2020
 role: First designer, Enterprise
-index_summary: First designer on the Enterprise and Teams products, created several enterprise features atop of Stack's core product, built Stack Overflow's email design system.
+index_summary: First designer on the Enterprise and Teams products, created several enterprise features atop Stack's core product, built Stack Overflow's email design system.
 index_image: /assets/img/stackoverflow/th-work-stackoverflow.svg
 index_image_alt: Stack Overflow enterprise analytics dashboard design.
 index_card_layout: full-bleed
@@ -33,14 +33,14 @@ I helped grow the enterprise product from a single customer to over 30, adapting
         </svg>
       </span>
       <div class="html-embed__frame">
-        <iframe src="/assets/img/stackoverflow/prototypes/dashboard/" title="Stack Overflow dashboard design." width="1266" height="1640" loading="lazy"></iframe>
+        <iframe src="/assets/img/stackoverflow/prototypes/dashboard/" title="Interactive Stack Overflow Enterprise analytics dashboard" width="1266" height="1640" loading="lazy"></iframe>
       </div>
     </div>
   </figure>
   <figure class="work-gallery__item">
     <figcaption class="work-gallery__caption">Building the system behind the emails</figcaption>
     <p class="work-gallery__description">HTML email is notoriously painful to build. At Stack I turned my open source framework into an <a href="https://v2.stackoverflow.design/email/guidelines/getting-started/">email design system</a> that scaled to millions of emails a year.</p>
-    <img src="/assets/img/stackoverflow/stackoverflow-email-design-system.svg" alt="Stack Overflow email design system." loading="lazy">
+    <img src="/assets/img/stackoverflow/stackoverflow-email-design-system.svg" alt="Stack Overflow email design system." width="1000" height="775" loading="lazy">
     <p class="work-gallery__followup">The code was only part of it. I documented typography and the other components, designed the email section of Stack Overflow’s design system, and shipped interactive docs so people could see components in use, plus dark mode and responsiveness. That visibility helped outside Stack too, through talks and podcasts. Inside, the impact I cared about most was for developers who did not know or like HTML email: they could get further without a designer sitting next to them, which freed design time for the problems that actually needed it.</p>
     <div class="work-gallery__thumbs work-gallery__thumbs--halves">
       <figure class="work-gallery__thumb">

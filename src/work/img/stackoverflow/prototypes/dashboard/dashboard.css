@@ -253,6 +253,12 @@ img {
   filter: brightness(0.72);
 }
 
+.so-dashboard__button:focus-visible {
+  outline: none;
+  border-color: var(--so-blue);
+  box-shadow: 0 0 0 2px var(--so-canvas), 0 0 0 4px var(--so-blue);
+}
+
 .so-dashboard__button--range {
   cursor: pointer;
 }
@@ -301,6 +307,10 @@ img {
 .so-dashboard__range-menu [role="option"]:focus {
   background-color: var(--so-footer-bg);
   outline: none;
+}
+
+.so-dashboard__range-menu [role="option"]:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--so-blue);
 }
 
 .so-dashboard__range-menu [role="option"][aria-selected="true"] {
@@ -408,7 +418,7 @@ img {
   flex-direction: column;
   gap: var(--so-card-padding);
   min-width: 0;
-  overflow: hidden;
+  overflow: visible;
   padding: var(--so-card-padding);
   background-color: var(--so-canvas);
   border: 1px solid var(--so-border);
@@ -425,7 +435,7 @@ img {
 }
 
 .so-dashboard__card--interaction {
-  /* Let the info tip sit above the icon without clipping */
+  /* Info tip sits above the icon */
   overflow: visible;
 }
 
@@ -1222,12 +1232,12 @@ img {
     flex: 1 1 auto;
     width: 100%;
     height: auto;
-    min-height: 280px;
+    min-height: 0;
   }
 
   .so-dashboard__card--activity {
     height: auto;
-    min-height: 360px;
+    min-height: 0;
   }
 
   .so-dashboard__plot--tta,
@@ -1264,7 +1274,8 @@ img {
 
   .so-dashboard__card--medium,
   .so-dashboard__card--small {
-    min-height: 260px;
+    height: auto;
+    min-height: 0;
   }
 
   .so-dashboard__donut-body {

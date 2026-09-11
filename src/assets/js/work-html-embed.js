@@ -5,41 +5,37 @@
       return;
     }
 
-    function iframeForSource(source) {
+    function embedForSource(source) {
       for (var i = 0; i < embeds.length; i += 1) {
         var iframe = embeds[i].querySelector('iframe');
         if (iframe && iframe.contentWindow === source) {
-          return iframe;
+          return embeds[i];
         }
       }
       return null;
     }
 
     window.addEventListener('message', function (event) {
-      if (!event.data || typeof event.data.type !== 'string') {
+      if (!event.data || event.data.type !== 'dante-html-embed-resize') {
         return;
       }
 
-      if (event.data.type === 'dante-html-embed-interacted') {
-        embeds.forEach(function (embed) {
-          embed.classList.add('is-interacted');
-        });
+      var height = Number(event.data.height);
+      if (!height || height < 1) {
         return;
       }
 
-      if (event.data.type === 'dante-html-embed-resize') {
-        var height = Number(event.data.height);
-        if (!height || height < 1) {
-          return;
-        }
-
-        var iframe = iframeForSource(event.source);
-        if (!iframe) {
-          return;
-        }
-
-        iframe.style.height = Math.ceil(height) + 'px';
+      var embed = embedForSource(event.source);
+      if (!embed) {
+        return;
       }
+
+      var iframe = embed.querySelector('iframe');
+      if (!iframe) {
+        return;
+      }
+
+      iframe.style.height = Math.ceil(height) + 'px';
     });
   }
 

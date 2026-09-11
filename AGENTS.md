@@ -183,25 +183,19 @@ Iframe `width` / `height` attrs are fallbacks; host CSS sets `width: 100%`. The 
 |-------|----------|
 | Reference bundle | [`src/work/img/stackoverflow/prototypes/dashboard/`](src/work/img/stackoverflow/prototypes/dashboard/) |
 | Gallery embed styles | [`src/assets/css/styles.css`](src/assets/css/styles.css) (`.work-gallery__media--html-embed`, `.html-embed__cue`, `.html-embed__frame`) |
-| Host dismiss script | [`src/assets/js/work-html-embed.js`](src/assets/js/work-html-embed.js) via [`src/misc/work-html-embed.js.njk`](src/misc/work-html-embed.js.njk) |
+| Host resize script | [`src/assets/js/work-html-embed.js`](src/assets/js/work-html-embed.js) via [`src/misc/work-html-embed.js.njk`](src/misc/work-html-embed.js.njk) |
 | Script load scope | [`src/_includes/layouts/work.njk`](src/_includes/layouts/work.njk) `footerScripts` only |
 | Passthrough | `src/work/img/**` → `/assets/img/` ([`.eleventy.js`](.eleventy.js) `config.ignores` keeps prototype paths out of the template pipeline) |
 
-**postMessage (iframe → host):** On first meaningful interaction inside the bundle, post once:
-
-```js
-window.parent.postMessage({ type: 'dante-html-embed-interacted' }, '*');
-```
-
-When layout height changes (load, resize, reflow), post:
+**postMessage (iframe → host):** When layout height changes (load, resize, reflow), post:
 
 ```js
 window.parent.postMessage({ type: 'dante-html-embed-resize', height: contentHeightPx }, '*');
 ```
 
-Host adds `is-interacted` on `[data-html-embed]` and fades the cue. Host sets the iframe’s `style.height` from resize messages. Pointer events inside the iframe do not bubble to the host — the interact message is required for dismissal after the user clicks inside the mock.
+Host sets the iframe’s `style.height` from resize messages. Pointer events inside the iframe do not bubble to the host.
 
-**Cue UX:** Same visual language as thumb “Hover me!” — soft Swiss red, −6° tilt, Feather corner-right-down icon, hangs above top-left of the frame. Fades on host `:hover` / `:focus-within` or after `is-interacted`.
+**Cue UX:** Same visual language as thumb “Hover me!” — soft Swiss red, −6° tilt, Feather corner-right-down icon, hangs above top-left of the frame. Stays visible (does not fade on hover or after interaction).
 
 Agent skill (workflow + reuse checklist): [`.cursor/skills/html-embed/SKILL.md`](.cursor/skills/html-embed/SKILL.md) or `/html-embed`.
 

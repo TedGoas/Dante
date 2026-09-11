@@ -3,7 +3,7 @@ name: html-embed
 description: >-
   Work gallery large iframe HTML mocks — passthrough bundles under
   src/work/img/{case}/prototypes/{slug}/, scaled native-size embed markup,
-  Click around host cue, and dante-html-embed-interacted postMessage. Use when
+  Click around host cue. Use when
   adding or reusing full-artboard interactive mocks (not prototypeEmbed heroes
   or thumbPrototype thumbs).
 ---
@@ -19,7 +19,7 @@ Use when a work case study **hero figure** should be a **live HTML/CSS/JS mock**
 
 - User asks to add a large interactive iframe mock to a case study (not a scroll-gated Dialpad hero or a captioned thumb)
 - Reusing the “Click around” cue pattern on another figure
-- Debugging cue dismissal, iframe scaling, or passthrough deploy for html-embed bundles
+- Debugging iframe scaling or passthrough deploy for html-embed bundles
 
 ## vs other gallery iframe patterns
 
@@ -68,29 +68,15 @@ Replace `width` / `height` with sensible fallbacks. Host CSS sizes the iframe to
 | Piece | Location |
 |-------|----------|
 | Embed + cue CSS | [`src/assets/css/styles.css`](../../../src/assets/css/styles.css) — search `html-embed` |
-| Cue dismiss | [`src/assets/js/work-html-embed.js`](../../../src/assets/js/work-html-embed.js) — listens for `dante-html-embed-interacted` |
+| Iframe resize | [`src/assets/js/work-html-embed.js`](../../../src/assets/js/work-html-embed.js) — listens for `dante-html-embed-resize` |
 | Build output | [`src/misc/work-html-embed.js.njk`](../../../src/misc/work-html-embed.js.njk) |
 | Load scope | [`src/_includes/layouts/work.njk`](../../../src/_includes/layouts/work.njk) `footerScripts` |
 
-Cue fades when: host `:hover` / `:focus-within` on `[data-html-embed]`, or host receives `is-interacted` after iframe postMessage.
+Cue stays visible (does not fade on hover or after interaction).
 
 ## In-bundle conventions
 
-When the mock should dismiss the host cue on first use:
-
-```js
-var hasNotifiedParent = false;
-
-function notifyParent() {
-  if (hasNotifiedParent || window.parent === window) return;
-  hasNotifiedParent = true;
-  window.parent.postMessage({ type: 'dante-html-embed-interacted' }, '*');
-}
-```
-
-Call `notifyParent()` on first meaningful interaction (e.g. chart pointer move or keyboard focus). Fire **once** per iframe load.
-
-Also report content height whenever layout changes so the host iframe does not clip:
+Report content height whenever layout changes so the host iframe does not clip:
 
 ```js
 window.parent.postMessage({ type: 'dante-html-embed-resize', height: Math.ceil(root.getBoundingClientRect().height) }, '*');
@@ -102,8 +88,8 @@ Do **not** reuse Dialpad prototype message types (`dante-prototype-*`, `dante-th
 
 1. Bundle at `src/work/img/{case}/prototypes/{slug}/` with a fluid responsive layout (prefer reflow over CSS zoom).
 2. Case study figure: `work-gallery__item--media-native` + markup above with fallback iframe `width` / `height`.
-3. Interactive JS inside bundle + `notifyParent()` if the cue should dismiss on use; post `dante-html-embed-resize` on load/resize.
-4. Build; open `/work/{slug}/`; confirm no clipping at narrow widths, cue visible at rest, cue fades after interaction.
+3. Interactive JS inside bundle; post `dante-html-embed-resize` on load/resize.
+4. Build; open `/work/{slug}/`; confirm no clipping at narrow widths and cue stays visible.
 5. Stage only html-embed-related paths when committing (see **commit** skill).
 ## Do not
 
