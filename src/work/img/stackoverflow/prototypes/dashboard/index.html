@@ -10,6 +10,11 @@
     <div class="so-dashboard">
       <div class="so-dashboard__topbar"></div>
 
+      <div class="so-dashboard__banner" id="so-download-toast" role="status" aria-live="polite" hidden>
+        <img class="so-dashboard__banner-icon" src="img/icon-check.svg" width="18" height="18" alt="">
+        <span>File successfully downloaded</span>
+      </div>
+
       <header class="so-dashboard__header">
         <div class="so-dashboard__header-left">
           <img class="so-dashboard__logo" src="img/logo.svg" width="150" height="29" alt="Stack Overflow">
@@ -51,9 +56,11 @@
                   <li role="option" data-range-id="3m" tabindex="-1">Last 3 months</li>
                 </ul>
               </div>
-              <div class="so-dashboard__button so-dashboard__button--download">
-                Download
-                <img src="img/icon-download.svg" width="16" height="16" alt="">
+              <div class="so-dashboard__download" data-download>
+                <button type="button" class="so-dashboard__button so-dashboard__button--download" id="so-download-button">
+                  Download
+                  <img src="img/icon-download.svg" width="16" height="16" alt="">
+                </button>
               </div>
             </div>
           </div>

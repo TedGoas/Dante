@@ -52,6 +52,7 @@ img {
 }
 
 .so-dashboard {
+  position: relative;
   width: 100%;
   max-width: 1266px;
   min-height: 100%;
@@ -315,6 +316,61 @@ img {
 .so-dashboard__button--download {
   border-color: var(--so-blue);
   color: var(--so-blue);
+  cursor: pointer;
+}
+
+.so-dashboard__download {
+  display: inline-flex;
+  align-items: center;
+}
+
+.so-dashboard__banner {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  color: var(--so-green-text);
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 700;
+  white-space: nowrap;
+  text-align: center;
+  background-color: var(--so-green-bg);
+  border: 1px solid var(--so-green);
+  border-radius: var(--so-radius-pill);
+  box-shadow: 0 4px 16px rgba(12, 13, 14, 0.12);
+  transform: translateX(-50%) translateY(-4px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease,
+    transform 0.2s ease;
+}
+
+.so-dashboard__banner-icon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+}
+
+.so-dashboard__banner.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.so-dashboard__banner[hidden] {
+  display: none;
+}
+
+.so-dashboard__banner.is-visible[hidden] {
+  display: inline-flex;
 }
 
 .so-dashboard__section-title {
@@ -1220,7 +1276,8 @@ img {
 @media (prefers-reduced-motion: reduce) {
   .so-dashboard__donut-tooltip,
   .so-dashboard__legend-button,
-  .so-dashboard__info-tip {
+  .so-dashboard__info-tip,
+  .so-dashboard__banner {
     transition: none;
   }
 }

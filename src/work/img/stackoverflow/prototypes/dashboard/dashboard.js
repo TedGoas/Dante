@@ -1201,15 +1201,55 @@
     });
   }
 
+  function initDownloadToast() {
+    var button = document.getElementById("so-download-button");
+    var toast = document.getElementById("so-download-toast");
+    if (!button || !toast) {
+      return;
+    }
+
+    var hideTimer = null;
+    var TOAST_MS = 2000;
+
+    function hideToast() {
+      toast.classList.remove("is-visible");
+      hideTimer = window.setTimeout(function () {
+        toast.setAttribute("hidden", "");
+        hideTimer = null;
+      }, prefersReducedMotion() ? 0 : 200);
+    }
+
+    function showToast() {
+      if (hideTimer) {
+        window.clearTimeout(hideTimer);
+        hideTimer = null;
+      }
+
+      toast.removeAttribute("hidden");
+      void toast.offsetWidth;
+      toast.classList.add("is-visible");
+      notifyParent();
+
+      hideTimer = window.setTimeout(hideToast, TOAST_MS);
+    }
+
+    button.addEventListener("click", function (event) {
+      event.preventDefault();
+      showToast();
+    });
+  }
+
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", function () {
       initAllCharts();
       initInfoTips();
+      initDownloadToast();
       initHeightReporter();
     });
   } else {
     initAllCharts();
     initInfoTips();
+    initDownloadToast();
     initHeightReporter();
   }
 })();
