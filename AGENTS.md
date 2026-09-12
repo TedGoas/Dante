@@ -348,7 +348,9 @@ Collaboration norms so agents match how this site is actually built (visual crit
 
 - **Plan, then one option** — For visual or exploratory UI, prefer a short plan or 2 concrete options, wait for a pick, then implement **one**. Do not productize temporary “pick a variant” chrome.
 - **One visual variable per polish turn** — When refining (spacing, radius, dash pattern, color), change one thing and stop for eyes-on review.
-- **Verify before the next edit** — After a UI change, state the URL and that a hard refresh may be needed. If Ted says he doesn’t see the change, **stop and verify** (dev server, correct branch/URL, cache) before more edits. For deploy-only bugs, ask **local vs Netlify** early.
+- **Confirm the ask when fuzzy or repeated** — If the request is ambiguous, restate in one line (“I’ll change X on `/work/…`”) or ask one clarifying question before editing. If Ted asks again or rephrases the same thing, treat that as a miss: re-read the ask, confirm understanding, then act — do not silently redo the same edit.
+- **Prove the change landed, then invite refresh** — After CSS/markup edits: confirm the intended **source** file (never `dist/`) actually contains the change; give the exact local URL. Do not blame cache or say “hard refresh” until the source change is verified. When a browser tool is available, check the live page before claiming the fix.
+- **“I still see…” = stop and diagnose** — No more design tweaks until delivery is ruled out: wrong file/selector/page, dead or wrong-port dev server, wrong branch, or Netlify vs local. For deploy-only bugs, ask **local vs Netlify** early.
 - **Pivot after two fails** — If an approach fails twice, name the abandon/pivot (“abandon A; port B”) instead of inventing a third custom path.
 - **Prefer existing skills** — Gallery embeds, thumbs, figure layouts, case-study copy, image optimize, voice, commit/push: invoke the skill (or point to it) instead of re-explaining the pattern. See [`.cursor/skills/`](.cursor/skills/).
 - **This repo’s stack only** — Native HTML/CSS/11ty/vanilla JS. No Tailwind, React, or take-home app scaffolds here unless Ted explicitly carves that out.
