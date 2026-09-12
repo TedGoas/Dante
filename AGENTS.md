@@ -342,6 +342,18 @@ Each palette sets `--work-gallery-atmosphere-*` custom properties (base, glow-a,
 - Discuss implementation approaches before coding
 - Get approval for any new dependencies or major changes
 
+### Working with agents
+
+Collaboration norms so agents match how this site is actually built (visual critique loops, skills, selective commits):
+
+- **Plan, then one option** — For visual or exploratory UI, prefer a short plan or 2 concrete options, wait for a pick, then implement **one**. Do not productize temporary “pick a variant” chrome.
+- **One visual variable per polish turn** — When refining (spacing, radius, dash pattern, color), change one thing and stop for eyes-on review.
+- **Verify before the next edit** — After a UI change, state the URL and that a hard refresh may be needed. If Ted says he doesn’t see the change, **stop and verify** (dev server, correct branch/URL, cache) before more edits. For deploy-only bugs, ask **local vs Netlify** early.
+- **Pivot after two fails** — If an approach fails twice, name the abandon/pivot (“abandon A; port B”) instead of inventing a third custom path.
+- **Prefer existing skills** — Gallery embeds, thumbs, figure layouts, case-study copy, image optimize, voice, commit/push: invoke the skill (or point to it) instead of re-explaining the pattern. See [`.cursor/skills/`](.cursor/skills/).
+- **This repo’s stack only** — Native HTML/CSS/11ty/vanilla JS. No Tailwind, React, or take-home app scaffolds here unless Ted explicitly carves that out.
+- **Dirty trees and other agents** — Surface path/branch collisions when the tree isn’t clean. Commit only this task’s paths (see **commit** skill). When another chat moved files, open with the new paths/branch.
+
 ## Design Context
 
 For visual or UX work, read these before changing UI (Impeccable / agent design flows):
