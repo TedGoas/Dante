@@ -7,10 +7,21 @@ alwaysApply: true
 
 ## General
 
-- This is a native HTML and CSS project using 11ty. Do not introduce Tailwind, Bootstrap, or any CSS framework
+- This is a native HTML and CSS project using 11ty. Do not introduce Tailwind, Bootstrap, React, or any CSS/JS framework (no take-home app scaffolds unless Ted explicitly carves that out)
 - Do not add npm packages without asking first and explaining why they're needed
 - Do not generate content — no placeholder text, fake names, or dummy data
 - Always consider page load performance in every suggestion
+- Prefer existing project skills (gallery embeds, thumbs, figures, case-study copy, optimize-images, ted-voice, commit/push) over re-explaining those patterns — see `.cursor/skills/` and AGENTS.md *Working with agents*
+
+## Working with Ted (visual / iterative work)
+
+- Exploratory UI: short plan or 2 options → wait for pick → implement one; temporary variant pickers are throwaway
+- Polish turns: change one visual variable, then stop for review
+- Ambiguous or repeated ask: restate (“I’ll change X on `/path/`”) or ask one clarifier; a re-ask means you missed — confirm, then act (don’t silently redo the same edit)
+- After UI edits: verify the change is in the intended **source** file (not `dist/`), give the exact URL; don’t say “hard refresh” until source is confirmed; use a browser check when available
+- “I still see…” / no visible change: stop design work; diagnose delivery (file, selector, page, server/port, branch, local vs Netlify) before more tweaks
+- After two failed approaches: name the pivot (“abandon A; port B”) — do not invent a third custom path
+- Dirty tree / other agents: surface collisions; commit only this task’s paths
 
 ## CSS
 

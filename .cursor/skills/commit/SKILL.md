@@ -4,6 +4,8 @@ description: >-
   Proposes a title-only Conventional Commit subject, then runs git status/diff,
   stages changes, and git commit -m. Use when the user asks for a commit message,
   to stage and commit, or to save work locally — not when they only want to push.
+  Also use when they ask whether work was already committed: check git status first;
+  do not commit unless they explicitly ask to.
 ---
 
 # Commit
@@ -37,11 +39,12 @@ description: >-
 
 ## Workflow
 
-1. **Review** — `git status`; `git diff` (staged and unstaged) so the message matches what will be committed.
-2. **Dirty tree** — List every modified/untracked path. Separate **this task** from leftovers (other agents, WIP, unrelated experiments).
-3. **Stage selectively** — `git add <paths>` or `git add -p` for **only** the task paths. Never `git add -A` / `git add .` when unrelated changes exist.
-4. **Refuse scooping** — If unrelated dirty files are present, leave them unstaged. If the user asked to “commit everything,” confirm first. If unsure which paths belong to the task, ask before staging.
-5. **Commit** — `git commit -m "type(scope): description"`.
+1. **Status check first** — If the user asks “did we commit?” / “is this committed?” / similar, run `git status` (and `git log -1` if useful) and answer from that. Do **not** create a new commit unless they explicitly ask to commit.
+2. **Review** — `git status`; `git diff` (staged and unstaged) so the message matches what will be committed.
+3. **Dirty tree** — List every modified/untracked path. Separate **this task** from leftovers (other agents, WIP, unrelated experiments).
+4. **Stage selectively** — `git add <paths>` or `git add -p` for **only** the task paths. Never `git add -A` / `git add .` when unrelated changes exist.
+5. **Refuse scooping** — If unrelated dirty files are present, leave them unstaged. If the user asked to “commit everything,” confirm first. If unsure which paths belong to the task, ask before staging.
+6. **Commit** — `git commit -m "type(scope): description"`.
 
 Do **not** run `git push` here. If the user wants to publish, use the **push** skill after committing.
 
