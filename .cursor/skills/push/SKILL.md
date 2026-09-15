@@ -26,6 +26,10 @@ If the remote rejects (e.g. behind `origin`), explain briefly, then suggest `git
 
 The agent does not hold GitHub credentials. `git push` uses **the user’s machine**: SSH keys, HTTPS credential helper, or GitHub CLI (`gh auth login`). If auth fails, fix local Git/GitHub setup; do not put tokens or passwords in chat or in this file.
 
+## After push
+
+If the user also wants a pull request, use **[pr-create](../pr-create/SKILL.md)** (`/pr-create`) — do not open a PR from this skill alone.
+
 ## Examples
 
 ```bash

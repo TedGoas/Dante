@@ -46,7 +46,7 @@ description: >-
 5. **Refuse scooping** — If unrelated dirty files are present, leave them unstaged. If the user asked to “commit everything,” confirm first. If unsure which paths belong to the task, ask before staging.
 6. **Commit** — `git commit -m "type(scope): description"`.
 
-Do **not** run `git push` here. If the user wants to publish, use the **push** skill after committing.
+Do **not** run `git push` here. If the user wants to publish, use the **push** skill after committing. To push and open a pull request, use **[pr-create](../pr-create/SKILL.md)** (`/pr-create`).
 
 ## Safety
 
