@@ -12,6 +12,7 @@ description: >-
 
 1. **Confirm** — Push only when the user asked to push (or clearly meant publish to GitHub).
 2. **Branch** — `git branch --show-current` (or equivalent) for the branch name.
+   - If on `main` (or the default branch), **refuse**. Ask for a feature branch name (do not invent one unless the user already named it). After checkout onto that branch, resume. Never `git push origin main`.
 3. **Push** — If no upstream is set: `git push -u origin <branch>`. Otherwise: `git push`.
 
 ## Rejected push
@@ -20,6 +21,7 @@ If the remote rejects (e.g. behind `origin`), explain briefly, then suggest `git
 
 ## Safety
 
+- Never push `main` / never `git push origin main`.
 - Never `git push --force` or `--force-with-lease` unless the user explicitly requests it and understands the risk.
 
 ## Authentication

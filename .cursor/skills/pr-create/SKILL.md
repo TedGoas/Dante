@@ -17,8 +17,8 @@ description: >-
 ## Workflow
 
 1. **Preflight** — Run `git status` and `git branch --show-current`.
+   - **On `main` (or the default branch)** — **Hard stop.** Do **not** push and do **not** create a PR from `main`. Ask the user for a feature branch name (do not invent one unless they already named it). After `git checkout -b <name>` or checkout of an existing feature branch (with the commits), resume this skill.
    - **Dirty tree** — If there are unstaged, staged, or untracked files that look like real work, **stop**. List the paths and ask the user to commit first (via `/commit` / the commit skill). Do **not** commit or scoop files in this skill.
-   - **On `main` (or the default branch)** — If work that belongs on a feature branch is present (or they want a PR from `main`), **stop** and ask how to proceed. Do not invent a branch name unless the user already named one.
    - **Nothing to push** — If the branch is already up to date with origin and there are no new commits, say so. Still open or report a PR only if that remains the ask and remote commits for the branch exist.
 
 2. **Goal check** — From the chat and commit subjects (`git log` vs the merge-base with `origin/main`), derive a one-line goal.
@@ -45,6 +45,7 @@ description: >-
 
 - Run only when the user asked to create a PR / `/pr-create`.
 - Never commit inside this skill.
+- Never push `main`, never `git push origin main`, and never open a PR whose head branch is `main`.
 - Never `git push --force` or `--force-with-lease` unless the user explicitly requests it and understands the risk.
 - Do not invent goals; ask when ambiguous.
 - Auth failures: same as the push skill — fix local Git/GitHub setup; do not put tokens or passwords in chat or in this file.
