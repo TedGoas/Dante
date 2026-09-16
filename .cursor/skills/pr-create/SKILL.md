@@ -18,14 +18,17 @@ description: >-
 
 1. **Preflight** — Run `git status` and `git branch --show-current`.
    - **On `main` (or the default branch)** — **Hard stop.** Do **not** push and do **not** create a PR from `main`. Ask the user for a feature branch name (do not invent one unless they already named it). After `git checkout -b <name>` or checkout of an existing feature branch (with the commits), resume this skill.
-   - **Dirty tree** — If there are unstaged, staged, or untracked files that look like real work, **stop**. List the paths and ask the user to commit first (via `/commit` / the commit skill). Do **not** commit or scoop files in this skill.
-   - **Nothing to push** — If the branch is already up to date with origin and there are no new commits, say so. Still open or report a PR only if that remains the ask and remote commits for the branch exist.
+   - **Dirty tree** — List unstaged, staged, and untracked paths that look like real work.
+     - If this branch has **no commits** vs `origin/main` yet (work is still only in the working tree), **stop** and ask the user to commit first (via `/commit` / the commit skill). Do **not** commit or scoop files in this skill.
+     - If commits for this task already exist and leftovers look unrelated, leave them unstaged, note they stay local, and continue (same spirit as the commit skill).
+   - **Nothing to push** — If the branch is already up to date with origin and there are no new commits, say so. Still open or report a PR when that remains the ask and remote commits for the branch exist.
 
 2. **Goal check** — From the chat and commit subjects (`git log` vs the merge-base with `origin/main`), derive a one-line goal.
    - If the goal is **ambiguous**, ask one clarifying question. Do **not** push or open the PR until answered.
    - If the goal is **clear** from chat or commits, continue without an extra confirmation.
 
-3. **Push** — Follow the [push](../push/SKILL.md) skill: `git push -u origin <branch>` when no upstream is set; otherwise `git push`. Never force-push.
+3. **Push** — Follow the [push](../push/SKILL.md) skill (including its preflight). Never force-push.
+   - If push reports **nothing to publish** / already up to date, **do not abort** this skill — continue to create or report the PR when remote commits for the branch exist.
 
 4. **Title + body** — Draft from the work:
    - **Title** — Brief plain English (imperative or noun phrase OK). Aim ~50 characters; max **72**. No Conventional Commit prefix. No trailing period.
