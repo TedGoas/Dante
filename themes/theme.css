@@ -31,12 +31,9 @@
   --link-prose-underline: rgb(20 20 20 / 0.28);
   --link-hover-color: var(--color-swiss-accent);
 
-  /* Homepage belief highlights — amber wash on dark showcase band */
+  /* Hand-drawn annotations — amber highlights and underlines */
   --color-text-marker: var(--color-accent);
-  --color-text-marker-red: var(--color-text-marker);
-  --color-text-marker-yellow: var(--color-text-marker);
-  --color-text-marker-green: var(--color-text-marker);
-  --opacity-text-marker: 0.42;
+  --opacity-text-annotate: 0.42;
 
   --color-site-chrome-bg: var(--color-swiss-bg-light);
 
