@@ -41,6 +41,36 @@ Canonical constraints for typography roles, color directions, frozen homepage re
 - **Default launch**: Swiss light canvas (`#f3f3f3`) with near-black text (`#141414`); dark bands (`#141414`) for footer and homepage showcase. Swiss red (`#c41230`) for interactive chrome; deep amber for editorial moments only (see [`themes/theme.css`](themes/theme.css) and [`docs/visual-design-language.md`](docs/visual-design-language.md)).
 - **Inspiration**: Visual design of https://www.adaline.ai/ (restraint); palette is Swiss light, not blue.
 
+### Text annotations (hand-drawn highlight / underline)
+
+Amber marker highlights and hand-drawn double underlines on individual words. Clean bezier `<path>` elements distorted by a shared `feTurbulence` + `feDisplacementMap` filter — no images, no JS, nothing animated. Inspired by the annotations on https://opensourceui.in/.
+
+**Authoring:**
+
+```njk
+{% annotate "accessible", "highlight" %}
+{% annotate "reliable", "underline-double" %}
+```
+
+Args: `text` (plain text, escaped) and `variant` (`highlight` or `underline-double`; defaults to `highlight`). Unknown variants throw at build time.
+
+| Piece | Location |
+|-------|----------|
+| Shortcode | [`lib/shortcodes/textAnnotate.js`](lib/shortcodes/textAnnotate.js) (registered as `annotate` in [`.eleventy.js`](.eleventy.js)) |
+| Markup partial | [`src/_includes/components/text-annotate.njk`](src/_includes/components/text-annotate.njk) |
+| Shared filter defs | [`src/_includes/components/text-annotate-defs.njk`](src/_includes/components/text-annotate-defs.njk) — `tg-rough-soft`, included once in [`src/_includes/layouts/default.njk`](src/_includes/layouts/default.njk) |
+| Styles | [`src/assets/css/styles.css`](src/assets/css/styles.css) (`.text-annotate`) |
+| Color + opacity tokens | [`themes/theme.css`](themes/theme.css) — `--color-text-marker`, `--opacity-text-annotate` |
+
+**In use:** homepage only — `underline-double` on `reliable` in the hero h1, `highlight` on the three belief words in the showcase band ([`src/index.njk`](src/index.njk)).
+
+**Constraints:**
+
+- Color is set per variant, not per call site: `highlight` uses amber (`--color-text-marker`), `underline-double` uses Swiss red (`--color-swiss-accent`).
+- Marks are `aria-hidden` decoration; the annotated word stays in the accessible name.
+- The wrapper is `white-space: nowrap`, so an annotated phrase cannot wrap. Annotate single words.
+- `preserveAspectRatio="none"` stretches a fixed `viewBox`, so stroke weight and stroke spacing grow with the word. `underline-double` caps both in `rem` to stay delicate on display type; check any new large-type use in the browser.
+
 ## 4. Technology Stack
 
 ### Framework
