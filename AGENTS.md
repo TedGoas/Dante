@@ -43,7 +43,7 @@ Canonical constraints for typography roles, color directions, frozen homepage re
 
 ### Text annotations (hand-drawn highlight / underline)
 
-Amber marker highlights and hand-drawn double underlines on individual words. Clean bezier `<path>` elements distorted by a shared `feTurbulence` + `feDisplacementMap` filter — no images, no JS, nothing animated. Inspired by the annotations on https://opensourceui.in/.
+Amber marker highlights and hand-drawn double underlines on individual words. Clean bezier `<path>` elements distorted by a shared `feTurbulence` + `feDisplacementMap` filter — no images. Inspired by the annotations on https://opensourceui.in/.
 
 **Authoring:**
 
@@ -60,9 +60,12 @@ Args: `text` (plain text, escaped) and `variant` (`highlight` or `underline-doub
 | Markup partial | [`src/_includes/components/text-annotate.njk`](src/_includes/components/text-annotate.njk) |
 | Shared filter defs | [`src/_includes/components/text-annotate-defs.njk`](src/_includes/components/text-annotate-defs.njk) — `tg-rough-soft`, included once in [`src/_includes/layouts/default.njk`](src/_includes/layouts/default.njk) |
 | Styles | [`src/assets/css/styles.css`](src/assets/css/styles.css) (`.text-annotate`) |
+| Paint-in script | [`src/assets/js/text-annotate.js`](src/assets/js/text-annotate.js) via [`src/misc/text-annotate.js.njk`](src/misc/text-annotate.js.njk); loaded on homepage only |
 | Color + opacity tokens | [`themes/theme.css`](themes/theme.css) — `--color-text-marker`, `--opacity-text-annotate` |
 
 **In use:** homepage only — `underline-double` on `reliable` in the hero h1, `highlight` on the three belief words in the showcase band ([`src/index.njk`](src/index.njk)).
+
+**Paint-in:** With JS, the hero underline draws on load (primary stroke L→R, secondary R→L after a short stagger). Highlights wipe in via `clip-path` when ~35% visible, staggered, alternating left/right. Without JS, and under `prefers-reduced-motion: reduce`, marks render fully drawn.
 
 **Constraints:**
 
