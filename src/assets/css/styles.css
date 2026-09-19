@@ -1546,6 +1546,10 @@ hr {
   --text-annotate-fill: var(--color-text-marker-green);
 }
 
+.text-annotate--amber {
+  --text-annotate-fill: var(--color-text-marker);
+}
+
 .text-annotate__text {
   position: relative;
   z-index: 1;
@@ -1557,14 +1561,19 @@ hr {
   color: var(--text-annotate-fill);
 }
 
-/* Filled blob sits behind the word. */
+/* Filled blob sits behind the word — nudged up from baseline for optical center. */
 .text-annotate--highlight .text-annotate__mark {
   z-index: 0;
   left: -4%;
-  bottom: -0.08em;
+  bottom: 0.18em;
   width: 108%;
   height: 1.15em;
   opacity: var(--opacity-text-annotate);
+}
+
+/* "accessible" (amber) sits a touch lower than the blue/green siblings. */
+.text-annotate--highlight.text-annotate--amber .text-annotate__mark {
+  bottom: 0.04em;
 }
 
 .text-annotate--underline-double {
