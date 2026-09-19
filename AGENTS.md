@@ -60,12 +60,12 @@ Args: `text` (plain text, escaped), `variant` (`highlight` or `underline-double`
 | Markup partial | [`src/_includes/components/text-annotate.njk`](src/_includes/components/text-annotate.njk) |
 | Shared filter defs | [`src/_includes/components/text-annotate-defs.njk`](src/_includes/components/text-annotate-defs.njk) — `tg-rough-soft`, included once in [`src/_includes/layouts/default.njk`](src/_includes/layouts/default.njk) |
 | Styles | [`src/assets/css/styles.css`](src/assets/css/styles.css) (`.text-annotate`) |
-| Paint-in script | [`src/assets/js/text-annotate.js`](src/assets/js/text-annotate.js) via [`src/misc/text-annotate.js.njk`](src/misc/text-annotate.js.njk); loaded on homepage only |
+| Paint-in script | [`src/assets/js/text-annotate.js`](src/assets/js/text-annotate.js) via [`src/misc/text-annotate.js.njk`](src/misc/text-annotate.js.njk); loaded sitewide (no-ops when no `.text-annotate` elements) |
 | Color + opacity tokens | [`themes/theme.css`](themes/theme.css) — `--color-text-marker`, `--opacity-text-annotate` |
 
-**In use:** homepage only — `underline-double` on `reliable` in the hero h1, `highlight` on the three belief words in the showcase band ([`src/index.njk`](src/index.njk)).
+**In use:** homepage only — `underline-double` on `reliable` in the hero h1, `highlight` on `player-coach` and the three belief words in the showcase band ([`src/index.njk`](src/index.njk)).
 
-**Paint-in:** With JS, the hero underline draws on load (primary stroke L→R, secondary R→L after a short stagger). Highlights wipe in via `clip-path` when ~35% visible, staggered, alternating left/right. Without JS, and under `prefers-reduced-motion: reduce`, marks render fully drawn.
+**Paint-in:** With JS, the hero underline draws on load (primary stroke L→R, secondary R→L after a short stagger). Highlights wipe in via `clip-path` when ~35% visible, staggered per text block, alternating left/right. Without JS, and under `prefers-reduced-motion: reduce`, marks render fully drawn (reduced-motion CSS beats the hide/wipe rules so marks do not depend on the script).
 
 **Constraints:**
 
