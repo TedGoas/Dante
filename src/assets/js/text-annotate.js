@@ -80,26 +80,40 @@
       return;
     }
 
-    // One trigger for the group so stagger is sequential from a shared start,
-    // not three independent intersection clocks.
-    const target = highlights[0].closest('p') || highlights[0];
+    // Group by nearest text block so staggered wipe-ins stay local
+    // (beliefs paragraph vs. the player-coach tile, etc.).
+    const groups = new Map();
 
-    const observer = new IntersectionObserver((entries) => {
-      const entry = entries[0];
+    highlights.forEach((root) => {
+      const key = root.closest('p, .type-dek, .home-work-grid__cell--text') || root;
 
-      if (!entry?.isIntersecting) {
-        return;
+      if (!groups.has(key)) {
+        groups.set(key, []);
       }
 
-      highlights.forEach((root, index) => {
-        window.setTimeout(() => {
-          drawHighlight(root);
-        }, index * HIGHLIGHT_STAGGER_MS);
-      });
-      observer.disconnect();
-    }, { threshold: VISIBILITY_THRESHOLD });
+      groups.get(key).push(root);
+    });
 
-    observer.observe(target);
+    groups.forEach((group) => {
+      const target = group[0].closest('p, .type-dek, .home-work-grid__cell--text') || group[0];
+
+      const observer = new IntersectionObserver((entries) => {
+        const entry = entries[0];
+
+        if (!entry?.isIntersecting) {
+          return;
+        }
+
+        group.forEach((root, index) => {
+          window.setTimeout(() => {
+            drawHighlight(root);
+          }, index * HIGHLIGHT_STAGGER_MS);
+        });
+        observer.disconnect();
+      }, { threshold: VISIBILITY_THRESHOLD });
+
+      observer.observe(target);
+    });
   }
 
   const roots = Array.from(document.querySelectorAll('.text-annotate'));
