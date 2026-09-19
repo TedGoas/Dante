@@ -3,7 +3,7 @@
   const UNDERLINE_START_DELAY_MS = 500;
   const UNDERLINE_STROKE_MS = 520;
   const UNDERLINE_SECOND_DELAY_MS = 220;
-  const HIGHLIGHT_STAGGER_MS = 160;
+  const HIGHLIGHT_STAGGER_MS = 280;
   const HIGHLIGHT_DIRECTIONS = ['from-left', 'from-right', 'from-left'];
 
   function prefersReducedMotion() {
@@ -76,22 +76,30 @@
   }
 
   function observeHighlights(highlights) {
-    highlights.forEach((root, index) => {
-      const observer = new IntersectionObserver((entries) => {
-        const entry = entries[0];
+    if (!highlights.length) {
+      return;
+    }
 
-        if (!entry?.isIntersecting) {
-          return;
-        }
+    // One trigger for the group so stagger is sequential from a shared start,
+    // not three independent intersection clocks.
+    const target = highlights[0].closest('p') || highlights[0];
 
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+
+      if (!entry?.isIntersecting) {
+        return;
+      }
+
+      highlights.forEach((root, index) => {
         window.setTimeout(() => {
           drawHighlight(root);
         }, index * HIGHLIGHT_STAGGER_MS);
-        observer.disconnect();
-      }, { threshold: VISIBILITY_THRESHOLD });
+      });
+      observer.disconnect();
+    }, { threshold: VISIBILITY_THRESHOLD });
 
-      observer.observe(root);
-    });
+    observer.observe(target);
   }
 
   const roots = Array.from(document.querySelectorAll('.text-annotate'));

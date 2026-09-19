@@ -33,7 +33,7 @@
 
   /* Hand-drawn annotations — amber highlights and underlines */
   --color-text-marker: var(--color-accent);
-  --opacity-text-annotate: 0.42;
+  --opacity-text-annotate: 0.58;
 
   --color-site-chrome-bg: var(--color-swiss-bg-light);
 

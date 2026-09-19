@@ -1383,7 +1383,7 @@ hr {
 
 /* Amber marker wash needs a bit more opacity on the near-black band. */
 .page--home .homepage-showcase {
-  --opacity-text-annotate: 0.42;
+  --opacity-text-annotate: 0.58;
 }
 
 .page--home .homepage-showcase .home-work-grid__cell--media {
@@ -1593,7 +1593,7 @@ hr {
 
 .js .text-annotate--highlight.is-drawn .text-annotate__mark {
   clip-path: inset(0 0 0 0);
-  transition: clip-path 0.48s ease-out;
+  transition: clip-path 0.52s cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 
 @media (prefers-reduced-motion: reduce) {
