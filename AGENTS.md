@@ -52,7 +52,7 @@ Amber marker highlights and hand-drawn double underlines on individual words. Cl
 {% annotate "reliable", "underline-double" %}
 ```
 
-Args: `text` (plain text, escaped) and `variant` (`highlight` or `underline-double`; defaults to `highlight`). Unknown variants throw at build time.
+Args: `text` (plain text, escaped), `variant` (`highlight` or `underline-double`; defaults to `highlight`), and optional `color` (`amber`, `blue`, or `green`; defaults to `amber`). Unknown variants or colors throw at build time.
 
 | Piece | Location |
 |-------|----------|

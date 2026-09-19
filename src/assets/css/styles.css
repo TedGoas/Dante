@@ -1538,6 +1538,14 @@ hr {
   --text-annotate-fill: var(--color-text-marker);
 }
 
+.text-annotate--blue {
+  --text-annotate-fill: var(--color-text-marker-blue);
+}
+
+.text-annotate--green {
+  --text-annotate-fill: var(--color-text-marker-green);
+}
+
 .text-annotate__text {
   position: relative;
   z-index: 1;

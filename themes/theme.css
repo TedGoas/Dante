@@ -31,8 +31,10 @@
   --link-prose-underline: rgb(20 20 20 / 0.28);
   --link-hover-color: var(--color-swiss-accent);
 
-  /* Hand-drawn annotations — amber highlights and underlines */
-  --color-text-marker: var(--color-accent);
+  /* Hand-drawn annotations — soft marker washes (shared lightness/chroma) */
+  --color-text-marker: var(--color-accent); /* amber ~oklch(78.5% 0.159 83.5) */
+  --color-text-marker-blue: oklch(78.5% 0.12 235);
+  --color-text-marker-green: oklch(78.5% 0.13 155);
   --opacity-text-annotate: 0.58;
 
   --color-site-chrome-bg: var(--color-swiss-bg-light);
