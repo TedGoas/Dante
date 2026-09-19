@@ -90,9 +90,7 @@
 
   {% include "components/site-footer.njk" %}
   <script src="/assets/js/site-nav.js" defer></script>
-  {% if page and page.url == "/" %}
   <script src="/assets/js/text-annotate.js" defer></script>
-  {% endif %}
   {% block footerScripts %}{% endblock %}
 </body>
 </html>

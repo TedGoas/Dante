@@ -1618,6 +1618,14 @@ hr {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  /*
+   * Match/beat the hide + wipe selectors so marks show fully drawn from CSS
+   * alone (no dependency on the paint-in script finishing).
+   */
+  .js .text-annotate:not(.is-prepared):not(.is-drawn) .text-annotate__mark,
+  .js .text-annotate--highlight.is-prepared:not(.is-drawn).text-annotate--from-left .text-annotate__mark,
+  .js .text-annotate--highlight.is-prepared:not(.is-drawn).text-annotate--from-right .text-annotate__mark,
+  .js .text-annotate--highlight.is-drawn .text-annotate__mark,
   .js .text-annotate .text-annotate__mark {
     visibility: visible;
     clip-path: none;
