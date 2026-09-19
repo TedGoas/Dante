@@ -1,0 +1,7 @@
+---
+permalink: "/assets/js/text-annotate.js"
+---
+{% set js %}
+{% include "../assets/js/text-annotate.js" %}
+{% endset %}
+{{ js | minifyJs | safe }}

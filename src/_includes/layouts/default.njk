@@ -31,6 +31,7 @@
 </head>
 <body{% if page and page.url == "/" %} class="page--home"{% endif %}>
   <a href="#main" class="skip-link">Skip to main content</a>
+  {% include "components/text-annotate-defs.njk" %}
   <header class="site-header">
     <div class="layout">
       <nav class="site-nav" aria-label="Primary">
@@ -89,6 +90,7 @@
 
   {% include "components/site-footer.njk" %}
   <script src="/assets/js/site-nav.js" defer></script>
+  <script src="/assets/js/text-annotate.js" defer></script>
   {% block footerScripts %}{% endblock %}
 </body>
 </html>

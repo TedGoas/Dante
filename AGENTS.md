@@ -41,6 +41,39 @@ Canonical constraints for typography roles, color directions, frozen homepage re
 - **Default launch**: Swiss light canvas (`#f3f3f3`) with near-black text (`#141414`); dark bands (`#141414`) for footer and homepage showcase. Swiss red (`#c41230`) for interactive chrome; deep amber for editorial moments only (see [`themes/theme.css`](themes/theme.css) and [`docs/visual-design-language.md`](docs/visual-design-language.md)).
 - **Inspiration**: Visual design of https://www.adaline.ai/ (restraint); palette is Swiss light, not blue.
 
+### Text annotations (hand-drawn highlight / underline)
+
+Amber marker highlights and hand-drawn double underlines on individual words. Clean bezier `<path>` elements distorted by a shared `feTurbulence` + `feDisplacementMap` filter — no images. Inspired by the annotations on https://opensourceui.in/.
+
+**Authoring:**
+
+```njk
+{% annotate "accessible", "highlight" %}
+{% annotate "reliable", "underline-double" %}
+```
+
+Args: `text` (plain text, escaped), `variant` (`highlight` or `underline-double`; defaults to `highlight`), and optional `color` (`amber`, `blue`, `green`, or `red`; defaults to `amber`). Unknown variants or colors throw at build time.
+
+| Piece | Location |
+|-------|----------|
+| Shortcode | [`lib/shortcodes/textAnnotate.js`](lib/shortcodes/textAnnotate.js) (registered as `annotate` in [`.eleventy.js`](.eleventy.js)) |
+| Markup partial | [`src/_includes/components/text-annotate.njk`](src/_includes/components/text-annotate.njk) |
+| Shared filter defs | [`src/_includes/components/text-annotate-defs.njk`](src/_includes/components/text-annotate-defs.njk) — `tg-rough-soft`, included once in [`src/_includes/layouts/default.njk`](src/_includes/layouts/default.njk) |
+| Styles | [`src/assets/css/styles.css`](src/assets/css/styles.css) (`.text-annotate`) |
+| Paint-in script | [`src/assets/js/text-annotate.js`](src/assets/js/text-annotate.js) via [`src/misc/text-annotate.js.njk`](src/misc/text-annotate.js.njk); loaded sitewide (no-ops when no `.text-annotate` elements) |
+| Color + opacity tokens | [`themes/theme.css`](themes/theme.css) — `--color-text-marker`, `--opacity-text-annotate` |
+
+**In use:** homepage only — `underline-double` on `reliable` in the hero h1, `highlight` on `player-coach` and the three belief words in the showcase band ([`src/index.njk`](src/index.njk)).
+
+**Paint-in:** With JS, the hero underline draws on load (primary stroke L→R, secondary R→L after a short stagger). Highlights wipe in via `clip-path` when ~35% visible, staggered per text block, alternating left/right. Without JS, and under `prefers-reduced-motion: reduce`, marks render fully drawn (reduced-motion CSS beats the hide/wipe rules so marks do not depend on the script).
+
+**Constraints:**
+
+- Color is set per variant, not per call site: `highlight` uses amber (`--color-text-marker`), `underline-double` uses Swiss red (`--color-swiss-accent`).
+- Marks are `aria-hidden` decoration; the annotated word stays in the accessible name.
+- The wrapper is `white-space: nowrap`, so an annotated phrase cannot wrap. Annotate single words.
+- `preserveAspectRatio="none"` stretches a fixed `viewBox`, so stroke weight and stroke spacing grow with the word. `underline-double` caps both in `rem` to stay delicate on display type; check any new large-type use in the browser.
+
 ## 4. Technology Stack
 
 ### Framework

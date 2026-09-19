@@ -56,6 +56,7 @@ module.exports = (config) => {
   config.addFilter('minifyJs', require('./lib/filters/minifyJs'));
   config.addFilter('isCurrentNav', require('./lib/filters/isCurrentNav'));
 
+  config.addShortcode('annotate', require('./lib/shortcodes/textAnnotate'));
   config.addShortcode('clickToPlayVideo', require('./lib/shortcodes/clickToPlayVideo'));
   config.addShortcode('prototypeEmbed', require('./lib/shortcodes/prototypeEmbed'));
   config.addShortcode('thumbPrototype', require('./lib/shortcodes/thumbPrototype'));

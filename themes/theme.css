@@ -31,12 +31,11 @@
   --link-prose-underline: rgb(20 20 20 / 0.28);
   --link-hover-color: var(--color-swiss-accent);
 
-  /* Homepage belief highlights — amber wash on dark showcase band */
-  --color-text-marker: var(--color-accent);
-  --color-text-marker-red: var(--color-text-marker);
-  --color-text-marker-yellow: var(--color-text-marker);
-  --color-text-marker-green: var(--color-text-marker);
-  --opacity-text-marker: 0.42;
+  /* Hand-drawn annotations — soft marker washes (shared lightness/chroma) */
+  --color-text-marker: var(--color-accent); /* amber ~oklch(78.5% 0.159 83.5) */
+  --color-text-marker-blue: oklch(78.5% 0.12 235);
+  --color-text-marker-green: oklch(78.5% 0.13 155);
+  --opacity-text-annotate: 0.58;
 
   --color-site-chrome-bg: var(--color-swiss-bg-light);
 

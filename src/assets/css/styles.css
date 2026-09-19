@@ -1383,7 +1383,7 @@ hr {
 
 /* Amber marker wash needs a bit more opacity on the near-black band. */
 .page--home .homepage-showcase {
-  --opacity-text-marker: 0.42;
+  --opacity-text-annotate: 0.58;
 }
 
 .page--home .homepage-showcase .home-work-grid__cell--media {
@@ -1517,46 +1517,126 @@ hr {
   padding: var(--home-work-grid-gap) calc(var(--home-work-grid-gap) * 2);
 }
 
-/* Hand-drawn highlighter wash — homepage beliefs + selected nav */
-.text-marker {
+/*
+ * Hand-drawn annotations — clean bezier paths distorted by the shared
+ * `tg-rough-soft` turbulence filter (components/text-annotate-defs.njk).
+ * Geometry is in `em` so marks track the annotated word's font size.
+ */
+.text-annotate__defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.text-annotate {
   position: relative;
   display: inline-block;
   vertical-align: baseline;
-  max-width: 100%;
+  white-space: nowrap;
   isolation: isolate;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-  --text-marker-fill: var(--color-text-marker);
+  --text-annotate-fill: var(--color-text-marker);
 }
 
-.text-marker__layer {
+.text-annotate--blue {
+  --text-annotate-fill: var(--color-text-marker-blue);
+}
+
+.text-annotate--green {
+  --text-annotate-fill: var(--color-text-marker-green);
+}
+
+.text-annotate--amber {
+  --text-annotate-fill: var(--color-text-marker);
+}
+
+.text-annotate--red {
+  --text-annotate-fill: var(--color-swiss-accent);
+}
+
+.text-annotate__text {
+  position: relative;
+  z-index: 1;
+}
+
+.text-annotate__mark {
   position: absolute;
-  z-index: -1;
   pointer-events: none;
-  left: -0.06em;
-  width: calc(100% + 0.12em);
-  height: 0.52em;
-  bottom: 0.12em;
-  border-radius: 0.05em;
-  background: color-mix(
-    in srgb,
-    var(--text-marker-fill) calc(var(--opacity-text-marker) * 100%),
-    transparent
-  );
-  transform: rotate(1deg);
-  transform-origin: center center;
+  color: var(--text-annotate-fill);
 }
 
-.text-marker__layer--2 {
-  top: calc(0.12em - 0.04em);
-  bottom: auto;
-  transform: rotate(-2deg);
+/* Filled blob sits behind the word — nudged up from baseline for optical center. */
+.text-annotate--highlight .text-annotate__mark {
+  z-index: 0;
+  left: -4%;
+  bottom: 0.18em;
+  width: 108%;
+  height: 1.15em;
+  opacity: var(--opacity-text-annotate);
 }
 
-.text-marker__layer--3 {
-  left: -0.08em;
-  width: calc(100% + 0.16em);
-  transform: rotate(0.5deg);
+/* "accessible" (amber) sits a touch lower than the blue/green siblings. */
+.text-annotate--highlight.text-annotate--amber .text-annotate__mark {
+  bottom: 0.04em;
+}
+
+.text-annotate--underline-double {
+  --text-annotate-fill: var(--color-swiss-accent);
+}
+
+/*
+ * Strokes and stroke spacing scale with the mark's box, so both are capped in
+ * rem to stay delicate on display type like the homepage h1.
+ */
+.text-annotate--underline-double .text-annotate__mark {
+  left: -1%;
+  bottom: max(-0.42em, -1.15rem);
+  width: 102%;
+  height: min(0.7em, 2rem);
+}
+
+/*
+ * Paint-in animation (homepage). Without `.js`, marks stay fully visible.
+ * With JS: hide until prepared, then stroke-dash (underline) or clip-path wipe
+ * (highlight). See src/assets/js/text-annotate.js.
+ */
+.js .text-annotate:not(.is-prepared):not(.is-drawn) .text-annotate__mark {
+  visibility: hidden;
+}
+
+.js .text-annotate--highlight.is-prepared:not(.is-drawn).text-annotate--from-left .text-annotate__mark {
+  clip-path: inset(0 100% 0 0);
+}
+
+.js .text-annotate--highlight.is-prepared:not(.is-drawn).text-annotate--from-right .text-annotate__mark {
+  clip-path: inset(0 0 0 100%);
+}
+
+.js .text-annotate--highlight.is-drawn .text-annotate__mark {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 0.52s cubic-bezier(0.05, 0.7, 0.1, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /*
+   * Match/beat the hide + wipe selectors so marks show fully drawn from CSS
+   * alone (no dependency on the paint-in script finishing).
+   */
+  .js .text-annotate:not(.is-prepared):not(.is-drawn) .text-annotate__mark,
+  .js .text-annotate--highlight.is-prepared:not(.is-drawn).text-annotate--from-left .text-annotate__mark,
+  .js .text-annotate--highlight.is-prepared:not(.is-drawn).text-annotate--from-right .text-annotate__mark,
+  .js .text-annotate--highlight.is-drawn .text-annotate__mark,
+  .js .text-annotate .text-annotate__mark {
+    visibility: visible;
+    clip-path: none;
+    transition: none;
+  }
+
+  .js .text-annotate .text-annotate__stroke {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+    transition: none;
+  }
 }
 
 .home-work-grid__media {
