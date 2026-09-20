@@ -1,0 +1,24 @@
+---
+layout: default
+title: Labs
+description: Small prototypes and experiments.
+---
+
+<div class="blog-index">
+  <h1 id="labs-heading">Labs</h1>
+
+  <section class="post-list" aria-labelledby="labs-heading">
+    <ul class="article-list">
+      {% for lab in labs %}
+      <li class="article-list__item">
+        <a class="article-list__link" href="{{ lab.href }}">
+          <span class="article-list__title">{{ lab.title }}</span>
+          {% if lab.summary %}
+          <span class="article-list__dek">{{ lab.summary }}</span>
+          {% endif %}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+</div>
