@@ -34,7 +34,8 @@
     hobbies: [createHobby(1, 'Hobby 1', 0), createHobby(2, 'Hobby 2', 1)],
     visible: { '1': true, '2': true },
     editingId: null,
-    draftName: ''
+    draftName: '',
+    nextHobbyId: 3
   };
 
   let chart = null;
@@ -64,6 +65,18 @@
     return [words.slice(0, mid).join(' '), words.slice(mid).join(' ')];
   }
 
+  function nextColorIndex() {
+    const used = {};
+    state.hobbies.forEach(function (hobby) {
+      const index = HOBBY_COLORS.indexOf(hobby.color);
+      if (index >= 0) used[index] = true;
+    });
+    for (let i = 0; i < HOBBY_COLORS.length; i += 1) {
+      if (!used[i]) return i;
+    }
+    return state.hobbies.length % HOBBY_COLORS.length;
+  }
+
   function updateHobbyName(id, name) {
     state.hobbies.forEach(function (hobby) {
       if (hobby.id === id) hobby.name = name;
@@ -80,7 +93,10 @@
 
   function addHobby() {
     if (state.hobbies.length >= 3) return;
-    const hobby = createHobby(3, 'Hobby 3', 2);
+    const id = state.nextHobbyId;
+    state.nextHobbyId += 1;
+    const colorIndex = nextColorIndex();
+    const hobby = createHobby(id, 'Hobby ' + id, colorIndex);
     state.hobbies.push(hobby);
     state.visible[hobby.id] = true;
     render();
