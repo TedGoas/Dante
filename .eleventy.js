@@ -26,6 +26,7 @@ module.exports = (config) => {
   // .eleventyignore) so --serve still watches and live-reloads these files.
   // .eleventyignore would also disable the file watcher for the same paths.
   config.ignores.add('src/work/img/**');
+  config.ignores.add('src/labs/hobby-comparison/**');
 
   config.addPassthroughCopy('src/assets/img/');
   config.addPassthroughCopy('src/assets/css/');
@@ -34,6 +35,7 @@ module.exports = (config) => {
   config.addPassthroughCopy('themes/');
   config.addPassthroughCopy({ 'src/posts/img/': 'assets/img/' });
   config.addPassthroughCopy({ 'src/work/img/': 'assets/img/' });
+  config.addPassthroughCopy({ 'src/labs/hobby-comparison': 'labs/hobby-comparison' });
   config.addPassthroughCopy('src/assets/files/');
   config.addPassthroughCopy('humans.txt');
   config.addPassthroughCopy({ 'src/favicon.ico': 'favicon.ico' });
@@ -43,6 +45,7 @@ module.exports = (config) => {
   config.addWatchTarget('themes/');
   config.addWatchTarget('src/work/img/');
   config.addWatchTarget('src/posts/img/');
+  config.addWatchTarget('src/labs/hobby-comparison/');
 
   config.addLayoutAlias('default', 'layouts/default.njk');
   config.addLayoutAlias('post', 'layouts/post.njk');

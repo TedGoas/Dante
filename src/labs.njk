@@ -1,0 +1,28 @@
+---
+layout: default
+title: Labs
+description: Small prototypes and experiments.
+---
+
+<div class="labs-index">
+  <h1 id="labs-heading">Labs</h1>
+
+  <section class="labs-index__list-wrap" aria-labelledby="labs-heading">
+    <ul class="labs-index__list">
+      {% for lab in labs %}
+      <li class="labs-index__item">
+        <a class="labs-index__link" href="{{ lab.href }}">
+          <img
+            class="labs-index__thumb"
+            src="{{ lab.image }}"
+            alt="{{ lab.image_alt or lab.title or '' }}"
+            width="400"
+            height="400"
+            {% if not loop.first %}loading="lazy"{% endif %}
+          >
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+</div>

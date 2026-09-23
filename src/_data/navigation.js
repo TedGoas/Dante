@@ -3,6 +3,7 @@ const site = require('./site');
 module.exports = {
   primary: [
     { label: 'Work', href: '/work' },
+    { label: 'Labs', href: '/labs/' },
     { label: 'How I Think', href: '/how-i-think/' },
     { label: 'Bio', href: '/bio' },
     { label: 'Blog', href: '/blog' },

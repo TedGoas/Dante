@@ -16,11 +16,12 @@
 ### Core Pages
 1. **Homepage** - Landing page with overview
 2. **Work** - Case studies and portfolio
-3. **Bio** - Background and about information
-4. **Blog** - Articles and posts
-5. **Newsletter** - Newsletter hub/subscription
-6. **How I Think** - How I approach product design and work across teams
-7. **RSS** - Feed for blog posts
+3. **Labs** - Small prototypes and experiments (`/labs/`; each prototype is a standalone bundle under `src/labs/{slug}/`)
+4. **Bio** - Background and about information
+5. **Blog** - Articles and posts
+6. **Newsletter** - Newsletter hub/subscription
+7. **How I Think** - How I approach product design and work across teams
+8. **RSS** - Feed for blog posts
 
 ## 3. Visual Design Guidelines
 

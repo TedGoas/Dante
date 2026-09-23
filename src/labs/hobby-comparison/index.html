@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Compare up to 3 hobbies across fixed criteria with a real-time radar chart."
+    />
+    <title>Hobby Comparison Tool</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/labs/hobby-comparison/styles.css" />
+  </head>
+  <body>
+    <a class="labs-back" href="/labs/">← Labs</a>
+
+    <div class="app">
+      <div class="app__main nb-dots">
+        <div class="app__inner">
+          <header class="app__header">
+            <div class="title-sticker nb-sticker">
+              <div class="nb-star-badge" aria-hidden="true"></div>
+              <h1 class="title-sticker__heading">Ted Needs a New Hobby</h1>
+            </div>
+            <div class="app__actions">
+              <button type="button" class="nb-btn" id="add-hobby" hidden>+ Add Hobby</button>
+              <button type="button" class="nb-btn" id="reset-scores">Reset Scores</button>
+            </div>
+          </header>
+
+          <div class="app__grid">
+            <div class="hobby-list" id="hobby-list"></div>
+
+            <aside class="comparison">
+              <div class="comparison__panel nb-canvas-white">
+                <h2 class="comparison__heading">Comparison</h2>
+                <div class="comparison__toggles" id="visibility-toggles"></div>
+                <div class="comparison__chart">
+                  <canvas id="radar-chart" aria-label="Hobby comparison radar chart"></canvas>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+
+      <footer class="app__footer">
+        <div class="app__footer-inner">
+          <div class="app__footer-circle" aria-hidden="true"></div>
+          <div class="app__footer-square" aria-hidden="true"></div>
+          <div class="app__footer-star" aria-hidden="true">
+            <svg width="80" height="80" viewBox="0 0 80 80">
+              <polygon
+                points="40,8 46,28 66,28 50,40 56,60 40,48 24,60 30,40 14,28 34,28"
+                fill="var(--nb-green)"
+                stroke="black"
+                stroke-width="4"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+          A 2025 side project so I could get comfortable with Claude Code in the terminal.
+        </div>
+      </footer>
+    </div>
+
+    <script src="/labs/hobby-comparison/vendor/chart.umd.min.js" defer></script>
+    <script src="/labs/hobby-comparison/app.js" defer></script>
+  </body>
+</html>
