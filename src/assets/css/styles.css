@@ -3471,12 +3471,30 @@ hr {
   transition: opacity 160ms cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+.thumb-prototype__cue-label-text--tap {
+  display: none;
+}
+
+/*
+ * Touch-primary devices only — not narrow desktop viewports (those still
+ * report hover: hover + pointer: fine under DevTools device mode).
+ */
+@media (hover: none) and (pointer: coarse) {
+  .thumb-prototype__cue-label-text--hover {
+    display: none;
+  }
+
+  .thumb-prototype__cue-label-text--tap {
+    display: inline;
+  }
+}
+
 .thumb-prototype__cue-icon {
   display: block;
   width: 1.25rem;
   height: 1.25rem;
   flex-shrink: 0;
-  /* Optical align with “Hover me!” under the shared -6deg tilt */
+  /* Optical align with the cue label under the shared -6deg tilt */
   transform: translateY(var(--thumb-prototype-cue-icon-nudge, 4px));
 }
 
