@@ -1723,7 +1723,7 @@ hr {
   .home-work-grid {
     grid-template-columns: 1fr;
     grid-template-rows: none;
-    grid-auto-rows: minmax(8rem, auto);
+    grid-auto-rows: auto;
     aspect-ratio: auto;
   }
 
@@ -1740,6 +1740,36 @@ hr {
   .home-work-grid__item--br-wide-2 {
     grid-column: 1 / -1;
     grid-row: auto;
+  }
+
+  /*
+   * Mobile stack: size cells from the image, not a short fixed row.
+   * Absolute + object-fit: cover clipped thumbs when rows were minmax(8rem, auto).
+   */
+  .home-work-grid__cell--media {
+    aspect-ratio: auto;
+    height: auto;
+    min-height: 0;
+  }
+
+  .home-work-grid__link {
+    position: relative;
+    inset: auto;
+  }
+
+  .home-work-grid__media-frame {
+    position: relative;
+    inset: auto;
+  }
+
+  .home-work-grid__media {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
   }
 }
 
@@ -4139,6 +4169,59 @@ hr {
   font-family: var(--font-sans);
   font-size: var(--text-sm);
   line-height: var(--line-height-body);
+}
+
+/*
+ * Mobile: scale fixed 1440×900 prototypes into the gallery breakout width
+ * (100vw − 2× gutter). Poster uses contain; iframe keeps native size and
+ * transform-scales so the full UI letterboxes instead of clipping.
+ * Wallpaper chatbot (384×600) scales the same way when wider than the frame.
+ */
+@media (max-width: 640px) {
+  .prototype-embed:not(.prototype-embed--has-background) .prototype-embed__frame {
+    container-type: inline-size;
+    aspect-ratio: var(--prototype-embed-aspect-ratio);
+  }
+
+  .prototype-embed:not(.prototype-embed--has-background) .prototype-embed__poster {
+    object-fit: contain;
+    object-position: top center;
+  }
+
+  .prototype-embed:not(.prototype-embed--has-background) .prototype-embed__iframe {
+    inset: auto;
+    top: 0;
+    left: 0;
+    width: var(--prototype-embed-width);
+    height: var(--prototype-embed-height);
+    transform: scale(calc(100cqw / var(--prototype-embed-width)));
+    transform-origin: top left;
+  }
+
+  .prototype-embed--has-background .prototype-embed__frame {
+    container-type: inline-size;
+    min-height: 0;
+  }
+
+  .prototype-embed--has-background .prototype-embed__overlay {
+    width: 100%;
+    max-width: var(--prototype-embed-overlay-width);
+    height: auto;
+    /* overlay-* tokens include px; calc() yields a unitless ratio */
+    aspect-ratio: calc(var(--prototype-embed-overlay-width) / var(--prototype-embed-overlay-height));
+    container-type: inline-size;
+  }
+
+  .prototype-embed--has-background .prototype-embed__overlay .prototype-embed__poster,
+  .prototype-embed--has-background .prototype-embed__iframe {
+    inset: auto;
+    top: 0;
+    left: 0;
+    width: var(--prototype-embed-overlay-width);
+    height: var(--prototype-embed-overlay-height);
+    transform: scale(calc(100cqw / var(--prototype-embed-overlay-width)));
+    transform-origin: top left;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
