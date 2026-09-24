@@ -4212,7 +4212,11 @@ hr {
     left: 0;
     width: var(--prototype-embed-width);
     height: var(--prototype-embed-height);
-    transform: scale(calc(100cqw / var(--prototype-embed-width)));
+    /*
+     * tan(atan2(a, b)) yields a unitless a/b so Firefox accepts scale()
+     * (plain length/length division in calc() is invalid there).
+     */
+    transform: scale(tan(atan2(100cqw, var(--prototype-embed-width))));
     transform-origin: top left;
   }
 
@@ -4225,8 +4229,11 @@ hr {
     width: 100%;
     max-width: var(--prototype-embed-overlay-width);
     height: auto;
-    /* overlay-* tokens include px; calc() yields a unitless ratio */
-    aspect-ratio: calc(var(--prototype-embed-overlay-width) / var(--prototype-embed-overlay-height));
+    /* Same Firefox-safe unitless ratio as the scale() above */
+    aspect-ratio: tan(atan2(
+      var(--prototype-embed-overlay-width),
+      var(--prototype-embed-overlay-height)
+    ));
     container-type: inline-size;
   }
 
@@ -4237,7 +4244,7 @@ hr {
     left: 0;
     width: var(--prototype-embed-overlay-width);
     height: var(--prototype-embed-overlay-height);
-    transform: scale(calc(100cqw / var(--prototype-embed-overlay-width)));
+    transform: scale(tan(atan2(100cqw, var(--prototype-embed-overlay-width))));
     transform-origin: top left;
   }
 }
