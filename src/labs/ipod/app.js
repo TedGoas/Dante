@@ -394,7 +394,6 @@
   }
 
   function goMenu() {
-    pauseAudio();
     setScreen('list');
   }
 
