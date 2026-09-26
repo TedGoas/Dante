@@ -1,27 +1,182 @@
 [
-  { "id": "01", "title": "Track 01", "artist": "Artist", "file": "01-track-01.mp3" },
-  { "id": "02", "title": "Track 02", "artist": "Artist", "file": "02-track-02.mp3" },
-  { "id": "03", "title": "Track 03", "artist": "Artist", "file": "03-track-03.mp3" },
-  { "id": "04", "title": "Track 04", "artist": "Artist", "file": "04-track-04.mp3" },
-  { "id": "05", "title": "Track 05", "artist": "Artist", "file": "05-track-05.mp3" },
-  { "id": "06", "title": "Track 06", "artist": "Artist", "file": "06-track-06.mp3" },
-  { "id": "07", "title": "Track 07", "artist": "Artist", "file": "07-track-07.mp3" },
-  { "id": "08", "title": "Track 08", "artist": "Artist", "file": "08-track-08.mp3" },
-  { "id": "09", "title": "Track 09", "artist": "Artist", "file": "09-track-09.mp3" },
-  { "id": "10", "title": "Track 10", "artist": "Artist", "file": "10-track-10.mp3" },
-  { "id": "11", "title": "Track 11", "artist": "Artist", "file": "11-track-11.mp3" },
-  { "id": "12", "title": "Track 12", "artist": "Artist", "file": "12-track-12.mp3" },
-  { "id": "13", "title": "Track 13", "artist": "Artist", "file": "13-track-13.mp3" },
-  { "id": "14", "title": "Track 14", "artist": "Artist", "file": "14-track-14.mp3" },
-  { "id": "15", "title": "Track 15", "artist": "Artist", "file": "15-track-15.mp3" },
-  { "id": "16", "title": "Track 16", "artist": "Artist", "file": "16-track-16.mp3" },
-  { "id": "17", "title": "Track 17", "artist": "Artist", "file": "17-track-17.mp3" },
-  { "id": "18", "title": "Track 18", "artist": "Artist", "file": "18-track-18.mp3" },
-  { "id": "19", "title": "Track 19", "artist": "Artist", "file": "19-track-19.mp3" },
-  { "id": "20", "title": "Track 20", "artist": "Artist", "file": "20-track-20.mp3" },
-  { "id": "21", "title": "Track 21", "artist": "Artist", "file": "21-track-21.mp3" },
-  { "id": "22", "title": "Track 22", "artist": "Artist", "file": "22-track-22.mp3" },
-  { "id": "23", "title": "Track 23", "artist": "Artist", "file": "23-track-23.mp3" },
-  { "id": "24", "title": "Track 24", "artist": "Artist", "file": "24-track-24.mp3" },
-  { "id": "25", "title": "Track 25", "artist": "Artist", "file": "25-track-25.mp3" }
+  {
+    "id": "01",
+    "title": "Jazz (We've Got)",
+    "artist": "A Tribe Called Quest",
+    "file": "A Tribe Called Quest-Jazz (We've Got).mp3"
+  },
+  {
+    "id": "02",
+    "title": "Nutshell",
+    "artist": "Alice In Chains",
+    "file": "Alice In Chains-Nutshell.mp3"
+  },
+  {
+    "id": "03",
+    "title": "Respiration",
+    "artist": "Black Star",
+    "file": "Black Star-Respiration.mp3"
+  },
+  {
+    "id": "04",
+    "title": "So Here We Are",
+    "artist": "Bloc Party",
+    "file": "Bloc Party-So Here We Are.mp3"
+  },
+  {
+    "id": "05",
+    "title": "Pacific Theme",
+    "artist": "Broken Social Scene",
+    "file": "Broken Social Scene-Pacific Theme.mp3"
+  },
+  {
+    "id": "06",
+    "title": "A Roller Skating Jam Named Saturdays",
+    "artist": "De La Soul",
+    "file": "De La Soul-A Roller Skating Jam Named Saturdays.mp3"
+  },
+  {
+    "id": "07",
+    "title": "Evidence",
+    "artist": "Faith No More",
+    "file": "Faith No More-Evidence.mp3"
+  },
+  {
+    "id": "08",
+    "title": "Burning Too",
+    "artist": "Fugazi",
+    "file": "Fugazi-Burning Too.mp3"
+  },
+  {
+    "id": "09",
+    "title": "Narc",
+    "artist": "Interpol",
+    "file": "Interpol-Narc.mp3"
+  },
+  {
+    "id": "10",
+    "title": "Shadowplay",
+    "artist": "Joy Division",
+    "file": "Joy Division-Shadowplay.mp3"
+  },
+  {
+    "id": "11",
+    "title": "Sweetness and Light",
+    "artist": "Lush",
+    "file": "Lush-Sweetness and Light.mp3"
+  },
+  {
+    "id": "12",
+    "title": "Iou",
+    "artist": "Metric",
+    "file": "Metric-Iou.mp3"
+  },
+  {
+    "id": "13",
+    "title": "Soon",
+    "artist": "My Bloody Valentine",
+    "file": "My Bloody Valentine-Soon.mp3"
+  },
+  {
+    "id": "14",
+    "title": "Life's A Bitch",
+    "artist": "Nas",
+    "file": "Nas-Life's A Bitch.mp3"
+  },
+  {
+    "id": "15",
+    "title": "Even Deeper",
+    "artist": "Nine Inch Nails",
+    "file": "Nine Inch Nails-Even Deeper.mp3"
+  },
+  {
+    "id": "16",
+    "title": "Where Did You Sleep Last Night",
+    "artist": "Nirvana",
+    "file": "Nirvana-Where Did You Sleep Last Night.mp3"
+  },
+  {
+    "id": "17",
+    "title": "Go",
+    "artist": "Pearl Jam",
+    "file": "Pearl Jam-Go.mp3"
+  },
+  {
+    "id": "18",
+    "title": "T.R.O.Y.",
+    "artist": "Pete Rock and C.L. Smooth",
+    "file": "Pete Rock and C.L. Smooth-T.R.O.Y..mp3"
+  },
+  {
+    "id": "19",
+    "title": "Dig For Fire",
+    "artist": "Pixies",
+    "file": "Pixies-Dig For Fire.mp3"
+  },
+  {
+    "id": "20",
+    "title": "Quiet",
+    "artist": "Smashing Pumpkins",
+    "file": "Smashing Pumpkins-Quiet.mp3"
+  },
+  {
+    "id": "21",
+    "title": "Dirty Boots",
+    "artist": "Sonic Youth",
+    "file": "Sonic Youth-Dirty Boots.mp3"
+  },
+  {
+    "id": "22",
+    "title": "Superunknown",
+    "artist": "Soundgarden",
+    "file": "Soundgarden-Superunknown.mp3"
+  },
+  {
+    "id": "23",
+    "title": "Still Remains",
+    "artist": "Stone Temple Pilots",
+    "file": "Stone Temple Pilots-Still Remains.mp3"
+  },
+  {
+    "id": "24",
+    "title": "40oz. to Freedom",
+    "artist": "Sublime",
+    "file": "Sublime-40oz. to Freedom.mp3"
+  },
+  {
+    "id": "25",
+    "title": "Neighborhood #1 (Tunnels)",
+    "artist": "The Arcade Fire",
+    "file": "The Arcade Fire-Neighborhood #1 (Tunnels).mp3"
+  },
+  {
+    "id": "26",
+    "title": "Fascination Street",
+    "artist": "The Cure",
+    "file": "The Cure-Fascination Street.mp3"
+  },
+  {
+    "id": "27",
+    "title": "Tommy Gets His Tonsils Out",
+    "artist": "The Replacements",
+    "file": "The Replacements-Tommy Gets His Tonsils Out.mp3"
+  },
+  {
+    "id": "28",
+    "title": "Mellow My Man",
+    "artist": "The Roots",
+    "file": "The Roots-Mellow My Man.mp3"
+  },
+  {
+    "id": "29",
+    "title": "Da Mystery of Chessboxin'",
+    "artist": "Wu-Tang Clan",
+    "file": "Wu-Tang Clan-Da Mystery of Chessboxin'.mp3"
+  },
+  {
+    "id": "30",
+    "title": "Y Control",
+    "artist": "Yeah Yeah Yeahs",
+    "file": "Yeah Yeah Yeahs-Y Control.mp3"
+  }
 ]
