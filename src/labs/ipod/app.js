@@ -33,6 +33,8 @@
   let screen = 'list'; // 'list' | 'now'
   let listOffset = 0;
   let noteTimer = 0;
+  /** Bumped on pause/load so a late audio.play() promise cannot resume after the user paused. */
+  let playGeneration = 0;
 
   const audio = new Audio();
   audio.preload = 'none';
@@ -107,6 +109,18 @@
     }
   }
 
+  function songListLabel(song) {
+    return song.artist + ' — ' + song.title;
+  }
+
+  function sortSongs(list) {
+    return list.slice().sort(function (a, b) {
+      var artistCmp = a.artist.localeCompare(b.artist, undefined, { sensitivity: 'base' });
+      if (artistCmp !== 0) return artistCmp;
+      return a.title.localeCompare(b.title, undefined, { sensitivity: 'base' });
+    });
+  }
+
   function renderList() {
     ensureHighlightVisible();
     const frag = document.createDocumentFragment();
@@ -122,7 +136,7 @@
 
       const title = document.createElement('span');
       title.className = 'lcd__item-title';
-      title.textContent = song.title;
+      title.textContent = songListLabel(song);
 
       const chevron = document.createElement('span');
       chevron.className = 'lcd__item-chevron';
@@ -163,8 +177,50 @@
     return AUDIO_BASE + encodeURIComponent(song.file);
   }
 
+  function hasLoadedTrack() {
+    return Boolean(audio.src && audio.src.indexOf('/audio/') !== -1);
+  }
+
+  function pauseAudio() {
+    playGeneration += 1;
+    audio.pause();
+    updateStatusPlay();
+    if (screen === 'now') renderNowPlaying();
+  }
+
+  function playAudio() {
+    if (!songs.length) return;
+    if (!hasLoadedTrack()) {
+      var index = screen === 'list' ? highlightIndex : playIndex;
+      loadTrack(index, true);
+      return;
+    }
+
+    const generation = (playGeneration += 1);
+    const playPromise = audio.play();
+    if (playPromise && typeof playPromise.then === 'function') {
+      playPromise
+        .then(function () {
+          if (generation !== playGeneration) {
+            audio.pause();
+            return;
+          }
+          updateStatusPlay();
+          if (screen === 'now') renderNowPlaying();
+        })
+        .catch(function () {
+          if (generation !== playGeneration) return;
+          audio.pause();
+          showNote('No audio file yet');
+          updateStatusPlay();
+          if (screen === 'now') renderNowPlaying();
+        });
+    }
+  }
+
   function loadTrack(index, autoplay) {
     if (!songs.length) return;
+    playGeneration += 1;
     playIndex = Math.max(0, Math.min(songs.length - 1, index));
     highlightIndex = playIndex;
     const song = songs[playIndex];
@@ -179,20 +235,11 @@
       renderList();
     }
 
-    if (!autoplay) return;
-
-    const playPromise = audio.play();
-    if (playPromise && typeof playPromise.then === 'function') {
-      playPromise
-        .then(function () {
-          if (screen === 'now') renderNowPlaying();
-        })
-        .catch(function () {
-          audio.pause();
-          showNote('No audio file yet');
-          updateStatusPlay();
-          if (screen === 'now') renderNowPlaying();
-        });
+    if (autoplay) {
+      playAudio();
+    } else {
+      updateStatusPlay();
+      if (screen === 'now') renderNowPlaying();
     }
   }
 
@@ -204,6 +251,7 @@
   }
 
   function goMenu() {
+    pauseAudio();
     setScreen('list');
   }
 
@@ -211,46 +259,33 @@
     if (!songs.length) return;
     const next = playIndex + delta;
     if (next < 0 || next >= songs.length) return;
-    const shouldPlay = !audio.paused || screen === 'now';
-    loadTrack(next, shouldPlay || screen === 'now');
+    // Keep playing only if we were already playing; don't force-start when paused.
+    const wasPlaying = !audio.paused;
+    loadTrack(next, wasPlaying);
     if (screen === 'list') {
       highlightIndex = playIndex;
       ensureHighlightVisible();
       renderList();
+    } else {
+      renderNowPlaying();
     }
-  }
-
-  function hasLoadedTrack() {
-    return Boolean(audio.getAttribute('src') || (audio.src && audio.src.indexOf('/audio/') !== -1));
   }
 
   function togglePlayPause() {
     if (!songs.length) return;
 
     if (!hasLoadedTrack()) {
-      loadTrack(screen === 'list' ? highlightIndex : playIndex, true);
+      var index = screen === 'list' ? highlightIndex : playIndex;
       if (screen === 'list') setScreen('now');
+      loadTrack(index, true);
       return;
     }
 
     if (audio.paused) {
-      const playPromise = audio.play();
-      if (playPromise && typeof playPromise.then === 'function') {
-        playPromise
-          .then(function () {
-            if (screen !== 'now') setScreen('now');
-            else renderNowPlaying();
-          })
-          .catch(function () {
-            audio.pause();
-            showNote('No audio file yet');
-            updateStatusPlay();
-          });
-      }
+      if (screen === 'list') setScreen('now');
+      playAudio();
     } else {
-      audio.pause();
-      updateStatusPlay();
-      if (screen === 'now') renderNowPlaying();
+      pauseAudio();
     }
   }
 
@@ -382,6 +417,7 @@
     });
     audio.addEventListener('ended', function () {
       updateStatusPlay();
+      // Only advance if this ending wasn't from a user pause/menu (generation still current).
       if (playIndex < songs.length - 1) {
         loadTrack(playIndex + 1, true);
       } else if (screen === 'now') {
@@ -399,7 +435,7 @@
         return res.json();
       })
       .then(function (data) {
-        songs = Array.isArray(data) ? data : [];
+        songs = sortSongs(Array.isArray(data) ? data : []);
         highlightIndex = 0;
         playIndex = 0;
         setScreen('list');
