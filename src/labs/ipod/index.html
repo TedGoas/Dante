@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A first-generation iPod, redrawn in CSS. Scroll the wheel, pick a track, play local clips."
+    />
+    <title>iPod — Labs</title>
+    <link rel="stylesheet" href="/labs/ipod/styles.css" />
+  </head>
+  <body>
+    <a class="labs-back" href="/labs/">← Labs</a>
+
+    <main class="stage">
+      <div class="ipod" role="application" aria-label="First-generation iPod">
+        <div class="ipod__body">
+          <div class="ipod__screen-bezel">
+            <div class="ipod__lcd" aria-live="polite">
+              <header class="lcd__status">
+                <span class="lcd__play" id="lcd-play" aria-hidden="true">▶</span>
+                <span class="lcd__title" id="lcd-title">Music</span>
+                <span class="lcd__battery" aria-hidden="true"></span>
+              </header>
+
+              <section class="lcd__panel lcd__panel--list is-active" id="screen-list">
+                <h2 class="lcd__heading" id="list-heading">Music</h2>
+                <div class="lcd__list-wrap">
+                  <ul class="lcd__list" id="song-list" role="listbox" aria-labelledby="list-heading"></ul>
+                </div>
+              </section>
+
+              <section class="lcd__panel lcd__panel--now" id="screen-now">
+                <h2 class="lcd__heading">Now Playing</h2>
+                <p class="now__track" id="now-title"></p>
+                <p class="now__artist" id="now-artist"></p>
+                <div class="now__progress" aria-hidden="true">
+                  <span class="now__time" id="now-elapsed">0:00</span>
+                  <div class="now__bar">
+                    <div class="now__bar-fill" id="now-progress"></div>
+                  </div>
+                  <span class="now__time" id="now-remaining">-0:00</span>
+                </div>
+                <p class="now__state" id="now-state" aria-hidden="true">▶</p>
+              </section>
+
+              <p class="lcd__note" id="lcd-note" hidden></p>
+            </div>
+          </div>
+
+          <div class="ipod__wheel" id="wheel">
+            <button type="button" class="wheel__btn wheel__btn--menu" id="btn-menu" aria-label="Menu">
+              menu
+            </button>
+            <button type="button" class="wheel__btn wheel__btn--prev" id="btn-prev" aria-label="Previous">
+              |&#171;
+            </button>
+            <button type="button" class="wheel__btn wheel__btn--next" id="btn-next" aria-label="Next">
+              &#187;|
+            </button>
+            <button type="button" class="wheel__btn wheel__btn--play" id="btn-play" aria-label="Play or pause">
+              &#9654;&#9647;&#9647;
+            </button>
+            <button type="button" class="wheel__center" id="btn-select" aria-label="Select"></button>
+            <div class="wheel__ring" id="wheel-ring" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="stage__hint">
+        Drag the wheel to scroll. Center selects. Menu goes back.
+      </p>
+    </main>
+
+    <script src="/labs/ipod/app.js" defer></script>
+  </body>
+</html>
