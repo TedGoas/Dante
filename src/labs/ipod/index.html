@@ -33,16 +33,21 @@
 
               <section class="lcd__panel lcd__panel--now" id="screen-now">
                 <h2 class="lcd__heading">Now Playing</h2>
-                <p class="now__track" id="now-title"></p>
-                <p class="now__artist" id="now-artist"></p>
+                <p class="now__index" id="now-index" aria-hidden="true">1 of 1</p>
+                <div class="now__meta">
+                  <p class="now__track" id="now-title"></p>
+                  <p class="now__artist" id="now-artist"></p>
+                  <p class="now__album" id="now-album"></p>
+                </div>
                 <div class="now__progress" aria-hidden="true">
-                  <span class="now__time" id="now-elapsed">0:00</span>
                   <div class="now__bar">
                     <div class="now__bar-fill" id="now-progress"></div>
                   </div>
-                  <span class="now__time" id="now-remaining">-0:00</span>
+                  <div class="now__times">
+                    <span class="now__time" id="now-elapsed">0:00</span>
+                    <span class="now__time" id="now-remaining">-0:00</span>
+                  </div>
                 </div>
-                <p class="now__state" id="now-state" aria-hidden="true">▶</p>
               </section>
 
               <p class="lcd__note" id="lcd-note" hidden></p>

@@ -11,12 +11,13 @@
     songList: document.getElementById('song-list'),
     lcdTitle: document.getElementById('lcd-title'),
     lcdPlay: document.getElementById('lcd-play'),
+    nowIndex: document.getElementById('now-index'),
     nowTitle: document.getElementById('now-title'),
     nowArtist: document.getElementById('now-artist'),
+    nowAlbum: document.getElementById('now-album'),
     nowElapsed: document.getElementById('now-elapsed'),
     nowRemaining: document.getElementById('now-remaining'),
     nowProgress: document.getElementById('now-progress'),
-    nowState: document.getElementById('now-state'),
     lcdNote: document.getElementById('lcd-note'),
     wheel: document.getElementById('wheel'),
     btnMenu: document.getElementById('btn-menu'),
@@ -26,7 +27,7 @@
     btnSelect: document.getElementById('btn-select')
   };
 
-  /** @type {{ id: string, title: string, artist: string, file: string }[]} */
+  /** @type {{ id: string, title: string, artist: string, album?: string, file: string }[]} */
   let songs = [];
   let highlightIndex = 0;
   let playIndex = 0;
@@ -73,8 +74,8 @@
     const onList = next === 'list';
     els.listScreen.classList.toggle('is-active', onList);
     els.nowScreen.classList.toggle('is-active', !onList);
-    els.lcdTitle.textContent = onList ? 'Music' : 'Now Playing';
     if (onList) {
+      els.lcdTitle.textContent = 'Music';
       renderList();
     } else {
       renderNowPlaying();
@@ -154,10 +155,16 @@
   function renderNowPlaying() {
     const song = songs[playIndex];
     if (!song) return;
+    els.lcdTitle.textContent = song.title;
+    if (els.nowIndex) {
+      els.nowIndex.textContent = playIndex + 1 + ' of ' + songs.length;
+    }
     els.nowTitle.textContent = song.title;
     els.nowArtist.textContent = song.artist;
+    if (els.nowAlbum) {
+      els.nowAlbum.textContent = song.album || '';
+    }
     updateProgressUI();
-    els.nowState.textContent = audio.paused ? '❚❚' : '▶';
   }
 
   function updateProgressUI() {
@@ -409,11 +416,9 @@
     });
     audio.addEventListener('play', function () {
       updateStatusPlay();
-      if (screen === 'now') els.nowState.textContent = '▶';
     });
     audio.addEventListener('pause', function () {
       updateStatusPlay();
-      if (screen === 'now') els.nowState.textContent = '❚❚';
     });
     audio.addEventListener('ended', function () {
       updateStatusPlay();

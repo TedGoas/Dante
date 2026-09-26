@@ -3,180 +3,210 @@
     "id": "01",
     "title": "Jazz (We've Got)",
     "artist": "A Tribe Called Quest",
+    "album": "The Low End Theory",
     "file": "A Tribe Called Quest-Jazz (We've Got).mp3"
   },
   {
     "id": "02",
     "title": "Nutshell",
     "artist": "Alice In Chains",
+    "album": "Jar Of Flies",
     "file": "Alice In Chains-Nutshell.mp3"
   },
   {
     "id": "03",
     "title": "Respiration",
     "artist": "Black Star",
+    "album": "Black Star",
     "file": "Black Star-Respiration.mp3"
   },
   {
     "id": "04",
     "title": "So Here We Are",
     "artist": "Bloc Party",
+    "album": "Silent Alarm",
     "file": "Bloc Party-So Here We Are.mp3"
   },
   {
     "id": "05",
     "title": "Pacific Theme",
     "artist": "Broken Social Scene",
+    "album": "You Forgot It In People",
     "file": "Broken Social Scene-Pacific Theme.mp3"
   },
   {
     "id": "06",
     "title": "A Roller Skating Jam Named Saturdays",
     "artist": "De La Soul",
+    "album": "De La Soul is Dead",
     "file": "De La Soul-A Roller Skating Jam Named Saturdays.mp3"
   },
   {
     "id": "07",
     "title": "Evidence",
     "artist": "Faith No More",
+    "album": "King For A Day Fool For A Lifetime",
     "file": "Faith No More-Evidence.mp3"
   },
   {
     "id": "08",
     "title": "Burning Too",
     "artist": "Fugazi",
+    "album": "13 Songs",
     "file": "Fugazi-Burning Too.mp3"
   },
   {
     "id": "09",
     "title": "Narc",
     "artist": "Interpol",
+    "album": "Antics",
     "file": "Interpol-Narc.mp3"
   },
   {
     "id": "10",
     "title": "Shadowplay",
     "artist": "Joy Division",
+    "album": "Heart And Soul",
     "file": "Joy Division-Shadowplay.mp3"
   },
   {
     "id": "11",
     "title": "Sweetness and Light",
     "artist": "Lush",
+    "album": "Ciao!",
     "file": "Lush-Sweetness and Light.mp3"
   },
   {
     "id": "12",
     "title": "Iou",
     "artist": "Metric",
+    "album": "Old World Underground Where Are You Now?",
     "file": "Metric-Iou.mp3"
   },
   {
     "id": "13",
     "title": "Soon",
     "artist": "My Bloody Valentine",
+    "album": "Loveless",
     "file": "My Bloody Valentine-Soon.mp3"
   },
   {
     "id": "14",
     "title": "Life's A Bitch",
     "artist": "Nas",
+    "album": "Illmatic",
     "file": "Nas-Life's A Bitch.mp3"
   },
   {
     "id": "15",
     "title": "Even Deeper",
     "artist": "Nine Inch Nails",
+    "album": "Fragile",
     "file": "Nine Inch Nails-Even Deeper.mp3"
   },
   {
     "id": "16",
     "title": "Where Did You Sleep Last Night",
     "artist": "Nirvana",
+    "album": "MTV Unplugged In New York",
     "file": "Nirvana-Where Did You Sleep Last Night.mp3"
   },
   {
     "id": "17",
     "title": "Go",
     "artist": "Pearl Jam",
+    "album": "Vs.",
     "file": "Pearl Jam-Go.mp3"
   },
   {
     "id": "18",
     "title": "T.R.O.Y.",
     "artist": "Pete Rock and C.L. Smooth",
+    "album": "Mecca and the Soul Brother",
     "file": "Pete Rock and C.L. Smooth-T.R.O.Y..mp3"
   },
   {
     "id": "19",
     "title": "Dig For Fire",
     "artist": "Pixies",
+    "album": "Death to the Pixies",
     "file": "Pixies-Dig For Fire.mp3"
   },
   {
     "id": "20",
     "title": "Quiet",
     "artist": "Smashing Pumpkins",
+    "album": "Siamese Dream",
     "file": "Smashing Pumpkins-Quiet.mp3"
   },
   {
     "id": "21",
     "title": "Dirty Boots",
     "artist": "Sonic Youth",
+    "album": "Goo",
     "file": "Sonic Youth-Dirty Boots.mp3"
   },
   {
     "id": "22",
     "title": "Superunknown",
     "artist": "Soundgarden",
+    "album": "Superunknown",
     "file": "Soundgarden-Superunknown.mp3"
   },
   {
     "id": "23",
     "title": "Still Remains",
     "artist": "Stone Temple Pilots",
+    "album": "Purple",
     "file": "Stone Temple Pilots-Still Remains.mp3"
   },
   {
     "id": "24",
     "title": "40oz. to Freedom",
     "artist": "Sublime",
+    "album": "40oz. to Freedom",
     "file": "Sublime-40oz. to Freedom.mp3"
   },
   {
     "id": "25",
     "title": "Neighborhood #1 (Tunnels)",
     "artist": "The Arcade Fire",
+    "album": "Funeral",
     "file": "The Arcade Fire-Neighborhood #1 (Tunnels).mp3"
   },
   {
     "id": "26",
     "title": "Fascination Street",
     "artist": "The Cure",
+    "album": "Disintegration",
     "file": "The Cure-Fascination Street.mp3"
   },
   {
     "id": "27",
     "title": "Tommy Gets His Tonsils Out",
     "artist": "The Replacements",
+    "album": "Let It Be",
     "file": "The Replacements-Tommy Gets His Tonsils Out.mp3"
   },
   {
     "id": "28",
     "title": "Mellow My Man",
     "artist": "The Roots",
+    "album": "Do You Want More?!!!??!",
     "file": "The Roots-Mellow My Man.mp3"
   },
   {
     "id": "29",
     "title": "Da Mystery of Chessboxin'",
     "artist": "Wu-Tang Clan",
+    "album": "Enter the Wu-Tang (36 Chambers)",
     "file": "Wu-Tang Clan-Da Mystery of Chessboxin'.mp3"
   },
   {
     "id": "30",
     "title": "Y Control",
     "artist": "Yeah Yeah Yeahs",
+    "album": "Fever To Tell",
     "file": "Yeah Yeah Yeahs-Y Control.mp3"
   }
 ]
