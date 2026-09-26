@@ -314,9 +314,24 @@ body {
 
 .lcd__item-title {
   overflow: hidden;
-  text-overflow: ellipsis;
   flex: 1;
   min-width: 0;
+}
+
+.lcd__item-title-text {
+  display: inline-block;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lcd__item-title {
+    text-overflow: ellipsis;
+  }
+
+  .lcd__item-title-text {
+    transform: none !important;
+  }
 }
 
 .lcd__item-chevron {

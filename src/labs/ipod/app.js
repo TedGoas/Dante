@@ -4,6 +4,8 @@
   const AUDIO_BASE = '/labs/ipod/audio/';
   const VISIBLE_ROWS = 6;
   const WHEEL_STEP_DEG = 18;
+  const MARQUEE_HOLD_MS = 3000;
+  const MARQUEE_PX_PER_SEC = 45;
 
   const els = {
     listScreen: document.getElementById('screen-list'),
@@ -36,6 +38,14 @@
   let noteTimer = 0;
   /** Bumped on pause/load so a late audio.play() promise cannot resume after the user paused. */
   let playGeneration = 0;
+
+  const marquee = {
+    generation: 0,
+    timer: 0,
+    raf: 0,
+    textEl: null,
+    onEnd: null
+  };
 
   const audio = new Audio();
   audio.preload = 'none';
@@ -78,6 +88,7 @@
       els.lcdTitle.textContent = 'Music';
       renderList();
     } else {
+      clearListMarquee();
       renderNowPlaying();
     }
     updateStatusPlay();
@@ -122,8 +133,115 @@
     });
   }
 
+  function prefersReducedMotion() {
+    return (
+      typeof window.matchMedia === 'function' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    );
+  }
+
+  function clearListMarquee() {
+    marquee.generation += 1;
+    if (marquee.timer) {
+      window.clearTimeout(marquee.timer);
+      marquee.timer = 0;
+    }
+    if (marquee.raf) {
+      window.cancelAnimationFrame(marquee.raf);
+      marquee.raf = 0;
+    }
+    if (marquee.textEl) {
+      marquee.textEl.classList.remove('is-marquee');
+      marquee.textEl.style.transitionDuration = '';
+      marquee.textEl.style.transform = '';
+    }
+    marquee.textEl = null;
+    marquee.onEnd = null;
+  }
+
+  function syncListMarquee() {
+    clearListMarquee();
+    if (screen !== 'list' || prefersReducedMotion()) return;
+
+    const selected = els.songList.querySelector('.lcd__item.is-selected .lcd__item-title');
+    if (!selected) return;
+
+    const textEl = selected.querySelector('.lcd__item-title-text');
+    if (!textEl) return;
+
+    const overflow = textEl.scrollWidth - selected.clientWidth;
+    if (overflow <= 1) return;
+
+    const generation = marquee.generation;
+    marquee.textEl = textEl;
+    textEl.style.transform = 'translateX(0)';
+
+    function isCurrent() {
+      return generation === marquee.generation && screen === 'list';
+    }
+
+    function holdThen(next) {
+      if (!isCurrent()) return;
+      marquee.timer = window.setTimeout(function () {
+        marquee.timer = 0;
+        if (!isCurrent()) return;
+        next();
+      }, MARQUEE_HOLD_MS);
+    }
+
+    function animateTo(fromX, toX, then) {
+      if (!isCurrent()) return;
+
+      const distance = Math.abs(toX - fromX);
+      const durationMs = Math.max(1200, (distance / MARQUEE_PX_PER_SEC) * 1000);
+      const started = performance.now();
+      textEl.classList.add('is-marquee');
+
+      function frame(now) {
+        if (!isCurrent()) return;
+
+        const t = Math.min(1, (now - started) / durationMs);
+        const x = fromX + (toX - fromX) * t;
+        textEl.style.transform = 'translateX(' + x + 'px)';
+
+        if (t < 1) {
+          marquee.raf = window.requestAnimationFrame(frame);
+          return;
+        }
+
+        marquee.raf = 0;
+        textEl.classList.remove('is-marquee');
+        textEl.style.transform = 'translateX(' + toX + 'px)';
+        then();
+      }
+
+      marquee.raf = window.requestAnimationFrame(frame);
+    }
+
+    function cycle() {
+      if (!isCurrent()) return;
+
+      const distance = textEl.scrollWidth - selected.clientWidth;
+      if (distance <= 1) return;
+
+      // Start → end → hold → start → hold → repeat
+      holdThen(function () {
+        animateTo(0, -distance, function () {
+          holdThen(function () {
+            animateTo(-distance, 0, function () {
+              cycle();
+            });
+          });
+        });
+      });
+    }
+
+    cycle();
+  }
+
   function renderList() {
     ensureHighlightVisible();
+    clearListMarquee();
     const frag = document.createDocumentFragment();
     const end = Math.min(songs.length, listOffset + VISIBLE_ROWS);
 
@@ -137,7 +255,11 @@
 
       const title = document.createElement('span');
       title.className = 'lcd__item-title';
-      title.textContent = songListLabel(song);
+
+      const titleText = document.createElement('span');
+      titleText.className = 'lcd__item-title-text';
+      titleText.textContent = songListLabel(song);
+      title.appendChild(titleText);
 
       const chevron = document.createElement('span');
       chevron.className = 'lcd__item-chevron';
@@ -150,6 +272,20 @@
     }
 
     els.songList.replaceChildren(frag);
+
+    // Measure after layout settles (flex + font can report 0 overflow on the first frame).
+    function measureMarquee() {
+      syncListMarquee();
+    }
+    window.requestAnimationFrame(function () {
+      window.requestAnimationFrame(function () {
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(measureMarquee);
+        } else {
+          measureMarquee();
+        }
+      });
+    });
   }
 
   function renderNowPlaying() {
