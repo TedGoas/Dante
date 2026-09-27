@@ -11,7 +11,22 @@
     <link rel="stylesheet" href="/labs/ipod/styles.css" />
   </head>
   <body>
-    <a class="labs-back" href="/labs/">← Labs</a>
+    <aside class="desktop" aria-label="Desktop">
+      <a class="desktop__icon" href="/labs/">
+        <span class="desktop__glyph desktop__glyph--labs" aria-hidden="true"></span>
+        <span class="desktop__label">Labs</span>
+      </a>
+      <button
+        type="button"
+        class="desktop__icon"
+        id="btn-info"
+        aria-haspopup="dialog"
+        aria-controls="info-window"
+      >
+        <span class="desktop__glyph desktop__glyph--info" aria-hidden="true"></span>
+        <span class="desktop__label">Info</span>
+      </button>
+    </aside>
 
     <main class="stage">
       <div class="ipod" role="application" aria-label="First-generation iPod">
@@ -77,6 +92,26 @@
         Drag the wheel to scroll. Center selects. Menu goes back.
       </p>
     </main>
+
+    <dialog class="finder" id="info-window" aria-labelledby="info-title">
+      <div class="finder__chrome">
+        <div class="finder__titlebar">
+          <div class="finder__traffic">
+            <button type="button" class="finder__traffic-btn finder__traffic-btn--close" id="btn-info-close" aria-label="Close"></button>
+            <span class="finder__traffic-btn finder__traffic-btn--minimize" aria-hidden="true"></span>
+            <span class="finder__traffic-btn finder__traffic-btn--zoom" aria-hidden="true"></span>
+          </div>
+          <h2 class="finder__title" id="info-title">Info</h2>
+        </div>
+        <div class="finder__body">
+          <p class="finder__lede">About this prototype</p>
+          <p>
+            A first-generation iPod, redrawn in CSS. Scroll the wheel, pick a track, and play local
+            clips. More notes coming soon.
+          </p>
+        </div>
+      </div>
+    </dialog>
 
     <script src="/labs/ipod/app.js" defer></script>
   </body>

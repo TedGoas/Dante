@@ -26,7 +26,10 @@
     btnPrev: document.getElementById('btn-prev'),
     btnNext: document.getElementById('btn-next'),
     btnPlay: document.getElementById('btn-play'),
-    btnSelect: document.getElementById('btn-select')
+    btnSelect: document.getElementById('btn-select'),
+    btnInfo: document.getElementById('btn-info'),
+    btnInfoClose: document.getElementById('btn-info-close'),
+    infoWindow: document.getElementById('info-window')
   };
 
   /** @type {{ id: string, title: string, artist: string, album?: string, file: string }[]} */
@@ -512,7 +515,67 @@
     }
   }
 
+  let infoReturnFocus = true;
+
+  function infoWindowOpen() {
+    return Boolean(els.infoWindow && els.infoWindow.open);
+  }
+
+  function openInfoWindow() {
+    if (!els.infoWindow || typeof els.infoWindow.showModal !== 'function') return;
+    if (els.infoWindow.open) return;
+    infoReturnFocus = true;
+    els.infoWindow.showModal();
+    if (els.btnInfoClose) els.btnInfoClose.focus();
+  }
+
+  function closeInfoWindow() {
+    if (!els.infoWindow || !els.infoWindow.open) return;
+    els.infoWindow.close();
+  }
+
+  function bindInfoWindow() {
+    if (!els.infoWindow || !els.btnInfo) return;
+
+    /** Set when Escape dismisses the dialog so keydown does not also call goMenu. */
+    var escapeClosedInfo = false;
+
+    els.btnInfo.addEventListener('click', function () {
+      openInfoWindow();
+    });
+
+    if (els.btnInfoClose) {
+      els.btnInfoClose.addEventListener('click', function () {
+        closeInfoWindow();
+      });
+    }
+
+    els.infoWindow.addEventListener('click', function (event) {
+      if (event.target === els.infoWindow) {
+        closeInfoWindow();
+      }
+    });
+
+    els.infoWindow.addEventListener('cancel', function () {
+      escapeClosedInfo = true;
+      window.setTimeout(function () {
+        escapeClosedInfo = false;
+      }, 0);
+    });
+
+    els.infoWindow.addEventListener('close', function () {
+      if (infoReturnFocus && els.btnInfo) els.btnInfo.focus();
+    });
+
+    // Expose for keydown handler without a bigger refactor.
+    bindInfoWindow.wasEscapeClose = function () {
+      return escapeClosedInfo;
+    };
+  }
+
   function bindControls() {
+    bindInfoWindow();
+
     els.btnMenu.addEventListener('click', goMenu);
     els.btnSelect.addEventListener('click', selectCurrent);
     els.btnPrev.addEventListener('click', function () {
@@ -532,9 +595,16 @@
       if (event.metaKey || event.ctrlKey || event.altKey) return;
 
       if (event.key === 'Escape') {
+        if (
+          infoWindowOpen() ||
+          (bindInfoWindow.wasEscapeClose && bindInfoWindow.wasEscapeClose())
+        ) {
+          return;
+        }
         goMenu();
         return;
       }
+      if (infoWindowOpen()) return;
       if (event.key === ' ') {
         event.preventDefault();
         togglePlayPause();

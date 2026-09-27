@@ -1,9 +1,9 @@
 :root {
-  --ipod-page-bg: #1c1c1c;
-  --ipod-page-text: #c8c8c8;
+  --ipod-page-bg: #3a7fd4;
+  --ipod-page-text: #f4f7fc;
   --ipod-body: #f5f5f3;
   --ipod-body-cool: #e8ecef;
-  --ipod-body-shadow: rgba(28, 34, 40, 0.2);
+  --ipod-body-shadow: rgba(8, 24, 64, 0.45);
   --ipod-bezel: #2a2829;
   --ipod-lcd: #bab7b0;
   --ipod-lcd-deep: #a09b8c;
@@ -17,6 +17,7 @@
   --ipod-center: #f8f8f6;
   --ipod-font: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --ipod-width: min(320px, calc(100vw - 2.5rem));
+  --panther-blue: #3a7fd4;
 }
 
 *,
@@ -29,34 +30,137 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background: var(--ipod-page-bg);
   color: var(--ipod-page-text);
   font-family: var(--ipod-font);
   -webkit-font-smoothing: antialiased;
+  /* Solid Aqua blue shows before/if the Panther wallpaper fails to load. */
+  background-color: var(--panther-blue);
+  background-image: url('/labs/ipod/img/panther-wallpaper.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-.labs-back {
+/* —— Desktop icons —— */
+
+.desktop {
   position: fixed;
-  top: 1rem;
-  left: 1rem;
+  top: 1.25rem;
+  right: 1rem;
   z-index: 50;
-  display: inline-block;
-  padding: 0.4rem 0.75rem;
-  background: #2a2a2a;
-  color: #f0f0f0;
-  border: 1px solid #444;
-  border-radius: 4px;
-  text-decoration: none;
-  font-size: 0.8rem;
-  letter-spacing: 0.04em;
-  transition: background 120ms ease, border-color 120ms ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.35rem;
+  width: 5.5rem;
 }
 
-.labs-back:hover,
-.labs-back:focus-visible {
-  background: #3a3a3a;
-  border-color: #666;
+.desktop__icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  width: 100%;
+  padding: 0.25rem;
+  margin: 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 6px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.desktop__icon:focus {
   outline: none;
+}
+
+.desktop__icon:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.95);
+  outline-offset: 3px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.desktop__icon:hover .desktop__glyph {
+  filter: drop-shadow(0 2px 3px rgba(0, 20, 60, 0.35)) brightness(1.06);
+}
+
+.desktop__glyph {
+  display: block;
+  width: 3.25rem;
+  height: 2.75rem;
+  position: relative;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 3px rgba(0, 20, 60, 0.35));
+}
+
+.desktop__glyph--labs {
+  background:
+    linear-gradient(180deg, #7eb4f5 0%, #3a7ed0 45%, #1f5fad 100%);
+  border-radius: 0.35rem 0.35rem 0.4rem 0.4rem;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -2px 3px rgba(0, 40, 100, 0.25);
+}
+
+.desktop__glyph--labs::before {
+  content: '';
+  position: absolute;
+  top: -0.35rem;
+  left: 0.15rem;
+  width: 1.35rem;
+  height: 0.55rem;
+  background: linear-gradient(180deg, #9cc8f8 0%, #4a88d4 100%);
+  border-radius: 0.28rem 0.28rem 0 0;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.desktop__glyph--info {
+  width: 2.65rem;
+  height: 3.15rem;
+  background:
+    linear-gradient(180deg, #ffffff 0%, #f0f0f0 55%, #d8d8d8 100%);
+  border-radius: 0.2rem;
+  border: 1px solid rgba(60, 80, 110, 0.35);
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 1px 2px rgba(0, 20, 60, 0.2);
+}
+
+.desktop__glyph--info::before {
+  content: 'i';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -52%);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #1a5bb8;
+  line-height: 1;
+}
+
+.desktop__label {
+  max-width: 5.25rem;
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  font-size: 0.72rem;
+  line-height: 1.2;
+  text-align: center;
+  color: #fff;
+  text-shadow:
+    0 1px 2px rgba(0, 20, 60, 0.85),
+    0 0 1px rgba(0, 20, 60, 0.6);
+  word-break: break-word;
+}
+
+.desktop__icon:focus-visible .desktop__label {
+  background: rgba(20, 60, 140, 0.55);
 }
 
 .stage {
@@ -72,10 +176,132 @@ body {
 .stage__hint {
   margin: 0;
   max-width: 22rem;
+  padding: 0.45rem 0.85rem;
   text-align: center;
   font-size: 0.85rem;
   line-height: 1.4;
-  color: #8a8a8a;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 2px rgba(0, 30, 80, 0.55);
+  background: rgba(8, 30, 80, 0.28);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* —— Finder Info window —— */
+
+.finder {
+  padding: 0;
+  border: none;
+  background: transparent;
+  max-width: calc(100vw - 2rem);
+  width: 22rem;
+  color: #1a1a1a;
+}
+
+.finder::backdrop {
+  background: rgba(10, 30, 70, 0.35);
+}
+
+.finder__chrome {
+  border-radius: 6px 6px 5px 5px;
+  overflow: hidden;
+  box-shadow:
+    0 18px 40px rgba(0, 20, 60, 0.45),
+    0 2px 6px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(40, 50, 70, 0.45);
+}
+
+.finder__titlebar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.55rem;
+  padding: 0.35rem 2.75rem;
+  background:
+    linear-gradient(
+      180deg,
+      #e8e8e8 0%,
+      #d4d4d4 45%,
+      #c4c4c4 55%,
+      #b8b8b8 100%
+    );
+  border-bottom: 1px solid #8a8a8a;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+.finder__traffic {
+  position: absolute;
+  left: 0.55rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.finder__traffic-btn {
+  display: block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  padding: 0;
+  cursor: default;
+}
+
+.finder__traffic-btn--close {
+  background: radial-gradient(circle at 35% 30%, #ff8e7a, #e0432f 55%, #b03020);
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.finder__traffic-btn--close:focus-visible {
+  outline: 2px solid #1a5bb8;
+  outline-offset: 2px;
+}
+
+.finder__traffic-btn--minimize {
+  background: radial-gradient(circle at 35% 30%, #ffe28a, #e0b030 55%, #b08818);
+}
+
+.finder__traffic-btn--zoom {
+  background: radial-gradient(circle at 35% 30%, #9ae07a, #4aaa2f 55%, #2f8018);
+}
+
+.finder__title {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #2a2a2a;
+  letter-spacing: 0.01em;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.finder__body {
+  padding: 1.1rem 1.15rem 1.25rem;
+  background: linear-gradient(180deg, #ffffff 0%, #f6f6f6 100%);
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: #222;
+}
+
+.finder__lede {
+  margin: 0 0 0.55rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.finder__body p {
+  margin: 0 0 0.65rem;
+}
+
+.finder__body p:last-child {
+  margin-bottom: 0;
 }
 
 /* —— Device —— */
@@ -84,8 +310,8 @@ body {
   width: var(--ipod-width);
   filter:
     drop-shadow(0 30px 50px var(--ipod-body-shadow))
-    drop-shadow(0 12px 22px rgba(28, 34, 40, 0.13))
-    drop-shadow(0 4px 8px rgba(28, 34, 40, 0.1));
+    drop-shadow(0 12px 22px rgba(8, 24, 64, 0.28))
+    drop-shadow(0 4px 8px rgba(8, 24, 64, 0.18));
   user-select: none;
   -webkit-user-select: none;
   touch-action: none;
@@ -604,7 +830,8 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .labs-back,
+  .desktop__icon,
+  .desktop__glyph,
   .wheel__center,
   .wheel__btn,
   .lcd__play {
