@@ -53,7 +53,8 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 1.35rem;
-  width: 5.5rem;
+  width: auto;
+  min-width: 5.5rem;
 }
 
 .desktop__icon {
@@ -100,11 +101,11 @@ body {
 
 .desktop__glyph--labs {
   background:
-    linear-gradient(180deg, #7eb4f5 0%, #3a7ed0 45%, #1f5fad 100%);
+    linear-gradient(180deg, #8fd47a 0%, #4aaa3a 45%, #2d7a22 100%);
   border-radius: 0.35rem 0.35rem 0.4rem 0.4rem;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.55),
-    inset 0 -2px 3px rgba(0, 40, 100, 0.25);
+    inset 0 -2px 3px rgba(20, 80, 10, 0.25);
 }
 
 .desktop__glyph--labs::before {
@@ -114,7 +115,7 @@ body {
   left: 0.15rem;
   width: 1.35rem;
   height: 0.55rem;
-  background: linear-gradient(180deg, #9cc8f8 0%, #4a88d4 100%);
+  background: linear-gradient(180deg, #b0e89a 0%, #5cbc45 100%);
   border-radius: 0.28rem 0.28rem 0 0;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
@@ -146,7 +147,7 @@ body {
 }
 
 .desktop__label {
-  max-width: 5.25rem;
+  max-width: none;
   padding: 0.1rem 0.35rem;
   border-radius: 3px;
   font-size: 0.72rem;
@@ -156,7 +157,7 @@ body {
   text-shadow:
     0 1px 2px rgba(0, 20, 60, 0.85),
     0 0 1px rgba(0, 20, 60, 0.6);
-  word-break: break-word;
+  white-space: nowrap;
 }
 
 .desktop__icon:focus-visible .desktop__label {
