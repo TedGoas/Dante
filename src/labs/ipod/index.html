@@ -149,23 +149,21 @@
       </p>
     </main>
 
-    <dialog class="finder" id="info-window" aria-labelledby="info-title">
-      <div class="finder__chrome">
-        <div class="finder__titlebar">
-          <div class="finder__traffic">
-            <button type="button" class="finder__traffic-btn finder__traffic-btn--close" id="btn-info-close" aria-label="Close"></button>
-            <span class="finder__traffic-btn finder__traffic-btn--minimize" aria-hidden="true"></span>
-            <span class="finder__traffic-btn finder__traffic-btn--zoom" aria-hidden="true"></span>
-          </div>
-          <h2 class="finder__title" id="info-title">Info</h2>
+    <dialog class="stickie" id="info-window" aria-labelledby="info-title">
+      <div class="stickie__chrome">
+        <div class="stickie__titlebar">
+          <button type="button" class="stickie__close" id="btn-info-close" aria-label="Close"></button>
+          <h2 class="stickie__title" id="info-title">Info</h2>
+          <span class="stickie__shade" aria-hidden="true"></span>
         </div>
-        <div class="finder__body">
-          <p class="finder__lede">About this prototype</p>
+        <div class="stickie__body">
+          <p class="stickie__lede">About this prototype</p>
           <p>
             A first-generation iPod, redrawn in CSS. Scroll the wheel, pick a track, and play local
             clips. More notes coming soon.
           </p>
         </div>
+        <span class="stickie__resize" aria-hidden="true"></span>
       </div>
     </dialog>
 

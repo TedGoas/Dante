@@ -183,122 +183,162 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-/* —— Finder Info window —— */
+/* —— Stickies Info window —— */
 
-.finder {
-  padding: 0;
+.stickie {
+  /* Padding so the soft shadow isn’t clipped by the dialog’s tight bounds. */
+  padding: 1.25rem;
   border: none;
   background: transparent;
   max-width: calc(100vw - 2rem);
-  width: 22rem;
+  width: calc(18.5rem + 2.5rem);
   color: #1a1a1a;
   font-family: var(--panther-font);
+  overflow: visible;
 }
 
-.finder::backdrop {
-  background: rgba(10, 30, 70, 0.35);
+.stickie::backdrop {
+  background: rgba(10, 30, 70, 0.28);
 }
 
-.finder__chrome {
-  border-radius: 6px 6px 5px 5px;
-  overflow: hidden;
-  box-shadow:
-    0 18px 40px rgba(0, 20, 60, 0.45),
-    0 2px 6px rgba(0, 0, 0, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.65);
-  border: 1px solid rgba(40, 50, 70, 0.45);
+.stickie__chrome {
+  position: relative;
+  border-radius: 2px;
+  background: #fff6a0;
+  border: 1px solid #c9a40e;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.4);
 }
 
-.finder__titlebar {
+.stickie__titlebar {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 1.55rem;
-  padding: 0.35rem 2.75rem;
+  min-height: 1.35rem;
+  padding: 0.28rem 1.65rem;
   background:
     linear-gradient(
       180deg,
-      #e8e8e8 0%,
-      #d4d4d4 45%,
-      #c4c4c4 55%,
-      #b8b8b8 100%
+      #ffe24a 0%,
+      #f0c820 48%,
+      #e0b410 100%
     );
-  border-bottom: 1px solid #8a8a8a;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  border-bottom: 1px solid #c49a0a;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
-.finder__traffic {
+.stickie__close {
   position: absolute;
-  left: 0.55rem;
+  left: 0.4rem;
   top: 50%;
   transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-
-.finder__traffic-btn {
-  display: block;
-  width: 0.75rem;
-  height: 0.75rem;
-  border-radius: 50%;
-  border: 1px solid rgba(0, 0, 0, 0.25);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  width: 0.85rem;
+  height: 0.85rem;
   padding: 0;
-  cursor: default;
-}
-
-.finder__traffic-btn--close {
-  background: radial-gradient(circle at 35% 30%, #ff8e7a, #e0432f 55%, #b03020);
+  border: 1px solid #a88810;
+  border-radius: 1px;
+  background:
+    linear-gradient(180deg, #ffe97a 0%, #efc428 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
   cursor: pointer;
   -webkit-appearance: none;
   appearance: none;
 }
 
-.finder__traffic-btn--close:focus-visible {
+/* Corner “L” marks like the Panther Stickies title widget */
+.stickie__close::before,
+.stickie__close::after {
+  content: '';
+  position: absolute;
+  width: 0.28rem;
+  height: 0.28rem;
+  border-color: #6a5810;
+  border-style: solid;
+}
+
+.stickie__close::before {
+  top: 1px;
+  left: 1px;
+  border-width: 1.5px 0 0 1.5px;
+}
+
+.stickie__close::after {
+  right: 1px;
+  bottom: 1px;
+  border-width: 0 1.5px 1.5px 0;
+}
+
+.stickie__close:focus-visible {
   outline: 2px solid #1a5bb8;
   outline-offset: 2px;
 }
 
-.finder__traffic-btn--minimize {
-  background: radial-gradient(circle at 35% 30%, #ffe28a, #e0b030 55%, #b08818);
-}
-
-.finder__traffic-btn--zoom {
-  background: radial-gradient(circle at 35% 30%, #9ae07a, #4aaa2f 55%, #2f8018);
-}
-
-.finder__title {
+.stickie__title {
   margin: 0;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #2a2a2a;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #1a1a1a;
   letter-spacing: 0.01em;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
-.finder__body {
-  padding: 1.1rem 1.15rem 1.25rem;
-  background: linear-gradient(180deg, #ffffff 0%, #f6f6f6 100%);
-  font-size: 0.85rem;
+.stickie__shade {
+  position: absolute;
+  right: 0.45rem;
+  top: 50%;
+  transform: translateY(-42%);
+  width: 0;
+  height: 0;
+  border-left: 0.32rem solid transparent;
+  border-right: 0.32rem solid transparent;
+  border-bottom: 0.42rem solid #8a7010;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.stickie__body {
+  padding: 0.75rem 0.85rem 1.35rem;
+  min-height: 9rem;
+  background: #fff8b8;
+  font-size: 0.875rem;
   line-height: 1.45;
-  color: #222;
+  color: #111;
 }
 
-.finder__lede {
-  margin: 0 0 0.55rem;
+.stickie__lede {
+  margin: 0 0 0.5rem;
   font-size: 0.95rem;
   font-weight: 700;
   color: #111;
 }
 
-.finder__body p {
+.stickie__body p {
   margin: 0 0 0.65rem;
 }
 
-.finder__body p:last-child {
+.stickie__body p:last-child {
   margin-bottom: 0;
+}
+
+.stickie__resize {
+  position: absolute;
+  right: 0.2rem;
+  bottom: 0.15rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      135deg,
+      transparent 42%,
+      #c9a40e 42%,
+      #c9a40e 48%,
+      transparent 48%,
+      transparent 58%,
+      #c9a40e 58%,
+      #c9a40e 64%,
+      transparent 64%
+    );
+  opacity: 0.7;
 }
 
 /* —— Device —— */
