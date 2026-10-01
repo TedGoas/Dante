@@ -188,6 +188,7 @@ body {
 .stickie {
   /* Padding so the soft shadow isn’t clipped by the dialog’s tight bounds. */
   padding: 1.25rem;
+  margin: 0;
   border: none;
   background: transparent;
   max-width: calc(100vw - 2rem);
@@ -195,10 +196,13 @@ body {
   color: #1a1a1a;
   font-family: var(--panther-font);
   overflow: visible;
+  position: fixed;
+  inset: auto;
+  /* top/left set in JS — launches left of the Info icon */
 }
 
 .stickie::backdrop {
-  background: rgba(10, 30, 70, 0.28);
+  background: transparent;
 }
 
 .stickie__chrome {
@@ -225,6 +229,14 @@ body {
     );
   border-bottom: 1px solid #c49a0a;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.stickie__titlebar.is-dragging {
+  cursor: grabbing;
 }
 
 .stickie__close {

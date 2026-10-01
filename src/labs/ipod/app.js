@@ -517,8 +517,34 @@
 
   let infoReturnFocus = true;
 
+  const stickieDrag = {
+    active: false,
+    pointerId: null,
+    offsetX: 0,
+    offsetY: 0
+  };
+
   function infoWindowOpen() {
     return Boolean(els.infoWindow && els.infoWindow.open);
+  }
+
+  function placeInfoWindowNearIcon() {
+    if (!els.infoWindow || !els.btnInfo) return;
+
+    var icon = els.btnInfo.getBoundingClientRect();
+    var dlg = els.infoWindow;
+    var w = dlg.offsetWidth;
+    var h = dlg.offsetHeight;
+    var gap = 10;
+    // Sit just left of the Info icon, between the icon column and the iPod.
+    var left = icon.left - w - gap;
+    var top = Math.max(8, icon.top - 10);
+
+    left = Math.max(8, Math.min(left, window.innerWidth - w - 8));
+    top = Math.max(8, Math.min(top, window.innerHeight - h - 8));
+
+    dlg.style.left = left + 'px';
+    dlg.style.top = top + 'px';
   }
 
   function openInfoWindow() {
@@ -526,11 +552,16 @@
     if (els.infoWindow.open) return;
     infoReturnFocus = true;
     els.infoWindow.showModal();
+    placeInfoWindowNearIcon();
     if (els.btnInfoClose) els.btnInfoClose.focus();
   }
 
   function closeInfoWindow() {
     if (!els.infoWindow || !els.infoWindow.open) return;
+    stickieDrag.active = false;
+    stickieDrag.pointerId = null;
+    var titlebar = els.infoWindow.querySelector('.stickie__titlebar');
+    if (titlebar) titlebar.classList.remove('is-dragging');
     els.infoWindow.close();
   }
 
@@ -539,6 +570,7 @@
 
     /** Set when Escape dismisses the dialog so keydown does not also call goMenu. */
     var escapeClosedInfo = false;
+    var titlebar = els.infoWindow.querySelector('.stickie__titlebar');
 
     els.btnInfo.addEventListener('click', function () {
       openInfoWindow();
@@ -566,6 +598,47 @@
     els.infoWindow.addEventListener('close', function () {
       if (infoReturnFocus && els.btnInfo) els.btnInfo.focus();
     });
+
+    if (titlebar) {
+      titlebar.addEventListener('pointerdown', function (event) {
+        if (event.button != null && event.button !== 0) return;
+        if (event.target.closest && event.target.closest('.stickie__close')) return;
+
+        var rect = els.infoWindow.getBoundingClientRect();
+        stickieDrag.active = true;
+        stickieDrag.pointerId = event.pointerId;
+        stickieDrag.offsetX = event.clientX - rect.left;
+        stickieDrag.offsetY = event.clientY - rect.top;
+        titlebar.classList.add('is-dragging');
+        titlebar.setPointerCapture(event.pointerId);
+        event.preventDefault();
+      });
+
+      titlebar.addEventListener('pointermove', function (event) {
+        if (!stickieDrag.active || event.pointerId !== stickieDrag.pointerId) return;
+
+        var w = els.infoWindow.offsetWidth;
+        var h = els.infoWindow.offsetHeight;
+        var left = event.clientX - stickieDrag.offsetX;
+        var top = event.clientY - stickieDrag.offsetY;
+
+        left = Math.max(0, Math.min(left, window.innerWidth - w));
+        top = Math.max(0, Math.min(top, window.innerHeight - h));
+
+        els.infoWindow.style.left = left + 'px';
+        els.infoWindow.style.top = top + 'px';
+      });
+
+      function endStickieDrag(event) {
+        if (event.pointerId !== stickieDrag.pointerId) return;
+        stickieDrag.active = false;
+        stickieDrag.pointerId = null;
+        titlebar.classList.remove('is-dragging');
+      }
+
+      titlebar.addEventListener('pointerup', endStickieDrag);
+      titlebar.addEventListener('pointercancel', endStickieDrag);
+    }
 
     // Expose for keydown handler without a bigger refactor.
     bindInfoWindow.wasEscapeClose = function () {
