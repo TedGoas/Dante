@@ -264,13 +264,16 @@
       titleText.textContent = songListLabel(song);
       title.appendChild(titleText);
 
-      const chevron = document.createElement('span');
-      chevron.className = 'lcd__item-chevron';
-      chevron.setAttribute('aria-hidden', 'true');
-      chevron.textContent = '›';
-
       li.appendChild(title);
-      li.appendChild(chevron);
+
+      if (i === highlightIndex) {
+        const chevron = document.createElement('span');
+        chevron.className = 'lcd__item-chevron';
+        chevron.setAttribute('aria-hidden', 'true');
+        chevron.textContent = '›';
+        li.appendChild(chevron);
+      }
+
       frag.appendChild(li);
     }
 
