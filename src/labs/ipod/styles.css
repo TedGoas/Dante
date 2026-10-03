@@ -357,6 +357,12 @@ body {
 
 .ipod {
   width: var(--ipod-width);
+  border-radius: 24px;
+  /* Thin metal casing outside the white face (avoids body overflow clip) */
+  box-shadow:
+    0 0 0 1px #d2d6dc,
+    0 0 0 2.5px #8b9098,
+    0 0 0 3.5px #c8ccd2;
   filter:
     drop-shadow(0 30px 50px var(--ipod-body-shadow))
     drop-shadow(0 12px 22px rgba(8, 24, 64, 0.28))
@@ -384,7 +390,7 @@ body {
       var(--ipod-body-cool) 72%,
       #e4e6e8 100%
     );
-  border-radius: 20px;
+  border-radius: 22px;
   border: none;
   box-shadow:
     1px 2px 1px rgba(0, 0, 0, 0.12),
@@ -728,49 +734,177 @@ body {
   display: none;
 }
 
-/* —— Scroll wheel —— */
+/* —— Click Wheel: outer 4-button ring + scroll ring + center —— */
 
 .ipod__wheel {
+  --wheel-scroll-size: 78%;
+  --wheel-center-size: 28%;
   position: relative;
   z-index: 2;
   width: 72%;
   aspect-ratio: 1;
   margin: 0 auto;
   border-radius: 50%;
+  /* Outer button ring — thin face-matched band around the scroll */
   background:
-    radial-gradient(circle at 50% 38%, #f6f6f4 0%, var(--ipod-wheel) 52%, #dcdcd6 100%);
-  border: 1px solid rgba(120, 120, 116, 0.45);
+    radial-gradient(
+      circle at 50% 42%,
+      #fafaf8 0%,
+      #f3f3f1 55%,
+      #ebebe8 100%
+    );
+  border: 1px solid rgba(90, 90, 86, 0.28);
   box-shadow:
-    inset 0 3px 8px rgba(0, 0, 0, 0.14),
-    inset 0 -2px 4px rgba(255, 255, 255, 0.55),
-    inset 0 0 0 1px rgba(0, 0, 0, 0.06),
-    0 1px 1px rgba(255, 255, 255, 0.4);
-  cursor: grab;
+    inset 0 1px 2px rgba(0, 0, 0, 0.06),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.65),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 
-.ipod__wheel.is-dragging {
-  cursor: grabbing;
-}
-
-.wheel__ring {
+/* Diagonal quadrant seams on the outer ring only (outside the scroll) */
+.ipod__wheel::before {
+  content: '';
   position: absolute;
   inset: 0;
   border-radius: 50%;
   pointer-events: none;
-  background: radial-gradient(
-    circle at 50% 50%,
-    transparent 32%,
-    transparent 38%,
-    rgba(0, 0, 0, 0.03) 48%,
-    transparent 62%
+  z-index: 1;
+  background:
+    linear-gradient(
+      45deg,
+      transparent calc(50% - 0.5px),
+      rgba(60, 60, 56, 0.45) calc(50% - 0.5px),
+      rgba(60, 60, 56, 0.45) calc(50% + 0.5px),
+      transparent calc(50% + 0.5px)
+    ),
+    linear-gradient(
+      -45deg,
+      transparent calc(50% - 0.5px),
+      rgba(60, 60, 56, 0.45) calc(50% - 0.5px),
+      rgba(60, 60, 56, 0.45) calc(50% + 0.5px),
+      transparent calc(50% + 0.5px)
+    );
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent var(--wheel-scroll-size),
+    #000 calc(var(--wheel-scroll-size) + 0.6%)
   );
+  mask: radial-gradient(
+    farthest-side,
+    transparent var(--wheel-scroll-size),
+    #000 calc(var(--wheel-scroll-size) + 0.6%)
+  );
+}
+
+.ipod__wheel.is-dragging .wheel__scroll {
+  cursor: grabbing;
+}
+
+/* Four outer sectors — full quadrant hit areas; scroll/Select sit above the middle */
+.wheel__btn {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ipod-wheel-label);
+  font-family: inherit;
+  font-size: clamp(0.5rem, 2.5vw, 0.62rem);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  text-transform: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.wheel__btn:hover,
+.wheel__btn:focus-visible {
+  color: #5a5a56;
+  outline: none;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.wheel__btn:active {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.wheel__btn--menu {
+  clip-path: polygon(50% 50%, 0% 0%, 100% 0%);
+  /* Center label in the thin outer band: half band thickness, minus half glyph height */
+  padding-top: calc((100% - var(--wheel-scroll-size)) / 4 - 0.55em);
+  font-size: clamp(0.48rem, 2.4vw, 0.6rem);
+  letter-spacing: 0.1em;
+}
+
+.wheel__btn--next {
+  clip-path: polygon(50% 50%, 100% 0%, 100% 100%);
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: calc((100% - var(--wheel-scroll-size)) / 4 - 0.55em);
+  font-size: clamp(0.62rem, 2.9vw, 0.78rem);
+  letter-spacing: -0.04em;
+}
+
+.wheel__btn--play {
+  clip-path: polygon(50% 50%, 100% 100%, 0% 100%);
+  align-items: flex-end;
+  padding-bottom: calc((100% - var(--wheel-scroll-size)) / 4 - 0.55em);
+  font-size: clamp(0.58rem, 2.7vw, 0.72rem);
+  letter-spacing: -0.08em;
+}
+
+.wheel__btn--prev {
+  clip-path: polygon(50% 50%, 0% 100%, 0% 0%);
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: calc((100% - var(--wheel-scroll-size)) / 4 - 0.55em);
+  font-size: clamp(0.62rem, 2.9vw, 0.78rem);
+  letter-spacing: -0.04em;
+}
+
+/*
+  Scroll ring: sized disk under Select. Outer button ring remains exposed
+  beyond this disk so sector hit-targets work without mask hit-testing issues.
+*/
+.wheel__scroll {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+  width: var(--wheel-scroll-size);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  cursor: grab;
+  /* Wide, light scroll face (Figma ~178px on 228px outer) */
+  background:
+    radial-gradient(
+      circle at 50% 38%,
+      #f7f7f5 0%,
+      #efefed 48%,
+      #e4e4e0 100%
+    );
+  border: 1px solid rgba(120, 120, 116, 0.22);
+  box-shadow:
+    inset 0 2px 5px rgba(0, 0, 0, 0.08),
+    inset 0 -1px 2px rgba(255, 255, 255, 0.55),
+    0 1px 1px rgba(0, 0, 0, 0.04);
+  /* Visual hole for Select; center ≈ 28/78 of scroll */
+  -webkit-mask: radial-gradient(farthest-side, transparent 34%, #000 36.5%);
+  mask: radial-gradient(farthest-side, transparent 34%, #000 36.5%);
 }
 
 .wheel__center {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 34%;
+  width: var(--wheel-center-size);
   aspect-ratio: 1;
   transform: translate(-50%, -50%);
   border: none;
@@ -778,20 +912,20 @@ body {
   background:
     radial-gradient(circle at 40% 32%, #ffffff 0%, var(--ipod-center) 55%, #e8e8e4 100%);
   box-shadow:
-    0 0 0 1px rgba(90, 90, 88, 0.55),
+    0 0 0 1px rgba(90, 90, 88, 0.5),
     inset 0 2px 3px rgba(255, 255, 255, 0.95),
     inset 0 -2px 4px rgba(0, 0, 0, 0.08),
     0 1px 2px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   padding: 0;
-  z-index: 2;
+  z-index: 4;
 }
 
 .wheel__center:hover,
 .wheel__center:focus-visible {
   outline: none;
   box-shadow:
-    0 0 0 1px rgba(90, 90, 88, 0.55),
+    0 0 0 1px rgba(90, 90, 88, 0.5),
     inset 0 2px 3px rgba(255, 255, 255, 0.95),
     inset 0 -2px 4px rgba(0, 0, 0, 0.08),
     0 1px 2px rgba(0, 0, 0, 0.1),
@@ -800,82 +934,6 @@ body {
 
 .wheel__center:active {
   transform: translate(-50%, -50%) scale(0.97);
-}
-
-.wheel__btn {
-  position: absolute;
-  z-index: 1;
-  margin: 0;
-  padding: 0.2em;
-  border: 0;
-  background: transparent;
-  color: var(--ipod-wheel-label);
-  font-family: inherit;
-  font-size: clamp(0.52rem, 2.6vw, 0.64rem);
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  line-height: 1;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  text-transform: none;
-}
-
-.wheel__btn:hover,
-.wheel__btn:focus-visible {
-  color: #5a5a56;
-  outline: none;
-}
-
-.wheel__btn:active {
-  transform: scale(0.96);
-}
-
-.wheel__btn--menu {
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: clamp(0.5rem, 2.5vw, 0.62rem);
-  letter-spacing: 0.08em;
-}
-
-.wheel__btn--menu:active {
-  transform: translateX(-50%) scale(0.96);
-}
-
-.wheel__btn--prev {
-  left: 8%;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: clamp(0.65rem, 3vw, 0.8rem);
-  letter-spacing: -0.04em;
-}
-
-.wheel__btn--prev:active {
-  transform: translateY(-50%) scale(0.96);
-}
-
-.wheel__btn--next {
-  right: 8%;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: clamp(0.65rem, 3vw, 0.8rem);
-  letter-spacing: -0.04em;
-}
-
-.wheel__btn--next:active {
-  transform: translateY(-50%) scale(0.96);
-}
-
-.wheel__btn--play {
-  bottom: 11%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: clamp(0.6rem, 2.8vw, 0.74rem);
-  letter-spacing: -0.08em;
-}
-
-.wheel__btn--play:active {
-  transform: translateX(-50%) scale(0.96);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -454,22 +454,14 @@
     return delta;
   }
 
-  function isOnCenterOrButton(target) {
-    return Boolean(
-      target.closest &&
-        (target.closest('.wheel__center') || target.closest('.wheel__btn'))
-    );
-  }
-
   function onWheelPointerDown(event) {
     if (event.button != null && event.button !== 0) return;
-    if (isOnCenterOrButton(event.target)) return;
 
     wheelState.dragging = true;
     wheelState.pointerId = event.pointerId;
     wheelState.lastAngle = angleFromEvent(event);
     wheelState.accum = 0;
-    els.wheel.classList.add('is-dragging');
+    els.wheel.closest('.ipod__wheel')?.classList.add('is-dragging');
     els.wheel.setPointerCapture(event.pointerId);
     event.preventDefault();
   }
@@ -496,7 +488,7 @@
     if (event.pointerId !== wheelState.pointerId) return;
     wheelState.dragging = false;
     wheelState.pointerId = null;
-    els.wheel.classList.remove('is-dragging');
+    els.wheel.closest('.ipod__wheel')?.classList.remove('is-dragging');
     try {
       els.wheel.releasePointerCapture(event.pointerId);
     } catch (_) {

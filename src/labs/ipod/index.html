@@ -125,12 +125,9 @@
             </div>
           </div>
 
-          <div class="ipod__wheel" id="wheel">
+          <div class="ipod__wheel">
             <button type="button" class="wheel__btn wheel__btn--menu" id="btn-menu" aria-label="Menu">
               menu
-            </button>
-            <button type="button" class="wheel__btn wheel__btn--prev" id="btn-prev" aria-label="Previous">
-              |&#171;
             </button>
             <button type="button" class="wheel__btn wheel__btn--next" id="btn-next" aria-label="Next">
               &#187;|
@@ -138,8 +135,11 @@
             <button type="button" class="wheel__btn wheel__btn--play" id="btn-play" aria-label="Play or pause">
               &#9654;&#9647;&#9647;
             </button>
+            <button type="button" class="wheel__btn wheel__btn--prev" id="btn-prev" aria-label="Previous">
+              |&#171;
+            </button>
+            <div class="wheel__scroll" id="wheel" aria-hidden="true"></div>
             <button type="button" class="wheel__center" id="btn-select" aria-label="Select"></button>
-            <div class="wheel__ring" id="wheel-ring" aria-hidden="true"></div>
           </div>
         </div>
       </div>
