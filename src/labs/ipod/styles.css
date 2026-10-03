@@ -421,15 +421,13 @@ body {
   position: relative;
   z-index: 1;
   flex: 0 0 auto;
-  aspect-ratio: 4 / 3.05;
-  padding: 3.4%;
-  background: linear-gradient(180deg, #3c3a3b 0%, var(--ipod-bezel) 55%, #1e1c1d 100%);
+  /* Slightly shorter so six list rows sit snug without a dead band at the bottom */
+  aspect-ratio: 4 / 2.96;
+  /* Real 1G: LCD flush in the face — thin rim + soft recess, no dark plastic frame */
+  padding: 0;
+  background: transparent;
   border-radius: 7px;
-  box-shadow:
-    0 4px 4px rgba(255, 255, 255, 0.22),
-    inset 0 -1px 3px rgba(0, 0, 0, 0.35),
-    inset 0 1px 7px rgba(0, 0, 0, 0.65),
-    inset 0 0 0 1px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 1px rgba(255, 255, 255, 0.45);
 }
 
 
@@ -444,7 +442,12 @@ body {
       rgba(245, 243, 233, 0.55) 98%
     ),
     linear-gradient(51deg, var(--ipod-lcd-deep) 0%, var(--ipod-lcd) 100%);
-  border-radius: 3px;
+  border-radius: 7px;
+  /* Thin perimeter line + soft inset (stronger top/left, like the photo) */
+  border: 1px solid rgba(90, 90, 88, 0.28);
+  box-shadow:
+    inset 1px 2px 3px rgba(0, 0, 0, 0.16),
+    inset -1px -1px 2px rgba(0, 0, 0, 0.04);
   color: var(--ipod-lcd-ink);
   /* One chunky face for the whole UI — no size/weight hierarchy */
   font-family: 'Lucida Grande', 'Geneva', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -456,7 +459,6 @@ body {
   -moz-osx-font-smoothing: unset;
   display: flex;
   flex-direction: column;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12);
 }
 
 .lcd__status {
