@@ -463,29 +463,29 @@ body {
 
 .lcd__status {
   display: grid;
-  grid-template-columns: 1.15em 1fr 1.55em;
+  grid-template-columns: 1.2em 1fr 1.7em;
   align-items: center;
   gap: 0.25em;
-  padding: 0.2em 0.4em 0.15em;
+  /* Taller title bar — eats a few spare pixels from the list bottom */
+  padding: 0.42em 0.45em 0.32em;
   background: transparent;
   color: var(--ipod-lcd-ink);
   font-size: 1em;
   font-weight: inherit;
   letter-spacing: inherit;
   flex-shrink: 0;
-  border-bottom: 2px solid var(--ipod-lcd-ink);
-  box-shadow: 0 1px 0 var(--ipod-lcd-ink);
+  border-bottom: 1px solid var(--ipod-lcd-ink);
 }
 
 .lcd__play {
-  font-size: 0.9em;
+  font-size: 0.72em;
   line-height: 1;
-  opacity: 0;
-  transition: opacity 80ms ease;
+  justify-self: start;
+  visibility: hidden;
 }
 
 .lcd__play.is-visible {
-  opacity: 1;
+  visibility: visible;
 }
 
 .lcd__title {
@@ -499,17 +499,21 @@ body {
 
 .lcd__battery {
   justify-self: end;
-  width: 1.45em;
-  height: 0.78em;
-  border: 2px solid var(--ipod-lcd-ink);
+  display: flex;
+  align-items: stretch;
+  gap: 1.5px;
+  box-sizing: border-box;
+  width: 1.55em;
+  height: 0.72em;
+  padding: 1.5px 2px;
+  border: 1.5px solid var(--ipod-lcd-ink);
   border-radius: 1px;
   position: relative;
 }
 
-.lcd__battery::before {
-  content: '';
-  position: absolute;
-  inset: 2px 30% 2px 2px;
+.lcd__battery-bar {
+  flex: 1 1 0;
+  min-width: 0;
   background: var(--ipod-lcd-ink);
 }
 
@@ -561,6 +565,8 @@ body {
   min-height: 0;
   overflow: hidden;
   position: relative;
+  /* Hairline gap between header rule and first row (real 1G) */
+  padding-top: 2px;
 }
 
 .lcd__list {
@@ -972,8 +978,7 @@ body {
   .desktop__icon,
   .desktop__glyph,
   .wheel__center,
-  .wheel__btn,
-  .lcd__play {
+  .wheel__btn {
     transition: none;
   }
 }

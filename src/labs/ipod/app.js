@@ -11,7 +11,6 @@
     listScreen: document.getElementById('screen-list'),
     nowScreen: document.getElementById('screen-now'),
     songList: document.getElementById('song-list'),
-    lcdTitle: document.getElementById('lcd-title'),
     lcdPlay: document.getElementById('lcd-play'),
     nowIndex: document.getElementById('now-index'),
     nowTitle: document.getElementById('now-title'),
@@ -88,7 +87,6 @@
     els.listScreen.classList.toggle('is-active', onList);
     els.nowScreen.classList.toggle('is-active', !onList);
     if (onList) {
-      els.lcdTitle.textContent = 'Music';
       renderList();
     } else {
       clearListMarquee();
@@ -297,7 +295,6 @@
   function renderNowPlaying() {
     const song = songs[playIndex];
     if (!song) return;
-    els.lcdTitle.textContent = song.title;
     if (els.nowIndex) {
       els.nowIndex.textContent = playIndex + 1 + ' of ' + songs.length;
     }
