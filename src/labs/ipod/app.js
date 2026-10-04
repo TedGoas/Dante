@@ -368,7 +368,6 @@
     if (!songs.length) return;
     playGeneration += 1;
     playIndex = Math.max(0, Math.min(songs.length - 1, index));
-    highlightIndex = playIndex;
     const song = songs[playIndex];
     audio.pause();
     audio.src = audioSrcFor(song);
@@ -376,9 +375,6 @@
 
     if (screen === 'now') {
       renderNowPlaying();
-    } else {
-      ensureHighlightVisible();
-      renderList();
     }
 
     if (autoplay) {
@@ -407,11 +403,7 @@
     // Keep playing only if we were already playing; don't force-start when paused.
     const wasPlaying = !audio.paused;
     loadTrack(next, wasPlaying);
-    if (screen === 'list') {
-      highlightIndex = playIndex;
-      ensureHighlightVisible();
-      renderList();
-    } else {
+    if (screen === 'now') {
       renderNowPlaying();
     }
   }
@@ -670,6 +662,15 @@
         return;
       }
       if (infoWindowOpen()) return;
+
+      /* Don't steal Enter/Space/arrows from desktop icons or other focusables */
+      const active = document.activeElement;
+      const focusOnPage =
+        !active || active === document.body || active === document.documentElement;
+      const ipodRoot = document.querySelector('.ipod');
+      const focusInIpod = Boolean(ipodRoot && active && ipodRoot.contains(active));
+      if (!focusOnPage && !focusInIpod) return;
+
       if (event.key === ' ') {
         event.preventDefault();
         togglePlayPause();
