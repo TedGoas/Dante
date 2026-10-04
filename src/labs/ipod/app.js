@@ -580,7 +580,15 @@
     });
 
     els.infoWindow.addEventListener('close', function () {
-      if (infoReturnFocus && els.btnInfo) els.btnInfo.focus();
+      // Return focus to the iPod (not Info) so Space/arrows keep working
+      if (infoReturnFocus) {
+        var ipodRoot = document.querySelector('.ipod');
+        if (ipodRoot && typeof ipodRoot.focus === 'function') {
+          ipodRoot.focus({ preventScroll: true });
+        } else if (els.btnInfo) {
+          els.btnInfo.focus();
+        }
+      }
     });
 
     if (titlebar) {
@@ -663,13 +671,18 @@
       }
       if (infoWindowOpen()) return;
 
-      /* Don't steal Enter/Space/arrows from desktop icons or other focusables */
+      /* Desktop icons keep native Enter/Space; page/body/iPod still get iPod keys */
       const active = document.activeElement;
       const focusOnPage =
         !active || active === document.body || active === document.documentElement;
       const ipodRoot = document.querySelector('.ipod');
       const focusInIpod = Boolean(ipodRoot && active && ipodRoot.contains(active));
-      if (!focusOnPage && !focusInIpod) return;
+      if (!focusOnPage && !focusInIpod) {
+        if (event.key === 'Enter' || event.key === ' ' || event.key === 'Spacebar') {
+          return;
+        }
+        /* Arrows etc. still drive the iPod when focus is stuck on a desktop icon */
+      }
 
       if (event.key === ' ') {
         event.preventDefault();

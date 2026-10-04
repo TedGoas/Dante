@@ -372,6 +372,10 @@ body {
   touch-action: none;
 }
 
+.ipod:focus {
+  outline: none;
+}
+
 .ipod__body {
   position: relative;
   aspect-ratio: 5 / 8.4;
