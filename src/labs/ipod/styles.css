@@ -1,0 +1,988 @@
+:root {
+  --ipod-page-bg: #3a7fd4;
+  --ipod-page-text: #f4f7fc;
+  --ipod-body: #e9ecf1;
+  --ipod-body-cool: #dde1e4;
+  --ipod-body-shadow: rgba(8, 24, 64, 0.45);
+  --ipod-bezel: #2a2829;
+  --ipod-lcd: #bab7b0;
+  --ipod-lcd-deep: #a09b8c;
+  --ipod-lcd-ink: #282425;
+  --ipod-lcd-muted: #5a5650;
+  --ipod-lcd-hi: #f3f1ea;
+  --ipod-lcd-select: #2c2829;
+  --ipod-wheel: #efefed;
+  --ipod-wheel-rim: #b8b8b4;
+  --ipod-wheel-label: #8a8a86;
+  --ipod-center: #f8f8f6;
+  --ipod-font: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --ipod-width: min(320px, calc(100vw - 2.5rem));
+  --panther-blue: #3a7fd4;
+  --panther-font: 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Helvetica, Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  color: var(--ipod-page-text);
+  font-family: var(--ipod-font);
+  -webkit-font-smoothing: antialiased;
+  /* Solid Aqua blue shows before/if the Panther wallpaper fails to load. */
+  background-color: var(--panther-blue);
+  background-image: url('/labs/ipod/img/panther-wallpaper.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* —— Desktop icons —— */
+
+.desktop {
+  position: fixed;
+  top: 1.25rem;
+  right: 1rem;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.35rem;
+  width: auto;
+  min-width: 5.5rem;
+  font-family: var(--panther-font);
+}
+
+.desktop__icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  width: 100%;
+  padding: 0.25rem;
+  margin: 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 6px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.desktop__icon:focus {
+  outline: none;
+}
+
+.desktop__icon:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.95);
+  outline-offset: 3px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.desktop__icon:hover .desktop__glyph {
+  filter: drop-shadow(0 2px 3px rgba(0, 20, 60, 0.35)) brightness(1.06);
+}
+
+.desktop__glyph {
+  display: block;
+  width: 3.25rem;
+  height: 2.75rem;
+  position: relative;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 3px rgba(0, 20, 60, 0.35));
+}
+
+.desktop__glyph--labs {
+  background:
+    linear-gradient(180deg, #8fd47a 0%, #4aaa3a 45%, #2d7a22 100%);
+  border-radius: 0.35rem 0.35rem 0.4rem 0.4rem;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -2px 3px rgba(20, 80, 10, 0.25);
+}
+
+.desktop__glyph--labs::before {
+  content: '';
+  position: absolute;
+  top: -0.35rem;
+  left: 0.15rem;
+  width: 1.35rem;
+  height: 0.55rem;
+  background: linear-gradient(180deg, #b0e89a 0%, #5cbc45 100%);
+  border-radius: 0.28rem 0.28rem 0 0;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.desktop__glyph--info {
+  width: 3.2rem;
+  height: 3.2rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.desktop__glyph-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.desktop__label {
+  max-width: none;
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  color: #fff;
+  text-shadow:
+    1px 1px 0 rgba(0, 0, 0, 0.85),
+    0 1px 2px rgba(0, 0, 0, 0.55);
+  white-space: nowrap;
+}
+
+.desktop__icon:focus-visible .desktop__label {
+  background: rgba(20, 60, 140, 0.55);
+}
+
+.stage {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4.5rem 1.25rem 2.5rem;
+  gap: 1.5rem;
+}
+
+.stage__hint {
+  margin: 0;
+  max-width: 22rem;
+  padding: 0.45rem 0.85rem;
+  text-align: center;
+  font-family: var(--panther-font);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 2px rgba(0, 30, 80, 0.55);
+  background: rgba(8, 30, 80, 0.28);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* —— Stickies Info window —— */
+
+.stickie {
+  /* Padding so the soft shadow isn’t clipped by the dialog’s tight bounds. */
+  padding: 1.25rem;
+  margin: 0;
+  border: none;
+  background: transparent;
+  max-width: calc(100vw - 2rem);
+  width: calc(18.5rem + 2.5rem);
+  color: #1a1a1a;
+  font-family: var(--panther-font);
+  overflow: visible;
+  position: fixed;
+  inset: auto;
+  /* top/left set in JS — launches left of the Info icon */
+}
+
+.stickie::backdrop {
+  background: transparent;
+}
+
+.stickie__chrome {
+  position: relative;
+  border-radius: 2px;
+  background: #fff6a0;
+  border: 1px solid #c9a40e;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.4);
+}
+
+.stickie__titlebar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.35rem;
+  padding: 0.28rem 1.65rem;
+  background:
+    linear-gradient(
+      180deg,
+      #ffe24a 0%,
+      #f0c820 48%,
+      #e0b410 100%
+    );
+  border-bottom: 1px solid #c49a0a;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.stickie__titlebar.is-dragging {
+  cursor: grabbing;
+}
+
+.stickie__close {
+  position: absolute;
+  left: 0.4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.85rem;
+  height: 0.85rem;
+  padding: 0;
+  border: 1px solid #a88810;
+  border-radius: 1px;
+  background:
+    linear-gradient(180deg, #ffe97a 0%, #efc428 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Corner “L” marks like the Panther Stickies title widget */
+.stickie__close::before,
+.stickie__close::after {
+  content: '';
+  position: absolute;
+  width: 0.28rem;
+  height: 0.28rem;
+  border-color: #6a5810;
+  border-style: solid;
+}
+
+.stickie__close::before {
+  top: 1px;
+  left: 1px;
+  border-width: 1.5px 0 0 1.5px;
+}
+
+.stickie__close::after {
+  right: 1px;
+  bottom: 1px;
+  border-width: 0 1.5px 1.5px 0;
+}
+
+.stickie__close:focus-visible {
+  outline: 2px solid #1a5bb8;
+  outline-offset: 2px;
+}
+
+.stickie__title {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 0.01em;
+}
+
+.stickie__shade {
+  position: absolute;
+  right: 0.45rem;
+  top: 50%;
+  transform: translateY(-42%);
+  width: 0;
+  height: 0;
+  border-left: 0.32rem solid transparent;
+  border-right: 0.32rem solid transparent;
+  border-bottom: 0.42rem solid #8a7010;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.stickie__body {
+  padding: 0.75rem 0.85rem 1.35rem;
+  min-height: 9rem;
+  background: #fff8b8;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: #111;
+}
+
+.stickie__lede {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.stickie__body p {
+  margin: 0 0 0.65rem;
+}
+
+.stickie__body p:last-child {
+  margin-bottom: 0;
+}
+
+.stickie__resize {
+  position: absolute;
+  right: 0.2rem;
+  bottom: 0.15rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      135deg,
+      transparent 42%,
+      #c9a40e 42%,
+      #c9a40e 48%,
+      transparent 48%,
+      transparent 58%,
+      #c9a40e 58%,
+      #c9a40e 64%,
+      transparent 64%
+    );
+  opacity: 0.7;
+}
+
+/* —— Device —— */
+
+.ipod {
+  width: var(--ipod-width);
+  border-radius: 24px;
+  /* Thin metal casing outside the white face (avoids body overflow clip) */
+  box-shadow:
+    0 0 0 1px #d2d6dc,
+    0 0 0 2.5px #8b9098,
+    0 0 0 3.5px #c8ccd2;
+  filter:
+    drop-shadow(0 30px 50px var(--ipod-body-shadow))
+    drop-shadow(0 12px 22px rgba(8, 24, 64, 0.28))
+    drop-shadow(0 4px 8px rgba(8, 24, 64, 0.18));
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+.ipod:focus {
+  outline: none;
+}
+
+.ipod__body {
+  position: relative;
+  aspect-ratio: 5 / 8.4;
+  /* Side pad so wheel ≈ screen ≈ 80% of face (real 1G photo) */
+  padding: 7.5% 9.5% 8%;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 7%,
+      rgba(255, 255, 255, 0.22) 14%,
+      rgba(255, 255, 255, 0) 20%
+    ),
+    /* Cool face so the white glare streak can read (Figma ~#dde1e4 → #e9ecf1) */
+    linear-gradient(
+      42deg,
+      var(--ipod-body-cool) 27%,
+      var(--ipod-body) 89%
+    );
+  border-radius: 22px;
+  border: none;
+  box-shadow:
+    1px 2px 1px rgba(0, 0, 0, 0.12),
+    inset 2px -3px 4px rgba(255, 255, 255, 0.28),
+    inset 7px -10px 9px -3px rgb(203, 211, 219),
+    inset -1px 1px 2px rgba(255, 255, 255, 0.55);
+  display: flex;
+  flex-direction: column;
+  gap: 6.5%;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Glare / light catch — Figma Mask group 31:50 (SVG must be <img>, not CSS background) */
+.ipod__glare {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 6;
+  object-fit: fill;
+  opacity: 0.35;
+}
+
+.ipod__screen-bezel {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  /* Slightly shorter so six list rows sit snug without a dead band at the bottom */
+  aspect-ratio: 4 / 2.96;
+  /* Real 1G: LCD flush in the face — thin rim + soft recess, no dark plastic frame */
+  padding: 0;
+  background: transparent;
+  border-radius: 7px;
+  box-shadow: 0 1px 1px rgba(255, 255, 255, 0.45);
+}
+
+
+.ipod__lcd {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0) 23%,
+      rgba(245, 243, 233, 0.55) 98%
+    ),
+    linear-gradient(51deg, var(--ipod-lcd-deep) 0%, var(--ipod-lcd) 100%);
+  border-radius: 7px;
+  /* Thin perimeter line + soft inset (stronger top/left, like the photo) */
+  border: 1px solid rgba(90, 90, 88, 0.28);
+  box-shadow:
+    inset 1px 2px 3px rgba(0, 0, 0, 0.16),
+    inset -1px -1px 2px rgba(0, 0, 0, 0.04);
+  color: var(--ipod-lcd-ink);
+  /* One chunky face for the whole UI — no size/weight hierarchy */
+  font-family: 'Lucida Grande', 'Geneva', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(0.82rem, 4.2vw, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.015em;
+  line-height: 1.18;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+  display: flex;
+  flex-direction: column;
+}
+
+.lcd__status {
+  display: grid;
+  grid-template-columns: 1.2em 1fr 1.7em;
+  align-items: center;
+  gap: 0.25em;
+  /* Taller title bar — eats a few spare pixels from the list bottom */
+  padding: 0.42em 0.45em 0.32em;
+  background: transparent;
+  color: var(--ipod-lcd-ink);
+  font-size: 1em;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--ipod-lcd-ink);
+}
+
+.lcd__play {
+  font-size: 0.72em;
+  line-height: 1;
+  justify-self: start;
+  visibility: hidden;
+}
+
+.lcd__play.is-visible {
+  visibility: visible;
+}
+
+.lcd__title {
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1em;
+  font-weight: inherit;
+}
+
+.lcd__battery {
+  justify-self: end;
+  display: flex;
+  align-items: stretch;
+  gap: 1.5px;
+  box-sizing: border-box;
+  width: 1.55em;
+  height: 0.72em;
+  padding: 1.5px 2px;
+  border: 1.5px solid var(--ipod-lcd-ink);
+  border-radius: 1px;
+  position: relative;
+}
+
+.lcd__battery-bar {
+  flex: 1 1 0;
+  min-width: 0;
+  background: var(--ipod-lcd-ink);
+}
+
+.lcd__battery::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: 22%;
+  width: 2px;
+  height: 56%;
+  background: var(--ipod-lcd-ink);
+  border-radius: 0 1px 1px 0;
+}
+
+.lcd__panel {
+  display: none;
+  flex: 1;
+  min-height: 0;
+  flex-direction: column;
+}
+
+.lcd__panel.is-active {
+  display: flex;
+}
+
+.lcd__heading {
+  margin: 0;
+  padding: 0.28em 0.45em 0.12em;
+  font-size: 1em;
+  font-weight: inherit;
+}
+
+/* Panel titles live in the status bar */
+.lcd__panel--list .lcd__heading,
+.lcd__panel--now .lcd__heading {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.lcd__list-wrap {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  position: relative;
+  /* Hairline gap between header rule and first row (real 1G) */
+  padding-top: 2px;
+}
+
+.lcd__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.lcd__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.35em;
+  padding: 0.28em 0.4em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: default;
+  font-size: 1em;
+  font-weight: inherit;
+}
+
+.lcd__item-title {
+  overflow: hidden;
+  flex: 1;
+  min-width: 0;
+}
+
+.lcd__item-title-text {
+  display: inline-block;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lcd__item-title {
+    text-overflow: ellipsis;
+  }
+
+  .lcd__item-title-text {
+    transform: none !important;
+  }
+}
+
+.lcd__item-chevron {
+  flex-shrink: 0;
+  font-size: 1em;
+  font-weight: inherit;
+  color: inherit;
+  opacity: 1;
+}
+
+.lcd__item.is-selected {
+  background: var(--ipod-lcd-select);
+  color: var(--ipod-lcd-hi);
+}
+
+.lcd__item.is-selected .lcd__item-chevron {
+  color: inherit;
+}
+
+/* Now Playing — classic iPod layout */
+
+.lcd__panel--now {
+  position: relative;
+  padding: 0.25em 0.45em 0.35em;
+}
+
+.now__index {
+  margin: 0;
+  flex-shrink: 0;
+  font-size: 1em;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  color: var(--ipod-lcd-ink);
+}
+
+.now__meta {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.08em;
+  padding: 0.45em 0.1em 0.55em;
+  text-align: center;
+}
+
+.now__track,
+.now__artist,
+.now__album {
+  margin: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1em;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  color: var(--ipod-lcd-ink);
+}
+
+.now__progress {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15em;
+  margin-top: auto;
+  padding-top: 0.15em;
+}
+
+.now__bar {
+  height: 1.15em;
+  border: 3px solid var(--ipod-lcd-ink);
+  border-radius: 999px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.now__bar-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--ipod-lcd-ink);
+  border-radius: 999px;
+  transform-origin: left center;
+}
+
+.now__times {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5em;
+}
+
+.now__time {
+  font-size: 1em;
+  font-variant-numeric: tabular-nums;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  color: var(--ipod-lcd-ink);
+}
+
+.lcd__note {
+  position: absolute;
+  left: 0.4em;
+  right: 0.4em;
+  bottom: 0.35em;
+  margin: 0;
+  padding: 0.3em 0.4em;
+  background: var(--ipod-lcd-select);
+  color: var(--ipod-lcd-hi);
+  font-size: 1em;
+  font-weight: inherit;
+  text-align: center;
+  border-radius: 2px;
+  z-index: 2;
+}
+
+.lcd__note[hidden] {
+  display: none;
+}
+
+/* —— Click Wheel: outer 4-button ring + scroll ring + center —— */
+
+.ipod__wheel {
+  --wheel-scroll-size: 78%;
+  --wheel-center-size: 28%;
+  position: relative;
+  z-index: 2;
+  /* Match screen width (~80% of face), with side margin like the photo */
+  width: 100%;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/*
+  Outer button ring face + Figma Ellipse 4 shadows (filter ddii):
+  white drop glows outside the ring and into the hole, plus a cool gray
+  inner shade on the band. drop-shadow follows the masked annulus alpha.
+*/
+.ipod__wheel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(
+      circle at 50% 3%,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 255, 255, 0) 42%
+    ),
+    radial-gradient(
+      circle at 78% 28%,
+      rgba(255, 255, 255, 0.55) 0%,
+      rgba(255, 255, 255, 0) 38%
+    ),
+    radial-gradient(
+      farthest-side,
+      transparent calc(var(--wheel-scroll-size) - 1%),
+      rgba(151, 161, 168, 0.45) var(--wheel-scroll-size),
+      rgba(151, 161, 168, 0.12) calc(var(--wheel-scroll-size) + 6%),
+      transparent 88%,
+      rgba(151, 161, 168, 0.28) 100%
+    ),
+    #e5e8ed;
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(var(--wheel-scroll-size) - 0.35%),
+    #000 var(--wheel-scroll-size)
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(var(--wheel-scroll-size) - 0.35%),
+    #000 var(--wheel-scroll-size)
+  );
+  /* Approx. Figma: dy 4 / blur 1.5 white; dy -7 / blur 3 white; soft contact */
+  filter:
+    drop-shadow(0 4px 2px rgba(255, 255, 255, 0.35))
+    drop-shadow(0 -6px 4px rgba(255, 255, 255, 0.3))
+    drop-shadow(0 2px 3px rgba(100, 110, 120, 0.16));
+}
+
+/* Diagonal quadrant seams on the outer ring only (outside the scroll) */
+.ipod__wheel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    linear-gradient(
+      45deg,
+      transparent calc(50% - 0.5px),
+      rgba(60, 60, 56, 0.45) calc(50% - 0.5px),
+      rgba(60, 60, 56, 0.45) calc(50% + 0.5px),
+      transparent calc(50% + 0.5px)
+    ),
+    linear-gradient(
+      -45deg,
+      transparent calc(50% - 0.5px),
+      rgba(60, 60, 56, 0.45) calc(50% - 0.5px),
+      rgba(60, 60, 56, 0.45) calc(50% + 0.5px),
+      transparent calc(50% + 0.5px)
+    );
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent var(--wheel-scroll-size),
+    #000 calc(var(--wheel-scroll-size) + 0.6%)
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent var(--wheel-scroll-size),
+    #000 calc(var(--wheel-scroll-size) + 0.6%)
+  );
+}
+
+.ipod__wheel.is-dragging .wheel__scroll {
+  cursor: grabbing;
+}
+
+/* Four outer sectors — full quadrant hit areas; scroll/Select sit above the middle */
+.wheel__btn {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ipod-wheel-label);
+  font-family: inherit;
+  font-size: clamp(0.5rem, 2.5vw, 0.62rem);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  text-transform: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.wheel__btn:hover,
+.wheel__btn:focus-visible {
+  color: #5a5a56;
+  outline: none;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.wheel__btn:active {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.wheel__btn--menu {
+  clip-path: polygon(50% 50%, 0% 0%, 100% 0%);
+  /* Center label in the thin outer band: half band thickness, minus half glyph height */
+  padding-top: calc((100% - var(--wheel-scroll-size)) / 4 - 0.55em);
+  font-size: clamp(0.48rem, 2.4vw, 0.6rem);
+  letter-spacing: 0.1em;
+}
+
+.wheel__btn--next {
+  clip-path: polygon(50% 50%, 100% 0%, 100% 100%);
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: calc((100% - var(--wheel-scroll-size)) / 4 - 0.55em);
+  font-size: clamp(0.62rem, 2.9vw, 0.78rem);
+  letter-spacing: -0.04em;
+}
+
+.wheel__btn--play {
+  clip-path: polygon(50% 50%, 100% 100%, 0% 100%);
+  align-items: flex-end;
+  padding-bottom: calc((100% - var(--wheel-scroll-size)) / 4 - 0.55em);
+  font-size: clamp(0.58rem, 2.7vw, 0.72rem);
+  letter-spacing: -0.08em;
+}
+
+.wheel__btn--prev {
+  clip-path: polygon(50% 50%, 0% 100%, 0% 0%);
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: calc((100% - var(--wheel-scroll-size)) / 4 - 0.55em);
+  font-size: clamp(0.62rem, 2.9vw, 0.78rem);
+  letter-spacing: -0.04em;
+}
+
+/*
+  Scroll ring: sized disk under Select. Outer button ring remains exposed
+  beyond this disk so sector hit-targets work without mask hit-testing issues.
+*/
+.wheel__scroll {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+  width: var(--wheel-scroll-size);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  cursor: grab;
+  /* Wide, light scroll face (Figma ~178px on 228px outer) */
+  background:
+    radial-gradient(
+      circle at 50% 38%,
+      #f7f7f5 0%,
+      #efefed 48%,
+      #e4e4e0 100%
+    );
+  border: 1px solid rgba(120, 120, 116, 0.22);
+  box-shadow:
+    inset 0 2px 5px rgba(0, 0, 0, 0.08),
+    inset 0 -1px 2px rgba(255, 255, 255, 0.55),
+    0 1px 1px rgba(0, 0, 0, 0.04);
+  /* Visual hole for Select; center ≈ 28/78 of scroll */
+  -webkit-mask: radial-gradient(farthest-side, transparent 34%, #000 36.5%);
+  mask: radial-gradient(farthest-side, transparent 34%, #000 36.5%);
+}
+
+.wheel__center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--wheel-center-size);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border: none;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 40% 32%, #ffffff 0%, var(--ipod-center) 55%, #e8e8e4 100%);
+  box-shadow:
+    0 0 0 1px rgba(90, 90, 88, 0.5),
+    inset 0 2px 3px rgba(255, 255, 255, 0.95),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.08),
+    0 1px 2px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  padding: 0;
+  z-index: 4;
+}
+
+.wheel__center:hover,
+.wheel__center:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 1px rgba(90, 90, 88, 0.5),
+    inset 0 2px 3px rgba(255, 255, 255, 0.95),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.08),
+    0 1px 2px rgba(0, 0, 0, 0.1),
+    0 0 0 3px rgba(80, 80, 80, 0.15);
+}
+
+.wheel__center:active {
+  transform: translate(-50%, -50%) scale(0.97);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .desktop__icon,
+  .desktop__glyph,
+  .wheel__center,
+  .wheel__btn {
+    transition: none;
+  }
+}

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A first-generation iPod, redrawn in CSS. Scroll the wheel, pick a track, play local clips."
+    />
+    <title>iPod — Labs</title>
+    <link rel="stylesheet" href="/labs/ipod/styles.css" />
+  </head>
+  <body>
+    <aside class="desktop" aria-label="Desktop">
+      <a class="desktop__icon" href="/labs/">
+        <span class="desktop__glyph desktop__glyph--labs" aria-hidden="true"></span>
+        <span class="desktop__label">❮ Back to Labs</span>
+      </a>
+      <button
+        type="button"
+        class="desktop__icon"
+        id="btn-info"
+        aria-haspopup="dialog"
+        aria-controls="info-window"
+      >
+        <span class="desktop__glyph desktop__glyph--info" aria-hidden="true">
+          <svg
+            class="desktop__glyph-svg"
+            viewBox="0 0 64 64"
+            xmlns="http://www.w3.org/2000/svg"
+            focusable="false"
+          >
+            <defs>
+              <linearGradient id="stickie-paper" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#fff6a8" />
+                <stop offset="100%" stop-color="#f5d84a" />
+              </linearGradient>
+              <filter id="stickie-shadow" x="-25%" y="-25%" width="150%" height="150%">
+                <feDropShadow dx="0.8" dy="1.2" stdDeviation="1" flood-color="#000" flood-opacity="0.28" />
+              </filter>
+            </defs>
+            <!-- Same triangular layout, scaled in so rotated corners stay inside the viewBox -->
+            <g transform="translate(32 32) scale(0.86) translate(-32 -32)">
+              <!-- Bottom / back — Milk (lower center, slight CCW) -->
+              <g transform="translate(20 26) rotate(-4)" filter="url(#stickie-shadow)">
+                <rect width="34" height="34" rx="2.5" fill="url(#stickie-paper)" stroke="#e0c030" stroke-width="0.5" />
+                <path
+                  fill="none"
+                  stroke="#2a4a9e"
+                  stroke-opacity="0.75"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  d="M7 14c3.5-1 8 1.5 12-0.5M8 20c4 0.5 9-1 13 0.8"
+                />
+              </g>
+              <!-- Right / middle — Eggs (upper right, nearly square) -->
+              <g transform="translate(26 8) rotate(-3)" filter="url(#stickie-shadow)">
+                <rect width="34" height="34" rx="2.5" fill="url(#stickie-paper)" stroke="#e0c030" stroke-width="0.5" />
+                <path
+                  fill="none"
+                  stroke="#c42828"
+                  stroke-opacity="0.8"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  d="M6 15c4-1.5 10 2 14-0.5M7 21c5 0.8 11-1.2 15 0.5"
+                />
+              </g>
+              <!-- Front / top-left — Lou (clockwise ~15°) -->
+              <g transform="translate(4 6) rotate(15)" filter="url(#stickie-shadow)">
+                <rect width="34" height="34" rx="2.5" fill="url(#stickie-paper)" stroke="#d4b020" stroke-width="0.5" />
+                <path
+                  fill="none"
+                  stroke="#3a3a3a"
+                  stroke-opacity="0.7"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  d="M6 12c3.5-1 9 1 13-0.5M5.5 18c4.5 0.5 11-1 15.5 0.5M7 24h12M7 27h9"
+                />
+              </g>
+            </g>
+          </svg>
+        </span>
+        <span class="desktop__label">Info</span>
+      </button>
+    </aside>
+
+    <main class="stage">
+      <div class="ipod" role="application" aria-label="First-generation iPod" tabindex="-1">
+        <div class="ipod__body">
+          <img
+            class="ipod__glare"
+            src="/labs/ipod/img/ipod-glare.svg"
+            alt=""
+            width="272"
+            height="449"
+            decoding="async"
+            aria-hidden="true"
+          >
+          <div class="ipod__screen-bezel">
+            <div class="ipod__lcd" aria-live="polite">
+              <header class="lcd__status">
+                <span class="lcd__play" id="lcd-play" aria-hidden="true">▶</span>
+                <span class="lcd__title">iPod</span>
+                <span class="lcd__battery" aria-hidden="true">
+                  <span class="lcd__battery-bar"></span>
+                  <span class="lcd__battery-bar"></span>
+                  <span class="lcd__battery-bar"></span>
+                  <span class="lcd__battery-bar"></span>
+                </span>
+              </header>
+
+              <section class="lcd__panel lcd__panel--list is-active" id="screen-list">
+                <h2 class="lcd__heading" id="list-heading">Music</h2>
+                <div class="lcd__list-wrap">
+                  <ul class="lcd__list" id="song-list" role="listbox" aria-labelledby="list-heading"></ul>
+                </div>
+              </section>
+
+              <section class="lcd__panel lcd__panel--now" id="screen-now">
+                <h2 class="lcd__heading">Now Playing</h2>
+                <p class="now__index" id="now-index" aria-hidden="true">1 of 1</p>
+                <div class="now__meta">
+                  <p class="now__track" id="now-title"></p>
+                  <p class="now__artist" id="now-artist"></p>
+                  <p class="now__album" id="now-album"></p>
+                </div>
+                <div class="now__progress" aria-hidden="true">
+                  <div class="now__bar">
+                    <div class="now__bar-fill" id="now-progress"></div>
+                  </div>
+                  <div class="now__times">
+                    <span class="now__time" id="now-elapsed">0:00</span>
+                    <span class="now__time" id="now-remaining">-0:00</span>
+                  </div>
+                </div>
+              </section>
+
+              <p class="lcd__note" id="lcd-note" hidden></p>
+            </div>
+          </div>
+
+          <div class="ipod__wheel">
+            <button type="button" class="wheel__btn wheel__btn--menu" id="btn-menu" aria-label="Menu">
+              menu
+            </button>
+            <button type="button" class="wheel__btn wheel__btn--next" id="btn-next" aria-label="Next">
+              &#187;|
+            </button>
+            <button type="button" class="wheel__btn wheel__btn--play" id="btn-play" aria-label="Play or pause">
+              &#9654;&#9647;&#9647;
+            </button>
+            <button type="button" class="wheel__btn wheel__btn--prev" id="btn-prev" aria-label="Previous">
+              |&#171;
+            </button>
+            <div class="wheel__scroll" id="wheel" aria-hidden="true"></div>
+            <button type="button" class="wheel__center" id="btn-select" aria-label="Select"></button>
+          </div>
+        </div>
+      </div>
+
+      <p class="stage__hint">
+        An old school iPod. The wheel, the buttons, and the Music list all work.
+      </p>
+    </main>
+
+    <dialog class="stickie" id="info-window" aria-labelledby="info-title">
+      <div class="stickie__chrome">
+        <div class="stickie__titlebar">
+          <button type="button" class="stickie__close" id="btn-info-close" aria-label="Close"></button>
+          <h2 class="stickie__title" id="info-title">Info</h2>
+          <span class="stickie__shade" aria-hidden="true"></span>
+        </div>
+        <div class="stickie__body">
+          <p class="stickie__lede">Old School iPod</p>
+          <p>
+            Some of my favorite songs from my iPod in the early 2000s. Each one is from my personal
+            MP3 collection, trimmed individually to 20 second previews using Claude Cowork.
+          </p>
+          <p>
+            Because technology peaked when a pocket-sized device could carry your entire music
+            library without turning you into a needy bundle of anxieties.
+          </p>
+        </div>
+        <span class="stickie__resize" aria-hidden="true"></span>
+      </div>
+    </dialog>
+
+    <script src="/labs/ipod/app.js" defer></script>
+  </body>
+</html>
