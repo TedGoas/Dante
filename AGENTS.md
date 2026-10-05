@@ -16,7 +16,7 @@
 ### Core Pages
 1. **Homepage** - Landing page with overview
 2. **Work** - Case studies and portfolio
-3. **Labs** - Small prototypes and experiments (`/labs/`; each prototype is a standalone bundle under `src/labs/{slug}/`)
+3. **Labs** - Small prototypes and experiments (`/labs/`; each prototype is a standalone bundle under `src/labs/{slug}/`). Index order is newest-first — see *Labs index* below.
 4. **Bio** - Background and about information
 5. **Blog** - Articles and posts
 6. **Newsletter** - Newsletter hub/subscription
@@ -109,6 +109,25 @@ Args: `text` (plain text, escaped), `variant` (`highlight` or `underline-double`
 
 ### RSS
 - **Requirement**: Include RSS feed for all blog posts
+
+### Labs index
+
+The Labs page (`/labs/`) is a curated thumb grid. It does **not** auto-discover folders under `src/labs/` and does **not** sort by date. Order is the literal order of objects in [`src/_data/labs.js`](src/_data/labs.js); [`src/labs.njk`](src/labs.njk) loops that array as-is.
+
+**Newest first:** Always **prepend** a new lab object at the **top** of the `labs.js` array (above existing entries). Do not append to the end. There is no publish-date field — placement in the array is the source of truth.
+
+**When adding a lab:**
+
+1. Add the standalone bundle under `src/labs/{slug}/` (include a thumb asset referenced by the index entry).
+2. In [`.eleventy.js`](.eleventy.js): `config.ignores.add` for that path, `addPassthroughCopy` to `labs/{slug}`, and `addWatchTarget` (same pattern as `hobby-comparison` / `ipod`).
+3. **Prepend** a new object at the top of [`src/_data/labs.js`](src/_data/labs.js) with `title`, `href`, `image`, and `image_alt`.
+
+| Piece | Location |
+|-------|----------|
+| Index data (order source of truth) | [`src/_data/labs.js`](src/_data/labs.js) |
+| Index template | [`src/labs.njk`](src/labs.njk) |
+| Lab bundles | [`src/labs/{slug}/`](src/labs/) |
+| Passthrough / ignore / watch | [`.eleventy.js`](.eleventy.js) |
 
 ### Work gallery: video figures (click-to-play)
 
