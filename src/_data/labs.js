@@ -8,7 +8,7 @@ module.exports = [
   {
     title: 'iPod',
     href: '/labs/ipod/',
-    image: '/labs/ipod/th-ipod.svg',
-    image_alt: 'A first-generation iPod drawn in CSS.'
+    image: '/labs/ipod/th-ipod.webp',
+    image_alt: 'Working first-generation iPod, circa 2003.'
   }
 ];
