@@ -4,7 +4,7 @@
 
 ### Project Overview
 - **Purpose**: Personal website for Ted Goas - product designer, researcher, and front-end developer
-- **Content**: Background, skills overview, work case studies, blog, newsletter hub
+- **Content**: Background, skills overview, work case studies, Labs experiments, blog, newsletter hub
 - **Current Site**: https://www.tedgoas.com/
 - **Current Repo**: https://github.com/TedGoas/Dante
 
@@ -118,9 +118,11 @@ The Labs page (`/labs/`) is a curated thumb grid. It does **not** auto-discover 
 
 **When adding a lab:**
 
-1. Add the standalone bundle under `src/labs/{slug}/` (include a thumb asset referenced by the index entry).
-2. In [`.eleventy.js`](.eleventy.js): `config.ignores.add` for that path, `addPassthroughCopy` to `labs/{slug}`, and `addWatchTarget` (same pattern as `hobby-comparison` / `ipod`).
-3. **Prepend** a new object at the top of [`src/_data/labs.js`](src/_data/labs.js) with `title`, `href`, `image`, and `image_alt`.
+1. Add a **self-contained** bundle under `src/labs/{slug}/` (HTML/CSS/JS + any media the lab needs). Prefer **vanilla** — no new npm dependencies unless Ted explicitly approves.
+2. Include a **thumb** asset for the index (referenced by the `labs.js` entry).
+3. In [`.eleventy.js`](.eleventy.js): `config.ignores.add` for that path, `addPassthroughCopy` to `labs/{slug}`, and `addWatchTarget` (same pattern as `hobby-comparison` / `ipod`).
+4. **Prepend** a new object at the **top** of [`src/_data/labs.js`](src/_data/labs.js) with `title`, `href`, `image`, and `image_alt`.
+5. Keep lab-specific media conventions in that lab’s folder (e.g. iPod audio + `songs.json` — see [`src/labs/ipod/README.md`](src/labs/ipod/README.md)). Do not scatter lab assets into `src/work/img/` or site-wide asset trees.
 
 | Piece | Location |
 |-------|----------|
@@ -194,10 +196,15 @@ Args: `slug`, `title` (iframe `title`), `width`, `height`, optional `background`
 1. Rebuild the embed bundle externally (or from a local sizzle-reel checkout)
 2. Copy the output into `src/work/img/{case}/prototypes/{slug}/` for each changed slug (rewrite absolute asset URLs in `index.html` to `/assets/img/{case}/prototypes/{slug}/…`)
 3. Commit the updated static files in Dante
+4. After a large sync: **visual QA** against the sizzle source (spacing, color, type) while **keeping intentional Dante cuts** (trimmed UI, gallery framing). Workflow alone is not enough — design drift is common.
 
 Agent skill (workflow + demo/`postMessage` conventions): [`.cursor/skills/prototype-embed/SKILL.md`](.cursor/skills/prototype-embed/SKILL.md).
 
 **UX notes:** Each figure shows a static poster until it scrolls into view (~35% visible), then waits 1 second before loading the iframe (`data-src` → `src?autostart=1`). Scrolling away before the delay cancels the timer. The chatbot prototype reads `autostart=1` and auto-runs its splash demo. When a demo animation finishes, the iframe posts `dante-prototype-demo-complete` and a centered circular **Replay** icon button appears over the iframe; clicking it sends `dante-prototype-replay` to restart without reloading the iframe. Under `prefers-reduced-motion: reduce`, activation JS is skipped; a static poster and link to open the prototype in a new tab is shown instead.
+
+**Host contract:** Interactions inside the iframe (focus, validation, scrollIntoView) must **not scroll the parent case-study page**. Contain focus/scroll inside the embed.
+
+**Mobile (large fixed artboards):** Letterbox / scale to fit within the same content margins as the rest of the page (slightly inset from the viewport edges); use as much horizontal space as those margins allow. Do not invent a third mobile strategy (e.g. horizontal-scroll native size) without asking.
 
 ### Work gallery: HTML embed prototypes (large iframe mocks)
 
@@ -211,7 +218,7 @@ Full-width **native-size iframe figures** for large product mocks rebuilt as HTM
 |--|------------|-------------------------|--------------------------|
 | Size | Fluid width in gallery; height from iframe resize postMessage | Native width + optional wallpaper | Small thumb (~470×400) |
 | Activation | Loads immediately (`loading="lazy"`) | Scroll gate + 1s delay + autostart | Hover/focus play/reset |
-| Cue | “Click around” (host page) | None | “Hover me!” (host page) |
+| Cue | “Click around” (host page) | None | “Hover me!” / “Tap me!” (host page; see thumb section) |
 | Bundle | `src/work/img/{case}/prototypes/{slug}/` | Same | Same |
 
 **Authoring (Markdown work pages):** wrap figure in `work-gallery__item--media-native`; use raw HTML on the media container:
@@ -246,7 +253,7 @@ Iframe `width` / `height` attrs are fallbacks; host CSS sets `width: 100%`. The 
 window.parent.postMessage({ type: 'dante-html-embed-resize', height: contentHeightPx }, '*');
 ```
 
-Host sets the iframe’s `style.height` from resize messages. Pointer events inside the iframe do not bubble to the host.
+Host sets the iframe’s `style.height` from resize messages. Pointer events inside the iframe do not bubble to the host. Same **host contract** as hero prototypes: in-iframe focus/validation must not scroll the parent page.
 
 **Cue UX:** Same visual language as thumb “Hover me!” — soft Swiss red, −6° tilt, Feather corner-right-down icon, hangs above top-left of the frame. Stays visible (does not fade on hover or after interaction).
 
@@ -255,8 +262,9 @@ Agent skill (workflow + reuse checklist): [`.cursor/skills/html-embed/SKILL.md`]
 
 ### Work gallery: thumbnail prototypes (hover/focus)
 
-Small live demos **inside** captioned thumbs (not hero embeds). Scripted interaction; play only on thumbnail **hover or focus**, not scroll-autostart. Soft-red “Hover me!” cue is built into the shortcode partial (interactive thumbs only — never on static SVG/PNG).
+Small live demos **inside** captioned thumbs (not hero embeds). Scripted interaction; play only on thumbnail **hover or focus**, not scroll-autostart. Soft-red cue is built into the shortcode partial (interactive thumbs only — never on static SVG/PNG).
 
+**Cue copy:** Default label is **“Hover me!”**. On real touch devices — `@media (hover: none) and (pointer: coarse)` — show **“Tap me!”** instead. Do **not** switch to “Tap me!” for a narrow desktop viewport (resize alone is not enough).
 
 **Authoring:**
 
@@ -408,6 +416,8 @@ Collaboration norms so agents match how this site is actually built (visual crit
 - **Prefer existing skills** — Gallery embeds, thumbs, figure layouts, case-study copy, image optimize, voice, commit/push: invoke the skill (or point to it) instead of re-explaining the pattern. See [`.cursor/skills/`](.cursor/skills/).
 - **This repo’s stack only** — Native HTML/CSS/11ty/vanilla JS. No Tailwind, React, or take-home app scaffolds here unless Ted explicitly carves that out.
 - **Dirty trees and other agents** — Surface path/branch collisions when the tree isn’t clean. Commit only this task’s paths (see **commit** skill). When another chat moved files, open with the new paths/branch.
+- **Cloud → local port** — When recreating a Cloud Agent PR locally, treat the **PR diff + chat transcript** as the brief; restate any still-open decisions before coding.
+- **Production HTML minify** — [`lib/transforms/minifyHtml.js`](lib/transforms/minifyHtml.js) runs only when `NODE_ENV=production`. Whitespace-sensitive gaps can disappear on Netlify while looking fine locally; keep `conservativeCollapse: true` (or equivalent). Do not “fix” with scattered `&nbsp;` in content.
 
 ## Design Context
 
@@ -447,8 +457,11 @@ the static site and/or serving it locally. Cloud agents build/run reliably here 
   `npm start` / `npm run build` alone produce the styled site. Edits to those CSS files are picked
   up by the watcher.
 - `dist/` is fully regenerated on every run (`clean` runs first), so never edit files in `dist/`.
-- Content lives in `src/`: blog posts in `src/posts/`, work case studies in `src/work/`, site
-  config/data in `src/_data/`. Adding a Markdown file there is picked up automatically by live reload.
+- Content lives in `src/`: blog posts in `src/posts/`, work case studies in `src/work/`, labs under
+  `src/labs/`, site config/data in `src/_data/`. Adding a Markdown file there is picked up
+  automatically by live reload.
+- **Local vs production HTML:** Dev serve does not minify HTML; production does. See *Working with
+  agents* (production HTML minify) if spacing between inline elements differs only on Netlify.
 
 ---
 

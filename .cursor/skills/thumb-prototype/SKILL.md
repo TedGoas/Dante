@@ -3,7 +3,7 @@ name: thumb-prototype
 description: >-
   Work gallery hover/focus thumbnail prototypes — sync static bundles into
   src/work/img/{case}/prototypes/{slug}/, wire thumbPrototype shortcode, preload
-  iframe resting frame, play/reset postMessage, and Hover me! cue. Use when the
+  iframe resting frame, play/reset postMessage, and Hover me! / Tap me! cue. Use when the
   user runs /thumb-prototype, asks to replace a static thumb with a hover demo,
   or when adding, updating, or debugging interactive gallery thumbs (not scroll-gated hero embeds).
 ---
@@ -20,7 +20,7 @@ Use when a work case study **captioned thumbnail** should show a **live interact
 ## When to run
 
 - User says `/thumb-prototype` or asks to swap a static gallery thumb for a hover/focus demo
-- Adding a new slug, syncing a bundle, or debugging thumb play/reset / Hover me cue behavior
+- Adding a new slug, syncing a bundle, or debugging thumb play/reset / Hover–Tap cue behavior
 
 ## vs hero `prototypeEmbed`
 
@@ -30,9 +30,11 @@ Use when a work case study **captioned thumbnail** should show a **live interact
 | Activation | Hover / keyboard focus | Scroll into view (~35%) + 1s delay |
 | Resting art | Live iframe first frame | Separate poster SVG |
 | Autostart / Replay | No | Yes (`autostart=1`, Replay button) |
-| Cue | Soft-red “Hover me!” + icon (always) | None |
+| Cue | Soft-red “Hover me!” / “Tap me!” + icon | None |
 
-Static SVG/PNG thumbs do **not** get the Hover me cue — only interactive `thumbPrototype` embeds.
+Static SVG/PNG thumbs do **not** get the cue — only interactive `thumbPrototype` embeds.
+
+**Cue copy:** Default **“Hover me!”**. Switch to **“Tap me!”** only under `@media (hover: none) and (pointer: coarse)` (real touch devices). Do **not** use “Tap me!” for a narrow desktop viewport alone — see partial + styles in [`thumb-prototype.njk`](../../../src/_includes/components/thumb-prototype.njk) / [`styles.css`](../../../src/assets/css/styles.css).
 
 ## Valid slugs
 
@@ -50,7 +52,7 @@ Adding a new slug requires updating `VALID_SLUGS` and `CASE_BY_SLUG` in [`lib/sh
 
 Args: `slug`, `title` (iframe `title`), `width`, `height`.
 
-Place inside a captioned thumb figure under `div.work-gallery__thumbs` (see [`work-gallery-figures`](../work-gallery-figures/SKILL.md)). The “Hover me!” cue is built into [`thumb-prototype.njk`](../../../src/_includes/components/thumb-prototype.njk) — do not strip it for interactive thumbs; do not add it to static `<img>` thumbs.
+Place inside a captioned thumb figure under `div.work-gallery__thumbs` (see [`work-gallery-figures`](../work-gallery-figures/SKILL.md)). The Hover/Tap cue is built into [`thumb-prototype.njk`](../../../src/_includes/components/thumb-prototype.njk) — do not strip it for interactive thumbs; do not add it to static `<img>` thumbs.
 
 ## Update / sync workflow
 
@@ -66,7 +68,7 @@ Place inside a captioned thumb figure under `div.work-gallery__thumbs` (see [`wo
 | Preload | On page load, host sets iframe `src` from `data-src` (resting frame visible immediately) |
 | Play | `pointerenter` / `focusin` → `{ type: 'dante-thumb-prototype-play' }` + `.is-active` |
 | Reset | `pointerleave` / `focusout` → `{ type: 'dante-thumb-prototype-reset' }` |
-| Cue | Soft Swiss red (~50% opacity), −6° tilt, Feather `corner-right-down`, above top-left; fades while `.is-active` / hover / focus-within |
+| Cue | Soft Swiss red (~50% opacity), −6° tilt, Feather `corner-right-down`, above top-left; “Hover me!” default / “Tap me!” on coarse touch; fades while `.is-active` / hover / focus-within |
 | Reduced motion | Preload only; skip play/reset; show open-in-new-tab fallback link |
 | Chrome | `pointer-events: none` on iframe; host `tabindex="0"`; overflow visible so the cue can hang |
 
@@ -92,14 +94,15 @@ When pairing with a static sibling thumb, match visual height via gallery CSS (e
 1. Valid slug + case folder in shortcode maps.
 2. Bundle committed under `src/work/img/{case}/prototypes/{slug}/`.
 3. Shortcode on the Markdown work page with correct width/height inside a thumbs row.
-4. Build; open `/work/<case-study>/`; confirm resting frame, Hover me cue, hover/focus play + reset, cue fade, reduced-motion path.
+4. Build; open `/work/<case-study>/`; confirm resting frame, Hover me cue on desktop, Tap me cue under coarse touch (or DevTools device emulation with coarse pointer), hover/focus play + reset, cue fade, reduced-motion path.
 5. Stage only thumb-prototype-related paths when committing.
 
 ## Do not
 
 - Use `prototypeEmbed` for captioned thumbs (or `thumbPrototype` for hero figures).
 - Ship a separate poster SVG as the resting thumbnail — the iframe first frame is the rest state.
-- Strip the Hover me cue from interactive thumbs, or add it to static images.
+- Strip the Hover/Tap cue from interactive thumbs, or add it to static images.
+- Show “Tap me!” based only on viewport width (must be coarse touch).
 - Point the iframe at a remote demo host.
 - Load `thumb-prototype.js` on the default (non-work) layout for a one-off figure.
 - Add npm packages for thumb chrome — vanilla JS + existing CSS tokens only.

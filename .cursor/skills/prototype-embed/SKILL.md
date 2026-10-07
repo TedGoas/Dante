@@ -41,7 +41,8 @@ Wrap the figure with `work-gallery__item--media-native` when the embed should si
 1. Rebuild the embed bundle externally (or from a local [`.sizzle-reel/`](../../../.sizzle-reel/) checkout — gitignored, not a submodule).
 2. Copy output into `src/work/img/{case}/prototypes/{slug}/` (`index.html` + hashed JS/CSS under `assets/`). Rewrite absolute script/CSS URLs in `index.html` to `/assets/img/{case}/prototypes/{slug}/…`. Remove stale hashed files from a previous build for that slug.
 3. Keep everything in Dante — no remote iframe `src` to github.io or other hosts.
-4. Commit only the changed slug folder(s) plus any shortcode/poster wiring (see **commit** skill dirty-tree rules).
+4. **Visual QA after large syncs:** Compare spacing, color, and type to the sizzle source, but **keep intentional Dante cuts** (trimmed screens, gallery framing). A dedicated UI pass after the port is worth it — workflow sync alone often leaves design drift.
+5. Commit only the changed slug folder(s) plus any shortcode/poster wiring (see **commit** skill dirty-tree rules).
 
 ## Host-page behavior (do not reimplement ad hoc)
 
@@ -51,6 +52,8 @@ Wrap the figure with `work-gallery__item--media-native` when the embed should si
 | Cancel | Scrolling away before the delay clears the timer |
 | Replay | Iframe posts `{ type: 'dante-prototype-demo-complete' }` → centered Replay button; click sends `{ type: 'dante-prototype-replay' }` via `postMessage` (no iframe reload) |
 | Reduced motion | Skip activation JS; static poster + link to open prototype in a new tab |
+| Host scroll | In-iframe focus / validation / `scrollIntoView` must **not** scroll the parent case-study page |
+| Mobile | Large fixed artboards letterbox/scale within page content margins; ask before a different strategy |
 
 Implementation map: shortcode, Nunjucks partial, markdown preprocessor, [`src/assets/js/prototype-embed.js`](../../../src/assets/js/prototype-embed.js), styles under `.prototype-embed` in `styles.css` — see AGENTS.md table.
 
@@ -68,7 +71,7 @@ When editing prototype bundle JS (cursor autoplay, multi-screen sequences):
 1. Valid slug + matching poster path and case folder in shortcode maps.
 2. Bundle committed under `src/work/img/{case}/prototypes/{slug}/`.
 3. Shortcode on the Markdown work page with correct width/height (and background if needed).
-4. Build; open `/work/<case-study>/`; scroll into view; confirm autostart, demo complete → Replay, reduced-motion poster path.
+4. Build; open `/work/<case-study>/`; scroll into view; confirm autostart, demo complete → Replay, reduced-motion poster path; after a sync, spot-check visual parity vs source (keeping intentional cuts); confirm iframe interactions do not scroll the host page.
 5. Stage only prototype-related paths when committing.
 
 ## Do not
@@ -76,4 +79,5 @@ When editing prototype bundle JS (cursor autoplay, multi-screen sequences):
 - Point the iframe at a remote demo host.
 - Load `prototype-embed.js` on the default (non-work) layout for a one-off figure.
 - Add npm packages for embed chrome — vanilla JS + existing CSS tokens only.
+- Let iframe focus or validation scroll the parent page.
 - Scoop unrelated dirty-tree files into the same commit.

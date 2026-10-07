@@ -84,6 +84,8 @@ window.parent.postMessage({ type: 'dante-html-embed-resize', height: Math.ceil(r
 
 Do **not** reuse Dialpad prototype message types (`dante-prototype-*`, `dante-thumb-prototype-*`) unless the host script explicitly handles them.
 
+**Host contract:** Resize/`postMessage` only for height. In-iframe focus, validation, or `scrollIntoView` must **not** scroll the parent case-study page — same rule as hero `prototypeEmbed`.
+
 ## Checklist (new html-embed figure)
 
 1. Bundle at `src/work/img/{case}/prototypes/{slug}/` with a fluid responsive layout (prefer reflow over CSS zoom).
