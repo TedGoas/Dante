@@ -112,7 +112,8 @@ Swiss light ground with red interactive accent and amber editorial punctuation.
 
 ### Editorial (non-interactive)
 
-- **Deep Amber** (`#e9ae0f` / `--color-accent`): Homepage text markers on the dark showcase band; pull-quote left rule. Not default link hover or focus rings.
+- **Deep Amber** (`#e9ae0f` / `--color-accent`): Homepage hand-drawn text markers (`annotate` highlight) on the dark showcase band; pull-quote left rule. Not default link hover or focus rings.
+- **Hand-drawn annotations** (`annotate` shortcode): Amber marker highlights and Swiss-red double underlines on single homepage words (opensourceui-inspired SVG paths + shared turbulence filter). Authoring and paint-in behavior: [AGENTS.md](AGENTS.md) (*Text annotations*).
 
 ### Neutral
 
@@ -138,7 +139,7 @@ Structural separator: hollow dots plus a flex-growing hairline (`--divider-color
 
 **The Swiss Red Interactive Rule.** Interactive chrome — hover, focus-visible, chrome link color — uses Swiss red. Amber is not the default interactive color.
 
-**The Amber Editorial Punctuation Rule.** Deep amber appears sparingly: text markers on the dark homepage showcase, pull-quote left rules. If amber fills large backgrounds or becomes default link hover, the palette has gone loud.
+**The Amber Editorial Punctuation Rule.** Deep amber appears sparingly: `annotate` highlights on the dark homepage showcase, pull-quote left rules. Double underlines use Swiss red (interactive accent), not amber. If amber fills large backgrounds or becomes default link hover, the palette has gone loud.
 
 **The Light Canvas / Dark Band Rule.** Default pages are light with a dark footer. Homepage adds a dark showcase band. Case studies keep captions on light and put dark full-bleed bands only behind gallery media.
 
