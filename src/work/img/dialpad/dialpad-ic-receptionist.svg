@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="464" viewBox="0 0 560 464" fill="none">
+  <rect width="560" height="464" rx="32" fill="#F4F4F4" stroke="rgba(0,0,0,0.08)"/>
+  <circle cx="56" cy="56" r="16" fill="#B6CFFF"/>
+  <text x="56" y="61" text-anchor="middle" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#000">A</text>
+  <text x="80" y="50" font-family="system-ui,sans-serif" font-size="15" font-weight="600" fill="#171717">Ashley</text>
+  <text x="136" y="50" font-family="system-ui,sans-serif" font-size="12" fill="#6B6B6B">AI Receptionist</text>
+  <text x="80" y="74" font-family="system-ui,sans-serif" font-size="15" fill="#171717">Thanks for calling Aerolabs! Our office is closed, but I&#39;m here 24/7.</text>
+  <circle cx="280" cy="300" r="170" stroke="#171717" stroke-width="3" stroke-dasharray="0.01 9" fill="none" opacity="0.7"/>
+  <g fill="#171717" transform="translate(280 168)">
+    <rect x="-28" y="-4" width="3" height="8" rx="1.5"/>
+    <rect x="-21" y="-7.5" width="3" height="15" rx="1.5"/>
+    <rect x="-14" y="-14.5" width="3" height="29" rx="1.5"/>
+    <rect x="-7" y="-10.5" width="3" height="21" rx="1.5"/>
+    <rect x="0" y="-21" width="3" height="42" rx="1.5"/>
+    <rect x="7" y="-21" width="3" height="42" rx="1.5"/>
+    <rect x="14" y="-14.5" width="3" height="29" rx="1.5"/>
+    <rect x="21" y="-7.5" width="3" height="15" rx="1.5"/>
+    <rect x="28" y="-4" width="3" height="8" rx="1.5"/>
+  </g>
+  <rect x="214" y="248" width="132" height="28" rx="8" fill="url(#hearGrad)"/>
+  <text x="280" y="266" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" font-weight="600" fill="#fff">Hear Ashley</text>
+  <rect x="90" y="300" width="380" height="56" rx="28" fill="#FFFFFF" stroke="rgba(0,0,0,0.08)"/>
+  <circle cx="122" cy="328" r="16" fill="#B6CFFF"/>
+  <text x="122" y="333" text-anchor="middle" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#000">A</text>
+  <text x="150" y="322" font-family="system-ui,sans-serif" font-size="15" font-weight="600" fill="#171717">Ashley</text>
+  <text x="150" y="340" font-family="system-ui,sans-serif" font-size="12" fill="#171717">(919) 123-4567 · 0:00</text>
+  <rect x="378" y="314" width="72" height="28" rx="14" fill="#FFE5E8"/>
+  <text x="414" y="332" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="#C11E1E">End</text>
+  <defs>
+    <linearGradient id="hearGrad" x1="214" y1="248" x2="346" y2="276" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#471571"/>
+      <stop offset="0.35" stop-color="#B02290"/>
+      <stop offset="0.7" stop-color="#F6484F"/>
+      <stop offset="1" stop-color="#F3960F"/>
+    </linearGradient>
+  </defs>
+</svg>
