@@ -10,7 +10,8 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
-  background: transparent;
+  /* Match card fill so host 16px clip never shows wallpaper through corners */
+  background: #f4f4f4;
   /* Match Dialtone: SF Pro stack, 15px body */
   font-family: "SF Pro", -apple-system, system-ui, "Segoe UI", Roboto, sans-serif;
   font-size: 15px;
@@ -28,10 +29,10 @@ body {
 
 .landing-preview {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
-  width: 560px;
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .preview-box {
@@ -39,11 +40,12 @@ body {
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-  width: 560px;
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
   background: #f4f4f4;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 32px;
+  /* Match host --radius-prototype-embed-widget (1rem) so clip + shadow align */
+  border-radius: 16px;
   padding: 16px 0 32px;
 }
 
