@@ -2587,10 +2587,15 @@ hr {
 }
 
 /*
- * Media + thumbnail grids break out past the layout shell.
+ * Media, thumbnail grids, and thumbs captions break out past the layout shell.
  * Intro, follow-up copy, and other text stay in the lead column.
  */
-.writing .work-gallery__item > :is(img, .work-gallery__media, .work-gallery__thumbs) {
+.writing .work-gallery__item > :is(
+  img,
+  .work-gallery__media,
+  .work-gallery__thumbs,
+  .work-gallery__thumbs-caption
+) {
   --work-gallery-media-breakout-width: min(
     var(--work-gallery-media-max-inline-size),
     calc(100vw - 2 * var(--work-gallery-viewport-gutter))
@@ -3324,13 +3329,11 @@ hr {
 
 .writing .work-gallery__thumbs-caption {
   margin: 0;
+  /* When nested inside .work-gallery__thumbs, span the full grid */
   grid-column: 1 / -1;
 }
 
 .writing .work-gallery__item > .work-gallery__thumbs-caption {
-  width: var(--work-gallery-media-breakout-width);
-  max-width: var(--work-gallery-media-max-inline-size);
-  margin-inline: auto;
   font-family: var(--font-sans);
   font-size: var(--figure-caption-meta-size);
   line-height: var(--figure-caption-meta-leading);

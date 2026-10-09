@@ -56,6 +56,8 @@
   var currentSpeaker = null;
   var audioEnabled = false;
   var isMuted = true;
+  /* Reuse one element so Safari can unlock on Hear, then play later clips. */
+  var audioEl = new Audio();
   var currentAudio = null;
   var skipSpeak = false;
   var timers = [];
@@ -80,30 +82,53 @@
   }
 
   function cancelAudio() {
-    if (currentAudio) {
-      currentAudio.pause();
-      currentAudio.currentTime = 0;
-      currentAudio = null;
+    audioEl.pause();
+    try {
+      audioEl.currentTime = 0;
+    } catch (err) {
+      /* ignore seek before metadata */
     }
+    currentAudio = null;
   }
 
   function pauseAudio() {
-    if (currentAudio && !currentAudio.paused) {
-      currentAudio.pause();
+    if (currentAudio && !audioEl.paused) {
+      audioEl.pause();
     }
   }
 
   function resumeAudio() {
     if (currentAudio) {
-      currentAudio.play().catch(function () {});
+      audioEl.play().catch(function () {});
     }
   }
 
   function speak(filename) {
     if (isMuted || !filename || reducedMotion) return;
-    cancelAudio();
-    currentAudio = new Audio(AUDIO_BASE + filename);
-    currentAudio.play().catch(function () {});
+    audioEl.pause();
+    audioEl.src = AUDIO_BASE + filename;
+    currentAudio = audioEl;
+    audioEl.play().catch(function () {});
+  }
+
+  /** Call play() inside the Hear click so later speak() is allowed (Safari). */
+  function unlockAudioFromGesture() {
+    var firstClip = TIMELINE[0] && TIMELINE[0].audio;
+    if (!firstClip) return;
+    audioEl.src = AUDIO_BASE + firstClip;
+    var playPromise = audioEl.play();
+    if (playPromise && typeof playPromise.then === 'function') {
+      playPromise
+        .then(function () {
+          audioEl.pause();
+          try {
+            audioEl.currentTime = 0;
+          } catch (err) {
+            /* ignore */
+          }
+        })
+        .catch(function () {});
+    }
   }
 
   function visibleSlice() {
@@ -318,6 +343,7 @@
       audioEnabled = true;
       isMuted = false;
       updateHearUi();
+      unlockAudioFromGesture();
       resetDemo();
       return;
     }
