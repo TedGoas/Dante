@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="464" viewBox="0 0 560 464" fill="none">
+  <defs>
+    <linearGradient id="hearGrad" x1="224" y1="272" x2="336" y2="300" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#471571"/>
+      <stop offset="0.35" stop-color="#B02290"/>
+      <stop offset="0.7" stop-color="#F6484F"/>
+      <stop offset="1" stop-color="#F3960F"/>
+    </linearGradient>
+    <mask id="arcWaveformGap">
+      <rect width="560" height="464" fill="white"/>
+      <rect x="240" y="172" width="80" height="85" fill="black"/>
+    </mask>
+    <filter id="callbarShadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="6" stdDeviation="3.5" flood-color="#000" flood-opacity="0.05"/>
+      <feDropShadow dx="0" dy="18" stdDeviation="10" flood-color="#000" flood-opacity="0.04"/>
+    </filter>
+  </defs>
+
+  <!-- Card -->
+  <rect width="560" height="464" rx="16" fill="#F4F4F4" stroke="rgba(0,0,0,0.08)"/>
+
+  <!-- Transcript message (bottom-aligned in 140px area under 16px padding) -->
+  <circle cx="48" cy="85" r="16" fill="#B6CFFF"/>
+  <text x="48" y="90" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#000">A</text>
+  <text x="76" y="78" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="600" fill="#171717">Ashley</text>
+  <text x="132" y="78" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#6B6B6B">AI Receptionist</text>
+  <text x="76" y="102" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#171717">Thanks for calling Aerolabs! Our office is closed,</text>
+  <text x="76" y="123" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#171717">but I&#39;m here 24/7.</text>
+
+  <!-- Voice arc: large dashed circle, only the top crescent shows (matches prototype viewBox) -->
+  <circle cx="280" cy="562" r="340" stroke="#171717" stroke-width="3" stroke-dasharray="0.01 9" stroke-linecap="round" fill="none" mask="url(#arcWaveformGap)"/>
+
+  <!-- Waveform bars at arc peak -->
+  <g fill="#171717" transform="translate(280 225)">
+    <rect x="-28" y="-4" width="3" height="8" rx="1.5"/>
+    <rect x="-21" y="-7.5" width="3" height="15" rx="1.5"/>
+    <rect x="-14" y="-14.5" width="3" height="29" rx="1.5"/>
+    <rect x="-7" y="-10.5" width="3" height="21" rx="1.5"/>
+    <rect x="0" y="-21" width="3" height="42" rx="1.5"/>
+    <rect x="7" y="-21" width="3" height="42" rx="1.5"/>
+    <rect x="14" y="-14.5" width="3" height="29" rx="1.5"/>
+    <rect x="21" y="-7.5" width="3" height="15" rx="1.5"/>
+    <rect x="28" y="-4" width="3" height="8" rx="1.5"/>
+  </g>
+
+  <!-- Hear Ashley (padding 11 / gap 6 / icon 12, content centered in 111px chip) -->
+  <rect x="224.5" y="272" width="111" height="28" rx="8" fill="url(#hearGrad)"/>
+  <g transform="translate(239 280)" fill="#fff">
+    <path fill-rule="evenodd" d="M9.181 2.111a.5.5 0 0 1 .708 0 5.5 5.5 0 0 1 0 7.777.5.5 0 1 1-.708-.707 4.5 4.5 0 0 0 0-6.363.5.5 0 0 1 0-.707ZM5.717 2.05A.5.5 0 0 1 6 2.5v7a.5.5 0 0 1-.812.39L2.825 8H1a.5.5 0 0 1-.5-.5v-3A.5.5 0 0 1 1 4h1.825l2.363-1.89a.5.5 0 0 1 .529-.06ZM5 3.54 3.312 4.89A.5.5 0 0 1 3 5H1.5v2H3a.5.5 0 0 1 .312.11L5 8.46V3.54Zm2.417.336a.5.5 0 0 1 .707 0 3 3 0 0 1 0 4.242.5.5 0 0 1-.708-.707 2 2 0 0 0 0-2.828.5.5 0 0 1 0-.707Z" clip-rule="evenodd"/>
+  </g>
+  <text x="257" y="290" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#fff">Hear Ashley</text>
+
+  <!-- Call bar -->
+  <g filter="url(#callbarShadow)">
+    <rect x="90" y="321" width="380" height="69" rx="34.5" fill="#FFFFFF" stroke="rgba(0,0,0,0.08)"/>
+  </g>
+  <circle cx="122" cy="355.5" r="16" fill="#B6CFFF"/>
+  <text x="122" y="360.5" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#000">A</text>
+  <text x="150" y="346" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="600" fill="#171717">Ashley</text>
+  <text x="150" y="366" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#171717">(919) 123-4567</text>
+  <circle cx="248" cy="362" r="1.5" fill="#6B6B6B"/>
+  <text x="256" y="366" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#171717">0:00</text>
+  <g transform="translate(290 356)" fill="#1A9A45">
+    <rect x="0" y="6" width="3" height="4" rx="1"/>
+    <rect x="5" y="3" width="3" height="7" rx="1"/>
+    <rect x="10" y="0" width="3" height="10" rx="1"/>
+  </g>
+  <rect x="366" y="339.5" width="88" height="32" rx="16" fill="#FFE5E8"/>
+  <g transform="translate(378 346.5)" stroke="#C11E1E" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M17.375 14.8517C18.3228 13.4262 18.875 11.7151 18.875 9.875C18.875 4.90444 14.8456 0.875 9.875 0.875C4.90444 0.875 0.875 4.90444 0.875 9.875C0.875 14.8456 4.90444 18.875 9.875 18.875H18.875" transform="scale(0.7)"/>
+  </g>
+  <text x="400" y="360" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="600" fill="#C11E1E">End</text>
+
+  <!-- Replay control (idle resting label) -->
+  <text x="280" y="430" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#6B6B6B">&#8634; Replay</text>
+</svg>

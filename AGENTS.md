@@ -175,7 +175,7 @@ Use this pattern when a work case study figure should show a **live interactive 
 
 Args: `slug`, `title` (iframe `title`), `width`, `height`, optional `background` image (same wallpaper pattern as click-to-play).
 
-**Valid slugs:** `analytics-gpt`, `launchpad`, `ai-chatbot`, `scorecards`.
+**Valid slugs:** `analytics-gpt`, `launchpad`, `ai-chatbot`, `scorecards`, `ai-receptionist`.
 
 **Implementation map:**
 
@@ -317,6 +317,7 @@ Optional expansion after the hero: process/outcome paragraphs, then a captioned 
 |-----------------|---------|
 | `work-gallery__thumbs--halves` | Two equal (~50%) |
 | `work-gallery__thumbs--thirds` | Three equal (~33%) |
+| `work-gallery__thumbs--quarters` | Four equal (~25%) |
 | `work-gallery__thumbs--wide-narrow` | Featured + secondary (~67% / ~33%) |
 
 Placeholder artwork: use `div.work-gallery__thumb-media.work-gallery__thumb-media--placeholder` instead of `<img>` until assets arrive.
