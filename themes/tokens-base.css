@@ -103,6 +103,12 @@
   --link-chrome-underline-offset: 2px;
   --link-emphasis-border-width: 4px;
   --shadow-work-gallery-stack: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.28);
+  /* Sidebar card fan: rest deck + hover/tap spread (Dialpad cutting-room-floor) */
+  --work-gallery-card-fan-duration: 0.45s;
+  --work-gallery-card-fan-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --work-gallery-card-fan-travel-x: 6.5rem;
+  --work-gallery-card-fan-travel-y: 4.25rem;
+  --work-gallery-card-fan-card-max: 19.9375rem; /* 319px */
   /* drop-shadow() args — follows inset SVG alpha (not box-shadow + border-radius) */
   --shadow-work-gallery-thumb-inset: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.08);
   --space-work-gallery-card-padding: clamp(1.25rem, 4vw, 2.5rem);
