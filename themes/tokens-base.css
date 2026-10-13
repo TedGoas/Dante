@@ -104,10 +104,13 @@
   --link-emphasis-border-width: 4px;
   --shadow-work-gallery-stack: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.28);
   /* Sidebar card fan: rest deck + hover/tap spread (Dialpad cutting-room-floor) */
-  --work-gallery-card-fan-duration: 0.45s;
+  --work-gallery-card-fan-duration: 0.4s;
+  --work-gallery-card-fan-stagger: 0.08s;
   --work-gallery-card-fan-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --work-gallery-card-fan-travel-x: 6.5rem;
-  --work-gallery-card-fan-travel-y: 4.25rem;
+  /* Half-width thumbs stage — travel blends min (legacy rem) + max in styles.css */
+  --work-gallery-card-fan-travel-min-x: 5.75rem;
+  --work-gallery-card-fan-travel-min-y: 4.125rem;
+  --work-gallery-card-fan-edge-inset: 0.875rem;
   --work-gallery-card-fan-card-max: 19.9375rem; /* 319px */
   /* drop-shadow() args — follows inset SVG alpha (not box-shadow + border-radius) */
   --shadow-work-gallery-thumb-inset: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.08);
