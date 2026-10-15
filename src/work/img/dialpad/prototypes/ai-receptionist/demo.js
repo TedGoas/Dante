@@ -135,13 +135,15 @@
       if (playPromise && typeof playPromise.then === 'function') {
         playPromise
           .then(function () {
+            clearTimeout(timeoutId);
+            /* Timeout may already have started the demo — do not pause that audio. */
+            if (settled) return;
             audioEl.pause();
             try {
               audioEl.currentTime = 0;
             } catch (err) {
               /* ignore */
             }
-            clearTimeout(timeoutId);
             done();
           })
           .catch(function () {
