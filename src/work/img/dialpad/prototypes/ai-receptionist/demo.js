@@ -113,22 +113,42 @@
 
   /** Call play() inside the Hear click so later speak() is allowed (Safari). */
   function unlockAudioFromGesture() {
-    var firstClip = TIMELINE[0] && TIMELINE[0].audio;
-    if (!firstClip) return;
-    audioEl.src = AUDIO_BASE + firstClip;
-    var playPromise = audioEl.play();
-    if (playPromise && typeof playPromise.then === 'function') {
-      playPromise
-        .then(function () {
-          audioEl.pause();
-          try {
-            audioEl.currentTime = 0;
-          } catch (err) {
-            /* ignore */
-          }
-        })
-        .catch(function () {});
+    return new Promise(function (resolve) {
+      var firstClip = TIMELINE[0] && TIMELINE[0].audio;
+      if (!firstClip) {
+        resolve();
+        return;
+      }
+      audioEl.src = AUDIO_BASE + firstClip;
+      var playPromise = audioEl.play();
+      if (playPromise && typeof playPromise.then === 'function') {
+        playPromise
+          .then(function () {
+            audioEl.pause();
+            try {
+              audioEl.currentTime = 0;
+            } catch (err) {
+              /* ignore */
+            }
+            resolve();
+          })
+          .catch(function () {
+            resolve();
+          });
+        return;
+      }
+      resolve();
+    });
+  }
+
+  function currentAshleyClip() {
+    for (var i = visibleItems.length - 1; i >= 0; i--) {
+      var item = visibleItems[i];
+      if (item.type === 'message' && item.speaker === 'aria' && item.audio) {
+        return item.audio;
+      }
     }
+    return null;
   }
 
   function visibleSlice() {
@@ -343,12 +363,24 @@
       audioEnabled = true;
       isMuted = false;
       updateHearUi();
-      unlockAudioFromGesture();
-      resetDemo();
+      /* Wait for unlock play() to settle before resetDemo pauses the element. */
+      unlockAudioFromGesture().then(function () {
+        resetDemo();
+      });
       return;
     }
     isMuted = !isMuted;
-    if (isMuted) cancelAudio();
+    if (isMuted) {
+      cancelAudio();
+    } else if (currentSpeaker === 'aria') {
+      var clip = currentAshleyClip();
+      if (clip && phase === 'active') {
+        speak(clip);
+      } else if (clip && phase === 'paused') {
+        audioEl.src = AUDIO_BASE + clip;
+        currentAudio = audioEl;
+      }
+    }
     updateHearUi();
   }
 

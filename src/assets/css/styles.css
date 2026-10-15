@@ -3342,8 +3342,9 @@ hr {
 
 /*
  * Card fan: wallpaper + stacked sidebar SVGs that fan on hover/focus-within
- * (fine pointer) or .is-expanded (touch tap). Often half-width in thumbs--halves.
- * Open stagger 1→2→3→4; collapse reverses via rest-state delays.
+ * (fine pointer) or .is-expanded only (touch tap — not sticky :focus-within).
+ * Often half-width in thumbs--halves. Open stagger 1→2→3→4; collapse reverses
+ * via rest-state delays.
  */
 .writing .work-gallery__media.work-gallery__media--card-fan {
   /*
@@ -3468,8 +3469,12 @@ hr {
   transition: transform var(--work-gallery-card-fan-duration) var(--work-gallery-card-fan-ease) 0s;
 }
 
-/* Fan open — delays: 1 first, then 2, 3, 4 */
-.writing .work-gallery__media--card-fan:is(:hover, :focus-within, .is-expanded) .work-gallery__card-fan__card--1 {
+/*
+ * Fan open — delays: 1 first, then 2, 3, 4.
+ * Touch/coarse: .is-expanded only (tap toggle). Fine pointer: hover/focus too.
+ * :focus-within alone must not keep the fan open on touch after a close tap.
+ */
+.writing .work-gallery__media--card-fan.is-expanded .work-gallery__card-fan__card--1 {
   z-index: 4;
   transform: translate(
       calc(-50% - var(--work-gallery-card-fan-travel-x)),
@@ -3479,7 +3484,7 @@ hr {
   transition: transform var(--work-gallery-card-fan-duration) var(--work-gallery-card-fan-ease) 0s;
 }
 
-.writing .work-gallery__media--card-fan:is(:hover, :focus-within, .is-expanded) .work-gallery__card-fan__card--2 {
+.writing .work-gallery__media--card-fan.is-expanded .work-gallery__card-fan__card--2 {
   z-index: 4;
   transform: translate(
       calc(-50% + var(--work-gallery-card-fan-travel-x)),
@@ -3490,7 +3495,7 @@ hr {
     var(--work-gallery-card-fan-stagger);
 }
 
-.writing .work-gallery__media--card-fan:is(:hover, :focus-within, .is-expanded) .work-gallery__card-fan__card--3 {
+.writing .work-gallery__media--card-fan.is-expanded .work-gallery__card-fan__card--3 {
   z-index: 4;
   transform: translate(
       calc(-50% - var(--work-gallery-card-fan-travel-x)),
@@ -3501,7 +3506,7 @@ hr {
     calc(var(--work-gallery-card-fan-stagger) * 2);
 }
 
-.writing .work-gallery__media--card-fan:is(:hover, :focus-within, .is-expanded) .work-gallery__card-fan__card--4 {
+.writing .work-gallery__media--card-fan.is-expanded .work-gallery__card-fan__card--4 {
   z-index: 4;
   transform: translate(
       calc(-50% + var(--work-gallery-card-fan-travel-x)),
@@ -3510,6 +3515,51 @@ hr {
     rotate(2.5deg);
   transition: transform var(--work-gallery-card-fan-duration) var(--work-gallery-card-fan-ease)
     calc(var(--work-gallery-card-fan-stagger) * 3);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .writing .work-gallery__media--card-fan:is(:hover, :focus-within) .work-gallery__card-fan__card--1 {
+    z-index: 4;
+    transform: translate(
+        calc(-50% - var(--work-gallery-card-fan-travel-x)),
+        calc(-50% - var(--work-gallery-card-fan-travel-y))
+      )
+      rotate(-3.5deg);
+    transition: transform var(--work-gallery-card-fan-duration) var(--work-gallery-card-fan-ease) 0s;
+  }
+
+  .writing .work-gallery__media--card-fan:is(:hover, :focus-within) .work-gallery__card-fan__card--2 {
+    z-index: 4;
+    transform: translate(
+        calc(-50% + var(--work-gallery-card-fan-travel-x)),
+        calc(-50% - var(--work-gallery-card-fan-travel-y))
+      )
+      rotate(3.5deg);
+    transition: transform var(--work-gallery-card-fan-duration) var(--work-gallery-card-fan-ease)
+      var(--work-gallery-card-fan-stagger);
+  }
+
+  .writing .work-gallery__media--card-fan:is(:hover, :focus-within) .work-gallery__card-fan__card--3 {
+    z-index: 4;
+    transform: translate(
+        calc(-50% - var(--work-gallery-card-fan-travel-x)),
+        calc(-50% + var(--work-gallery-card-fan-travel-y))
+      )
+      rotate(-2.5deg);
+    transition: transform var(--work-gallery-card-fan-duration) var(--work-gallery-card-fan-ease)
+      calc(var(--work-gallery-card-fan-stagger) * 2);
+  }
+
+  .writing .work-gallery__media--card-fan:is(:hover, :focus-within) .work-gallery__card-fan__card--4 {
+    z-index: 4;
+    transform: translate(
+        calc(-50% + var(--work-gallery-card-fan-travel-x)),
+        calc(-50% + var(--work-gallery-card-fan-travel-y))
+      )
+      rotate(2.5deg);
+    transition: transform var(--work-gallery-card-fan-duration) var(--work-gallery-card-fan-ease)
+      calc(var(--work-gallery-card-fan-stagger) * 3);
+  }
 }
 
 @media (max-width: 640px) {
@@ -3528,9 +3578,15 @@ hr {
 
 @media (prefers-reduced-motion: reduce) {
   .writing .work-gallery__media--card-fan .work-gallery__card-fan__card,
-  .writing .work-gallery__media--card-fan:is(:hover, :focus-within, .is-expanded)
-    .work-gallery__card-fan__card {
+  .writing .work-gallery__media--card-fan.is-expanded .work-gallery__card-fan__card {
     transition: none;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .writing .work-gallery__media--card-fan:is(:hover, :focus-within)
+      .work-gallery__card-fan__card {
+      transition: none;
+    }
   }
 }
 
@@ -3587,6 +3643,19 @@ hr {
   min-height: 0;
   overflow: hidden;
   background-color: var(--color-work-gallery-skeleton-bg);
+}
+
+.writing .work-gallery__thumb-media--video-frame[data-gallery-video] {
+  cursor: pointer;
+  outline: none;
+}
+
+.writing .work-gallery__thumb-media--video-frame[data-gallery-video]:focus-visible {
+  box-shadow: 0 0 0 2px var(--color-swiss-accent);
+}
+
+.writing .work-gallery__thumb-media--video-frame[data-gallery-video] > video {
+  pointer-events: none;
 }
 
 .writing .work-gallery__skeleton {
@@ -3853,9 +3922,15 @@ hr {
 .writing .work-gallery__thumb > .thumb-prototype.is-active .thumb-prototype__cue,
 .writing .work-gallery__thumb > .thumb-prototype:hover .thumb-prototype__cue,
 .writing .work-gallery__thumb > .thumb-prototype:focus-within .thumb-prototype__cue,
-.writing .work-gallery__thumb > .work-gallery__media--card-fan:is(:hover, :focus-within, .is-expanded)
-  > .thumb-prototype__cue {
+.writing .work-gallery__thumb > .work-gallery__media--card-fan.is-expanded > .thumb-prototype__cue {
   opacity: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .writing .work-gallery__thumb > .work-gallery__media--card-fan:is(:hover, :focus-within)
+    > .thumb-prototype__cue {
+    opacity: 0;
+  }
 }
 
 .thumb-prototype__iframe {

@@ -10,7 +10,12 @@
     if (!coarseHover.matches) return;
     var root = event.currentTarget;
     if (!(root instanceof HTMLElement)) return;
+    var willExpand = !root.classList.contains('is-expanded');
     root.classList.toggle('is-expanded');
+    /* Blur on collapse so :focus-within cannot keep the fan stuck open. */
+    if (!willExpand) {
+      root.blur();
+    }
   }
 
   function onKeydown(event) {
