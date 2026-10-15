@@ -32,6 +32,7 @@
 
   var CALLING_MS = 1000;
   var COMPLETE_TAIL_MS = 2000;
+  var UNLOCK_TIMEOUT_MS = 1500;
   var AUDIO_BASE = '/assets/img/dialpad/prototypes/ai-receptionist/audio/';
   var TOTAL_DELAY = TIMELINE.reduce(function (sum, item) {
     return sum + item.delay;
@@ -65,6 +66,7 @@
   var activeStartedAt = null;
   var pausedProgressMs = 0;
   var demoCompletePosted = false;
+  var audioUnlocking = false;
 
   function clearTimers() {
     timers.forEach(clearTimeout);
@@ -104,7 +106,7 @@
   }
 
   function speak(filename) {
-    if (isMuted || !filename || reducedMotion) return;
+    if (audioUnlocking || isMuted || !filename || reducedMotion) return;
     audioEl.pause();
     audioEl.src = AUDIO_BASE + filename;
     currentAudio = audioEl;
@@ -114,9 +116,18 @@
   /** Call play() inside the Hear click so later speak() is allowed (Safari). */
   function unlockAudioFromGesture() {
     return new Promise(function (resolve) {
+      var settled = false;
+      function done() {
+        if (settled) return;
+        settled = true;
+        resolve();
+      }
+      var timeoutId = setTimeout(done, UNLOCK_TIMEOUT_MS);
+
       var firstClip = TIMELINE[0] && TIMELINE[0].audio;
       if (!firstClip) {
-        resolve();
+        clearTimeout(timeoutId);
+        done();
         return;
       }
       audioEl.src = AUDIO_BASE + firstClip;
@@ -130,15 +141,24 @@
             } catch (err) {
               /* ignore */
             }
-            resolve();
+            clearTimeout(timeoutId);
+            done();
           })
           .catch(function () {
-            resolve();
+            clearTimeout(timeoutId);
+            done();
           });
         return;
       }
-      resolve();
+      clearTimeout(timeoutId);
+      done();
     });
+  }
+
+  function setControlsLocked(locked) {
+    audioUnlocking = locked;
+    phaseBtn.disabled = locked;
+    hearBtn.disabled = locked;
   }
 
   function currentAshleyClip() {
@@ -349,6 +369,7 @@
   }
 
   function onPhaseClick() {
+    if (audioUnlocking) return;
     if (phase === 'active') {
       pauseDemo();
     } else if (phase === 'paused') {
@@ -359,6 +380,7 @@
   }
 
   function onHearClick() {
+    if (audioUnlocking) return;
     if (!audioEnabled) {
       audioEnabled = true;
       isMuted = false;
@@ -366,11 +388,14 @@
       /*
        * Freeze the running (often autostarted) timeline first. A scheduled
        * speak() would change audioEl.src and abort Safari’s unlock play().
-       * Then wait for unlock to settle before resetDemo() restarts.
+       * Lock Pause/Resume/Hear so they cannot cancelAudio/speak mid-unlock.
+       * Timeout guarantees we always restart even if play() never settles.
        */
       clearTimers();
       cancelAudio();
+      setControlsLocked(true);
       unlockAudioFromGesture().then(function () {
+        setControlsLocked(false);
         resetDemo();
       });
       return;
@@ -395,6 +420,7 @@
 
   window.addEventListener('message', function (event) {
     if (!event.data || event.data.type !== 'dante-prototype-replay') return;
+    if (audioUnlocking) return;
     resetDemo();
   });
 
