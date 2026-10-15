@@ -363,7 +363,13 @@
       audioEnabled = true;
       isMuted = false;
       updateHearUi();
-      /* Wait for unlock play() to settle before resetDemo pauses the element. */
+      /*
+       * Freeze the running (often autostarted) timeline first. A scheduled
+       * speak() would change audioEl.src and abort Safari’s unlock play().
+       * Then wait for unlock to settle before resetDemo() restarts.
+       */
+      clearTimers();
+      cancelAudio();
       unlockAudioFromGesture().then(function () {
         resetDemo();
       });
