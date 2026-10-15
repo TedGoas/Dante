@@ -3397,7 +3397,8 @@ hr {
   inset: 0;
   z-index: 0;
   overflow: hidden;
-  border-radius: inherit;
+  /* Match the inner curve of the parent’s 1px border (inherit leaves a hairline gap) */
+  border-radius: calc(var(--radius-work-gallery-image) - var(--border-width-hairline));
 }
 
 /* Beat `.writing .work-gallery__item img { height: auto }` so the wallpaper fills the stage */
