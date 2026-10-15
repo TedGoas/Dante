@@ -1,5 +1,9 @@
 const { DateTime } = require('luxon');
 
 module.exports = () => ({
-  expires: DateTime.utc().plus({ years: 1 }).toISO({ suppressMilliseconds: true })
+  // RFC 9116 recommends Expires less than one year out.
+  expires: DateTime.utc()
+    .plus({ days: 364 })
+    .startOf('second')
+    .toISO({ suppressMilliseconds: true })
 });
