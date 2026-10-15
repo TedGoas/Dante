@@ -40,6 +40,12 @@ npm run build
 ## Configuration
 To change the title, description, author data, menu/nav items, etc., go to `src/_data/`.
 
+## Contributing
+
+This is a personal site, not a community project. I leave it public so people can see how the site is built.
+
+Thoughtful PRs are welcome, but if it's your first PR here, say hi in the description and tell me what you're trying to fix. I'd much rather hear from you than your coding agent. A one-line hello beats a mystery commit from a stranger.
+
 ## Planned Improvements
 
 ### Flexible Work Figures
