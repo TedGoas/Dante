@@ -111,7 +111,7 @@
   --work-gallery-card-fan-travel-min-x: 5.75rem;
   --work-gallery-card-fan-travel-min-y: 4.125rem;
   --work-gallery-card-fan-edge-inset: 0.875rem;
-  --work-gallery-card-fan-card-max: 19.9375rem; /* 319px */
+  --work-gallery-card-fan-card-max: 19.9375rem; /* 319×241 */
   /* drop-shadow() args — follows inset SVG alpha (not box-shadow + border-radius) */
   --shadow-work-gallery-thumb-inset: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.08);
   --space-work-gallery-card-padding: clamp(1.25rem, 4vw, 2.5rem);
