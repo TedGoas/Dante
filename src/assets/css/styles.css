@@ -3371,7 +3371,8 @@ hr {
   width: 100%;
   aspect-ratio: 5 / 4;
   min-height: 0;
-  overflow: hidden;
+  /* Visible so Hover/Tap cue can hang above the frame; paint clips in __clip */
+  overflow: visible;
   cursor: pointer;
   outline: none;
   border: var(--border-width-hairline) solid var(--work-index-card-border);
@@ -3385,6 +3386,18 @@ hr {
 
 .writing .work-gallery__thumb > .work-gallery__media--card-fan {
   flex-shrink: 0;
+}
+
+.writing .work-gallery__media--card-fan > .thumb-prototype__cue {
+  z-index: 3;
+}
+
+.writing .work-gallery__card-fan__clip {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: inherit;
 }
 
 /* Beat `.writing .work-gallery__item img { height: auto }` so the wallpaper fills the stage */
@@ -3754,7 +3767,8 @@ hr {
 }
 
 /* Hover/focus-gated thumbnail prototypes (distinct from hero prototypeEmbed) */
-.writing .work-gallery__thumb:has(> .thumb-prototype) {
+.writing .work-gallery__thumb:has(> .thumb-prototype),
+.writing .work-gallery__thumb:has(> .work-gallery__media--card-fan) {
   overflow: visible;
 }
 
@@ -3837,7 +3851,9 @@ hr {
 
 .writing .work-gallery__thumb > .thumb-prototype.is-active .thumb-prototype__cue,
 .writing .work-gallery__thumb > .thumb-prototype:hover .thumb-prototype__cue,
-.writing .work-gallery__thumb > .thumb-prototype:focus-within .thumb-prototype__cue {
+.writing .work-gallery__thumb > .thumb-prototype:focus-within .thumb-prototype__cue,
+.writing .work-gallery__thumb > .work-gallery__media--card-fan:is(:hover, :focus-within, .is-expanded)
+  > .thumb-prototype__cue {
   opacity: 0;
 }
 
