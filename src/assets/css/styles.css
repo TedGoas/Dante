@@ -2587,10 +2587,15 @@ hr {
 }
 
 /*
- * Media + thumbnail grids break out past the layout shell.
+ * Media, thumbnail grids, and thumbs captions break out past the layout shell.
  * Intro, follow-up copy, and other text stay in the lead column.
  */
-.writing .work-gallery__item > :is(img, .work-gallery__media, .work-gallery__thumbs) {
+.writing .work-gallery__item > :is(
+  img,
+  .work-gallery__media,
+  .work-gallery__thumbs,
+  .work-gallery__thumbs-caption
+) {
   --work-gallery-media-breakout-width: min(
     var(--work-gallery-media-max-inline-size),
     calc(100vw - 2 * var(--work-gallery-viewport-gutter))
@@ -3318,6 +3323,273 @@ hr {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.writing .work-gallery__thumbs--quarters {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.writing .work-gallery__thumbs-caption {
+  margin: 0;
+  /* When nested inside .work-gallery__thumbs, span the full grid */
+  grid-column: 1 / -1;
+}
+
+.writing .work-gallery__item > .work-gallery__thumbs-caption {
+  font-family: var(--font-sans);
+  font-size: var(--figure-caption-meta-size);
+  line-height: var(--figure-caption-meta-leading);
+  color: var(--color-figure-caption-body);
+}
+
+/*
+ * Card fan: wallpaper + stacked sidebar SVGs that fan on hover/focus-within
+ * (fine pointer) or .is-expanded only (touch tap — not sticky :focus-within).
+ * Often half-width in thumbs--halves. Open stagger 1→2→3→4; collapse reverses
+ * via rest-state delays.
+ */
+.writing .work-gallery__media.work-gallery__media--card-fan {
+  /*
+   * Travel scales with stage width (inline-size only — size containment
+   * collapsed the absolutely positioned SVGs). Y uses the 5/4 stage ratio.
+   * Midpoint between the old fixed rem spread and a near-edge max.
+   */
+  container-type: inline-size;
+  --work-gallery-card-fan-card-w: min(var(--work-gallery-card-fan-card-max), 52cqw);
+  /* Sidebar SVGs are 319×241 */
+  --work-gallery-card-fan-card-h: calc(var(--work-gallery-card-fan-card-w) * 241 / 319);
+  --work-gallery-card-fan-travel-max-x: calc(
+    50cqw - var(--work-gallery-card-fan-card-w) / 2 - var(--work-gallery-card-fan-edge-inset)
+  );
+  --work-gallery-card-fan-travel-max-y: calc(
+    50cqw * 4 / 5 - var(--work-gallery-card-fan-card-h) / 2 - var(--work-gallery-card-fan-edge-inset)
+  );
+  --work-gallery-card-fan-travel-x: calc(
+    (var(--work-gallery-card-fan-travel-min-x) + var(--work-gallery-card-fan-travel-max-x)) / 2
+  );
+  --work-gallery-card-fan-travel-y: calc(
+    (var(--work-gallery-card-fan-travel-min-y) + var(--work-gallery-card-fan-travel-max-y)) / 2
+  );
+  position: relative;
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  min-height: 0;
+  /* Visible so Hover/Tap cue can hang above the frame; paint clips in __clip */
+  overflow: visible;
+  cursor: pointer;
+  outline: none;
+  border: var(--border-width-hairline) solid var(--work-index-card-border);
+  border-radius: var(--radius-work-gallery-image);
+  box-sizing: border-box;
+}
+
+.writing .work-gallery__media.work-gallery__media--card-fan:focus-visible {
+  box-shadow: 0 0 0 2px var(--color-swiss-accent);
+}
+
+.writing .work-gallery__thumb > .work-gallery__media--card-fan {
+  flex-shrink: 0;
+}
+
+.writing .work-gallery__media--card-fan > .thumb-prototype__cue {
+  z-index: 3;
+}
+
+.writing .work-gallery__card-fan__clip {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  /* Match the inner curve of the parent’s 1px border (inherit leaves a hairline gap) */
+  border-radius: calc(var(--radius-work-gallery-image) - var(--border-width-hairline));
+}
+
+/* Beat `.writing .work-gallery__item img { height: auto }` so the wallpaper fills the stage */
+.writing .work-gallery__media--card-fan .work-gallery__card-fan__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  object-fit: fill; /* stretch to the frame; may distort vs cover */
+  object-position: center;
+  pointer-events: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.writing .work-gallery__card-fan__stage {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.writing .work-gallery__media--card-fan .work-gallery__card-fan__card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: block;
+  width: auto;
+  max-width: min(var(--work-gallery-card-fan-card-max), 52%);
+  height: auto;
+  border: none;
+  border-radius: var(--radius-work-gallery-image);
+  box-shadow: var(--shadow-work-gallery-stack);
+  transform-origin: center center;
+  will-change: transform;
+}
+
+/* Resting deck — centered stack; face upright, cards behind tilt only */
+.writing .work-gallery__media--card-fan .work-gallery__card-fan__card--1 {
+  z-index: 4;
+  transform: translate(-50%, -50%) rotate(0deg);
+  transition: transform var(--work-gallery-card-fan-duration) var(--work-gallery-card-fan-ease)
+    calc(var(--work-gallery-card-fan-stagger) * 3);
+}
+
+.writing .work-gallery__media--card-fan .work-gallery__card-fan__card--2 {
+  z-index: 3;
+  transform: translate(-50%, -50%) rotate(-3deg);
+  transition: transform var(--work-gallery-card-fan-duration) var(--work-gallery-card-fan-ease)
+    calc(var(--work-gallery-card-fan-stagger) * 2);
+}
+
+.writing .work-gallery__media--card-fan .work-gallery__card-fan__card--3 {
+  z-index: 2;
+  transform: translate(-50%, -50%) rotate(2.5deg);
+  transition: transform var(--work-gallery-card-fan-duration) var(--work-gallery-card-fan-ease)
+    var(--work-gallery-card-fan-stagger);
+}
+
+.writing .work-gallery__media--card-fan .work-gallery__card-fan__card--4 {
+  z-index: 1;
+  transform: translate(-50%, -50%) rotate(-2deg);
+  transition: transform var(--work-gallery-card-fan-duration) var(--work-gallery-card-fan-ease) 0s;
+}
+
+/*
+ * Fan open — delays: 1 first, then 2, 3, 4.
+ * Touch/coarse: .is-expanded only (tap toggle). Fine pointer: hover/focus too.
+ * :focus-within alone must not keep the fan open on touch after a close tap.
+ */
+.writing .work-gallery__media--card-fan.is-expanded .work-gallery__card-fan__card--1 {
+  z-index: 4;
+  transform: translate(
+      calc(-50% - var(--work-gallery-card-fan-travel-x)),
+      calc(-50% - var(--work-gallery-card-fan-travel-y))
+    )
+    rotate(-3.5deg);
+  transition: transform var(--work-gallery-card-fan-duration) var(--work-gallery-card-fan-ease) 0s;
+}
+
+.writing .work-gallery__media--card-fan.is-expanded .work-gallery__card-fan__card--2 {
+  z-index: 4;
+  transform: translate(
+      calc(-50% + var(--work-gallery-card-fan-travel-x)),
+      calc(-50% - var(--work-gallery-card-fan-travel-y))
+    )
+    rotate(3.5deg);
+  transition: transform var(--work-gallery-card-fan-duration) var(--work-gallery-card-fan-ease)
+    var(--work-gallery-card-fan-stagger);
+}
+
+.writing .work-gallery__media--card-fan.is-expanded .work-gallery__card-fan__card--3 {
+  z-index: 4;
+  transform: translate(
+      calc(-50% - var(--work-gallery-card-fan-travel-x)),
+      calc(-50% + var(--work-gallery-card-fan-travel-y))
+    )
+    rotate(-2.5deg);
+  transition: transform var(--work-gallery-card-fan-duration) var(--work-gallery-card-fan-ease)
+    calc(var(--work-gallery-card-fan-stagger) * 2);
+}
+
+.writing .work-gallery__media--card-fan.is-expanded .work-gallery__card-fan__card--4 {
+  z-index: 4;
+  transform: translate(
+      calc(-50% + var(--work-gallery-card-fan-travel-x)),
+      calc(-50% + var(--work-gallery-card-fan-travel-y))
+    )
+    rotate(2.5deg);
+  transition: transform var(--work-gallery-card-fan-duration) var(--work-gallery-card-fan-ease)
+    calc(var(--work-gallery-card-fan-stagger) * 3);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .writing .work-gallery__media--card-fan:is(:hover, :focus-within) .work-gallery__card-fan__card--1 {
+    z-index: 4;
+    transform: translate(
+        calc(-50% - var(--work-gallery-card-fan-travel-x)),
+        calc(-50% - var(--work-gallery-card-fan-travel-y))
+      )
+      rotate(-3.5deg);
+    transition: transform var(--work-gallery-card-fan-duration) var(--work-gallery-card-fan-ease) 0s;
+  }
+
+  .writing .work-gallery__media--card-fan:is(:hover, :focus-within) .work-gallery__card-fan__card--2 {
+    z-index: 4;
+    transform: translate(
+        calc(-50% + var(--work-gallery-card-fan-travel-x)),
+        calc(-50% - var(--work-gallery-card-fan-travel-y))
+      )
+      rotate(3.5deg);
+    transition: transform var(--work-gallery-card-fan-duration) var(--work-gallery-card-fan-ease)
+      var(--work-gallery-card-fan-stagger);
+  }
+
+  .writing .work-gallery__media--card-fan:is(:hover, :focus-within) .work-gallery__card-fan__card--3 {
+    z-index: 4;
+    transform: translate(
+        calc(-50% - var(--work-gallery-card-fan-travel-x)),
+        calc(-50% + var(--work-gallery-card-fan-travel-y))
+      )
+      rotate(-2.5deg);
+    transition: transform var(--work-gallery-card-fan-duration) var(--work-gallery-card-fan-ease)
+      calc(var(--work-gallery-card-fan-stagger) * 2);
+  }
+
+  .writing .work-gallery__media--card-fan:is(:hover, :focus-within) .work-gallery__card-fan__card--4 {
+    z-index: 4;
+    transform: translate(
+        calc(-50% + var(--work-gallery-card-fan-travel-x)),
+        calc(-50% + var(--work-gallery-card-fan-travel-y))
+      )
+      rotate(2.5deg);
+    transition: transform var(--work-gallery-card-fan-duration) var(--work-gallery-card-fan-ease)
+      calc(var(--work-gallery-card-fan-stagger) * 3);
+  }
+}
+
+@media (max-width: 640px) {
+  .writing .work-gallery__media--card-fan {
+    --work-gallery-card-fan-card-w: min(var(--work-gallery-card-fan-card-max), 48cqw);
+    --work-gallery-card-fan-travel-max-y: calc(
+      50cqw * 3 / 4 - var(--work-gallery-card-fan-card-h) / 2 - var(--work-gallery-card-fan-edge-inset)
+    );
+    aspect-ratio: 4 / 3;
+  }
+
+  .writing .work-gallery__media--card-fan .work-gallery__card-fan__card {
+    max-width: min(var(--work-gallery-card-fan-card-max), 48%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .writing .work-gallery__media--card-fan .work-gallery__card-fan__card,
+  .writing .work-gallery__media--card-fan.is-expanded .work-gallery__card-fan__card {
+    transition: none;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .writing .work-gallery__media--card-fan:is(:hover, :focus-within)
+      .work-gallery__card-fan__card {
+      transition: none;
+    }
+  }
+}
+
 .writing .work-gallery__thumbs--wide-narrow {
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
 }
@@ -3356,9 +3628,157 @@ hr {
 }
 
 .writing .work-gallery__thumb-media--placeholder {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 5 / 4;
   background-color: var(--color-surface-tile-muted);
   border-color: var(--color-surface-tile-border);
+}
+
+/* Match card-fan stage; static skeleton chrome; video docks to bottom edge */
+.writing .work-gallery__thumb-media--video-frame {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  aspect-ratio: 5 / 4;
+  min-height: 0;
+  overflow: hidden;
+  background-color: var(--color-work-gallery-skeleton-bg);
+}
+
+.writing .work-gallery__thumb-media--video-frame[data-gallery-video] {
+  cursor: pointer;
+  outline: none;
+}
+
+.writing .work-gallery__thumb-media--video-frame[data-gallery-video]:focus-visible {
+  box-shadow: 0 0 0 2px var(--color-swiss-accent);
+}
+
+.writing .work-gallery__thumb-media--video-frame[data-gallery-video] > video {
+  pointer-events: none;
+}
+
+.writing .work-gallery__skeleton {
+  position: absolute;
+  /* Oversized + offset so shapes read zoomed-in and clip at the frame */
+  inset: -8% -12% -18% -6%;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  padding: 1.1rem 1rem 1rem;
+  box-sizing: border-box;
+  pointer-events: none;
+  filter: blur(2.5px);
+  transform: translateX(30px);
+}
+
+.writing .work-gallery__skeleton__top {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-shrink: 0;
+}
+
+.writing .work-gallery__skeleton__body {
+  display: flex;
+  flex: 1;
+  gap: 1.15rem;
+  min-height: 0;
+}
+
+.writing .work-gallery__skeleton__rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+  flex-shrink: 0;
+  width: 2.75rem;
+  padding-top: 0.25rem;
+}
+
+.writing .work-gallery__skeleton__main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.9rem;
+  min-width: 0;
+}
+
+.writing .work-gallery__skeleton__row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.writing .work-gallery__skeleton__circle,
+.writing .work-gallery__skeleton__bar,
+.writing .work-gallery__skeleton__block {
+  display: block;
+  background-color: var(--color-work-gallery-skeleton-bone);
+  border-radius: var(--radius-work-gallery-image);
+}
+
+.writing .work-gallery__skeleton__circle {
+  width: 2.25rem;
+  height: 2.25rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.writing .work-gallery__skeleton__circle--sm {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.writing .work-gallery__skeleton__bar {
+  height: 0.95rem;
+  width: 100%;
+}
+
+.writing .work-gallery__skeleton__bar--lg {
+  width: 48%;
+  height: 1.15rem;
+}
+
+.writing .work-gallery__skeleton__bar--md {
+  width: 34%;
+}
+
+.writing .work-gallery__skeleton__bar--sm {
+  width: 18%;
+  margin-left: auto;
+}
+
+.writing .work-gallery__skeleton__block {
+  flex: 1;
+  min-height: 6rem;
+}
+
+.writing .work-gallery__skeleton__block--short {
+  flex: 0 0 4rem;
+  min-height: 4rem;
+}
+
+.writing .work-gallery__skeleton__block--tile {
+  flex: none;
+  min-height: 5rem;
+  aspect-ratio: 1;
+}
+
+.writing .work-gallery__thumb-media--video-frame > video {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: auto;
+  max-width: 88%;
+  height: auto;
+  max-height: 88%;
+  border: var(--border-width-hairline) solid var(--work-index-card-border);
+  border-bottom: none;
+  border-radius: var(--radius-work-gallery-image) var(--radius-work-gallery-image) 0 0;
+  background-color: transparent;
+  box-shadow: var(--shadow-work-gallery-stack);
 }
 
 /* Odd-shaped asset: match sibling thumb frame; center + bottom-align with inset padding */
@@ -3417,7 +3837,8 @@ hr {
 }
 
 /* Hover/focus-gated thumbnail prototypes (distinct from hero prototypeEmbed) */
-.writing .work-gallery__thumb:has(> .thumb-prototype) {
+.writing .work-gallery__thumb:has(> .thumb-prototype),
+.writing .work-gallery__thumb:has(> .work-gallery__media--card-fan) {
   overflow: visible;
 }
 
@@ -3500,8 +3921,16 @@ hr {
 
 .writing .work-gallery__thumb > .thumb-prototype.is-active .thumb-prototype__cue,
 .writing .work-gallery__thumb > .thumb-prototype:hover .thumb-prototype__cue,
-.writing .work-gallery__thumb > .thumb-prototype:focus-within .thumb-prototype__cue {
+.writing .work-gallery__thumb > .thumb-prototype:focus-within .thumb-prototype__cue,
+.writing .work-gallery__thumb > .work-gallery__media--card-fan.is-expanded > .thumb-prototype__cue {
   opacity: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .writing .work-gallery__thumb > .work-gallery__media--card-fan:is(:hover, :focus-within)
+    > .thumb-prototype__cue {
+    opacity: 0;
+  }
 }
 
 .thumb-prototype__iframe {
@@ -3571,6 +4000,7 @@ hr {
 @media (max-width: 640px) {
   .writing .work-gallery__thumbs--halves,
   .writing .work-gallery__thumbs--thirds,
+  .writing .work-gallery__thumbs--quarters,
   .writing .work-gallery__thumbs--wide-narrow {
     grid-template-columns: minmax(0, 1fr);
   }

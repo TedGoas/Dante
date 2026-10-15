@@ -13,7 +13,7 @@
   --color-swiss-fg-dark-muted: rgb(245 245 245 / 0.55);
   --color-swiss-accent: #c41230;
   --color-swiss-accent-hover: #e0183a;
-  --color-swiss-hairline-light: rgb(20 20 20 / 0.14);
+  --color-swiss-hairline-light: rgb(20 20 20 / 0.1);
   --color-swiss-hairline-dark: rgb(245 245 245 / 0.14);
 
   /* Semantic page canvas (Swiss light) */
@@ -50,6 +50,9 @@
   --color-surface-tile-border: var(--color-border-subtle);
   /* Subtle matte behind logos / letterboxed thumbs (near-black at low mix) */
   --color-work-media-matte: color-mix(in srgb, var(--color-site-fg) 10%, var(--color-surface-raised));
+  /* Static skeleton chrome behind Dialpad CC video thumb */
+  --color-work-gallery-skeleton-bg: var(--color-surface-raised);
+  --color-work-gallery-skeleton-bone: color-mix(in srgb, var(--color-site-fg) 5%, var(--color-surface-raised));
 
   /*
    * Work index image cards: square stage over the dark band color.

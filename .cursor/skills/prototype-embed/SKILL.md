@@ -22,8 +22,9 @@ Use when a work case study figure should show a **live interactive prototype** (
 | `launchpad` | `dialpad-team` | `/assets/img/dialpad-team/dialpad-team-launchpad.svg` |
 | `ai-chatbot` | `dialpad-team` | `/assets/img/dialpad-team/dialpad-team-chatbot.svg` |
 | `scorecards` | `dialpad` | `/assets/img/dialpad/dialpad-ic-scorecards.svg` |
+| `ai-receptionist` | `dialpad` | `/assets/img/dialpad/dialpad-ic-receptionist.svg` |
 
-Adding a new slug requires updating `VALID_SLUGS`, `CASE_BY_SLUG`, and `POSTER_BY_SLUG` in [`lib/shortcodes/prototypeEmbed.js`](../../../lib/shortcodes/prototypeEmbed.js) (and committing the new bundle). Ask before inventing a fifth slug.
+Adding a new slug requires updating `VALID_SLUGS`, `CASE_BY_SLUG`, and `POSTER_BY_SLUG` in [`lib/shortcodes/prototypeEmbed.js`](../../../lib/shortcodes/prototypeEmbed.js) (and committing the new bundle). Ask before inventing a new slug.
 
 ## Authoring (Markdown work pages)
 
