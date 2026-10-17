@@ -1,4 +1,8 @@
 (function () {
+  // Height source of truth: dante-html-embed-resize postMessage.
+  // Do not skip this listener when CSS.supports('frame-sizing', 'content-height')
+  // — Chrome 154 claimed support but height:auto + native sizing collapsed the
+  // Stack Overflow dashboard. See AGENTS.md (html-embed) before enabling frame-sizing.
   function initHtmlEmbeds() {
     var embeds = document.querySelectorAll('[data-html-embed]');
     if (!embeds.length) {
