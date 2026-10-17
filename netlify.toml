@@ -21,6 +21,19 @@
   to = "/humans.txt"
   status = 301
 
+# Baseline security headers (#235). CSP tracked separately (#238).
+# X-Frame-Options: SAMEORIGIN (not DENY) so same-origin work prototype iframes keep working.
+# Applied by Netlify only (not `npm start`). After deploy: curl -sI https://www.tedgoas.com/
+# and re-check heade.rs Security (Framing, No sniffing, Referrer, Permissions, Isolation).
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+    Cross-Origin-Opener-Policy = "same-origin"
+
 [[headers]]
   for = "/.well-known/security.txt"
   [headers.values]
