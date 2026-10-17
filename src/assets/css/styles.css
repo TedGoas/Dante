@@ -4422,6 +4422,9 @@ hr {
   height: 1640px;
   max-width: 100%;
   border: 0;
+  /* Do NOT add @supports (frame-sizing: content-height) { height: auto } here
+     until the enablement gate in AGENTS.md (html-embed) passes — it collapsed
+     this fluid dashboard in Chrome 154 while CSS.supports returned true. */
 }
 
 /* --- Interactive prototype embed (work gallery only) --- */

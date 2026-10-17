@@ -247,13 +247,29 @@ Iframe `width` / `height` attrs are fallbacks; host CSS sets `width: 100%`. The 
 | Script load scope | [`src/_includes/layouts/work.njk`](src/_includes/layouts/work.njk) `footerScripts` only |
 | Passthrough | `src/work/img/**` → `/assets/img/` ([`.eleventy.js`](.eleventy.js) `config.ignores` keeps prototype paths out of the template pipeline) |
 
-**postMessage (iframe → host):** When layout height changes (load, resize, reflow), post:
+**postMessage (iframe → host) — height source of truth:** When layout height changes (load, resize, reflow), post:
 
 ```js
 window.parent.postMessage({ type: 'dante-html-embed-resize', height: contentHeightPx }, '*');
+if ('requestResize' in window) window.requestResize();
 ```
 
-Host sets the iframe’s `style.height` from resize messages. Pointer events inside the iframe do not bubble to the host. Same **host contract** as hero prototypes: in-iframe focus/validation must not scroll the parent page.
+Host [`work-html-embed.js`](src/assets/js/work-html-embed.js) sets the iframe’s `style.height` from resize messages. Always keep this path. Pointer events inside the iframe do not bubble to the host. Same **host contract** as hero prototypes: in-iframe focus/validation must not scroll the parent page.
+
+**Chrome / future `frame-sizing` prep (bundle only today):** The Stack Overflow dashboard already opts in with:
+
+```html
+<meta name="responsive-embedded-sizing" content="allow-origins=https://www.tedgoas.com http://localhost:8080">
+```
+
+and calls `requestResize()` after each height report. That is inert until the **host** uses `frame-sizing: content-height`. Do **not** enable host CSS yet.
+
+**Enablement gate (before host `frame-sizing`):** Chrome 154 claimed `CSS.supports('frame-sizing', 'content-height')` but `height: auto` + skipping `postMessage` **collapsed** this fluid dashboard. Before shipping host styles like `@supports (frame-sizing: content-height) { height: auto; frame-sizing: content-height; }`:
+
+1. Leave `postMessage` height writes on (do not early-return out of `work-html-embed.js`).
+2. Smoke-test `/work/stack-overflow/`: iframe must stay roughly full dashboard height (≈1500px+, not a stub header).
+3. Only then consider clearing inline height / relying on native sizing — and only after measuring `iframe.offsetHeight ≈` reported content height (± a few px) with `postMessage` temporarily disabled in a local experiment.
+4. Keep the CSS fallback `height: 1640px` until native sizing is proven.
 
 **Cue UX:** Same visual language as thumb “Hover me!” — soft Swiss red, −6° tilt, Feather corner-right-down icon, hangs above top-left of the frame. Stays visible (does not fade on hover or after interaction).
 

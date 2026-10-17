@@ -76,21 +76,30 @@ Cue stays visible (does not fade on hover or after interaction).
 
 ## In-bundle conventions
 
-Report content height whenever layout changes so the host iframe does not clip:
+Report content height whenever layout changes so the host iframe does not clip. `postMessage` is the height source of truth. Also call `requestResize()` when present (Chrome prep; no-op until host enables `frame-sizing`).
+
+```html
+<meta name="responsive-embedded-sizing" content="allow-origins=https://www.tedgoas.com http://localhost:8080">
+```
 
 ```js
 window.parent.postMessage({ type: 'dante-html-embed-resize', height: Math.ceil(root.getBoundingClientRect().height) }, '*');
+if ('requestResize' in window) window.requestResize();
 ```
 
 Do **not** reuse Dialpad prototype message types (`dante-prototype-*`, `dante-thumb-prototype-*`) unless the host script explicitly handles them.
 
 **Host contract:** Resize/`postMessage` only for height. In-iframe focus, validation, or `scrollIntoView` must **not** scroll the parent case-study page — same rule as hero `prototypeEmbed`.
 
+## Future `frame-sizing` (do not enable host CSS yet)
+
+Chrome’s `frame-sizing: content-height` + `height: auto` **collapsed** the Stack Overflow dashboard when we also skipped the host `postMessage` listener — even though `CSS.supports('frame-sizing', 'content-height')` was true. Bundle meta + `requestResize()` are already in the reference dashboard as prep. Before adding host `@supports (frame-sizing: content-height) { height: auto; frame-sizing: content-height; }`, follow the enablement gate in [AGENTS.md](../../../AGENTS.md) (*Work gallery: HTML embed prototypes*): keep `postMessage` on, smoke-test full height on `/work/stack-overflow/`, prove measured height matches content before relying on native sizing alone.
+
 ## Checklist (new html-embed figure)
 
 1. Bundle at `src/work/img/{case}/prototypes/{slug}/` with a fluid responsive layout (prefer reflow over CSS zoom).
 2. Case study figure: `work-gallery__item--media-native` + markup above with fallback iframe `width` / `height`.
-3. Interactive JS inside bundle; post `dante-html-embed-resize` on load/resize.
+3. Interactive JS inside bundle; post `dante-html-embed-resize` on load/resize; include `responsive-embedded-sizing` meta + `requestResize()` when available.
 4. Build; open `/work/{slug}/`; confirm no clipping at narrow widths and cue stays visible.
 5. Stage only html-embed-related paths when committing (see **commit** skill).
 ## Do not
@@ -99,3 +108,4 @@ Do **not** reuse Dialpad prototype message types (`dante-prototype-*`, `dante-th
 - Put the “Click around” cue inside the iframe (host Swiss red + Geist only).
 - Use `prototypeEmbed` scroll-gating for these full-page mocks unless explicitly redesigning the pattern.
 - Add npm dependencies to the bundle without approval.
+- Enable host `frame-sizing: content-height` with `height: auto`, or skip the `postMessage` height listener, without passing the AGENTS enablement gate.

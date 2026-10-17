@@ -1183,6 +1183,13 @@
       },
       "*"
     );
+
+    // Chrome 154+: no-op unless the host uses frame-sizing: content-height.
+    // Do not remove postMessage — CSS.supports alone is not enough (native sizing
+    // collapsed this embed when height:auto skipped the host listener).
+    if ("requestResize" in window) {
+      window.requestResize();
+    }
   }
 
   function initHeightReporter() {
