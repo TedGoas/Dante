@@ -24,10 +24,12 @@
 # Baseline security headers (#235) + Content-Security-Policy (#238).
 # X-Frame-Options: SAMEORIGIN (not DENY) so same-origin work prototype iframes keep working.
 # CSP: Beehiiv + Cabin + blog embeds (YouTube/Vimeo/Twitter/CodePen/Gist) + remote media
-# (Giphy/Imgur/Dribbble) + Labs Google Fonts. frame-src also allows app.netlify.com for
-# Netlify deploy-preview drawer (harmless on production). No script 'unsafe-inline'
+# (Giphy/Imgur/Dribbble) + Labs Google Fonts. Deploy-preview drawer: frame-src app.netlify.com
+# + script-src netlify-cdp-loader.netlify.app (when Netlify injects absolute URL; same-origin
+# /.netlify/scripts/cdp is already covered by 'self'). No script 'unsafe-inline'
 # (js class hook is /assets/js/js-class.js). Applied by Netlify only (not `npm start`).
 # After deploy: curl -sI https://www.tedgoas.com/ and re-check heade.rs Security.
+# QA tip: append ?ntl-drawer-state=hidden to silence Netlify drawer console noise.
 [[headers]]
   for = "/*"
   [headers.values]
@@ -36,7 +38,7 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
     Cross-Origin-Opener-Policy = "same-origin"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' https://subscribe-forms.beehiiv.com https://scripts.withcabin.com https://platform.twitter.com https://cdn.syndication.twimg.com https://static.codepen.io https://cpwebassets.codepen.io https://public.codepenassets.com https://gist.github.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://github.githubassets.com; img-src 'self' data: https://media.giphy.com https://i.imgur.com https://cdn.dribbble.com https://pbs.twimg.com https://abs.twimg.com https://ton.twimg.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://scripts.withcabin.com https://ping.withcabin.com https://cdn.syndication.twimg.com https://syndication.twitter.com; frame-src 'self' https://subscribe-forms.beehiiv.com https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com https://platform.twitter.com https://syndication.twitter.com https://codepen.io https://app.netlify.com; media-src 'self' https://cdn.dribbble.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://subscribe-forms.beehiiv.com https://scripts.withcabin.com https://platform.twitter.com https://cdn.syndication.twimg.com https://static.codepen.io https://cpwebassets.codepen.io https://public.codepenassets.com https://gist.github.com https://netlify-cdp-loader.netlify.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://github.githubassets.com; img-src 'self' data: https://media.giphy.com https://i.imgur.com https://cdn.dribbble.com https://pbs.twimg.com https://abs.twimg.com https://ton.twimg.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://scripts.withcabin.com https://ping.withcabin.com https://cdn.syndication.twimg.com https://syndication.twitter.com; frame-src 'self' https://subscribe-forms.beehiiv.com https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com https://platform.twitter.com https://syndication.twitter.com https://codepen.io https://app.netlify.com; media-src 'self' https://cdn.dribbble.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'"
 
 [[headers]]
   for = "/.well-known/security.txt"
