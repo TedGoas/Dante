@@ -29,6 +29,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="{{ title or site.title }}">
   <meta name="twitter:description" content="{{ description or site.description }}">
+  {% if page.url == "/" %}{% include "components/json-ld-home.njk" %}{% endif %}
 </head>
 <body{% if page and page.url == "/" %} class="page--home"{% endif %}>
   <a href="#main" class="skip-link">Skip to main content</a>

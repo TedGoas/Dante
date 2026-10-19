@@ -1,0 +1,26 @@
+{% set websiteId = site.url ~ "/#website" %}
+{% set personId = site.url ~ "/#person" %}
+{% set homeUrl = site.url ~ "/" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": {{ websiteId | dump | safe }},
+      "url": {{ homeUrl | dump | safe }},
+      "name": {{ site.title | dump | safe }},
+      "description": {{ site.description | dump | safe }},
+      "author": { "@id": {{ personId | dump | safe }} }
+    },
+    {
+      "@type": "Person",
+      "@id": {{ personId | dump | safe }},
+      "name": {{ site.author.name | dump | safe }},
+      "url": {{ homeUrl | dump | safe }},
+      "jobTitle": {{ site.author.jobTitle | dump | safe }},
+      "sameAs": {{ site.author.sameAs | dump | safe }}
+    }
+  ]
+}
+</script>
