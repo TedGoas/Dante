@@ -15,6 +15,17 @@ description: Subscribe to my newsletter
 
   <section class="post-list" aria-label="Past issues">
     <ul class="article-list">
+      {% for siteIssue in collections.newsletterIssues %}
+        <li class="article-list__item">
+          <a class="article-list__link" href="{{ siteIssue.url }}">
+            <span class="article-list__title">TLFW {{ siteIssue.data.issue }}: {{ siteIssue.data.title }}</span>
+            <time class="article-list__date" datetime="{{ siteIssue.date.toISOString() }}">{{ siteIssue.date | readableDate }}</time>
+            {% if siteIssue.data.description %}
+            <span class="article-list__dek">{{ siteIssue.data.description }}</span>
+            {% endif %}
+          </a>
+        </li>
+      {% endfor %}
       {% if newsletter.issues and newsletter.issues.length > 0 %}
       {% for issue in newsletter.issues %}
         <li class="article-list__item">
