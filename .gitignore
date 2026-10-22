@@ -13,6 +13,10 @@ dist/
 node_modules/
 package-lock.json
 
+# Newsletter email output (local only, pasted into Email Octopus; never deployed)
+newsletter-email/
+.newsletter-email-tmp/
+
 # Impeccable (ephemeral session + critique output; keep design.json tracked)
 .impeccable/live/
 .impeccable/critique/

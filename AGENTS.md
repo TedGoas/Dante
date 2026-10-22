@@ -131,6 +131,29 @@ The Labs page (`/labs/`) is a curated thumb grid. It does **not** auto-discover 
 | Lab bundles | [`src/labs/{slug}/`](src/labs/) |
 | Passthrough / ignore / watch | [`.eleventy.js`](.eleventy.js) |
 
+### Newsletter (HTML email workflow)
+
+Each new issue is hand-written HTML with inline styles (Ted authors it; no site design tokens, fonts, or components, and no CSS inliner — **no new dependencies**) and produces two outputs: a web page at `/newsletter/{issue}/` and a local, gitignored email file pasted manually into Email Octopus "Code your own" (free Starter plan; no API sending — the v2 API cannot create campaigns).
+
+**Content model:** `src/newsletter/{issue}/index.njk` (`.njk`, not `.html` — `.eleventy.js` does not set `htmlTemplateEngine`, so `.html` would be Liquid and lose Nunjucks includes/shortcodes). Front matter: `issue`, `title` (page title **and** email subject), `description` (meta description **and** email preview/preheader), `date`, `draft`. Permalink is derived from `issue` in [`src/newsletter/newsletter.11tydata.js`](src/newsletter/newsletter.11tydata.js) — never set it by hand. Images sit in the same folder, referenced relatively; prefer JPG/PNG/GIF (not WebP/SVG), always `alt` + `width`, run `/optimize-images` after adding.
+
+**Drafts:** `draft: true` renders locally in dev at its URL but is excluded from collections (hub listing, sitemap), from the production build, and from production image passthrough (draft scan in [`.eleventy.js`](.eleventy.js)). Flip to `false` or remove to publish.
+
+**Web page:** [`src/_includes/layouts/newsletter.njk`](src/_includes/layouts/newsletter.njk) extends `default.njk` via Nunjucks inheritance and replaces `.site-main` entirely (header/footer unchanged; `default.njk` exposes `main` / `headExtras` blocks). Style isolation is a scoped reset in [`src/assets/css/newsletter.css`](src/assets/css/newsletter.css) (`.newsletter-issue, .newsletter-issue * { all: revert; }`, newsletter-pages only — never global CSS). The shared email frame is the `shell` macro in [`src/_includes/newsletter/shell.njk`](src/_includes/newsletter/shell.njk); the shared `<style>` block (media queries / dark mode, selectors prefixed `.newsletter-issue`) is [`src/_includes/newsletter/email-styles.njk`](src/_includes/newsletter/email-styles.njk), included by both layouts. The web page must never contain merge tags, the unsubscribe link, sender info, or a view-in-browser link. Published issues are prepended (newest first) into the existing Past issues list on [`src/newsletter.njk`](src/newsletter.njk) via the `newsletterIssues` collection ([`lib/collections/newsletter.js`](lib/collections/newsletter.js)) — past beehiiv/eomail content there is untouched. Newsletter issues are **not** in RSS (feed only loops `collections.posts`).
+
+**Email file:** `npm run newsletter:email -- {issue}` runs [`scripts/build-newsletter-email.js`](scripts/build-newsletter-email.js): re-renders the issue with [`src/_includes/layouts/newsletter-email.njk`](src/_includes/layouts/newsletter-email.njk) (`NEWSLETTER_EMAIL=1` swaps the layout; Eleventy runs via its CLI so `--output` beats the config's `dist/`), rewrites relative `src` / `href` / `url()` / `srcset` to absolute URLs on `site.url` from [`src/_data/site.js`](src/_data/site.js), warns on WebP/SVG and missing `alt`/`width`, reports file size (warn over 90 KB; Gmail clips ~102 KB), and writes `newsletter-email/{issue}.html` (gitignored, never in `dist/`). Required Email Octopus merge tags, exactly as written and kept literal with `{% raw %}`: `{{UnsubscribeURL}}` as a **text** link `href`, `{{SenderInfoLine}}`, `{{RewardsURL}}` as a link `href`. The build fails if any are missing/malformed, if relative URLs remain, or if stray `{{`/`}}`/`{%`/`%}` leak into the output.
+
+| Piece | Location |
+|-------|----------|
+| Issue content | `src/newsletter/{issue}/index.njk` (+ images in same folder) |
+| Directory data (permalink, layout swap, draft rule) | [`src/newsletter/newsletter.11tydata.js`](src/newsletter/newsletter.11tydata.js) |
+| Collection (listing, newest first, no drafts) | [`lib/collections/newsletter.js`](lib/collections/newsletter.js) |
+| Web layout / scoped reset | [`src/_includes/layouts/newsletter.njk`](src/_includes/layouts/newsletter.njk), [`src/assets/css/newsletter.css`](src/assets/css/newsletter.css) |
+| Shared shell + email `<style>` | [`src/_includes/newsletter/shell.njk`](src/_includes/newsletter/shell.njk), [`src/_includes/newsletter/email-styles.njk`](src/_includes/newsletter/email-styles.njk) |
+| Email layout (preheader, view-in-browser, merge-tag footer) | [`src/_includes/layouts/newsletter-email.njk`](src/_includes/layouts/newsletter-email.njk) |
+| Email build script + npm script | [`scripts/build-newsletter-email.js`](scripts/build-newsletter-email.js), `newsletter:email` in [`package.json`](package.json) |
+| Per-issue skills | `/newsletter-start`, `/newsletter-build`, `/newsletter-review` ([`.cursor/skills/`](.cursor/skills/)) |
+
 ### Work gallery: video figures (click-to-play)
 
 Use this pattern when a work case study figure should show a **static poster** first and **lazy-load** an MP4 on demand. Native browser `<video>` controls appear after the first play; audio stays **muted**.
