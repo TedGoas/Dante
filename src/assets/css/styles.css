@@ -3013,6 +3013,8 @@ hr {
     max-width: 22rem;
     height: auto;
     z-index: auto;
+    /* Full radius — mobile stacks whole emails (desktop uses top-only for the clip) */
+    border-radius: var(--radius-work-gallery-image);
   }
 
   .writing .work-gallery__item--email-collage .work-gallery__email-collage__card img {
@@ -3022,6 +3024,7 @@ hr {
     max-width: 100%;
     object-fit: contain;
     object-position: center top;
+    border-radius: var(--radius-work-gallery-image);
   }
 }
 
@@ -3425,6 +3428,15 @@ hr {
   max-width: var(--work-gallery-content-measure);
   /* Extra separation from hero above and thumbs below (on top of figure gap) */
   margin-block: calc(var(--work-gallery-followup-gap) - var(--work-gallery-figure-gap));
+  margin-inline: 0;
+}
+
+/* Gallery quotes share the caption column (prose blockquotes otherwise break out) */
+.writing .work-gallery__item > blockquote {
+  box-sizing: border-box;
+  align-self: flex-start;
+  width: 100%;
+  max-width: var(--work-gallery-content-measure);
   margin-inline: 0;
 }
 
