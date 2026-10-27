@@ -3355,13 +3355,13 @@ hr {
   margin-bottom: calc(var(--work-gallery-figure-gap) - var(--work-gallery-caption-gap));
 }
 
-.writing .work-gallery__item :is(.divider, .work-gallery__caption, .work-gallery__description, .work-gallery__designers) {
+.writing .work-gallery__item :is(.divider, .work-gallery__caption, .work-gallery__description, .work-gallery__designers, blockquote, .work-gallery__quote) {
   box-sizing: border-box;
   width: 100%;
   max-width: var(--work-gallery-content-measure);
 }
 
-.writing .work-gallery__item > :is(.divider, .work-gallery__caption, .work-gallery__description, .work-gallery__designers) {
+.writing .work-gallery__item > :is(.divider, .work-gallery__caption, .work-gallery__description, .work-gallery__designers, blockquote, .work-gallery__quote) {
   align-self: flex-start;
   margin-inline: 0;
 }
@@ -3428,15 +3428,6 @@ hr {
   max-width: var(--work-gallery-content-measure);
   /* Extra separation from hero above and thumbs below (on top of figure gap) */
   margin-block: calc(var(--work-gallery-followup-gap) - var(--work-gallery-figure-gap));
-  margin-inline: 0;
-}
-
-/* Gallery quotes share the caption column (prose blockquotes otherwise break out) */
-.writing .work-gallery__item > blockquote {
-  box-sizing: border-box;
-  align-self: flex-start;
-  width: 100%;
-  max-width: var(--work-gallery-content-measure);
   margin-inline: 0;
 }
 
