@@ -2729,6 +2729,102 @@ hr {
   z-index: 2;
 }
 
+/* Cerberus “Not a template” — Figma Future 12539:81148 (1890×915), bottom-clipped */
+.writing .work-gallery__item--email-collage > .work-gallery__media--email-collage {
+  container-type: inline-size;
+  display: block;
+  width: var(--work-gallery-media-breakout-width);
+  max-width: var(--work-gallery-media-breakout-width);
+  margin-inline: 0;
+  padding: 0;
+  overflow: visible;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.writing .work-gallery__email-collage__stage {
+  --email-collage-unit: calc(100cqw / 1890);
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1890 / 915;
+  overflow: hidden;
+  border-bottom: var(--border-width-hairline) solid var(--color-border-subtle);
+}
+
+.writing .work-gallery__email-collage__card {
+  position: absolute;
+  overflow: hidden;
+  /* Top corners only — bottoms meet the figure’s hard clip */
+  border-radius: var(--radius-work-gallery-image) var(--radius-work-gallery-image) 0 0;
+  box-shadow: var(--shadow-work-gallery-stack);
+  background-color: transparent;
+}
+
+/* Absolute fill — beats `.writing .work-gallery__item img { height: auto }` so short assets still reach the clip */
+.writing .work-gallery__item--email-collage .work-gallery__email-collage__card img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border: none;
+  /* Top only — bottom squared off at the figure clip (also re-asserted after gallery frame rules) */
+  border-radius: var(--radius-work-gallery-image) var(--radius-work-gallery-image) 0 0;
+  box-shadow: none;
+}
+
+/* Absolute slots from Figma; z: outers back, mids, anniversary front */
+.writing .work-gallery__email-collage__card--digest {
+  left: calc(0 * var(--email-collage-unit));
+  top: calc(359 * var(--email-collage-unit));
+  width: calc(410.667 * var(--email-collage-unit));
+  height: calc(616 * var(--email-collage-unit));
+  box-sizing: border-box;
+  border: var(--border-width-hairline) solid var(--work-index-card-border);
+  box-shadow: none;
+  z-index: 1;
+}
+
+/* ~88% of Figma size, natural asset aspect — more of each email shows in the peek */
+.writing .work-gallery__email-collage__card--canfield {
+  left: calc(360 * var(--email-collage-unit));
+  bottom: 0;
+  width: calc(407 * var(--email-collage-unit));
+  height: calc(636 * var(--email-collage-unit)); /* 407 × 1600/1024 */
+  z-index: 3;
+}
+
+/* Natural 400×808 aspect — no side crop (Figma slot was taller/narrower) */
+.writing .work-gallery__email-collage__card--anniversary {
+  left: calc(745 * var(--email-collage-unit));
+  bottom: 0;
+  width: calc(411 * var(--email-collage-unit));
+  height: calc(830 * var(--email-collage-unit)); /* 411 × 808/400 */
+  z-index: 5;
+}
+
+/* Mid-right (was dialpad slot) */
+.writing .work-gallery__email-collage__card--teams {
+  left: calc(1100 * var(--email-collage-unit));
+  bottom: 0;
+  width: calc(482 * var(--email-collage-unit));
+  height: calc(572 * var(--email-collage-unit));
+  z-index: 3;
+}
+
+/* Far right (was teams slot) */
+.writing .work-gallery__email-collage__card--dialpad {
+  left: calc(1494 * var(--email-collage-unit)); /* 1890 − 396 */
+  bottom: 0;
+  width: calc(396 * var(--email-collage-unit));
+  height: calc(498 * var(--email-collage-unit)); /* 396 × 1560/1240 */
+  z-index: 2;
+}
+
 .writing .work-gallery__media--sidebar-quad {
   display: flex;
   align-items: center;
@@ -2895,6 +2991,37 @@ hr {
   .writing .work-gallery__item--integrations-stack > .work-gallery__media--integrations-stack img {
     width: 100%;
     max-width: none;
+  }
+
+  .writing .work-gallery__email-collage__stage {
+    aspect-ratio: auto;
+    height: auto;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--work-gallery-sidebar-quad-gap);
+    max-width: 22rem;
+    margin-inline: auto;
+  }
+
+  .writing .work-gallery__email-collage__card {
+    position: static;
+    left: auto;
+    top: auto;
+    width: 100%;
+    max-width: 22rem;
+    height: auto;
+    z-index: auto;
+  }
+
+  .writing .work-gallery__item--email-collage .work-gallery__email-collage__card img {
+    position: static;
+    inset: auto;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center top;
   }
 }
 
@@ -4036,7 +4163,7 @@ hr {
 
 /* Default framed media: work-index hairline + 8px radius on each image / embed */
 .writing .work-gallery__item > img,
-.writing .work-gallery__item .work-gallery__media:not(.prototype-embed):not(.click-to-play) img,
+.writing .work-gallery__item .work-gallery__media:not(.prototype-embed):not(.click-to-play):not(.work-gallery__media--email-collage) img,
 .writing .work-gallery__item > .work-gallery__media.prototype-embed,
 .writing .work-gallery__item > .work-gallery__media.click-to-play {
   border: var(--border-width-hairline) solid var(--work-index-card-border);
