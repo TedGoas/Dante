@@ -19,7 +19,7 @@ This is the story of how we got from a fully manual product to the AI grading ex
   <figure class="work-gallery__item">
     <figcaption class="work-gallery__caption">What’s in production today</figcaption>
     <p class="work-gallery__description">There’s a lot moving in this demo. Builder, grading, evidence, analytics. We don’t need to take it all in at once. I want to show where we landed first, then walk through how we got here.</p>
-    {% prototypeEmbed "scorecards", "Dialpad Scorecards product in production.", 1440, 900 %}
+    {% prototypeEmbed "scorecards-v3-llm-questions", "Dialpad Scorecards product in production.", 1440, 900 %}
     <p class="work-gallery__followup">A lot of this project was as much about managing customer experience and expectations as it was about the model. The details below are the path from manual grading to AI that supervisors were willing to turn on.</p>
   </figure>
 
