@@ -17,10 +17,10 @@ This is the story of how we got from a fully manual product to the AI grading ex
 
 <section class="work-gallery" aria-label="Scorecards case study">
   <figure class="work-gallery__item">
-    <figcaption class="work-gallery__caption">What’s in production today</figcaption>
-    <p class="work-gallery__description">There’s a lot in this demo: Building a scorecard, grading with it, and analytics. This case study will walk through everything and how we got there.</p>
+    <figcaption class="work-gallery__caption">What’s shipping today</figcaption>
+    <p class="work-gallery__description">There’s a lot in this demo: building a scorecard, grading with it, and analytics. We’ll walk through each piece and how we got there.</p>
     {% prototypeEmbed "scorecards-v3-llm-questions", "Dialpad Scorecards product in production.", 1440, 900 %}
-    <p class="work-gallery__followup">This project was as much about managing customer expectations as it was about the technical bits. Because customers have to trust this thing if they’re going to use it.</p>
+    <p class="work-gallery__followup">This project was as much about customer trust as the technical bits. Nobody runs AI grading on live traffic if they don’t believe the scores.</p>
   </figure>
 
   <figure class="work-gallery__item">
@@ -34,7 +34,7 @@ This is the story of how we got from a fully manual product to the AI grading ex
     <figcaption class="work-gallery__caption">What if quality could scale?</figcaption>
     <p class="work-gallery__description">We had growth targets. We wanted into larger RFPs, and we needed a QA tool that covered more ground, gave better insights, and made Dialpad stickier. AI was getting serious around the same time, and Dialpad GPT was getting off the ground, so we explored how it could help with the volume problem.</p>
     <img src="/assets/img/scorecards/scorecards-discovery.webp" alt="Scorecards discovery collage with sketches, journey map, competitive research, and early prototypes." width="1920" height="1080" loading="lazy">
-    <p class="work-gallery__followup">Discovery was a team sport. Crazy 8s included PMs, engineers, and QA, not just design, and a lot of those ideas made it into the product. Competitive teardowns, a service blueprint, and internal search through Glean helped us move faster on homework. A PM even sent a rough Figma Make prototype with a short note instead of a PRD. In that spirit, we went wide, and fast. Something like a dozen rough variants in a little more than a day. Rough around the edges, looking like old Bootstrap websites. But the point was to poke at each, figure out what felt right, and combine the best parts of each.</p>
+    <p class="work-gallery__followup">Crazy 8s included PMs, engineers, and QA, not just design, and a lot of those ideas made it into the product. Competitive teardowns, a service blueprint, and internal search through Glean helped us move faster on homework. A PM even sent a rough Figma Make prototype with a short note instead of a PRD. In that spirit, we went wide, and fast. Something like a dozen rough variants in a little more than a day. Rough around the edges, looking like old Bootstrap websites. But the point was to poke at each, figure out what felt right, and combine the best parts of each.</p>
   </figure>
 
   <figure class="work-gallery__item">
@@ -50,7 +50,7 @@ This is the story of how we got from a fully manual product to the AI grading ex
     <p class="work-gallery__description">Trigger words were fine. Understanding intent is something else. We asked "What if customers could write questions the way they actually coach?" The scorecard became both the rubric and the grading engine. But automation like that creates a new trust problem: if AI submits the score, how does a human stay in control?</p>
     {% prototypeEmbed "scorecards-v3-llm-questions", "Dialpad Scorecards AI automated grading with natural language.", 1440, 900 %}
     <p class="work-gallery__followup">Natural language is powerful and ambiguous. If someone types jargon or an acronym, we wanted AI to call that out instead of inventing a definition and scoring calls wrong. You can rewrite the question, or define the term on the spot, and AI checks that it still understands. Skip conditions need the same precision. When a question is scored, you can open the part of the conversation used as evidence.</p>
-    <p class="work-gallery__followup">The tech was there, the hard part was making natural language feel safe enough to use. We tested this with beta group of customers for a few months before making it generally available.</p>
+    <p class="work-gallery__followup">The tech was there, the hard part was making natural language feel safe enough to use. We tested this with a beta group of customers for a few months before making it generally available.</p>
     <div class="work-gallery__thumbs work-gallery__thumbs--halves">
       <figure class="work-gallery__thumb">
         <div class="work-gallery__thumb-media work-gallery__thumb-media--inset work-gallery__thumb-media--inset-card">
@@ -67,23 +67,23 @@ This is the story of how we got from a fully manual product to the AI grading ex
 
   <figure class="work-gallery__item">
     <figcaption class="work-gallery__caption">Results</figcaption>
-    <p class="work-gallery__description">Customers use all three scorecard types (fully manual, AI-assisted suggestions, and fully automated grading) since each excels in different scenarios. Most customers use more than one. Revenue moved in the right direction. The stat I find most interesting: only about a quarter of support customers used Scorecards, but they accounted for almost half of the seats. The larger companies adopted it, and they were the ones spending more with us.</p>
+    <p class="work-gallery__description">Customers still use all three scorecard types: fully manual, AI-assisted suggestions, and fully automated grading. Each one wins in different places, and plenty of customers run more than one. Revenue moved in the right direction. The stat I find most interesting: only about a quarter of support customers used Scorecards, but they accounted for almost half of the seats. The larger companies adopted it, and they were the ones spending more with us.</p>
     <img src="/assets/img/scorecards/scorecards-results.webp" alt="Scorecards results summary with revenue growth and adoption metrics." width="1920" height="1080" loading="lazy">
     <p class="work-gallery__followup">It also nudged more people to turn AI on in Dialpad. We don’t flip that switch by default. When they do, we can do more for them, and yes, we make more money too.</p>
   </figure>
 
   <figure class="work-gallery__item">
     <figcaption class="work-gallery__caption">Ideas I'm tinkering with</figcaption>
-    <p class="work-gallery__description">I've been prototyping two ideas on the side. First one is mining: Using AI to look across months of transcripts, identify topics that show up a lot but aren’t covered by any scorecard question, and offering to create one.</p>
-    <p class="work-gallery__description">The second one: drafting a whole scorecard in natural language. Build either by chatting with a copilot and switching to point-and-click to get specific.</p>
+    <p class="work-gallery__description">I've been prototyping two ideas on the side. First one is mining: using AI to look across months of transcripts, identify topics that show up a lot but aren’t covered by any scorecard question, and offering to create one.</p>
+    <p class="work-gallery__description">The second one is drafting a whole scorecard in natural language. Keep chatting with a copilot, or switch to point-and-click when you want to get specific.</p>
     {% prototypeEmbed "scorecards-future", "Dialpad Scorecards future concepts for mining and natural language drafting.", 1440, 900 %}
   </figure>
 
   <figure class="work-gallery__item work-gallery__item--plain">
-    <figcaption class="work-gallery__caption">Lessons Learned</figcaption>
+    <figcaption class="work-gallery__caption">Lessons learned</figcaption>
     <ol class="work-gallery__list">
       <li>The best design ideas don’t always come from designers. PMs, engineers, QA, and product marketing were in the work early and often, not only for one sketching session. Many of their ideas made it into the final product.</li>
-      <li>Trust is a feature earned by showing evidence, providing overrides, and enforcing guardrails. All baked into the core experience, not bolted-on as a settings page.</li>
+      <li>Trust is a feature. Show the evidence, give people overrides, and put the guardrails in the core experience, not bolted on as a settings page.</li>
       <li>People are harder than software (and it's not like software is easy). The model was the easier half of shipping something customers would actually run on live traffic.</li>
     </ol>
   </figure>
