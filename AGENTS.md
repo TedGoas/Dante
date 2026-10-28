@@ -175,7 +175,7 @@ Use this pattern when a work case study figure should show a **live interactive 
 
 Args: `slug`, `title` (iframe `title`), `width`, `height`, optional `background` image (same wallpaper pattern as click-to-play).
 
-**Valid slugs:** `analytics-gpt`, `launchpad`, `ai-chatbot`, `scorecards`, `ai-receptionist`.
+**Valid slugs:** `analytics-gpt`, `launchpad`, `ai-chatbot`, `scorecards`, `scorecards-v1-mvp`, `scorecards-v1-ai-questions`, `scorecards-v3-llm-questions`, `scorecards-future`, `ai-receptionist`.
 
 **Implementation map:**
 
