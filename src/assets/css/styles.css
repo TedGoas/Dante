@@ -3366,6 +3366,73 @@ hr {
   margin-inline: 0;
 }
 
+/* Large callout quote: caption measure, mark hangs left behind the text */
+.writing .work-gallery__item > .work-gallery__quote--callout,
+.work-body.writing .work-gallery__item > .work-gallery__quote--callout {
+  position: relative;
+  align-self: flex-start;
+  max-width: var(--work-gallery-content-measure);
+  margin-block: var(--space-prose-section);
+  margin-inline: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  text-align: left;
+  color: var(--color-site-fg);
+  font-family: var(--font-serif);
+  font-size: clamp(2.25rem, 3.6vw, 2.85rem);
+  font-style: normal;
+  line-height: 1.35;
+  overflow: visible;
+}
+
+.writing .work-gallery__quote--callout > .work-gallery__quote-mark {
+  position: absolute;
+  left: -0.19em;
+  top: -0.2em;
+  z-index: 0;
+  margin: 0;
+  /* Soft wash so Redaction body stays readable on top */
+  color: color-mix(in srgb, var(--color-site-fg) 12%, transparent);
+  font-family: var(--font-serif);
+  font-size: clamp(10.5rem, 24vw, 15rem);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.writing .work-gallery__quote--callout > p,
+.work-body.writing .work-gallery__quote--callout > p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: normal;
+  line-height: inherit;
+  color: inherit;
+}
+
+.writing .work-gallery__quote--callout > footer,
+.work-body.writing .work-gallery__quote--callout > footer {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin-top: var(--space-blockquote-attribution-gap);
+  font-family: var(--font-sans);
+  font-size: var(--post-header-date-size);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: var(--post-header-date-tracking);
+  line-height: 1.5;
+  text-align: left;
+  text-transform: uppercase;
+  color: var(--color-highlight);
+}
+
 .writing .work-gallery__item > .divider {
   margin-bottom: calc(var(--work-gallery-figure-gap) - var(--work-gallery-caption-gap));
 }
