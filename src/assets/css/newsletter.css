@@ -1,0 +1,31 @@
+/*
+ * Newsletter issue pages only (loaded via layouts/newsletter.njk).
+ * Never add visual design here — newsletter content carries its own
+ * inline styles. This file only isolates that content from global
+ * site styles and keeps it from overflowing phone-width viewports.
+ */
+
+/*
+ * Scoped reset: revert site element styles (styles.css rules on
+ * p, h1-h6, a, img, table, ul, blockquote, fonts, spacing) to
+ * browser defaults inside the wrapper, close to how email clients
+ * behave. Inline styles on newsletter markup still win.
+ *
+ * Known survivors, kept on purpose:
+ * - a:focus-visible outline (site a11y affordance)
+ * - prefers-reduced-motion !important rules in styles.css
+ */
+.newsletter-issue,
+.newsletter-issue * {
+  all: revert;
+}
+
+/* Email layouts are often a fixed 600px; never scroll the page sideways. */
+.newsletter-issue {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.site-main--newsletter {
+  padding: 0;
+}
