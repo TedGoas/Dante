@@ -2146,10 +2146,16 @@ hr {
 
 /* Logo/diagram thumbnails are contained so they aren't cropped. */
 .work-index__card--framed-center .work-index__stage {
+  --work-index-framed-center-media-scale: 0.75;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--color-work-media-matte);
 }
 
 .work-index__card--framed-center .work-index__image {
+  width: calc(100% * var(--work-index-framed-center-media-scale));
+  height: calc(100% * var(--work-index-framed-center-media-scale));
   object-fit: contain;
   object-position: center;
 }
