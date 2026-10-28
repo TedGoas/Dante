@@ -3225,13 +3225,13 @@ hr {
   margin-bottom: calc(var(--work-gallery-figure-gap) - var(--work-gallery-caption-gap));
 }
 
-.writing .work-gallery__item :is(.divider, .work-gallery__caption, .work-gallery__description, .work-gallery__designers) {
+.writing .work-gallery__item :is(.divider, .work-gallery__caption, .work-gallery__description, .work-gallery__designers, .work-gallery__list) {
   box-sizing: border-box;
   width: 100%;
   max-width: var(--work-gallery-content-measure);
 }
 
-.writing .work-gallery__item > :is(.divider, .work-gallery__caption, .work-gallery__description, .work-gallery__designers) {
+.writing .work-gallery__item > :is(.divider, .work-gallery__caption, .work-gallery__description, .work-gallery__designers, .work-gallery__list) {
   align-self: flex-start;
   margin-inline: 0;
 }
@@ -3268,7 +3268,8 @@ hr {
 }
 
 .writing .work-gallery__item .work-gallery__description,
-.writing .work-gallery__item .work-gallery__followup {
+.writing .work-gallery__item .work-gallery__followup,
+.writing .work-gallery__item .work-gallery__list {
   margin: 0;
   padding: 0;
   font-family: var(--font-sans);
@@ -3279,8 +3280,26 @@ hr {
   background-image: none;
 }
 
+.writing .work-gallery__item .work-gallery__list {
+  padding-inline-start: 1.5rem;
+  list-style-type: decimal;
+}
+
+.writing .work-gallery__item .work-gallery__list > li {
+  margin-bottom: calc(var(--post-body-size) * 0.4);
+}
+
+.writing .work-gallery__item .work-gallery__list > li:last-child {
+  margin-bottom: 0;
+}
+
 .writing .work-gallery__intro .work-gallery__description {
   margin-block: 0;
+}
+
+/* Stacked intro body paras: prose spacing (intro gap alone is caption-tight). */
+.writing .work-gallery__intro > .work-gallery__description + .work-gallery__description {
+  margin-top: calc(var(--space-prose-flow) - var(--work-gallery-caption-gap));
 }
 
 .writing .work-gallery__intro > .work-gallery__caption:not(:first-child) {
