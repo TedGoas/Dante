@@ -12,7 +12,7 @@ module.exports = {
       'Front-End Developer'
     ],
     sameAs: [
-      'https://www.linkedin.com/in/tedgoas/',
+      'https://www.linkedin.com/in/tgoas/',
       'https://github.com/TedGoas',
       'https://medium.com/@tedgoas'
     ]
