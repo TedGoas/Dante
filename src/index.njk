@@ -149,3 +149,28 @@ description: Product designer, researcher, and front-end developer
     </li>
   </ul>
 </section>
+
+<section class="home-testimonials" aria-labelledby="home-testimonials-heading">
+  <h2 id="home-testimonials-heading" class="visually-hidden">What coworkers say</h2>
+  <div class="home-testimonials__grid">
+    {% for row in [testimonials.featured, testimonials.supporting] %}
+    <ul class="home-testimonials__row">
+      {% for t in row %}
+      <li class="home-testimonials__item">
+        <figure class="home-testimonials__figure">
+          <blockquote class="home-testimonials__quote">
+            <span class="home-testimonials__quote-mark" aria-hidden="true">“</span>
+            <p>{{ t.quote }}</p>
+          </blockquote>
+          <figcaption class="home-testimonials__cite">
+            <img src="{{ t.image }}" alt="" class="home-testimonials__avatar" width="48" height="48" loading="lazy">
+            <span class="home-testimonials__name">{{ t.name }}</span>
+            <span class="home-testimonials__title">{{ t.title }}</span>
+          </figcaption>
+        </figure>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endfor %}
+  </div>
+</section>
