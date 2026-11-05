@@ -470,7 +470,8 @@ the static site and/or serving it locally. Cloud agents build/run reliably here 
 - Sumble prototype (hot reload): `npm run start:sumble` — open `http://localhost:5174/sumble/`.
   Standalone Vite + React + Tailwind v4 app in `sumble/`; shares no code or styles with the site,
   is unlinked, and is `noindex` (meta + Netlify header). `http://localhost:8080/sumble/` is the
-  last build output and does not hot-reload.
+  last build output and does not hot-reload. **Before working on it, read
+  [`sumble/AGENTS.md`](sumble/AGENTS.md)** (goal, status, stack, TanStack Table v9 notes, next steps).
 - No lint step and no tests exist in this repo.
 
 ### Non-obvious notes
