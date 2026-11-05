@@ -1,0 +1,38 @@
+{#
+  Newsletter shell — the shared email frame used by BOTH outputs:
+  the web page (layouts/newsletter.njk) and the email file
+  (layouts/newsletter-email.njk). Design this once, here.
+
+  Ted designs this. Keep it email-safe: tables, inline styles, no
+  site design tokens, no site fonts. The `.newsletter-issue` wrapper
+  carries the web scoped reset (assets/css/newsletter.css) and is the
+  prefix for selectors in newsletter/email-styles.njk.
+
+  Placeholders to replace with the real design:
+  - Outer background (on the outer table / wrapper cell)
+  - Masthead (marked below, above the issue body)
+  - Max-width container width (600px is the scaffold value)
+#}
+{% macro shell(body) %}
+<div class="newsletter-issue">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td align="center">
+        {# BEGIN outer background / container — design here #}
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width: 600px; max-width: 100%;">
+          <tr>
+            <td>
+              {# BEGIN masthead — design here #}
+              {# END masthead #}
+              {{ body | safe }}
+              {# BEGIN shell footer (above the email-only merge-tag footer) — design here #}
+              {# END shell footer #}
+            </td>
+          </tr>
+        </table>
+        {# END outer background / container #}
+      </td>
+    </tr>
+  </table>
+</div>
+{% endmacro %}

@@ -1,0 +1,23 @@
+{#
+  Shared email <style> block — included verbatim in the email <head>
+  (layouts/newsletter-email.njk) and in the web page <head>
+  (layouts/newsletter.njk via headExtras).
+
+  Inline styles are the primary styling method. Use this block only
+  for what cannot be inlined: media queries, dark mode, hover states.
+
+  Prefix every selector with `.newsletter-issue` (the shell wrapper,
+  present in both outputs) so these rules never touch site header /
+  footer on the web page, e.g.:
+
+    .newsletter-issue .example { }
+    @media only screen and (max-width: 620px) {
+      .newsletter-issue .example { }
+    }
+    @media (prefers-color-scheme: dark) {
+      .newsletter-issue .example { }
+    }
+#}
+<style>
+  /* Newsletter media queries and dark-mode rules go here. See note above. */
+</style>
