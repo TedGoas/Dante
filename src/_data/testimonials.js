@@ -26,7 +26,7 @@ module.exports = {
       name: 'Sofia Andrade',
       title: 'Senior Product Designer',
       image: '/assets/img/home/th-sof.jpg',
-      quote: 'You’re the best manager I ever had, for real.'
+      quote: 'Ted can step back from the solution and align the team around the problem and the goals. He asks the right questions that drive projects forward. He raised the bar for our design, team, and culture.'
     },
     {
       name: 'Bradley Hawkins',
