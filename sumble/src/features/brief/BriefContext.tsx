@@ -3,12 +3,15 @@ import * as React from 'react'
 import {
   ANGLES,
   CHAT_FALLBACK,
+  CHAT_THINK,
+  citedIds,
   CONTACTS,
   CREDITS,
   FOLLOW_UPS,
   INITIAL_CHAT,
   TIMING,
   type ChatMessage,
+  type ChatThink,
   type Contact,
   type Source,
   type TabName,
@@ -45,9 +48,28 @@ function useBriefState() {
   const [addedSources, setAddedSources] = React.useState<Source[]>([])
 
   const tabRef = React.useRef(tab)
-  const replyTimer = React.useRef<number | undefined>(undefined)
+  const chatTimers = React.useRef<number[]>([])
   const pinTimer = React.useRef<number | undefined>(undefined)
   const headingFocusPending = React.useRef(false)
+
+  function clearChatTimers() {
+    for (const id of chatTimers.current) window.clearTimeout(id)
+    chatTimers.current = []
+    window.clearTimeout(pinTimer.current)
+  }
+
+  function later(fn: () => void, ms: number) {
+    const id = window.setTimeout(fn, ms)
+    chatTimers.current.push(id)
+  }
+
+  function updateMessage(id: string, update: (message: ChatMessage) => ChatMessage) {
+    setMessages((current) => current.map((message) => (message.id === id ? update(message) : message)))
+  }
+
+  function updateThink(id: string, think: Partial<ChatThink>) {
+    updateMessage(id, (message) => (message.think ? { ...message, think: { ...message.think, ...think } } : message))
+  }
 
   React.useEffect(() => {
     tabRef.current = tab
@@ -74,8 +96,10 @@ function useBriefState() {
     return () => window.clearTimeout(timer)
   }, [toastVisible])
 
+  React.useEffect(() => clearChatTimers, [])
+
   function resetBrief() {
-    window.clearTimeout(replyTimer.current)
+    clearChatTimers()
     setStep(0)
     setToastVisible(false)
     setAngleId(ANGLES[0].id)
@@ -99,7 +123,7 @@ function useBriefState() {
     headingFocusPending.current = true
     setTab('Brief')
     const alreadyAsked = messages.some((m) => m.text === prompt)
-    const waitingOnReply = messages[messages.length - 1].role === 'user'
+    const waitingOnReply = messages.some((message) => message.streaming)
     if (prompt && !alreadyAsked && !waitingOnReply) askFollowUp(prompt)
   }
 
@@ -121,15 +145,70 @@ function useBriefState() {
     setTab(next.tab)
   }
 
+  function streamAnswer(id: string, answer: string) {
+    const parts = answer.split(/(\s+|\[\d+\])/).filter((part) => part.length > 0)
+    let built = ''
+    let index = 0
+
+    function tick() {
+      if (index >= parts.length) {
+        updateMessage(id, (message) => ({ ...message, text: answer, streaming: false }))
+        return
+      }
+      const part = parts[index]
+      built += part
+      const cite = part.match(/^\[(\d+)\]$/)
+      if (cite) pinSource(Number(cite[1]))
+      const next = built
+      updateMessage(id, (message) => ({ ...message, text: next }))
+      index += 1
+      later(tick, /^\s+$/.test(part) ? TIMING.streamSpaceMs : TIMING.streamWordMs)
+    }
+
+    tick()
+  }
+
   function askFollowUp(text: string) {
-    setMessages((current) => [...current, { id: `user-${current.length}`, role: 'user', text }])
-    const answer = FOLLOW_UPS.find((f) => f.prompt === text)?.answer ?? CHAT_FALLBACK
-    replyTimer.current = window.setTimeout(() => {
-      setMessages((current) => [
-        ...current,
-        { id: `sumble-${current.length}`, role: 'sumble', text: answer, createdAt: Date.now() },
-      ])
-    }, TIMING.chatReplyMs)
+    clearChatTimers()
+    const followUp = FOLLOW_UPS.find((item) => item.prompt === text)
+    const answer = followUp?.answer ?? CHAT_FALLBACK
+    const lines = followUp?.think ?? CHAT_THINK.fallback
+    const sourceIds = citedIds([answer])
+    const messageId = `sumble-${Date.now()}`
+    const think: ChatThink = { lines, shown: 1, sourceIds, sourcesVisible: false, collapsed: false }
+
+    setMessages((current) => [
+      ...current,
+      { id: `user-${current.length}`, role: 'user', text },
+      { id: messageId, role: 'sumble', text: '', streaming: true, think },
+    ])
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      updateMessage(messageId, (message) => ({
+        ...message,
+        text: answer,
+        streaming: false,
+        think: message.think
+          ? { ...message.think, shown: lines.length, sourcesVisible: true, collapsed: true }
+          : message.think,
+      }))
+      return
+    }
+
+    lines.forEach((_, lineIndex) => {
+      if (lineIndex === 0) return
+      later(() => {
+        updateThink(messageId, {
+          shown: lineIndex + 1,
+          sourcesVisible: lineIndex + 1 === lines.length,
+        })
+      }, lineIndex * TIMING.thinkStepMs)
+    })
+
+    later(() => {
+      updateThink(messageId, { collapsed: true })
+      streamAnswer(messageId, answer)
+    }, lines.length * TIMING.thinkStepMs)
   }
 
   function pinSource(id: number) {

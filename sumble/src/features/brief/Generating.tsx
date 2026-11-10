@@ -1,10 +1,12 @@
 import { CheckIcon, CircleIcon, Loader2Icon } from 'lucide-react'
 
 import { Badge } from '@/components/ui/badge'
-import { GENERATION_STEPS, SOURCE_CHIPS } from '@/data/clio'
+import { GENERATION_STEPS, SOURCE_CHIPS, TIMING } from '@/data/clio'
 import { useBrief } from '@/features/brief/BriefContext'
 import { CreditsMeta } from '@/features/brief/CreditsMeta'
 import { cn } from '@/lib/utils'
+
+const generationMs = TIMING.stepMs.reduce((sum, ms) => sum + ms, 0)
 
 export function Generating() {
   const { step } = useBrief()
@@ -38,9 +40,20 @@ export function Generating() {
           )
         })}
       </ol>
+      <div className="mt-2 h-px overflow-hidden bg-slate-200" aria-hidden="true">
+        <div
+          className="h-full w-full origin-left animate-fill-track bg-slate-500"
+          style={{ animationDuration: `${generationMs}ms` }}
+        />
+      </div>
       <div className="mt-3 flex h-6 items-center gap-1.5" aria-label="Sources found">
-        {SOURCE_CHIPS.filter((chip) => step >= chip.atStep).map((chip) => (
-          <Badge key={chip.label} variant="outline" className="animate-fade-up">
+        {SOURCE_CHIPS.filter((chip) => step >= chip.atStep).map((chip, index) => (
+          <Badge
+            key={chip.label}
+            variant="outline"
+            className="animate-fade-up"
+            style={{ animationDelay: `${index * TIMING.sectionStaggerMs}ms` }}
+          >
             {chip.label}
           </Badge>
         ))}

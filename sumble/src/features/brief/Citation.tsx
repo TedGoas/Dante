@@ -10,14 +10,13 @@ function revealSource(id: number) {
     ?.scrollIntoView({ block: 'nearest', behavior: reduceMotion ? 'auto' : 'smooth' })
 }
 
-/** A quiet raised [n]. Hover or focus highlights the source. Chat citations also scroll it into view. */
-export function Citation({ id, origin }: { id: number; origin: 'chat' | 'doc' }) {
+/** A quiet raised [n]. Hover or focus highlights the source. A click scrolls the brief to it. */
+export function Citation({ id }: { id: number; origin: 'chat' | 'doc' }) {
   const { setHoveredSource, pinSource } = useBrief()
   const source = SOURCES.find((s) => s.id === id)
 
   function activate() {
     setHoveredSource(id)
-    if (origin === 'chat') revealSource(id)
   }
 
   return (

@@ -3,15 +3,15 @@
 export const TIMING = {
   /** One entry per generation step. Totals 8 seconds. */
   stepMs: [1500, 2000, 2500, 2000],
-  chatReplyMs: 900,
+  /** Pause between thinking-trace lines, and before the trace collapses. */
+  thinkStepMs: 400,
+  /** Word-by-word chat reply. Spaces are quicker so the caret doesn't stall. */
+  streamWordMs: 38,
+  streamSpaceMs: 12,
   citationPinMs: 2500,
   copiedMs: 1800,
   toastMs: 10000,
   toastExitMs: 140,
-  /** Delay between each phrase of a new chat reply. */
-  streamPhraseMs: 110,
-  /** How long after arriving a chat reply still animates. Stops replays on tab return. */
-  streamWindowMs: 1500,
   sectionStaggerMs: 40,
   /** Ready tile reveal: plays only this soon after generation finishes. */
   revealWindowMs: 1200,
@@ -302,7 +302,27 @@ export function draftEmail(contact: Contact, angle: Angle | null) {
   }
 }
 
-export type ChatMessage = { id: string; role: 'user' | 'sumble'; text: string; createdAt?: number }
+export type ChatThink = {
+  lines: string[]
+  shown: number
+  sourceIds: number[]
+  sourcesVisible: boolean
+  collapsed: boolean
+}
+
+export type ChatMessage = {
+  id: string
+  role: 'user' | 'sumble'
+  text: string
+  streaming?: boolean
+  think?: ChatThink
+}
+
+/** Shown while a follow-up is working, then collapsed to `done`. */
+export const CHAT_THINK = {
+  done: 'Checked the sources',
+  fallback: ['Reading the brief', 'Looking for a match', 'Checking the sources'],
+}
 
 export const INITIAL_CHAT: ChatMessage[] = [
   {
@@ -321,16 +341,19 @@ export const INITIAL_CHAT: ChatMessage[] = [
 export const FOLLOW_UPS = [
   {
     prompt: 'Why Alex over the CFO?',
+    think: ['Reading the AP posts', 'Comparing Alex and the CFO', 'Checking the sources'],
     answer:
       'Alex has the closer role. VP Finance, and AP hiring sits in that group. [2][8] The CFO has the higher score and signs the contract, but is a step away from the inbox. [7] Start with Alex. Bring in the CFO at pricing.',
   },
   {
     prompt: 'Draft an opener for Alex',
+    think: ['Reading the AP posts', 'Drafting an opener', 'Checking the sources'],
     answer:
       '"Alex, saw Finance is adding AP roles. Shared inboxes get harder to run at that size. Worth 15 minutes?" Based on [1][2].',
   },
   {
     prompt: 'What changed this quarter?',
+    think: ['Reading recent job posts', 'Comparing this quarter', 'Checking the sources'],
     answer:
       'Two things stand out. Accounts Payable Specialist posted 4 days ago. [1] Senior Manager, Accounts Payable posted 9 days ago. [2] Data is thin this month, so treat this as partial.',
   },

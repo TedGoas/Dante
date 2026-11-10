@@ -36,6 +36,7 @@
   --animate-pop-in: pop-in 180ms var(--ease-quint) both;
   --animate-stream-in: stream-in 220ms var(--ease-quint) both;
   --animate-grow-bar: grow-bar 320ms var(--ease-quint) both;
+  --animate-fill-track: fill-track 8s linear both;
 
   @keyframes fade-up {
     from {
@@ -61,6 +62,26 @@
   @keyframes grow-bar {
     from {
       transform: scaleY(0);
+    }
+  }
+
+  @keyframes fill-track {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes caret-blink {
+    0%,
+    49% {
+      opacity: 1;
+    }
+    50%,
+    100% {
+      opacity: 0;
     }
   }
 
@@ -101,6 +122,16 @@
     background-size: 200% 100%;
     background-clip: text;
     animation: shimmer-text 2s linear infinite;
+  }
+
+  .stream-caret {
+    display: inline-block;
+    width: 2px;
+    height: 0.9em;
+    margin-left: 1px;
+    background: var(--color-slate-900);
+    vertical-align: text-bottom;
+    animation: caret-blink 0.9s steps(1) infinite;
   }
 
   /* Native <dialog>: slides in, leaves faster. */
