@@ -29,7 +29,7 @@ function Pagination({ total }: { total: number }) {
 
 function TechnologiesCard() {
   return (
-    <Card icon={CpuIcon} title="Technologies" className="col-span-6">
+    <Card icon={CpuIcon} title="Technologies" className="flex-1">
       <div className="flex flex-1 flex-col items-center justify-center gap-1 p-6 text-center text-body">
         <p className="font-semibold text-slate-900">No matches found.</p>
         <p className="text-slate-600">We couldn't identify technologies at this organization.</p>
@@ -201,12 +201,22 @@ function RecentChangesCard() {
 }
 
 export function OverviewTab() {
+  const { status } = useBrief()
+
   return (
     <div className="grid grid-cols-12 gap-5 p-6 pb-16">
-      <div className="col-span-6 min-w-0">
-        <BriefTile />
+      {/* A flex row so the tile can animate from half width to the two-thirds of the rows below. */}
+      <div className="col-span-12 flex gap-5">
+        <div
+          className={cn(
+            'shrink-0 transition-[width] duration-300 ease-quint',
+            status === 'ready' ? 'w-[calc(66.6667%-6.667px)]' : 'w-[calc(50%-10px)]'
+          )}
+        >
+          <BriefTile />
+        </div>
+        <TechnologiesCard />
       </div>
-      <TechnologiesCard />
       <PeopleCard />
       <HeadcountCard />
       <TeamsCard />

@@ -33,6 +33,8 @@ function useBriefState() {
   const [credits, setCredits] = React.useState(CREDITS.start)
   const [tab, setTab] = React.useState<TabName>('Overview')
   const [generated, setGenerated] = React.useState<GeneratedAge>('now')
+  /** When generation last finished. The ready tile's reveal only plays right after this. */
+  const [finishedAt, setFinishedAt] = React.useState(0)
   const [angleId, setAngleId] = React.useState(ANGLES[0].id)
   const [hoveredSource, setHoveredSource] = React.useState<number | null>(null)
   const [pinnedSource, setPinnedSource] = React.useState<number | null>(null)
@@ -59,6 +61,7 @@ function useBriefState() {
         setStep(step + 1)
         return
       }
+      setFinishedAt(Date.now())
       setStatus('ready')
       if (tabRef.current !== 'Brief') setToastVisible(true)
     }, TIMING.stepMs[step])
@@ -89,10 +92,15 @@ function useBriefState() {
     setStatus('generating')
   }
 
-  function openBrief() {
+  /** Lands on the recommended angle unless told otherwise. A prompt is asked in the chat on arrival. */
+  function openBrief({ angleId: nextAngleId, prompt }: { angleId?: string; prompt?: string } = {}) {
     setToastVisible(false)
+    setAngleId(nextAngleId ?? ANGLES[0].id)
     headingFocusPending.current = true
     setTab('Brief')
+    const alreadyAsked = messages.some((m) => m.text === prompt)
+    const waitingOnReply = messages[messages.length - 1].role === 'user'
+    if (prompt && !alreadyAsked && !waitingOnReply) askFollowUp(prompt)
   }
 
   /** True once after openBrief, so normal tab switching never moves focus. */
@@ -107,6 +115,8 @@ function useBriefState() {
     resetBrief()
     setCredits(next.credits)
     setGenerated(next.generated)
+    // "Ready tile" replays the reveal, so it can be recorded without a full run.
+    setFinishedAt(preset === 'tile' ? Date.now() : 0)
     setStatus(next.status)
     setTab(next.tab)
   }
@@ -163,6 +173,7 @@ function useBriefState() {
     addedSources,
     addSource,
     generated,
+    finishedAt,
     generate,
     openBrief,
     consumeHeadingFocus,

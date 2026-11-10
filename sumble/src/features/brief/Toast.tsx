@@ -26,7 +26,7 @@ export function Toast() {
     if (!wasVisible.current) return
     wasVisible.current = false
     if (hadFocus.current && (active === document.body || toastRef.current?.contains(active))) {
-      document.querySelector<HTMLButtonElement>('[data-brief-tile] button')?.focus()
+      document.querySelector<HTMLButtonElement>('[data-brief-primary]')?.focus()
     }
     hadFocus.current = false
     setLeaving(true)
@@ -46,7 +46,7 @@ export function Toast() {
           )}
         >
           <span className="font-medium text-slate-900">Brief ready for {ORG.name}</span>
-          <Button ref={openRef} size="xs" onClick={openBrief}>
+          <Button ref={openRef} size="xs" onClick={() => openBrief()}>
             Open
           </Button>
           {/* No tooltip here, to match the dialog close button. */}

@@ -12,7 +12,7 @@ export type TileSize = 'tile' | 'page'
 
 /** One card for all three states. Fixed height on Overview so the grid doesn't jump. */
 export function BriefTile({ size = 'tile' }: { size?: TileSize }) {
-  const { status, generated } = useBrief()
+  const { status, generated, finishedAt } = useBrief()
   const ref = React.useRef<HTMLElement>(null)
   const previousStatus = React.useRef(status)
 
@@ -34,9 +34,13 @@ export function BriefTile({ size = 'tile' }: { size?: TileSize }) {
       icon={SparklesIcon}
       title={status === 'generating' ? 'Generating brief' : 'Intelligence brief'}
       aside={asideText ? <span className="text-xs text-slate-500">{asideText}</span> : null}
-      className={size === 'tile' ? 'h-[264px]' : 'min-h-[300px]'}
+      className={cn(
+        size === 'page' && 'min-h-[300px]',
+        size === 'tile' && 'overflow-hidden transition-[height] duration-300 ease-quint',
+        size === 'tile' && (status === 'ready' ? 'h-[384px]' : 'h-[264px]')
+      )}
     >
-      <div key={status} className={cn('flex flex-1 animate-fade-up flex-col', size === 'tile' ? 'p-5' : 'p-6')}>
+      <div key={`${status}-${finishedAt}`} className={cn('flex flex-1 animate-fade-up flex-col', size === 'tile' ? 'p-5' : 'p-6')}>
         {status === 'idle' ? <BeforeGeneration size={size} /> : null}
         {status === 'generating' ? <Generating /> : null}
         {status === 'ready' ? <BriefReadyTile /> : null}

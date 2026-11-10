@@ -13,6 +13,19 @@ export const TIMING = {
   /** How long after arriving a chat reply still animates. Stops replays on tab return. */
   streamWindowMs: 1500,
   sectionStaggerMs: 40,
+  /** Ready tile reveal: plays only this soon after generation finishes. */
+  revealWindowMs: 1200,
+  /** The tile is still widening at first, so cards wait a moment. */
+  revealFirstCardMs: 160,
+  revealCardStaggerMs: 80,
+  countUpMs: 600,
+}
+
+export const BRIEF_TEASER = {
+  headline: 'Start with Alex, not the CFO.',
+  work: 'Read 52 job posts · Scored 100 people',
+  /** Must match a FOLLOW_UPS prompt. */
+  prompt: 'Why Alex over the CFO?',
 }
 
 export const CREDITS = { total: 200, start: 142 }
@@ -157,6 +170,9 @@ export type Evidence = 'Strong' | 'Medium' | 'Weak'
 export type Angle = {
   id: string
   short: string
+  /** One line for the ready tile. */
+  summary: string
+  stat: { value: number; decimals: number; prefix?: string; suffix?: string; label: string }
   line: string
   evidence: Evidence
   proof: string
@@ -178,6 +194,8 @@ export const ANGLES: Angle[] = [
   {
     id: 'finance-ap',
     short: 'AP inboxes',
+    summary: 'Clear shared AP inboxes while AP roles are open.',
+    stat: { value: 53.3, decimals: 1, prefix: '+', suffix: '%', label: 'Finance headcount' },
     line: 'Pitch TeamInbox to Finance to clear shared AP inboxes.',
     evidence: 'Strong',
     proof: 'Finance up 53.3% in 12 months. AP roles open now. [1][3]',
@@ -206,6 +224,8 @@ export const ANGLES: Angle[] = [
   {
     id: 'vlex',
     short: 'vLex finance',
+    summary: 'One shared queue for the teams joining after vLex.',
+    stat: { value: 52, decimals: 0, label: 'finance jobs' },
     line: 'Give the post-vLex finance teams one shared queue.',
     evidence: 'Medium',
     proof: 'Finance up 53.3%. vLex finance is now in the org. [3][15]',
@@ -228,6 +248,8 @@ export const ANGLES: Angle[] = [
   {
     id: 'sdr',
     short: 'SDR replies',
+    summary: 'Shared prospect replies. Thin signal so far.',
+    stat: { value: 31.6, decimals: 1, prefix: '+', suffix: '%', label: 'SDR headcount' },
     line: 'Help Sales Development manage shared prospect replies.',
     evidence: 'Weak',
     proof: 'SDRs up 31.6%. No inbox pain in the data yet. [13]',
@@ -333,8 +355,10 @@ export const EXAMPLE_BRIEF = {
   whyNow: ['Support up 40% in 12 months.', '11 open support roles.'],
 }
 
-export function stripCitations(text: string) {
-  return text.replace(/\s*\[\d+\]/g, '')
+/** "Alex MacGillivray, CPA" becomes "AM". */
+export function initials(name: string) {
+  const words = name.split(',')[0].trim().split(' ')
+  return `${words[0][0]}${words[words.length - 1][0]}`
 }
 
 /** Distinct source numbers cited anywhere in an angle's sections. */

@@ -5,14 +5,22 @@ import { cn } from '@/lib/utils'
 
 const EVIDENCE_BARS: Record<Evidence, number> = { Strong: 3, Medium: 2, Weak: 1 }
 
-export function EvidenceMeter({ evidence, animated = false }: { evidence: Evidence; animated?: boolean }) {
+export function EvidenceMeter({
+  evidence,
+  animated = false,
+  delayMs = 0,
+}: {
+  evidence: Evidence
+  animated?: boolean
+  delayMs?: number
+}) {
   return (
     <span className="inline-flex items-center gap-1.5">
       <span aria-hidden className="inline-flex items-end gap-0.5">
         {[0, 1, 2].map((i) => (
           <span
             key={i}
-            style={animated ? { animationDelay: `${i * 50}ms` } : undefined}
+            style={animated ? { animationDelay: `${delayMs + i * 50}ms` } : undefined}
             className={cn(
               'w-1 origin-bottom rounded-[1px]',
               ['h-1.5', 'h-2', 'h-2.5'][i],
