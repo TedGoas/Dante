@@ -5,6 +5,7 @@ import { ScoreBadge } from '@/components/ui/score-badge'
 import { ANGLES, angleSourceIds, NEW_DATA_NOTE, stripCitations } from '@/data/clio'
 import { EvidenceMeter } from '@/features/brief/AngleCards'
 import { contactFor, useBrief } from '@/features/brief/BriefContext'
+import { CreditsMeta } from '@/features/brief/CreditsMeta'
 
 /** Always summarizes the recommended angle, whatever the rep last selected. */
 export function BriefReadyTile() {
@@ -41,7 +42,8 @@ export function BriefReadyTile() {
           <RefreshCwIcon />
           Refresh · 1 credit
         </Button>
-        {generated === 'days' ? <span className="ml-1 text-xs text-slate-600">{NEW_DATA_NOTE}</span> : null}
+        {generated === 'days' ? <span className="ml-1 w-[88px] text-xs text-slate-600">{NEW_DATA_NOTE}</span> : null}
+        <CreditsMeta />
       </div>
     </>
   )

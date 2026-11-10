@@ -167,7 +167,11 @@ export type Angle = {
   teams: { id: string; reason: string }[]
   teamsLimited?: boolean
   emailSubject: string
-  emailHook: string
+  /** Language lifted from the sources below. Tinted in the draft. */
+  emailSourceLine: string
+  emailSourceIds: number[]
+  /** Connecting sentence written for this draft. Not tinted. */
+  emailBridge: string
 }
 
 export const ANGLES: Angle[] = [
@@ -195,7 +199,9 @@ export const ANGLES: Angle[] = [
       { id: 'revops', reason: 'Billing questions reach this team. [5]' },
     ],
     emailSubject: 'Shared AP inboxes at Clio',
-    emailHook: 'Saw Finance is adding AP roles. Shared inboxes get harder to run at that size.',
+    emailSourceLine: 'Saw Finance is adding AP roles.',
+    emailSourceIds: [1, 2],
+    emailBridge: 'Shared inboxes get harder to run at that size.',
   },
   {
     id: 'vlex',
@@ -215,7 +221,9 @@ export const ANGLES: Angle[] = [
       { id: 'emea', reason: 'Finance roles outside the main team. [12]' },
     ],
     emailSubject: 'One queue for finance after vLex',
-    emailHook: 'Saw the vLex finance team is now part of Clio. Two sets of inboxes are hard to run as one.',
+    emailSourceLine: 'Saw the vLex finance team is now part of Clio.',
+    emailSourceIds: [15],
+    emailBridge: 'Two sets of inboxes are hard to run as one.',
   },
   {
     id: 'sdr',
@@ -233,25 +241,44 @@ export const ANGLES: Angle[] = [
     teams: [{ id: 'sales', reason: 'Top team score. Validate first. [14]' }],
     teamsLimited: true,
     emailSubject: 'Shared replies for Sales Development',
-    emailHook: 'Saw your SDR team is growing. Prospect replies tend to scatter across inboxes.',
+    emailSourceLine: 'Saw your SDR team is growing.',
+    emailSourceIds: [13],
+    emailBridge: 'Prospect replies tend to scatter across inboxes.',
   },
 ]
 
+export type DraftOrigin = 'sources' | 'playbook' | 'history'
+
+export const DRAFT_ORIGINS = {
+  playbook: {
+    title: "Your team's playbook",
+    detail: 'Approved pitch line. Reps are told to lead with one queue, an owner, and a response time.',
+  },
+  history: {
+    title: 'Your past conversations',
+    detail: 'You closed with this line in 9 of your last 12 booked meetings.',
+  },
+}
+
 export function draftEmail(contact: Contact, angle: Angle | null) {
   const firstName = contact.name.split(' ')[0]
-  const hook = angle?.emailHook ?? "Saw Clio's Finance team is growing fast."
+  const bridge = angle ? ` ${angle.emailBridge}` : ''
+  const parts: { text: string; origin?: DraftOrigin }[] = [
+    { text: `Hi ${firstName},\n\n` },
+    { text: angle?.emailSourceLine ?? "Saw Clio's Finance team is growing fast.", origin: 'sources' },
+    { text: `${bridge}\n\n` },
+    {
+      text: 'TeamInbox gives your team one shared queue, with an owner and a response time on every thread.',
+      origin: 'playbook',
+    },
+    { text: '\n\n' },
+    { text: 'Worth 15 minutes next week?', origin: 'history' },
+    { text: '\n\nBest,\nTed' },
+  ]
   return {
     subject: angle?.emailSubject ?? 'Team inboxes at Clio',
-    body: `Hi ${firstName},
-
-${hook}
-
-TeamInbox gives your team one shared queue, with an owner and a response time on every thread.
-
-Worth 15 minutes next week?
-
-Best,
-Ted`,
+    parts,
+    sources: (angle?.emailSourceIds ?? [3]).flatMap((id) => SOURCES.filter((s) => s.id === id)),
   }
 }
 

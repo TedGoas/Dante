@@ -3,6 +3,7 @@ import { CheckIcon, CircleIcon, Loader2Icon } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { GENERATION_STEPS, SOURCE_CHIPS } from '@/data/clio'
 import { useBrief } from '@/features/brief/BriefContext'
+import { CreditsMeta } from '@/features/brief/CreditsMeta'
 import { cn } from '@/lib/utils'
 
 export function Generating() {
@@ -44,7 +45,10 @@ export function Generating() {
           </Badge>
         ))}
       </div>
-      <p className="mt-auto text-xs text-slate-500">1 credit used · Keep browsing; we'll let you know when it's ready.</p>
+      <div className="mt-auto flex items-end gap-4">
+        <p className="min-w-0 text-xs text-slate-500">1 credit used · Keep browsing; we'll let you know when it's ready.</p>
+        <CreditsMeta />
+      </div>
     </>
   )
 }

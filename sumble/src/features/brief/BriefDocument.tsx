@@ -9,6 +9,7 @@ import { citedIds, NEW_DATA_NOTE, ORG, SOURCE_LINK_NOTE, SOURCES, TEAMS_BY_ID, T
 import { AngleCards } from '@/features/brief/AngleCards'
 import { contactFor, useBrief } from '@/features/brief/BriefContext'
 import { CitedText } from '@/features/brief/Citation'
+import { CreditsMeta } from '@/features/brief/CreditsMeta'
 import { cn } from '@/lib/utils'
 
 const VISIBLE_CONTACTS = 3
@@ -257,10 +258,11 @@ export function BriefDocument() {
           </h2>
           <p className="text-xs text-slate-500">
             {generated === 'days' ? 'Generated 3 days ago' : 'Generated today by you'} · free to reopen
+            {generated === 'days' ? ` · ${NEW_DATA_NOTE}` : ''}
           </p>
         </div>
-        {generated === 'days' ? <span className="text-xs text-slate-600">{NEW_DATA_NOTE}</span> : null}
-        <Button size="sm" variant="outline" disabled={credits < 1} onClick={generate}>
+        <CreditsMeta />
+        <Button size="sm" variant="outline" className="ml-2" disabled={credits < 1} onClick={generate}>
           <RefreshCwIcon />
           Refresh · 1 credit
         </Button>

@@ -3,11 +3,11 @@ import * as React from 'react'
 
 import { Button } from '@/components/ui/button'
 import { IconButton } from '@/components/ui/icon-button'
-import { COVERAGE, CREDITS } from '@/data/clio'
+import { COVERAGE } from '@/data/clio'
 import { useBrief } from '@/features/brief/BriefContext'
 import type { TileSize } from '@/features/brief/BriefTile'
+import { CreditsMeta } from '@/features/brief/CreditsMeta'
 import { ExampleModal } from '@/features/brief/ExampleModal'
-import { HowCalculated } from '@/features/brief/HowCalculated'
 import { cn } from '@/lib/utils'
 
 function DataDot({ level }: { level: 'full' | 'limited' }) {
@@ -50,22 +50,7 @@ export function BeforeGeneration({ size }: { size: TileSize }) {
         <Button size="sm" variant="outline" onClick={() => setExampleOpen(true)}>
           See example
         </Button>
-        <div className="ml-auto flex flex-col items-end text-xs text-slate-500 tabular-nums">
-          {outOfCredits ? (
-            <span>
-              <span className="font-medium text-slate-900">You're out of credits</span>
-              {' · '}
-              <a href="#" className="rounded-sm font-medium text-green-700 underline-offset-4 hover:underline">
-                Get more credits
-              </a>
-            </span>
-          ) : (
-            <span>
-              {credits} of {CREDITS.total} credits left this month
-            </span>
-          )}
-          <HowCalculated />
-        </div>
+        <CreditsMeta />
       </div>
       <ExampleModal open={exampleOpen} onClose={() => setExampleOpen(false)} />
     </>
