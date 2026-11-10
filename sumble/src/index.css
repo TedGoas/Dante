@@ -26,6 +26,24 @@
 
   --text-body: 13.5px;
 
+  --radius-card: 7px;
+
+  --animate-check-in: check-in 200ms ease-out;
+  --animate-fade-in: fade-in 240ms ease-out;
+
+  @keyframes check-in {
+    from {
+      opacity: 0;
+      transform: scale(0.6);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+
   --shadow-menu: 0 28px 70px rgba(15, 23, 42, 0.18), 0 8px 24px rgba(15, 23, 42, 0.1), 0 0 0 1px rgba(15, 23, 42, 0.03);
   --shadow-card: 0 2px 6px rgba(0, 0, 0, 0.08);
 }

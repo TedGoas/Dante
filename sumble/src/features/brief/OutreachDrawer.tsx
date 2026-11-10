@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input'
 import { draftEmail, TIMING, type Angle, type Contact } from '@/data/clio'
 import { useBrief } from '@/features/brief/BriefContext'
 
-function DraftForm({ contact, angle }: { contact: Contact; angle: Angle }) {
+function DraftForm({ contact, angle }: { contact: Contact; angle: Angle | null }) {
   const draft = draftEmail(contact, angle)
   const [subject, setSubject] = React.useState(draft.subject)
   const [body, setBody] = React.useState(draft.body)
@@ -28,10 +28,12 @@ function DraftForm({ contact, angle }: { contact: Contact; angle: Angle }) {
             {contact.name} <span className="font-normal text-slate-600">· {contact.title}</span>
           </dd>
         </div>
-        <div className="flex gap-2">
-          <dt className="w-14 shrink-0 text-slate-500">Angle</dt>
-          <dd className="text-slate-700">{angle.line}</dd>
-        </div>
+        {angle ? (
+          <div className="flex gap-2">
+            <dt className="w-14 shrink-0 text-slate-500">Angle</dt>
+            <dd className="text-slate-700">{angle.line}</dd>
+          </div>
+        ) : null}
       </dl>
       <label className="flex flex-col gap-1.5">
         <span className="text-xs font-medium text-slate-600">Subject</span>
@@ -56,7 +58,9 @@ function DraftForm({ contact, angle }: { contact: Contact; angle: Angle }) {
 }
 
 export function OutreachDrawer() {
-  const { outreachContact, closeOutreach, angle } = useBrief()
+  const { outreachContact, closeOutreach, angle: selectedAngle, status } = useBrief()
+  // No angle exists until a brief has been generated.
+  const angle = status === 'ready' ? selectedAngle : null
 
   return (
     <Dialog
@@ -66,7 +70,7 @@ export function OutreachDrawer() {
       placement="right"
     >
       {outreachContact ? (
-        <DraftForm key={`${outreachContact.id}-${angle.id}`} contact={outreachContact} angle={angle} />
+        <DraftForm key={`${outreachContact.id}-${angle?.id ?? 'none'}`} contact={outreachContact} angle={angle} />
       ) : null}
     </Dialog>
   )

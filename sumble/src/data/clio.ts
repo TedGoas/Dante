@@ -14,10 +14,17 @@ export const CREDITS = { total: 200, start: 142 }
 export const ORG = {
   name: 'Clio',
   description:
-    'Clio is the Intelligent Legal Work Platform that connects the business and the practice of law in one place.',
-  headcount: '2,442',
-  hq: 'Vancouver, Canada',
+    'Clio is the global leader in legal AI technology, empowering legal professionals and law firms of every size to work smarter, faster, and more securely…',
+  industry: 'Scientific and Technical Services',
+  headcount: '2.4k',
+  hq: 'British Columbia, Canada',
+  founded: '2008',
+  parentOf: 3,
   domain: 'clio.com',
+  domainMore: 1,
+  tag: 'Digital Native',
+  tagMore: 2,
+  icp: { score: '71.0', label: 'Great fit' },
 }
 
 export const TABS = [
@@ -37,6 +44,33 @@ export const TABS = [
 
 export type TabName = (typeof TABS)[number]
 
+export const NEW_DATA_NOTE = '5 new job posts since'
+
+export const HOW_CALCULATED =
+  'All sections are ranked by your ICP and used to build the brief. Costs 1 credit. Reopening is free; refreshing costs 1 credit.'
+
+export const COVERAGE: { level: 'full' | 'limited'; text: string }[] = [
+  { level: 'full', text: '3 angles you could take · strong data' },
+  { level: 'full', text: '5 high-score contacts with reasons' },
+  { level: 'limited', text: 'Recent changes · limited data this month' },
+]
+
+/** One entry per TIMING.stepMs value. */
+export const GENERATION_STEPS = [
+  { doing: 'Reading 52 job posts', done: 'Read 52 job posts' },
+  { doing: 'Scoring 100 people against your ICP', done: 'Scored 100 people against your ICP' },
+  { doing: 'Matching teams to your product', done: 'Matched teams to your product' },
+  { doing: 'Writing the angles', done: 'Wrote the angles' },
+]
+
+/** Each chip appears once generation reaches its step. */
+export const SOURCE_CHIPS = [
+  { label: 'LinkedIn profiles', atStep: 0 },
+  { label: 'Job posts', atStep: 1 },
+  { label: 'Headcount trends', atStep: 2 },
+  { label: 'Team structure', atStep: 3 },
+]
+
 export type Source = {
   id: number
   type: string
@@ -45,17 +79,21 @@ export type Source = {
 }
 
 export const SOURCES: Source[] = [
-  { id: 1, type: 'Job post', title: 'Team Lead, Client Support', age: '4 days ago' },
-  { id: 2, type: 'Job post', title: 'Director, Client Intake Operations', age: '9 days ago' },
-  { id: 3, type: 'Headcount trend', title: 'Client Support up 38% in 12 months', age: 'this week' },
-  { id: 4, type: 'LinkedIn profile', title: 'Kathryn Reyes, VP Customer Experience', age: 'joined 6 months ago' },
-  { id: 5, type: 'Job post', title: 'Support Operations Analyst', age: '2 weeks ago' },
-  { id: 6, type: 'Tech stack', title: 'Shared Outlook mailboxes named in 7 job posts', age: '3 weeks ago' },
-  { id: 7, type: 'LinkedIn profile', title: 'Daniel Osei, Chief Financial Officer', age: '2 months ago' },
-  { id: 8, type: 'LinkedIn profile', title: 'Marcus Bell, Director, Support Operations', age: '1 month ago' },
-  { id: 9, type: 'Headcount trend', title: 'Client Intake up 21% in 12 months', age: 'this week' },
-  { id: 10, type: 'Job post', title: 'Partner Marketing Manager', age: '5 weeks ago' },
-  { id: 11, type: 'LinkedIn profile', title: 'Elena Kowalski, Head of Partnerships', age: '3 months ago' },
+  { id: 1, type: 'Job post', title: 'Accounts Payable Specialist', age: '4 days ago' },
+  { id: 2, type: 'Job post', title: 'Senior Manager, Accounts Payable', age: '9 days ago' },
+  { id: 3, type: 'Headcount trend', title: 'Finance up 53.3% in 12 months', age: 'this week' },
+  { id: 4, type: 'Team structure', title: 'Finance team, 52 matching jobs', age: 'this week' },
+  { id: 5, type: 'Job post', title: 'Billing Operations Analyst', age: '2 weeks ago' },
+  { id: 6, type: 'Job post', title: 'AP Coordinator, shared mailbox triage', age: '3 weeks ago' },
+  { id: 7, type: 'LinkedIn profile', title: 'Curt Sigfstead, Chief Financial Officer', age: '2 months ago' },
+  { id: 8, type: 'LinkedIn profile', title: 'Alex MacGillivray, VP Finance', age: '1 month ago' },
+  { id: 9, type: 'LinkedIn profile', title: 'Christal Yan, Vice President of Tax', age: '1 month ago' },
+  { id: 10, type: 'LinkedIn profile', title: 'Hugo Ruiz-Taboada, VP Strategic Finance & CFO, vLex', age: '3 months ago' },
+  { id: 11, type: 'LinkedIn profile', title: 'Nav Gill, VP Finance', age: '2 months ago' },
+  { id: 12, type: 'Team structure', title: 'EMEA org, 3 matching jobs', age: 'this week' },
+  { id: 13, type: 'Headcount trend', title: 'Sales Development Representative up 31.6% in 12 months', age: 'this week' },
+  { id: 14, type: 'Team structure', title: 'Sales team, 17 matching jobs', age: 'this week' },
+  { id: 15, type: 'Job post', title: 'Integration Accountant, vLex', age: '5 weeks ago' },
 ]
 
 export type Contact = {
@@ -64,15 +102,47 @@ export type Contact = {
   score: number
   title: string
   location: string
+  matches: string
 }
 
-export const CONTACTS: Record<string, Contact> = {
-  kathryn: { id: 'kathryn', name: 'Kathryn Reyes', score: 91, title: 'VP, Customer Experience', location: 'Vancouver, CA' },
-  marcus: { id: 'marcus', name: 'Marcus Bell', score: 84, title: 'Director, Support Operations', location: 'Toronto, CA' },
-  priya: { id: 'priya', name: 'Priya Nair', score: 78, title: 'Sr. Manager, Client Intake', location: 'Calgary, CA' },
-  daniel: { id: 'daniel', name: 'Daniel Osei', score: 72, title: 'Chief Financial Officer', location: 'Vancouver, CA' },
-  elena: { id: 'elena', name: 'Elena Kowalski', score: 68, title: 'Head of Partnerships', location: 'Dublin, IE' },
-}
+/** Sorted by score. The Overview table renders this order. */
+export const PEOPLE: Contact[] = [
+  { id: 'curt', name: 'Curt Sigfstead', score: 71.8, title: 'Chief Financial Officer', location: 'San Francisco, California, United States', matches: 'Finance' },
+  { id: 'alex', name: 'Alex MacGillivray, CPA', score: 62.4, title: 'VP Finance', location: 'Vancouver, British Columbia, Canada', matches: 'Finance' },
+  { id: 'christal', name: 'Christal Yan, CPA, CA', score: 62.4, title: 'Vice President of Tax', location: 'Greater Vancouver Metropolitan Area', matches: 'Finance' },
+  { id: 'hugo', name: 'Hugo Ruiz-Taboada', score: 62.4, title: 'VP Strategic Finance & CFO, vLex (post-acquisition)', location: 'Miami, Florida, United States', matches: 'Finance' },
+  { id: 'nav', name: 'Nav Gill, CPA', score: 62.4, title: 'VP Finance', location: 'Greater Vancouver Metropolitan Area', matches: 'Finance' },
+]
+
+export const CONTACTS: Record<string, Contact> = Object.fromEntries(PEOPLE.map((p) => [p.id, p]))
+
+export type Team = { id: string; name: string; score: number; matches: string[]; jobs: number }
+
+export const TEAMS: Team[] = [
+  { id: 'sales', name: 'Sales team', score: 14.8, matches: ['SDR', 'Finance', 'Accountant'], jobs: 17 },
+  { id: 'emea', name: 'EMEA org', score: 11.1, matches: ['Finance', 'Accountant'], jobs: 3 },
+  { id: 'finance', name: 'Finance team', score: 11.0, matches: ['Finance', 'Accountant'], jobs: 52 },
+  { id: 'revops', name: 'Revenue Operations team', score: 9.5, matches: ['Finance', 'Accountant'], jobs: 1 },
+  { id: 'success', name: 'Customer Success team', score: 8.9, matches: ['Finance', 'Accountant'], jobs: 1 },
+]
+
+export const TEAMS_BY_ID: Record<string, Team> = Object.fromEntries(TEAMS.map((t) => [t.id, t]))
+
+export const LIST_TOTALS = { people: 100, teams: 39 }
+
+export const HEADCOUNT_BY_PERSONA = [
+  { persona: 'Sales Development Representative', current: 154, yearAgo: 117, growth: 31.6 },
+  { persona: 'Finance', current: 115, yearAgo: 75, growth: 53.3 },
+  { persona: 'Overall', current: 2442, yearAgo: 2021, growth: 20.8 },
+]
+
+/** Two items this month, two older. Matches "limited data this month". */
+export const RECENT_CHANGES = [
+  { date: 'Nov 6', text: 'Posted Accounts Payable Specialist.' },
+  { date: 'Nov 1', text: 'Posted Senior Manager, Accounts Payable.' },
+  { date: 'Aug 12', text: 'Finance headcount passed 115.' },
+  { date: 'Jun 3', text: 'vLex finance team joined after the acquisition.' },
+]
 
 export type Evidence = 'Strong' | 'Medium' | 'Weak'
 
@@ -85,7 +155,7 @@ export type Angle = {
   contactsLimited?: boolean
   whyNow: string[]
   whyNowLimited?: boolean
-  teams: { name: string; headcount: number; openRoles: number; reason: string }[]
+  teams: { id: string; reason: string }[]
   teamsLimited?: boolean
   emailSubject: string
   emailHook: string
@@ -93,77 +163,76 @@ export type Angle = {
 
 export const ANGLES: Angle[] = [
   {
-    id: 'support',
-    line: 'Pitch TeamInbox to Client Support to clear shared-inbox backlogs.',
+    id: 'finance-ap',
+    line: 'Pitch TeamInbox to Finance to clear shared AP inboxes.',
     evidence: 'Strong',
-    proof: 'Support up 38% in 12 months. 14 open roles. [1][3]',
+    proof: 'Finance up 53.3% in 12 months. AP roles open now. [1][3]',
     contacts: [
-      { id: 'kathryn', reason: '6 months in. Hiring four support leads. [1][4]' },
-      { id: 'marcus', reason: 'Owns queue tooling. Posted the ops analyst role. [5][8]' },
-      { id: 'priya', reason: 'Runs the intake inbox. Team up 21%. [2][9]' },
-      { id: 'daniel', reason: 'Signs vendor spend. Bring in at pricing. [7]' },
-      { id: 'elena', reason: 'Backup path through partner support. [11]' },
+      { id: 'alex', reason: 'VP Finance. AP hiring sits in this group. [2][8]' },
+      { id: 'curt', reason: 'Top score. Signs vendor spend. Bring in at pricing. [7]' },
+      { id: 'nav', reason: 'VP Finance. Billing ops roles are open. [5][11]' },
+      { id: 'christal', reason: 'Tax work depends on clean invoice records. [9]' },
+      { id: 'hugo', reason: 'Backup path through the vLex finance team. [10]' },
     ],
     whyNow: [
-      '14 support roles posted since August. [1]',
-      'Kathryn took over Customer Experience 6 months ago. [4]',
+      'Accounts Payable Specialist posted 4 days ago. [1]',
+      'Senior Manager, Accounts Payable posted 9 days ago. [2]',
     ],
     whyNowLimited: true,
     teams: [
-      { name: 'Client Support', headcount: 214, openRoles: 14, reason: 'Growing fast on shared mailboxes. [3][6]' },
-      { name: 'Client Intake', headcount: 86, openRoles: 5, reason: 'Same inbox pattern, smaller team. [9]' },
-      { name: 'Support Operations', headcount: 18, openRoles: 2, reason: 'Owns tooling decisions. [5]' },
+      { id: 'finance', reason: 'Most matching jobs. Shared mailboxes named. [4][6]' },
+      { id: 'emea', reason: 'Same finance roles, smaller team. [12]' },
+      { id: 'revops', reason: 'Billing questions reach this team. [5]' },
     ],
-    emailSubject: 'Shared inboxes at Client Support',
-    emailHook:
-      "Saw you're adding four support leads. Most teams hit shared-inbox limits at that size.",
+    emailSubject: 'Shared AP inboxes at Clio',
+    emailHook: 'Saw Finance is adding AP roles. Shared inboxes get harder to run at that size.',
   },
   {
-    id: 'intake',
-    line: 'Give Client Intake one queue for new-firm onboarding.',
+    id: 'vlex',
+    line: 'Give the post-vLex finance teams one shared queue.',
     evidence: 'Medium',
-    proof: 'Intake up 21% in 12 months. 5 open roles. [2][9]',
+    proof: 'Finance up 53.3%. vLex finance is now in the org. [3][15]',
     contacts: [
-      { id: 'priya', reason: 'Owns the intake inbox day to day. [2][9]' },
-      { id: 'kathryn', reason: 'Intake reports into Customer Experience. [4]' },
-      { id: 'marcus', reason: 'Would run the rollout. [8]' },
+      { id: 'hugo', reason: 'Finance lead for vLex after the acquisition. [10][15]' },
+      { id: 'alex', reason: 'VP Finance. Likely owner of shared process. [8]' },
+      { id: 'curt', reason: 'Signs vendor spend. [7]' },
     ],
-    whyNow: ['New intake director role posted 9 days ago. [2]', 'Mailbox handoffs named in job posts. [6]'],
+    whyNow: ['Integration Accountant, vLex posted 5 weeks ago. [15]', 'EMEA org has 3 matching jobs. [12]'],
     whyNowLimited: true,
     teams: [
-      { name: 'Client Intake', headcount: 86, openRoles: 5, reason: 'Clearest owner for this angle. [2][9]' },
-      { name: 'Client Onboarding', headcount: 52, openRoles: 3, reason: 'Takes handoffs from intake by email. [6]' },
+      { id: 'finance', reason: 'Clearest owner for this angle. [4]' },
+      { id: 'emea', reason: 'Finance roles outside the main team. [12]' },
     ],
-    emailSubject: 'One queue for new-firm intake',
-    emailHook:
-      "Saw Client Intake is growing and you're hiring a new director. Handoffs by email get harder at that size.",
+    emailSubject: 'One queue for finance after vLex',
+    emailHook: 'Saw the vLex finance team is now part of Clio. Two sets of inboxes are hard to run as one.',
   },
   {
-    id: 'partners',
-    line: 'Help Partnerships track reseller and bar-association threads.',
+    id: 'sdr',
+    line: 'Help Sales Development manage shared prospect replies.',
     evidence: 'Weak',
-    proof: 'One open role. No clear inbox pain yet. [10]',
+    proof: 'SDRs up 31.6%. No inbox pain in the data yet. [13]',
     contacts: [
-      { id: 'elena', reason: 'Owns partner relationships. [11]' },
-      { id: 'kathryn', reason: 'Possible sponsor. No direct signal. [4]' },
+      { id: 'curt', reason: 'Possible sponsor. No direct signal. [7]' },
+      { id: 'nav', reason: 'Finance partner to Sales. Weak link. [11]' },
     ],
     contactsLimited: true,
-    whyNow: ['Partner marketing role posted 5 weeks ago. [10]'],
+    whyNow: ['SDR headcount up 31.6% in a year. [13]'],
     whyNowLimited: true,
-    teams: [{ name: 'Partnerships', headcount: 31, openRoles: 1, reason: 'Few signals. Validate first. [10]' }],
+    teams: [{ id: 'sales', reason: 'Top team score. Validate first. [14]' }],
     teamsLimited: true,
-    emailSubject: 'Partner threads at Clio',
-    emailHook: 'Saw the Partnerships team is hiring. Partner threads tend to scatter across personal inboxes.',
+    emailSubject: 'Shared replies for Sales Development',
+    emailHook: 'Saw your SDR team is growing. Prospect replies tend to scatter across inboxes.',
   },
 ]
 
-export function draftEmail(contact: Contact, angle: Angle) {
+export function draftEmail(contact: Contact, angle: Angle | null) {
   const firstName = contact.name.split(' ')[0]
+  const hook = angle?.emailHook ?? "Saw Clio's Finance team is growing fast."
   return {
-    subject: angle.emailSubject,
+    subject: angle?.emailSubject ?? 'Team inboxes at Clio',
     body: `Hi ${firstName},
 
-${angle.emailHook}
+${hook}
 
 TeamInbox gives your team one shared queue, with an owner and a response time on every thread.
 
@@ -180,36 +249,54 @@ export const INITIAL_CHAT: ChatMessage[] = [
   {
     id: 'opening',
     role: 'sumble',
-    text: 'Your brief is ready. Strongest angle: clear shared-inbox backlogs in Client Support. [1][3]',
+    text: 'Your brief is ready. Strongest angle: clear shared AP inboxes in Finance. [1][3]',
   },
-  { id: 'prefill-q', role: 'user', text: 'Is the support backlog real?' },
+  { id: 'prefill-q', role: 'user', text: 'Is the AP backlog real?' },
   {
     id: 'prefill-a',
     role: 'sumble',
-    text: 'Looks like it. Open roles name response time and inbox backlog. [1][5] Support is up 38% in a year. [3] Mail still runs through shared Outlook mailboxes. [6]',
+    text: 'Looks like it. Open roles name invoice backlog and mailbox triage. [1][6] Finance is up 53.3% in a year. [3] Billing ops is hiring too. [5]',
   },
 ]
 
 export const FOLLOW_UPS = [
   {
-    prompt: 'Why her over the CFO?',
+    prompt: 'Why Alex over the CFO?',
     answer:
-      'Kathryn owns the problem. 6 months in and hiring four support leads. [1][4] The CFO signs the contract but feels none of the inbox pain. [7] Start with Kathryn. Bring in the CFO at pricing.',
+      'Alex has the closer role. VP Finance, and AP hiring sits in that group. [2][8] The CFO has the higher score and signs the contract, but is a step away from the inbox. [7] Start with Alex. Bring in the CFO at pricing.',
   },
   {
-    prompt: 'Draft an opener for Kathryn',
+    prompt: 'Draft an opener for Alex',
     answer:
-      '"Kathryn, saw you\'re adding four support leads. Most teams hit shared-inbox limits at that size. Worth 15 minutes?" Based on [1][4].',
+      '"Alex, saw Finance is adding AP roles. Shared inboxes get harder to run at that size. Worth 15 minutes?" Based on [1][2].',
   },
   {
     prompt: 'What changed this quarter?',
     answer:
-      'Two things stand out. Support posted 14 roles since August. [1] Kathryn took over Customer Experience. [4] Data is thin this month, so treat this as partial.',
+      'Two things stand out. Accounts Payable Specialist posted 4 days ago. [1] Senior Manager, Accounts Payable posted 9 days ago. [2] Data is thin this month, so treat this as partial.',
   },
 ]
 
 export const CHAT_FALLBACK =
   'This prototype only answers the suggested follow-ups. Try one of those.'
+
+/** Invented firm for the "See example" modal. */
+export const EXAMPLE_BRIEF = {
+  company: 'Northlane Legal Software',
+  angle: 'Pitch TeamInbox to Client Support to clear shared-inbox backlogs.',
+  evidence: 'Strong' as Evidence,
+  sources: 9,
+  contacts: [
+    { name: 'Jordan Vance', score: 84.2, title: 'VP Customer Support', reason: 'Owns the backlog. Hiring three team leads.' },
+    { name: 'Sam Okoye', score: 76.5, title: 'Director, Support Operations', reason: 'Runs queue tooling.' },
+    { name: 'Riley Hart', score: 70.1, title: 'Chief Financial Officer', reason: 'Signs vendor spend.' },
+  ],
+  whyNow: ['Support up 40% in 12 months.', '11 open support roles.'],
+}
+
+export function stripCitations(text: string) {
+  return text.replace(/\s*\[\d+\]/g, '')
+}
 
 /** Distinct source numbers cited anywhere in an angle's sections. */
 export function angleSourceIds(angle: Angle) {

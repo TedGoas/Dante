@@ -9,14 +9,15 @@ const PRESETS: { id: DemoPreset; label: string }[] = [
   { id: 'zero', label: '0 credits' },
   { id: 'during', label: 'During' },
   { id: 'tile', label: 'Ready tile' },
+  { id: 'stale', label: 'Generated 3 days ago' },
   { id: 'brief', label: 'Brief open' },
 ]
 
 /** Demo-only state switcher. Hide it before recording. */
 export function DevToolbar() {
-  const { status, credits, tab, jumpTo } = useBrief()
+  const { status, credits, tab, generated, jumpTo } = useBrief()
   const [hidden, setHidden] = React.useState(false)
-  const active = currentPreset(status, credits, tab)
+  const active = currentPreset(status, credits, tab, generated)
 
   if (hidden) {
     return (

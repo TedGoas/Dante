@@ -15,21 +15,24 @@ import {
 } from '@/data/clio'
 
 export type BriefStatus = 'idle' | 'generating' | 'ready'
-export type DemoPreset = 'before' | 'zero' | 'during' | 'tile' | 'brief'
+export type GeneratedAge = 'now' | 'days'
+export type DemoPreset = 'before' | 'zero' | 'during' | 'tile' | 'stale' | 'brief'
 
-const PRESETS: Record<DemoPreset, { status: BriefStatus; credits: number; tab: TabName }> = {
-  before: { status: 'idle', credits: CREDITS.start, tab: 'Overview' },
-  zero: { status: 'idle', credits: 0, tab: 'Overview' },
-  during: { status: 'generating', credits: CREDITS.start - 1, tab: 'Overview' },
-  tile: { status: 'ready', credits: CREDITS.start - 1, tab: 'Overview' },
-  brief: { status: 'ready', credits: CREDITS.start - 1, tab: 'Brief' },
+const PRESETS: Record<DemoPreset, { status: BriefStatus; credits: number; tab: TabName; generated: GeneratedAge }> = {
+  before: { status: 'idle', credits: CREDITS.start, tab: 'Overview', generated: 'now' },
+  zero: { status: 'idle', credits: 0, tab: 'Overview', generated: 'now' },
+  during: { status: 'generating', credits: CREDITS.start - 1, tab: 'Overview', generated: 'now' },
+  tile: { status: 'ready', credits: CREDITS.start - 1, tab: 'Overview', generated: 'now' },
+  stale: { status: 'ready', credits: CREDITS.start - 1, tab: 'Overview', generated: 'days' },
+  brief: { status: 'ready', credits: CREDITS.start - 1, tab: 'Brief', generated: 'now' },
 }
 
 function useBriefState() {
-  const [status, setStatus] = React.useState<BriefStatus>('ready')
+  const [status, setStatus] = React.useState<BriefStatus>('idle')
   const [step, setStep] = React.useState(0)
-  const [credits, setCredits] = React.useState(CREDITS.start - 1)
-  const [tab, setTab] = React.useState<TabName>('Brief')
+  const [credits, setCredits] = React.useState(CREDITS.start)
+  const [tab, setTab] = React.useState<TabName>('Overview')
+  const [generated, setGenerated] = React.useState<GeneratedAge>('now')
   const [angleId, setAngleId] = React.useState(ANGLES[0].id)
   const [hoveredSource, setHoveredSource] = React.useState<number | null>(null)
   const [pinnedSource, setPinnedSource] = React.useState<number | null>(null)
@@ -42,6 +45,7 @@ function useBriefState() {
   const tabRef = React.useRef(tab)
   const replyTimer = React.useRef<number | undefined>(undefined)
   const pinTimer = React.useRef<number | undefined>(undefined)
+  const headingFocusPending = React.useRef(false)
 
   React.useEffect(() => {
     tabRef.current = tab
@@ -81,18 +85,28 @@ function useBriefState() {
     if (credits < 1) return
     resetBrief()
     setCredits(credits - 1)
+    setGenerated('now')
     setStatus('generating')
   }
 
   function openBrief() {
     setToastVisible(false)
+    headingFocusPending.current = true
     setTab('Brief')
+  }
+
+  /** True once after openBrief, so normal tab switching never moves focus. */
+  function consumeHeadingFocus() {
+    const pending = headingFocusPending.current
+    headingFocusPending.current = false
+    return pending
   }
 
   function jumpTo(preset: DemoPreset) {
     const next = PRESETS[preset]
     resetBrief()
     setCredits(next.credits)
+    setGenerated(next.generated)
     setStatus(next.status)
     setTab(next.tab)
   }
@@ -145,8 +159,10 @@ function useBriefState() {
     toggleFlag,
     addedSources,
     addSource,
+    generated,
     generate,
     openBrief,
+    consumeHeadingFocus,
     jumpTo,
   }
 }
@@ -166,9 +182,17 @@ export function useBrief() {
   return value
 }
 
-export function currentPreset(status: BriefStatus, credits: number, tab: TabName): DemoPreset | null {
+export function currentPreset(
+  status: BriefStatus,
+  credits: number,
+  tab: TabName,
+  generated: GeneratedAge
+): DemoPreset {
   if (status === 'generating') return 'during'
-  if (status === 'ready') return tab === 'Brief' ? 'brief' : 'tile'
+  if (status === 'ready') {
+    if (tab === 'Brief') return 'brief'
+    return generated === 'days' ? 'stale' : 'tile'
+  }
   return credits === 0 ? 'zero' : 'before'
 }
 

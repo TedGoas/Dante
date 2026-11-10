@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 
 const EVIDENCE_BARS: Record<Evidence, number> = { Strong: 3, Medium: 2, Weak: 1 }
 
-function EvidenceMeter({ evidence }: { evidence: Evidence }) {
+export function EvidenceMeter({ evidence }: { evidence: Evidence }) {
   return (
     <span className="inline-flex items-center gap-1.5">
       <span aria-hidden className="inline-flex items-end gap-0.5">
@@ -34,7 +34,7 @@ export function AngleCards() {
       {ANGLES.map((angle, i) => (
         <label
           key={angle.id}
-          className="flex cursor-pointer flex-col gap-2 rounded-lg border border-border bg-background p-3 transition-colors hover:border-slate-400 has-checked:border-green-700 has-checked:bg-selected has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-ring"
+          className="flex cursor-pointer flex-col gap-2 rounded-card border border-border bg-background p-3 transition-colors hover:border-slate-400 has-checked:border-green-700 has-checked:bg-selected has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-ring"
         >
           <input
             type="radio"

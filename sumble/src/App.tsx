@@ -3,6 +3,7 @@ import { TooltipProvider } from '@/components/ui/tooltip'
 import { BriefProvider } from '@/features/brief/BriefContext'
 import { DevToolbar } from '@/features/brief/DevToolbar'
 import { OutreachDrawer } from '@/features/brief/OutreachDrawer'
+import { Toast } from '@/features/brief/Toast'
 import { OrgPage } from '@/features/org/OrgPage'
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
           </main>
         </div>
         <OutreachDrawer />
+        <Toast />
         <DevToolbar />
       </BriefProvider>
     </TooltipProvider>

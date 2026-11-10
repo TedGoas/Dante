@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { IconButton } from '@/components/ui/icon-button'
 import { Input } from '@/components/ui/input'
 import { ScoreBadge } from '@/components/ui/score-badge'
-import { citedIds, ORG, SOURCES, TIMING } from '@/data/clio'
+import { citedIds, NEW_DATA_NOTE, ORG, SOURCES, TEAMS_BY_ID, TIMING } from '@/data/clio'
 import { AngleCards } from '@/features/brief/AngleCards'
 import { contactFor, useBrief } from '@/features/brief/BriefContext'
 import { CitedText } from '@/features/brief/Citation'
@@ -141,7 +141,13 @@ function SourcesList() {
 }
 
 export function BriefDocument() {
-  const { angle, credits, generate, openOutreach } = useBrief()
+  const { angle, credits, generate, generated, openOutreach, consumeHeadingFocus } = useBrief()
+  const headingRef = React.useRef<HTMLHeadingElement>(null)
+
+  React.useEffect(() => {
+    if (consumeHeadingFocus()) headingRef.current?.focus()
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- runs once on open
+  }, [])
 
   const briefAsText = () =>
     [
@@ -159,9 +165,14 @@ export function BriefDocument() {
     <div className="h-full overflow-y-auto">
       <header className="sticky top-0 z-10 flex items-center gap-2 border-b border-border bg-page px-6 py-3">
         <div className="min-w-0 flex-1">
-          <h2 className="text-base font-semibold text-slate-900">Intelligence brief · {ORG.name}</h2>
-          <p className="text-xs text-slate-600">Generated today by you · free to reopen</p>
+          <h2 ref={headingRef} tabIndex={-1} className="text-base font-semibold text-slate-900 outline-none">
+            Intelligence brief · {ORG.name}
+          </h2>
+          <p className="text-xs text-slate-600">
+            {generated === 'days' ? 'Generated 3 days ago' : 'Generated today by you'} · free to reopen
+          </p>
         </div>
+        {generated === 'days' ? <span className="text-xs text-slate-600">{NEW_DATA_NOTE}</span> : null}
         <Button size="sm" variant="outline" disabled={credits < 1} onClick={generate}>
           <RefreshCwIcon />
           Refresh · 1 credit
@@ -223,17 +234,20 @@ export function BriefDocument() {
           limitedSources={angle.teamsLimited ? citedIds(angle.teams.map((t) => t.reason)).length : undefined}
         >
           <ul className="flex flex-col divide-y divide-slate-100">
-            {angle.teams.map((team) => (
-              <li key={team.name} className="flex h-9 items-center gap-3 text-body">
-                <span className="w-40 shrink-0 font-semibold text-slate-900">{team.name}</span>
-                <span className="w-40 shrink-0 text-slate-600 tabular-nums">
-                  {team.headcount} people · {team.openRoles} open
-                </span>
-                <span className="min-w-0 flex-1 truncate text-slate-700">
-                  <CitedText text={team.reason} origin="doc" />
-                </span>
-              </li>
-            ))}
+            {angle.teams.map(({ id, reason }) => {
+              const team = TEAMS_BY_ID[id]
+              return (
+                <li key={id} className="flex h-9 items-center gap-3 text-body">
+                  <span className="w-44 shrink-0 font-semibold text-slate-900">{team.name}</span>
+                  <span className="w-36 shrink-0 text-slate-600 tabular-nums">
+                    Score {team.score.toFixed(1)} · {team.jobs} {team.jobs === 1 ? 'job' : 'jobs'}
+                  </span>
+                  <span className="min-w-0 flex-1 truncate text-slate-700">
+                    <CitedText text={reason} origin="doc" />
+                  </span>
+                </li>
+              )
+            })}
           </ul>
         </Section>
 
