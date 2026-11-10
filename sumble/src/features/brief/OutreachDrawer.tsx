@@ -62,16 +62,19 @@ export function OutreachDrawer() {
   // No angle exists until a brief has been generated.
   const angle = status === 'ready' ? selectedAngle : null
 
+  // Keeps the content in place while the drawer animates out.
+  const lastContact = React.useRef(outreachContact)
+  if (outreachContact) lastContact.current = outreachContact
+  const contact = outreachContact ?? lastContact.current
+
   return (
     <Dialog
       open={outreachContact !== null}
       onClose={closeOutreach}
-      title={outreachContact ? `Draft outreach to ${outreachContact.name.split(' ')[0]}` : 'Draft outreach'}
+      title={contact ? `Draft outreach to ${contact.name.split(' ')[0]}` : 'Draft outreach'}
       placement="right"
     >
-      {outreachContact ? (
-        <DraftForm key={`${outreachContact.id}-${angle?.id ?? 'none'}`} contact={outreachContact} angle={angle} />
-      ) : null}
+      {contact ? <DraftForm key={`${contact.id}-${angle?.id ?? 'none'}`} contact={contact} angle={angle} /> : null}
     </Dialog>
   )
 }

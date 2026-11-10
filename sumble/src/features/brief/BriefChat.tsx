@@ -3,10 +3,29 @@ import * as React from 'react'
 
 import { IconButton } from '@/components/ui/icon-button'
 import { Input } from '@/components/ui/input'
-import { FOLLOW_UPS } from '@/data/clio'
+import { FOLLOW_UPS, TIMING, type ChatMessage } from '@/data/clio'
 import { useBrief } from '@/features/brief/BriefContext'
 import { CitedText } from '@/features/brief/Citation'
 import { cn } from '@/lib/utils'
+
+/** Splits after each sentence, keeping any citations with the sentence they follow. */
+function toPhrases(text: string) {
+  return text.replace(/\s+(?=\[\d+\])/g, '').split(/(?<=[.?!"](?:\[\d+\])*\s)/)
+}
+
+function MessageText({ message }: { message: ChatMessage }) {
+  const isNew = message.createdAt !== undefined && Date.now() - message.createdAt < TIMING.streamWindowMs
+  if (!isNew) return <CitedText text={message.text} origin="chat" />
+  return (
+    <>
+      {toPhrases(message.text).map((phrase, i) => (
+        <span key={i} className="animate-stream-in" style={{ animationDelay: `${i * TIMING.streamPhraseMs}ms` }}>
+          <CitedText text={phrase} origin="chat" />
+        </span>
+      ))}
+    </>
+  )
+}
 
 export function BriefChat() {
   const { messages, askFollowUp } = useBrief()
@@ -31,35 +50,37 @@ export function BriefChat() {
 
   return (
     <div className="flex h-full flex-col bg-muted">
-      <div ref={scrollRef} className="flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto p-5">
-        <ul aria-live="polite" className="flex flex-col gap-3">
+      <div ref={scrollRef} className="min-h-0 flex-1 overflow-y-auto px-6 py-5">
+        <ul aria-live="polite" className="flex flex-col gap-5">
           {messages.map((message) => (
             <li
               key={message.id}
               className={cn(
-                'max-w-[88%] rounded-lg px-3 py-2 text-body leading-relaxed',
-                message.role === 'user'
-                  ? 'self-end bg-slate-200 text-slate-900'
-                  : 'self-start border border-border bg-background text-slate-800'
+                'text-body leading-relaxed text-slate-900',
+                message.role === 'user' ? 'max-w-[85%] self-end rounded-lg bg-slate-200 px-3 py-2' : 'self-start'
               )}
             >
-              <CitedText text={message.text} origin="chat" />
+              <MessageText message={message} />
             </li>
           ))}
-          {thinking ? <li className="self-start px-3 text-body text-slate-600">Checking the sources…</li> : null}
+          {thinking ? (
+            <li className="self-start text-body">
+              <span className="shimmer-text">Checking the sources…</span>
+            </li>
+          ) : null}
         </ul>
       </div>
 
-      <div className="flex flex-col gap-2 border-t border-border bg-background px-5 py-3">
+      <div className="flex flex-col gap-3 border-t border-border bg-background px-6 py-4">
         {chips.length > 0 ? (
-          <div className="flex flex-wrap gap-1.5">
+          <div className="flex flex-wrap gap-2">
             {chips.map((chip) => (
               <button
                 key={chip.prompt}
                 type="button"
                 disabled={thinking}
                 onClick={() => askFollowUp(chip.prompt)}
-                className="h-6.5 cursor-pointer rounded-full border border-border bg-background px-2.5 text-xs font-medium text-slate-700 transition-colors hover:bg-slate-100 disabled:pointer-events-none disabled:opacity-50"
+                className="h-7 cursor-pointer rounded-full border border-border bg-background px-3 text-xs font-medium text-slate-600 transition duration-150 ease-quint hover:bg-slate-100 hover:text-slate-900 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50"
               >
                 {chip.prompt}
               </button>
@@ -78,7 +99,7 @@ export function BriefChat() {
             <ArrowUpIcon />
           </IconButton>
         </form>
-        <p className="text-xs text-slate-600">Follow-ups on this brief are free.</p>
+        <p className="text-xs text-slate-500">Follow-ups on this brief are free.</p>
       </div>
     </div>
   )

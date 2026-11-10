@@ -6,7 +6,7 @@ import { CREDITS, EXAMPLE_BRIEF as EXAMPLE } from '@/data/clio'
 import { EvidenceMeter } from '@/features/brief/AngleCards'
 import { useBrief } from '@/features/brief/BriefContext'
 
-const HEADING = 'text-xs font-semibold tracking-wide text-slate-600 uppercase'
+const HEADING = 'text-base font-semibold text-slate-900'
 
 export function ExampleModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const { credits, generate } = useBrief()
@@ -28,10 +28,9 @@ export function ExampleModal({ open, onClose }: { open: boolean; onClose: () => 
         </>
       }
     >
-      <div className="flex flex-col gap-5 p-5 text-body">
+      <div className="flex flex-col gap-6 p-5 text-body">
         <div className="flex flex-col gap-1">
-          <h3 className={HEADING}>Recommended angle</h3>
-          <p className="text-base font-semibold text-slate-900">{EXAMPLE.angle}</p>
+          <p className="text-xl font-semibold tracking-tight text-slate-900">{EXAMPLE.angle}</p>
           <p className="flex items-center gap-1.5 text-xs text-slate-600">
             <EvidenceMeter evidence={EXAMPLE.evidence} />
             <span aria-hidden>·</span>
@@ -47,9 +46,9 @@ export function ExampleModal({ open, onClose }: { open: boolean; onClose: () => 
                 <div className="min-w-0">
                   <p>
                     <span className="font-semibold text-slate-900">{contact.name}</span>
-                    <span className="text-slate-600"> · {contact.title}</span>
+                    <span className="text-slate-500"> · {contact.title}</span>
                   </p>
-                  <p className="text-slate-700">{contact.reason}</p>
+                  <p className="text-slate-600">{contact.reason}</p>
                 </div>
               </li>
             ))}
@@ -57,7 +56,7 @@ export function ExampleModal({ open, onClose }: { open: boolean; onClose: () => 
         </div>
         <div className="flex flex-col gap-1">
           <h3 className={HEADING}>Why now</h3>
-          <ul className="flex list-disc flex-col gap-1 pl-4 text-slate-700 marker:text-slate-400">
+          <ul className="flex list-disc flex-col gap-1.5 pl-4 text-slate-900 marker:text-slate-400">
             {EXAMPLE.whyNow.map((item) => (
               <li key={item}>{item}</li>
             ))}

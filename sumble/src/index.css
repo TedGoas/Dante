@@ -25,22 +25,51 @@
   --color-urgent: var(--color-red-700);
 
   --text-body: 13.5px;
+  --text-body--line-height: 20px;
 
   --radius-card: 7px;
 
-  --animate-check-in: check-in 200ms ease-out;
-  --animate-fade-in: fade-in 240ms ease-out;
+  /* Motion: opacity and small moves only. Curve from beautifului.dev. */
+  --ease-quint: cubic-bezier(0.23, 1, 0.32, 1);
 
-  @keyframes check-in {
+  --animate-fade-up: fade-up 220ms var(--ease-quint) both;
+  --animate-pop-in: pop-in 180ms var(--ease-quint) both;
+  --animate-stream-in: stream-in 220ms var(--ease-quint) both;
+  --animate-grow-bar: grow-bar 320ms var(--ease-quint) both;
+
+  @keyframes fade-up {
     from {
       opacity: 0;
-      transform: scale(0.6);
+      transform: translateY(6px);
     }
   }
 
-  @keyframes fade-in {
+  @keyframes pop-in {
     from {
       opacity: 0;
+      transform: scale(0.95);
+    }
+  }
+
+  @keyframes stream-in {
+    from {
+      opacity: 0;
+      filter: blur(2px);
+    }
+  }
+
+  @keyframes grow-bar {
+    from {
+      transform: scaleY(0);
+    }
+  }
+
+  @keyframes shimmer-text {
+    from {
+      background-position: 150% 0;
+    }
+    to {
+      background-position: -50% 0;
     }
   }
 
@@ -61,5 +90,73 @@
 
   :focus-visible {
     @apply outline-2 outline-offset-2 outline-ring;
+  }
+}
+
+@layer components {
+  /* Text only, never a whole card. */
+  .shimmer-text {
+    color: transparent;
+    background: linear-gradient(90deg, var(--color-slate-900) 35%, var(--color-slate-400) 50%, var(--color-slate-900) 65%);
+    background-size: 200% 100%;
+    background-clip: text;
+    animation: shimmer-text 2s linear infinite;
+  }
+
+  /* Native <dialog>: slides in, leaves faster. */
+  .dialog-motion,
+  .dialog-motion::backdrop {
+    opacity: 0;
+    transition:
+      opacity 140ms var(--ease-quint),
+      translate 140ms var(--ease-quint),
+      display 140ms allow-discrete,
+      overlay 140ms allow-discrete;
+  }
+
+  .dialog-motion {
+    translate: var(--dialog-x, 0) var(--dialog-y, 6px);
+  }
+
+  .dialog-motion[data-placement='right'] {
+    --dialog-x: 16px;
+    --dialog-y: 0;
+  }
+
+  .dialog-motion[open],
+  .dialog-motion[open]::backdrop {
+    opacity: 1;
+    transition-duration: 220ms;
+  }
+
+  .dialog-motion[open] {
+    translate: 0 0;
+
+    @starting-style {
+      opacity: 0;
+      translate: var(--dialog-x, 0) var(--dialog-y, 6px);
+    }
+  }
+
+  .dialog-motion[open]::backdrop {
+    @starting-style {
+      opacity: 0;
+    }
+  }
+}
+
+/* Unlayered and !important so it beats every animation utility. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after,
+  ::backdrop {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .shimmer-text {
+    color: var(--color-slate-900);
+    background: none;
   }
 }

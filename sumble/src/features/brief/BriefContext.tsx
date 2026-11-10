@@ -115,7 +115,10 @@ function useBriefState() {
     setMessages((current) => [...current, { id: `user-${current.length}`, role: 'user', text }])
     const answer = FOLLOW_UPS.find((f) => f.prompt === text)?.answer ?? CHAT_FALLBACK
     replyTimer.current = window.setTimeout(() => {
-      setMessages((current) => [...current, { id: `sumble-${current.length}`, role: 'sumble', text: answer }])
+      setMessages((current) => [
+        ...current,
+        { id: `sumble-${current.length}`, role: 'sumble', text: answer, createdAt: Date.now() },
+      ])
     }, TIMING.chatReplyMs)
   }
 

@@ -7,6 +7,12 @@ export const TIMING = {
   citationPinMs: 2500,
   copiedMs: 1800,
   toastMs: 10000,
+  toastExitMs: 140,
+  /** Delay between each phrase of a new chat reply. */
+  streamPhraseMs: 110,
+  /** How long after arriving a chat reply still animates. Stops replays on tab return. */
+  streamWindowMs: 1500,
+  sectionStaggerMs: 40,
 }
 
 export const CREDITS = { total: 200, start: 142 }
@@ -148,6 +154,7 @@ export type Evidence = 'Strong' | 'Medium' | 'Weak'
 
 export type Angle = {
   id: string
+  short: string
   line: string
   evidence: Evidence
   proof: string
@@ -164,6 +171,7 @@ export type Angle = {
 export const ANGLES: Angle[] = [
   {
     id: 'finance-ap',
+    short: 'AP inboxes',
     line: 'Pitch TeamInbox to Finance to clear shared AP inboxes.',
     evidence: 'Strong',
     proof: 'Finance up 53.3% in 12 months. AP roles open now. [1][3]',
@@ -189,6 +197,7 @@ export const ANGLES: Angle[] = [
   },
   {
     id: 'vlex',
+    short: 'vLex finance',
     line: 'Give the post-vLex finance teams one shared queue.',
     evidence: 'Medium',
     proof: 'Finance up 53.3%. vLex finance is now in the org. [3][15]',
@@ -208,6 +217,7 @@ export const ANGLES: Angle[] = [
   },
   {
     id: 'sdr',
+    short: 'SDR replies',
     line: 'Help Sales Development manage shared prospect replies.',
     evidence: 'Weak',
     proof: 'SDRs up 31.6%. No inbox pain in the data yet. [13]',
@@ -243,7 +253,7 @@ Ted`,
   }
 }
 
-export type ChatMessage = { id: string; role: 'user' | 'sumble'; text: string }
+export type ChatMessage = { id: string; role: 'user' | 'sumble'; text: string; createdAt?: number }
 
 export const INITIAL_CHAT: ChatMessage[] = [
   {

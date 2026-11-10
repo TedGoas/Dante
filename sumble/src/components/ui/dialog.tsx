@@ -36,12 +36,13 @@ function Dialog({
     <dialog
       ref={ref}
       aria-labelledby={titleId}
+      data-placement={placement}
       onClose={onClose}
       onClick={(event) => {
         if (event.target === ref.current) onClose()
       }}
       className={cn(
-        'flex-col bg-background p-0 text-foreground shadow-menu backdrop:bg-slate-900/40 open:flex',
+        'dialog-motion flex-col bg-background p-0 text-foreground shadow-menu backdrop:bg-slate-900/40 open:flex',
         placement === 'right'
           ? 'my-0 mr-0 ml-auto h-dvh max-h-dvh w-[480px] max-w-none'
           : 'm-auto max-h-[80dvh] w-[680px] max-w-none rounded-xl'

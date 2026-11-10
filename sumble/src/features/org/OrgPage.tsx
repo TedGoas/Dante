@@ -30,7 +30,7 @@ const META_ICON = 'size-3.5 shrink-0 text-slate-500'
 
 function MetaRow() {
   return (
-    <ul className="mt-1.5 flex items-center gap-3 text-xs whitespace-nowrap text-slate-600">
+    <ul className="mt-2 flex items-center gap-4 text-xs whitespace-nowrap text-slate-500">
       <li className="flex items-center gap-1">
         <FlaskConicalIcon aria-hidden className={META_ICON} />
         {ORG.industry}
@@ -83,7 +83,7 @@ function BriefTabStatus() {
   if (status === 'ready') {
     return (
       <>
-        <span aria-hidden className="size-1.5 rounded-full bg-green-600" />
+        <span aria-hidden className="size-1.5 animate-pop-in rounded-full bg-green-600" />
         <span className="sr-only">, ready</span>
       </>
     )
@@ -94,6 +94,15 @@ function BriefTabStatus() {
 export function OrgPage() {
   const { tab: activeTab, setTab, status } = useBrief()
   const tabRefs = React.useRef(new Map<TabName, HTMLButtonElement>())
+  const [underline, setUnderline] = React.useState({ left: 0, width: 0, glide: false })
+
+  // Re-measures on status too, because the Brief tab's indicator changes tab widths.
+  React.useLayoutEffect(() => {
+    const element = tabRefs.current.get(activeTab)
+    if (!element) return
+    const { offsetLeft: left, offsetWidth: width } = element
+    setUnderline((current) => ({ left, width, glide: current.width > 0 }))
+  }, [activeTab, status])
 
   function onTabKeyDown(event: React.KeyboardEvent, index: number) {
     const moves: Record<string, number> = {
@@ -146,7 +155,7 @@ export function OrgPage() {
             </Button>
           </div>
         </div>
-        <div className="mt-0.5 flex items-center gap-2">
+        <div className="mt-1 flex items-center gap-2">
           <h1 className="text-2xl font-semibold tracking-tight text-slate-900">{ORG.name}</h1>
           <Badge variant="green" className="ml-1 tabular-nums">
             {ORG.icp.score} {ORG.icp.label}
@@ -158,11 +167,19 @@ export function OrgPage() {
             Sample data
           </Badge>
         </div>
-        <p className="mt-0.5 line-clamp-2 text-body text-slate-600">{ORG.description}</p>
+        <p className="mt-1 line-clamp-2 text-body text-slate-600">{ORG.description}</p>
         <MetaRow />
       </header>
 
-      <div role="tablist" aria-label="Organization sections" className="mt-3 flex gap-4 border-b border-border px-6">
+      <div role="tablist" aria-label="Organization sections" className="relative mt-4 flex gap-5 border-b border-border px-6">
+        <span
+          aria-hidden
+          style={{ transform: `translateX(${underline.left}px)`, width: underline.width }}
+          className={cn(
+            'absolute -bottom-px left-0 h-0.5 bg-green-700',
+            underline.glide && 'transition-[transform,width] duration-200 ease-quint'
+          )}
+        />
         {TABS.map((tab, index) => (
           <button
             key={tab}
@@ -178,10 +195,8 @@ export function OrgPage() {
             onClick={() => setTab(tab)}
             onKeyDown={(event) => onTabKeyDown(event, index)}
             className={cn(
-              '-mb-px flex cursor-pointer items-center gap-1.5 border-b-2 pb-2 text-body font-medium whitespace-nowrap transition-colors',
-              tab === activeTab
-                ? 'border-green-700 text-slate-900'
-                : 'border-transparent text-slate-600 hover:text-slate-900'
+              'flex cursor-pointer items-center gap-1.5 pb-2.5 text-body font-medium whitespace-nowrap transition-colors duration-150',
+              tab === activeTab ? 'text-slate-900' : 'text-slate-500 hover:text-slate-900'
             )}
           >
             {tab}

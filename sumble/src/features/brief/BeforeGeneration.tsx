@@ -8,7 +8,6 @@ import { useBrief } from '@/features/brief/BriefContext'
 import type { TileSize } from '@/features/brief/BriefTile'
 import { ExampleModal } from '@/features/brief/ExampleModal'
 import { HowCalculated } from '@/features/brief/HowCalculated'
-import { TileLabel } from '@/features/brief/TileLabel'
 import { cn } from '@/lib/utils'
 
 function DataDot({ level }: { level: 'full' | 'limited' }) {
@@ -27,11 +26,10 @@ export function BeforeGeneration({ size }: { size: TileSize }) {
 
   return (
     <>
-      <TileLabel label="Intelligence brief" />
-      <h2 className={cn('mt-2 font-semibold tracking-tight text-slate-900', size === 'page' ? 'text-2xl' : 'text-xl')}>
+      <h3 className={cn('font-semibold tracking-tight text-slate-900', size === 'page' ? 'text-2xl' : 'text-xl')}>
         See the angle, who to call, and when
-      </h2>
-      <ul className="mt-2.5 flex flex-col gap-1 text-body text-slate-700">
+      </h3>
+      <ul className="mt-3 flex flex-col gap-1.5 text-body text-slate-600">
         {COVERAGE.map((item) => (
           <li key={item.text} className="flex h-5 items-center gap-2">
             <DataDot level={item.level} />
@@ -45,30 +43,29 @@ export function BeforeGeneration({ size }: { size: TileSize }) {
           </li>
         ))}
       </ul>
-      <div className="mt-4 flex items-center gap-2">
+      <div className={cn('mt-auto flex items-center gap-2', size === 'page' && 'pt-6')}>
         <Button size="sm" disabled={outOfCredits} onClick={generate}>
           Generate · 1 credit
         </Button>
         <Button size="sm" variant="outline" onClick={() => setExampleOpen(true)}>
           See example
         </Button>
-      </div>
-      <div className="mt-auto flex items-center gap-2 border-t border-border pt-3 text-xs text-slate-600 tabular-nums">
-        {outOfCredits ? (
-          <span>
-            <span className="font-medium text-slate-900">You're out of credits</span>
-            {' · '}
-            <a href="#" className="rounded-sm font-medium text-green-700 underline-offset-4 hover:underline">
-              Get more credits
-            </a>
-          </span>
-        ) : (
-          <span>
-            {credits} of {CREDITS.total} credits left this month
-          </span>
-        )}
-        <span aria-hidden className="h-3 w-px bg-slate-300" />
-        <HowCalculated />
+        <div className="ml-auto flex flex-col items-end text-xs text-slate-500 tabular-nums">
+          {outOfCredits ? (
+            <span>
+              <span className="font-medium text-slate-900">You're out of credits</span>
+              {' · '}
+              <a href="#" className="rounded-sm font-medium text-green-700 underline-offset-4 hover:underline">
+                Get more credits
+              </a>
+            </span>
+          ) : (
+            <span>
+              {credits} of {CREDITS.total} credits left this month
+            </span>
+          )}
+          <HowCalculated />
+        </div>
       </div>
       <ExampleModal open={exampleOpen} onClose={() => setExampleOpen(false)} />
     </>

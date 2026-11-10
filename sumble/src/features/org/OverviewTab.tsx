@@ -11,7 +11,7 @@ import { BriefTile } from '@/features/brief/BriefTile'
 import { cn } from '@/lib/utils'
 
 const HEAD = 'h-9 px-2 whitespace-normal leading-tight'
-const CELL = 'h-10 truncate px-2 py-0 text-body text-slate-700'
+const CELL = 'h-11 truncate px-2 py-0 text-body text-slate-600'
 
 function Pagination({ total }: { total: number }) {
   return (
@@ -30,7 +30,7 @@ function Pagination({ total }: { total: number }) {
 function TechnologiesCard() {
   return (
     <Card icon={CpuIcon} title="Technologies" className="col-span-6">
-      <div className="flex h-full flex-col items-center justify-center gap-1 p-6 text-center text-body">
+      <div className="flex flex-1 flex-col items-center justify-center gap-1 p-6 text-center text-body">
         <p className="font-semibold text-slate-900">No matches found.</p>
         <p className="text-slate-600">We couldn't identify technologies at this organization.</p>
         <a
@@ -57,7 +57,7 @@ function PeopleCard() {
       <Table className="table-fixed">
         <TableHeader>
           <TableRow>
-            <TableHead className={cn(HEAD, 'w-[184px] pl-4')}>Name</TableHead>
+            <TableHead className={cn(HEAD, 'w-[184px] pl-5')}>Name</TableHead>
             <TableHead className={cn(HEAD, 'w-[88px]')}>Sumble Lead Score</TableHead>
             <TableHead className={HEAD}>Title</TableHead>
             <TableHead className={cn(HEAD, 'w-[140px]')}>Location</TableHead>
@@ -66,9 +66,9 @@ function PeopleCard() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {PEOPLE.map((person) => (
+          {PEOPLE.map((person, index) => (
             <TableRow key={person.id}>
-              <TableCell className={cn(CELL, 'pl-4')} title={person.name}>
+              <TableCell className={cn(CELL, 'pl-5')} title={person.name}>
                 <a href="#" className="font-semibold text-slate-900 underline-offset-2 hover:underline">
                   {person.name}
                 </a>
@@ -83,7 +83,7 @@ function PeopleCard() {
                 {person.location}
               </TableCell>
               <TableCell className={cn(CELL, 'overflow-visible')}>
-                <Button size="xs" variant="outline" onClick={() => openOutreach(person)}>
+                <Button size="xs" variant={index === 0 ? 'outline' : 'ghost'} onClick={() => openOutreach(person)}>
                   Draft outreach
                 </Button>
               </TableCell>
@@ -104,16 +104,16 @@ function HeadcountCard() {
       <Table className="table-fixed">
         <TableHeader>
           <TableRow>
-            <TableHead className={cn(HEAD, 'pl-4')}>Headcount</TableHead>
+            <TableHead className={cn(HEAD, 'pl-5')}>Headcount</TableHead>
             <TableHead className={cn(HEAD, 'w-[62px] text-right')}>Current</TableHead>
             <TableHead className={cn(HEAD, 'w-[62px] text-right')}>Year Ago</TableHead>
-            <TableHead className={cn(HEAD, 'w-[76px] pr-4 text-right')}>YoY Growth</TableHead>
+            <TableHead className={cn(HEAD, 'w-[86px] pr-5 text-right')}>YoY Growth</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {HEADCOUNT_BY_PERSONA.map((row) => (
             <TableRow key={row.persona}>
-              <TableCell className={cn(CELL, 'h-12 pl-4 leading-tight font-medium whitespace-normal text-slate-900')}>
+              <TableCell className={cn(CELL, 'h-12 pl-5 leading-tight font-medium whitespace-normal text-slate-900')}>
                 {row.persona}
               </TableCell>
               <TableCell className={cn(CELL, 'text-right tabular-nums')}>{row.current.toLocaleString('en-US')}</TableCell>
@@ -121,7 +121,7 @@ function HeadcountCard() {
               <TableCell
                 className={cn(
                   CELL,
-                  'pr-4 text-right font-medium tabular-nums',
+                  'pr-5 text-right font-medium tabular-nums',
                   row.growth >= 0 ? 'text-green-700' : 'text-urgent'
                 )}
               >
@@ -147,16 +147,16 @@ function TeamsCard() {
       <Table className="table-fixed">
         <TableHeader>
           <TableRow>
-            <TableHead className={cn(HEAD, 'w-[220px] pl-4')}>Team Name</TableHead>
+            <TableHead className={cn(HEAD, 'w-[220px] pl-5')}>Team Name</TableHead>
             <TableHead className={cn(HEAD, 'w-[100px]')}>Sumble Teams Score</TableHead>
             <TableHead className={HEAD}>Matches</TableHead>
-            <TableHead className={cn(HEAD, 'w-[90px] pr-4')}>Matching jobs</TableHead>
+            <TableHead className={cn(HEAD, 'w-[90px] pr-5')}>Matching jobs</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {TEAMS.map((team) => (
             <TableRow key={team.id}>
-              <TableCell className={cn(CELL, 'pl-4 font-semibold text-slate-900')}>{team.name}</TableCell>
+              <TableCell className={cn(CELL, 'pl-5 font-semibold text-slate-900')}>{team.name}</TableCell>
               <TableCell className={CELL}>
                 <Badge className="tabular-nums">{team.score.toFixed(1)}</Badge>
               </TableCell>
@@ -167,7 +167,7 @@ function TeamsCard() {
                   ))}
                 </span>
               </TableCell>
-              <TableCell className={cn(CELL, 'pr-4')}>
+              <TableCell className={cn(CELL, 'pr-5')}>
                 <a
                   href="#"
                   aria-label={`${team.jobs} matching jobs at ${team.name}`}
@@ -188,11 +188,11 @@ function TeamsCard() {
 function RecentChangesCard() {
   return (
     <Card icon={HistoryIcon} title="Recent Changes" className="col-span-4">
-      <ul className="flex flex-col divide-y divide-slate-100 px-4 py-1">
+      <ul className="flex flex-col divide-y divide-slate-100 px-5 py-1">
         {RECENT_CHANGES.map((change) => (
-          <li key={change.date} className="flex gap-3 py-2.5 text-body">
-            <span className="w-12 shrink-0 text-slate-600 tabular-nums">{change.date}</span>
-            <span className="text-slate-800">{change.text}</span>
+          <li key={change.date} className="flex gap-3 py-3 text-body">
+            <span className="w-12 shrink-0 text-slate-500 tabular-nums">{change.date}</span>
+            <span className="text-slate-900">{change.text}</span>
           </li>
         ))}
       </ul>
@@ -202,7 +202,7 @@ function RecentChangesCard() {
 
 export function OverviewTab() {
   return (
-    <div className="grid grid-cols-12 gap-4 p-6 pb-16">
+    <div className="grid grid-cols-12 gap-5 p-6 pb-16">
       <div className="col-span-6 min-w-0">
         <BriefTile />
       </div>
