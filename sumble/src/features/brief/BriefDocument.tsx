@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { IconButton } from '@/components/ui/icon-button'
 import { Input } from '@/components/ui/input'
 import { ScoreBadge } from '@/components/ui/score-badge'
-import { citedIds, NEW_DATA_NOTE, ORG, SOURCES, TEAMS_BY_ID, TIMING, type Angle } from '@/data/clio'
+import { citedIds, NEW_DATA_NOTE, ORG, SOURCE_LINK_NOTE, SOURCES, TEAMS_BY_ID, TIMING, type Angle } from '@/data/clio'
 import { AngleCards } from '@/features/brief/AngleCards'
 import { contactFor, useBrief } from '@/features/brief/BriefContext'
 import { CitedText } from '@/features/brief/Citation'
@@ -167,8 +167,18 @@ function SourcesList() {
             >
               <span className="w-6 shrink-0 text-xs text-slate-500 tabular-nums">[{source.id}]</span>
               <span className="min-w-0 flex-1 truncate">
-                <span className="font-medium text-slate-900">{source.type}</span> · {source.title} ·{' '}
-                <span className="text-slate-500">{source.age}</span>
+                <span className="font-medium text-slate-900">{source.type}</span> ·{' '}
+                <a
+                  href="#"
+                  onClick={(event) => {
+                    event.preventDefault()
+                    window.alert(SOURCE_LINK_NOTE)
+                  }}
+                  className="rounded-sm text-green-700 underline-offset-4 hover:underline"
+                >
+                  {source.title}
+                </a>{' '}
+                · <span className="text-slate-500">{source.age}</span>
               </span>
               <Button
                 size="xs"

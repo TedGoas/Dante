@@ -55,6 +55,8 @@ export const NEW_DATA_NOTE = '5 new job posts since'
 export const HOW_CALCULATED =
   'All sections are ranked by your ICP and used to build the brief. Costs 1 credit. Reopening is free; refreshing costs 1 credit.'
 
+export const SOURCE_LINK_NOTE = "This would link out to the source, but this isn't hooked up in this prototype."
+
 export const COVERAGE: { level: 'full' | 'limited'; text: string }[] = [
   { level: 'full', text: '3 angles you could take · strong data' },
   { level: 'full', text: '5 high-score contacts with reasons' },
