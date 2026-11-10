@@ -50,3 +50,9 @@
   [headers.values]
     Content-Type = "text/plain; charset=utf-8"
 
+
+# Unlinked Sumble prototype (sumble/ Vite app → dist/sumble/). Keep out of search.
+[[headers]]
+  for = "/sumble/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

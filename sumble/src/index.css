@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+/* Sumble-like tokens: Tailwind v4 stock slate + green, system UI font. */
+@theme {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+
+  --color-page: #fefefe;
+  --color-background: #ffffff;
+  --color-foreground: var(--color-slate-900);
+  --color-border: var(--color-slate-200);
+  --color-input: var(--color-slate-300);
+  --color-ring: var(--color-green-600);
+  --color-muted: var(--color-slate-50);
+  --color-muted-foreground: var(--color-slate-500);
+  --color-accent: var(--color-slate-100);
+  --color-accent-foreground: var(--color-slate-900);
+  --color-primary: var(--color-green-700);
+  --color-primary-hover: var(--color-green-800);
+  --color-primary-foreground: #ffffff;
+  --color-selected: var(--color-green-50);
+  --color-popover: #ffffff;
+  --color-popover-foreground: var(--color-slate-900);
+  --color-app: var(--color-gray-100);
+  --color-nav-active: var(--color-gray-200);
+  --color-urgent: var(--color-red-700);
+
+  --text-body: 13.5px;
+  --text-body--line-height: 20px;
+
+  --radius-card: 7px;
+
+  /* Motion: opacity and small moves only. Curve from beautifului.dev. */
+  --ease-quint: cubic-bezier(0.23, 1, 0.32, 1);
+
+  --animate-fade-up: fade-up 220ms var(--ease-quint) both;
+  --animate-pop-in: pop-in 180ms var(--ease-quint) both;
+  --animate-stream-in: stream-in 220ms var(--ease-quint) both;
+  --animate-grow-bar: grow-bar 320ms var(--ease-quint) both;
+  --animate-fill-track: fill-track 8s linear both;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+  }
+
+  @keyframes pop-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+  }
+
+  @keyframes stream-in {
+    from {
+      opacity: 0;
+      filter: blur(2px);
+    }
+  }
+
+  @keyframes grow-bar {
+    from {
+      transform: scaleY(0);
+    }
+  }
+
+  @keyframes fill-track {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes caret-blink {
+    0%,
+    49% {
+      opacity: 1;
+    }
+    50%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes shimmer-text {
+    from {
+      background-position: 150% 0;
+    }
+    to {
+      background-position: -50% 0;
+    }
+  }
+
+  --shadow-menu: 0 28px 70px rgba(15, 23, 42, 0.18), 0 8px 24px rgba(15, 23, 42, 0.1), 0 0 0 1px rgba(15, 23, 42, 0.03);
+  --shadow-card: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+@layer base {
+  html,
+  body {
+    font-variant-ligatures: contextual;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-page font-sans text-foreground;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+}
+
+@layer components {
+  /* Text only, never a whole card. */
+  .shimmer-text {
+    color: transparent;
+    background: linear-gradient(90deg, var(--color-slate-900) 35%, var(--color-slate-400) 50%, var(--color-slate-900) 65%);
+    background-size: 200% 100%;
+    background-clip: text;
+    animation: shimmer-text 2s linear infinite;
+  }
+
+  .stream-caret {
+    display: inline-block;
+    width: 2px;
+    height: 0.9em;
+    margin-left: 1px;
+    background: var(--color-slate-900);
+    vertical-align: text-bottom;
+    animation: caret-blink 0.9s steps(1) infinite;
+  }
+
+  /* Native <dialog>: slides in, leaves faster. */
+  .dialog-motion,
+  .dialog-motion::backdrop {
+    opacity: 0;
+    transition:
+      opacity 140ms var(--ease-quint),
+      translate 140ms var(--ease-quint),
+      display 140ms allow-discrete,
+      overlay 140ms allow-discrete;
+  }
+
+  .dialog-motion {
+    translate: var(--dialog-x, 0) var(--dialog-y, 6px);
+  }
+
+  .dialog-motion[data-placement='right'] {
+    --dialog-x: 16px;
+    --dialog-y: 0;
+  }
+
+  .dialog-motion[open],
+  .dialog-motion[open]::backdrop {
+    opacity: 1;
+    transition-duration: 220ms;
+  }
+
+  .dialog-motion[open] {
+    translate: 0 0;
+
+    @starting-style {
+      opacity: 0;
+      translate: var(--dialog-x, 0) var(--dialog-y, 6px);
+    }
+  }
+
+  .dialog-motion[open]::backdrop {
+    @starting-style {
+      opacity: 0;
+    }
+  }
+}
+
+/* Unlayered and !important so it beats every animation utility. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after,
+  ::backdrop {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .shimmer-text {
+    color: var(--color-slate-900);
+    background: none;
+  }
+}
