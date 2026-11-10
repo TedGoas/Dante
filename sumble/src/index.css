@@ -20,6 +20,11 @@
   --color-selected: var(--color-green-50);
   --color-popover: #ffffff;
   --color-popover-foreground: var(--color-slate-900);
+  --color-app: var(--color-gray-100);
+  --color-nav-active: var(--color-gray-200);
+  --color-urgent: var(--color-red-700);
+
+  --text-body: 13.5px;
 
   --shadow-menu: 0 28px 70px rgba(15, 23, 42, 0.18), 0 8px 24px rgba(15, 23, 42, 0.1), 0 0 0 1px rgba(15, 23, 42, 0.03);
   --shadow-card: 0 2px 6px rgba(0, 0, 0, 0.08);
