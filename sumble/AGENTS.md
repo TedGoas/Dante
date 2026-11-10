@@ -52,7 +52,7 @@ Read this before working in `sumble/`. It is the handoff doc for Cursor, Claude 
 - **Shell:** 190px sidebar with a gliding hover highlight, org header, 12 tabs with a gliding underline. The Brief tab shows a spinner while generating and a green dot when ready. Tabs other than Overview and Brief are placeholders.
 - **Overview:** the brief tile replaces the popover and green banner, so the brief has one home. Also Technologies (empty state), Top People, Headcount by Persona, Top Teams, Recent Changes. People and teams are real Clio data from sumble.com.
 - **Brief tile states:** before generation (coverage dots, See example, 0-credit state), generating (8 seconds simulated, labeled "about 20 seconds"), ready.
-- **Ready tile:** widens from half to two-thirds with a one-time reveal. Headline "Start with Alex, not the CFO.", three angle cards that open the brief on that angle, Draft to Alex, and a chat shortcut.
+- **Ready tile:** widens from half to two-thirds with a one-time reveal. Headline "Start with Alex, not the CFO.", three angle cards that open the brief on that angle, and Draft to Alex. Footer is Open full brief, Refresh, and the credits line.
 - **Brief tab:** chat on the left (40%), document on the right (60%). The selected angle is the headline, the top 3 contacts show with "Show 2 more", citations highlight sources, and source links show a placeholder alert.
 - **Draft drawer:** the message is tinted by where the language came from (sources, team playbook, past conversations), with a key underneath.
 - **Credits line:** "n of 200 credits left this month" and "How is this calculated?" stay visible in every brief state.
@@ -62,7 +62,7 @@ Read this before working in `sumble/`. It is the handoff doc for Cursor, Claude 
 
 - The existing kit won over Ted's original brief: `lucide-react` instead of Iconoir (a new dependency), `green-700` instead of `#00c950` (white on that green is about 2.2:1), 32px buttons, tokens in `@theme`.
 - Layout combines Option A's overview tile with Option C's chat and brief split.
-- Alex MacGillivray is the first contact, above the higher-scoring CFO. The "Why Alex over the CFO?" chip explains that on purpose.
+- Alex MacGillivray is the first contact, above the higher-scoring CFO. "Why Alex over the CFO?" stays as a follow-up chip in the brief chat.
 - Chosen as defaults when Ted didn't pick otherwise: selected angle as headline with compact selectors, top 3 contacts first, two-thirds ready tile, big numbers instead of sparklines.
 - Type: no uppercase eyebrows. Sizes are 24, 20, 16, 14, 13.5 (`text-body`), and 12. Weights 400, 500, 600.
 - Text colors: slate-900 primary, slate-600 secondary, slate-500 tertiary.

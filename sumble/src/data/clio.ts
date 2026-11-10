@@ -24,8 +24,6 @@ export const TIMING = {
 export const BRIEF_TEASER = {
   headline: 'Start with Alex, not the CFO.',
   work: 'Read 52 job posts · Scored 100 people',
-  /** Must match a FOLLOW_UPS prompt. */
-  prompt: 'Why Alex over the CFO?',
 }
 
 export const CREDITS = { total: 200, start: 142 }

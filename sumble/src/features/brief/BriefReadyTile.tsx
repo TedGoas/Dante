@@ -1,4 +1,4 @@
-import { MessageCircleIcon, RefreshCwIcon } from 'lucide-react'
+import { RefreshCwIcon } from 'lucide-react'
 import * as React from 'react'
 
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
@@ -50,10 +50,6 @@ export function BriefReadyTile() {
       <div className="mt-4 flex items-center gap-2">
         <Button data-brief-primary size="sm" onClick={() => openBrief()}>
           Open full brief
-        </Button>
-        <Button size="sm" variant="ghost" onClick={() => openBrief({ prompt: BRIEF_TEASER.prompt })}>
-          <MessageCircleIcon />
-          {BRIEF_TEASER.prompt}
         </Button>
         <Button size="sm" variant="outline" disabled={credits < 1} onClick={generate}>
           <RefreshCwIcon />
