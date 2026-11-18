@@ -45,7 +45,7 @@ body {
   margin: 0;
   padding: 18px 20px 16px;
   border: 1px solid #e2e8f0;
-  border-radius: 4px;
+  border-radius: 3.5px;
   background: #fff;
 }
 
@@ -69,10 +69,10 @@ body {
 
 .vc__chart {
   position: absolute;
-  top: 20px;
+  top: 16px;
   left: 200px;
   right: 16px;
-  bottom: 16px;
+  bottom: 20px;
   display: grid;
   grid-template-columns: 28px 1fr;
   gap: 8px;
@@ -186,7 +186,7 @@ body {
 
 .vc__seg--missed {
   background: #ff6467;
-  border-radius: 2px 2px 0 0;
+  border-radius: 4px 4px 0 0;
 }
 
 .vc__seg--late {
@@ -228,9 +228,11 @@ body {
 
 .vc__tooltip-date {
   margin: 0 0 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e2e8f0;
   font-size: 12px;
-  font-weight: 500;
-  color: #62748e;
+  font-weight: 600;
+  color: #020618;
 }
 
 .vc__tooltip-list {
