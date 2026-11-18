@@ -1,0 +1,113 @@
+function prefersReducedMotion() {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+function postToIframe(root, type) {
+  const iframe = root.querySelector('.home-work-thumb__iframe');
+
+  if (!iframe?.contentWindow) {
+    return;
+  }
+
+  iframe.contentWindow.postMessage({ type }, '*');
+}
+
+function preloadThumb(root) {
+  const iframe = root.querySelector('.home-work-thumb__iframe');
+  const source = iframe?.dataset.src;
+
+  if (!iframe || !source || iframe.getAttribute('src')) {
+    return;
+  }
+
+  iframe.src = source;
+}
+
+function initHomeWorkThumb(root) {
+  let active = false;
+  let pendingPlayHandler = null;
+  const iframe = root.querySelector('.home-work-thumb__iframe');
+
+  const clearPendingPlay = () => {
+    if (pendingPlayHandler && iframe) {
+      iframe.removeEventListener('load', pendingPlayHandler);
+      pendingPlayHandler = null;
+    }
+  };
+
+  const playIfActive = () => {
+    pendingPlayHandler = null;
+
+    if (!active) {
+      return;
+    }
+
+    postToIframe(root, 'dante-home-thumb-play');
+  };
+
+  const schedulePlay = () => {
+    clearPendingPlay();
+
+    if (!iframe) {
+      return;
+    }
+
+    if (iframe.dataset.ready === '1' || iframe.contentDocument?.readyState === 'complete') {
+      playIfActive();
+      return;
+    }
+
+    pendingPlayHandler = playIfActive;
+    iframe.addEventListener('load', pendingPlayHandler, { once: true });
+  };
+
+  if (iframe) {
+    iframe.addEventListener('load', () => {
+      iframe.dataset.ready = '1';
+    });
+  }
+
+  preloadThumb(root);
+
+  const start = () => {
+    if (active) {
+      return;
+    }
+
+    active = true;
+    root.classList.add('is-active');
+    schedulePlay();
+  };
+
+  const stop = () => {
+    if (!active) {
+      return;
+    }
+
+    active = false;
+    clearPendingPlay();
+    postToIframe(root, 'dante-home-thumb-reset');
+    root.classList.remove('is-active');
+  };
+
+  // Host is the tile <a> — do not nest another focusable wrapper.
+  root.addEventListener('pointerenter', start);
+  root.addEventListener('pointerleave', stop);
+  root.addEventListener('focusin', start);
+  root.addEventListener('focusout', (event) => {
+    if (!root.contains(event.relatedTarget)) {
+      stop();
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const thumbs = document.querySelectorAll('[data-home-thumb]');
+
+  if (prefersReducedMotion()) {
+    thumbs.forEach(preloadThumb);
+    return;
+  }
+
+  thumbs.forEach(initHomeWorkThumb);
+});

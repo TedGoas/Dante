@@ -1815,6 +1815,14 @@ hr {
   object-position: top left;
 }
 
+/* Homepage hover demos: iframe fills the same media box; host owns pointer/focus. */
+.home-work-grid__media.home-work-thumb__iframe {
+  border: 0;
+  background-color: var(--color-surface-tile);
+  pointer-events: none;
+  object-fit: unset;
+}
+
 .home-work-grid .home-work-grid__cell.img-placeholder {
   min-height: 0;
   height: 100%;
@@ -1933,6 +1941,11 @@ hr {
     height: auto;
     object-fit: contain;
     object-position: center;
+  }
+
+  .home-work-grid__media.home-work-thumb__iframe {
+    aspect-ratio: 600 / 300;
+    height: auto;
   }
 }
 

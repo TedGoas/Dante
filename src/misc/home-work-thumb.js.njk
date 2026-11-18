@@ -1,0 +1,7 @@
+---
+permalink: "/assets/js/home-work-thumb.js"
+---
+{% set js %}
+{% include "../assets/js/home-work-thumb.js" %}
+{% endset %}
+{{ js | minifyJs | safe }}
