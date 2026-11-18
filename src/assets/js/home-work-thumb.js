@@ -112,7 +112,7 @@ function initHomeWorkThumb(root) {
     root.classList.remove('is-active');
   };
 
-  // Host is the tile <a> — do not nest another focusable wrapper.
+  // Host is the media cell; caption link lives inside and keeps hover active.
   root.addEventListener('pointerenter', start);
   root.addEventListener('pointerleave', stop);
   root.addEventListener('focusin', start);

@@ -1391,7 +1391,7 @@ hr {
   background-color: color-mix(in srgb, var(--color-swiss-fg-dark) 8%, var(--color-swiss-bg-dark));
 }
 
-.page--home .homepage-showcase .home-work-grid__link:focus-visible {
+.page--home .homepage-showcase .home-work-grid__caption:focus-visible {
   outline: 2px solid var(--color-swiss-accent);
   outline-offset: 3px;
 }
@@ -1567,15 +1567,15 @@ hr {
   transition: opacity 0.2s ease-out;
 }
 
-/* Dim everything while a media link is active… */
-.home-work-grid:has(.home-work-grid__link:hover) .home-work-grid__item,
-.home-work-grid:has(.home-work-grid__link:focus-visible) .home-work-grid__item {
+/* Dim everything while a media cell is hovered/focused… */
+.home-work-grid:has(.home-work-grid__cell--media:hover) .home-work-grid__item,
+.home-work-grid:has(.home-work-grid__cell--media:focus-within) .home-work-grid__item {
   opacity: 0.4;
 }
 
 /* …except the hovered/focused tile (must outrank the dim rule). */
-.home-work-grid:has(.home-work-grid__link:hover) .home-work-grid__item:has(.home-work-grid__link:hover),
-.home-work-grid:has(.home-work-grid__link:focus-visible) .home-work-grid__item:has(.home-work-grid__link:focus-visible) {
+.home-work-grid:has(.home-work-grid__cell--media:hover) .home-work-grid__item:has(.home-work-grid__cell--media:hover),
+.home-work-grid:has(.home-work-grid__cell--media:focus-within) .home-work-grid__item:has(.home-work-grid__cell--media:focus-within) {
   z-index: 1;
   opacity: 1;
 }
@@ -1587,40 +1587,104 @@ hr {
   right: 0;
   z-index: 2;
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
   margin: 0;
   width: 100%;
   max-width: none;
-  padding-top: calc(0.525rem + var(--radius-work-gallery-image));
-  padding-right: 1rem;
-  padding-bottom: 0.525rem;
-  padding-left: 1rem;
+  /* Match top/bottom padding so copy + CTA share one centerline. */
+  padding: 0.65rem 0.75rem 0.65rem 1rem;
   border-radius: 0 0 var(--radius-work-gallery-image) var(--radius-work-gallery-image);
   font-family: var(--font-sans);
   font-size: var(--type-min-size);
   font-weight: 400;
   line-height: 1.3;
+  text-decoration: none;
   color: var(--color-swiss-fg-light);
   background-color: var(--color-surface-raised);
-  pointer-events: none;
   opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.2s ease-out, visibility 0.2s ease-out;
+  transform: translateY(6px);
+  pointer-events: none;
+  transition:
+    opacity 0.22s ease-out,
+    transform 0.22s ease-out,
+    background-color 0.2s ease-out,
+    color 0.2s ease-out;
 }
 
-.home-work-grid__link:hover .home-work-grid__caption,
-.home-work-grid__link:focus-visible .home-work-grid__caption {
+.home-work-grid__cell--media:hover .home-work-grid__caption,
+.home-work-grid__cell--media:focus-within .home-work-grid__caption {
   opacity: 1;
-  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.home-work-grid__caption-copy {
+  min-width: 0;
+  line-height: 1.3;
 }
 
 .home-work-grid__caption-desc {
   color: var(--color-site-fg-muted);
 }
 
+/* Text CTA: rough underline (headline notation) + arrow — no chip. */
+.home-work-grid__caption-cta {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--color-swiss-fg-light);
+  /* One step under --type-min-size (1.125rem); caption copy stays at the floor. */
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+/* Headline uses double; caption keeps a single rough stroke. */
+.home-work-grid__caption-cta .text-annotate__stroke--secondary {
+  display: none;
+}
+
+.home-work-grid__caption-cta .text-annotate--underline-double .text-annotate__mark {
+  bottom: calc(max(-0.42em, -1.15rem) - 2px);
+}
+
+.home-work-grid__caption-arrow {
+  flex-shrink: 0;
+  width: 0.875rem;
+  height: 0.875rem;
+  color: var(--color-swiss-accent);
+  transition: transform 0.2s ease-out;
+}
+
+.home-work-grid__caption:hover,
+.home-work-grid__caption:focus-visible {
+  background-color: var(--color-surface-tile);
+}
+
+.home-work-grid__caption:hover .home-work-grid__caption-desc,
+.home-work-grid__caption:focus-visible .home-work-grid__caption-desc {
+  color: var(--color-swiss-fg-light);
+}
+
+.home-work-grid__caption:hover .home-work-grid__caption-arrow,
+.home-work-grid__caption:focus-visible .home-work-grid__caption-arrow {
+  transform: translateX(2px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .home-work-grid__item,
-  .home-work-grid__caption {
+  .home-work-grid__caption,
+  .home-work-grid__caption-cta,
+  .home-work-grid__caption-arrow {
     transition: none;
+  }
+
+  .home-work-grid__caption {
+    transform: none;
   }
 }
 
@@ -1650,12 +1714,6 @@ hr {
   background-color: var(--color-surface-tile);
 }
 
-.home-work-grid__link {
-  position: absolute;
-  inset: 0;
-  display: block;
-}
-
 .home-work-grid__media-frame {
   position: absolute;
   inset: 0;
@@ -1664,8 +1722,8 @@ hr {
   transition: border-radius 0.2s ease-out;
 }
 
-.home-work-grid__link:hover .home-work-grid__media-frame,
-.home-work-grid__link:focus-visible .home-work-grid__media-frame {
+.home-work-grid__cell--media:hover .home-work-grid__media-frame,
+.home-work-grid__cell--media:focus-within .home-work-grid__media-frame {
   border-radius: var(--radius-work-gallery-image) var(--radius-work-gallery-image) 0 0;
 }
 
@@ -1824,7 +1882,7 @@ hr {
 }
 
 /* Interactive thumbs (e.g. Canfield bars) need pointer events inside the iframe. */
-.home-work-grid__link[data-home-thumb-interactive] .home-work-thumb__iframe {
+.home-work-grid__cell--media[data-home-thumb-interactive] .home-work-thumb__iframe {
   pointer-events: auto;
 }
 
@@ -1926,11 +1984,6 @@ hr {
     aspect-ratio: auto;
     height: auto;
     min-height: 0;
-  }
-
-  .home-work-grid__link {
-    position: relative;
-    inset: auto;
   }
 
   .home-work-grid__media-frame {

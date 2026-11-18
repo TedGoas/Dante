@@ -71,7 +71,6 @@
     }
   ];
 
-  const CASE_HREF = '/work/canfield/';
   const TIP_PAD = 8;
   const TIP_GAP = 10;
 
@@ -300,13 +299,6 @@
   app.addEventListener('focusout', (event) => {
     if (!app.contains(event.relatedTarget)) {
       clearActive();
-    }
-  });
-
-  // Iframe captures clicks — send the parent tile through to the case study.
-  app.addEventListener('click', () => {
-    if (window.parent && window.parent !== window) {
-      window.parent.location.href = CASE_HREF;
     }
   });
 
