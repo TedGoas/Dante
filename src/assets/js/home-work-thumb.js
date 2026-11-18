@@ -23,10 +23,27 @@ function preloadThumb(root) {
   iframe.src = source;
 }
 
+function isInteractiveThumb(root) {
+  return root.hasAttribute('data-home-thumb-interactive');
+}
+
+function pointerStillOverRoot(root, event) {
+  const x = event.clientX;
+  const y = event.clientY;
+
+  if (!Number.isFinite(x) || !Number.isFinite(y)) {
+    return false;
+  }
+
+  const hit = document.elementFromPoint(x, y);
+  return Boolean(hit && root.contains(hit));
+}
+
 function initHomeWorkThumb(root) {
   let active = false;
   let pendingPlayHandler = null;
   const iframe = root.querySelector('.home-work-thumb__iframe');
+  const interactive = isInteractiveThumb(root);
 
   const clearPendingPlay = () => {
     if (pendingPlayHandler && iframe) {
@@ -79,8 +96,13 @@ function initHomeWorkThumb(root) {
     schedulePlay();
   };
 
-  const stop = () => {
+  const stop = (event) => {
     if (!active) {
+      return;
+    }
+
+    // Interactive iframes steal the pointer; treat that as still on the tile.
+    if (interactive && event && pointerStillOverRoot(root, event)) {
       return;
     }
 

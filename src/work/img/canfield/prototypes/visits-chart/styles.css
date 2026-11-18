@@ -31,6 +31,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  pointer-events: none;
 }
 
 .vc__mark {
@@ -86,6 +87,7 @@ body {
   font-size: 11px;
   line-height: 1;
   color: #62748e;
+  pointer-events: none;
 }
 
 .vc__plot {
@@ -119,6 +121,11 @@ body {
 }
 
 .vc__col {
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
   flex: 0 0 24px;
   align-self: flex-end;
   width: 24px;
@@ -126,14 +133,26 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  opacity: 0.3;
+  opacity: 1;
+  cursor: pointer;
+  position: relative;
   transform: scaleY(1);
   transform-origin: bottom center;
-  transition:
-    opacity 0.28s ease,
-    transform 0.55s cubic-bezier(0.05, 0.7, 0.1, 1);
+  /* Opacity snaps on bar hover; only transform animates on tile play. */
+  transition: transform 0.55s cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 
+/* Widen the hit target into the gaps without shifting the bar. */
+.vc__col::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -10px;
+  right: -10px;
+}
+
+/* Tile hover/focus: collapse, then stagger-grow back in. */
 .vc__col.is-growing {
   transform: scaleY(0);
   transition: none;
@@ -144,13 +163,25 @@ body {
   transition: transform 0.55s cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 
-.vc__col.is-active {
+/* Sibling fade only while a bar is hovered/focused. */
+.vc.has-active .vc__col {
+  opacity: 0.3;
+}
+
+.vc.has-active .vc__col.is-active {
   opacity: 1;
+}
+
+.vc__col:focus-visible {
+  outline: 2px solid #c41230;
+  outline-offset: 2px;
 }
 
 .vc__seg {
   width: 100%;
   flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .vc__seg--missed {
@@ -174,6 +205,7 @@ body {
   position: absolute;
   top: 95px;
   left: 374px;
+  z-index: 4;
   width: 176px;
   padding: 14px 16px 12px;
   border-radius: 8px;
@@ -182,11 +214,11 @@ body {
     0 1px 4px rgba(12, 12, 13, 0.1),
     0 1px 4px rgba(12, 12, 13, 0.05);
   opacity: 0;
-  transform: translateY(8px);
+  transform: translateY(6px);
   pointer-events: none;
   transition:
-    opacity 0.28s ease,
-    transform 0.28s ease;
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 
 .vc__tooltip.is-visible {
@@ -255,36 +287,10 @@ body {
   color: #020618;
 }
 
-.vc__cursor {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 22px;
-  height: 22px;
-  margin: -2px 0 0 -2px;
-  z-index: 5;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.18s ease;
-  will-change: transform;
-}
-
-.vc__cursor.is-visible {
-  opacity: 1;
-}
-
-.vc__cursor svg {
-  display: block;
-  width: 22px;
-  height: 22px;
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.25));
-}
-
 @media (prefers-reduced-motion: reduce) {
   .vc__col,
   .vc.is-playing .vc__col.is-growing,
-  .vc__tooltip,
-  .vc__cursor {
+  .vc__tooltip {
     transition: none;
   }
 }

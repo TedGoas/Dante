@@ -1823,6 +1823,11 @@ hr {
   object-fit: unset;
 }
 
+/* Interactive thumbs (e.g. Canfield bars) need pointer events inside the iframe. */
+.home-work-grid__link[data-home-thumb-interactive] .home-work-thumb__iframe {
+  pointer-events: auto;
+}
+
 .home-work-grid .home-work-grid__cell.img-placeholder {
   min-height: 0;
   height: 100%;
