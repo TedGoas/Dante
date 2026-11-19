@@ -122,14 +122,15 @@
   }
 
   function setArcs(progress) {
-    segmentLengths().forEach((seg, index) => {
+    // One continuous sweep from the top: each slice fills only after
+    // the stroke head has reached its offset around the ring.
+    const drawn = CIRC * easeOutQuart(clamp01(progress));
+    segmentLengths().forEach((seg) => {
       const arc = arcs[seg.id];
       if (!arc) {
         return;
       }
-      const start = index * 0.12;
-      const local = clamp01((progress - start) / Math.max(0.001, 1 - start * 0.45));
-      const visible = seg.len * easeOutQuart(local);
+      const visible = Math.max(0, Math.min(seg.len, drawn - seg.offset));
       arc.style.strokeDasharray = `${visible} ${CIRC}`;
       arc.style.strokeDashoffset = String(-seg.offset);
     });
