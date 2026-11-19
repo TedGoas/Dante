@@ -12,12 +12,23 @@
   const DONUT_CY = 90;
   const DONUT_R = 68;
   const DONUT_STROKE = 22;
-  const COUNT_MS = 620;
+
+  /*
+   * Sequence beats (ms) — tweak here only.
+   * play delay → soft exit → chrome enter → donut/counters/line →
+   * trophy note → empty card → tips ready
+   */
+  const PLAY_DELAY_MS = 60;
+  const EXIT_MS = 150;
+  const CHROME_MS = 200;
   const DONUT_MS = 700;
   const LINE_MS = 700;
   const LINE_DELAY = 280;
+  const NOTE_AT = DONUT_MS;
   const EMPTY_AT = 900;
-  const TOTAL_MS = EMPTY_AT + 350;
+  const EMPTY_FADE_MS = 320;
+  const HOLD_MS = 40;
+  const TOTAL_MS = EMPTY_AT + EMPTY_FADE_MS + HOLD_MS;
 
   // Path vertices (viewBox 220×110); Y maps 0→100 / 110→0.
   const VOTE_POINTS = [
@@ -34,6 +45,7 @@
   const totalEl = document.getElementById('ot-total');
   const votesEl = document.getElementById('ot-votes');
   const emptyCard = document.getElementById('ot-empty');
+  const noteEl = app.querySelector('.ot__note');
   const clipRect = app.querySelector('.ot__line-clip-rect');
   const donutRoot = app.querySelector('.ot__donut');
   const donutSvg = app.querySelector('.ot__donut-svg');
@@ -67,6 +79,24 @@
     unanswered: document.getElementById('ot-unanswered')
   };
 
+  const SEGMENT_LAYOUT = (function buildSegmentLayout() {
+    let offset = 0;
+    return SEGMENTS.map((seg) => {
+      const len = (seg.value / TOTAL) * CIRC;
+      const item = {
+        id: seg.id,
+        label: seg.label,
+        value: seg.value,
+        len,
+        offset,
+        startAngle: (offset / CIRC) * Math.PI * 2,
+        endAngle: ((offset + len) / CIRC) * Math.PI * 2
+      };
+      offset += len;
+      return item;
+    });
+  })();
+
   let runToken = 0;
   let timers = [];
   let rafId = 0;
@@ -75,6 +105,7 @@
   let tooltipsReady = false;
   let votesPointIndex = 0;
   let votesKeyboardActive = false;
+  let lastNumberKey = '';
 
   function prefersReducedMotion() {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -87,6 +118,17 @@
       window.cancelAnimationFrame(rafId);
       rafId = 0;
     }
+  }
+
+  function wait(ms, token) {
+    return new Promise((resolve) => {
+      const id = window.setTimeout(() => {
+        if (token === runToken) {
+          resolve();
+        }
+      }, ms);
+      timers.push(id);
+    });
   }
 
   function formatCount(n) {
@@ -105,37 +147,15 @@
     return 1 - Math.pow(1 - t, 3);
   }
 
-  function easeOutQuart(t) {
-    return 1 - Math.pow(1 - t, 4);
-  }
-
   function clamp01(t) {
     return Math.max(0, Math.min(1, t));
-  }
-
-  function segmentLengths() {
-    let offset = 0;
-    return SEGMENTS.map((seg) => {
-      const len = (seg.value / TOTAL) * CIRC;
-      const item = {
-        id: seg.id,
-        label: seg.label,
-        value: seg.value,
-        len,
-        offset,
-        startAngle: (offset / CIRC) * Math.PI * 2,
-        endAngle: ((offset + len) / CIRC) * Math.PI * 2
-      };
-      offset += len;
-      return item;
-    });
   }
 
   function setArcs(progress) {
     // One continuous sweep from the top: each slice fills only after
     // the stroke head has reached its offset around the ring.
-    const drawn = CIRC * easeOutQuart(clamp01(progress));
-    segmentLengths().forEach((seg) => {
+    const drawn = CIRC * easeOutCubic(clamp01(progress));
+    SEGMENT_LAYOUT.forEach((seg) => {
       const arc = arcs[seg.id];
       if (!arc) {
         return;
@@ -150,7 +170,7 @@
     if (!clipRect) {
       return;
     }
-    const width = 220 * easeOutQuart(clamp01(progress));
+    const width = 220 * easeOutCubic(clamp01(progress));
     clipRect.setAttribute('width', String(Math.max(0.001, width)));
   }
 
@@ -161,8 +181,21 @@
     emptyCard.classList.toggle('is-visible', visible);
   }
 
+  function setNoteVisible(visible) {
+    if (!noteEl) {
+      return;
+    }
+    noteEl.classList.toggle('is-visible', visible);
+  }
+
   function setNumbers(progress) {
     const t = easeOutCubic(clamp01(progress));
+    const key = `${Math.round(ACCEPTANCE_PCT * t)}|${Math.round(VOTES * t)}|${Math.round(SEGMENTS[0].value * t)}`;
+    if (key === lastNumberKey) {
+      return;
+    }
+    lastNumberKey = key;
+
     SEGMENTS.forEach((seg) => {
       const el = valueEls[seg.id];
       if (el) {
@@ -232,8 +265,8 @@
     donutTipName.textContent = seg.label;
     donutTipCount.textContent = formatCount(seg.value);
     donutTipPct.textContent = formatSegmentPct(seg.value);
-    donutTooltip.style.left = `${Math.round(tipX)}px`;
-    donutTooltip.style.top = `${Math.round(tipY)}px`;
+    donutTooltip.style.setProperty('--ot-tip-x', `${Math.round(tipX)}px`);
+    donutTooltip.style.setProperty('--ot-tip-y', `${Math.round(tipY)}px`);
     donutTooltip.classList.add('is-active');
     donutTooltip.setAttribute('aria-hidden', 'false');
   }
@@ -250,7 +283,7 @@
       return;
     }
 
-    const seg = segmentLengths().find((item) => item.id === activeId);
+    const seg = SEGMENT_LAYOUT.find((item) => item.id === activeId);
     if (!seg) {
       hideDonutTooltip();
       return;
@@ -320,13 +353,6 @@
     showVotesTooltip(point, width, height);
   }
 
-  function clearHoverState() {
-    hoverSlice = null;
-    hideDonutTooltip();
-    hideVotesTooltip();
-    syncSliceIsolation();
-  }
-
   function setTooltipsReady(ready) {
     tooltipsReady = ready;
     app.classList.toggle('is-tooltips-ready', ready);
@@ -348,70 +374,111 @@
   }
 
   function setFinishedFrame() {
-    app.classList.remove('is-empty', 'is-playing');
+    app.classList.remove('is-playing', 'is-exiting', 'is-entering');
+    lastNumberKey = '';
     setArcs(1);
     setLineReveal(1);
     setNumbers(1);
     setEmptyVisible(true);
+    setNoteVisible(true);
     syncSliceIsolation();
     setTooltipsReady(true);
   }
 
   function setEmptyFrame() {
-    app.classList.add('is-empty');
-    app.classList.remove('is-playing');
+    app.classList.remove('is-playing', 'is-entering');
     clearSliceIsolation();
+    votesKeyboardActive = false;
     setTooltipsReady(false);
+    lastNumberKey = '';
     setArcs(0);
     setLineReveal(0);
     setNumbers(0);
     setEmptyVisible(false);
+    setNoteVisible(false);
   }
 
-  function runEntrance(token) {
-    setEmptyFrame();
-
+  async function runEntrance(token) {
     if (prefersReducedMotion()) {
       setFinishedFrame();
       return;
     }
 
-    app.classList.remove('is-empty');
-    app.classList.add('is-playing');
+    // Soft exit of the finished frame before collapsing to empty.
     setTooltipsReady(false);
-
-    const start = performance.now();
-
-    function tick(now) {
-      if (token !== runToken) {
-        return;
-      }
-
-      const elapsed = now - start;
-      setNumbers(elapsed / COUNT_MS);
-      setArcs(elapsed / DONUT_MS);
-      setLineReveal((elapsed - LINE_DELAY) / LINE_MS);
-
-      if (elapsed >= EMPTY_AT) {
-        setEmptyVisible(true);
-      }
-
-      if (elapsed < TOTAL_MS) {
-        rafId = window.requestAnimationFrame(tick);
-        return;
-      }
-
-      rafId = 0;
-      setFinishedFrame();
+    hideVotesTooltip();
+    hideDonutTooltip();
+    clearSliceIsolation();
+    votesKeyboardActive = false;
+    app.classList.add('is-exiting');
+    await wait(EXIT_MS, token);
+    if (token !== runToken) {
+      return;
     }
 
-    rafId = window.requestAnimationFrame(tick);
+    setEmptyFrame();
+    app.classList.remove('is-exiting');
+    app.classList.add('is-entering');
+    void app.offsetWidth;
+    app.classList.add('is-playing');
+
+    await wait(CHROME_MS, token);
+    if (token !== runToken) {
+      return;
+    }
+
+    app.classList.remove('is-entering');
+
+    const start = performance.now();
+    let noteShown = false;
+    let emptyShown = false;
+
+    await new Promise((resolve) => {
+      function tick(now) {
+        if (token !== runToken) {
+          rafId = 0;
+          resolve();
+          return;
+        }
+
+        const elapsed = now - start;
+        const ringProgress = elapsed / DONUT_MS;
+        setNumbers(ringProgress);
+        setArcs(ringProgress);
+        setLineReveal((elapsed - LINE_DELAY) / LINE_MS);
+
+        if (!noteShown && elapsed >= NOTE_AT) {
+          noteShown = true;
+          setNoteVisible(true);
+        }
+
+        if (!emptyShown && elapsed >= EMPTY_AT) {
+          emptyShown = true;
+          setEmptyVisible(true);
+        }
+
+        if (elapsed < TOTAL_MS) {
+          rafId = window.requestAnimationFrame(tick);
+          return;
+        }
+
+        rafId = 0;
+        resolve();
+      }
+
+      rafId = window.requestAnimationFrame(tick);
+    });
+
+    if (token === runToken) {
+      setFinishedFrame();
+    }
   }
 
   function resetDemo() {
     runToken += 1;
     clearTimers();
     clearSliceIsolation();
+    votesKeyboardActive = false;
     hideVotesTooltip();
     setFinishedFrame();
   }
@@ -420,6 +487,7 @@
     runToken += 1;
     clearTimers();
     clearSliceIsolation();
+    votesKeyboardActive = false;
     hideVotesTooltip();
     setTooltipsReady(false);
     const token = runToken;
@@ -427,7 +495,7 @@
       if (token === runToken) {
         runEntrance(token);
       }
-    }, 80);
+    }, PLAY_DELAY_MS);
     timers.push(id);
   }
 
@@ -456,7 +524,7 @@
     }
 
     return (
-      segmentLengths().find((seg) => angle >= seg.startAngle && angle < seg.endAngle) ||
+      SEGMENT_LAYOUT.find((seg) => angle >= seg.startAngle && angle < seg.endAngle) ||
       null
     );
   }

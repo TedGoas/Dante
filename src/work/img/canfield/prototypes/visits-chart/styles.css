@@ -16,6 +16,14 @@ body {
 }
 
 .vc {
+  --vc-ease-grow: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --vc-ease: cubic-bezier(0.33, 1, 0.68, 1);
+  --vc-grow-ms: 550ms;
+  --vc-exit-ms: 160ms;
+  --vc-settle-ms: 200ms;
+  --vc-tip-ms: 140ms;
+  --vc-dim-ms: 140ms;
+  --vc-grow-fade-ms: 80ms;
   position: relative;
   width: 600px;
   height: 300px;
@@ -121,6 +129,7 @@ body {
 }
 
 .vc__col {
+  --vc-bar-delay: 0ms;
   appearance: none;
   margin: 0;
   padding: 0;
@@ -138,8 +147,9 @@ body {
   position: relative;
   transform: scaleY(1);
   transform-origin: bottom center;
-  /* Opacity snaps on bar hover; only transform animates on tile play. */
-  transition: transform 0.55s cubic-bezier(0.05, 0.7, 0.1, 1);
+  transition:
+    transform var(--vc-grow-ms) var(--vc-ease-grow) var(--vc-bar-delay),
+    opacity var(--vc-dim-ms) var(--vc-ease);
 }
 
 /* Widen the hit target into the gaps without shifting the bar. */
@@ -152,15 +162,37 @@ body {
   right: -10px;
 }
 
-/* Tile hover/focus: collapse, then stagger-grow back in. */
+/* Soft exit: fade finished bars before collapsing. */
+.vc.is-exiting .vc__col {
+  opacity: 0;
+  transition:
+    opacity var(--vc-exit-ms) var(--vc-ease),
+    transform 0s linear;
+}
+
+/* Collapse while faded (no transform transition). */
 .vc__col.is-growing {
   transform: scaleY(0);
+  opacity: 0;
   transition: none;
 }
 
+/* Stagger-grow back in with a short fade on the rise. */
 .vc.is-playing .vc__col.is-growing {
   transform: scaleY(1);
-  transition: transform 0.55s cubic-bezier(0.05, 0.7, 0.1, 1);
+  opacity: 1;
+  transition:
+    transform var(--vc-grow-ms) var(--vc-ease-grow) var(--vc-bar-delay),
+    opacity var(--vc-grow-fade-ms) var(--vc-ease) var(--vc-bar-delay);
+}
+
+/* Short settle on leave instead of a full grow catch-up. */
+.vc.is-resetting .vc__col {
+  transform: scaleY(1);
+  opacity: 1;
+  transition:
+    transform var(--vc-settle-ms) var(--vc-ease),
+    opacity var(--vc-settle-ms) var(--vc-ease);
 }
 
 /* Sibling fade only while a bar is hovered/focused. */
@@ -202,9 +234,11 @@ body {
 }
 
 .vc__tooltip {
+  --vc-tip-x: 0px;
+  --vc-tip-y: 0px;
   position: absolute;
-  top: 95px;
-  left: 374px;
+  top: 0;
+  left: 0;
   z-index: 4;
   width: 176px;
   padding: 14px 16px 12px;
@@ -214,16 +248,17 @@ body {
     0 1px 4px rgba(12, 12, 13, 0.1),
     0 1px 4px rgba(12, 12, 13, 0.05);
   opacity: 0;
-  transform: translateY(6px);
+  transform: translate3d(var(--vc-tip-x), calc(var(--vc-tip-y) + 6px), 0) scale(0.97);
+  transform-origin: center center;
   pointer-events: none;
   transition:
-    opacity 0.2s ease,
-    transform 0.2s ease;
+    opacity var(--vc-tip-ms) var(--vc-ease),
+    transform var(--vc-tip-ms) var(--vc-ease);
 }
 
 .vc__tooltip.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate3d(var(--vc-tip-x), var(--vc-tip-y), 0) scale(1);
 }
 
 .vc__tooltip-date {
@@ -292,6 +327,8 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .vc__col,
   .vc.is-playing .vc__col.is-growing,
+  .vc.is-exiting .vc__col,
+  .vc.is-resetting .vc__col,
   .vc__tooltip {
     transition: none;
   }

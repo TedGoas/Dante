@@ -71,6 +71,18 @@
     }
   ];
 
+  /*
+   * Sequence beats (ms) — tweak here only.
+   * play delay → soft exit fade → collapse → staggered grow → tips ready
+   */
+  const PLAY_DELAY_MS = 60;
+  const START_DELAY_MS = 40;
+  const EXIT_MS = 160;
+  const BAR_STAGGER_MS = 55;
+  const BAR_GROW_MS = 550;
+  const TIPS_READY_BUFFER_MS = 40;
+  const TIP_MS = 140;
+  const SETTLE_MS = 200;
   const TIP_PAD = 8;
   const TIP_GAP = 10;
 
@@ -89,6 +101,7 @@
   let runToken = 0;
   let timers = [];
   let tipsReady = true;
+  let tipHideTimer = 0;
 
   function prefersReducedMotion() {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -97,6 +110,10 @@
   function clearTimers() {
     timers.forEach((id) => window.clearTimeout(id));
     timers = [];
+    if (tipHideTimer) {
+      window.clearTimeout(tipHideTimer);
+      tipHideTimer = 0;
+    }
   }
 
   function wait(ms, token) {
@@ -173,22 +190,54 @@
     left = Math.max(TIP_PAD, Math.min(left, maxLeft));
     top = Math.max(TIP_PAD, Math.min(top, maxTop));
 
-    tooltip.style.left = `${Math.round(left)}px`;
-    tooltip.style.top = `${Math.round(top)}px`;
+    tooltip.style.setProperty('--vc-tip-x', `${Math.round(left)}px`);
+    tooltip.style.setProperty('--vc-tip-y', `${Math.round(top)}px`);
   }
 
-  function clearActive() {
+  function hideTooltipImmediate() {
+    if (tipHideTimer) {
+      window.clearTimeout(tipHideTimer);
+      tipHideTimer = 0;
+    }
+    tooltip.classList.remove('is-visible');
+    tooltip.hidden = true;
+  }
+
+  function clearActive(immediate) {
     activeCol = null;
     app.classList.remove('has-active');
     columnEls.forEach((col) => col.classList.remove('is-active'));
+
+    if (immediate || prefersReducedMotion() || tooltip.hidden) {
+      hideTooltipImmediate();
+      return;
+    }
+
     tooltip.classList.remove('is-visible');
-    tooltip.hidden = true;
+    if (tipHideTimer) {
+      window.clearTimeout(tipHideTimer);
+    }
+    tipHideTimer = window.setTimeout(() => {
+      tipHideTimer = 0;
+      if (!tooltip.classList.contains('is-visible')) {
+        tooltip.hidden = true;
+      }
+    }, TIP_MS);
   }
 
   function setTipsReady(ready) {
     tipsReady = ready;
     if (!ready) {
-      clearActive();
+      clearActive(true);
+      return;
+    }
+
+    const hovered = columnEls.find((col) => col.matches(':hover'));
+    const focused = columnEls.find((col) => col === document.activeElement);
+    if (hovered) {
+      activateCol(hovered);
+    } else if (focused) {
+      activateCol(focused);
     }
   }
 
@@ -204,6 +253,11 @@
       return;
     }
 
+    if (tipHideTimer) {
+      window.clearTimeout(tipHideTimer);
+      tipHideTimer = 0;
+    }
+
     activeCol = col;
     app.classList.add('has-active');
     columnEls.forEach((item) => {
@@ -214,53 +268,79 @@
     tooltip.hidden = false;
     // Measure after unhiding so width/height are real.
     positionTooltip(col);
+    void tooltip.offsetWidth;
     tooltip.classList.add('is-visible');
   }
 
-  function setRestingFrame() {
-    app.classList.remove('is-playing');
+  function clearBarMotionClasses() {
+    app.classList.remove('is-playing', 'is-exiting', 'is-resetting');
     columnEls.forEach((col) => {
       col.classList.remove('is-growing');
-      col.style.transitionDelay = '0ms';
+      col.style.removeProperty('--vc-bar-delay');
     });
-    clearActive();
+  }
+
+  function setRestingFrame(immediate) {
+    clearBarMotionClasses();
+    if (immediate) {
+      clearActive(true);
+    } else {
+      clearActive(false);
+    }
     setTipsReady(true);
   }
 
   async function runGrow(token) {
-    setRestingFrame();
+    clearActive(true);
     setTipsReady(false);
+    clearBarMotionClasses();
 
     if (prefersReducedMotion()) {
-      columnEls.forEach((col) => col.classList.add('is-growing'));
-      app.classList.add('is-playing');
       setTipsReady(true);
       return;
     }
 
-    await wait(40, token);
+    await wait(START_DELAY_MS, token);
+    if (token !== runToken) {
+      return;
+    }
+
+    // Soft exit: fade the finished bars, then collapse while faded.
+    app.classList.add('is-exiting');
+    await wait(EXIT_MS, token);
     if (token !== runToken) {
       return;
     }
 
     columnEls.forEach((col, index) => {
       col.classList.add('is-growing');
-      col.style.transitionDelay = `${index * 55}ms`;
+      col.style.setProperty('--vc-bar-delay', `${index * BAR_STAGGER_MS}ms`);
     });
 
-    // Force layout so the scaleY(0) state sticks before we grow.
-    void bars.offsetHeight;
+    // Double rAF so scaleY(0) sticks before grow without a visible snap.
+    await new Promise((resolve) => {
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(resolve);
+      });
+    });
+    if (token !== runToken) {
+      return;
+    }
 
+    app.classList.remove('is-exiting');
     app.classList.add('is-playing');
 
-    // Drop stagger delays after the grow so bar-hover opacity snaps together.
-    await wait(55 * columnEls.length + 580, token);
+    const growTotal =
+      BAR_STAGGER_MS * Math.max(0, columnEls.length - 1) +
+      BAR_GROW_MS +
+      TIPS_READY_BUFFER_MS;
+    await wait(growTotal, token);
     if (token !== runToken) {
       return;
     }
 
     columnEls.forEach((col) => {
-      col.style.transitionDelay = '0ms';
+      col.style.setProperty('--vc-bar-delay', '0ms');
     });
     setTipsReady(true);
   }
@@ -268,17 +348,42 @@
   function resetDemo() {
     runToken += 1;
     clearTimers();
-    setRestingFrame();
+
+    if (prefersReducedMotion() || !app.classList.contains('is-playing')) {
+      setRestingFrame(true);
+      return;
+    }
+
+    // Short settle instead of a full grow catch-up.
+    app.classList.add('is-resetting');
+    app.classList.remove('is-playing', 'is-exiting');
+    columnEls.forEach((col) => {
+      col.classList.remove('is-growing');
+      col.style.setProperty('--vc-bar-delay', '0ms');
+    });
+    clearActive(true);
+    setTipsReady(false);
+
+    const token = runToken;
+    const id = window.setTimeout(() => {
+      if (token !== runToken) {
+        return;
+      }
+      app.classList.remove('is-resetting');
+      setTipsReady(true);
+    }, SETTLE_MS);
+    timers.push(id);
   }
 
   function playDemo() {
-    resetDemo();
+    runToken += 1;
+    clearTimers();
     const token = runToken;
     const id = window.setTimeout(() => {
       if (token === runToken) {
         runGrow(token);
       }
-    }, 80);
+    }, PLAY_DELAY_MS);
     timers.push(id);
   }
 
@@ -308,13 +413,13 @@
 
   bars.addEventListener('pointerleave', (event) => {
     if (!bars.contains(event.relatedTarget)) {
-      clearActive();
+      clearActive(false);
     }
   });
 
   app.addEventListener('focusout', (event) => {
     if (!app.contains(event.relatedTarget)) {
-      clearActive();
+      clearActive(false);
     }
   });
 
@@ -332,5 +437,5 @@
   });
 
   renderBars();
-  setRestingFrame();
+  setRestingFrame(true);
 })();

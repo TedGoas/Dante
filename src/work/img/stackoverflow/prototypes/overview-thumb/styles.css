@@ -37,6 +37,12 @@ body {
   --ot-green-bg: #dcfce7;
   --ot-card-pad: 16px;
   --ot-radius: 4px;
+  --ot-ease: cubic-bezier(0.33, 1, 0.68, 1);
+  --ot-exit-ms: 150ms;
+  --ot-chrome-ms: 200ms;
+  --ot-empty-ms: 320ms;
+  --ot-tip-ms: 140ms;
+  --ot-note-ms: 220ms;
 
   position: relative;
   width: 600px;
@@ -60,6 +66,26 @@ body {
   min-height: 0;
   display: flex;
   flex-direction: column;
+  opacity: 1;
+  transform: none;
+}
+
+.ot.is-exiting .ot__card {
+  opacity: 0;
+  transition: opacity var(--ot-exit-ms) var(--ot-ease);
+}
+
+.ot.is-entering .ot__card {
+  opacity: 0;
+  transform: translateY(6px) scale(0.98);
+}
+
+.ot.is-entering.is-playing .ot__card {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity var(--ot-chrome-ms) var(--ot-ease),
+    transform var(--ot-chrome-ms) var(--ot-ease);
 }
 
 .ot__card--donut {
@@ -293,6 +319,8 @@ body {
 }
 
 .ot__tooltip {
+  --ot-tip-x: 0px;
+  --ot-tip-y: 0px;
   position: absolute;
   z-index: 3;
   display: flex;
@@ -306,26 +334,38 @@ body {
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
+  transform: scale(0.96);
   transition:
-    opacity 0.15s ease,
-    visibility 0.15s ease;
+    opacity var(--ot-tip-ms) var(--ot-ease),
+    visibility var(--ot-tip-ms) var(--ot-ease),
+    transform var(--ot-tip-ms) var(--ot-ease);
 }
 
 .ot__tooltip.is-active {
   opacity: 1;
   visibility: visible;
+  transform: scale(1);
 }
 
 .ot__tooltip--donut {
   top: 0;
   left: 0;
+  transform: translate3d(var(--ot-tip-x), var(--ot-tip-y), 0) scale(0.96);
+}
+
+.ot__tooltip--donut.is-active {
+  transform: translate3d(var(--ot-tip-x), var(--ot-tip-y), 0) scale(1);
 }
 
 .ot__tooltip--compact {
   top: 8px;
   left: 10px;
+}
+
+.ot__hover.is-active .ot__tooltip--compact {
   opacity: 1;
   visibility: visible;
+  transform: scale(1);
 }
 
 .ot__tooltip-label {
@@ -368,6 +408,19 @@ body {
   border: 1px solid transparent;
   border-radius: 50px;
   background: transparent;
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+.ot__note.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.ot.is-playing .ot__note.is-visible {
+  transition:
+    opacity var(--ot-note-ms) var(--ot-ease),
+    transform var(--ot-note-ms) var(--ot-ease);
 }
 
 .ot__note::before {
@@ -419,6 +472,7 @@ body {
 
 .ot__metric {
   margin: 0;
+  min-width: 5ch;
   font-size: 21px;
   font-weight: 400;
   line-height: 24px;
@@ -518,6 +572,9 @@ body {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  transition:
+    opacity var(--ot-tip-ms) var(--ot-ease),
+    visibility var(--ot-tip-ms) var(--ot-ease);
 }
 
 .ot__hover.is-active {
@@ -536,6 +593,7 @@ body {
   left: 0;
   width: 1px;
   height: 100%;
+  opacity: 0;
   background-image: repeating-linear-gradient(
     to bottom,
     var(--ot-muted) 0,
@@ -543,6 +601,11 @@ body {
     transparent 5px,
     transparent 10px
   );
+  transition: opacity var(--ot-tip-ms) var(--ot-ease);
+}
+
+.ot__hover.is-active .ot__hover-rule {
+  opacity: 1;
 }
 
 .ot__hover-marker {
@@ -555,6 +618,16 @@ body {
   border-radius: 50%;
   background: var(--ot-answered);
   box-shadow: 0 0 0 2px #fff;
+  opacity: 0;
+  transform: scale(0.55);
+  transition:
+    opacity var(--ot-tip-ms) var(--ot-ease),
+    transform var(--ot-tip-ms) var(--ot-ease);
+}
+
+.ot__hover.is-active .ot__hover-marker {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .ot__plot-hit:focus-visible {
@@ -634,8 +707,8 @@ body {
 
 .ot.is-playing .ot__card--empty.is-visible .ot__empty {
   transition:
-    opacity 0.32s ease-out,
-    transform 0.32s ease-out;
+    opacity var(--ot-empty-ms) var(--ot-ease),
+    transform var(--ot-empty-ms) var(--ot-ease);
 }
 
 .ot__empty-art {
@@ -654,7 +727,16 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ot.is-playing .ot__card--empty.is-visible .ot__empty {
+  .ot.is-exiting .ot__card,
+  .ot.is-entering.is-playing .ot__card,
+  .ot.is-playing .ot__card--empty.is-visible .ot__empty,
+  .ot.is-playing .ot__note.is-visible,
+  .ot__legend-button,
+  .ot__donut-arc,
+  .ot__tooltip,
+  .ot__hover,
+  .ot__hover-rule,
+  .ot__hover-marker {
     transition: none;
   }
 }
