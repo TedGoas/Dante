@@ -27,32 +27,23 @@
           <span class="agt__caret" id="caret" hidden></span>
         </div>
         <div class="agt__composer-bar">
-          <span class="agt__composer-tools" aria-hidden="true">
-            <img
-              class="agt__tool-icon"
-              src="/assets/img/dialpad-team/prototypes/analyticsgpt-thumb/icon-lightbulb.svg"
-              width="18"
-              height="18"
-              alt=""
-            >
-          </span>
           <button type="button" class="agt__send" id="send-btn" aria-label="Send" tabindex="-1">
-            <img
-              class="agt__send-icon"
-              src="/assets/img/dialpad-team/prototypes/analyticsgpt-thumb/icon-send.svg"
-              width="18"
-              height="18"
-              alt=""
-            >
+            <svg class="agt__send-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path
+                d="M16.569 9H4.902M4.902 9L2.25 2.105L16.569 9L2.25 15.894L4.902 9Z"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span class="agt__send-think" aria-hidden="true">
+              <span class="agt__thinking-dot"></span>
+              <span class="agt__thinking-dot"></span>
+              <span class="agt__thinking-dot"></span>
+            </span>
           </button>
         </div>
-      </div>
-
-      <div class="agt__thinking" id="thinking" hidden>
-        <span class="agt__thinking-dot"></span>
-        <span class="agt__thinking-dot"></span>
-        <span class="agt__thinking-dot"></span>
-        <span class="agt__thinking-label">Thinking</span>
       </div>
 
       <div class="agt__chips" id="chips" aria-hidden="true">
@@ -62,16 +53,18 @@
     </div>
 
     <div class="agt__answer-view" id="answer-view" hidden>
-      <p class="agt__answer-copy" id="answer-copy">
-        Your average CSAT is <strong>4.7</strong>, up from 4.5 last week.
-      </p>
+      <p class="agt__answer-copy" id="answer-copy"></p>
 
-      <div class="agt__chart">
+      <div class="agt__chart" id="chart" hidden>
         <div class="agt__chart-head">
           <p class="agt__chart-label">Ai CSAT</p>
           <p class="agt__chart-value" id="chart-value">4.7</p>
         </div>
         <div class="agt__plot">
+          <div class="agt__chart-loading" id="chart-loading" hidden aria-hidden="true">
+            <div class="agt__chart-loading-spinner" aria-hidden="true"></div>
+            <span class="agt__chart-loading-label">Rendering visualization…</span>
+          </div>
           <svg class="agt__line-svg" viewBox="0 0 240 110" width="240" height="110" preserveAspectRatio="none">
             <defs>
               <linearGradient id="agt-line-fill" x1="0" y1="0" x2="0" y2="1">

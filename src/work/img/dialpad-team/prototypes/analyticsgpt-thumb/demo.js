@@ -1,7 +1,12 @@
 (function () {
   const PROMPT = 'Show me my CSAT';
+  const ANSWER_PLAIN = 'Your average CSAT is 4.7, up from 4.5 last week.';
+  const ANSWER_HTML =
+    'Your average CSAT is <strong>4.7</strong>, up from 4.5 last week.';
   const TYPE_MS = 28;
+  const ANSWER_TYPE_MS = 14;
   const THINK_MS = 780;
+  const CHART_LOAD_MS = 650;
   const LINE_MS = 700;
   const PLOT_W = 240;
   const PLOT_H = 110;
@@ -21,8 +26,10 @@
   const answerView = document.getElementById('answer-view');
   const composerText = document.getElementById('composer-text');
   const caret = document.getElementById('caret');
-  const thinking = document.getElementById('thinking');
   const sendBtn = document.getElementById('send-btn');
+  const answerCopy = document.getElementById('answer-copy');
+  const chart = document.getElementById('chart');
+  const chartLoading = document.getElementById('chart-loading');
   const clipRect = app.querySelector('.agt__line-clip-rect');
   const chartHit = document.getElementById('chart-hit');
   const chartHover = document.getElementById('chart-hover');
@@ -158,13 +165,49 @@
     app.classList.toggle('has-text', text.length > 0);
   }
 
+  function setAnswerFinal() {
+    if (answerCopy) {
+      answerCopy.innerHTML = ANSWER_HTML;
+    }
+  }
+
+  function clearAnswerCopy() {
+    if (answerCopy) {
+      answerCopy.textContent = '';
+    }
+  }
+
+  function setChartVisible(on) {
+    if (!chart) {
+      return;
+    }
+    chart.hidden = !on;
+  }
+
+  function setChartLoading(on) {
+    app.classList.toggle('is-chart-loading', on);
+    if (chartLoading) {
+      chartLoading.hidden = !on;
+      chartLoading.setAttribute('aria-hidden', on ? 'false' : 'true');
+    }
+  }
+
   function showComposer() {
     app.dataset.view = 'composer';
     composerView.hidden = false;
     answerView.hidden = true;
-    thinking.hidden = true;
-    app.classList.remove('is-focused', 'is-typing', 'is-sending', 'has-text');
+    app.classList.remove(
+      'is-focused',
+      'is-typing',
+      'is-sending',
+      'is-thinking',
+      'is-chart-loading',
+      'has-text'
+    );
     setComposerText('');
+    clearAnswerCopy();
+    setChartLoading(false);
+    setChartVisible(false);
     caret.hidden = true;
     setClipWidth(0);
     setTipsReady(false);
@@ -175,18 +218,53 @@
     app.dataset.view = 'answer';
     composerView.hidden = true;
     answerView.hidden = false;
-    thinking.hidden = true;
-    app.classList.remove('is-focused', 'is-typing', 'is-sending', 'has-text');
+    app.classList.remove(
+      'is-focused',
+      'is-typing',
+      'is-sending',
+      'is-thinking',
+      'has-text'
+    );
     caret.hidden = true;
 
     if (instant) {
+      setAnswerFinal();
+      setChartLoading(false);
+      setChartVisible(true);
       setClipWidth(PLOT_W);
       setTipsReady(true);
       return;
     }
 
+    clearAnswerCopy();
+    setChartLoading(false);
+    setChartVisible(false);
     setClipWidth(0);
     setTipsReady(false);
+  }
+
+  async function streamAnswer(token) {
+    if (!answerCopy) {
+      return;
+    }
+
+    if (prefersReducedMotion()) {
+      setAnswerFinal();
+      return;
+    }
+
+    answerCopy.textContent = '';
+    for (let i = 1; i <= ANSWER_PLAIN.length; i += 1) {
+      if (token !== runToken) {
+        return;
+      }
+      answerCopy.textContent = ANSWER_PLAIN.slice(0, i);
+      await wait(ANSWER_TYPE_MS, token);
+    }
+
+    if (token === runToken) {
+      setAnswerFinal();
+    }
   }
 
   async function drawChart(token) {
@@ -272,8 +350,7 @@
     }
     app.classList.remove('is-sending');
 
-    app.dataset.view = 'thinking';
-    thinking.hidden = false;
+    app.classList.add('is-thinking');
     await wait(THINK_MS, token);
     if (token !== runToken) {
       return;
@@ -284,6 +361,19 @@
     if (token !== runToken) {
       return;
     }
+
+    await streamAnswer(token);
+    if (token !== runToken) {
+      return;
+    }
+
+    setChartVisible(true);
+    setChartLoading(true);
+    await wait(CHART_LOAD_MS, token);
+    if (token !== runToken) {
+      return;
+    }
+    setChartLoading(false);
 
     await drawChart(token);
   }
