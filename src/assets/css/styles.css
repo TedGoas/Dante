@@ -1712,6 +1712,17 @@ hr {
   position: relative;
   overflow: visible;
   background-color: var(--color-surface-tile);
+  container-type: inline-size;
+  container-name: home-thumb;
+}
+
+/* Narrow thumbs (Cerberus, DialpadGPT): stack CTA under copy. */
+@container home-thumb (max-width: 22rem) {
+  .home-work-grid__caption {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
 }
 
 .home-work-grid__media-frame {
