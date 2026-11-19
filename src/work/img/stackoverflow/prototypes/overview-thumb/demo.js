@@ -4,8 +4,8 @@
   const VOTES = 1909;
   const SEGMENTS = [
     { id: 'accepted', value: 2811 },
-    { id: 'answered', value: 541 },
-    { id: 'unanswered', value: 1609 }
+    { id: 'answered', value: 1609 },
+    { id: 'unanswered', value: 541 }
   ];
   const CIRC = 2 * Math.PI * 68;
   const COUNT_MS = 620;

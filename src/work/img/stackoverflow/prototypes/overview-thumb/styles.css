@@ -25,8 +25,13 @@ body {
   --ot-muted: #737373;
   --ot-empty: #6a737c;
   --ot-hairline: #e5e5e5;
+  --ot-legend-stroke: #f5f5f5;
   --ot-footer: #f5f5f5;
+  --ot-selected-bg: #fff7ed;
+  --ot-selected-stroke: #ffd6a8;
   --ot-green-text: #00a63e;
+  --ot-note-grad-start: #9ae600;
+  --ot-note-grad-end: #5ea500;
   --ot-red-text: #e7000b;
   --ot-red-bg: #ffe2e2;
   --ot-card-pad: 16px;
@@ -35,13 +40,13 @@ body {
   position: relative;
   width: 600px;
   height: 600px;
-  padding: 20px;
+  padding: 24px;
   background: #fff;
   color: var(--ot-title);
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: minmax(0, 1.15fr) minmax(0, 1fr);
-  gap: 16px;
+  gap: 24px;
 }
 
 .ot__card {
@@ -58,50 +63,64 @@ body {
 
 .ot__card--donut {
   grid-column: 1 / -1;
+  padding: 16px 24px;
   overflow: hidden;
 }
 
 .ot__card-head {
   display: flex;
   align-items: center;
-  gap: 6px;
-  margin: 0 0 12px;
+  gap: 12px;
+  margin: 0;
 }
 
 .ot__card-head--stack {
   flex-direction: column;
   align-items: flex-start;
-  gap: 6px;
+  gap: 2px;
   margin-bottom: 10px;
 }
 
 .ot__so-mark {
   display: block;
-  width: 18px;
-  height: 18px;
+  width: 25px;
+  height: 25px;
   flex-shrink: 0;
 }
 
 .ot__card-label {
   margin: 0;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 14px;
   font-weight: 700;
   line-height: 17px;
   color: var(--ot-title);
 }
 
+.ot__card-label--mono {
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1;
+}
+
 .ot__donut-body {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
+  justify-content: flex-start;
+  gap: 64px;
   flex: 1 1 auto;
   width: 100%;
-  max-width: 78%;
   min-height: 0;
-  margin-inline: auto;
-  padding: 4px 0 12px;
+  padding: 0 0 12px;
+}
+
+.ot__legend-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 260px;
+  flex-shrink: 0;
+  min-width: 0;
 }
 
 .ot__legend {
@@ -110,7 +129,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  flex: 1 1 auto;
   min-width: 0;
 }
 
@@ -120,7 +138,7 @@ body {
   gap: 8px;
   width: 100%;
   padding: 8px 12px;
-  border: 1px solid var(--ot-hairline);
+  border: 1px solid var(--ot-legend-stroke);
   border-radius: var(--ot-radius);
   background: transparent;
   color: inherit;
@@ -148,8 +166,13 @@ body {
 }
 
 .ot__legend-button[aria-pressed="true"] {
-  background: var(--ot-footer);
-  border-color: #d4d4d4;
+  background: var(--ot-selected-bg);
+  border-color: var(--ot-selected-stroke);
+}
+
+.ot__legend-button[aria-pressed="true"]:hover,
+.ot__legend-button[aria-pressed="true"]:focus-visible {
+  background: var(--ot-selected-bg);
 }
 
 .ot__swatch {
@@ -245,16 +268,16 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2px;
+  gap: 0;
   pointer-events: none;
 }
 
 .ot__donut-total {
-  font-size: 21px;
-  font-weight: 700;
-  line-height: 24px;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 32px;
   font-variant-numeric: tabular-nums;
-  color: #262626;
+  color: var(--ot-title);
 }
 
 .ot__donut-total-label {
@@ -267,11 +290,12 @@ body {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   margin-top: auto;
-  padding: 10px 12px;
+  padding: 12px 24px;
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: 50px;
   background: transparent;
 }
 
@@ -283,9 +307,8 @@ body {
   padding: 1px;
   background: linear-gradient(
     90deg,
-    #86efac 0%,
-    var(--ot-green-text) 45%,
-    #4ade80 100%
+    var(--ot-note-grad-start) 0%,
+    var(--ot-note-grad-end) 100%
   );
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -326,35 +349,33 @@ body {
 .ot__metric {
   margin: 0;
   font-size: 21px;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 24px;
-  letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;
-  color: #262626;
+  color: var(--ot-title);
 }
 
 .ot__delta {
   display: inline-flex;
   align-items: center;
-  gap: 2px;
-  padding: 2px 8px 2px 4px;
-  border-radius: 999px;
-  font-size: 13px;
+  gap: 4px;
+  font-size: 14px;
   line-height: 16px;
   font-weight: 400;
 }
 
 .ot__delta--down {
   color: var(--ot-red-text);
-  background: var(--ot-red-bg);
 }
 
 .ot__delta-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--ot-radius);
+  background: var(--ot-red-bg);
 }
 
 .ot__delta--down .ot__delta-icon img {
