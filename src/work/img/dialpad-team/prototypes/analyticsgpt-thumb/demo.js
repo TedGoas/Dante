@@ -3,10 +3,21 @@
   const ANSWER_PLAIN = 'Your average CSAT is 4.7, up from 4.5 last week.';
   const ANSWER_HTML =
     'Your average CSAT is <strong>4.7</strong>, up from 4.5 last week.';
+
+  /*
+   * Sequence beats (ms) — tweak here only.
+   * play delay → type prompt → send pulse → think → view crossfade →
+   * stream answer → chart enter → spinner load → line draw → tips ready
+   */
+  const PLAY_DELAY_MS = 60;
+  const START_DELAY_MS = 80;
   const TYPE_MS = 28;
   const ANSWER_TYPE_MS = 14;
-  const THINK_MS = 780;
-  const CHART_LOAD_MS = 650;
+  const SEND_PULSE_MS = 180;
+  const THINK_MS = 720;
+  const VIEW_MS = 300;
+  const CHART_ENTER_MS = 220;
+  const CHART_LOAD_MS = 550;
   const LINE_MS = 700;
   const PLOT_W = 240;
   const PLOT_H = 110;
@@ -29,6 +40,7 @@
   const sendBtn = document.getElementById('send-btn');
   const answerCopy = document.getElementById('answer-copy');
   const chart = document.getElementById('chart');
+  const chartValue = document.getElementById('chart-value');
   const chartLoading = document.getElementById('chart-loading');
   const clipRect = app.querySelector('.agt__line-clip-rect');
   const chartHit = document.getElementById('chart-hit');
@@ -46,6 +58,10 @@
 
   function prefersReducedMotion() {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  function easeOutCubic(t) {
+    return 1 - Math.pow(1 - t, 3);
   }
 
   function clearTimers() {
@@ -66,6 +82,17 @@
       }, ms);
       timers.push(id);
     });
+  }
+
+  function charDelay(base, ch) {
+    let ms = base + (Math.random() * 8 - 4);
+    if (ch === ' ') {
+      ms += 8;
+    }
+    if (ch === ',' || ch === '.') {
+      ms += 36;
+    }
+    return Math.max(8, Math.round(ms));
   }
 
   function setClipWidth(width) {
@@ -177,11 +204,37 @@
     }
   }
 
-  function setChartVisible(on) {
+  function setChartVisible(on, entering) {
     if (!chart) {
       return;
     }
-    chart.hidden = !on;
+
+    if (!on) {
+      chart.hidden = true;
+      chart.classList.remove('is-entering', 'is-ready');
+      if (chartValue) {
+        chartValue.classList.remove('is-revealed');
+      }
+      return;
+    }
+
+    chart.hidden = false;
+
+    if (entering) {
+      chart.classList.remove('is-ready', 'is-entering');
+      if (chartValue) {
+        chartValue.classList.remove('is-revealed');
+      }
+      void chart.offsetWidth;
+      chart.classList.add('is-entering');
+      return;
+    }
+
+    chart.classList.remove('is-entering');
+    chart.classList.add('is-ready');
+    if (chartValue) {
+      chartValue.classList.add('is-revealed');
+    }
   }
 
   function setChartLoading(on) {
@@ -192,10 +245,17 @@
     }
   }
 
+  function clearViewTransitionClasses() {
+    app.classList.remove('is-view-transition');
+    composerView.classList.remove('is-exiting');
+    answerView.classList.remove('is-entering');
+  }
+
   function showComposer() {
     app.dataset.view = 'composer';
     composerView.hidden = false;
     answerView.hidden = true;
+    clearViewTransitionClasses();
     app.classList.remove(
       'is-focused',
       'is-typing',
@@ -207,17 +267,18 @@
     setComposerText('');
     clearAnswerCopy();
     setChartLoading(false);
-    setChartVisible(false);
+    setChartVisible(false, false);
     caret.hidden = true;
     setClipWidth(0);
     setTipsReady(false);
     hideTooltip();
   }
 
-  function showAnswer(instant) {
+  function showAnswerInstant() {
     app.dataset.view = 'answer';
     composerView.hidden = true;
     answerView.hidden = false;
+    clearViewTransitionClasses();
     app.classList.remove(
       'is-focused',
       'is-typing',
@@ -226,42 +287,83 @@
       'has-text'
     );
     caret.hidden = true;
+    setAnswerFinal();
+    setChartLoading(false);
+    setChartVisible(true, false);
+    if (chartValue) {
+      chartValue.classList.add('is-revealed');
+    }
+    setClipWidth(PLOT_W);
+    setTipsReady(true);
+  }
 
-    if (instant) {
-      setAnswerFinal();
-      setChartLoading(false);
-      setChartVisible(true);
-      setClipWidth(PLOT_W);
-      setTipsReady(true);
+  async function crossfadeToAnswer(token) {
+    app.classList.remove(
+      'is-focused',
+      'is-typing',
+      'is-sending',
+      'is-thinking',
+      'has-text'
+    );
+    caret.hidden = true;
+    clearAnswerCopy();
+    setChartLoading(false);
+    setChartVisible(false, false);
+    setClipWidth(0);
+    setTipsReady(false);
+
+    if (prefersReducedMotion()) {
+      composerView.hidden = true;
+      answerView.hidden = false;
+      app.dataset.view = 'answer';
       return;
     }
 
-    clearAnswerCopy();
-    setChartLoading(false);
-    setChartVisible(false);
-    setClipWidth(0);
-    setTipsReady(false);
+    answerView.hidden = false;
+    app.classList.add('is-view-transition');
+    void answerView.offsetWidth;
+
+    app.dataset.view = 'answer';
+    composerView.classList.add('is-exiting');
+    answerView.classList.add('is-entering');
+
+    await wait(VIEW_MS, token);
+    if (token !== runToken) {
+      return;
+    }
+
+    composerView.hidden = true;
+    clearViewTransitionClasses();
   }
 
-  async function streamAnswer(token) {
-    if (!answerCopy) {
+  async function typeText(target, fullText, baseMs, token, onChar) {
+    if (!target) {
       return;
     }
 
     if (prefersReducedMotion()) {
-      setAnswerFinal();
+      onChar(fullText);
       return;
     }
 
-    answerCopy.textContent = '';
-    for (let i = 1; i <= ANSWER_PLAIN.length; i += 1) {
+    onChar('');
+    for (let i = 1; i <= fullText.length; i += 1) {
       if (token !== runToken) {
         return;
       }
-      answerCopy.textContent = ANSWER_PLAIN.slice(0, i);
-      await wait(ANSWER_TYPE_MS, token);
+      const slice = fullText.slice(0, i);
+      onChar(slice);
+      const ch = fullText.charAt(i - 1);
+      await wait(charDelay(baseMs, ch), token);
     }
+  }
 
+  async function streamAnswer(token) {
+    await typeText(answerCopy, ANSWER_PLAIN, ANSWER_TYPE_MS, token, (text) => {
+      if (answerCopy) {
+        answerCopy.textContent = text;
+      }
+    });
     if (token === runToken) {
       setAnswerFinal();
     }
@@ -270,6 +372,9 @@
   async function drawChart(token) {
     if (prefersReducedMotion()) {
       setClipWidth(PLOT_W);
+      if (chartValue) {
+        chartValue.classList.add('is-revealed');
+      }
       setTipsReady(true);
       return;
     }
@@ -284,8 +389,7 @@
           return;
         }
         const t = Math.min(1, (now - start) / LINE_MS);
-        const eased = 1 - Math.pow(1 - t, 3);
-        setClipWidth(PLOT_W * eased);
+        setClipWidth(PLOT_W * easeOutCubic(t));
         if (t < 1) {
           rafId = window.requestAnimationFrame(tick);
           return;
@@ -298,6 +402,9 @@
 
     if (token === runToken) {
       setClipWidth(PLOT_W);
+      if (chartValue) {
+        chartValue.classList.add('is-revealed');
+      }
       setTipsReady(true);
     }
   }
@@ -307,18 +414,10 @@
     caret.hidden = false;
     setComposerText('');
 
-    if (prefersReducedMotion()) {
-      setComposerText(PROMPT);
-      caret.hidden = true;
-      return;
-    }
+    await typeText(composerText, PROMPT, TYPE_MS, token, setComposerText);
 
-    for (let i = 1; i <= PROMPT.length; i += 1) {
-      if (token !== runToken) {
-        return;
-      }
-      setComposerText(PROMPT.slice(0, i));
-      await wait(TYPE_MS, token);
+    if (token !== runToken) {
+      return;
     }
 
     caret.hidden = true;
@@ -329,11 +428,11 @@
     showComposer();
 
     if (prefersReducedMotion()) {
-      showAnswer(true);
+      showAnswerInstant();
       return;
     }
 
-    await wait(120, token);
+    await wait(START_DELAY_MS, token);
     if (token !== runToken) {
       return;
     }
@@ -344,7 +443,7 @@
     }
 
     app.classList.add('is-sending');
-    await wait(180, token);
+    await wait(SEND_PULSE_MS, token);
     if (token !== runToken) {
       return;
     }
@@ -356,8 +455,7 @@
       return;
     }
 
-    showAnswer(false);
-    await wait(40, token);
+    await crossfadeToAnswer(token);
     if (token !== runToken) {
       return;
     }
@@ -367,7 +465,16 @@
       return;
     }
 
-    setChartVisible(true);
+    setChartVisible(true, true);
+    await wait(CHART_ENTER_MS, token);
+    if (token !== runToken) {
+      return;
+    }
+    if (chart) {
+      chart.classList.remove('is-entering');
+      chart.classList.add('is-ready');
+    }
+
     setChartLoading(true);
     await wait(CHART_LOAD_MS, token);
     if (token !== runToken) {
@@ -394,7 +501,7 @@
       if (token === runToken) {
         runSequence(token);
       }
-    }, 60);
+    }, PLAY_DELAY_MS);
     timers.push(id);
   }
 
@@ -458,7 +565,6 @@
     });
   }
 
-  // sendBtn is decorative in the thumb demo
   if (sendBtn) {
     sendBtn.addEventListener('click', (event) => event.preventDefault());
   }
