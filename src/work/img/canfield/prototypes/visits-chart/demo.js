@@ -88,6 +88,7 @@
   let activeCol = null;
   let runToken = 0;
   let timers = [];
+  let tipsReady = true;
 
   function prefersReducedMotion() {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -184,7 +185,18 @@
     tooltip.hidden = true;
   }
 
+  function setTipsReady(ready) {
+    tipsReady = ready;
+    if (!ready) {
+      clearActive();
+    }
+  }
+
   function activateCol(col) {
+    if (!tipsReady) {
+      return;
+    }
+
     const index = Number(col.dataset.index);
     const data = COLUMNS[index];
 
@@ -212,14 +224,17 @@
       col.style.transitionDelay = '0ms';
     });
     clearActive();
+    setTipsReady(true);
   }
 
   async function runGrow(token) {
     setRestingFrame();
+    setTipsReady(false);
 
     if (prefersReducedMotion()) {
       columnEls.forEach((col) => col.classList.add('is-growing'));
       app.classList.add('is-playing');
+      setTipsReady(true);
       return;
     }
 
@@ -247,6 +262,7 @@
     columnEls.forEach((col) => {
       col.style.transitionDelay = '0ms';
     });
+    setTipsReady(true);
   }
 
   function resetDemo() {

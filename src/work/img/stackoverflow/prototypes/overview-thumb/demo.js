@@ -43,11 +43,19 @@
   const donutTipPct = document.getElementById('ot-donut-tooltip-pct');
   const votesHit = document.getElementById('ot-votes-hit');
   const votesHover = document.getElementById('ot-votes-hover');
+  const votesMarker = app.querySelector('.ot__hover-marker');
   const votesTipDate = document.getElementById('ot-votes-tooltip-date');
   const votesTipValue = document.getElementById('ot-votes-tooltip-value');
   const votesTipDelta = document.getElementById('ot-votes-tooltip-delta');
   const votesTipDeltaValue = document.getElementById('ot-votes-tooltip-delta-value');
+  const votesTipDeltaIcon = votesTipDelta
+    ? votesTipDelta.querySelector('.ot__delta-icon img')
+    : null;
   const legendButtons = Array.from(app.querySelectorAll('.ot__legend-button'));
+  const ARROW_UP =
+    '/assets/img/stackoverflow/prototypes/overview-thumb/icon-arrow-up.svg';
+  const ARROW_DOWN =
+    '/assets/img/stackoverflow/prototypes/overview-thumb/icon-arrow-down.svg';
   const arcs = {
     accepted: app.querySelector('[data-arc="accepted"]'),
     answered: app.querySelector('[data-arc="answered"]'),
@@ -65,6 +73,8 @@
   let pinnedSlice = null;
   let hoverSlice = null;
   let tooltipsReady = false;
+  let votesPointIndex = 0;
+  let votesKeyboardActive = false;
 
   function prefersReducedMotion() {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -257,7 +267,18 @@
     votesHover.setAttribute('aria-hidden', 'true');
   }
 
-  function showVotesTooltip(point, plotWidth) {
+  function syncVotesHitValue(point, index) {
+    if (!votesHit || !point) {
+      return;
+    }
+    votesHit.setAttribute('aria-valuenow', String(index));
+    votesHit.setAttribute(
+      'aria-valuetext',
+      `${point.label}, ${point.value} votes, ${point.trend === 'down' ? 'down' : 'up'} ${point.delta}%`
+    );
+  }
+
+  function showVotesTooltip(point, plotWidth, plotHeight) {
     if (!votesHover || !tooltipsReady) {
       return;
     }
@@ -265,17 +286,38 @@
     const ratio = point.x / 220;
     const leftPx = ratio * plotWidth;
     const flip = ratio > 0.5;
+    const height = plotHeight || (votesHit ? votesHit.getBoundingClientRect().height : 110);
+    const markerTop = (point.y / 110) * height;
 
     votesTipDate.textContent = point.label;
     votesTipValue.textContent = `${point.value} votes`;
     votesTipDeltaValue.textContent = `${point.delta}%`;
     votesTipDelta.classList.toggle('ot__delta--down', point.trend === 'down');
     votesTipDelta.classList.toggle('ot__delta--up', point.trend === 'up');
+    if (votesTipDeltaIcon) {
+      votesTipDeltaIcon.src = point.trend === 'up' ? ARROW_UP : ARROW_DOWN;
+    }
 
     votesHover.style.left = `${Math.round(leftPx)}px`;
+    if (votesMarker) {
+      votesMarker.style.top = `${Math.round(markerTop)}px`;
+    }
     votesHover.classList.toggle('is-flip', flip);
     votesHover.classList.add('is-active');
     votesHover.setAttribute('aria-hidden', 'false');
+  }
+
+  function activateVotesPoint(index, plotWidth, plotHeight) {
+    const clamped = Math.max(0, Math.min(VOTE_POINTS.length - 1, index));
+    votesPointIndex = clamped;
+    const point = VOTE_POINTS[clamped];
+    const width = plotWidth || (votesHit ? votesHit.getBoundingClientRect().width : 0);
+    const height = plotHeight || (votesHit ? votesHit.getBoundingClientRect().height : 0);
+    if (!point || width <= 0) {
+      return;
+    }
+    syncVotesHitValue(point, clamped);
+    showVotesTooltip(point, width, height);
   }
 
   function clearHoverState() {
@@ -468,7 +510,7 @@
 
   if (votesHit) {
     votesHit.addEventListener('pointermove', (event) => {
-      if (!tooltipsReady) {
+      if (!tooltipsReady || votesKeyboardActive) {
         return;
       }
       const nearest = nearestVotePoint(event);
@@ -476,11 +518,57 @@
         hideVotesTooltip();
         return;
       }
-      showVotesTooltip(nearest.point, nearest.plotWidth);
+      const index = VOTE_POINTS.indexOf(nearest.point);
+      votesPointIndex = index >= 0 ? index : 0;
+      syncVotesHitValue(nearest.point, votesPointIndex);
+      showVotesTooltip(
+        nearest.point,
+        nearest.plotWidth,
+        votesHit.getBoundingClientRect().height
+      );
     });
 
     votesHit.addEventListener('pointerleave', () => {
+      if (votesKeyboardActive) {
+        return;
+      }
       hideVotesTooltip();
+    });
+
+    votesHit.addEventListener('focus', () => {
+      if (!tooltipsReady) {
+        return;
+      }
+      votesKeyboardActive = true;
+      activateVotesPoint(votesPointIndex);
+    });
+
+    votesHit.addEventListener('blur', () => {
+      votesKeyboardActive = false;
+      hideVotesTooltip();
+    });
+
+    votesHit.addEventListener('keydown', (event) => {
+      if (!tooltipsReady) {
+        return;
+      }
+
+      let next = votesPointIndex;
+      if (event.key === 'ArrowRight' || event.key === 'ArrowUp') {
+        next += 1;
+      } else if (event.key === 'ArrowLeft' || event.key === 'ArrowDown') {
+        next -= 1;
+      } else if (event.key === 'Home') {
+        next = 0;
+      } else if (event.key === 'End') {
+        next = VOTE_POINTS.length - 1;
+      } else {
+        return;
+      }
+
+      event.preventDefault();
+      votesKeyboardActive = true;
+      activateVotesPoint(next);
     });
   }
 
@@ -488,6 +576,22 @@
     button.addEventListener('click', () => {
       const sliceId = button.getAttribute('data-slice');
       pinnedSlice = pinnedSlice === sliceId ? null : sliceId;
+      hoverSlice = null;
+      syncSliceIsolation();
+      syncDonutTooltip();
+    });
+
+    button.addEventListener('focus', () => {
+      if (!tooltipsReady) {
+        return;
+      }
+      hoverSlice = button.getAttribute('data-slice');
+      syncSliceIsolation();
+      syncDonutTooltip();
+    });
+
+    button.addEventListener('blur', () => {
+      hoverSlice = null;
       syncSliceIsolation();
       syncDonutTooltip();
     });

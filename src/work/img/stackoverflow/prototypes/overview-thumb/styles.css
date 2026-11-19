@@ -118,7 +118,7 @@ body {
 .ot__legend-col {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
   width: 260px;
   flex-shrink: 0;
   min-width: 0;
@@ -543,6 +543,23 @@ body {
     transparent 5px,
     transparent 10px
   );
+}
+
+.ot__hover-marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  border-radius: 50%;
+  background: var(--ot-answered);
+  box-shadow: 0 0 0 2px #fff;
+}
+
+.ot__plot-hit:focus-visible {
+  outline: 2px solid var(--ot-answered);
+  outline-offset: -2px;
 }
 
 .ot__grid {
