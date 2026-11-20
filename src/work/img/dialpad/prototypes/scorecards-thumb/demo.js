@@ -50,6 +50,14 @@
   const RESOLVE_STEP_MS = 147;
   const HOLD_AFTER_HL_MS = 133;
   const BADGE_PRESS_MS = 140;
+  const TIP_MS = 140;
+
+  const TIP_BY_CLASS = {
+    'sc__hl--red': { label: 'Frustration', color: '#fed5d7' },
+    'sc__hl--blue': { label: 'Interesting question', color: '#d5e5ff' },
+    'sc__hl--amber': { label: 'Product mention', color: '#fcf0cc' },
+    'sc__hl--green': { label: 'Positive sentiment', color: '#ccefdf' }
+  };
 
   const SPARKLE_SVG =
     '<svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.5l1.2 3.4H13l-2.8 2.1 1.1 3.5L8 8.6l-3.3 2.4 1.1-3.5L3 4.9h3.8L8 1.5z" fill="currentColor"/></svg>';
@@ -59,11 +67,15 @@
   const app = document.getElementById('app');
   const questionsRoot = document.getElementById('questions');
   const transcriptEl = document.getElementById('transcript');
+  const transcriptPane = app ? app.querySelector('.sc__pane--transcript') : null;
+  const hlTip = document.getElementById('hl-tip');
+  const hlTipLabel = document.getElementById('hl-tip-label');
 
   let runToken = 0;
   let timers = [];
   let interactive = false;
   let resolvedCount = 0;
+  let tipWarm = false;
 
   function prefersReducedMotion() {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -75,6 +87,74 @@
     app.style.setProperty('--sc-resolve-ms', `${RESOLVE_STEP_MS}ms`);
     app.style.setProperty('--sc-press-ms', `${BADGE_PRESS_MS}ms`);
     app.style.setProperty('--sc-hl-ms', `${HL_MS}ms`);
+    app.style.setProperty('--sc-tip-ms', `${TIP_MS}ms`);
+  }
+
+  function tipMetaForMark(mark) {
+    if (!mark) {
+      return null;
+    }
+    const key = Object.keys(TIP_BY_CLASS).find((cls) => mark.classList.contains(cls));
+    return key ? TIP_BY_CLASS[key] : null;
+  }
+
+  function hideHlTip(clearWarm) {
+    if (!hlTip) {
+      return;
+    }
+    hlTip.classList.remove('is-active');
+    hlTip.setAttribute('aria-hidden', 'true');
+    if (clearWarm) {
+      tipWarm = false;
+      app.classList.remove('is-tip-warm');
+    }
+  }
+
+  function showHlTip(mark) {
+    if (!hlTip || !hlTipLabel || !transcriptPane || !mark) {
+      return;
+    }
+    // Tips once a phrase is painted — no need to wait for answer cascade.
+    if (!mark.classList.contains('is-painted')) {
+      return;
+    }
+
+    const meta = tipMetaForMark(mark);
+    if (!meta) {
+      return;
+    }
+
+    hlTipLabel.textContent = meta.label;
+    hlTip.style.setProperty('--sc-tip-dot', meta.color);
+
+    const paneRect = transcriptPane.getBoundingClientRect();
+    const markRect = mark.getBoundingClientRect();
+    const playback = transcriptPane.querySelector('.sc__playback');
+    const minY = playback
+      ? playback.getBoundingClientRect().bottom - paneRect.top + 4
+      : 8;
+
+    // Measure tip while active so we can center it on the mark.
+    hlTip.classList.add('is-active');
+    const tipRect = hlTip.getBoundingClientRect();
+    const tipW = tipRect.width || 120;
+    const tipH = tipRect.height || 24;
+
+    let x = markRect.left - paneRect.left + markRect.width / 2 - tipW / 2;
+    let y = markRect.top - paneRect.top - tipH - 6;
+    if (y < minY) {
+      y = markRect.bottom - paneRect.top + 6;
+    }
+    x = Math.max(8, Math.min(x, paneRect.width - tipW - 8));
+    y = Math.max(minY, Math.min(y, paneRect.height - tipH - 8));
+
+    hlTip.style.setProperty('--sc-tip-x', `${Math.round(x)}px`);
+    hlTip.style.setProperty('--sc-tip-y', `${Math.round(y)}px`);
+    hlTip.setAttribute('aria-hidden', 'false');
+    if (!tipWarm) {
+      tipWarm = true;
+      app.classList.add('is-tip-warm');
+    }
   }
 
   function clearTimers() {
@@ -144,8 +224,9 @@
   }
 
   function clearHighlights() {
+    hideHlTip(true);
     highlightMarks().forEach((mark) => {
-      mark.classList.remove('is-painting', 'is-painted', 'is-evidence');
+      mark.classList.remove('is-painting', 'is-painted');
     });
   }
 
@@ -163,9 +244,6 @@
       if (chip) {
         chip.hidden = true;
       }
-    });
-    highlightMarks().forEach((mark) => {
-      mark.classList.remove('is-evidence');
     });
   }
 
@@ -189,7 +267,7 @@
 
     const phrase = msg.querySelector(`[data-ev-phrase="${id}"]`);
     if (phrase) {
-      phrase.classList.add('is-painted', 'is-evidence');
+      phrase.classList.add('is-painted');
     }
 
     const top = Math.max(0, msg.offsetTop - 20);
@@ -214,6 +292,9 @@
   function setInteractive(on) {
     interactive = on;
     app.classList.toggle('is-interactive', on);
+    if (!on) {
+      hideHlTip(true);
+    }
   }
 
   function setRestFrame() {
@@ -360,6 +441,38 @@
 
   if (questionsRoot) {
     questionsRoot.addEventListener('click', onAnswerClick);
+  }
+
+  if (transcriptEl) {
+    transcriptEl.addEventListener('pointerover', (event) => {
+      const mark = event.target.closest('[data-hl]');
+      if (!mark || !transcriptEl.contains(mark)) {
+        return;
+      }
+      showHlTip(mark);
+    });
+    transcriptEl.addEventListener('pointerout', (event) => {
+      const mark = event.target.closest('[data-hl]');
+      if (!mark || !transcriptEl.contains(mark)) {
+        return;
+      }
+      const next = event.relatedTarget;
+      if (next && (mark.contains(next) || next.closest?.('[data-hl]') === mark)) {
+        return;
+      }
+      // Moving to another highlight keeps tip-warm; only hide the open tip.
+      if (next && next.closest && next.closest('[data-hl].is-painted')) {
+        return;
+      }
+      hideHlTip(false);
+    });
+    transcriptEl.addEventListener(
+      'scroll',
+      () => {
+        hideHlTip(false);
+      },
+      { passive: true }
+    );
   }
 
   window.addEventListener('message', (event) => {
