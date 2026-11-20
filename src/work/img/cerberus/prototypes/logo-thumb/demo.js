@@ -11,6 +11,8 @@
   const LETTER_STAGGER = 0.08;
   const LETTER_SPAN = 0.22;
   const LETTER_DROP_PX = 56;
+  // Mesh + white fill kick in late (after sides/letters mostly clear).
+  const FINISH_START = 0.55;
 
   const app = document.getElementById('app');
   const letters = app
@@ -41,11 +43,15 @@
 
     const side = easeOutCubic(clamp(p / 0.7, 0, 1));
     const head = easeOutCubic(p);
+    const finish = easeOutCubic(clamp((p - FINISH_START) / (1 - FINISH_START), 0, 1));
     app.style.setProperty('--cb-wolf-left-x', `${-WOLF_EXIT_PX * side}px`);
     app.style.setProperty('--cb-wolf-right-x', `${WOLF_EXIT_PX * side}px`);
     app.style.setProperty('--cb-head-scale', String(1 + (HEAD_SCALE - 1) * head));
     app.style.setProperty('--cb-bracket-left-x', `${-BRACKET_DRIFT_PX * head}px`);
     app.style.setProperty('--cb-bracket-right-x', `${BRACKET_DRIFT_PX * head}px`);
+    app.style.setProperty('--cb-mesh-opacity', String(finish));
+    app.style.setProperty('--cb-fill-white', `${Math.round(finish * 100)}%`);
+    app.style.setProperty('--cb-canvas-opacity', String(1 - finish));
 
     letters.forEach((el, i) => {
       const start = i * LETTER_STAGGER;
