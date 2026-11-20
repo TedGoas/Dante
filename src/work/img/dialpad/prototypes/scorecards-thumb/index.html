@@ -212,7 +212,7 @@
           </div>
         </div>
 
-        <div class="sc__msg sc__msg--customer">
+        <div class="sc__msg sc__msg--customer" id="transcript-frustration" data-evidence-id="frustration">
           <span class="sc__avatar sc__avatar--customer" aria-hidden="true">EC</span>
           <div class="sc__msg-body">
             <div class="sc__msg-head">
@@ -221,9 +221,15 @@
             </div>
             <p class="sc__msg-text">
               Hmm, it's still not syncing. I'm sorry,
-              <mark class="sc__hl sc__hl--red" data-hl>this is really frustrating</mark>.
+              <mark class="sc__hl sc__hl--red" data-hl data-ev-phrase="frustration">this is really frustrating</mark>.
             </p>
           </div>
+          <span class="sc__evidence-chip" hidden>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M8 1.5l1.2 3.4H13l-2.8 2.1 1.1 3.5L8 8.6l-3.3 2.4 1.1-3.5L3 4.9h3.8L8 1.5z" fill="currentColor"/>
+            </svg>
+            Evidence
+          </span>
         </div>
 
         <div class="sc__chapter">
@@ -318,16 +324,64 @@
 
     <div class="sc__pane sc__pane--scorecard">
       <div class="sc__tabs" role="tablist" aria-label="Scorecard panels">
-        <button type="button" class="sc__tab sc__tab--active" role="tab" aria-selected="true" tabindex="-1">
+        <button
+          type="button"
+          class="sc__tab sc__tab--active"
+          role="tab"
+          id="tab-scorecard"
+          data-panel="scorecard"
+          aria-controls="panel-scorecard"
+          aria-selected="true"
+          tabindex="0"
+        >
           Scorecard
         </button>
-        <button type="button" class="sc__tab" role="tab" aria-selected="false" tabindex="-1">
+        <button
+          type="button"
+          class="sc__tab"
+          role="tab"
+          id="tab-comments"
+          data-panel="comments"
+          aria-controls="panel-comments"
+          aria-selected="false"
+          tabindex="-1"
+        >
           Comments (2)
         </button>
       </div>
 
-      <div class="sc__questions" id="questions">
-        <!-- Filled by demo.js -->
+      <div
+        class="sc__panel sc__panel--scorecard"
+        id="panel-scorecard"
+        role="tabpanel"
+        aria-labelledby="tab-scorecard"
+      >
+        <div class="sc__questions" id="questions">
+          <!-- Filled by demo.js -->
+        </div>
+      </div>
+
+      <div
+        class="sc__panel sc__panel--comments"
+        id="panel-comments"
+        role="tabpanel"
+        aria-labelledby="tab-comments"
+        hidden
+      >
+        <ul class="sc__comments" id="comments">
+          <li>
+            <button type="button" class="sc__comment" data-evidence="greet">
+              <span class="sc__comment-time">00:02</span>
+              <span class="sc__comment-body">Clear greeting — sets a confident tone for the rest of the call.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="sc__comment" data-evidence="frustration">
+              <span class="sc__comment-time">05:30</span>
+              <span class="sc__comment-body">Frustration peaks here. Flag this moment in coaching.</span>
+            </button>
+          </li>
+        </ul>
       </div>
     </div>
   </div>

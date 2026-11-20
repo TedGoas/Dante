@@ -66,10 +66,15 @@
 
   const app = document.getElementById('app');
   const questionsRoot = document.getElementById('questions');
+  const commentsRoot = document.getElementById('comments');
   const transcriptEl = document.getElementById('transcript');
   const transcriptPane = app ? app.querySelector('.sc__pane--transcript') : null;
+  const scorecardPane = app ? app.querySelector('.sc__pane--scorecard') : null;
   const hlTip = document.getElementById('hl-tip');
   const hlTipLabel = document.getElementById('hl-tip-label');
+  const tabButtons = scorecardPane
+    ? Array.from(scorecardPane.querySelectorAll('.sc__tab[data-panel]'))
+    : [];
 
   let runToken = 0;
   let timers = [];
@@ -303,6 +308,7 @@
     clearEvidence();
     clearHighlights();
     renderQuestions(0, -1);
+    setActivePanel('scorecard');
     scrollTranscriptTop(true);
   }
 
@@ -425,6 +431,28 @@
     app.classList.remove('is-exiting');
   }
 
+  function setActivePanel(panelId) {
+    if (!scorecardPane) {
+      return;
+    }
+
+    tabButtons.forEach((tab) => {
+      const active = tab.getAttribute('data-panel') === panelId;
+      tab.classList.toggle('sc__tab--active', active);
+      tab.setAttribute('aria-selected', active ? 'true' : 'false');
+      tab.tabIndex = active ? 0 : -1;
+    });
+
+    scorecardPane.querySelectorAll('.sc__panel').forEach((panel) => {
+      const match = panel.id === `panel-${panelId}`;
+      if (match) {
+        panel.removeAttribute('hidden');
+      } else {
+        panel.setAttribute('hidden', '');
+      }
+    });
+  }
+
   function onAnswerClick(event) {
     if (!interactive || !questionsRoot) {
       return;
@@ -439,9 +467,36 @@
     scrollToEvidence(id, true);
   }
 
+  function onCommentClick(event) {
+    if (!interactive || !commentsRoot) {
+      return;
+    }
+    const comment = event.target.closest('.sc__comment[data-evidence]');
+    if (!comment || !commentsRoot.contains(comment)) {
+      return;
+    }
+    const id = comment.getAttribute('data-evidence');
+    comment.classList.add('is-pressing');
+    window.setTimeout(() => comment.classList.remove('is-pressing'), BADGE_PRESS_MS);
+    scrollToEvidence(id, true);
+  }
+
   if (questionsRoot) {
     questionsRoot.addEventListener('click', onAnswerClick);
   }
+
+  if (commentsRoot) {
+    commentsRoot.addEventListener('click', onCommentClick);
+  }
+
+  tabButtons.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const panelId = tab.getAttribute('data-panel');
+      if (panelId) {
+        setActivePanel(panelId);
+      }
+    });
+  });
 
   if (transcriptEl) {
     transcriptEl.addEventListener('pointerover', (event) => {

@@ -407,7 +407,7 @@ body {
   font: inherit;
   font-size: 12px;
   color: var(--sc-muted);
-  cursor: default;
+  cursor: pointer;
 }
 
 .sc__tab--active {
@@ -416,7 +416,19 @@ body {
   border-bottom-color: var(--sc-purple);
 }
 
-.sc__questions {
+.sc__pane--scorecard .sc__panel {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sc__pane--scorecard .sc__panel[hidden] {
+  display: none;
+}
+
+.sc__questions,
+.sc__comments {
   flex: 1;
   min-height: 0;
   overflow-x: hidden;
@@ -426,10 +438,57 @@ body {
   flex-direction: column;
   gap: 10px;
   scrollbar-width: none;
+  list-style: none;
+  margin: 0;
 }
 
-.sc__questions::-webkit-scrollbar {
+.sc__questions::-webkit-scrollbar,
+.sc__comments::-webkit-scrollbar {
   display: none;
+}
+
+.sc__comment {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  width: 100%;
+  margin: 0;
+  padding: 8px 10px;
+  border: 1px solid var(--sc-hairline);
+  border-radius: 8px;
+  background: var(--sc-surface);
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: default;
+  transition: transform var(--sc-press-ms) var(--sc-ease);
+}
+
+.sc.is-interactive .sc__comment[data-evidence] {
+  cursor: pointer;
+}
+
+.sc.is-interactive .sc__comment[data-evidence]:hover {
+  border-color: rgba(124, 82, 255, 0.35);
+  background: #faf8ff;
+}
+
+.sc__comment.is-pressing {
+  transform: scale(0.98);
+}
+
+.sc__comment-time {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--sc-purple);
+  letter-spacing: -0.1px;
+}
+
+.sc__comment-body {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--sc-body);
 }
 
 .sc__question {
