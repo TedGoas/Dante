@@ -161,9 +161,13 @@ function initHomeWorkThumb(root) {
   root.addEventListener('pointerleave', stop);
   root.addEventListener('focusin', start);
   root.addEventListener('focusout', (event) => {
-    if (!root.contains(event.relatedTarget)) {
-      stop();
-    }
+    // Focus into an iframe reports relatedTarget null. Wait a frame so
+    // document.activeElement can settle on the iframe (still inside root).
+    requestAnimationFrame(() => {
+      if (!root.contains(document.activeElement)) {
+        stop(event);
+      }
+    });
   });
 }
 

@@ -1933,7 +1933,12 @@ hr {
  * Tap the poster to open the case study.
  */
 @media (max-width: 640px), (hover: none) and (pointer: coarse) {
-  .home-work-grid__poster-link {
+  /*
+   * Match desktop deferred specificity so :not(.is-iframe-ready) cannot keep
+   * pointer-events: none / absolute fill when static mode hides the iframe.
+   */
+  .home-work-grid__cell--media[data-home-thumb] .home-work-grid__poster-link,
+  .home-work-grid__cell--media[data-home-thumb]:not(.is-iframe-ready) .home-work-grid__poster-link {
     display: block;
     position: absolute;
     inset: 0;
@@ -1941,7 +1946,8 @@ hr {
     pointer-events: auto;
   }
 
-  .home-work-grid__poster-link .home-work-grid__poster {
+  .home-work-grid__cell--media[data-home-thumb] .home-work-grid__poster-link .home-work-grid__poster,
+  .home-work-grid__cell--media[data-home-thumb]:not(.is-iframe-ready) .home-work-grid__poster-link .home-work-grid__poster {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -2097,15 +2103,21 @@ hr {
     height: auto;
   }
 
-  /* Stacked static posters: size from the image, not an absolute fill. */
-  .home-work-grid__poster-link {
+  /*
+   * Stacked static posters: size from the image, not an absolute fill.
+   * Same specificity as the desktop deferred placeholder so it wins on mobile.
+   */
+  .home-work-grid__cell--media[data-home-thumb] .home-work-grid__poster-link,
+  .home-work-grid__cell--media[data-home-thumb]:not(.is-iframe-ready) .home-work-grid__poster-link {
     position: relative;
     inset: auto;
     display: block;
     width: 100%;
+    pointer-events: auto;
   }
 
-  .home-work-grid__poster-link .home-work-grid__poster {
+  .home-work-grid__cell--media[data-home-thumb] .home-work-grid__poster-link .home-work-grid__poster,
+  .home-work-grid__cell--media[data-home-thumb]:not(.is-iframe-ready) .home-work-grid__poster-link .home-work-grid__poster {
     position: relative;
     inset: auto;
     width: 100%;
