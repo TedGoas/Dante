@@ -273,9 +273,8 @@ body {
 }
 
 .ot__donut-arc {
-  fill: none;
-  stroke-width: 22;
-  stroke-linecap: butt;
+  fill: currentColor;
+  stroke: none;
   transform-box: fill-box;
   transform-origin: center;
   transition:
@@ -284,15 +283,15 @@ body {
 }
 
 .ot__donut-arc--accepted {
-  stroke: var(--ot-accepted);
+  color: var(--ot-accepted);
 }
 
 .ot__donut-arc--answered {
-  stroke: var(--ot-answered);
+  color: var(--ot-answered);
 }
 
 .ot__donut-arc--unanswered {
-  stroke: var(--ot-unanswered);
+  color: var(--ot-unanswered);
 }
 
 .ot.is-slice-isolated .ot__donut-arc.is-faded {

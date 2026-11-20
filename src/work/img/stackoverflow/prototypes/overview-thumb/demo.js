@@ -7,11 +7,16 @@
     { id: 'answered', label: 'Answered', value: 1609 },
     { id: 'unanswered', label: 'Unanswered', value: 541 }
   ];
-  const CIRC = 2 * Math.PI * 68;
   const DONUT_CX = 90;
   const DONUT_CY = 90;
   const DONUT_R = 68;
   const DONUT_STROKE = 22;
+  const DONUT_R_OUT = DONUT_R + DONUT_STROKE / 2;
+  const DONUT_R_IN = DONUT_R - DONUT_STROKE / 2;
+  // Visible gap between slices along the mid ring, and corner radius on
+  // each annular sector (filled paths — stroke-linecap can't do 4px).
+  const ARC_GAP = 3;
+  const ARC_CORNER = 4;
 
   /*
    * Sequence beats (ms) — tweak here only.
@@ -82,19 +87,24 @@
   };
 
   const SEGMENT_LAYOUT = (function buildSegmentLayout() {
-    let offset = 0;
+    const gapAngle = ARC_GAP / DONUT_R;
+    let angle = 0;
     return SEGMENTS.map((seg) => {
-      const len = (seg.value / TOTAL) * CIRC;
+      const fullAngle = (seg.value / TOTAL) * Math.PI * 2;
+      const visualStart = angle + gapAngle / 2;
+      const visualEnd = angle + fullAngle - gapAngle / 2;
       const item = {
         id: seg.id,
         label: seg.label,
         value: seg.value,
-        len,
-        offset,
-        startAngle: (offset / CIRC) * Math.PI * 2,
-        endAngle: ((offset + len) / CIRC) * Math.PI * 2
+        len: Math.max(0, (visualEnd - visualStart) * DONUT_R),
+        offset: visualStart * DONUT_R,
+        visualStart,
+        visualEnd,
+        startAngle: angle,
+        endAngle: angle + fullAngle
       };
-      offset += len;
+      angle += fullAngle;
       return item;
     });
   })();
@@ -167,18 +177,86 @@
     return Math.max(0, Math.min(1, t));
   }
 
+  function polar(r, a) {
+    return {
+      x: DONUT_CX + r * Math.cos(a),
+      y: DONUT_CY + r * Math.sin(a)
+    };
+  }
+
+  function roundedAnnularSector(a0, a1, corner) {
+    const span = a1 - a0;
+    if (span <= 0.0001) {
+      return '';
+    }
+
+    const halfThick = (DONUT_R_OUT - DONUT_R_IN) / 2;
+    const maxCorner = Math.min(
+      corner,
+      halfThick - 0.01,
+      (span * DONUT_R_IN) / 2 - 0.01
+    );
+    if (maxCorner < 0.5) {
+      const large = span > Math.PI ? 1 : 0;
+      const o0 = polar(DONUT_R_OUT, a0);
+      const o1 = polar(DONUT_R_OUT, a1);
+      const i1 = polar(DONUT_R_IN, a1);
+      const i0 = polar(DONUT_R_IN, a0);
+      return [
+        `M ${o0.x} ${o0.y}`,
+        `A ${DONUT_R_OUT} ${DONUT_R_OUT} 0 ${large} 1 ${o1.x} ${o1.y}`,
+        `L ${i1.x} ${i1.y}`,
+        `A ${DONUT_R_IN} ${DONUT_R_IN} 0 ${large} 0 ${i0.x} ${i0.y}`,
+        'Z'
+      ].join(' ');
+    }
+
+    const cr = maxCorner;
+    const δOut = cr / DONUT_R_OUT;
+    const δIn = cr / DONUT_R_IN;
+    const large = span - δOut * 2 > Math.PI ? 1 : 0;
+
+    const outerStart = polar(DONUT_R_OUT, a0 + δOut);
+    const outerEnd = polar(DONUT_R_OUT, a1 - δOut);
+    const innerEnd = polar(DONUT_R_IN, a1 - δIn);
+    const innerStart = polar(DONUT_R_IN, a0 + δIn);
+    const tipOutStart = polar(DONUT_R_OUT, a0);
+    const tipOutEnd = polar(DONUT_R_OUT, a1);
+    const tipInEnd = polar(DONUT_R_IN, a1);
+    const tipInStart = polar(DONUT_R_IN, a0);
+    const radOutStart = polar(DONUT_R_OUT - cr, a0);
+    const radOutEnd = polar(DONUT_R_OUT - cr, a1);
+    const radInEnd = polar(DONUT_R_IN + cr, a1);
+    const radInStart = polar(DONUT_R_IN + cr, a0);
+
+    return [
+      `M ${outerStart.x} ${outerStart.y}`,
+      `A ${DONUT_R_OUT} ${DONUT_R_OUT} 0 ${large} 1 ${outerEnd.x} ${outerEnd.y}`,
+      `Q ${tipOutEnd.x} ${tipOutEnd.y} ${radOutEnd.x} ${radOutEnd.y}`,
+      `L ${radInEnd.x} ${radInEnd.y}`,
+      `Q ${tipInEnd.x} ${tipInEnd.y} ${innerEnd.x} ${innerEnd.y}`,
+      `A ${DONUT_R_IN} ${DONUT_R_IN} 0 ${large} 0 ${innerStart.x} ${innerStart.y}`,
+      `Q ${tipInStart.x} ${tipInStart.y} ${radInStart.x} ${radInStart.y}`,
+      `L ${radOutStart.x} ${radOutStart.y}`,
+      `Q ${tipOutStart.x} ${tipOutStart.y} ${outerStart.x} ${outerStart.y}`,
+      'Z'
+    ].join(' ');
+  }
+
   function setArcs(progress) {
     // One continuous sweep from the top: each slice fills only after
-    // the stroke head has reached its offset around the ring.
-    const drawn = CIRC * easeOutCubic(clamp01(progress));
+    // the head has reached its start angle around the ring.
+    const drawnAngle = Math.PI * 2 * easeOutCubic(clamp01(progress));
     SEGMENT_LAYOUT.forEach((seg) => {
       const arc = arcs[seg.id];
       if (!arc) {
         return;
       }
-      const visible = Math.max(0, Math.min(seg.len, drawn - seg.offset));
-      arc.style.strokeDasharray = `${visible} ${CIRC}`;
-      arc.style.strokeDashoffset = String(-seg.offset);
+      const visibleEnd = Math.min(seg.visualEnd, Math.max(seg.visualStart, drawnAngle));
+      arc.setAttribute(
+        'd',
+        roundedAnnularSector(seg.visualStart, visibleEnd, ARC_CORNER)
+      );
     });
   }
 
@@ -276,7 +354,9 @@
     const screenAngle = mid - Math.PI / 2;
     const tipW = 120;
     const tipH = 44;
-    const radius = DONUT_R;
+    // Unanswered is the small top slice — sit just inside the ring so the
+    // tip hangs slightly below the yellow without covering it.
+    const radius = seg.id === 'unanswered' ? DONUT_R * 0.42 : DONUT_R;
     let tipX = DONUT_CX + Math.cos(screenAngle) * radius - tipW / 2;
     let tipY = DONUT_CY + Math.sin(screenAngle) * radius - tipH / 2;
     tipX = Math.max(4, Math.min(tipX, 180 - tipW - 4));
