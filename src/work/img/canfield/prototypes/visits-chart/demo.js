@@ -339,8 +339,11 @@
       return;
     }
 
+    // Drop play classes so sibling dim can win on hover.
+    app.classList.remove('is-playing');
     columnEls.forEach((col) => {
-      col.style.setProperty('--vc-bar-delay', '0ms');
+      col.classList.remove('is-growing');
+      col.style.removeProperty('--vc-bar-delay');
     });
     setTipsReady(true);
   }

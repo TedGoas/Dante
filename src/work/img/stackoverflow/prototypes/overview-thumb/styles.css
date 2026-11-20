@@ -39,6 +39,7 @@ body {
   --ot-radius: 4px;
   --ot-ease: cubic-bezier(0.33, 1, 0.68, 1);
   --ot-exit-ms: 150ms;
+  --ot-settle-ms: 180ms;
   --ot-chrome-ms: 200ms;
   --ot-empty-ms: 320ms;
   --ot-tip-ms: 140ms;
@@ -73,6 +74,11 @@ body {
 .ot.is-exiting .ot__card {
   opacity: 0;
   transition: opacity var(--ot-exit-ms) var(--ot-ease);
+}
+
+.ot.is-resetting .ot__card {
+  opacity: 0.4;
+  transition: opacity var(--ot-settle-ms) var(--ot-ease);
 }
 
 .ot.is-entering .ot__card {
@@ -270,7 +276,11 @@ body {
   fill: none;
   stroke-width: 22;
   stroke-linecap: butt;
-  transition: opacity 0.2s ease;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition:
+    opacity var(--ot-tip-ms) var(--ot-ease),
+    transform var(--ot-tip-ms) var(--ot-ease);
 }
 
 .ot__donut-arc--accepted {
@@ -287,10 +297,13 @@ body {
 
 .ot.is-slice-isolated .ot__donut-arc.is-faded {
   opacity: 0.22;
+  transform: scale(1);
 }
 
 .ot.is-slice-isolated .ot__donut-arc.is-active {
   opacity: 1;
+  /* Slight grow toward the ring’s center — same idea as Launchpad slice focus. */
+  transform: scale(1.07);
 }
 
 .ot__donut-center {
@@ -366,6 +379,15 @@ body {
   opacity: 1;
   visibility: visible;
   transform: scale(1);
+}
+
+/* Subsequent tips while one is open: snap. */
+.ot.is-tip-warm .ot__tooltip.is-active,
+.ot.is-tip-warm .ot__hover.is-active,
+.ot.is-tip-warm .ot__hover.is-active .ot__hover-marker,
+.ot.is-tip-warm .ot__hover.is-active .ot__hover-rule,
+.ot.is-tip-warm .ot__hover.is-active .ot__tooltip--compact {
+  transition-duration: 0ms;
 }
 
 .ot__tooltip-label {
@@ -728,6 +750,7 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .ot.is-exiting .ot__card,
+  .ot.is-resetting .ot__card,
   .ot.is-entering.is-playing .ot__card,
   .ot.is-playing .ot__card--empty.is-visible .ot__empty,
   .ot.is-playing .ot__note.is-visible,

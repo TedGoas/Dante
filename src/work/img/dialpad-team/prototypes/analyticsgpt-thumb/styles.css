@@ -18,9 +18,11 @@ body {
 
 .agt {
   --agt-ease: cubic-bezier(0.33, 1, 0.68, 1);
-  --agt-view-ms: 300ms;
-  --agt-chart-enter-ms: 220ms;
-  --agt-tip-ms: 150ms;
+  --agt-view-ms: 250ms;
+  --agt-chart-enter-ms: 180ms;
+  --agt-tip-ms: 140ms;
+  --agt-exit-ms: 150ms;
+  --agt-settle-ms: 180ms;
   position: relative;
   width: 100%;
   height: 100%;
@@ -292,10 +294,29 @@ body {
 }
 
 .agt__answer-view.is-entering,
-.agt[data-view="answer"] .agt__answer-view:not([hidden]) {
+.agt[data-view="answer"] .agt__answer-view:not([hidden]):not(.is-exiting) {
   opacity: 1;
   transform: none;
   pointer-events: auto;
+}
+
+.agt__answer-view.is-exiting {
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+}
+
+.agt.is-exiting-answer .agt__answer-view:not([hidden]),
+.agt.is-resetting .agt__answer-view:not([hidden]),
+.agt.is-resetting .agt__composer-view:not([hidden]) {
+  transition:
+    opacity var(--agt-exit-ms) var(--agt-ease),
+    transform var(--agt-exit-ms) var(--agt-ease);
+}
+
+.agt.is-resetting .agt__composer-view:not([hidden]),
+.agt.is-resetting .agt__answer-view:not([hidden]) {
+  opacity: 0.35;
 }
 
 .agt[data-view="answer"] .agt__composer-view:not(.is-exiting):not([hidden]) {
@@ -478,6 +499,10 @@ body {
   opacity: 1;
 }
 
+.agt.is-tip-warm .agt__hover {
+  transition-duration: 0ms;
+}
+
 .agt__hover-rule {
   position: absolute;
   top: 0;
@@ -492,6 +517,10 @@ body {
 
 .agt__hover.is-visible .agt__hover-rule {
   opacity: 1;
+}
+
+.agt.is-tip-warm .agt__hover-rule {
+  transition-duration: 0ms;
 }
 
 .agt__hover-marker {
@@ -516,7 +545,12 @@ body {
   transform: translate(-50%, -50%) scale(1);
 }
 
+.agt.is-tip-warm .agt__hover-marker {
+  transition-duration: 0ms;
+}
+
 .agt__tooltip {
+  --agt-tip-shift: 0px;
   position: absolute;
   top: 0;
   left: 0;
@@ -526,7 +560,7 @@ body {
   background: #1a1a1a;
   color: #fff;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
-  transform: translate(-50%, calc(-100% - 6px));
+  transform: translate(calc(-50% + var(--agt-tip-shift)), calc(-100% - 6px)) scale(0.97);
   opacity: 0;
   white-space: nowrap;
   transition:
@@ -536,7 +570,11 @@ body {
 
 .agt__hover.is-visible .agt__tooltip {
   opacity: 1;
-  transform: translate(-50%, calc(-100% - 10px));
+  transform: translate(calc(-50% + var(--agt-tip-shift)), calc(-100% - 10px)) scale(1);
+}
+
+.agt.is-tip-warm .agt__tooltip {
+  transition-duration: 0ms;
 }
 
 .agt__tooltip-label {
@@ -582,7 +620,10 @@ body {
   .agt__hover,
   .agt__hover-rule,
   .agt__hover-marker,
-  .agt__tooltip {
+  .agt__tooltip,
+  .agt.is-exiting-answer .agt__answer-view,
+  .agt.is-resetting .agt__answer-view,
+  .agt.is-resetting .agt__composer-view {
     transition: none;
   }
 }

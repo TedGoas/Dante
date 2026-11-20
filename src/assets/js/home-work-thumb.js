@@ -69,7 +69,8 @@ function initHomeWorkThumb(root) {
       return;
     }
 
-    if (iframe.dataset.ready === '1' || iframe.contentDocument?.readyState === 'complete') {
+    // Only trust our load flag — readyState can be "complete" on about:blank mid-nav.
+    if (iframe.dataset.ready === '1') {
       playIfActive();
       return;
     }

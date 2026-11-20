@@ -20,6 +20,7 @@
    */
   const PLAY_DELAY_MS = 60;
   const EXIT_MS = 150;
+  const SETTLE_MS = 180;
   const CHROME_MS = 200;
   const DONUT_MS = 700;
   const LINE_MS = 700;
@@ -28,6 +29,7 @@
   const EMPTY_AT = 900;
   const EMPTY_FADE_MS = 320;
   const HOLD_MS = 40;
+  const TIP_MS = 140;
   const TOTAL_MS = EMPTY_AT + EMPTY_FADE_MS + HOLD_MS;
 
   // Path vertices (viewBox 220×110); Y maps 0→100 / 110→0.
@@ -106,9 +108,19 @@
   let votesPointIndex = 0;
   let votesKeyboardActive = false;
   let lastNumberKey = '';
+  let tipWarm = false;
+  let votesHideTimer = 0;
 
   function prefersReducedMotion() {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  function syncCssBeats() {
+    app.style.setProperty('--ot-exit-ms', `${EXIT_MS}ms`);
+    app.style.setProperty('--ot-chrome-ms', `${CHROME_MS}ms`);
+    app.style.setProperty('--ot-empty-ms', `${EMPTY_FADE_MS}ms`);
+    app.style.setProperty('--ot-tip-ms', `${TIP_MS}ms`);
+    app.style.setProperty('--ot-settle-ms', `${SETTLE_MS}ms`);
   }
 
   function clearTimers() {
@@ -117,6 +129,10 @@
     if (rafId) {
       window.cancelAnimationFrame(rafId);
       rafId = 0;
+    }
+    if (votesHideTimer) {
+      window.clearTimeout(votesHideTimer);
+      votesHideTimer = 0;
     }
   }
 
@@ -244,6 +260,10 @@
     }
     donutTooltip.classList.remove('is-active');
     donutTooltip.setAttribute('aria-hidden', 'true');
+    if (!tooltipsReady) {
+      tipWarm = false;
+      app.classList.remove('is-tip-warm');
+    }
   }
 
   function showDonutTooltip(seg) {
@@ -269,6 +289,10 @@
     donutTooltip.style.setProperty('--ot-tip-y', `${Math.round(tipY)}px`);
     donutTooltip.classList.add('is-active');
     donutTooltip.setAttribute('aria-hidden', 'false');
+    if (!tipWarm) {
+      tipWarm = true;
+      app.classList.add('is-tip-warm');
+    }
   }
 
   function syncDonutTooltip() {
@@ -292,12 +316,39 @@
     showDonutTooltip(seg);
   }
 
-  function hideVotesTooltip() {
+  function hideVotesTooltip(immediate) {
     if (!votesHover) {
       return;
     }
-    votesHover.classList.remove('is-active', 'is-flip');
+
+    if (votesHideTimer) {
+      window.clearTimeout(votesHideTimer);
+      votesHideTimer = 0;
+    }
+
+    votesHover.classList.remove('is-active');
     votesHover.setAttribute('aria-hidden', 'true');
+
+    if (immediate || prefersReducedMotion()) {
+      votesHover.classList.remove('is-flip');
+      if (!tooltipsReady) {
+        tipWarm = false;
+        app.classList.remove('is-tip-warm');
+      }
+      return;
+    }
+
+    // Keep is-flip until fade finishes so the tip doesn't jump sides.
+    votesHideTimer = window.setTimeout(() => {
+      votesHideTimer = 0;
+      if (!votesHover.classList.contains('is-active')) {
+        votesHover.classList.remove('is-flip');
+        if (!tooltipsReady) {
+          tipWarm = false;
+          app.classList.remove('is-tip-warm');
+        }
+      }
+    }, TIP_MS);
   }
 
   function syncVotesHitValue(point, index) {
@@ -335,9 +386,17 @@
     if (votesMarker) {
       votesMarker.style.top = `${Math.round(markerTop)}px`;
     }
+    if (votesHideTimer) {
+      window.clearTimeout(votesHideTimer);
+      votesHideTimer = 0;
+    }
     votesHover.classList.toggle('is-flip', flip);
     votesHover.classList.add('is-active');
     votesHover.setAttribute('aria-hidden', 'false');
+    if (!tipWarm) {
+      tipWarm = true;
+      app.classList.add('is-tip-warm');
+    }
   }
 
   function activateVotesPoint(index, plotWidth, plotHeight) {
@@ -358,12 +417,31 @@
     app.classList.toggle('is-tooltips-ready', ready);
     if (!ready) {
       hoverSlice = null;
+      tipWarm = false;
+      app.classList.remove('is-tip-warm');
       hideDonutTooltip();
-      hideVotesTooltip();
+      hideVotesTooltip(true);
       syncSliceIsolation();
       return;
     }
+
+    // Re-activate under a parked pointer/focus.
+    if (donutSvg && donutSvg.matches(':hover')) {
+      const rect = donutSvg.getBoundingClientRect();
+      const hit = hitTestDonut({
+        clientX: rect.left + rect.width * 0.5,
+        clientY: rect.top + rect.height * 0.35
+      });
+      if (hit) {
+        hoverSlice = hit.id;
+        syncSliceIsolation();
+      }
+    }
     syncDonutTooltip();
+
+    if (votesHit && (votesHit.matches(':hover') || document.activeElement === votesHit)) {
+      activateVotesPoint(votesPointIndex);
+    }
   }
 
   function clearSliceIsolation() {
@@ -374,7 +452,7 @@
   }
 
   function setFinishedFrame() {
-    app.classList.remove('is-playing', 'is-exiting', 'is-entering');
+    app.classList.remove('is-playing', 'is-exiting', 'is-entering', 'is-resetting');
     lastNumberKey = '';
     setArcs(1);
     setLineReveal(1);
@@ -479,8 +557,25 @@
     clearTimers();
     clearSliceIsolation();
     votesKeyboardActive = false;
-    hideVotesTooltip();
-    setFinishedFrame();
+    hideVotesTooltip(true);
+    tipWarm = false;
+    app.classList.remove('is-tip-warm');
+
+    if (prefersReducedMotion() || !app.classList.contains('is-playing')) {
+      setFinishedFrame();
+      return;
+    }
+
+    app.classList.add('is-resetting');
+    app.classList.remove('is-playing', 'is-exiting', 'is-entering');
+    const token = runToken;
+    const id = window.setTimeout(() => {
+      if (token !== runToken) {
+        return;
+      }
+      setFinishedFrame();
+    }, SETTLE_MS);
+    timers.push(id);
   }
 
   function playDemo() {
@@ -488,7 +583,9 @@
     clearTimers();
     clearSliceIsolation();
     votesKeyboardActive = false;
-    hideVotesTooltip();
+    hideVotesTooltip(true);
+    tipWarm = false;
+    app.classList.remove('is-tip-warm', 'is-resetting');
     setTooltipsReady(false);
     const token = runToken;
     const id = window.setTimeout(() => {
@@ -678,5 +775,6 @@
     }
   });
 
+  syncCssBeats();
   setFinishedFrame();
 })();
