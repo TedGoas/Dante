@@ -2,6 +2,11 @@ function prefersReducedMotion() {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
 
+/* Narrow stack or real touch: static posters only — skip iframe preload/play. */
+function prefersStaticThumbs() {
+  return window.matchMedia('(max-width: 640px), (hover: none) and (pointer: coarse)').matches;
+}
+
 function postToIframe(root, type) {
   const iframe = root.querySelector('.home-work-thumb__iframe');
 
@@ -126,6 +131,15 @@ function initHomeWorkThumb(root) {
 
 document.addEventListener('DOMContentLoaded', () => {
   const thumbs = document.querySelectorAll('[data-home-thumb]');
+
+  if (prefersStaticThumbs()) {
+    // Captions are CSS-hidden; also drop them from the a11y tree so list
+    // items don't announce duplicate "View case study" chrome.
+    document.querySelectorAll('.home-work-grid__caption').forEach((caption) => {
+      caption.setAttribute('aria-hidden', 'true');
+    });
+    return;
+  }
 
   if (prefersReducedMotion()) {
     thumbs.forEach(preloadThumb);

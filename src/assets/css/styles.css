@@ -1898,6 +1898,58 @@ hr {
   pointer-events: auto;
 }
 
+/* Static posters: desktop hides them; narrow/touch shows them instead of iframes. */
+.home-work-grid__poster-link {
+  display: none;
+}
+
+.home-work-grid__poster {
+  object-fit: cover;
+  object-position: top left;
+}
+
+/*
+ * Mobile / touch: static posters only — no hover demos, captions, or sibling dim.
+ * Tap the poster to open the case study.
+ */
+@media (max-width: 640px), (hover: none) and (pointer: coarse) {
+  .home-work-grid__poster-link {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .home-work-grid__poster-link .home-work-grid__poster {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .home-work-grid__media.home-work-thumb__iframe {
+    display: none;
+  }
+
+  .home-work-grid__caption {
+    display: none;
+  }
+
+  .home-work-grid__media-frame,
+  .home-work-grid__cell--media:hover .home-work-grid__media-frame,
+  .home-work-grid__cell--media:focus-within .home-work-grid__media-frame {
+    border-radius: var(--radius-work-gallery-image);
+  }
+
+  /* No mystery-collage dim on tap/focus. */
+  .home-work-grid:has(.home-work-grid__cell--media:hover) .home-work-grid__item,
+  .home-work-grid:has(.home-work-grid__cell--media:focus-within) .home-work-grid__item,
+  .home-work-grid:has(.home-work-grid__cell--media:hover) .home-work-grid__item:has(.home-work-grid__cell--media:hover),
+  .home-work-grid:has(.home-work-grid__cell--media:focus-within) .home-work-grid__item:has(.home-work-grid__cell--media:focus-within) {
+    opacity: 1;
+  }
+}
+
 .home-work-grid .home-work-grid__cell.img-placeholder {
   min-height: 0;
   height: 100%;
@@ -1971,6 +2023,12 @@ hr {
     grid-template-rows: none;
     grid-auto-rows: auto;
     aspect-ratio: auto;
+    gap: 1.5rem;
+  }
+
+  .page--home .homepage-showcase {
+    /* No hanging captions on mobile — drop the extra bottom pad. */
+    padding-bottom: var(--home-showcase-padding-y);
   }
 
   .home-work-grid__item--tl-large,
@@ -2015,6 +2073,21 @@ hr {
 
   .home-work-grid__media.home-work-thumb__iframe {
     aspect-ratio: 600 / 300;
+    height: auto;
+  }
+
+  /* Stacked static posters: size from the image, not an absolute fill. */
+  .home-work-grid__poster-link {
+    position: relative;
+    inset: auto;
+    display: block;
+    width: 100%;
+  }
+
+  .home-work-grid__poster-link .home-work-grid__poster {
+    position: relative;
+    inset: auto;
+    width: 100%;
     height: auto;
   }
 }
