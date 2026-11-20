@@ -15,31 +15,11 @@
             <path d="M4.5 2.8v10.4L13.2 8 4.5 2.8z" fill="currentColor"/>
           </svg>
         </button>
-        <div class="sc__playback-tray">
-          <div class="sc__playback-track">
-            <span class="sc__playback-seg" style="flex:6;background:#d4d4d4"></span>
-            <span class="sc__playback-seg" style="flex:2;background:#FB2C36"></span>
-            <span class="sc__playback-seg" style="flex:10;background:#d4d4d4"></span>
-            <span class="sc__playback-seg" style="flex:3;background:#2B7FFF"></span>
-            <span class="sc__playback-seg" style="flex:8;background:#d4d4d4"></span>
-            <span class="sc__playback-seg" style="flex:2;background:#00BC7D"></span>
-            <span class="sc__playback-seg" style="flex:3;background:#00BC7D"></span>
-            <span class="sc__playback-seg" style="flex:12;background:#d4d4d4"></span>
-            <span class="sc__playback-seg" style="flex:2;background:#00BC7D"></span>
-            <span class="sc__playback-seg" style="flex:6;background:#d4d4d4"></span>
-            <span class="sc__playback-seg" style="flex:3;background:#2B7FFF"></span>
-            <span class="sc__playback-seg" style="flex:4;background:#d4d4d4"></span>
-            <span class="sc__playback-seg" style="flex:2;background:#2B7FFF"></span>
-            <span class="sc__playback-seg" style="flex:3;background:#00BC7D"></span>
-            <span class="sc__playback-seg" style="flex:5;background:#d4d4d4"></span>
-            <span class="sc__playback-seg" style="flex:2;background:#F0B100"></span>
-            <span class="sc__playback-seg" style="flex:4;background:#d4d4d4"></span>
-            <span class="sc__playback-seg" style="flex:3;background:#FB2C36"></span>
-            <span class="sc__playback-seg" style="flex:8;background:#d4d4d4"></span>
-            <span class="sc__playback-seg" style="flex:2;background:#2B7FFF"></span>
-            <span class="sc__playback-seg" style="flex:10;background:#d4d4d4"></span>
+        <div class="sc__playback-tray" id="playback-tray">
+          <div class="sc__playback-track" id="playback-track">
+            <!-- Ticks filled by demo.js from transcript highlights -->
           </div>
-          <span class="sc__playback-head"></span>
+          <span class="sc__playback-head" id="playback-head"></span>
         </div>
       </div>
 
@@ -57,7 +37,7 @@
           <span class="sc__chapter-line"></span>
         </div>
 
-        <div class="sc__msg sc__msg--agent" id="transcript-greet" data-evidence-id="greet">
+        <div class="sc__msg sc__msg--agent" id="transcript-greet" data-evidence-id="greet" data-t="2">
           <img class="sc__avatar sc__avatar--agent" src="don.jpg" alt="" width="26" height="26" decoding="async" aria-hidden="true">
           <div class="sc__msg-body">
             <div class="sc__msg-head">
@@ -76,12 +56,12 @@
           </span>
         </div>
 
-        <div class="sc__msg sc__msg--customer">
+        <div class="sc__msg sc__msg--customer" data-t="12">
           <span class="sc__avatar sc__avatar--customer" aria-hidden="true">EC</span>
           <div class="sc__msg-body">
             <div class="sc__msg-head">
               <span class="sc__msg-name">Evan</span>
-              <span class="sc__msg-time">00:08</span>
+              <span class="sc__msg-time">00:12</span>
             </div>
             <p class="sc__msg-text">
               Hi Don, I'm Evan. I'm having some issues with my
@@ -92,16 +72,16 @@
 
         <div class="sc__chapter">
           <span class="sc__chapter-line"></span>
-          <span class="sc__chapter-label">00:10 - Confirm Evan's account</span>
+          <span class="sc__chapter-label">00:20 - Confirm Evan's account</span>
           <span class="sc__chapter-line"></span>
         </div>
 
-        <div class="sc__msg sc__msg--agent">
+        <div class="sc__msg sc__msg--agent" data-t="20">
           <img class="sc__avatar sc__avatar--agent" src="don.jpg" alt="" width="26" height="26" decoding="async" aria-hidden="true">
           <div class="sc__msg-body">
             <div class="sc__msg-head">
               <span class="sc__msg-name">Don</span>
-              <span class="sc__msg-time">00:10</span>
+              <span class="sc__msg-time">00:20</span>
             </div>
             <p class="sc__msg-text">
               I'd be happy to help you with that, Evan. Can I get your account email to pull up your information?
@@ -109,23 +89,23 @@
           </div>
         </div>
 
-        <div class="sc__msg sc__msg--customer">
+        <div class="sc__msg sc__msg--customer" data-t="28">
           <span class="sc__avatar sc__avatar--customer" aria-hidden="true">EC</span>
           <div class="sc__msg-body">
             <div class="sc__msg-head">
               <span class="sc__msg-name">Evan</span>
-              <span class="sc__msg-time">00:18</span>
+              <span class="sc__msg-time">00:28</span>
             </div>
             <p class="sc__msg-text">Sure, it's evan.conover@email.com.</p>
           </div>
         </div>
 
-        <div class="sc__msg sc__msg--agent" id="transcript-account" data-evidence-id="account">
+        <div class="sc__msg sc__msg--agent" id="transcript-account" data-evidence-id="account" data-t="35">
           <img class="sc__avatar sc__avatar--agent" src="don.jpg" alt="" width="26" height="26" decoding="async" aria-hidden="true">
           <div class="sc__msg-body">
             <div class="sc__msg-head">
               <span class="sc__msg-name">Don</span>
-              <span class="sc__msg-time">00:25</span>
+              <span class="sc__msg-time">00:35</span>
             </div>
             <p class="sc__msg-text">
               Great, I've got your account pulled up.
@@ -142,16 +122,16 @@
 
         <div class="sc__chapter">
           <span class="sc__chapter-line"></span>
-          <span class="sc__chapter-label">01:20 - Problem with Evan's Fitbit</span>
+          <span class="sc__chapter-label">01:10 - Problem with Evan's Fitbit</span>
           <span class="sc__chapter-line"></span>
         </div>
 
-        <div class="sc__msg sc__msg--customer" id="transcript-understanding" data-evidence-id="understanding">
+        <div class="sc__msg sc__msg--customer" id="transcript-understanding" data-evidence-id="understanding" data-t="70">
           <span class="sc__avatar sc__avatar--customer" aria-hidden="true">EC</span>
           <div class="sc__msg-body">
             <div class="sc__msg-head">
               <span class="sc__msg-name">Evan</span>
-              <span class="sc__msg-time">01:20</span>
+              <span class="sc__msg-time">01:10</span>
             </div>
             <p class="sc__msg-text">
               So I've had this Charge 5 for a while and it's been awesome, but recently
@@ -166,12 +146,12 @@
           </span>
         </div>
 
-        <div class="sc__msg sc__msg--agent">
+        <div class="sc__msg sc__msg--agent" data-t="85">
           <img class="sc__avatar sc__avatar--agent" src="don.jpg" alt="" width="26" height="26" decoding="async" aria-hidden="true">
           <div class="sc__msg-body">
             <div class="sc__msg-head">
               <span class="sc__msg-name">Don</span>
-              <span class="sc__msg-time">01:35</span>
+              <span class="sc__msg-time">01:25</span>
             </div>
             <p class="sc__msg-text">
               I understand how frustrating that must be. Let me help you troubleshoot this.
@@ -179,12 +159,12 @@
           </div>
         </div>
 
-        <div class="sc__msg sc__msg--customer">
+        <div class="sc__msg sc__msg--customer" data-t="110">
           <span class="sc__avatar sc__avatar--customer" aria-hidden="true">EC</span>
           <div class="sc__msg-body">
             <div class="sc__msg-head">
               <span class="sc__msg-name">Evan</span>
-              <span class="sc__msg-time">02:15</span>
+              <span class="sc__msg-time">01:50</span>
             </div>
             <p class="sc__msg-text">
               I restarted my phone but I'm not sure how to restart the Fitbit itself.
@@ -194,16 +174,16 @@
 
         <div class="sc__chapter">
           <span class="sc__chapter-line"></span>
-          <span class="sc__chapter-label">04:26 - Try restarting</span>
+          <span class="sc__chapter-label">02:05 - Try restarting</span>
           <span class="sc__chapter-line"></span>
         </div>
 
-        <div class="sc__msg sc__msg--agent">
+        <div class="sc__msg sc__msg--agent" data-t="125">
           <img class="sc__avatar sc__avatar--agent" src="don.jpg" alt="" width="26" height="26" decoding="async" aria-hidden="true">
           <div class="sc__msg-body">
             <div class="sc__msg-head">
               <span class="sc__msg-name">Don</span>
-              <span class="sc__msg-time">04:26</span>
+              <span class="sc__msg-time">02:05</span>
             </div>
             <p class="sc__msg-text">
               No problem. Press and hold the side button for about 8 seconds until you see the
@@ -212,12 +192,12 @@
           </div>
         </div>
 
-        <div class="sc__msg sc__msg--customer" id="transcript-frustration" data-evidence-id="frustration">
+        <div class="sc__msg sc__msg--customer" id="transcript-frustration" data-evidence-id="frustration" data-t="160">
           <span class="sc__avatar sc__avatar--customer" aria-hidden="true">EC</span>
           <div class="sc__msg-body">
             <div class="sc__msg-head">
               <span class="sc__msg-name">Evan</span>
-              <span class="sc__msg-time">05:30</span>
+              <span class="sc__msg-time">02:40</span>
             </div>
             <p class="sc__msg-text">
               Hmm, it's still not syncing. I'm sorry,
@@ -234,16 +214,16 @@
 
         <div class="sc__chapter">
           <span class="sc__chapter-line"></span>
-          <span class="sc__chapter-label">06:19 - Reset to factory settings</span>
+          <span class="sc__chapter-label">03:00 - Reset to factory settings</span>
           <span class="sc__chapter-line"></span>
         </div>
 
-        <div class="sc__msg sc__msg--agent">
+        <div class="sc__msg sc__msg--agent" data-t="180">
           <img class="sc__avatar sc__avatar--agent" src="don.jpg" alt="" width="26" height="26" decoding="async" aria-hidden="true">
           <div class="sc__msg-body">
             <div class="sc__msg-head">
               <span class="sc__msg-name">Don</span>
-              <span class="sc__msg-time">06:19</span>
+              <span class="sc__msg-time">03:00</span>
             </div>
             <p class="sc__msg-text">
               Let's try a factory reset — that usually resolves syncing issues. Your data is saved in the cloud.
@@ -251,12 +231,12 @@
           </div>
         </div>
 
-        <div class="sc__msg sc__msg--customer" id="transcript-resolved" data-evidence-id="resolved">
+        <div class="sc__msg sc__msg--customer" id="transcript-resolved" data-evidence-id="resolved" data-t="215">
           <span class="sc__avatar sc__avatar--customer" aria-hidden="true">EC</span>
           <div class="sc__msg-body">
             <div class="sc__msg-head">
               <span class="sc__msg-name">Evan</span>
-              <span class="sc__msg-time">09:00</span>
+              <span class="sc__msg-time">03:35</span>
             </div>
             <p class="sc__msg-text">
               It's syncing!
@@ -274,16 +254,16 @@
 
         <div class="sc__chapter">
           <span class="sc__chapter-line"></span>
-          <span class="sc__chapter-label">11:32 - Anything else?</span>
+          <span class="sc__chapter-label">04:20 - Anything else?</span>
           <span class="sc__chapter-line"></span>
         </div>
 
-        <div class="sc__msg sc__msg--agent" id="transcript-closing" data-evidence-id="closing">
+        <div class="sc__msg sc__msg--agent" id="transcript-closing" data-evidence-id="closing" data-t="260">
           <img class="sc__avatar sc__avatar--agent" src="don.jpg" alt="" width="26" height="26" decoding="async" aria-hidden="true">
           <div class="sc__msg-body">
             <div class="sc__msg-head">
               <span class="sc__msg-name">Don</span>
-              <span class="sc__msg-time">11:32</span>
+              <span class="sc__msg-time">04:20</span>
             </div>
             <p class="sc__msg-text">
               Of course!
@@ -298,23 +278,23 @@
           </span>
         </div>
 
-        <div class="sc__msg sc__msg--customer">
+        <div class="sc__msg sc__msg--customer" data-t="275">
           <span class="sc__avatar sc__avatar--customer" aria-hidden="true">EC</span>
           <div class="sc__msg-body">
             <div class="sc__msg-head">
               <span class="sc__msg-name">Evan</span>
-              <span class="sc__msg-time">11:40</span>
+              <span class="sc__msg-time">04:35</span>
             </div>
             <p class="sc__msg-text">No, that's all. Thanks again, Don!</p>
           </div>
         </div>
 
-        <div class="sc__msg sc__msg--agent">
+        <div class="sc__msg sc__msg--agent" data-t="290">
           <img class="sc__avatar sc__avatar--agent" src="don.jpg" alt="" width="26" height="26" decoding="async" aria-hidden="true">
           <div class="sc__msg-body">
             <div class="sc__msg-head">
               <span class="sc__msg-name">Don</span>
-              <span class="sc__msg-time">11:45</span>
+              <span class="sc__msg-time">04:50</span>
             </div>
             <p class="sc__msg-text">You're welcome, Evan. Have a great day!</p>
           </div>
@@ -377,7 +357,7 @@
           </li>
           <li>
             <button type="button" class="sc__comment" data-evidence="frustration">
-              <span class="sc__comment-time">05:30</span>
+              <span class="sc__comment-time">02:40</span>
               <span class="sc__comment-body">Frustration peaks here. Flag this moment in coaching.</span>
             </button>
           </li>

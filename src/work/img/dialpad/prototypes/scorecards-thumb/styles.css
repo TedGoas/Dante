@@ -120,11 +120,15 @@ body {
   flex: 1;
   min-width: 0;
   height: 7px;
+  cursor: default;
+}
+
+.sc.is-interactive .sc__playback-tray {
+  cursor: pointer;
 }
 
 .sc__playback-track {
-  display: flex;
-  align-items: stretch;
+  position: relative;
   width: 100%;
   height: 100%;
   border-radius: 7px;
@@ -132,23 +136,39 @@ body {
   background: #d4d4d4;
 }
 
-.sc__playback-seg {
-  min-width: 2px;
-  height: 100%;
+.sc__playback-tick {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  margin-left: -2px;
+  border-radius: 2px;
+  pointer-events: none;
 }
 
 .sc__playback-head {
   position: absolute;
-  left: 0;
+  left: var(--sc-head-pct, 0%);
   top: 50%;
-  z-index: 1;
-  width: 8px;
-  height: 8px;
-  margin-top: -4px;
-  border-radius: 50%;
-  background: var(--sc-purple);
-  box-shadow: 2px 0 0 0 var(--sc-purple);
+  z-index: 2;
+  width: 2px;
+  height: 13px;
+  margin-top: -6.5px;
+  border-radius: 1px;
+  background: var(--sc-ink);
+  box-shadow: none;
   pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.sc.is-head-animating .sc__playback-head {
+  transition: left 180ms var(--sc-ease, cubic-bezier(0.22, 1, 0.36, 1));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sc.is-head-animating .sc__playback-head {
+    transition: none;
+  }
 }
 
 .sc__transcript {

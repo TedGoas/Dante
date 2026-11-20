@@ -51,6 +51,20 @@
   const HOLD_AFTER_HL_MS = 133;
   const BADGE_PRESS_MS = 140;
   const TIP_MS = 140;
+  const SEEK_LOCK_MS = 500;
+  const CALL_DURATION_S = 300;
+
+  // Highlight ticks on the play bar — same order/colors as transcript marks.
+  const TRACK_MARKS = [
+    { t: 2, color: '#00BC7D' },
+    { t: 12, color: '#F0B100' },
+    { t: 35, color: '#2B7FFF' },
+    { t: 70, color: '#FB2C36' },
+    { t: 125, color: '#F0B100' },
+    { t: 160, color: '#FB2C36' },
+    { t: 215, color: '#00BC7D' },
+    { t: 260, color: '#2B7FFF' }
+  ];
 
   const TIP_BY_CLASS = {
     'sc__hl--red': { label: 'Frustration', color: '#fed5d7' },
@@ -70,6 +84,8 @@
   const transcriptEl = document.getElementById('transcript');
   const transcriptPane = app ? app.querySelector('.sc__pane--transcript') : null;
   const scorecardPane = app ? app.querySelector('.sc__pane--scorecard') : null;
+  const playbackTray = document.getElementById('playback-tray');
+  const playbackTrack = document.getElementById('playback-track');
   const hlTip = document.getElementById('hl-tip');
   const hlTipLabel = document.getElementById('hl-tip-label');
   const tabButtons = scorecardPane
@@ -81,6 +97,8 @@
   let interactive = false;
   let resolvedCount = 0;
   let tipWarm = false;
+  let seekLockUntil = 0;
+  let scrollRaf = 0;
 
   function prefersReducedMotion() {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -190,6 +208,148 @@
     return Array.from(document.querySelectorAll('[data-evidence-id]'));
   }
 
+  function timedMessages() {
+    if (!transcriptEl) {
+      return [];
+    }
+    return Array.from(transcriptEl.querySelectorAll('.sc__msg[data-t]'));
+  }
+
+  function msgTime(msg) {
+    const t = Number(msg?.getAttribute('data-t'));
+    return Number.isFinite(t) ? t : 0;
+  }
+
+  function renderTrackMarks() {
+    if (!playbackTrack) {
+      return;
+    }
+    playbackTrack.innerHTML = TRACK_MARKS.map(
+      (mark) =>
+        `<span class="sc__playback-tick" style="left:${(mark.t / CALL_DURATION_S) * 100}%;background:${mark.color}"></span>`
+    ).join('');
+  }
+
+  function setPlayheadSeconds(seconds, animate) {
+    if (!app) {
+      return;
+    }
+    const clamped = Math.min(CALL_DURATION_S, Math.max(0, seconds));
+    const pct = (clamped / CALL_DURATION_S) * 100;
+    app.classList.toggle('is-head-animating', Boolean(animate) && !prefersReducedMotion());
+    app.style.setProperty('--sc-head-pct', `${pct}%`);
+  }
+
+  function lockSeek(ms) {
+    seekLockUntil = Date.now() + (ms || SEEK_LOCK_MS);
+  }
+
+  function nearestMessageByTime(seconds) {
+    const msgs = timedMessages();
+    if (!msgs.length) {
+      return null;
+    }
+    let best = msgs[0];
+    let bestDist = Math.abs(msgTime(best) - seconds);
+    for (let i = 1; i < msgs.length; i += 1) {
+      const dist = Math.abs(msgTime(msgs[i]) - seconds);
+      if (dist < bestDist) {
+        best = msgs[i];
+        bestDist = dist;
+      }
+    }
+    return best;
+  }
+
+  function scrollToMessage(msg, smooth) {
+    if (!transcriptEl || !msg) {
+      return;
+    }
+    const top = Math.max(0, msg.offsetTop - 20);
+    lockSeek(smooth && !prefersReducedMotion() ? SEEK_LOCK_MS : 0);
+    setPlayheadSeconds(msgTime(msg), true);
+    if (smooth && !prefersReducedMotion()) {
+      transcriptEl.scrollTo({ top, behavior: 'smooth' });
+    } else {
+      transcriptEl.scrollTop = top;
+    }
+  }
+
+  function syncPlayheadFromScroll() {
+    if (!transcriptEl || Date.now() < seekLockUntil) {
+      return;
+    }
+    const msgs = timedMessages();
+    if (!msgs.length) {
+      return;
+    }
+    const fog = transcriptEl.querySelector('.sc__fog');
+    const topY = transcriptEl.getBoundingClientRect().top + (fog ? fog.offsetHeight : 0) + 8;
+
+    // Interpolate between neighboring messages so the notch eases
+    // continuously instead of snapping message-to-message.
+    let nextIdx = msgs.findIndex((msg) => msg.getBoundingClientRect().top >= topY);
+    if (nextIdx === -1) {
+      setPlayheadSeconds(msgTime(msgs[msgs.length - 1]));
+      return;
+    }
+    if (nextIdx === 0) {
+      setPlayheadSeconds(msgTime(msgs[0]));
+      return;
+    }
+
+    const prev = msgs[nextIdx - 1];
+    const next = msgs[nextIdx];
+    const prevTop = prev.getBoundingClientRect().top;
+    const nextTop = next.getBoundingClientRect().top;
+    const span = nextTop - prevTop;
+    const progress = span > 0 ? Math.min(1, Math.max(0, (topY - prevTop) / span)) : 0;
+    const t0 = msgTime(prev);
+    const t1 = msgTime(next);
+    setPlayheadSeconds(t0 + (t1 - t0) * progress);
+  }
+
+  function onTranscriptScroll() {
+    hideHlTip(false);
+    if (scrollRaf) {
+      return;
+    }
+    scrollRaf = window.requestAnimationFrame(() => {
+      scrollRaf = 0;
+      syncPlayheadFromScroll();
+    });
+  }
+
+  function onTrayClick(event) {
+    if (!interactive || !playbackTray) {
+      return;
+    }
+    const rect = playbackTray.getBoundingClientRect();
+    if (!rect.width) {
+      return;
+    }
+    const ratio = Math.min(1, Math.max(0, (event.clientX - rect.left) / rect.width));
+    const seconds = ratio * CALL_DURATION_S;
+    const msg = nearestMessageByTime(seconds);
+    if (!msg) {
+      return;
+    }
+    clearEvidence();
+    const evidenceId = msg.getAttribute('data-evidence-id');
+    if (evidenceId) {
+      msg.classList.add('sc__msg--evidence');
+      const chip = msg.querySelector('.sc__evidence-chip');
+      if (chip) {
+        chip.hidden = false;
+      }
+      const phrase = msg.querySelector(`[data-ev-phrase="${evidenceId}"]`);
+      if (phrase) {
+        phrase.classList.add('is-painted');
+      }
+    }
+    scrollToMessage(msg, true);
+  }
+
   function renderQuestions(count, animateIndex) {
     if (!questionsRoot) {
       return;
@@ -275,18 +435,15 @@
       phrase.classList.add('is-painted');
     }
 
-    const top = Math.max(0, msg.offsetTop - 20);
-    if (smooth && !prefersReducedMotion()) {
-      transcriptEl.scrollTo({ top, behavior: 'smooth' });
-    } else {
-      transcriptEl.scrollTop = top;
-    }
+    scrollToMessage(msg, smooth);
   }
 
   function scrollTranscriptTop(instant) {
     if (!transcriptEl) {
       return;
     }
+    lockSeek(instant || prefersReducedMotion() ? 0 : SEEK_LOCK_MS);
+    setPlayheadSeconds(0);
     if (instant || prefersReducedMotion()) {
       transcriptEl.scrollTop = 0;
       return;
@@ -309,6 +466,7 @@
     clearHighlights();
     renderQuestions(0, -1);
     setActivePanel('scorecard');
+    setPlayheadSeconds(0);
     scrollTranscriptTop(true);
   }
 
@@ -317,6 +475,7 @@
     clearEvidence();
     paintAllHighlights();
     renderQuestions(QUESTIONS.length, -1);
+    setPlayheadSeconds(0);
     scrollTranscriptTop(true);
     setInteractive(true);
   }
@@ -521,13 +680,11 @@
       }
       hideHlTip(false);
     });
-    transcriptEl.addEventListener(
-      'scroll',
-      () => {
-        hideHlTip(false);
-      },
-      { passive: true }
-    );
+    transcriptEl.addEventListener('scroll', onTranscriptScroll, { passive: true });
+  }
+
+  if (playbackTray) {
+    playbackTray.addEventListener('click', onTrayClick);
   }
 
   window.addEventListener('message', (event) => {
@@ -542,6 +699,8 @@
   });
 
   syncCssBeats();
+  renderTrackMarks();
+  setPlayheadSeconds(0);
   if (prefersReducedMotion()) {
     setFinishedFrame();
   } else {
