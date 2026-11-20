@@ -39,12 +39,11 @@
 
   /*
    * Sequence beats (ms) — tweak here only.
-   * soft exit → rest → highlighter wipes → answer resolve → interactive
+   * hover (from rest): highlighter wipes → answer resolve → interactive
+   * leave: soft exit → rest (skipped if already resting)
    */
-  const PLAY_DELAY_MS = 40;
   const EXIT_MS = 150;
   const SETTLE_MS = 180;
-  const CHROME_MS = 120;
   // Highlight + resolve run at 1.5× prior speed (durations ÷ 1.5).
   const HL_MS = 213;
   const HL_STAGGER_MS = 93;
@@ -258,6 +257,17 @@
     }
   }
 
+  function isResting() {
+    return (
+      resolvedCount === 0 &&
+      !highlightMarks().some(
+        (mark) =>
+          mark.classList.contains('is-painted') ||
+          mark.classList.contains('is-painting')
+      )
+    );
+  }
+
   async function playDemo() {
     const token = ++runToken;
     clearTimers();
@@ -269,33 +279,20 @@
       return;
     }
 
-    app.classList.remove('is-entering', 'is-resetting');
-    app.classList.add('is-exiting');
-    await wait(EXIT_MS, token);
-    if (token !== runToken) {
-      return;
-    }
-
-    setRestFrame();
-    app.classList.remove('is-exiting');
-    app.classList.add('is-resetting');
-    await wait(SETTLE_MS, token);
-    if (token !== runToken) {
-      return;
-    }
-
-    app.classList.remove('is-resetting');
-    app.classList.add('is-entering');
-    await wait(PLAY_DELAY_MS, token);
-    if (token !== runToken) {
-      return;
+    // Rest already matches the demo start — skip soft exit/settle so hover
+    // goes straight into highlights (no opacity flash).
+    if (!isResting()) {
+      app.classList.remove('is-entering', 'is-resetting', 'is-playing');
+      app.classList.add('is-exiting');
+      await wait(EXIT_MS, token);
+      if (token !== runToken) {
+        return;
+      }
+      setRestFrame();
+      app.classList.remove('is-exiting');
     }
 
     app.classList.add('is-playing');
-    await wait(CHROME_MS, token);
-    if (token !== runToken) {
-      return;
-    }
 
     await paintHighlights(token);
     if (token !== runToken) {
@@ -315,7 +312,7 @@
       }
     }
 
-    app.classList.remove('is-entering', 'is-playing');
+    app.classList.remove('is-playing');
     setInteractive(true);
   }
 
@@ -327,6 +324,12 @@
 
     if (prefersReducedMotion()) {
       setFinishedFrame();
+      return;
+    }
+
+    // Already at rest (e.g. leave before play finishes settling) — snap, no fade.
+    if (isResting() && !app.classList.contains('is-playing')) {
+      setRestFrame();
       return;
     }
 
