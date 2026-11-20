@@ -102,6 +102,7 @@
   let timers = [];
   let tipsReady = true;
   let tipHideTimer = 0;
+  let tipWarm = false;
 
   function prefersReducedMotion() {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -201,6 +202,8 @@
     }
     tooltip.classList.remove('is-visible');
     tooltip.hidden = true;
+    tipWarm = false;
+    app.classList.remove('is-tip-warm');
   }
 
   function clearActive(immediate) {
@@ -221,6 +224,8 @@
       tipHideTimer = 0;
       if (!tooltip.classList.contains('is-visible')) {
         tooltip.hidden = true;
+        tipWarm = false;
+        app.classList.remove('is-tip-warm');
       }
     }, TIP_MS);
   }
@@ -270,6 +275,10 @@
     positionTooltip(col);
     void tooltip.offsetWidth;
     tooltip.classList.add('is-visible');
+    if (!tipWarm) {
+      tipWarm = true;
+      app.classList.add('is-tip-warm');
+    }
   }
 
   function clearBarMotionClasses() {

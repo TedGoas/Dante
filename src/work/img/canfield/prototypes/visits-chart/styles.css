@@ -261,6 +261,11 @@ body {
   transform: translate3d(var(--vc-tip-x), var(--vc-tip-y), 0) scale(1);
 }
 
+/* After the first tip opens, column swaps skip enter animation. */
+.vc.is-tip-warm .vc__tooltip.is-visible {
+  transition-duration: 0ms;
+}
+
 .vc__tooltip-date {
   margin: 0 0 10px;
   padding-bottom: 10px;

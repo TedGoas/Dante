@@ -3,8 +3,7 @@
    * Sequence beats (ms) — tweak here only.
    * hover: sides exit + letters stagger-drop + center scales
    * leave: scrub progress backward from wherever it stopped
-   * letters: longer per-glyph span + ease-in-out (less pop)
-   * mesh: starts earlier, eases in (no late opacity jump)
+   * letters/mesh: ease-out (front-loaded; reverse soft via scrub)
    */
   const PLAY_MS = 600;
   const WOLF_EXIT_PX = 340;
@@ -38,10 +37,6 @@
     return 1 - (1 - t) ** 3;
   }
 
-  function easeInOutCubic(t) {
-    return t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2;
-  }
-
   function apply(p) {
     if (!app) {
       return;
@@ -49,8 +44,8 @@
 
     const side = easeOutCubic(clamp(p / 0.7, 0, 1));
     const head = easeOutCubic(p);
-    // Ease-in-out over a longer window — wash eases in, reverse stays soft.
-    const finish = easeInOutCubic(
+    // Ease-out wash — reverse stays soft via the scrub itself.
+    const finish = easeOutCubic(
       clamp((p - FINISH_START) / (1 - FINISH_START), 0, 1)
     );
     app.style.setProperty('--cb-wolf-left-x', `${-WOLF_EXIT_PX * side}px`);
@@ -65,10 +60,10 @@
     letters.forEach((el, i) => {
       const start = i * LETTER_STAGGER;
       const local = clamp((p - start) / LETTER_SPAN, 0, 1);
-      // Ease-in-out: letter eases into the drop, then settles out of frame.
-      const drop = easeInOutCubic(local);
+      // Ease-out: letters drop promptly, then settle out of frame.
+      const drop = easeOutCubic(local);
       // Opacity lags slightly so motion reads before the glyph vanishes.
-      const fade = easeInOutCubic(clamp((local - 0.08) / 0.92, 0, 1));
+      const fade = easeOutCubic(clamp((local - 0.08) / 0.92, 0, 1));
       el.style.setProperty('--cb-letter-y', `${LETTER_DROP_PX * drop}px`);
       el.style.setProperty('--cb-letter-opacity', String(1 - fade));
     });

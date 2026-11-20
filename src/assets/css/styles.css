@@ -1605,7 +1605,8 @@ hr {
   color: var(--color-swiss-fg-light);
   background-color: var(--color-surface-raised);
   opacity: 0;
-  transform: translateY(6px);
+  /* Enter from above so it settles down under the thumb (no open gap on the way in). */
+  transform: translateY(-6px);
   pointer-events: none;
   transition:
     opacity 0.22s ease-out,
