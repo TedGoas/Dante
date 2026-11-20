@@ -224,6 +224,14 @@ body {
   flex-shrink: 0;
 }
 
+img.sc__avatar {
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+  padding: 0;
+  border: none;
+}
+
 .sc__avatar--agent {
   background: #f6339a;
 }
