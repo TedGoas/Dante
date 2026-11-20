@@ -7,6 +7,9 @@ function prefersStaticThumbs() {
   return window.matchMedia('(max-width: 640px), (hover: none) and (pointer: coarse)').matches;
 }
 
+/* Start fetching before the tile is on screen so hover can play sooner. */
+const PRELOAD_ROOT_MARGIN = '400px 0px';
+
 function postToIframe(root, type) {
   const iframe = root.querySelector('.home-work-thumb__iframe');
 
@@ -28,6 +31,10 @@ function preloadThumb(root) {
   iframe.src = source;
 }
 
+function markIframeReady(root) {
+  root.classList.add('is-iframe-ready');
+}
+
 function isInteractiveThumb(root) {
   return root.hasAttribute('data-home-thumb-interactive');
 }
@@ -42,6 +49,35 @@ function pointerStillOverRoot(root, event) {
 
   const hit = document.elementFromPoint(x, y);
   return Boolean(hit && root.contains(hit));
+}
+
+function observePreload(thumbs) {
+  const roots = Array.from(thumbs);
+
+  if (!roots.length) {
+    return;
+  }
+
+  if (!('IntersectionObserver' in window)) {
+    roots.forEach(preloadThumb);
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        preloadThumb(entry.target);
+        observer.unobserve(entry.target);
+      });
+    },
+    { rootMargin: PRELOAD_ROOT_MARGIN, threshold: 0 }
+  );
+
+  roots.forEach((root) => observer.observe(root));
 }
 
 function initHomeWorkThumb(root) {
@@ -87,12 +123,14 @@ function initHomeWorkThumb(root) {
   if (iframe) {
     iframe.addEventListener('load', () => {
       iframe.dataset.ready = '1';
+      markIframeReady(root);
     });
   }
 
-  preloadThumb(root);
-
   const start = () => {
+    // Hover/focus before the IO preload window — kick off fetch now.
+    preloadThumb(root);
+
     if (active) {
       return;
     }
@@ -141,10 +179,24 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
+  // Desktop: posters are visual placeholders only — caption is the real link.
+  document.querySelectorAll('.home-work-grid__poster-link').forEach((poster) => {
+    poster.setAttribute('aria-hidden', 'true');
+    poster.setAttribute('tabindex', '-1');
+  });
+
   if (prefersReducedMotion()) {
-    thumbs.forEach(preloadThumb);
+    // Still defer fetch; resting iframe frame shows once loaded.
+    thumbs.forEach((root) => {
+      const iframe = root.querySelector('.home-work-thumb__iframe');
+      if (iframe) {
+        iframe.addEventListener('load', () => markIframeReady(root));
+      }
+    });
+    observePreload(thumbs);
     return;
   }
 
   thumbs.forEach(initHomeWorkThumb);
+  observePreload(thumbs);
 });

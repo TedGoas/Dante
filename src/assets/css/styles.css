@@ -1898,7 +1898,7 @@ hr {
   pointer-events: auto;
 }
 
-/* Static posters: desktop hides them; narrow/touch shows them instead of iframes. */
+/* Static posters: desktop hides them once the iframe is ready. */
 .home-work-grid__poster-link {
   display: none;
 }
@@ -1906,6 +1906,26 @@ hr {
 .home-work-grid__poster {
   object-fit: cover;
   object-position: top left;
+}
+
+/*
+ * Desktop deferred preload: show the polished SVG until the iframe has loaded
+ * so tiles aren’t blank while IntersectionObserver / hover kicks off fetch.
+ * pointer-events: none — hover/focus stay on the media cell (play), not the link.
+ */
+.home-work-grid__cell--media[data-home-thumb]:not(.is-iframe-ready) .home-work-grid__poster-link {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.home-work-grid__cell--media[data-home-thumb]:not(.is-iframe-ready) .home-work-grid__poster-link .home-work-grid__poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /*
@@ -1918,6 +1938,7 @@ hr {
     position: absolute;
     inset: 0;
     z-index: 1;
+    pointer-events: auto;
   }
 
   .home-work-grid__poster-link .home-work-grid__poster {
