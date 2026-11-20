@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dialpad AnalyticsGPT thumb</title>
+  <link rel="stylesheet" href="/assets/img/dialpad-team/prototypes/analyticsgpt-thumb/styles.css">
+</head>
+<body>
+  <div class="agt" id="app" aria-hidden="true" data-view="composer">
+    <div class="agt__composer-view" id="composer-view">
+      <div class="agt__brand">
+        <img
+          class="agt__mark"
+          src="/assets/img/dialpad-team/prototypes/analyticsgpt-thumb/mark.svg"
+          width="48"
+          height="48"
+          alt=""
+        >
+        <p class="agt__title">Welcome Alana</p>
+      </div>
+
+      <div class="agt__composer" id="composer">
+        <div class="agt__composer-field">
+          <span class="agt__composer-text" id="composer-text"></span>
+          <span class="agt__composer-placeholder" id="composer-placeholder">Ask me anything</span>
+          <span class="agt__caret" id="caret" hidden></span>
+        </div>
+        <div class="agt__composer-bar">
+          <button type="button" class="agt__send" id="send-btn" aria-label="Send" tabindex="-1">
+            <svg class="agt__send-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path
+                d="M16.569 9H4.902M4.902 9L2.25 2.105L16.569 9L2.25 15.894L4.902 9Z"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span class="agt__send-think" aria-hidden="true">
+              <span class="agt__thinking-dot"></span>
+              <span class="agt__thinking-dot"></span>
+              <span class="agt__thinking-dot"></span>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <div class="agt__chips" id="chips" aria-hidden="true">
+        <span class="agt__chip">Weekly CSAT</span>
+        <span class="agt__chip">Top performers</span>
+      </div>
+    </div>
+
+    <div class="agt__answer-view" id="answer-view" hidden>
+      <p class="agt__answer-copy" id="answer-copy"></p>
+
+      <div class="agt__chart" id="chart" hidden>
+        <div class="agt__chart-head">
+          <p class="agt__chart-label">Ai CSAT</p>
+          <p class="agt__chart-value" id="chart-value">4.7</p>
+        </div>
+        <div class="agt__plot">
+          <div class="agt__chart-loading" id="chart-loading" hidden aria-hidden="true">
+            <div class="agt__chart-loading-spinner" aria-hidden="true"></div>
+            <span class="agt__chart-loading-label">Rendering visualization…</span>
+          </div>
+          <svg class="agt__line-svg" viewBox="0 0 240 110" width="240" height="110" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="agt-line-fill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#602DFF" stop-opacity="0.28"></stop>
+                <stop offset="100%" stop-color="#602DFF" stop-opacity="0"></stop>
+              </linearGradient>
+              <clipPath id="agt-line-clip">
+                <rect class="agt__line-clip-rect" x="0" y="0" width="0" height="110"></rect>
+              </clipPath>
+            </defs>
+            <g clip-path="url(#agt-line-clip)">
+              <path
+                class="agt__line-area"
+                d="M0 72 L60 58 L120 42 L180 28 L240 36 L240 110 L0 110 Z"
+                fill="url(#agt-line-fill)"
+              ></path>
+              <path
+                class="agt__line-path"
+                d="M0 72 L60 58 L120 42 L180 28 L240 36"
+                fill="none"
+                stroke="#602DFF"
+                stroke-width="2.25"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </g>
+          </svg>
+          <div
+            class="agt__plot-hit"
+            id="chart-hit"
+            role="slider"
+            tabindex="0"
+            aria-label="CSAT over time"
+            aria-valuemin="0"
+            aria-valuemax="4"
+            aria-valuenow="0"
+            aria-valuetext=""
+          ></div>
+          <div class="agt__hover" id="chart-hover" aria-hidden="true">
+            <span class="agt__hover-rule" aria-hidden="true"></span>
+            <span class="agt__hover-marker" aria-hidden="true"></span>
+            <div class="agt__tooltip">
+              <p class="agt__tooltip-label" id="tip-date"></p>
+              <p class="agt__tooltip-value" id="tip-value"></p>
+            </div>
+          </div>
+        </div>
+        <div class="agt__x-axis" aria-hidden="true">
+          <span>Mon</span>
+          <span>Wed</span>
+          <span>Fri</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/assets/img/dialpad-team/prototypes/analyticsgpt-thumb/demo.js"></script>
+</body>
+</html>

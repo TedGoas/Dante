@@ -1,0 +1,764 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 600px;
+  height: 600px;
+  overflow: hidden;
+  background: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.ot {
+  --ot-accepted: #00c950;
+  --ot-answered: #00a6f4;
+  --ot-unanswered: #ffd230;
+  --ot-ink: #0c0d0e;
+  --ot-title: #171717;
+  --ot-body: #404040;
+  --ot-muted: #737373;
+  --ot-empty: #6a737c;
+  --ot-hairline: #e5e5e5;
+  --ot-legend-stroke: #f5f5f5;
+  --ot-footer: #f5f5f5;
+  --ot-selected-bg: #fff7ed;
+  --ot-selected-stroke: #ffd6a8;
+  --ot-green-text: #00a63e;
+  --ot-note-grad-start: #9ae600;
+  --ot-note-grad-end: #5ea500;
+  --ot-red-text: #e7000b;
+  --ot-red-bg: #ffe2e2;
+  --ot-green-bg: #dcfce7;
+  --ot-card-pad: 16px;
+  --ot-radius: 4px;
+  --ot-ease: cubic-bezier(0.33, 1, 0.68, 1);
+  --ot-exit-ms: 150ms;
+  --ot-settle-ms: 180ms;
+  --ot-chrome-ms: 200ms;
+  --ot-empty-ms: 320ms;
+  --ot-tip-ms: 140ms;
+  --ot-note-ms: 220ms;
+
+  position: relative;
+  width: 600px;
+  height: 600px;
+  padding: 24px;
+  background: #fff;
+  color: var(--ot-title);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 24px;
+}
+
+.ot__card {
+  margin: 0;
+  padding: var(--ot-card-pad);
+  border: 1px solid var(--ot-hairline);
+  border-radius: var(--ot-radius);
+  background: #fff;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  transform: none;
+}
+
+.ot.is-exiting .ot__card {
+  opacity: 0;
+  transition: opacity var(--ot-exit-ms) var(--ot-ease);
+}
+
+.ot.is-resetting .ot__card {
+  opacity: 0.4;
+  transition: opacity var(--ot-settle-ms) var(--ot-ease);
+}
+
+.ot.is-entering .ot__card {
+  opacity: 0;
+  transform: translateY(6px) scale(0.98);
+}
+
+.ot.is-entering.is-playing .ot__card {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity var(--ot-chrome-ms) var(--ot-ease),
+    transform var(--ot-chrome-ms) var(--ot-ease);
+}
+
+.ot__card--donut {
+  grid-column: 1 / -1;
+  padding: 16px 24px;
+  overflow: hidden;
+}
+
+.ot__card-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+}
+
+.ot__card-head--stack {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  margin-bottom: 10px;
+}
+
+.ot__so-mark {
+  display: block;
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+}
+
+.ot__card-label {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  color: var(--ot-title);
+}
+
+.ot__card-label--mono {
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.ot__donut-body {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 64px;
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 0;
+  padding: 0 0 12px;
+}
+
+.ot__legend-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 260px;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.ot__legend {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.ot__legend-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--ot-legend-stroke);
+  border-radius: var(--ot-radius);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    opacity 0.2s ease,
+    border-color 0.15s ease;
+}
+
+.ot__legend-button:hover,
+.ot__legend-button:focus-visible {
+  background: var(--ot-footer);
+  outline: none;
+}
+
+.ot__legend-button:focus-visible {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--ot-green-text);
+}
+
+.ot__legend-button.is-faded {
+  opacity: 0.3;
+}
+
+.ot__legend-button[aria-pressed="true"] {
+  background: var(--ot-selected-bg);
+  border-color: var(--ot-selected-stroke);
+}
+
+.ot__legend-button[aria-pressed="true"]:hover,
+.ot__legend-button[aria-pressed="true"]:focus-visible {
+  background: var(--ot-selected-bg);
+}
+
+.ot__swatch {
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.ot__swatch--accepted {
+  background: var(--ot-accepted);
+}
+
+.ot__swatch--answered {
+  background: var(--ot-answered);
+}
+
+.ot__swatch--unanswered {
+  background: var(--ot-unanswered);
+}
+
+.ot__legend-copy {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.ot__legend-name {
+  color: var(--ot-ink);
+}
+
+.ot__legend-value {
+  color: var(--ot-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.ot__donut {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  flex-shrink: 0;
+}
+
+.ot__donut-svg {
+  display: block;
+  width: 180px;
+  height: 180px;
+  pointer-events: auto;
+  cursor: default;
+}
+
+.ot.is-tooltips-ready .ot__donut-svg {
+  cursor: pointer;
+}
+
+.ot__donut-track {
+  fill: none;
+  stroke: #f5f5f5;
+  stroke-width: 22;
+}
+
+.ot__donut-arc {
+  fill: currentColor;
+  stroke: none;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition:
+    opacity var(--ot-tip-ms) var(--ot-ease),
+    transform var(--ot-tip-ms) var(--ot-ease);
+}
+
+.ot__donut-arc--accepted {
+  color: var(--ot-accepted);
+}
+
+.ot__donut-arc--answered {
+  color: var(--ot-answered);
+}
+
+.ot__donut-arc--unanswered {
+  color: var(--ot-unanswered);
+}
+
+.ot.is-slice-isolated .ot__donut-arc.is-faded {
+  opacity: 0.22;
+  transform: scale(1);
+}
+
+.ot.is-slice-isolated .ot__donut-arc.is-active {
+  opacity: 1;
+  /* Slight grow toward the ring’s center — same idea as Launchpad slice focus. */
+  transform: scale(1.07);
+}
+
+.ot__donut-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  pointer-events: none;
+}
+
+.ot__donut-total {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 32px;
+  font-variant-numeric: tabular-nums;
+  color: var(--ot-title);
+}
+
+.ot__donut-total-label {
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--ot-muted);
+}
+
+.ot__tooltip {
+  --ot-tip-x: 0px;
+  --ot-tip-y: 0px;
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 120px;
+  padding: 5px 6px;
+  border: 1px solid rgba(23, 23, 23, 0.15);
+  border-radius: var(--ot-radius);
+  background: #fff;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.96);
+  transition:
+    opacity var(--ot-tip-ms) var(--ot-ease),
+    visibility var(--ot-tip-ms) var(--ot-ease),
+    transform var(--ot-tip-ms) var(--ot-ease);
+}
+
+.ot__tooltip.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.ot__tooltip--donut {
+  top: 0;
+  left: 0;
+  transform: translate3d(var(--ot-tip-x), var(--ot-tip-y), 0) scale(0.96);
+}
+
+.ot__tooltip--donut.is-active {
+  transform: translate3d(var(--ot-tip-x), var(--ot-tip-y), 0) scale(1);
+}
+
+.ot__tooltip--compact {
+  top: 8px;
+  left: 10px;
+}
+
+.ot__hover.is-active .ot__tooltip--compact {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+/* Subsequent tips while one is open: snap. */
+.ot.is-tip-warm .ot__tooltip.is-active,
+.ot.is-tip-warm .ot__hover.is-active,
+.ot.is-tip-warm .ot__hover.is-active .ot__hover-marker,
+.ot.is-tip-warm .ot__hover.is-active .ot__hover-rule,
+.ot.is-tip-warm .ot__hover.is-active .ot__tooltip--compact {
+  transition-duration: 0ms;
+}
+
+.ot__tooltip-label {
+  margin: 0;
+  color: var(--ot-muted);
+  font-size: 11px;
+  line-height: 13px;
+}
+
+.ot__tooltip-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.ot__tooltip-row p {
+  margin: 0;
+  color: var(--ot-ink);
+  font-size: 12px;
+  line-height: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.ot__tooltip-pct {
+  color: var(--ot-muted);
+  font-size: 12px;
+  line-height: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.ot__note {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: auto;
+  padding: 12px 24px;
+  border: 1px solid transparent;
+  border-radius: 50px;
+  background: transparent;
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+.ot__note.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.ot.is-playing .ot__note.is-visible {
+  transition:
+    opacity var(--ot-note-ms) var(--ot-ease),
+    transform var(--ot-note-ms) var(--ot-ease);
+}
+
+.ot__note::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--ot-note-grad-start) 0%,
+    var(--ot-note-grad-end) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.ot__note img,
+.ot__note p {
+  position: relative;
+  z-index: 1;
+}
+
+.ot__note img {
+  width: 14px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+.ot__note p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 15px;
+  color: var(--ot-body);
+}
+
+.ot__metric-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ot__metric {
+  margin: 0;
+  min-width: 5ch;
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 24px;
+  font-variant-numeric: tabular-nums;
+  color: var(--ot-title);
+}
+
+.ot__delta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+.ot__delta--down {
+  color: var(--ot-red-text);
+}
+
+.ot__delta--up {
+  color: var(--ot-green-text);
+}
+
+.ot__delta-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--ot-radius);
+  background: var(--ot-red-bg);
+}
+
+.ot__delta--down .ot__delta-icon {
+  background: var(--ot-red-bg);
+}
+
+.ot__delta--up .ot__delta-icon {
+  background: var(--ot-green-bg);
+}
+
+.ot__delta--down .ot__delta-icon img {
+  display: block;
+  width: 12px;
+  height: 12px;
+  transform: scaleY(-1);
+}
+
+.ot__delta--up .ot__delta-icon img {
+  display: block;
+  width: 12px;
+  height: 12px;
+  transform: none;
+}
+
+.ot__delta-value {
+  font-weight: 400;
+}
+
+.ot__chart {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 28px;
+  grid-template-rows: 1fr auto;
+  gap: 4px 6px;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.ot__plot {
+  position: relative;
+  grid-column: 1;
+  grid-row: 1;
+  min-height: 0;
+  overflow: visible;
+}
+
+.ot__plot-hit {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  cursor: default;
+}
+
+.ot.is-tooltips-ready .ot__plot-hit {
+  cursor: crosshair;
+}
+
+.ot__hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  width: 120px;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity var(--ot-tip-ms) var(--ot-ease),
+    visibility var(--ot-tip-ms) var(--ot-ease);
+}
+
+.ot__hover.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.ot__hover.is-flip .ot__tooltip--compact {
+  left: auto;
+  right: 10px;
+}
+
+.ot__hover-rule {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  opacity: 0;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--ot-muted) 0,
+    var(--ot-muted) 5px,
+    transparent 5px,
+    transparent 10px
+  );
+  transition: opacity var(--ot-tip-ms) var(--ot-ease);
+}
+
+.ot__hover.is-active .ot__hover-rule {
+  opacity: 1;
+}
+
+.ot__hover-marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  border-radius: 50%;
+  background: var(--ot-answered);
+  box-shadow: 0 0 0 2px #fff;
+  opacity: 0;
+  transform: scale(0.55);
+  transition:
+    opacity var(--ot-tip-ms) var(--ot-ease),
+    transform var(--ot-tip-ms) var(--ot-ease);
+}
+
+.ot__hover.is-active .ot__hover-marker {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.ot__plot-hit:focus-visible {
+  outline: 2px solid var(--ot-answered);
+  outline-offset: -2px;
+}
+
+.ot__grid {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.ot__grid span {
+  display: block;
+  height: 1px;
+  background: #f0f0f0;
+}
+
+.ot__line-svg {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.ot__y-axis {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0;
+  font-size: 11px;
+  line-height: 1;
+  color: var(--ot-muted);
+  pointer-events: none;
+}
+
+.ot__x-axis {
+  grid-column: 1;
+  grid-row: 2;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  line-height: 1.2;
+  color: var(--ot-muted);
+  pointer-events: none;
+}
+
+.ot__card--empty {
+  min-height: 0;
+}
+
+.ot__empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 8px 12px 12px;
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.ot__card--empty.is-visible .ot__empty {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ot.is-playing .ot__card--empty.is-visible .ot__empty {
+  transition:
+    opacity var(--ot-empty-ms) var(--ot-ease),
+    transform var(--ot-empty-ms) var(--ot-ease);
+}
+
+.ot__empty-art {
+  display: block;
+  width: 112px;
+  height: 102px;
+}
+
+.ot__empty-copy {
+  margin: 0;
+  max-width: 18rem;
+  font-size: 13px;
+  line-height: 1.35;
+  color: var(--ot-empty);
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ot.is-exiting .ot__card,
+  .ot.is-resetting .ot__card,
+  .ot.is-entering.is-playing .ot__card,
+  .ot.is-playing .ot__card--empty.is-visible .ot__empty,
+  .ot.is-playing .ot__note.is-visible,
+  .ot__legend-button,
+  .ot__donut-arc,
+  .ot__tooltip,
+  .ot__hover,
+  .ot__hover-rule,
+  .ot__hover-marker {
+    transition: none;
+  }
+}

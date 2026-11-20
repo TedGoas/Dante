@@ -1,0 +1,340 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 600px;
+  height: 300px;
+  overflow: hidden;
+  background: #fff;
+  font-family: system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.vc {
+  --vc-ease-grow: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --vc-ease: cubic-bezier(0.33, 1, 0.68, 1);
+  --vc-grow-ms: 550ms;
+  --vc-exit-ms: 160ms;
+  --vc-settle-ms: 200ms;
+  --vc-tip-ms: 140ms;
+  --vc-dim-ms: 140ms;
+  --vc-grow-fade-ms: 80ms;
+  position: relative;
+  width: 600px;
+  height: 300px;
+  background: #fff;
+  color: #020618;
+}
+
+.vc__sidebar {
+  position: absolute;
+  top: 25px;
+  left: 16px;
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  pointer-events: none;
+}
+
+.vc__mark {
+  display: block;
+  width: 50px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+.vc__card {
+  margin: 0;
+  padding: 18px 20px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 3.5px;
+  background: #fff;
+}
+
+/* Match th-canfield-graph.svg card type (date ink ~15px → ~18px font; label ~14px). */
+.vc__card-date {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #020618;
+}
+
+.vc__card-label {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #62748e;
+}
+
+.vc__chart {
+  position: absolute;
+  top: 16px;
+  left: 200px;
+  right: 16px;
+  bottom: 20px;
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 8px;
+}
+
+.vc__y {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 4px 0 2px;
+  font-size: 11px;
+  line-height: 1;
+  color: #62748e;
+  pointer-events: none;
+}
+
+.vc__plot {
+  position: relative;
+  min-width: 0;
+}
+
+.vc__grid {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.vc__grid span {
+  display: block;
+  height: 1px;
+  background: #e2e8f0;
+}
+
+.vc__bars {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 4px 1px;
+  gap: 20px;
+}
+
+.vc__col {
+  --vc-bar-delay: 0ms;
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  flex: 0 0 24px;
+  align-self: flex-end;
+  width: 24px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 1;
+  cursor: pointer;
+  position: relative;
+  transform: scaleY(1);
+  transform-origin: bottom center;
+  transition:
+    transform var(--vc-grow-ms) var(--vc-ease-grow) var(--vc-bar-delay),
+    opacity var(--vc-dim-ms) var(--vc-ease);
+}
+
+/* Widen the hit target into the gaps without shifting the bar. */
+.vc__col::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -10px;
+  right: -10px;
+}
+
+/* Soft exit: fade finished bars before collapsing. */
+.vc.is-exiting .vc__col {
+  opacity: 0;
+  transition:
+    opacity var(--vc-exit-ms) var(--vc-ease),
+    transform 0s linear;
+}
+
+/* Collapse while faded (no transform transition). */
+.vc__col.is-growing {
+  transform: scaleY(0);
+  opacity: 0;
+  transition: none;
+}
+
+/* Stagger-grow back in with a short fade on the rise. */
+.vc.is-playing .vc__col.is-growing {
+  transform: scaleY(1);
+  opacity: 1;
+  transition:
+    transform var(--vc-grow-ms) var(--vc-ease-grow) var(--vc-bar-delay),
+    opacity var(--vc-grow-fade-ms) var(--vc-ease) var(--vc-bar-delay);
+}
+
+/* Short settle on leave instead of a full grow catch-up. */
+.vc.is-resetting .vc__col {
+  transform: scaleY(1);
+  opacity: 1;
+  transition:
+    transform var(--vc-settle-ms) var(--vc-ease),
+    opacity var(--vc-settle-ms) var(--vc-ease);
+}
+
+/* Sibling fade only while a bar is hovered/focused. */
+.vc.has-active .vc__col {
+  opacity: 0.3;
+}
+
+.vc.has-active .vc__col.is-active {
+  opacity: 1;
+}
+
+.vc__col:focus-visible {
+  outline: 2px solid #c41230;
+  outline-offset: 2px;
+}
+
+.vc__seg {
+  width: 100%;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.vc__seg--missed {
+  background: #ff6467;
+  border-radius: 4px 4px 0 0;
+}
+
+.vc__seg--late {
+  background: #ffb900;
+}
+
+.vc__seg--upcoming {
+  background: #51a2ff;
+}
+
+.vc__seg--on {
+  background: #9ae600;
+}
+
+.vc__tooltip {
+  --vc-tip-x: 0px;
+  --vc-tip-y: 0px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  width: 176px;
+  padding: 14px 16px 12px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow:
+    0 1px 4px rgba(12, 12, 13, 0.1),
+    0 1px 4px rgba(12, 12, 13, 0.05);
+  opacity: 0;
+  transform: translate3d(var(--vc-tip-x), calc(var(--vc-tip-y) + 6px), 0) scale(0.97);
+  transform-origin: center center;
+  pointer-events: none;
+  transition:
+    opacity var(--vc-tip-ms) var(--vc-ease),
+    transform var(--vc-tip-ms) var(--vc-ease);
+}
+
+.vc__tooltip.is-visible {
+  opacity: 1;
+  transform: translate3d(var(--vc-tip-x), var(--vc-tip-y), 0) scale(1);
+}
+
+/* After the first tip opens, column swaps skip enter animation. */
+.vc.is-tip-warm .vc__tooltip.is-visible {
+  transition-duration: 0ms;
+}
+
+.vc__tooltip-date {
+  margin: 0 0 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #020618;
+}
+
+.vc__tooltip-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vc__tooltip-list li {
+  display: grid;
+  grid-template-columns: 14px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 9px;
+  font-size: 12px;
+  color: #62748e;
+}
+
+.vc__swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+}
+
+.vc__swatch--on {
+  background: #7ccf00;
+}
+
+.vc__swatch--upcoming {
+  background: #2b7fff;
+}
+
+.vc__swatch--late {
+  background: #f0b100;
+}
+
+.vc__swatch--missed {
+  background: #fb2c36;
+}
+
+.vc__tooltip-value {
+  font-variant-numeric: tabular-nums;
+  color: #62748e;
+}
+
+.vc__tooltip-total {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0 0;
+  padding-top: 8px;
+  border-top: 1px solid #e2e8f0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #020618;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vc__col,
+  .vc.is-playing .vc__col.is-growing,
+  .vc.is-exiting .vc__col,
+  .vc.is-resetting .vc__col,
+  .vc__tooltip {
+    transition: none;
+  }
+}

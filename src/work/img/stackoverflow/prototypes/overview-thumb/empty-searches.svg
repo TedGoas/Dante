@@ -1,0 +1,22 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="112" height="102" viewBox="0 0 112 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame" clip-path="url(#clip0_0_4)">
+<path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M27.8369 84.6129C35.8689 91.5885 46.1298 95.5 57 95.5C80.2928 95.5 99.5726 77.5453 101.364 54.5H80.2411C78.5372 65.9169 68.6895 74.5 57 74.5C51.778 74.5 46.8157 72.7911 42.7566 69.6931L27.8369 84.6129Z" stroke="#A3A8AD"/>
+<path id="Vector_2" fill-rule="evenodd" clip-rule="evenodd" d="M20.8968 82.3605C14.1058 74.4797 10 64.2193 10 53C10 29.1553 28.5459 9.64217 52 8.09841V30.1939C40.7149 31.6639 32 41.3142 32 53C32 58.1416 33.6871 62.8892 36.538 66.7193L20.8968 82.3605Z" fill="#EFF0F1"/>
+<path id="Vector_3" fill-rule="evenodd" clip-rule="evenodd" d="M22.9263 79.6239L37.8818 64.6685C35.0499 60.7149 33.5 55.9741 33.5 51C33.5 39.3105 42.0831 29.4628 53.5 27.7589V6.63558C30.4547 8.42745 12.5 27.7072 12.5 51C12.5 61.6236 16.2351 71.6681 22.9263 79.6239Z" stroke="#A3A8AD"/>
+<path id="Vector_4" fill-rule="evenodd" clip-rule="evenodd" d="M77.8061 50C76.464 39.6968 68.3032 31.536 58 30.1939V8.09841C80.4625 9.57691 98.4231 27.5375 99.9016 50H77.8061Z" fill="#EFF0F1"/>
+<path id="Vector_5" d="M83 40H81V42H83V40Z" fill="#A3A8AD"/>
+<path id="Vector_6" d="M87 40H85V42H87V40Z" fill="#A3A8AD"/>
+<path id="Vector_7" d="M91 40H89V42H91V40Z" fill="#A3A8AD"/>
+<path id="Vector_8" d="M85 43H83V45H85V43Z" fill="#A3A8AD"/>
+<path id="Vector_9" d="M89 43H87V45H89V43Z" fill="#A3A8AD"/>
+<path id="Vector_10" d="M93 43H91V45H93V43Z" fill="#A3A8AD"/>
+<path id="Vector_11" d="M97 43H95V45H97V43Z" fill="#A3A8AD"/>
+<path id="Vector_12" fill-rule="evenodd" clip-rule="evenodd" d="M80.2411 47.5H101.364C99.6697 25.7144 82.2856 8.33035 60.5 6.63559V27.7589C70.6772 29.2788 78.7212 37.3228 80.2411 47.5Z" stroke="#A3A8AD"/>
+<path id="Vector_13" fill-rule="evenodd" clip-rule="evenodd" d="M91.2071 1L72.8536 19.3536L72.1464 18.6464L90 0.792893V0H112V1H91.2071ZM94 5H109V6H94V5ZM94 10H100V11H94V10ZM102 10H112V11H102V10ZM19 11.2929L32.8536 25.1464L32.1464 25.8536L18.2929 12H0V11H19V11.2929ZM0 15H9V16H0V15ZM0 19H15V20H0V19ZM36.2929 101L49.6464 87.6464L50.3536 88.3536L37 101.707V102H15V101H36.2929ZM15 96H25V97H15V96Z" fill="#A3A8AD"/>
+</g>
+<defs>
+<clipPath id="clip0_0_4">
+<rect width="112" height="102" fill="white"/>
+</clipPath>
+</defs>
+</svg>
