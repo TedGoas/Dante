@@ -1,0 +1,19 @@
+{#
+  Web layout for a newsletter issue. Extends the default layout via
+  Nunjucks inheritance (not Eleventy's `layout:` chaining) so the
+  issue can replace .site-main entirely while everything outside it
+  — head, header, footer, scripts — stays the site's.
+#}
+{% extends "layouts/default.njk" %}
+{% from "newsletter/shell.njk" import shell %}
+
+{% block headExtras %}
+  <link rel="stylesheet" href="/assets/css/newsletter.css">
+  {% include "newsletter/email-styles.njk" %}
+{% endblock %}
+
+{% block main %}
+  <main id="main" class="site-main site-main--newsletter">
+    {{ shell(content) }}
+  </main>
+{% endblock %}

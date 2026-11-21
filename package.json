@@ -14,6 +14,7 @@
 		"serve": "npm run clean && npm run eleventy:serve",
 		"watch": "npm run clean && npm run eleventy:watch",
 		"build": "npm run clean && npm run eleventy:build && npm run build:sumble",
+		"newsletter:email": "node scripts/build-newsletter-email.js",
 		"debug": "DEBUG=Eleventy* npm run build"
 	},
 	"repository": {

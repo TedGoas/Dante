@@ -1,0 +1,42 @@
+{#
+  Standalone email layout — rendered only by the local email build
+  (NEWSLETTER_EMAIL=1, see scripts/build-newsletter-email.js).
+  Never used by the web build, never deployed.
+
+  Ted designs the shell (newsletter/shell.njk). This file is the
+  minimal valid scaffold around it: head, preheader, view-in-browser,
+  and the required Email Octopus merge-tag footer.
+
+  Merge tags MUST survive Nunjucks as literal text: keep them inside
+  {% raw %} blocks exactly as written (case-sensitive).
+#}
+{% from "newsletter/shell.njk" import shell -%}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>{{ title }}</title>
+  {% include "newsletter/email-styles.njk" %}
+</head>
+<body>
+  {# Hidden preheader: preview text from front matter, then padding so
+     clients do not pull body copy into the preview. #}
+  <div style="display: none; font-size: 1px; line-height: 1px; max-height: 0; max-width: 0; opacity: 0; overflow: hidden; mso-hide: all;" aria-hidden="true">{{ description }}&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
+
+  {# View in browser — design/relocate with the shell later. #}
+  <p><a href="{{ site.url }}/newsletter/{{ issue }}/">View in browser</a></p>
+
+  {{ shell(content) }}
+
+  {# Required Email Octopus footer (free Starter plan). Do not remove:
+     unsubscribe must be a text link, sender line is physical address,
+     rewards link is required on the free plan. #}
+  <footer>
+    <p><a href="{% raw %}{{UnsubscribeURL}}{% endraw %}">Unsubscribe</a></p>
+    <p>{% raw %}{{SenderInfoLine}}{% endraw %}</p>
+    <p><a href="{% raw %}{{RewardsURL}}{% endraw %}">Rewards</a></p>
+  </footer>
+</body>
+</html>
