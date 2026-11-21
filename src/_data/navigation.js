@@ -12,7 +12,7 @@ module.exports = {
   contact: [
     {
       label: 'LinkedIn',
-      href: 'https://www.linkedin.com/in/tedgoas/',
+      href: 'https://www.linkedin.com/in/tgoas/',
       external: true
     },
     {

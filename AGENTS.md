@@ -198,7 +198,7 @@ Use this pattern when a work case study figure should show a **live interactive 
 
 Args: `slug`, `title` (iframe `title`), `width`, `height`, optional `background` image (same wallpaper pattern as click-to-play).
 
-**Valid slugs:** `analytics-gpt`, `launchpad`, `ai-chatbot`, `scorecards`, `ai-receptionist`.
+**Valid slugs:** `analytics-gpt`, `launchpad`, `ai-chatbot`, `scorecards`, `scorecards-v1-mvp`, `scorecards-v1-ai-questions`, `scorecards-v3-llm-questions`, `scorecards-future`, `ai-receptionist`.
 
 **Implementation map:**
 
@@ -454,7 +454,7 @@ Collaboration norms so agents match how this site is actually built (visual crit
 - **Prove the change landed, then invite refresh** — After CSS/markup edits: confirm the intended **source** file (never `dist/`) actually contains the change; give the exact local URL. Do not blame cache or say “hard refresh” until the source change is verified. When a browser tool is available, check the live page before claiming the fix.
 - **“I still see…” = stop and diagnose** — No more design tweaks until delivery is ruled out: wrong file/selector/page, dead or wrong-port dev server, wrong branch, or Netlify vs local. For deploy-only bugs, ask **local vs Netlify** early.
 - **Pivot after two fails** — If an approach fails twice, name the abandon/pivot (“abandon A; port B”) instead of inventing a third custom path.
-- **Prefer existing skills** — Gallery embeds, thumbs, figure layouts, case-study copy, image optimize, voice, commit/push: invoke the skill (or point to it) instead of re-explaining the pattern. See [`.cursor/skills/`](.cursor/skills/).
+- **Prefer existing skills** — Gallery embeds, thumbs, figure layouts, case-study copy, image optimize, voice, commit/push, and **motion** (shared interaction/animation craft): invoke the skill (or point to it) instead of re-explaining the pattern. See [`.cursor/skills/`](.cursor/skills/) — especially [`.cursor/skills/motion/SKILL.md`](.cursor/skills/motion/SKILL.md) for easing, beats, soft exits, tips, and reduced-motion.
 - **This repo’s stack only** — Native HTML/CSS/11ty/vanilla JS. No Tailwind, React, or take-home app scaffolds here unless Ted explicitly carves that out.
 - **Dirty trees and other agents** — Surface path/branch collisions when the tree isn’t clean. Commit only this task’s paths (see **commit** skill). When another chat moved files, open with the new paths/branch.
 - **Cloud → local port** — When recreating a Cloud Agent PR locally, treat the **PR diff + chat transcript** as the brief; restate any still-open decisions before coding.
@@ -489,7 +489,12 @@ the static site and/or serving it locally. Cloud agents build/run reliably here 
 
 ### Commands (defined in `package.json`)
 - Dev server (live reload): `npm start` — Eleventy on `http://localhost:8080`
-- Production build: `npm run build` — outputs to `dist/`
+- Production build: `npm run build` — outputs to `dist/` (includes `dist/sumble/`).
+- Sumble prototype (hot reload): `npm run start:sumble` — open `http://localhost:5174/sumble/`.
+  Standalone Vite + React + Tailwind v4 app in `sumble/`; shares no code or styles with the site,
+  is unlinked, and is `noindex` (meta + Netlify header). `http://localhost:8080/sumble/` is the
+  last build output and does not hot-reload. **Before working on it, read
+  [`sumble/AGENTS.md`](sumble/AGENTS.md)** (goal, status, stack, TanStack Table v9 notes, next steps).
 - No lint step and no tests exist in this repo.
 
 ### Non-obvious notes

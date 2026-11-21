@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Canfield visits chart</title>
+  <link rel="stylesheet" href="/assets/img/canfield/prototypes/visits-chart/styles.css">
+</head>
+<body>
+  <div class="vc" id="app">
+    <aside class="vc__sidebar" aria-hidden="true">
+      <svg class="vc__mark" width="50" height="48" viewBox="17 24 51 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="17" y="25" width="50" height="46" rx="4" stroke="#CAD5E2" stroke-width="2"/>
+        <path d="M40.0341 24C47.669 24 55.3039 24 62.9388 24C65.7338 24 67.9995 26.3281 67.9995 29.2V66.8C67.9995 69.6718 65.7338 72 62.9388 72C55.3039 72 47.669 72 40.0341 72C39.9501 72 39.9493 70 40.0333 70C51.7765 70 58.6566 57.6363 58.6566 50.4C58.6566 48 58.6566 52.7893 58.6566 45.6C58.6566 38.4107 51.7335 26 40.119 26C40.119 24.2461 40.0341 25.1291 40.0341 24Z" fill="#CAD5E2"/>
+        <path d="M42 54.5C45.5898 54.5 48.5 51.5898 48.5 48C48.5 44.4102 45.5898 41.5 42 41.5C38.4102 41.5 35.5 44.4102 35.5 48C35.5 51.5898 38.4102 54.5 42 54.5Z" fill="#CAD5E2"/>
+        <path d="M42 58C42 52.0357 42 42.8111 42 38C36.4771 38 32 42.4772 32 48C32 53.5228 36.4771 58 42 58ZM42 66C32.0589 66 24 57.9411 24 48C24 38.0589 32.0589 30 42 30C42 38.5952 42 58 42 66Z" fill="#CAD5E2"/>
+      </svg>
+      <div class="vc__card">
+        <p class="vc__card-date">11-Dec-2019</p>
+        <p class="vc__card-label">Earliest In</p>
+      </div>
+      <div class="vc__card">
+        <p class="vc__card-date">17-Dec-2019</p>
+        <p class="vc__card-label">Latest In</p>
+      </div>
+    </aside>
+
+    <div class="vc__chart">
+      <div class="vc__y" aria-hidden="true">
+        <span>200</span>
+        <span>100</span>
+        <span>0</span>
+      </div>
+      <div class="vc__plot">
+        <div class="vc__grid" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="vc__bars" id="bars"></div>
+      </div>
+    </div>
+
+    <div class="vc__tooltip" id="tooltip" hidden>
+      <p class="vc__tooltip-date" id="tooltip-date">January 16, 2020</p>
+      <ul class="vc__tooltip-list">
+        <li><span class="vc__swatch vc__swatch--on"></span><span class="vc__tooltip-label">On Schedule</span><span class="vc__tooltip-value" id="tooltip-on">114</span></li>
+        <li><span class="vc__swatch vc__swatch--upcoming"></span><span class="vc__tooltip-label">Upcoming</span><span class="vc__tooltip-value" id="tooltip-upcoming">35</span></li>
+        <li><span class="vc__swatch vc__swatch--late"></span><span class="vc__tooltip-label">Late</span><span class="vc__tooltip-value" id="tooltip-late">55</span></li>
+        <li><span class="vc__swatch vc__swatch--missed"></span><span class="vc__tooltip-label">Missed</span><span class="vc__tooltip-value" id="tooltip-missed">11</span></li>
+      </ul>
+      <p class="vc__tooltip-total"><span>Total</span><span id="tooltip-total">215</span></p>
+    </div>
+  </div>
+  <script src="/assets/img/canfield/prototypes/visits-chart/demo.js"></script>
+</body>
+</html>

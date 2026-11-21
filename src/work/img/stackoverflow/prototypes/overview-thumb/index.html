@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stack Overflow overview thumb</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/img/stackoverflow/prototypes/overview-thumb/styles.css">
+</head>
+<body>
+  <div class="ot" id="app" aria-hidden="true">
+    <article class="ot__card ot__card--donut">
+      <div class="ot__donut-body">
+        <div class="ot__legend-col">
+          <div class="ot__card-head">
+            <img
+              class="ot__so-mark"
+              src="/assets/img/stackoverflow/prototypes/overview-thumb/so-mark.svg"
+              width="25"
+              height="25"
+              alt=""
+            >
+            <p class="ot__card-label ot__card-label--mono">Answer Ratio</p>
+          </div>
+
+          <div class="ot__legend">
+            <button type="button" class="ot__legend-button" data-slice="accepted" aria-pressed="false">
+              <span class="ot__swatch ot__swatch--accepted"></span>
+              <span class="ot__legend-copy">
+                <span class="ot__legend-name">Accepted</span>
+                <span class="ot__legend-value" id="ot-accepted">2,811</span>
+              </span>
+            </button>
+            <button type="button" class="ot__legend-button" data-slice="answered" aria-pressed="false">
+              <span class="ot__swatch ot__swatch--answered"></span>
+              <span class="ot__legend-copy">
+                <span class="ot__legend-name">Answered</span>
+                <span class="ot__legend-value" id="ot-answered">1,609</span>
+              </span>
+            </button>
+            <button type="button" class="ot__legend-button" data-slice="unanswered" aria-pressed="false">
+              <span class="ot__swatch ot__swatch--unanswered"></span>
+              <span class="ot__legend-copy">
+                <span class="ot__legend-name">Unanswered</span>
+                <span class="ot__legend-value" id="ot-unanswered">541</span>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <div class="ot__donut">
+          <svg class="ot__donut-svg" viewBox="0 0 180 180" width="180" height="180">
+            <g transform="rotate(-90 90 90)">
+              <circle class="ot__donut-track" cx="90" cy="90" r="68"></circle>
+              <path class="ot__donut-arc ot__donut-arc--accepted" data-arc="accepted"></path>
+              <path class="ot__donut-arc ot__donut-arc--answered" data-arc="answered"></path>
+              <path class="ot__donut-arc ot__donut-arc--unanswered" data-arc="unanswered"></path>
+            </g>
+          </svg>
+          <div class="ot__donut-center">
+            <span class="ot__donut-total" id="ot-total">57%</span>
+            <span class="ot__donut-total-label">Acceptance</span>
+          </div>
+          <div class="ot__tooltip ot__tooltip--donut" id="ot-donut-tooltip" aria-hidden="true">
+            <p class="ot__tooltip-label" id="ot-donut-tooltip-name"></p>
+            <div class="ot__tooltip-row">
+              <p id="ot-donut-tooltip-count"></p>
+              <span class="ot__tooltip-pct" id="ot-donut-tooltip-pct"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ot__note">
+        <img
+          src="/assets/img/stackoverflow/prototypes/overview-thumb/icon-trophy.svg"
+          width="14"
+          height="12"
+          alt=""
+        >
+        <p>We like to see an acceptance rate above 45%. Nice work!</p>
+      </div>
+    </article>
+
+    <article class="ot__card ot__card--votes">
+      <div class="ot__card-head ot__card-head--stack">
+        <p class="ot__card-label">Votes</p>
+        <div class="ot__metric-row">
+          <p class="ot__metric" id="ot-votes">1,909</p>
+          <div class="ot__delta ot__delta--down">
+            <span class="ot__delta-icon">
+              <img
+                src="/assets/img/stackoverflow/prototypes/overview-thumb/icon-arrow-down.svg"
+                width="12"
+                height="12"
+                alt=""
+              >
+            </span>
+            <span class="ot__delta-value">11%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ot__chart">
+        <div class="ot__y-axis" aria-hidden="true">
+          <span>100</span>
+          <span>50</span>
+          <span>0</span>
+        </div>
+        <div class="ot__plot">
+          <div class="ot__grid" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <svg class="ot__line-svg" viewBox="0 0 220 110" width="220" height="110" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="ot-line-fill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#00A6F4" stop-opacity="0.3"></stop>
+                <stop offset="50%" stop-color="#00A6F4" stop-opacity="0.1"></stop>
+                <stop offset="100%" stop-color="#00A6F4" stop-opacity="0"></stop>
+              </linearGradient>
+              <clipPath id="ot-line-clip">
+                <rect class="ot__line-clip-rect" x="0" y="0" width="220" height="110"></rect>
+              </clipPath>
+            </defs>
+            <g clip-path="url(#ot-line-clip)">
+              <path
+                class="ot__line-area"
+                d="M0 42 L36 55 L73 38 L110 48 L147 52 L183 60 L220 72 L220 110 L0 110 Z"
+                fill="url(#ot-line-fill)"
+              ></path>
+              <path
+                class="ot__line-path"
+                d="M0 42 L36 55 L73 38 L110 48 L147 52 L183 60 L220 72"
+                fill="none"
+                stroke="#00A6F4"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </g>
+          </svg>
+          <div
+            class="ot__plot-hit"
+            id="ot-votes-hit"
+            role="slider"
+            tabindex="0"
+            aria-label="Votes over time"
+            aria-valuemin="0"
+            aria-valuemax="6"
+            aria-valuenow="0"
+            aria-valuetext="Oct 1, 62 votes"
+          ></div>
+          <div class="ot__hover" id="ot-votes-hover" aria-hidden="true">
+            <span class="ot__hover-rule" aria-hidden="true"></span>
+            <span class="ot__hover-marker" aria-hidden="true"></span>
+            <div class="ot__tooltip ot__tooltip--compact">
+              <p class="ot__tooltip-label" id="ot-votes-tooltip-date"></p>
+              <div class="ot__tooltip-row">
+                <p id="ot-votes-tooltip-value"></p>
+                <div class="ot__delta ot__delta--down" id="ot-votes-tooltip-delta">
+                  <span class="ot__delta-icon">
+                    <img
+                      src="/assets/img/stackoverflow/prototypes/overview-thumb/icon-arrow-down.svg"
+                      width="12"
+                      height="12"
+                      alt=""
+                    >
+                  </span>
+                  <span class="ot__delta-value" id="ot-votes-tooltip-delta-value"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ot__x-axis" aria-hidden="true">
+          <span>Oct 1</span>
+          <span>Oct 15</span>
+          <span>Oct 29</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="ot__card ot__card--empty" id="ot-empty">
+      <p class="ot__card-label">Searches</p>
+      <div class="ot__empty">
+        <img
+          class="ot__empty-art"
+          src="/assets/img/stackoverflow/prototypes/overview-thumb/empty-searches.svg"
+          width="112"
+          height="102"
+          alt=""
+        >
+        <p class="ot__empty-copy">There’s no data for this yet. Please check back in a few days.</p>
+      </div>
+    </article>
+  </div>
+  <script src="/assets/img/stackoverflow/prototypes/overview-thumb/demo.js"></script>
+</body>
+</html>

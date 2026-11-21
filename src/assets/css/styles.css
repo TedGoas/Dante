@@ -384,7 +384,7 @@ hr {
   max-width: var(--measure-lead);
 }
 
-.content-flow :where(ul, ol):not(.article-list):not(.bio-timeline):not(.home-work-grid):not(.site-nav-list):not(.site-footer__nav):not(.post-nav-list):not(.work-index__list):not(.labs-index__list) {
+.content-flow :where(ul, ol):not(.article-list):not(.bio-timeline):not(.home-work-grid):not(.site-nav-list):not(.site-footer__nav):not(.post-nav-list):not(.work-index__list):not(.labs-index__list):not(.home-testimonials__row) {
   max-width: var(--measure-lead);
 }
 
@@ -473,15 +473,15 @@ hr {
   line-height: inherit;
 }
 
-.content-flow :where(ul, ol):not(.article-list):not(.bio-timeline):not(.home-work-grid):not(.site-nav-list):not(.site-footer__nav):not(.post-nav-list):not(.labs-index__list) li::marker {
+.content-flow :where(ul, ol):not(.article-list):not(.bio-timeline):not(.home-work-grid):not(.site-nav-list):not(.site-footer__nav):not(.post-nav-list):not(.labs-index__list):not(.home-testimonials__row) li::marker {
   color: var(--color-highlight);
 }
 
-.content-flow :where(ul, ol):not(.article-list):not(.bio-timeline):not(.home-work-grid):not(.site-nav-list):not(.site-footer__nav):not(.post-nav-list):not(.labs-index__list) > li {
+.content-flow :where(ul, ol):not(.article-list):not(.bio-timeline):not(.home-work-grid):not(.site-nav-list):not(.site-footer__nav):not(.post-nav-list):not(.labs-index__list):not(.home-testimonials__row) > li {
   margin-bottom: 0.5rem;
 }
 
-.content-flow :where(ul, ol):not(.article-list):not(.bio-timeline):not(.home-work-grid):not(.site-nav-list):not(.site-footer__nav):not(.post-nav-list):not(.labs-index__list) > li:last-child {
+.content-flow :where(ul, ol):not(.article-list):not(.bio-timeline):not(.home-work-grid):not(.site-nav-list):not(.site-footer__nav):not(.post-nav-list):not(.labs-index__list):not(.home-testimonials__row) > li:last-child {
   margin-bottom: 0;
 }
 
@@ -1391,9 +1391,172 @@ hr {
   background-color: color-mix(in srgb, var(--color-swiss-fg-dark) 8%, var(--color-swiss-bg-dark));
 }
 
-.page--home .homepage-showcase .home-work-grid__link:focus-visible {
+.page--home .homepage-showcase .home-work-grid__caption:focus-visible {
   outline: 2px solid var(--color-swiss-accent);
   outline-offset: 3px;
+}
+
+/* --- Homepage testimonials (light band between showcase and footer) --- */
+.page--home .home-testimonials {
+  --home-testimonials-avatar-size: 2.5rem;
+  /* Space on each side of an inner hairline. */
+  --home-testimonials-rule-gap: clamp(1rem, 2.5vw, 2rem);
+  /* 1.5× the showcase band's vertical padding, equal above and below. */
+  --home-testimonials-padding-y: calc(var(--home-showcase-padding-y) * 1.5);
+  max-width: none;
+  margin: 0;
+  padding: var(--home-testimonials-padding-y) var(--home-showcase-padding-x);
+  background-color: var(--color-site-bg);
+  color: var(--color-site-fg);
+}
+
+/* Row 1: two long quotes; row 2: three short quotes. Hairlines only between blocks, never on the outer edge. */
+.home-testimonials .home-testimonials__grid {
+  max-width: var(--home-work-grid-max-width);
+  margin: 0 auto;
+}
+
+.home-testimonials .home-testimonials__row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.home-testimonials .home-testimonials__row + .home-testimonials__row {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: var(--home-testimonials-rule-gap);
+  padding-top: var(--home-testimonials-rule-gap);
+  border-top: var(--border-width-hairline) solid var(--color-border-subtle);
+}
+
+.home-testimonials .home-testimonials__item {
+  margin: 0;
+  padding-inline: var(--home-testimonials-rule-gap);
+}
+
+.home-testimonials .home-testimonials__item:first-child {
+  padding-left: 0;
+}
+
+.home-testimonials .home-testimonials__item:last-child {
+  padding-right: 0;
+}
+
+.home-testimonials .home-testimonials__item + .home-testimonials__item {
+  border-left: var(--border-width-hairline) solid var(--color-border-subtle);
+}
+
+.home-testimonials .home-testimonials__figure {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin: 0;
+}
+
+.home-testimonials .home-testimonials__quote {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  font-family: var(--font-serif);
+  font-size: var(--type-min-size);
+  line-height: 1.45;
+  color: var(--color-text-strong);
+}
+
+.home-testimonials .home-testimonials__row:first-child .home-testimonials__quote {
+  font-size: var(--type-dek-size);
+  line-height: 1.35;
+}
+
+/* Soft open-quote mark behind the text (Cerberus callout pattern), sized off the quote's own font size. */
+.home-testimonials .home-testimonials__quote {
+  position: relative;
+}
+
+.home-testimonials .home-testimonials__quote-mark {
+  position: absolute;
+  left: -0.19em;
+  top: -0.2em;
+  z-index: 0;
+  color: color-mix(in srgb, var(--color-site-fg) 12%, transparent);
+  font-family: var(--font-serif);
+  font-size: 3.5em;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.home-testimonials .home-testimonials__quote p {
+  position: relative;
+  z-index: 1;
+  max-width: none;
+  margin: 0;
+  font-style: normal;
+}
+
+.home-testimonials .home-testimonials__cite {
+  display: grid;
+  grid-template-columns: var(--home-testimonials-avatar-size) 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: var(--type-min-size);
+  line-height: 1.3;
+}
+
+.home-testimonials .home-testimonials__avatar {
+  grid-row: 1 / 3;
+  align-self: center;
+  width: var(--home-testimonials-avatar-size);
+  height: var(--home-testimonials-avatar-size);
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: var(--color-surface-tile-muted);
+}
+
+.home-testimonials .home-testimonials__name {
+  align-self: end;
+  font-weight: 500;
+  color: var(--color-site-fg);
+}
+
+.home-testimonials .home-testimonials__title {
+  align-self: start;
+  color: var(--color-site-fg-muted);
+}
+
+/* Stack: one column of five, hairlines between every quote. */
+@media (max-width: 720px) {
+  .home-testimonials .home-testimonials__row,
+  .home-testimonials .home-testimonials__row + .home-testimonials__row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .home-testimonials .home-testimonials__item,
+  .home-testimonials .home-testimonials__item:first-child,
+  .home-testimonials .home-testimonials__item:last-child {
+    padding-inline: 0;
+  }
+
+  .home-testimonials .home-testimonials__item + .home-testimonials__item {
+    margin-top: var(--home-testimonials-rule-gap);
+    padding-top: var(--home-testimonials-rule-gap);
+    border-left: 0;
+    border-top: var(--border-width-hairline) solid var(--color-border-subtle);
+  }
+
+  .home-testimonials .home-testimonials__row:first-child .home-testimonials__quote {
+    font-size: var(--type-min-size);
+    line-height: 1.45;
+  }
 }
 
 /* Hanging caption under tile + sibling fade (mystery collage at rest). */
@@ -1404,15 +1567,15 @@ hr {
   transition: opacity 0.2s ease-out;
 }
 
-/* Dim everything while a media link is active… */
-.home-work-grid:has(.home-work-grid__link:hover) .home-work-grid__item,
-.home-work-grid:has(.home-work-grid__link:focus-visible) .home-work-grid__item {
+/* Dim everything while a media cell is hovered/focused… */
+.home-work-grid:has(.home-work-grid__cell--media:hover) .home-work-grid__item,
+.home-work-grid:has(.home-work-grid__cell--media:focus-within) .home-work-grid__item {
   opacity: 0.4;
 }
 
 /* …except the hovered/focused tile (must outrank the dim rule). */
-.home-work-grid:has(.home-work-grid__link:hover) .home-work-grid__item:has(.home-work-grid__link:hover),
-.home-work-grid:has(.home-work-grid__link:focus-visible) .home-work-grid__item:has(.home-work-grid__link:focus-visible) {
+.home-work-grid:has(.home-work-grid__cell--media:hover) .home-work-grid__item:has(.home-work-grid__cell--media:hover),
+.home-work-grid:has(.home-work-grid__cell--media:focus-within) .home-work-grid__item:has(.home-work-grid__cell--media:focus-within) {
   z-index: 1;
   opacity: 1;
 }
@@ -1424,40 +1587,105 @@ hr {
   right: 0;
   z-index: 2;
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
   margin: 0;
   width: 100%;
   max-width: none;
-  padding-top: calc(0.525rem + var(--radius-work-gallery-image));
-  padding-right: 1rem;
-  padding-bottom: 0.525rem;
-  padding-left: 1rem;
+  /* Match top/bottom padding so copy + CTA share one centerline. */
+  padding: 0.65rem 0.75rem 0.65rem 1rem;
   border-radius: 0 0 var(--radius-work-gallery-image) var(--radius-work-gallery-image);
   font-family: var(--font-sans);
   font-size: var(--type-min-size);
   font-weight: 400;
   line-height: 1.3;
+  text-decoration: none;
   color: var(--color-swiss-fg-light);
   background-color: var(--color-surface-raised);
-  pointer-events: none;
   opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.2s ease-out, visibility 0.2s ease-out;
+  /* Enter from above so it settles down under the thumb (no open gap on the way in). */
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition:
+    opacity 0.22s ease-out,
+    transform 0.22s ease-out,
+    background-color 0.2s ease-out,
+    color 0.2s ease-out;
 }
 
-.home-work-grid__link:hover .home-work-grid__caption,
-.home-work-grid__link:focus-visible .home-work-grid__caption {
+.home-work-grid__cell--media:hover .home-work-grid__caption,
+.home-work-grid__cell--media:focus-within .home-work-grid__caption {
   opacity: 1;
-  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.home-work-grid__caption-copy {
+  min-width: 0;
+  line-height: 1.3;
 }
 
 .home-work-grid__caption-desc {
   color: var(--color-site-fg-muted);
 }
 
+/* Text CTA: rough underline (headline notation) + arrow — no chip. */
+.home-work-grid__caption-cta {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--color-swiss-fg-light);
+  /* One step under --type-min-size (1.125rem); caption copy stays at the floor. */
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+/* Headline uses double; caption keeps a single rough stroke. */
+.home-work-grid__caption-cta .text-annotate__stroke--secondary {
+  display: none;
+}
+
+.home-work-grid__caption-cta .text-annotate--underline-double .text-annotate__mark {
+  bottom: calc(max(-0.42em, -1.15rem) - 2px);
+}
+
+.home-work-grid__caption-arrow {
+  flex-shrink: 0;
+  width: 0.875rem;
+  height: 0.875rem;
+  color: var(--color-swiss-accent);
+  transition: transform 0.2s ease-out;
+}
+
+.home-work-grid__caption:hover,
+.home-work-grid__caption:focus-visible {
+  background-color: var(--color-surface-tile);
+}
+
+.home-work-grid__caption:hover .home-work-grid__caption-desc,
+.home-work-grid__caption:focus-visible .home-work-grid__caption-desc {
+  color: var(--color-swiss-fg-light);
+}
+
+.home-work-grid__caption:hover .home-work-grid__caption-arrow,
+.home-work-grid__caption:focus-visible .home-work-grid__caption-arrow {
+  transform: translateX(2px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .home-work-grid__item,
-  .home-work-grid__caption {
+  .home-work-grid__caption,
+  .home-work-grid__caption-cta,
+  .home-work-grid__caption-arrow {
     transition: none;
+  }
+
+  .home-work-grid__caption {
+    transform: none;
   }
 }
 
@@ -1485,12 +1713,17 @@ hr {
   position: relative;
   overflow: visible;
   background-color: var(--color-surface-tile);
+  container-type: inline-size;
+  container-name: home-thumb;
 }
 
-.home-work-grid__link {
-  position: absolute;
-  inset: 0;
-  display: block;
+/* Narrow thumbs (Cerberus, DialpadGPT): stack CTA under copy. */
+@container home-thumb (max-width: 22rem) {
+  .home-work-grid__caption {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
 }
 
 .home-work-grid__media-frame {
@@ -1501,8 +1734,8 @@ hr {
   transition: border-radius 0.2s ease-out;
 }
 
-.home-work-grid__link:hover .home-work-grid__media-frame,
-.home-work-grid__link:focus-visible .home-work-grid__media-frame {
+.home-work-grid__cell--media:hover .home-work-grid__media-frame,
+.home-work-grid__cell--media:focus-within .home-work-grid__media-frame {
   border-radius: var(--radius-work-gallery-image) var(--radius-work-gallery-image) 0 0;
 }
 
@@ -1652,6 +1885,98 @@ hr {
   object-position: top left;
 }
 
+/* Homepage hover demos: iframe fills the same media box; host owns pointer/focus. */
+.home-work-grid__media.home-work-thumb__iframe {
+  border: 0;
+  background-color: var(--color-surface-tile);
+  pointer-events: none;
+  object-fit: unset;
+}
+
+/* Interactive thumbs (e.g. Canfield bars) need pointer events inside the iframe. */
+.home-work-grid__cell--media[data-home-thumb-interactive] .home-work-thumb__iframe {
+  pointer-events: auto;
+}
+
+/* Static posters: desktop hides them once the iframe is ready. */
+.home-work-grid__poster-link {
+  display: none;
+}
+
+.home-work-grid__poster {
+  object-fit: cover;
+  object-position: top left;
+}
+
+/*
+ * Desktop deferred preload: show the polished SVG until the iframe has loaded
+ * so tiles aren’t blank while IntersectionObserver / hover kicks off fetch.
+ * pointer-events: none — hover/focus stay on the media cell (play), not the link.
+ */
+.home-work-grid__cell--media[data-home-thumb]:not(.is-iframe-ready) .home-work-grid__poster-link {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.home-work-grid__cell--media[data-home-thumb]:not(.is-iframe-ready) .home-work-grid__poster-link .home-work-grid__poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/*
+ * Mobile / touch: static posters only — no hover demos, captions, or sibling dim.
+ * Tap the poster to open the case study.
+ */
+@media (max-width: 640px), (hover: none) and (pointer: coarse) {
+  /*
+   * Match desktop deferred specificity so :not(.is-iframe-ready) cannot keep
+   * pointer-events: none / absolute fill when static mode hides the iframe.
+   */
+  .home-work-grid__cell--media[data-home-thumb] .home-work-grid__poster-link,
+  .home-work-grid__cell--media[data-home-thumb]:not(.is-iframe-ready) .home-work-grid__poster-link {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: auto;
+  }
+
+  .home-work-grid__cell--media[data-home-thumb] .home-work-grid__poster-link .home-work-grid__poster,
+  .home-work-grid__cell--media[data-home-thumb]:not(.is-iframe-ready) .home-work-grid__poster-link .home-work-grid__poster {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .home-work-grid__media.home-work-thumb__iframe {
+    display: none;
+  }
+
+  .home-work-grid__caption {
+    display: none;
+  }
+
+  .home-work-grid__media-frame,
+  .home-work-grid__cell--media:hover .home-work-grid__media-frame,
+  .home-work-grid__cell--media:focus-within .home-work-grid__media-frame {
+    border-radius: var(--radius-work-gallery-image);
+  }
+
+  /* No mystery-collage dim on tap/focus. */
+  .home-work-grid:has(.home-work-grid__cell--media:hover) .home-work-grid__item,
+  .home-work-grid:has(.home-work-grid__cell--media:focus-within) .home-work-grid__item,
+  .home-work-grid:has(.home-work-grid__cell--media:hover) .home-work-grid__item:has(.home-work-grid__cell--media:hover),
+  .home-work-grid:has(.home-work-grid__cell--media:focus-within) .home-work-grid__item:has(.home-work-grid__cell--media:focus-within) {
+    opacity: 1;
+  }
+}
+
 .home-work-grid .home-work-grid__cell.img-placeholder {
   min-height: 0;
   height: 100%;
@@ -1725,6 +2050,12 @@ hr {
     grid-template-rows: none;
     grid-auto-rows: auto;
     aspect-ratio: auto;
+    gap: 1.5rem;
+  }
+
+  .page--home .homepage-showcase {
+    /* No hanging captions on mobile — drop the extra bottom pad. */
+    padding-bottom: var(--home-showcase-padding-y);
   }
 
   .home-work-grid__item--tl-large,
@@ -1752,11 +2083,6 @@ hr {
     min-height: 0;
   }
 
-  .home-work-grid__link {
-    position: relative;
-    inset: auto;
-  }
-
   .home-work-grid__media-frame {
     position: relative;
     inset: auto;
@@ -1770,6 +2096,32 @@ hr {
     height: auto;
     object-fit: contain;
     object-position: center;
+  }
+
+  .home-work-grid__media.home-work-thumb__iframe {
+    aspect-ratio: 600 / 300;
+    height: auto;
+  }
+
+  /*
+   * Stacked static posters: size from the image, not an absolute fill.
+   * Same specificity as the desktop deferred placeholder so it wins on mobile.
+   */
+  .home-work-grid__cell--media[data-home-thumb] .home-work-grid__poster-link,
+  .home-work-grid__cell--media[data-home-thumb]:not(.is-iframe-ready) .home-work-grid__poster-link {
+    position: relative;
+    inset: auto;
+    display: block;
+    width: 100%;
+    pointer-events: auto;
+  }
+
+  .home-work-grid__cell--media[data-home-thumb] .home-work-grid__poster-link .home-work-grid__poster,
+  .home-work-grid__cell--media[data-home-thumb]:not(.is-iframe-ready) .home-work-grid__poster-link .home-work-grid__poster {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
   }
 }
 
@@ -2146,10 +2498,16 @@ hr {
 
 /* Logo/diagram thumbnails are contained so they aren't cropped. */
 .work-index__card--framed-center .work-index__stage {
+  --work-index-framed-center-media-scale: 0.75;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--color-work-media-matte);
 }
 
 .work-index__card--framed-center .work-index__image {
+  width: calc(100% * var(--work-index-framed-center-media-scale));
+  height: calc(100% * var(--work-index-framed-center-media-scale));
   object-fit: contain;
   object-position: center;
 }
@@ -2729,6 +3087,102 @@ hr {
   z-index: 2;
 }
 
+/* Cerberus “Not a template” — Figma Future 12539:81148 (1890×915), bottom-clipped */
+.writing .work-gallery__item--email-collage > .work-gallery__media--email-collage {
+  container-type: inline-size;
+  display: block;
+  width: var(--work-gallery-media-breakout-width);
+  max-width: var(--work-gallery-media-breakout-width);
+  margin-inline: 0;
+  padding: 0;
+  overflow: visible;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.writing .work-gallery__email-collage__stage {
+  --email-collage-unit: calc(100cqw / 1890);
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1890 / 915;
+  overflow: hidden;
+  border-bottom: var(--border-width-hairline) solid var(--color-border-subtle);
+}
+
+.writing .work-gallery__email-collage__card {
+  position: absolute;
+  overflow: hidden;
+  /* Top corners only — bottoms meet the figure’s hard clip */
+  border-radius: var(--radius-work-gallery-image) var(--radius-work-gallery-image) 0 0;
+  box-shadow: var(--shadow-work-gallery-stack);
+  background-color: transparent;
+}
+
+/* Absolute fill — beats `.writing .work-gallery__item img { height: auto }` so short assets still reach the clip */
+.writing .work-gallery__item--email-collage .work-gallery__email-collage__card img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border: none;
+  /* Top only — bottom squared off at the figure clip (also re-asserted after gallery frame rules) */
+  border-radius: var(--radius-work-gallery-image) var(--radius-work-gallery-image) 0 0;
+  box-shadow: none;
+}
+
+/* Absolute slots from Figma; z: outers back, mids, anniversary front */
+.writing .work-gallery__email-collage__card--digest {
+  left: calc(0 * var(--email-collage-unit));
+  top: calc(359 * var(--email-collage-unit));
+  width: calc(410.667 * var(--email-collage-unit));
+  height: calc(616 * var(--email-collage-unit));
+  box-sizing: border-box;
+  border: var(--border-width-hairline) solid var(--work-index-card-border);
+  box-shadow: none;
+  z-index: 1;
+}
+
+/* ~88% of Figma size, natural asset aspect — more of each email shows in the peek */
+.writing .work-gallery__email-collage__card--canfield {
+  left: calc(360 * var(--email-collage-unit));
+  bottom: 0;
+  width: calc(407 * var(--email-collage-unit));
+  height: calc(636 * var(--email-collage-unit)); /* 407 × 1600/1024 */
+  z-index: 3;
+}
+
+/* Natural 400×808 aspect — no side crop (Figma slot was taller/narrower) */
+.writing .work-gallery__email-collage__card--anniversary {
+  left: calc(745 * var(--email-collage-unit));
+  bottom: 0;
+  width: calc(411 * var(--email-collage-unit));
+  height: calc(830 * var(--email-collage-unit)); /* 411 × 808/400 */
+  z-index: 5;
+}
+
+/* Mid-right (was dialpad slot) */
+.writing .work-gallery__email-collage__card--teams {
+  left: calc(1100 * var(--email-collage-unit));
+  bottom: 0;
+  width: calc(482 * var(--email-collage-unit));
+  height: calc(572 * var(--email-collage-unit));
+  z-index: 3;
+}
+
+/* Far right (was teams slot) */
+.writing .work-gallery__email-collage__card--dialpad {
+  left: calc(1494 * var(--email-collage-unit)); /* 1890 − 396 */
+  bottom: 0;
+  width: calc(396 * var(--email-collage-unit));
+  height: calc(498 * var(--email-collage-unit)); /* 396 × 1560/1240 */
+  z-index: 2;
+}
+
 .writing .work-gallery__media--sidebar-quad {
   display: flex;
   align-items: center;
@@ -2895,6 +3349,40 @@ hr {
   .writing .work-gallery__item--integrations-stack > .work-gallery__media--integrations-stack img {
     width: 100%;
     max-width: none;
+  }
+
+  .writing .work-gallery__email-collage__stage {
+    aspect-ratio: auto;
+    height: auto;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--work-gallery-sidebar-quad-gap);
+    max-width: 22rem;
+    margin-inline: auto;
+  }
+
+  .writing .work-gallery__email-collage__card {
+    position: static;
+    left: auto;
+    top: auto;
+    width: 100%;
+    max-width: 22rem;
+    height: auto;
+    z-index: auto;
+    /* Full radius — mobile stacks whole emails (desktop uses top-only for the clip) */
+    border-radius: var(--radius-work-gallery-image);
+  }
+
+  .writing .work-gallery__item--email-collage .work-gallery__email-collage__card img {
+    position: static;
+    inset: auto;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center top;
+    border-radius: var(--radius-work-gallery-image);
   }
 }
 
@@ -3225,15 +3713,82 @@ hr {
   margin-bottom: calc(var(--work-gallery-figure-gap) - var(--work-gallery-caption-gap));
 }
 
-.writing .work-gallery__item :is(.divider, .work-gallery__caption, .work-gallery__description, .work-gallery__designers) {
+.writing .work-gallery__item :is(.divider, .work-gallery__caption, .work-gallery__description, .work-gallery__designers, .work-gallery__list, blockquote, .work-gallery__quote) {
   box-sizing: border-box;
   width: 100%;
   max-width: var(--work-gallery-content-measure);
 }
 
-.writing .work-gallery__item > :is(.divider, .work-gallery__caption, .work-gallery__description, .work-gallery__designers) {
+.writing .work-gallery__item > :is(.divider, .work-gallery__caption, .work-gallery__description, .work-gallery__designers, .work-gallery__list, blockquote, .work-gallery__quote) {
   align-self: flex-start;
   margin-inline: 0;
+}
+
+/* Large callout quote: caption measure, mark hangs left behind the text */
+.writing .work-gallery__item > .work-gallery__quote--callout,
+.work-body.writing .work-gallery__item > .work-gallery__quote--callout {
+  position: relative;
+  align-self: flex-start;
+  max-width: var(--work-gallery-content-measure);
+  margin-block: var(--space-prose-section);
+  margin-inline: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  text-align: left;
+  color: var(--color-site-fg);
+  font-family: var(--font-serif);
+  font-size: clamp(2.25rem, 3.6vw, 2.85rem);
+  font-style: normal;
+  line-height: 1.35;
+  overflow: visible;
+}
+
+.writing .work-gallery__quote--callout > .work-gallery__quote-mark {
+  position: absolute;
+  left: -0.19em;
+  top: -0.2em;
+  z-index: 0;
+  margin: 0;
+  /* Soft wash so Redaction body stays readable on top */
+  color: color-mix(in srgb, var(--color-site-fg) 12%, transparent);
+  font-family: var(--font-serif);
+  font-size: clamp(10.5rem, 24vw, 15rem);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.writing .work-gallery__quote--callout > p,
+.work-body.writing .work-gallery__quote--callout > p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: normal;
+  line-height: inherit;
+  color: inherit;
+}
+
+.writing .work-gallery__quote--callout > footer,
+.work-body.writing .work-gallery__quote--callout > footer {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin-top: var(--space-blockquote-attribution-gap);
+  font-family: var(--font-sans);
+  font-size: var(--post-header-date-size);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: var(--post-header-date-tracking);
+  line-height: 1.5;
+  text-align: left;
+  text-transform: uppercase;
+  color: var(--color-highlight);
 }
 
 .writing .work-gallery__item > .divider {
@@ -3268,7 +3823,8 @@ hr {
 }
 
 .writing .work-gallery__item .work-gallery__description,
-.writing .work-gallery__item .work-gallery__followup {
+.writing .work-gallery__item .work-gallery__followup,
+.writing .work-gallery__item .work-gallery__list {
   margin: 0;
   padding: 0;
   font-family: var(--font-sans);
@@ -3279,8 +3835,26 @@ hr {
   background-image: none;
 }
 
+.writing .work-gallery__item .work-gallery__list {
+  padding-inline-start: 1.5rem;
+  list-style-type: decimal;
+}
+
+.writing .work-gallery__item .work-gallery__list > li {
+  margin-bottom: calc(var(--post-body-size) * 0.4);
+}
+
+.writing .work-gallery__item .work-gallery__list > li:last-child {
+  margin-bottom: 0;
+}
+
 .writing .work-gallery__intro .work-gallery__description {
   margin-block: 0;
+}
+
+/* Stacked intro body paras: prose spacing (intro gap alone is caption-tight). */
+.writing .work-gallery__intro > .work-gallery__description + .work-gallery__description {
+  margin-top: calc(var(--space-prose-flow) - var(--work-gallery-caption-gap));
 }
 
 .writing .work-gallery__intro > .work-gallery__caption:not(:first-child) {
@@ -4036,7 +4610,7 @@ hr {
 
 /* Default framed media: work-index hairline + 8px radius on each image / embed */
 .writing .work-gallery__item > img,
-.writing .work-gallery__item .work-gallery__media:not(.prototype-embed):not(.click-to-play) img,
+.writing .work-gallery__item .work-gallery__media:not(.prototype-embed):not(.click-to-play):not(.work-gallery__media--email-collage) img,
 .writing .work-gallery__item > .work-gallery__media.prototype-embed,
 .writing .work-gallery__item > .work-gallery__media.click-to-play {
   border: var(--border-width-hairline) solid var(--work-index-card-border);
