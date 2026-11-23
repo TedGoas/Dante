@@ -56,3 +56,9 @@
   for = "/sumble/*"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
+
+# Unlinked LoanCrate prototype (loancrate/ Vite app → dist/loancrate/). Keep out of search.
+[[headers]]
+  for = "/loancrate/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
