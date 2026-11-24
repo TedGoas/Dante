@@ -57,7 +57,11 @@
 
   --animate-fade-up: fade-up 220ms var(--ease-quint) both;
   --animate-toast-in: toast-in 260ms var(--ease-quint) both;
-  --animate-highlight-pulse: highlight-pulse 1.1s var(--ease-quint) 2;
+  --animate-highlight-pulse: highlight-wipe 260ms var(--ease-quint) both, highlight-pulse 900ms var(--ease-quint) 200ms 1;
+  --animate-fade-in: fade-in 140ms var(--ease-quint) both;
+  --animate-pop-in: pop-in 160ms var(--ease-quint) both;
+  --animate-slide-next: slide-next 180ms var(--ease-quint) both;
+  --animate-slide-prev: slide-prev 180ms var(--ease-quint) both;
   --animate-indeterminate: indeterminate 1.4s ease-in-out infinite;
 
   @keyframes fade-up {
@@ -80,6 +84,73 @@
     }
     100% {
       box-shadow: 0 0 0 10px color-mix(in oklab, var(--color-indigo-500) 0%, transparent);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+
+  @keyframes pop-in {
+    from {
+      opacity: 0;
+      transform: scale(0.97);
+    }
+  }
+
+  @keyframes slide-next {
+    from {
+      opacity: 0;
+      transform: translateX(12px);
+    }
+  }
+
+  @keyframes slide-prev {
+    from {
+      opacity: 0;
+      transform: translateX(-12px);
+    }
+  }
+
+  /* Highlight draws in left to right before the ring. */
+  @keyframes highlight-wipe {
+    from {
+      clip-path: inset(0 100% 0 0 round 3px);
+    }
+    to {
+      clip-path: inset(0 0 0 0 round 3px);
+    }
+  }
+
+  @keyframes shimmer {
+    from {
+      background-position: 150% 0;
+    }
+    to {
+      background-position: -50% 0;
+    }
+  }
+
+  @keyframes caret-blink {
+    0%,
+    49% {
+      opacity: 1;
+    }
+    50%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  /* A 40%-wide band enters off the left edge and leaves off the right. */
+  @keyframes cell-sweep {
+    from {
+      background-position: -70% 0;
+    }
+    to {
+      background-position: 170% 0;
     }
   }
 
@@ -165,6 +236,41 @@
     filter: blur(0.6px) contrast(0.82) brightness(0.98) sepia(0.12);
   }
 
+  /* Staggered entrance: set style={{ '--i': index }}. */
+  .stagger-in {
+    animation: fade-up 220ms var(--ease-quint) both;
+    animation-delay: calc(var(--i, 0) * 50ms);
+  }
+
+  /* AI-in-progress text. Static color under reduced motion (see bottom). */
+  .shimmer-text {
+    color: transparent;
+    background: linear-gradient(90deg, var(--color-indigo-600) 35%, var(--color-indigo-300) 50%, var(--color-indigo-600) 65%);
+    background-size: 200% 100%;
+    background-clip: text;
+    animation: shimmer 2s linear infinite;
+  }
+
+  .stream-caret {
+    display: inline-block;
+    width: 2px;
+    height: 0.95em;
+    margin-left: 1px;
+    background: var(--color-indigo-500);
+    vertical-align: text-bottom;
+    animation: caret-blink 0.9s steps(1) infinite;
+  }
+
+  /* One indigo wash passing over a cell (diff table). Delay via --delay. */
+  .cell-sweep {
+    background-image: linear-gradient(90deg, transparent 0%, var(--color-indigo-100) 40%, var(--color-indigo-100) 60%, transparent 100%);
+    background-size: 40% 100%;
+    background-repeat: no-repeat;
+    background-position: -70% 0;
+    animation: cell-sweep 640ms var(--ease-quint) both;
+    animation-delay: var(--delay, 0ms);
+  }
+
   .font-hand {
     font-family: var(--font-display);
     font-style: italic;
@@ -179,5 +285,14 @@
   ::backdrop {
     animation: none !important;
     transition: none !important;
+  }
+
+  .shimmer-text {
+    color: var(--color-indigo-600);
+    background: none;
+  }
+
+  .cell-sweep {
+    background-image: none;
   }
 }

@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { IconButton } from '@/components/ui/icon-button'
 import { Input } from '@/components/ui/input'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { AiWorking } from '@/components/ui/progress'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Textarea } from '@/components/ui/textarea'
 import { Tooltip } from '@/components/ui/tooltip'
@@ -39,6 +40,8 @@ export type AiSuggestionProps = {
   density?: 'cell' | 'field' | 'card'
   /** Show the label inside the component (field and card densities). */
   showLabel?: boolean
+  /** Increment to open inline edit from outside (e.g. an "E" shortcut). */
+  editSignal?: number
   className?: string
 }
 
@@ -64,6 +67,7 @@ export function AiSuggestion({
   onShowEvidence,
   density = 'field',
   showLabel = density !== 'cell',
+  editSignal,
   className,
 }: AiSuggestionProps) {
   const [editing, setEditing] = React.useState(false)
@@ -80,6 +84,14 @@ export function AiSuggestion({
   React.useEffect(() => {
     if (editing) inputRef.current?.select()
   }, [editing])
+
+  React.useEffect(() => {
+    if (editSignal && state === 'pending') {
+      setDraft(value)
+      setEditing(true)
+    }
+    // Only react to new signals.
+  }, [editSignal])
 
   const cell = density === 'cell'
 
@@ -107,10 +119,7 @@ export function AiSuggestion({
         className={cn('flex flex-col gap-1.5', density === 'card' && 'rounded-xl border border-border bg-white p-3.5', className)}
       >
         {showLabel && <span className="text-xs text-gray-500">{label}</span>}
-        <span className="inline-flex items-center gap-1.5 text-xs font-medium text-ai">
-          <SparklesIcon aria-hidden className="size-3.5 animate-pulse" />
-          Extracting…
-        </span>
+        <AiWorking className="text-xs">Extracting…</AiWorking>
         <Skeleton className={cn('h-3', cell ? 'w-20' : 'w-32')} />
         {live}
       </div>
@@ -154,7 +163,10 @@ export function AiSuggestion({
       )}
     </div>
   ) : (
-    <ValueDisplay value={value} originalValue={originalValue} state={state} rejectReason={rejectReason} density={density} />
+    // Keyed on state so each decision crossfades in.
+    <span key={state} className="inline-flex min-w-0 animate-fade-in">
+      <ValueDisplay value={value} originalValue={originalValue} state={state} rejectReason={rejectReason} density={density} />
+    </span>
   )
 
   const rejectButton = onReject && (

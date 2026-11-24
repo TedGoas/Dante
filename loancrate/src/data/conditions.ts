@@ -43,7 +43,7 @@ export const conditionStatusBadge: Record<ConditionStatus, BadgeVariant> = {
 /** Statuses that still need work before clear to close. */
 export const OUTSTANDING: ConditionStatus[] = ['open', 'requested', 'received', 'under-review', 'rejected']
 
-export type ConditionSource = 'AI' | 'AUS' | 'Underwriter'
+export type ConditionSource = 'AI' | 'AUS' | 'Underwriter' | 'Processor'
 export type Role = 'Processor' | 'Underwriter' | 'Loan officer' | 'Closer' | 'Post-closer' | 'QC analyst' | 'Borrower'
 
 export type Actor = { kind: 'ai'; name: string } | { kind: 'human'; name: string; role: Role }

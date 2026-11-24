@@ -1,6 +1,7 @@
 import { Loader2Icon, SparklesIcon } from 'lucide-react'
 import type * as React from 'react'
 
+import { useElapsed } from '@/lib/motion'
 import { cn } from '@/lib/utils'
 
 /** Spinner with a screen-reader label. Static under reduced motion. */
@@ -45,14 +46,35 @@ function Progress({
 }
 
 /**
- * "AI is working" status line. Lives in an aria-live region so changes in
- * `children` (e.g. "Reading page 2 of 3") are announced.
+ * "AI is working" status line with shimmer text and an optional elapsed
+ * timer ("Reading page 2 of 3 · 4s"), after beautifului.dev's loading state.
+ * Lives in an aria-live region so label changes are announced; the timer
+ * itself is aria-hidden so it isn't read every second.
  */
-function AiWorking({ children, className }: { children: React.ReactNode; className?: string }) {
+function AiWorking({
+  children,
+  running = true,
+  elapsed = false,
+  className,
+}: {
+  children: React.ReactNode
+  running?: boolean
+  /** Show seconds since this mounted (or since `running` became true). */
+  elapsed?: boolean
+  className?: string
+}) {
+  const seconds = useElapsed(running && elapsed)
   return (
-    <p aria-live="polite" className={cn('inline-flex items-center gap-1.5 text-[13px] font-medium text-ai', className)}>
-      <SparklesIcon aria-hidden className="size-3.5 animate-pulse" />
-      {children}
+    <p className={cn('inline-flex items-center gap-1.5 text-[13px] font-medium text-ai', className)}>
+      <SparklesIcon aria-hidden className={cn('size-3.5 shrink-0', running && 'animate-pulse')} />
+      <span aria-live="polite" className={cn(running && 'shimmer-text')}>
+        {children}
+      </span>
+      {elapsed && running && (
+        <span aria-hidden className="font-normal text-gray-400 tabular-nums">
+          · {seconds}s
+        </span>
+      )}
     </p>
   )
 }

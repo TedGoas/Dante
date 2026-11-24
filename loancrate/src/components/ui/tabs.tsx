@@ -1,5 +1,6 @@
 import * as React from 'react'
 
+import { useGlide } from '@/lib/motion'
 import { cn } from '@/lib/utils'
 
 /*
@@ -55,7 +56,19 @@ function Tabs({
 
 function TabList({ className, label, children }: { className?: string; label: string; children: React.ReactNode }) {
   const listRef = React.useRef<HTMLDivElement>(null)
-  const { setValue } = useTabs()
+  const { value, setValue } = useTabs()
+  const glide = useGlide()
+
+  // One underline glides to the selected tab; re-measure on resize (counts change widths).
+  React.useLayoutEffect(() => {
+    const list = listRef.current
+    if (!list) return
+    const measure = () => glide.moveTo(list.querySelector<HTMLElement>('[role="tab"][aria-selected="true"]'))
+    measure()
+    const observer = new ResizeObserver(measure)
+    list.querySelectorAll('[role="tab"]').forEach((tab) => observer.observe(tab))
+    return () => observer.disconnect()
+  }, [value, glide.moveTo])
 
   function onKeyDown(event: React.KeyboardEvent) {
     const tabs = Array.from(listRef.current?.querySelectorAll<HTMLButtonElement>('[role="tab"]:not([disabled])') ?? [])
@@ -78,9 +91,14 @@ function TabList({ className, label, children }: { className?: string; label: st
       role="tablist"
       aria-label={label}
       onKeyDown={onKeyDown}
-      className={cn('flex shrink-0 items-center gap-1 border-b border-border', className)}
+      className={cn('relative flex shrink-0 items-center gap-1 border-b border-border', className)}
     >
       {children}
+      <span
+        aria-hidden
+        className={cn(glide.className, 'top-auto bottom-[-1px] h-0.5! rounded-full bg-primary')}
+        style={{ transform: `translateX(${glide.rect.x}px)`, width: glide.rect.w }}
+      />
     </div>
   )
 }
@@ -111,8 +129,8 @@ function Tab({
       data-value={value}
       onClick={() => ctx.setValue(value)}
       className={cn(
-        '-mb-px inline-flex h-10 cursor-pointer items-center gap-1.5 border-b-2 px-2.5 text-[13px] font-medium transition-colors focus-visible:-outline-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
-        selected ? 'border-primary text-gray-900' : 'border-transparent text-gray-500 hover:text-gray-900'
+        'inline-flex h-10 cursor-pointer items-center gap-1.5 px-2.5 text-[13px] font-medium transition-colors focus-visible:-outline-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+        selected ? 'text-gray-900' : 'text-gray-500 hover:text-gray-900'
       )}
     >
       {children}

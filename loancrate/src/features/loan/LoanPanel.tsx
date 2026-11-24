@@ -11,6 +11,7 @@ import { Tab, TabList, TabPanel, Tabs } from '@/components/ui/tabs'
 import type { Comparison } from '@/data/application'
 import { OUTSTANDING, activityForLoan, type Condition, type ConditionStatus, type Evidence } from '@/data/conditions'
 import type { ExtractedField } from '@/data/documents'
+import { useFlip } from '@/lib/motion'
 import { cn } from '@/lib/utils'
 
 /* Exceptions first: what needs a human floats to the top. */
@@ -34,6 +35,9 @@ export function LoanPanel({
   reviewedValue,
   tab,
   onTabChange,
+  conditionsHeader,
+  dataHeader,
+  activityHeader,
 }: {
   conditions: Condition[]
   comparisons: Comparison[]
@@ -43,6 +47,10 @@ export function LoanPanel({
   reviewedValue?: (field: ExtractedField) => string
   tab?: string
   onTabChange?: (tab: string) => void
+  /** Slots rendered at the top of each tab (e.g. AiSummary, DiffTable, ToolChips). */
+  conditionsHeader?: React.ReactNode
+  dataHeader?: React.ReactNode
+  activityHeader?: React.ReactNode
 }) {
   const [showAll, setShowAll] = React.useState(false)
   const [actorFilter, setActorFilter] = React.useState<'all' | 'ai' | 'human'>('all')
@@ -50,6 +58,9 @@ export function LoanPanel({
   const shown = sortConditions(showAll ? conditions : outstanding)
   const mismatches = comparisons.filter((c) => c.result !== 'match').length
   const activity = activityForLoan(conditions).filter((e) => actorFilter === 'all' || e.actor.kind === actorFilter)
+  // Cards slide to their new place when status, filter, or sort changes.
+  const listRef = React.useRef<HTMLDivElement>(null)
+  useFlip(listRef, [shown.map((c) => `${c.id}:${c.status}`).join('|')])
 
   return (
     <Tabs defaultValue="conditions" value={tab} onValueChange={onTabChange} className="h-full">
@@ -64,6 +75,7 @@ export function LoanPanel({
       </TabList>
 
       <TabPanel value="conditions" className="overflow-y-auto">
+        {conditionsHeader && <div className="px-3 pt-3">{conditionsHeader}</div>}
         <div className="flex items-center gap-1.5 px-3 pt-3">
           <Chip pressed={!showAll} onClick={() => setShowAll(false)} className="h-6 px-2.5 text-xs">
             Outstanding {outstanding.length}
@@ -72,13 +84,14 @@ export function LoanPanel({
             All {conditions.length}
           </Chip>
         </div>
-        <div className="flex flex-col gap-2.5 p-3">
+        <div ref={listRef} className="flex flex-col gap-2.5 p-3">
           {shown.length === 0 ? (
             <EmptyState icon={<CircleCheckIcon />} title="No outstanding conditions" body="Everything required is cleared or waived." />
           ) : (
             shown.map((c) => (
               <AiConditionCard
                 key={c.id}
+                data-flip-key={c.id}
                 condition={c}
                 onChange={onConditionChange}
                 onShowEvidence={onShowEvidence}
@@ -90,6 +103,7 @@ export function LoanPanel({
       </TabPanel>
 
       <TabPanel value="data" className="overflow-y-auto">
+        {dataHeader && <div className="px-3 pt-3">{dataHeader}</div>}
         <p className="px-3.5 pt-3 text-xs text-gray-500">What the borrower stated on the 1003, compared with values extracted from current documents.</p>
         <ul className="flex flex-col gap-2 p-3">
           {[...comparisons]
@@ -102,6 +116,7 @@ export function LoanPanel({
       </TabPanel>
 
       <TabPanel value="activity" className="overflow-y-auto">
+        {activityHeader && <div className="px-3 pt-3">{activityHeader}</div>}
         <div role="group" aria-label="Show activity from" className="flex items-center gap-1.5 px-3 pt-3">
           {(['all', 'ai', 'human'] as const).map((f) => (
             <Chip key={f} pressed={actorFilter === f} onClick={() => setActorFilter(f)} className="h-6 px-2.5 text-xs">

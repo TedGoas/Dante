@@ -13,6 +13,7 @@ import { Chip } from '@/components/ui/chip'
 import { Input } from '@/components/ui/input'
 import { Select } from '@/components/ui/select'
 import { docStatusLabel, docTypes, type DocStatus, type Document } from '@/data/documents'
+import { useGlide } from '@/lib/motion'
 import { cn } from '@/lib/utils'
 
 const statusStyle: Record<DocStatus, { icon: React.ElementType; className: string }> = {
@@ -34,16 +35,21 @@ export function DocumentList({
   selectedId,
   onSelect,
   pendingCount,
+  processing,
 }: {
   documents: Document[]
   selectedId: string
   onSelect: (docId: string) => void
   /** Fields awaiting review per doc. Defaults to seed review state. */
   pendingCount?: (doc: Document) => number
+  /** Slot above the list, e.g. <TaskRows> for uploads in progress. */
+  processing?: React.ReactNode
 }) {
   const [filter, setFilter] = React.useState<Filter>('all')
   const [query, setQuery] = React.useState('')
   const listRef = React.useRef<HTMLDivElement>(null)
+  // Hover pill glides between rows (pointer only; keyboard focus uses the focus ring, no delay).
+  const hover = useGlide()
   const count = pendingCount ?? ((d: Document) => d.fields.filter((f) => f.review === 'pending').length)
 
   const needsReview = (d: Document) => d.status === 'needs-review' || count(d) > 0
@@ -96,7 +102,14 @@ export function DocumentList({
           </Chip>
         </div>
       </div>
-      <div ref={listRef} onKeyDown={onKeyDown} className="min-h-0 flex-1 overflow-y-auto p-2">
+      {processing}
+      <div
+        ref={listRef}
+        onKeyDown={onKeyDown}
+        onMouseLeave={() => hover.moveTo(null)}
+        className="relative min-h-0 flex-1 overflow-y-auto p-2"
+      >
+        <span aria-hidden className={cn(hover.className, 'rounded-lg bg-gray-50')} style={hover.style} />
         {groups.length === 0 && <p className="px-2 py-6 text-center text-[13px] text-gray-500">No documents match.</p>}
         {groups.map((group) => (
           <section key={group.type} aria-label={group.type} className="mb-2">
@@ -113,9 +126,10 @@ export function DocumentList({
                       data-doc-item
                       aria-current={selected || undefined}
                       onClick={() => onSelect(doc.id)}
+                      onMouseEnter={(e) => hover.moveTo(e.currentTarget)}
                       className={cn(
-                        'flex w-full cursor-pointer items-start gap-2 rounded-lg px-2 py-1.5 text-left',
-                        selected ? 'bg-gray-100' : 'hover:bg-gray-50'
+                        'relative flex w-full cursor-pointer items-start gap-2 rounded-lg px-2 py-1.5 text-left',
+                        selected && 'bg-gray-100'
                       )}
                     >
                       <FileTextIcon aria-hidden className="mt-0.5 size-4 shrink-0 text-gray-400" />

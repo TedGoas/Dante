@@ -70,29 +70,43 @@ loancrate/src/
     utils.ts                   cn() = clsx + tailwind-merge
     seed.ts                    mulberry32 PRNG, FIXED_NOW (2026-11-23), daysFromNow/daysUntil/relativeTime, money formatters
     use-media-query.ts         useMediaQuery()
+    motion.ts                  MOTION beats, usePrefersReducedMotion, useGlide, useFlip, useElapsed, useReveal
   data/                        All fake + seeded. Vocabulary from DOMAIN.md
     loans.ts                   Pipeline. loan-0…3 are rich files (DEMO_LOAN_ID = loan-0); closing + rate-lock dates
     documents.ts               Documents → pages of positioned blocks → extracted fields with % regions + confidence
     conditions.ts              Conditions with category/status/source/owner/due, AI "why", full history; CURRENT_USER
     application.ts             Stated 1003 values + compareApplication(loanId) → match / mismatch / missing
+    traces.ts                  Per-document AI step traces; traceFor(doc) falls back to classify + extract
+    summaries.ts               Streamed loan summary segments + cited sources (loan-0)
+    proposals.ts               AI-proposed 1003 edits for the diff table (loan-0)
+    automations.ts             What the AI did on its own (tool chips)
+    uploads.ts                 Upload queue seed (task rows)
   components/ui/               Kit (edit freely)
     button badge chip card field input textarea select radio checkbox
     dropdown-menu popover tooltip icon-button table
     dialog (Dialog + Sheet, native <dialog>)  tabs (roving tabindex)  toast (provider + useToast)
-    skeleton  empty-state  kbd  progress (Spinner, Progress, AiWorking)
+    skeleton  empty-state  kbd  progress (Spinner, Progress, AiWorking with shimmer + elapsed)
+    segmented (SegmentedControl, gliding pill)  command (CommandPalette, ⌘K)
   components/ai/
     confidence.ts              CONFIDENCE thresholds (only place) + confidenceLevel()
     ConfidenceIndicator.tsx    icon + text; full | compact
     AiSuggestion.tsx           AI value with accept / modify / reject / why; cell | field | card; useAiSuggestion()
     AiConditionCard.tsx        Condition with trigger, rule, evidence, status actions, waive/dismiss/reject dialogs
     ActivityLog.tsx            Audit trail, AI vs human actors
+    AiTrace.tsx                Step-by-step "what the AI did", collapsible, optional live reveal
+    AiSummary.tsx              Streamed summary with citation chips + source cards
+    ReviewQueue.tsx            One-at-a-time review, lowest confidence first, A/E/R/J/K
+    DiffTable.tsx              Proposed edits sweep through rows; accept/reject per row or all
+    TaskRows.tsx               Upload/processing rows + useSimulatedTasks() demo driver
+    ToolChips.tsx              Compact chips for automatic AI actions
   components/evidence/
     DocumentPage.tsx           Renders a fake page (container-query type, so zoom = width)
     DocumentViewer.tsx         Page + highlights + field list; pages, zoom, versions; loading/failed/low-quality; focusField()
     reviews.ts                 useFieldReviews(): shared accept/modify/reject state per field
+    SelectionActions.tsx       Select text on a page → Create condition / Ask AI / Flag
   components/data-table/       Generic TanStack v9 table (+ onRowClick)
   features/
-    kit/                       StyleGuide.tsx, ToolkitSections.tsx (every component, every state), layout.tsx
+    kit/                       StyleGuide.tsx, ToolkitSections.tsx, PatternSections.tsx (every component, every state), layout.tsx
     pipeline/                  PipelinePage, PipelineTable, columns (loan # links to #/loan/{id})
     loan/
       LoanDetailShell.tsx      Layout with slots: header / documents / documentsCompact / viewer / panel
@@ -120,10 +134,30 @@ Generic pieces for "AI working on a loan file". Recombine; don't treat `LoanDeta
 | AI in progress | `AiWorking`, `Progress tone="ai"`, `Skeleton`, `AiSuggestion state="loading"` |
 | Audit trail | `ActivityLog` with `activityForLoan(conditions)` or your own `HistoryEntry[]` |
 | Deadline urgency | `Deadline` from `LoanHeader.tsx` |
+| Show the AI's work | `AiTrace` with `traceFor(doc)` (or your own steps); `live` to reveal step by step |
+| AI-written prose with sources | `AiSummary` (segments + `{ cite: n }`) |
+| Lots of suggestions to clear fast | `ReviewQueue` in a `Sheet` with `reviewOrder()` + `useFieldReviews()` |
+| AI proposes edits to structured data | `DiffTable` rows `{ current, proposed, reason, evidence }` |
+| Work in progress / uploads | `TaskRows` + `useSimulatedTasks()` |
+| "The AI already did these" | `ToolChips` |
+| Act on part of a document | `onSelectionAction` on `DocumentViewer` (or wrap anything in `SelectionActions`) |
+| Jump anywhere | ⌘K `CommandPalette`; deep links `#/loan/{id}?doc=` / `?condition=` |
+| A sliding indicator | `useGlide()` (see `tabs.tsx`, `segmented.tsx`, `DocumentList`) |
+| A list that reorders | `useFlip(ref, [keys])` + `data-flip-key` on children |
 
 **Seed data worth knowing (loan-0, Avery Brennan, purchase):** $48,500 Oct 14 deposit (AI LOX condition), stale Oct 13 paystub, W-2 name "Avery M. Brenan", blurry Sep statement (0.42 balance confidence), Oct statement v1 → v2, unsigned handwritten LOX (rejected, re-requested), undisclosed Lakeshore auto loan (1003 $640/mo vs credit $1,015/mo), appraisal still processing, rate lock expiring in 2 days. loan-1 (refinance): $12,000 deposit with no LOX (refinance exception), failed tax-return upload. loan-2: gift letter + matching wire. loan-3: $60,000 transfer, AI condition **waived**.
 
 **Decisions:** the "dismiss as not applicable" action sets status `waived` with action text "Dismissed as not applicable" (no separate status, to keep the 7 statuses from the brief). Rejecting a received item records "Rejected" and then "Re-requested" and returns the condition to `requested`. The current user is a processor (`CURRENT_USER`). Times are relative to `FIXED_NOW`, not the real clock.
+
+## Motion
+
+Patterns are inspired by [beautifului.dev](https://www.beautifului.dev/) (loading state, thinking, streaming text, approval card, diff table, task rows, tool chips, search, selection actions, sidebar glide). Its motion values aren't public, so the craft follows the repo skill [`.cursor/skills/motion/SKILL.md`](../.cursor/skills/motion/SKILL.md).
+
+- **Beats** live in `MOTION` (`src/lib/motion.ts`), and the CSS keyframes in `index.css` match them: ease `cubic-bezier(0.23, 1, 0.32, 1)`, chrome 120–220ms, exits 140ms, stagger 50ms, stream 28ms/word, sweep 270ms/row.
+- **Opacity and transform only.** Enter from scale ≥ 0.97, ease-out only, exits faster than enters.
+- **Keyboard paths never wait.** Arrow keys in lists and filtering in ⌘K are instant; glides snap on keyboard moves.
+- **Reduced motion = final frame.** `useReveal` returns everything immediately. The global CSS rule kills animations and transitions. `.shimmer-text` and `.cell-sweep` have static fallbacks. `useFlip` no-ops.
+- **AI status goes through `aria-live`.** Streams set `aria-busy` and announce once when done, and timers are `aria-hidden`.
 
 ## Conventions
 

@@ -16,6 +16,7 @@ import { Button } from '@/components/ui/button'
 import { EmptyState } from '@/components/ui/empty-state'
 import { IconButton } from '@/components/ui/icon-button'
 import { AiWorking, Progress } from '@/components/ui/progress'
+import { SegmentedControl } from '@/components/ui/segmented'
 import { Select } from '@/components/ui/select'
 import { Skeleton } from '@/components/ui/skeleton'
 import { docStatusLabel, versionsOf, type Document, type ExtractedField } from '@/data/documents'
@@ -23,6 +24,7 @@ import { shortDate } from '@/lib/seed'
 import { cn } from '@/lib/utils'
 import { DocumentPage } from './DocumentPage'
 import { useFieldReviews, type FieldReview } from './reviews'
+import { SelectionActions, type SelectionAction } from './SelectionActions'
 
 /*
  * Evidence viewer: a fake document page with highlight overlays for every
@@ -52,6 +54,12 @@ export type DocumentViewerProps = {
   getReview?: (field: ExtractedField) => FieldReview
   reviewHandlers?: (field: ExtractedField) => Partial<React.ComponentProps<typeof AiSuggestion>>
   showFieldList?: boolean
+  /** Rendered under the extracted fields (e.g. <AiTrace>). */
+  asideFooter?: React.ReactNode
+  /** Rendered in the toolbar row under the title (e.g. <ToolChips>). */
+  toolbarExtra?: React.ReactNode
+  /** Enables select-text-to-act on the page. */
+  onSelectionAction?: (action: SelectionAction, quote: string) => void
   ref?: React.Ref<DocumentViewerHandle>
   className?: string
 }
@@ -68,6 +76,9 @@ export function DocumentViewer({
   getReview,
   reviewHandlers,
   showFieldList = true,
+  asideFooter,
+  toolbarExtra,
+  onSelectionAction,
   ref,
   className,
 }: DocumentViewerProps) {
@@ -176,26 +187,21 @@ export function DocumentViewer({
                 <ChevronRightIcon />
               </IconButton>
             </div>
-            <div role="group" aria-label="Zoom" className="flex rounded-lg border border-border p-0.5">
-              {(['fit', '100', '150'] as Zoom[]).map((z) => (
-                <button
-                  key={z}
-                  type="button"
-                  aria-pressed={zoom === z}
-                  onClick={() => setZoom(z)}
-                  className={cn(
-                    'h-6.5 cursor-pointer rounded-md px-2 text-xs font-medium',
-                    zoom === z ? 'bg-primary text-white' : 'text-gray-600 hover:bg-gray-100'
-                  )}
-                >
-                  {z === 'fit' ? 'Fit' : `${z}%`}
-                </button>
-              ))}
-            </div>
+            <SegmentedControl
+              label="Zoom"
+              value={zoom}
+              onChange={setZoom}
+              options={[
+                { value: 'fit', label: 'Fit' },
+                { value: '100', label: '100%' },
+                { value: '150', label: '150%' },
+              ]}
+            />
           </>
         )}
       </div>
 
+      {toolbarExtra && <div className="border-b border-border px-3 py-2">{toolbarExtra}</div>}
       {doc.superseded && (
         <Banner tone="neutral" icon={<FileWarningIcon />}>
           You’re viewing a superseded version (v{doc.version}). AI uses the current version.
@@ -231,6 +237,8 @@ export function DocumentViewer({
           )}
           {resolved === 'ready' && (
             <div className={cn('mx-auto', zoomWidth[zoom])}>
+              {onSelectionAction ? (
+                <SelectionActions onAction={onSelectionAction}>
               <DocumentPage page={doc.pages[page]} lowQuality={doc.quality === 'low'}>
                 {pageFields.map((field) => {
                   const isActive = active === field.id
@@ -258,6 +266,38 @@ export function DocumentViewer({
                   )
                 })}
               </DocumentPage>
+                </SelectionActions>
+              ) : (
+                <>
+              <DocumentPage page={doc.pages[page]} lowQuality={doc.quality === 'low'}>
+                {pageFields.map((field) => {
+                  const isActive = active === field.id
+                  const low = field.confidence < CONFIDENCE.medium
+                  const r = field.region
+                  return (
+                    <button
+                      key={isActive ? `${field.id}-${pulse}` : field.id}
+                      ref={(el) => {
+                        if (el) highlightRefs.current.set(field.id, el)
+                        else highlightRefs.current.delete(field.id)
+                      }}
+                      type="button"
+                      aria-label={`${field.label}: ${review(field).value}`}
+                      aria-pressed={isActive}
+                      onClick={() => focusField(field.id)}
+                      style={{ left: `${r.x}%`, top: `${r.y}%`, width: `${r.w}%`, height: `${r.h}%` }}
+                      className={cn(
+                        'absolute cursor-pointer rounded-[3px] border transition-colors',
+                        low ? 'border-dashed border-amber-500 bg-amber-300/15' : 'border-indigo-400/60 bg-indigo-400/10',
+                        'hover:bg-indigo-400/20',
+                        isActive && 'animate-highlight-pulse border-2 border-indigo-600 bg-indigo-400/20'
+                      )}
+                    />
+                  )
+                })}
+              </DocumentPage>
+                </>
+              )}
             </div>
           )}
         </div>
@@ -277,7 +317,7 @@ export function DocumentViewer({
             <div className="min-h-0 flex-1 overflow-y-auto">
               {resolved === 'loading' && (
                 <div className="flex flex-col gap-4 p-3.5">
-                  <AiWorking>Reading {pageCount} pages…</AiWorking>
+                  <AiWorking elapsed>Reading {pageCount} pages…</AiWorking>
                   <Progress label="Extraction progress" tone="ai" />
                   {[0, 1, 2].map((i) => (
                     <div key={i} className="flex flex-col gap-1.5">
@@ -292,13 +332,14 @@ export function DocumentViewer({
                 <p className="p-3.5 text-[13px] text-gray-500">No fields extracted from this document type.</p>
               )}
               {resolved === 'ready' && (
-                <ul className="flex flex-col">
-                  {doc.fields.map((field) => {
+                <ul key={doc.id} className="flex flex-col">
+                  {doc.fields.map((field, index) => {
                     const isActive = active === field.id
                     return (
                       <li
                         key={field.id}
-                        className={cn('border-b border-gray-100 px-3.5 py-3', isActive && 'bg-ai-soft/70')}
+                        style={{ '--i': Math.min(index, 8) } as React.CSSProperties}
+                        className={cn('stagger-in border-b border-gray-100 px-3.5 py-3 transition-colors duration-150', isActive && 'bg-ai-soft/70')}
                       >
                         <div className="mb-1.5 flex items-center gap-2">
                           <button
@@ -325,6 +366,7 @@ export function DocumentViewer({
                   })}
                 </ul>
               )}
+              {asideFooter && <div className="p-3">{asideFooter}</div>}
             </div>
           </aside>
         )}

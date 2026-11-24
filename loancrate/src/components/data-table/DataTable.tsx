@@ -1,6 +1,6 @@
 import type { ReactTable, RowData } from '@tanstack/react-table'
 import { ChevronLeftIcon, ChevronRightIcon, SearchXIcon } from 'lucide-react'
-import type * as React from 'react'
+import * as React from 'react'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -11,6 +11,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+import { useFlip } from '@/lib/motion'
 import { cn } from '@/lib/utils'
 import type { DataTableFeatures } from './features'
 
@@ -40,6 +41,9 @@ export function DataTable<TData extends RowData>({
   onRowClick?: (row: { id: string; original: TData }) => void
 }) {
   const rows = table.getRowModel().rows
+  // Rows slide to their new position on sort and filter.
+  const bodyRef = React.useRef<HTMLTableSectionElement>(null)
+  useFlip(bodyRef, [rows.map((r) => r.id).join('|')])
   const columnCount = table.getAllLeafColumns().length
 
   return (
@@ -70,11 +74,12 @@ export function DataTable<TData extends RowData>({
             </TableRow>
           ))}
         </TableHeader>
-        <TableBody>
+        <TableBody ref={bodyRef}>
           {rows.length ? (
             rows.map((row) => (
               <TableRow
                 key={row.id}
+                data-flip-key={row.id}
                 data-state={row.getIsSelected() ? 'selected' : undefined}
                 className={cn(onRowClick && 'cursor-pointer')}
                 onClick={

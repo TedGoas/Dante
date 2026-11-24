@@ -35,6 +35,7 @@ import { Tooltip } from '@/components/ui/tooltip'
 import { stages, stageBadge } from '@/data/loans'
 import { PipelineTable } from '@/features/pipeline/PipelineTable'
 import { Section, Specimen } from './layout'
+import { PatternSections } from './PatternSections'
 import { ToolkitSections } from './ToolkitSections'
 
 const sections = [
@@ -53,6 +54,15 @@ const sections = [
   ['conditions', 'Condition card'],
   ['activity', 'Activity log'],
   ['viewer', 'Document viewer'],
+  ['motion', 'Motion'],
+  ['trace', 'AI trace'],
+  ['summary', 'Streamed summary'],
+  ['review-queue', 'Review queue'],
+  ['diff', 'Diff table'],
+  ['tasks', 'Task rows'],
+  ['tool-chips', 'Tool chips'],
+  ['selection', 'Selection actions'],
+  ['command', 'Command search'],
 ] as const
 
 /** Style guide. `section` (from #/kit/{id}) scrolls that section into view. */
@@ -64,7 +74,7 @@ export function StyleGuide({ section }: { section?: string }) {
 
   return (
     <div className="mx-auto grid max-w-7xl grid-cols-[150px_1fr] gap-10 px-8 py-10">
-      <nav aria-label="Style guide sections" className="sticky top-[73px] self-start">
+      <nav aria-label="Style guide sections" className="sticky top-[73px] max-h-[calc(100dvh-96px)] self-start overflow-y-auto">
         <ul className="flex flex-col gap-0.5 text-[13px]">
           {sections.map(([id, label]) => (
             <li key={id}>
@@ -105,6 +115,7 @@ export function StyleGuide({ section }: { section?: string }) {
         </Section>
 
         <ToolkitSections />
+        <PatternSections />
       </div>
     </div>
   )

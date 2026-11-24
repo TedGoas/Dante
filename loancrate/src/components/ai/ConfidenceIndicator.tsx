@@ -17,16 +17,28 @@ const styles = {
 export function ConfidenceIndicator({
   value,
   variant = 'full',
+  interactive = true,
   className,
 }: {
   value: number
   variant?: 'full' | 'compact'
+  /** Compact only: false when inside another control (no tooltip, not focusable). */
+  interactive?: boolean
   className?: string
 }) {
   const level = confidenceLevel(value)
   const { icon: Icon, text, short } = styles[level]
   const pct = `${Math.round(value * 100)}%`
   const label = `${confidenceLabel[level]}, ${pct}`
+
+  if (variant === 'compact' && !interactive) {
+    return (
+      <span className={cn('inline-flex items-center', text, className)}>
+        <Icon aria-hidden className="size-3.5" />
+        <span className="sr-only">{label}</span>
+      </span>
+    )
+  }
 
   if (variant === 'compact') {
     return (

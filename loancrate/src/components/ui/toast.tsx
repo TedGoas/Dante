@@ -2,6 +2,7 @@ import { CheckCircle2Icon, InfoIcon, XCircleIcon, XIcon } from 'lucide-react'
 import * as React from 'react'
 
 import { Button } from '@/components/ui/button'
+import { MOTION, prefersReducedMotion } from '@/lib/motion'
 import { cn } from '@/lib/utils'
 
 /*
@@ -73,15 +74,23 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
   )
 }
 
-function ToastCard({ item, onDismiss }: { item: ToastItem; onDismiss: () => void }) {
+function ToastCard({ item, onDismiss: remove }: { item: ToastItem; onDismiss: () => void }) {
   const [paused, setPaused] = React.useState(false)
+  const [leaving, setLeaving] = React.useState(false)
   const duration = item.durationMs ?? (item.action ? 8000 : 5000)
 
+  // Soft exit: fade + drop, then unmount. Exits are faster than enters.
+  const onDismiss = React.useCallback(() => {
+    if (prefersReducedMotion()) return remove()
+    setLeaving(true)
+    window.setTimeout(remove, MOTION.exit)
+  }, [remove])
+
   React.useEffect(() => {
-    if (paused) return
+    if (paused || leaving) return
     const timer = window.setTimeout(onDismiss, duration)
     return () => window.clearTimeout(timer)
-  }, [paused, duration, onDismiss])
+  }, [paused, leaving, duration, onDismiss])
 
   return (
     <div
@@ -91,7 +100,8 @@ function ToastCard({ item, onDismiss }: { item: ToastItem; onDismiss: () => void
       onFocus={() => setPaused(true)}
       onBlur={() => setPaused(false)}
       className={cn(
-        'pointer-events-auto flex animate-toast-in items-start gap-3 rounded-xl border bg-white py-3 pr-2 pl-3.5 shadow-menu [&>svg]:mt-0.5 [&>svg]:size-4 [&>svg]:shrink-0',
+        'pointer-events-auto flex items-start gap-3 rounded-xl border bg-white py-3 pr-2 pl-3.5 shadow-menu transition-[opacity,transform] duration-[140ms] ease-quint [&>svg]:mt-0.5 [&>svg]:size-4 [&>svg]:shrink-0',
+        leaving ? 'translate-y-1 opacity-0' : 'animate-toast-in',
         item.tone === 'error' ? 'border-red-200' : 'border-border'
       )}
     >

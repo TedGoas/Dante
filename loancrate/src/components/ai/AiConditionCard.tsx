@@ -82,6 +82,7 @@ export function AiConditionCard({
   actor = CURRENT_USER,
   defaultExpanded = true,
   className,
+  ...rest
 }: {
   condition: Condition
   onChange?: (next: Condition) => void
@@ -89,6 +90,8 @@ export function AiConditionCard({
   actor?: Actor
   defaultExpanded?: boolean
   className?: string
+  /** e.g. data-flip-key for list reordering. */
+  [dataAttr: `data-${string}`]: string | undefined
 }) {
   const [reasonKind, setReasonKind] = React.useState<ReasonKind | null>(null)
   const ai = condition.source === 'AI'
@@ -118,6 +121,7 @@ export function AiConditionCard({
 
   return (
     <article
+      {...rest}
       data-slot="condition-card"
       aria-labelledby={`${condition.id}-title`}
       className={cn('rounded-xl border border-border bg-white', done && 'bg-gray-50/60', className)}
@@ -138,7 +142,7 @@ export function AiConditionCard({
               <span className="sr-only"> ({conditionCategoryLabel[condition.category]})</span>
             </span>
           </Tooltip>
-          <Badge variant={conditionStatusBadge[condition.status]} dot className="ml-auto">
+          <Badge key={condition.status} variant={conditionStatusBadge[condition.status]} dot className="ml-auto animate-fade-in">
             {conditionStatusLabel[condition.status]}
           </Badge>
         </div>
