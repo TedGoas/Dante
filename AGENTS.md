@@ -89,7 +89,7 @@ Args: `text` (plain text, escaped), `variant` (`highlight` or `underline-double`
 ### Responsive images
 - Prefer compressed final assets (SVG slimmed; large rasters resized / WebP where helpful) over hand-authored `<picture>` trees
 - Do **not** wrap SVG work thumbs or gallery SVGs in `<picture>` / WebP sources
-- After adding or changing assets, run the **optimize-images** skill ([`.cursor/skills/optimize-images/SKILL.md`](.cursor/skills/optimize-images/SKILL.md)) or `/optimize-images`
+- After adding or changing assets, run the **optimize-images** skill ([`.agents/skills/optimize-images/SKILL.md`](.agents/skills/optimize-images/SKILL.md)) or `/optimize-images`
 - Build-time `srcset` / `<picture>` for rasters: proposed in [`docs/responsive-image-shortcode-proposal.md`](docs/responsive-image-shortcode-proposal.md) — requires approving `@11ty/eleventy-img` before install
 
 ### HTML Standards
@@ -198,7 +198,7 @@ Args: `slug`, `title` (iframe `title`), `width`, `height`, optional `background`
 3. Commit the updated static files in Dante
 4. After a large sync: **visual QA** against the sizzle source (spacing, color, type) while **keeping intentional Dante cuts** (trimmed UI, gallery framing). Workflow alone is not enough — design drift is common.
 
-Agent skill (workflow + demo/`postMessage` conventions): [`.cursor/skills/prototype-embed/SKILL.md`](.cursor/skills/prototype-embed/SKILL.md).
+Agent skill (workflow + demo/`postMessage` conventions): [`.agents/skills/prototype-embed/SKILL.md`](.agents/skills/prototype-embed/SKILL.md).
 
 **UX notes:** Each figure shows a static poster until it scrolls into view (~35% visible), then waits 1 second before loading the iframe (`data-src` → `src?autostart=1`). Scrolling away before the delay cancels the timer. The chatbot prototype reads `autostart=1` and auto-runs its splash demo. When a demo animation finishes, the iframe posts `dante-prototype-demo-complete` and a centered circular **Replay** icon button appears over the iframe; clicking it sends `dante-prototype-replay` to restart without reloading the iframe. Under `prefers-reduced-motion: reduce`, activation JS is skipped; a static poster and link to open the prototype in a new tab is shown instead.
 
@@ -273,7 +273,7 @@ and calls `requestResize()` after each height report. That is inert until the **
 
 **Cue UX:** Same visual language as thumb “Hover me!” — soft Swiss red, −6° tilt, Feather corner-right-down icon, hangs above top-left of the frame. Stays visible (does not fade on hover or after interaction).
 
-Agent skill (workflow + reuse checklist): [`.cursor/skills/html-embed/SKILL.md`](.cursor/skills/html-embed/SKILL.md) or `/html-embed`.
+Agent skill (workflow + reuse checklist): [`.agents/skills/html-embed/SKILL.md`](.agents/skills/html-embed/SKILL.md) or `/html-embed`.
 
 
 ### Work gallery: thumbnail prototypes (hover/focus)
@@ -301,7 +301,7 @@ Small live demos **inside** captioned thumbs (not hero embeds). Scripted interac
 
 **postMessage:** host preloads the iframe on page load, then sends `dante-thumb-prototype-play` / `dante-thumb-prototype-reset` on hover/focus. Under `prefers-reduced-motion: reduce`, the first frame stays visible with an open-in-new-tab link; play/reset is skipped.
 
-Agent skill (workflow + host cue + in-bundle demo conventions): [`.cursor/skills/thumb-prototype/SKILL.md`](.cursor/skills/thumb-prototype/SKILL.md) or `/thumb-prototype`.
+Agent skill (workflow + host cue + in-bundle demo conventions): [`.agents/skills/thumb-prototype/SKILL.md`](.agents/skills/thumb-prototype/SKILL.md) or `/thumb-prototype`.
 
 ### Work gallery: follow-up copy + thumbnails
 
@@ -340,11 +340,11 @@ Placeholder artwork: use `div.work-gallery__thumb-media.work-gallery__thumb-medi
 
 Odd-shaped assets that should share a sibling-sized frame: wrap the `<img>` in `div.work-gallery__thumb-media.work-gallery__thumb-media--inset` (intrinsic size, centered, bottom-padded). Short cards that should fill the matte width with padding and a white surface: add `work-gallery__thumb-media--inset-card` as well.
 
-**Implementation map:** styles in [`src/assets/css/styles.css`](src/assets/css/styles.css) (search `captioned thumbnail`); templates in [`.cursor/skills/work-gallery-figures/reference.md`](.cursor/skills/work-gallery-figures/reference.md); skill [`.cursor/skills/work-gallery-figures/SKILL.md`](.cursor/skills/work-gallery-figures/SKILL.md).
+**Implementation map:** styles in [`src/assets/css/styles.css`](src/assets/css/styles.css) (search `captioned thumbnail`); templates in [`.agents/skills/work-gallery-figures/reference.md`](.agents/skills/work-gallery-figures/reference.md); skill [`.agents/skills/work-gallery-figures/SKILL.md`](.agents/skills/work-gallery-figures/SKILL.md).
 
 ### Work gallery: multi-image layouts
 
-Reusable BEM layouts for case study figures with more than one asset. Styles live in [`src/assets/css/styles.css`](src/assets/css/styles.css) (search `Reusable figure pattern`). Copy-paste HTML: [`.cursor/skills/work-gallery-figures/reference.md`](.cursor/skills/work-gallery-figures/reference.md). Agent skill: [`.cursor/skills/work-gallery-figures/SKILL.md`](.cursor/skills/work-gallery-figures/SKILL.md).
+Reusable BEM layouts for case study figures with more than one asset. Styles live in [`src/assets/css/styles.css`](src/assets/css/styles.css) (search `Reusable figure pattern`). Copy-paste HTML: [`.agents/skills/work-gallery-figures/reference.md`](.agents/skills/work-gallery-figures/reference.md). Agent skill: [`.agents/skills/work-gallery-figures/SKILL.md`](.agents/skills/work-gallery-figures/SKILL.md).
 
 | Figure modifier | Media modifier | Purpose |
 |-----------------|----------------|---------|
@@ -431,7 +431,7 @@ Collaboration norms so agents match how this site is actually built (visual crit
 - **Prove the change landed, then invite refresh** — After CSS/markup edits: confirm the intended **source** file (never `dist/`) actually contains the change; give the exact local URL. Do not blame cache or say “hard refresh” until the source change is verified. When a browser tool is available, check the live page before claiming the fix.
 - **“I still see…” = stop and diagnose** — No more design tweaks until delivery is ruled out: wrong file/selector/page, dead or wrong-port dev server, wrong branch, or Netlify vs local. For deploy-only bugs, ask **local vs Netlify** early.
 - **Pivot after two fails** — If an approach fails twice, name the abandon/pivot (“abandon A; port B”) instead of inventing a third custom path.
-- **Prefer existing skills** — Gallery embeds, thumbs, figure layouts, case-study copy, image optimize, voice, commit/push, and **motion** (shared interaction/animation craft): invoke the skill (or point to it) instead of re-explaining the pattern. See [`.cursor/skills/`](.cursor/skills/) — especially [`.cursor/skills/motion/SKILL.md`](.cursor/skills/motion/SKILL.md) for easing, beats, soft exits, tips, and reduced-motion.
+- **Prefer existing skills** — Gallery embeds, thumbs, figure layouts, case-study copy, image optimize, voice, commit/push, and **motion** (shared interaction/animation craft): invoke the skill (or point to it) instead of re-explaining the pattern. See [`.agents/skills/`](.agents/skills/) — especially [`.agents/skills/motion/SKILL.md`](.agents/skills/motion/SKILL.md) for easing, beats, soft exits, tips, and reduced-motion.
 - **This repo’s stack only** — Native HTML/CSS/11ty/vanilla JS. No Tailwind, React, or take-home app scaffolds here unless Ted explicitly carves that out.
 - **Dirty trees and other agents** — Surface path/branch collisions when the tree isn’t clean. Commit only this task’s paths (see **commit** skill). When another chat moved files, open with the new paths/branch.
 - **Cloud → local port** — When recreating a Cloud Agent PR locally, treat the **PR diff + chat transcript** as the brief; restate any still-open decisions before coding.
@@ -449,7 +449,16 @@ For visual or UX work, read these before changing UI (Impeccable / agent design 
 
 ### Agent tooling (tracked vs local)
 
-Keep project agent contracts on GitHub so clones and Cloud Agents share the same rules: [`.cursor/rules/`](.cursor/rules/), [`.cursor/skills/`](.cursor/skills/), and [`.impeccable/design.json`](.impeccable/design.json) (with `PRODUCT.md` / `DESIGN.md`). Do **not** commit `.impeccable/live/` or `.impeccable/critique/` — those are ephemeral session/critique output and are gitignored.
+Keep project agent contracts on GitHub so clones and Cloud Agents share the same rules: [`.cursor/rules/`](.cursor/rules/), [`.agents/skills/`](.agents/skills/), and [`.impeccable/design.json`](.impeccable/design.json) (with `PRODUCT.md` / `DESIGN.md`). Do **not** commit `.impeccable/live/` or `.impeccable/critique/` — those are ephemeral session/critique output and are gitignored.
+
+### Agent skills (shared across harnesses)
+
+One skill library serves Cursor, Claude Code, and Codex.
+
+- **Canonical folder:** [`.agents/skills/{name}/SKILL.md`](.agents/skills/) (plus any supporting files in that skill's folder). Cursor and Codex read it natively.
+- **Claude Code:** `.claude/skills` is a committed symlink to `../.agents/skills`, so it sees the same files.
+- **New skills:** create them in `.agents/skills/`. Creating one through Claude Code's `.claude/skills/` also lands there via the symlink. Nothing to sync.
+- **Don't** create a real `.claude/skills/` or `.cursor/skills/` directory, or replace the symlink with a copy — that forks the library and causes duplicate listings.
 
 ## Cursor Cloud specific instructions
 

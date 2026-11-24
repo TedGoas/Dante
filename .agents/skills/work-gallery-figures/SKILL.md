@@ -15,7 +15,7 @@ Case studies use a `<section class="work-gallery">` of `<figure class="work-gall
 **Repo rules:** [AGENTS.md](../../../AGENTS.md) (*Work gallery* sections).  
 **Styles:** [`src/assets/css/styles.css`](../../../src/assets/css/styles.css) (search `Reusable figure pattern` / `captioned thumbnail`).  
 **Video figures:** use the `clickToPlayVideo` shortcode — see AGENTS.md, not this skill.  
-**Interactive prototypes:** use **[`.cursor/skills/prototype-embed/SKILL.md`](../prototype-embed/SKILL.md)**.
+**Interactive prototypes:** use **[`.agents/skills/prototype-embed/SKILL.md`](../prototype-embed/SKILL.md)**.
 
 ## Quick picker
 

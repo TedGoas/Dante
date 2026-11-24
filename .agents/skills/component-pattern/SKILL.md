@@ -25,5 +25,5 @@ description: >-
 ## Documented exceptions
 
 - **Click-to-play video (work gallery):** Partial in `_includes/components/click-to-play-video.njk`; styles next to other `.work-gallery` rules in `styles.css`; JS only on the work layout. See **[AGENTS.md](../../../AGENTS.md)** (*Work gallery: video figures*).
-- **Prototype embeds:** Partial + shortcode + work-layout JS — **[`.cursor/skills/prototype-embed/SKILL.md`](../prototype-embed/SKILL.md)**.
-- **Multi-image gallery figures:** BEM layout classes in `styles.css`, authored as HTML in Markdown case studies. See **[`.cursor/skills/work-gallery-figures/SKILL.md`](../work-gallery-figures/SKILL.md)** and AGENTS.md (*Work gallery: multi-image layouts*).
+- **Prototype embeds:** Partial + shortcode + work-layout JS — **[`.agents/skills/prototype-embed/SKILL.md`](../prototype-embed/SKILL.md)**.
+- **Multi-image gallery figures:** BEM layout classes in `styles.css`, authored as HTML in Markdown case studies. See **[`.agents/skills/work-gallery-figures/SKILL.md`](../work-gallery-figures/SKILL.md)** and AGENTS.md (*Work gallery: multi-image layouts*).

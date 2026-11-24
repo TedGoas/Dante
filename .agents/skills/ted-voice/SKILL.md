@@ -33,7 +33,7 @@ Use this voice for **all** copy: blog posts, newsletters, work case studies, bio
 ## General rules (apply to everything)
 
 - No em dashes or en dashes. Ever. Prefer commas, periods, parentheses, or colons. For ranges, use "to" (e.g. "2019 to 2021").
-- Short paragraphs, punchy sentences, first-person framing.
+- Short paragraphs, punchy sentences, first-person framing. One idea per paragraph is fine. Use contractions when they sound natural.
 - Plain words over impressive ones. No corporate polish or buzzwords.
 - Never use: "delve into," "unlock potential," "in today's world," "instrumental," "significant," "cutting-edge," or anything that sounds like a LinkedIn post written by committee.
 - Avoid lengthy explanations unless asked. Hand back the writing, not an essay about the writing.
@@ -137,7 +137,7 @@ Do not fall into these patterns. Full checklist: [reference.md](reference.md).
 
 ### Vocabulary
 
-- Delve, tapestry, testament, realm, landscape, navigate, journey
+- Delve, tapestry, testament, realm, landscape, navigate, journey, nestled
 - Leverage, robust, seamless, streamline, holistic, synergy
 - Unlock, unleash, elevate, empower, supercharge, game-changer
 - Crucial, pivotal, vital, essential (used as filler intensifiers)
