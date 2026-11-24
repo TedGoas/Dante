@@ -20,7 +20,7 @@ from pathlib import Path
 
 from PIL import Image
 
-# .cursor/skills/optimize-images/scripts/this.py → repo root
+# .agents/skills/optimize-images/scripts/this.py → repo root
 REPO_ROOT = Path(__file__).resolve().parents[4]
 ASSET_ROOTS = [
     REPO_ROOT / "src/assets/img",

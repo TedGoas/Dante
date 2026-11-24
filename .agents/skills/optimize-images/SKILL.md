@@ -30,15 +30,15 @@ Prefer **explicit paths** the user just added. Full-tree scan is for audits.
 
 ```bash
 # Specific new/changed files (always processed)
-python3 .cursor/skills/optimize-images/scripts/optimize_images.py \
+python3 .agents/skills/optimize-images/scripts/optimize_images.py \
   src/posts/img/my-new-hero.jpg \
   src/work/img/canfield/new-figure.png
 
 # Dry-run first if unsure
-python3 .cursor/skills/optimize-images/scripts/optimize_images.py --dry-run src/posts/img/foo.jpg
+python3 .agents/skills/optimize-images/scripts/optimize_images.py --dry-run src/posts/img/foo.jpg
 
 # Audit: large files across asset roots (≥300KB)
-python3 .cursor/skills/optimize-images/scripts/optimize_images.py
+python3 .agents/skills/optimize-images/scripts/optimize_images.py
 ```
 
 3. If PNG → WebP, skim `git diff` / status for Markdown/HTML ref updates. Fix any missed refs manually (script uses path-aware replacements; skips ambiguous bare basenames like `hero.png` when multiple exist).
