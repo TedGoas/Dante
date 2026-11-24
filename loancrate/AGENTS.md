@@ -10,6 +10,10 @@ Read this before working in `loancrate/`. The root [`AGENTS.md`](../AGENTS.md) s
 - It lives at **`tedgoas.com/loancrate`** and must stay **hidden**: nothing on the site links to it, it's not in the sitemap or RSS, and it's `noindex`.
 - It must **not inherit anything from Dante**: no shared CSS, tokens, layouts, scripts, or Eleventy templates.
 
+## Domain
+
+**Read [`DOMAIN.md`](DOMAIN.md) before designing anything.** It covers the mortgage domain: the loan lifecycle, roles, the 1003, conditions, the large-deposit/LOX rule, post-closing QC, and what all of that means for design. Use its vocabulary in UI copy and seed data. The exercise may be mortgage-specific or a generic problem with parallels to it. Either way, frame decisions the way LoanCrate would: humans decide and AI prepares, show the evidence, exceptions first, and keep an audit trail.
+
 ## Stack
 
 Same as `sumble/`: Vite + React 19 + TypeScript + Tailwind CSS v4 + shadcn-style components (Radix + `class-variance-authority` + `tailwind-merge`) + `lucide-react` + **TanStack Table v9**. loancrate.com itself is stock Tailwind v4, so tokens map onto Tailwind's default palette. Package set is identical to Sumble's (approved by Ted). Adding any further dependency needs approval. Select and radio are **native** elements styled with Tailwind, so no extra Radix packages.
