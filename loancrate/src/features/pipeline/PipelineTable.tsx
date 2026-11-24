@@ -11,7 +11,7 @@ import { loanColumns } from './columns'
 
 const getRowId = (row: Loan) => row.id
 
-export function PipelineTable() {
+export function PipelineTable({ onOpenLoan }: { onOpenLoan?: (loanId: string) => void } = {}) {
   const table = useTable({
     features: dataTableFeatures,
     columns: loanColumns,
@@ -81,5 +81,11 @@ export function PipelineTable() {
     </div>
   )
 
-  return <DataTable table={table} toolbar={toolbar} />
+  return (
+    <DataTable
+      table={table}
+      toolbar={toolbar}
+      onRowClick={onOpenLoan ? (row) => onOpenLoan(row.id) : undefined}
+    />
+  )
 }

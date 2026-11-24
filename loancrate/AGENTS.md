@@ -5,7 +5,7 @@ Read this before working in `loancrate/`. The root [`AGENTS.md`](../AGENTS.md) s
 ## Goal
 
 - A **standalone product prototype** for a design exercise for [LoanCrate](https://www.loancrate.com/), an AI-assisted mortgage Loan Origination System. AI reviews documents on arrival, auto-processes them, and generates conditions from extracted data.
-- **The exercise brief is not known yet.** For now the app is a design-system scaffold: one scrolling style-guide page. Replace or extend `App.tsx` once the brief arrives, and record the brief, problems, and assumptions here (see `sumble/AGENTS.md` for the shape).
+- **The exercise brief is not known yet.** For now the app is a toolkit: a style guide, a pipeline, and an example loan detail view (see *Exercise toolkit*). Replace or extend `App.tsx` once the brief arrives, and record the brief, problems, and assumptions here (see `sumble/AGENTS.md` for the shape).
 - Ted has no product login, so the visual language comes from loancrate.com's marketing site and the product mockup on its homepage.
 - It lives at **`tedgoas.com/loancrate`** and must stay **hidden**: nothing on the site links to it, it's not in the sitemap or RSS, and it's `noindex`.
 - It must **not inherit anything from Dante**: no shared CSS, tokens, layouts, scripts, or Eleventy templates.
@@ -64,24 +64,73 @@ Don't copy LoanCrate's logo or imagery. The kit uses a placeholder "L" mark. All
 
 ```
 loancrate/src/
-  App.tsx                    Style guide: typography, buttons, forms, badges & chips, menus, data table
-  index.css                  Tailwind import + @theme tokens + base heading styles + reduced motion
-  lib/utils.ts               cn() = clsx + tailwind-merge
-  data/loans.ts              28 seeded fake loans, stages/programs, stage → badge variant map
-  components/ui/             Local kit (edit freely)
-    button       default (near-black), secondary (lavender), outline, ghost, destructive, dashed, link
-    badge        neutral, outline, indigo, blue, success, warning, danger; optional `dot`
-    chip         toggle chip (aria-pressed) or removable applied-filter chip (`onRemove`)
-    input, textarea, select (native), radio (native), checkbox (Radix)
-    field        Field (label + control + hint/error) and Label
-    card, dropdown-menu, popover, tooltip, icon-button, table
-  components/data-table/     Generic TanStack v9 table (copied from sumble/)
-  features/pipeline/         Loan pipeline table: columns + toolbar (search, Stage/Program facets, bulk)
+  App.tsx                      Top bar + hash routes: #/kit[/section], #/pipeline, #/loan/{id}. ToastProvider + TooltipProvider
+  index.css                    Tailwind + @theme tokens (incl. --color-ai*, paper, motion keyframes), dialog motion, reduced motion
+  lib/
+    utils.ts                   cn() = clsx + tailwind-merge
+    seed.ts                    mulberry32 PRNG, FIXED_NOW (2026-11-23), daysFromNow/daysUntil/relativeTime, money formatters
+    use-media-query.ts         useMediaQuery()
+  data/                        All fake + seeded. Vocabulary from DOMAIN.md
+    loans.ts                   Pipeline. loan-0…3 are rich files (DEMO_LOAN_ID = loan-0); closing + rate-lock dates
+    documents.ts               Documents → pages of positioned blocks → extracted fields with % regions + confidence
+    conditions.ts              Conditions with category/status/source/owner/due, AI "why", full history; CURRENT_USER
+    application.ts             Stated 1003 values + compareApplication(loanId) → match / mismatch / missing
+  components/ui/               Kit (edit freely)
+    button badge chip card field input textarea select radio checkbox
+    dropdown-menu popover tooltip icon-button table
+    dialog (Dialog + Sheet, native <dialog>)  tabs (roving tabindex)  toast (provider + useToast)
+    skeleton  empty-state  kbd  progress (Spinner, Progress, AiWorking)
+  components/ai/
+    confidence.ts              CONFIDENCE thresholds (only place) + confidenceLevel()
+    ConfidenceIndicator.tsx    icon + text; full | compact
+    AiSuggestion.tsx           AI value with accept / modify / reject / why; cell | field | card; useAiSuggestion()
+    AiConditionCard.tsx        Condition with trigger, rule, evidence, status actions, waive/dismiss/reject dialogs
+    ActivityLog.tsx            Audit trail, AI vs human actors
+  components/evidence/
+    DocumentPage.tsx           Renders a fake page (container-query type, so zoom = width)
+    DocumentViewer.tsx         Page + highlights + field list; pages, zoom, versions; loading/failed/low-quality; focusField()
+    reviews.ts                 useFieldReviews(): shared accept/modify/reject state per field
+  components/data-table/       Generic TanStack v9 table (+ onRowClick)
+  features/
+    kit/                       StyleGuide.tsx, ToolkitSections.tsx (every component, every state), layout.tsx
+    pipeline/                  PipelinePage, PipelineTable, columns (loan # links to #/loan/{id})
+    loan/
+      LoanDetailShell.tsx      Layout with slots: header / documents / documentsCompact / viewer / panel
+      LoanHeader.tsx           Identity + Deadline (closing, rate lock urgency)
+      DocumentList.tsx         Grouped by type, filters, status, version, to-review count; DocumentPicker
+      LoanPanel.tsx            Tabs: Conditions / Data (1003 vs docs) / Activity
+      LoanDetail.tsx           Example composition wiring all of the above. Copy this to start a screen
 ```
+
+## Exercise toolkit
+
+Generic pieces for "AI working on a loan file". Recombine; don't treat `LoanDetail` as the answer.
+
+| Need | Use |
+|------|-----|
+| AI-extracted value anywhere | `<AiSuggestion density="cell" \| "field" \| "card">`. Local state: `{...useAiSuggestion({ value })}`. Shared state: `useFieldReviews().handlersFor(field)` |
+| Show confidence | `<ConfidenceIndicator value={0.82} />` (compact in tables). Change thresholds only in `confidence.ts` |
+| "Why did the AI do this?" | Condition `why` block in `AiConditionCard`, or pass `onShowEvidence` to `AiSuggestion` |
+| Jump to evidence | `viewerRef.current.focusField(fieldId)` or `activeFieldId` prop on `DocumentViewer` |
+| A new screen | Copy `features/loan/LoanDetail.tsx`, keep `LoanDetailShell`, swap the slots |
+| Queue / list of work | `DataTable` + a `columns.tsx` (see `features/pipeline/`); `onRowClick` for mouse, a link in the first cell for keyboard |
+| Confirm a consequential action | `Dialog` with a required `Field` (see `ReasonDialog` in `AiConditionCard`) |
+| Side detail without leaving | `Sheet` |
+| Feedback after an action | `useToast().toast({ tone, title, action: { label: 'Undo', onClick } })` |
+| AI in progress | `AiWorking`, `Progress tone="ai"`, `Skeleton`, `AiSuggestion state="loading"` |
+| Audit trail | `ActivityLog` with `activityForLoan(conditions)` or your own `HistoryEntry[]` |
+| Deadline urgency | `Deadline` from `LoanHeader.tsx` |
+
+**Seed data worth knowing (loan-0, Avery Brennan, purchase):** $48,500 Oct 14 deposit (AI LOX condition), stale Oct 13 paystub, W-2 name "Avery M. Brenan", blurry Sep statement (0.42 balance confidence), Oct statement v1 → v2, unsigned handwritten LOX (rejected, re-requested), undisclosed Lakeshore auto loan (1003 $640/mo vs credit $1,015/mo), appraisal still processing, rate lock expiring in 2 days. loan-1 (refinance): $12,000 deposit with no LOX (refinance exception), failed tax-return upload. loan-2: gift letter + matching wire. loan-3: $60,000 transfer, AI condition **waived**.
+
+**Decisions:** the "dismiss as not applicable" action sets status `waived` with action text "Dismissed as not applicable" (no separate status, to keep the 7 statuses from the brief). Rejecting a received item records "Rejected" and then "Re-requested" and returns the condition to `requested`. The current user is a processor (`CURRENT_USER`). Times are relative to `FIXED_NOW`, not the real clock.
 
 ## Conventions
 
 - Icon-only buttons use `IconButton` (its required `label` becomes the `aria-label` and the tooltip).
 - Row checkboxes use `onClick={row.getToggleSelectedHandler()}` so shift-click range selection works.
 - Form controls: give `Field` the control's `id` as `htmlFor`. Controls with hint or error text set `aria-describedby="{id}-hint"`, and controls in an error state set `aria-invalid`.
-- One `default` (near-black) button per view. Use `secondary` for the rest.
+- One `default` (near-black) button per view. Use `secondary` for the rest. Cards in lists never use `default`.
+- AI marking is indigo (`text-ai`, `bg-ai-soft`, `border-ai-border`) and always paired with the sparkle icon or the word "AI". Status and confidence are never color alone.
+- Anything that animates must be fine with the global reduced-motion rule (it kills all animation and transition). Programmatic scrolling checks `prefers-reduced-motion` for `behavior`.
+- Status changes the user didn't directly cause (AI results, toasts) go through `aria-live`.

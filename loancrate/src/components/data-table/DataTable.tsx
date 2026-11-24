@@ -28,10 +28,16 @@ export function DataTable<TData extends RowData>({
   table,
   toolbar,
   emptyMessage = 'No results match these filters.',
+  onRowClick,
 }: {
   table: ReactTable<DataTableFeatures, TData>
   toolbar?: React.ReactNode
   emptyMessage?: string
+  /**
+   * Mouse convenience for opening a row. Keyboard users need a real link or
+   * button in the row too (e.g. the first cell). Ignores clicks on controls.
+   */
+  onRowClick?: (row: { id: string; original: TData }) => void
 }) {
   const rows = table.getRowModel().rows
   const columnCount = table.getAllLeafColumns().length
@@ -70,6 +76,16 @@ export function DataTable<TData extends RowData>({
               <TableRow
                 key={row.id}
                 data-state={row.getIsSelected() ? 'selected' : undefined}
+                className={cn(onRowClick && 'cursor-pointer')}
+                onClick={
+                  onRowClick
+                    ? (event) => {
+                        const target = event.target as HTMLElement
+                        if (target.closest('a, button, input, select, textarea, [role="checkbox"], [role="menuitem"]')) return
+                        onRowClick({ id: row.id, original: row.original })
+                      }
+                    : undefined
+                }
               >
                 {row.getAllCells().map((cell) => {
                   const meta = cell.column.columnDef.meta as DataTableColumnMeta | undefined

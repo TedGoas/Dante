@@ -44,6 +44,53 @@
   --shadow-menu: 0 24px 48px #0c264d1f, 0 6px 16px #0c264d14, 0 0 0 1px #0c264d0a;
 
   --ease-quint: cubic-bezier(0.23, 1, 0.32, 1);
+
+  /* AI marking: subtle indigo, never the only signal (always paired with an icon or text). */
+  --color-ai: var(--color-indigo-600);
+  --color-ai-soft: var(--color-indigo-50);
+  --color-ai-border: var(--color-indigo-200);
+
+  /* Fake document "paper" in the evidence viewer. */
+  --color-paper: #ffffff;
+  --color-paper-ink: #1f2430;
+  --color-viewer: var(--color-gray-100);
+
+  --animate-fade-up: fade-up 220ms var(--ease-quint) both;
+  --animate-toast-in: toast-in 260ms var(--ease-quint) both;
+  --animate-highlight-pulse: highlight-pulse 1.1s var(--ease-quint) 2;
+  --animate-indeterminate: indeterminate 1.4s ease-in-out infinite;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+  }
+
+  @keyframes toast-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px) scale(0.98);
+    }
+  }
+
+  @keyframes highlight-pulse {
+    0% {
+      box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-indigo-500) 45%, transparent);
+    }
+    100% {
+      box-shadow: 0 0 0 10px color-mix(in oklab, var(--color-indigo-500) 0%, transparent);
+    }
+  }
+
+  @keyframes indeterminate {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(250%);
+    }
+  }
 }
 
 @layer base {
@@ -68,6 +115,59 @@
 
   :focus-visible {
     @apply outline-2 outline-offset-2 outline-ring;
+  }
+}
+
+@layer components {
+  /* Native <dialog>: slides in, leaves faster. Ported from sumble/. */
+  .dialog-motion,
+  .dialog-motion::backdrop {
+    opacity: 0;
+    transition:
+      opacity 140ms var(--ease-quint),
+      translate 140ms var(--ease-quint),
+      display 140ms allow-discrete,
+      overlay 140ms allow-discrete;
+  }
+
+  .dialog-motion {
+    translate: var(--dialog-x, 0) var(--dialog-y, 6px);
+  }
+
+  .dialog-motion[data-placement='right'] {
+    --dialog-x: 16px;
+    --dialog-y: 0;
+  }
+
+  .dialog-motion[open],
+  .dialog-motion[open]::backdrop {
+    opacity: 1;
+    transition-duration: 220ms;
+  }
+
+  .dialog-motion[open] {
+    translate: 0 0;
+
+    @starting-style {
+      opacity: 0;
+      translate: var(--dialog-x, 0) var(--dialog-y, 6px);
+    }
+  }
+
+  .dialog-motion[open]::backdrop {
+    @starting-style {
+      opacity: 0;
+    }
+  }
+
+  /* Low-quality scan look for fake documents. */
+  .scan-low {
+    filter: blur(0.6px) contrast(0.82) brightness(0.98) sepia(0.12);
+  }
+
+  .font-hand {
+    font-family: var(--font-display);
+    font-style: italic;
   }
 }
 

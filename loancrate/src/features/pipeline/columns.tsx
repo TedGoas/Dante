@@ -49,8 +49,13 @@ export const loanColumns = helper.columns([
   helper.accessor('number', {
     header: ({ header }) => <SortableHeader header={header}>Loan</SortableHeader>,
     sortFn: 'alphanumeric',
-    cell: ({ getValue }) => (
-      <span className="font-medium text-gray-900 tabular-nums">#{getValue()}</span>
+    cell: ({ row, getValue }) => (
+      <a
+        href={`#/loan/${row.original.id}`}
+        className="rounded font-medium text-gray-900 tabular-nums underline-offset-2 hover:text-link hover:underline"
+      >
+        #{getValue()}
+      </a>
     ),
   }),
   helper.accessor('borrower', {
