@@ -1,0 +1,298 @@
+@import "tailwindcss";
+
+/*
+ * LoanCrate-like tokens. loancrate.com is stock Tailwind v4 (gray neutrals,
+ * indigo/blue accents, emerald/amber/red status), Inter for UI and headings,
+ * Instrument Serif for display moments. Values pulled from their
+ * /assets/css/main.css and homepage mockup inline styles.
+ * Change colors here, not in components.
+ */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
+
+  --color-page: #ffffff;
+  --color-background: #ffffff;
+  --color-foreground: var(--color-gray-600);
+  --color-heading: var(--color-gray-900);
+  --color-border: var(--color-gray-200);
+  --color-input: var(--color-gray-300);
+  --color-ring: var(--color-blue-500);
+  --color-muted: var(--color-gray-50);
+  --color-muted-foreground: var(--color-gray-500);
+  --color-accent: var(--color-gray-100);
+  --color-accent-foreground: var(--color-gray-900);
+  --color-primary: #111827;
+  --color-primary-hover: #1f2937;
+  --color-primary-foreground: #ffffff;
+  --color-secondary-border: #e0d8f0;
+  --color-secondary-foreground: #26114a;
+  --color-link: var(--color-blue-600);
+  --color-link-hover: var(--color-blue-800);
+  --color-selected: var(--color-indigo-50);
+  --color-popover: #ffffff;
+  --color-popover-foreground: var(--color-gray-900);
+  --color-destructive: var(--color-red-600);
+
+  /* Dense app body; their marketing body is 17px / 1.8. */
+  --text-body: 14px;
+  --text-body--line-height: 22px;
+
+  /* Purple-tinted layered shadow from their product mockup buttons. */
+  --shadow-button: 0 6px 12px #2f01970a, 0 3px 6px #2f01970f, 0 1px 2px #2f019714;
+  --shadow-card: 0 1px 3px #0c264d0f, 0 1px 2px #0c264d0a;
+  --shadow-menu: 0 24px 48px #0c264d1f, 0 6px 16px #0c264d14, 0 0 0 1px #0c264d0a;
+
+  --ease-quint: cubic-bezier(0.23, 1, 0.32, 1);
+
+  /* AI marking: subtle indigo, never the only signal (always paired with an icon or text). */
+  --color-ai: var(--color-indigo-600);
+  --color-ai-soft: var(--color-indigo-50);
+  --color-ai-border: var(--color-indigo-200);
+
+  /* Fake document "paper" in the evidence viewer. */
+  --color-paper: #ffffff;
+  --color-paper-ink: #1f2430;
+  --color-viewer: var(--color-gray-100);
+
+  --animate-fade-up: fade-up 220ms var(--ease-quint) both;
+  --animate-toast-in: toast-in 260ms var(--ease-quint) both;
+  --animate-highlight-pulse: highlight-wipe 260ms var(--ease-quint) both, highlight-pulse 900ms var(--ease-quint) 200ms 1;
+  --animate-fade-in: fade-in 140ms var(--ease-quint) both;
+  --animate-pop-in: pop-in 160ms var(--ease-quint) both;
+  --animate-slide-next: slide-next 180ms var(--ease-quint) both;
+  --animate-slide-prev: slide-prev 180ms var(--ease-quint) both;
+  --animate-indeterminate: indeterminate 1.4s ease-in-out infinite;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+  }
+
+  @keyframes toast-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px) scale(0.98);
+    }
+  }
+
+  @keyframes highlight-pulse {
+    0% {
+      box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-indigo-500) 45%, transparent);
+    }
+    100% {
+      box-shadow: 0 0 0 10px color-mix(in oklab, var(--color-indigo-500) 0%, transparent);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+
+  @keyframes pop-in {
+    from {
+      opacity: 0;
+      transform: scale(0.97);
+    }
+  }
+
+  @keyframes slide-next {
+    from {
+      opacity: 0;
+      transform: translateX(12px);
+    }
+  }
+
+  @keyframes slide-prev {
+    from {
+      opacity: 0;
+      transform: translateX(-12px);
+    }
+  }
+
+  /* Highlight draws in left to right before the ring. */
+  @keyframes highlight-wipe {
+    from {
+      clip-path: inset(0 100% 0 0 round 3px);
+    }
+    to {
+      clip-path: inset(0 0 0 0 round 3px);
+    }
+  }
+
+  @keyframes shimmer {
+    from {
+      background-position: 150% 0;
+    }
+    to {
+      background-position: -50% 0;
+    }
+  }
+
+  @keyframes caret-blink {
+    0%,
+    49% {
+      opacity: 1;
+    }
+    50%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  /* A 40%-wide band enters off the left edge and leaves off the right. */
+  @keyframes cell-sweep {
+    from {
+      background-position: -70% 0;
+    }
+    to {
+      background-position: 170% 0;
+    }
+  }
+
+  @keyframes indeterminate {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(250%);
+    }
+  }
+}
+
+@layer base {
+  html,
+  body {
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-page font-sans text-body text-foreground;
+    font-feature-settings: "cv11" on;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-medium text-heading;
+    letter-spacing: -0.03em;
+    font-feature-settings: "ss01" on, "cv11" on;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+}
+
+@layer components {
+  /* Native <dialog>: slides in, leaves faster. Ported from sumble/. */
+  .dialog-motion,
+  .dialog-motion::backdrop {
+    opacity: 0;
+    transition:
+      opacity 140ms var(--ease-quint),
+      translate 140ms var(--ease-quint),
+      display 140ms allow-discrete,
+      overlay 140ms allow-discrete;
+  }
+
+  .dialog-motion {
+    translate: var(--dialog-x, 0) var(--dialog-y, 6px);
+  }
+
+  .dialog-motion[data-placement='right'] {
+    --dialog-x: 16px;
+    --dialog-y: 0;
+  }
+
+  .dialog-motion[open],
+  .dialog-motion[open]::backdrop {
+    opacity: 1;
+    transition-duration: 220ms;
+  }
+
+  .dialog-motion[open] {
+    translate: 0 0;
+
+    @starting-style {
+      opacity: 0;
+      translate: var(--dialog-x, 0) var(--dialog-y, 6px);
+    }
+  }
+
+  .dialog-motion[open]::backdrop {
+    @starting-style {
+      opacity: 0;
+    }
+  }
+
+  /* Low-quality scan look for fake documents. */
+  .scan-low {
+    filter: blur(0.6px) contrast(0.82) brightness(0.98) sepia(0.12);
+  }
+
+  /* Staggered entrance: set style={{ '--i': index }}. */
+  .stagger-in {
+    animation: fade-up 220ms var(--ease-quint) both;
+    animation-delay: calc(var(--i, 0) * 50ms);
+  }
+
+  /* AI-in-progress text. Static color under reduced motion (see bottom). */
+  .shimmer-text {
+    color: transparent;
+    background: linear-gradient(90deg, var(--color-indigo-600) 35%, var(--color-indigo-300) 50%, var(--color-indigo-600) 65%);
+    background-size: 200% 100%;
+    background-clip: text;
+    animation: shimmer 2s linear infinite;
+  }
+
+  .stream-caret {
+    display: inline-block;
+    width: 2px;
+    height: 0.95em;
+    margin-left: 1px;
+    background: var(--color-indigo-500);
+    vertical-align: text-bottom;
+    animation: caret-blink 0.9s steps(1) infinite;
+  }
+
+  /* One indigo wash passing over a cell (diff table). Delay via --delay. */
+  .cell-sweep {
+    background-image: linear-gradient(90deg, transparent 0%, var(--color-indigo-100) 40%, var(--color-indigo-100) 60%, transparent 100%);
+    background-size: 40% 100%;
+    background-repeat: no-repeat;
+    background-position: -70% 0;
+    animation: cell-sweep 640ms var(--ease-quint) both;
+    animation-delay: var(--delay, 0ms);
+  }
+
+  .font-hand {
+    font-family: var(--font-display);
+    font-style: italic;
+  }
+}
+
+/* Unlayered and !important so it beats every animation utility. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after,
+  ::backdrop {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .shimmer-text {
+    color: var(--color-indigo-600);
+    background: none;
+  }
+
+  .cell-sweep {
+    background-image: none;
+  }
+}
