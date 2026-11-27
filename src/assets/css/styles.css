@@ -3779,12 +3779,12 @@ hr {
 
 .think-process__step--ai {
   grid-row: 2;
-  border-style: dashed;
 }
 
 .think-process__step--shared {
   grid-row: 1 / 3;
   justify-content: center;
+  background: var(--think-panel); /* covers the dashed lane divider behind it */
 }
 
 .think-process__tag {
@@ -3846,10 +3846,6 @@ hr {
   gap: var(--think-gap);
 }
 
-.think-spectrum__column--low {
-  border-style: dashed;
-}
-
 .content-flow .think-figure ul.think-spectrum__examples {
   display: flex;
   flex-direction: column;
@@ -3870,10 +3866,6 @@ hr {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--think-gap);
-}
-
-.think-doors__door--two-way {
-  border-style: dashed;
 }
 
 .think-doors__icon {
