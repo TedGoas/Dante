@@ -3598,6 +3598,285 @@ hr {
   margin-bottom: 2rem;
 }
 
+/*
+ * How I Think diagrams (think-process, think-spectrum, think-doors partials).
+ * HTML/CSS only. Minimal schematic style: tinted panel, 1px boxes, small radius,
+ * monochrome. Diagrams (only) use a system monospace stack — an explicit
+ * exception to the two-font lock; swap --think-font to var(--font-sans) to revert.
+ * --wide figures break out to the right of the left-aligned reading column.
+ */
+.think-figure {
+  --think-font: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  --think-gap: 0.75rem;
+  --think-radius: 3px;
+  --think-panel: color-mix(in srgb, var(--color-site-fg) 4%, var(--color-site-bg));
+  --think-line: color-mix(in srgb, var(--color-site-fg) 26%, var(--color-site-bg));
+  --think-faint: color-mix(in srgb, var(--color-site-fg) 14%, var(--color-site-bg));
+  --think-ink: var(--color-site-fg);
+  --think-muted: color-mix(in srgb, var(--color-site-fg) 58%, var(--color-site-bg));
+  --think-quiet: color-mix(in srgb, var(--color-site-fg) 44%, var(--color-site-bg));
+  margin: 2.5rem 0;
+  padding: clamp(1rem, 3vw, 2rem);
+  background: var(--think-panel);
+  font-family: var(--think-font);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--think-muted);
+}
+
+/* Wide figures span the full layout width (right edge lines up with the nav). */
+.content-flow:has(.think-figure--wide) {
+  container-type: inline-size;
+}
+
+.think-figure--wide {
+  width: 100cqi;
+  max-width: none;
+}
+
+/* !important: the site-wide .content-flow list rule chains ten :not() classes (0,11,0) */
+.content-flow .think-figure :is(ul, ol) {
+  max-width: none !important;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.content-flow .think-figure li {
+  margin: 0 !important;
+}
+
+.content-flow .think-figure p {
+  max-width: none;
+  margin: 0;
+  color: inherit;
+}
+
+.think-figure__kicker,
+.think-figure__axis,
+.think-process__lane {
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--think-quiet);
+}
+
+.think-figure__title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--think-ink);
+}
+
+/* Title + summary at the top of the panel */
+.think-figure__caption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  max-width: 43rem;
+  margin-bottom: clamp(1.25rem, 3vw, 2rem);
+}
+
+.think-figure__heading {
+  font-weight: 600;
+  color: var(--think-ink);
+}
+
+.think-figure__axis {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  white-space: nowrap;
+}
+
+.think-figure__arrow {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 2rem;
+  height: 1px;
+  background: var(--think-line);
+}
+
+.think-figure__arrow::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-top: 1px solid var(--think-line);
+  border-right: 1px solid var(--think-line);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* Shared box */
+.think-process__step,
+.think-spectrum__column,
+.think-doors__door {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem 0.875rem;
+  border: 1px solid var(--think-line);
+  border-radius: var(--think-radius);
+}
+
+/* --- Process: two swim lanes, six steps --- */
+.think-process__grid {
+  display: grid;
+  grid-template-columns: 1.5rem repeat(6, minmax(0, 1fr));
+  grid-template-rows: auto auto auto;
+  column-gap: var(--think-gap);
+}
+
+.think-process__lane {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+}
+
+.think-process__lane--human {
+  grid-row: 1;
+  border-bottom: 1px dashed var(--think-faint);
+}
+
+.think-process__lane--ai {
+  grid-row: 2;
+}
+
+.think-process__lane span {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+}
+
+.content-flow .think-figure ol.think-process__steps {
+  grid-column: 2 / -1;
+  grid-row: 1 / 3;
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+}
+
+.content-flow .think-figure li.think-process__step {
+  margin-block: var(--think-gap) !important;
+}
+
+.think-process__step:nth-child(1) { grid-column: 1; }
+.think-process__step:nth-child(2) { grid-column: 2; }
+.think-process__step:nth-child(3) { grid-column: 3; }
+.think-process__step:nth-child(4) { grid-column: 4; }
+.think-process__step:nth-child(5) { grid-column: 5; }
+.think-process__step:nth-child(6) { grid-column: 6; }
+
+.think-process__step--human {
+  grid-row: 1;
+}
+
+.think-process__step--ai {
+  grid-row: 2;
+}
+
+.think-process__step--shared {
+  grid-row: 1 / 3;
+  justify-content: center;
+  background: var(--think-panel); /* covers the dashed lane divider behind it */
+}
+
+.think-process__tag {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.think-process__fidelity {
+  grid-column: 2 / -1;
+  grid-row: 3;
+  margin-top: 1rem !important;
+}
+
+@media (max-width: 56rem) {
+  .think-process__grid {
+    display: block;
+  }
+
+  .think-process__lane {
+    display: none;
+  }
+
+  .content-flow .think-figure ol.think-process__steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .content-flow .think-figure li.think-process__step {
+    margin-block: 0 !important;
+  }
+
+  .think-process__tag {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+  }
+
+  .think-process__tag::before {
+    content: "/ ";
+  }
+}
+
+/* --- Spectrum: three columns by cost of a mistake --- */
+/* Matches process: step margin (--think-gap) + fidelity margin (1rem) */
+.think-spectrum__axis {
+  margin-top: calc(var(--think-gap) + 1rem) !important;
+}
+
+.content-flow .think-figure ol.think-spectrum__columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--think-gap);
+}
+
+.content-flow .think-figure ul.think-spectrum__examples {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  margin-top: 0.625rem;
+  padding-top: 0.625rem;
+  border-top: 1px dashed var(--think-faint);
+}
+
+@media (max-width: 48rem) {
+  .content-flow .think-figure ol.think-spectrum__columns {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* --- Doors: two-up --- */
+.content-flow .think-figure ul.think-doors__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--think-gap);
+}
+
+.think-doors__icon {
+  width: 2rem;
+  height: 1rem;
+  margin-block: 0.25rem;
+  color: var(--think-muted);
+}
+
+@media (max-width: 30rem) {
+  .content-flow .think-figure ul.think-doors__list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+
 /* --- 404 --- */
 .error-page {
   text-align: center;

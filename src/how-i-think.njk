@@ -1,70 +1,75 @@
 ---
 layout: default
 title: How I Think
-description: How I approach product design, work across teams, and lead design teams.
+description: How I design with AI, what I believe about product design, and how I work with teams.
 ---
 
 <article class="reading">
   <h1>How I Think</h1>
 
-  <p>Good design makes complex systems feel simple without taking control away from the people using them. I've believed this across dev tools, healthcare, and customer services software. Places where the work is complicated and mistakes are costly.</p>
+  <p>Good design makes people feel like they're in control, especially when the software is complicated and mistakes are costly.</p>
 
-  <p>I've been a designer and developer for 25 years, and I can take an idea from sketch to shipped code. These days I work as a player-coach: leading design teams while staying close enough to the work to design, prototype, and ship alongside them.</p>
+  <p>I've spent 25 years designing and building software, from sketch to production code, and I've led design teams as a player-coach.</p>
 
-  <section class="how-i-think-section" aria-labelledby="approach-heading">
-    <h2 id="approach-heading">How I Approach Product Design</h2>
-    <p>My job as a designer is to help people see the future, to see what could be. To help the team make better decisions faster, and to make customers feel in control of what we build.</p>
+  <section class="how-i-think-section" aria-labelledby="design-heading">
+    <h2 id="design-heading">My design process</h2>
+    <p>AI does the production and I do the judgment. Here's my current approach:</p>
 
-    <p>A few things I believe:</p>
+    {% include "components/think-process.njk" %}
+
+    <p>Most of my time goes to deciding what the problem is, deciding what's good, and getting it shipped. AI speeds those parts up, but it can't do them for me.</p>
+  </section>
+
+  <section class="how-i-think-section" aria-labelledby="beliefs-heading">
+    <h2 id="beliefs-heading">What I believe</h2>
 
     <ul>
       <li><strong>Design is decision-making.</strong> The ability to clarify tradeoffs, prioritize, and rally a team around an idea.</li>
-      <li><strong>Rough and directionally correct beats beautiful and wrong.</strong> A good prototype shortens debates and gets real feedback fast. I use whatever tool fits the job, though these days AI usually makes it faster to get something onto the screen.</li>
-      <li><strong>AI changed my team's speed, not our standards.</strong> Work that used to take a week of prototyping now produces a half dozen options in a morning. But the fundamentals haven't changed: the team gets zero points for shipping the wrong thing on schedule.</li>
-      <li><strong>Evidence beats opinions.</strong> I'd rather watch one customer struggle with a flow than read ten opinions about what they'd probably want.</li>
+      <li><strong>Slow down to go fast.</strong> AI makes it easy to build something polished, which also makes it easy to move <a href="https://www.seangood.win/articles/high-fidelity-low-definition">really fast in the wrong direction</a>. Unless the change is small, I get the problem right first.</li>
+      <li><strong>Rough and directionally correct over beautiful and wrong.</strong> A good prototype shortens debates and gets real feedback fast.</li>
+      <li><strong>Evidence beats opinions.</strong> I'd rather watch one customer struggle with a flow than hear ten opinions about what they'd probably want.</li>
       <li><strong><a href="/blog/product-design-process/">Process is a tool, not a religion</a>.</strong> The team and the problem define the process, not the other way around.</li>
+      <li><strong>Know which doors are one-way.</strong> Most decisions are cheap to undo. A few aren't, and those are worth slowing down for.</li>
     </ul>
+
+    {% include "components/think-doors.njk" %}
+  </section>
+
+  <section class="how-i-think-section" aria-labelledby="trust-heading">
+    <h2 id="trust-heading">Designing AI that people trust</h2>
+    <p>What should AI automate, and what shouldn't it? It depends on what a mistake costs.</p>
+
+    <p>Forgetting the extra coffee on a DoorDash order is annoying. A payroll mistake or an error in legal paperwork can ruin someone's month.</p>
+
+    {% include "components/think-spectrum.njk" %}
+
+    <p>So I don't put an LLM everywhere. The design work is deciding how much freedom to give AI: when to let it loose, and when a fixed workflow or a person should take over.</p>
   </section>
 
   <section class="how-i-think-section" aria-labelledby="teams-heading">
-    <h2 id="teams-heading">How I Work Across Teams</h2>
-    <p>The most valuable design work happens before anything looks like a project. At Dialpad, I inherited a feature factory: siloed PMs, designers executing tickets, engineers running constrained by technical limitations. We reorganized roadmaps around directional themes instead of disconnected deliverables. We want to ship great products, not our org chart.</p>
+    <h2 id="teams-heading">How I work across teams</h2>
+    <p>At Dialpad, I inherited a feature factory. Every PM had their own roadmap, designers worked through queues of tickets, and engineers were boxed in by technical limits. The product looked like our org chart. We regrouped the work around shared themes, and teams started solving problems together instead of shipping features side by side. That's <a href="https://www.noidea.dog/glue">glue work</a>, and it's a big part of my job.</p>
 
-    <p>I also value and partner with customer-facing teams like customer support, professional services, and sales. Having these proactive relationships beats reacting to escalations.</p>
+    <p>I also work with teams like customer support, professional services, and sales. I'd rather hear about a problem early than in an escalation. When a customer asks for something specific, I look for the spirit of the ask and design it for everyone.</p>
 
     <p>Once work is underway:</p>
 
     <ul>
-      <li>I partner with engineers early. We agree on what's safe to build before the design is finished, so engineering and design run in parallel instead of waiting on handoffs.</li>
-      <li>I involve the whole team in reviews and share work early, even when "it's not ready yet!" Engineering, PMs, QA, and leadership. The best ideas don't always come from people with design in their title.</li>
+      <li>I bring PMs and engineers into the design process early, through brainstorms, diagrams, and wireframes, so everyone has input before we go too far in one direction. The best ideas don't always come from people with design in their title.</li>
+      <li>When someone asks for the unreasonable, I lead with "<a href="https://www.intercom.com/blog/the-orange-juice-test">yes, and here's what it costs</a>." I explain what we'd delay or give up, and let people decide with full information.</li>
+      <li>Teaching is part of the job. I've taught non-technical designers GitHub, set up a prototyping sandbox, and got designers and PMs using AI tools within six months.</li>
     </ul>
   </section>
 
   <section class="how-i-think-section" aria-labelledby="lead-heading">
-    <h2 id="lead-heading">How I Lead</h2>
-    <p>When I first became a manager, my philosophy was simple: hire good people and stay out of their way. It felt respectful, but was incomplete.</p>
-
-    <p>Some people thrived with that freedom while others stalled. One designer understood complex workflows but struggled to present their work. Another had great UI instincts but needed help prioritizing. Staying out of the way wasn't helping either of them, so I evolved a more deliberate approach: notice what each person needs, coach them on it directly, adjust as they grow.</p>
-
-    <h3 id="managing-team-heading">Managing the team</h3>
+    <h2 id="lead-heading">How I lead</h2>
+    <p>When I first became a manager, I hired good people and stayed out of their way. Some thrived and some stalled, so I got more deliberate: notice what each person needs, coach them on it directly, and adjust as they grow.</p>
     <ul>
-      <li><strong>Clear, actionable feedback.</strong> I don't sugarcoat critique or avoid hard conversations. The kindest thing a manager can do is be clear.</li>
-      <li><strong>Designers should think like product people, not production artists.</strong> Craft gets you to senior. Storytelling, business acumen, and selling your ideas get you further. I spent two years helping a senior designer make that shift before promoting them to staff. My job is to show what the next level demands.</li>
-      <li><strong>People do their best work when they aren't afraid to speak up.</strong> When something's off or times are tough, I pull everyone in and give them room to be honest. Headspace matters.</li>
-      <li><strong>Still in the work.</strong> I own and drive large features: shaping specs, prototyping flows, and tuning UI details in Figma. Not because I don't trust my team. Staying close to the tools keeps the coaching honest, and credibility is earned in the work.</li>
+      <li><strong>Clear, actionable feedback.</strong> I don't sugarcoat critique or avoid hard conversations.</li>
+      <li><strong>Designers should think like product people, not production artists.</strong> Craft gets you to senior. Storytelling, business sense, and selling your ideas get you further. I spent two years helping a senior designer make that shift before promoting them to staff.</li>
+      <li><strong>Managers should be in the work.</strong> I owned features end to end, even as a people manager. It's hard to coach designers when you've stopped designing.</li>
     </ul>
 
-    <h3 id="managing-up-heading">Managing up and out</h3>
-    <ul>
-      <li><strong>No surprises.</strong> I bring leadership into design directions early. Because we're going to get their feedback at some point, better to get it early when it's easier to address it.</li>
-      <li><strong>"Yes, and here's what it costs."</strong> When asked for the unreasonable, I don't lead with no. I lay out what we'd delay, what we'd sacrifice, and let people decide with full information.</li>
-      <li><strong>I help leadership see what design is doing for the business.</strong> Roadmaps, revenue, and resourcing are part of the job.</li>
-    </ul>
-
-    <p>I've led through rapid hiring and layoffs. How you treat people in hard moments defines trust more than anything you do when things are easy.</p>
-
-    <p>The goal in all of it: a team that delivers great work without depending on me.</p>
   </section>
 
-  <p>Good design earns trust, from users, from teams, from the business. That's the work I care about.</p>
 </article>
