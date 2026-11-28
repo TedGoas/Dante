@@ -436,6 +436,7 @@ Collaboration norms so agents match how this site is actually built (visual crit
 - **Dirty trees and other agents** — Surface path/branch collisions when the tree isn’t clean. Commit only this task’s paths (see **commit** skill). When another chat moved files, open with the new paths/branch.
 - **Cloud → local port** — When recreating a Cloud Agent PR locally, treat the **PR diff + chat transcript** as the brief; restate any still-open decisions before coding.
 - **Production HTML minify** — [`lib/transforms/minifyHtml.js`](lib/transforms/minifyHtml.js) runs only when `NODE_ENV=production`. Whitespace-sensitive gaps can disappear on Netlify while looking fine locally; keep `conservativeCollapse: true` (or equivalent). Do not “fix” with scattered `&nbsp;` in content.
+- **Dead code vigilance** — Before creating `.js.njk` bundles in `src/misc/`, verify the output is actually loaded in a template. Use native `loading="lazy"` on images, not custom JS lazy loaders. Periodically audit for orphaned files using the **code-health** skill ([`.agents/skills/code-health/SKILL.md`](.agents/skills/code-health/SKILL.md)).
 
 ## Design Context
 
