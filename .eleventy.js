@@ -29,6 +29,34 @@ module.exports = (config) => {
   config.ignores.add('src/labs/hobby-comparison/**');
   config.ignores.add('src/labs/ipod/**');
 
+  // Newsletter issue images sit next to each issue and publish alongside
+  // it. Draft issues are excluded from production entirely — page (via
+  // permalink in newsletter.11tydata.js) and images (no passthrough here,
+  // so no orphan draft assets in dist/).
+  {
+    const fs = require('node:fs');
+    const path = require('node:path');
+    const newsletterDir = path.join(__dirname, 'src/newsletter');
+    const excludeDrafts =
+      process.env.NODE_ENV === 'production' && process.env.NEWSLETTER_EMAIL !== '1';
+    if (fs.existsSync(newsletterDir)) {
+      for (const entry of fs.readdirSync(newsletterDir, { withFileTypes: true })) {
+        if (!entry.isDirectory()) continue;
+        const issueFile = path.join(newsletterDir, entry.name, 'index.njk');
+        if (!fs.existsSync(issueFile)) continue;
+        const frontMatter = fs.readFileSync(issueFile, 'utf8').match(/^---\n([\s\S]*?)\n---/);
+        const isDraft = Boolean(frontMatter && /^\s*draft:\s*true\s*$/m.test(frontMatter[1]));
+        if (isDraft && excludeDrafts) {
+          config.ignores.add(`src/newsletter/${entry.name}/**`);
+          continue;
+        }
+        config.addPassthroughCopy({
+          [`src/newsletter/${entry.name}/*.{jpg,jpeg,png,gif,webp,svg}`]: `newsletter/${entry.name}`
+        });
+      }
+    }
+  }
+
   config.addPassthroughCopy('src/assets/img/');
   config.addPassthroughCopy('src/assets/css/');
   config.addPassthroughCopy('src/assets/js/');
@@ -53,6 +81,10 @@ module.exports = (config) => {
   config.addLayoutAlias('default', 'layouts/default.njk');
   config.addLayoutAlias('post', 'layouts/post.njk');
   config.addLayoutAlias('work', 'layouts/work.njk');
+  config.addLayoutAlias('newsletter', 'layouts/newsletter.njk');
+  config.addLayoutAlias('newsletter-email', 'layouts/newsletter-email.njk');
+
+  config.addWatchTarget('src/newsletter/');
 
   config.addFilter('readableDate', require('./lib/filters/readableDate'));
   config.addFilter('rfc822Date', require('./lib/filters/rfc822Date'));
@@ -72,6 +104,7 @@ module.exports = (config) => {
   config.addTransform('minifyHtml', require('./lib/transforms/minifyHtml'));
 
   config.addCollection('posts', require('./lib/collections/posts'));
+  config.addCollection('newsletterIssues', require('./lib/collections/newsletter'));
   config.addCollection('work', require('./lib/collections/work'));
   config.addCollection('pagedPosts', require('./lib/collections/pagedPosts'));
 
