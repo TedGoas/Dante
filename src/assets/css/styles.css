@@ -61,7 +61,6 @@ select {
   --type-h3-size: clamp(1.25rem, 2vw, 1.55rem);
   --space-prose-flow: max(1.25rem, calc(var(--type-body-size) * 1.1));
   --space-prose-section: clamp(2.25rem, 5vw, 3.5rem);
-  --work-list-gap: 0.65rem;
   --work-gallery-top-margin: clamp(2.5rem, 7vw, 5rem);
   --work-gallery-gap: clamp(5.25rem, 14vw, 10.5rem);
   --work-gallery-item-gap: 0.85rem;
@@ -81,7 +80,6 @@ select {
   --work-gallery-experiment-tone-max-width: 791px;
   --work-gallery-experiment-sidebar-column-width: 300px;
   --work-gallery-atmosphere-frame-padding: clamp(2.5rem, 5vw, 4rem);
-  --work-gallery-backdrop-wash-opacity: 0.82;
   --work-gallery-email-main-column: minmax(0, 1.9fr);
   --work-gallery-email-secondary-column: minmax(0, 1fr);
   --home-hero-max-width: 57rem;
@@ -94,9 +92,6 @@ select {
   --home-hero-headline-gap: clamp(3.25rem, 5vw, 4.25rem);
   --home-hero-intro-padding-bottom: clamp(3.25rem, 7vw, 5.5rem);
   --home-hero-intro-border-width: 1px;
-  --home-hero-cta-font-size: 0.875rem;
-  --home-hero-cta-letter-spacing: 0.06em;
-  --home-hero-cta-border-width: 1px;
   --home-work-grid-gap: 0.75rem;
   --home-work-grid-row-min: 4.5rem;
   --home-work-grid-max-width: 72rem;
@@ -384,7 +379,7 @@ hr {
   max-width: var(--measure-lead);
 }
 
-.content-flow :where(ul, ol):not(.article-list):not(.bio-timeline):not(.home-work-grid):not(.site-nav-list):not(.site-footer__nav):not(.post-nav-list):not(.work-index__list):not(.labs-index__list):not(.home-testimonials__row) {
+.content-flow :where(ul, ol):not(:is(.article-list, .bio-timeline, .home-work-grid, .site-nav-list, .site-footer__nav, .post-nav-list, .work-index__list, .labs-index__list, .home-testimonials__row)) {
   max-width: var(--measure-lead);
 }
 
@@ -473,15 +468,15 @@ hr {
   line-height: inherit;
 }
 
-.content-flow :where(ul, ol):not(.article-list):not(.bio-timeline):not(.home-work-grid):not(.site-nav-list):not(.site-footer__nav):not(.post-nav-list):not(.labs-index__list):not(.home-testimonials__row) li::marker {
+.content-flow :where(ul, ol):not(:is(.article-list, .bio-timeline, .home-work-grid, .site-nav-list, .site-footer__nav, .post-nav-list, .work-index__list, .labs-index__list, .home-testimonials__row)) li::marker {
   color: var(--color-highlight);
 }
 
-.content-flow :where(ul, ol):not(.article-list):not(.bio-timeline):not(.home-work-grid):not(.site-nav-list):not(.site-footer__nav):not(.post-nav-list):not(.labs-index__list):not(.home-testimonials__row) > li {
+.content-flow :where(ul, ol):not(:is(.article-list, .bio-timeline, .home-work-grid, .site-nav-list, .site-footer__nav, .post-nav-list, .work-index__list, .labs-index__list, .home-testimonials__row)) > li {
   margin-bottom: 0.5rem;
 }
 
-.content-flow :where(ul, ol):not(.article-list):not(.bio-timeline):not(.home-work-grid):not(.site-nav-list):not(.site-footer__nav):not(.post-nav-list):not(.labs-index__list):not(.home-testimonials__row) > li:last-child {
+.content-flow :where(ul, ol):not(:is(.article-list, .bio-timeline, .home-work-grid, .site-nav-list, .site-footer__nav, .post-nav-list, .work-index__list, .labs-index__list, .home-testimonials__row)) > li:last-child {
   margin-bottom: 0;
 }
 
@@ -4610,7 +4605,7 @@ hr {
 
 /* Default framed media: work-index hairline + 8px radius on each image / embed */
 .writing .work-gallery__item > img,
-.writing .work-gallery__item .work-gallery__media:not(.prototype-embed):not(.click-to-play):not(.work-gallery__media--email-collage) img,
+.writing .work-gallery__item .work-gallery__media:not(:is(.prototype-embed, .click-to-play, .work-gallery__media--email-collage)) img,
 .writing .work-gallery__item > .work-gallery__media.prototype-embed,
 .writing .work-gallery__item > .work-gallery__media.click-to-play {
   border: var(--border-width-hairline) solid var(--work-index-card-border);
