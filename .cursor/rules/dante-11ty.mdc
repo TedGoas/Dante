@@ -33,6 +33,7 @@ alwaysApply: true
 - Do not use `!important` without a comment explaining why
 - Prefer CSS solutions over JavaScript for any visual behavior (transitions, toggles, visibility, etc.)
 - Avoid CSS that triggers layout reflow unnecessarily — prefer `transform` and `opacity` for animations
+- **Selector exclusions**: Prefer `:not(:is(.a, .b, .c))` over `:not(.a):not(.b):not(.c)` — cleaner, more readable, and slightly more efficient
 
 ## JavaScript
 
